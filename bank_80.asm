@@ -1,0 +1,8606 @@
+CODE_808000:
+	JMP.w CODE_808387
+
+CODE_808003:
+	JMP.w CODE_8083C3
+
+CODE_808006:
+	JMP.w CODE_808384
+
+CODE_808009:
+	JMP.w init_registers_global
+
+CODE_80800C:
+	JMP.w clear_vram_global
+
+CODE_80800F:
+	JMP.w set_all_oam_offscreen
+
+CODE_808012:
+	JMP.w CODE_80898C
+
+CODE_808015:
+	JMP.w CODE_8089CA
+
+CODE_808018:
+	JMP.w CODE_808C60
+
+CODE_80801B:
+	JMP.w CODE_808CB0
+
+CODE_80801E:
+	JMP.w CODE_808799
+
+CODE_808021:
+	JMP.w fade_screen
+
+CODE_808024:
+	JMP.w set_fade
+
+throw_exception_wrapper:
+	JMP throw_exception
+
+CODE_80802A:
+	JMP.w CODE_8091A3
+
+CODE_80802D:
+	JMP.w CODE_808C3F
+
+CODE_808030:
+	JMP.w CODE_808CEC
+
+CODE_808033:
+	JMP.w CODE_808D2B
+
+CODE_808036:
+	JMP.w CODE_808D5A
+
+CODE_808039:
+	JMP.w CODE_8084C7
+
+CODE_80803C:
+	JMP.w CODE_80839D
+
+CODE_80803F:
+	JMP.w CODE_808EE6
+
+CODE_808042:
+	JMP.w CODE_808411
+
+CODE_808045:
+	JMP.w CODE_809489
+
+CODE_808048:
+	JMP.w CODE_80AE3E
+
+CODE_80804B:
+	JMP.w CODE_809399
+
+CODE_80804E:
+	JMP.w CODE_8086C9
+
+CODE_808051:
+	JMP.w CODE_80B2C8
+
+CODE_808054:
+	JMP.w CODE_8087E0
+
+CODE_808057:
+	JMP.w CODE_808669
+
+CODE_80805A:
+	JMP.w CODE_80B593
+
+CODE_80805D:
+	JMP.w CODE_80B4C8
+
+CODE_808060:
+	JMP.w CODE_808EA4
+
+CODE_808063:
+	JMP.w CODE_808EBA
+
+CODE_808066:
+	JMP.w CODE_8092EB
+
+CODE_808069:
+	JMP.w CODE_809040
+
+CODE_80806C:
+	JMP.w CODE_80BCDC
+
+CODE_80806F:
+	JMP.w CODE_80BCDC
+
+CODE_808072:
+	JMP.w CODE_80BCDC
+
+CODE_808075:
+	JMP.w CODE_80BCDC
+
+CODE_808078:
+	JMP.w CODE_80BCDC
+
+CODE_80807B:
+	JMP.w CODE_80C05A
+
+CODE_80807E:
+	JMP.w CODE_80C0F1
+
+CODE_808081:
+	JMP.w CODE_80C104
+
+CODE_808084:
+	JMP.w CODE_80C114
+
+CODE_808087:
+	JMP.w CODE_8084D9
+
+CODE_80808A:
+	JMP.w CODE_8087D5
+
+if !Define_DKC3_Global_DisableCopyDetection == !FALSE
+rare_string:
+	db $F4,$92,$72,$EE,$77,$A6,$E7,$8A
+
+piracy_string:
+	db "(c) 1996"
+endif
+
+display_error_message:
+	TYA
+	JSL vram_payload_handler_global
+	LDA #$001D
+	LDY #$0000
+	LDX #$0020
+	JSL CODE_BB856D
+	LDA #$001F
+	LDY #$0000
+	LDX #$0001
+	JSL CODE_BB856D
+	LDA #$000F
+	JSL set_PPU_registers_global
+	STP
+
+RESET_start:
+	SEI
+	LDA.b #$80
+	STA.w !REGISTER_ScreenDisplayRegister
+	LDA.b #$01
+	STA.w !REGISTER_IRQNMIAndJoypadEnableFlags
+	STA.w !REGISTER_EnableFastROM
+	DEC
+	STA.w !REGISTER_HDMAEnable
+	CLC
+	XCE
+	REP.b #$30
+if !Define_DKC3_Global_DisableCopyDetection == !FALSE
+	TDC
+	ADC.w #$FFFF
+	BEQ.b .anti_piracy_test
+	BRL.w .prepare_anti_piracy
+
+.anti_piracy_test:
+	TSX
+	LDA.w #RESET_start-$01
+	CMP.w $FFFF,x
+	BEQ.b .check_for_false_positive
+	LDY.w #$1FFD
+	SEP.b #$20
+.next_byte:
+	LDA.w $0000,y
+	CMP.b #$4C
+	BEQ.b .jmp_test
+	CMP.b #$6C
+	BEQ.b .indirect_jmp_test
+	CMP.b #$60
+	BEQ.b .sequential_test
+.resume_scanning:
+	DEY
+	BPL.b .next_byte
+	REP.b #$20
+	LDA.l sram_base
+	INC
+	STA.l sram_base
+	CMP.l sram_base
+	BNE.b .prepare_anti_piracy
+	DEC
+	STA.l sram_base
+endif
+	LDY.w #$0011
+	LDA.w !REGISTER_PPUStatusFlag2
+	AND.w #$0010
+	BNE.b .prepare_message
+	BRA.b .final_piracy_test
+
+if !Define_DKC3_Global_DisableCopyDetection == !FALSE
+.jmp_test:
+	REP.b #$20
+	LDA.w $0001,y
+	CMP.w #RESET_start
+	BEQ.b .check_for_false_positive
+	SEP.b #$20
+	BRA.b .resume_scanning
+
+.indirect_jmp_test:
+	REP.b #$20
+	LDX.w $0001,y
+	BMI.b .address_rom
+	CPX.w #$2000
+	BPL.b .invalid_address
+.address_rom:
+	LDA.w $0000,x
+	CMP.w #RESET_start
+	BEQ.b .check_for_false_positive
+.invalid_address:
+	SEP.b #$20
+	BRA.b .resume_scanning
+
+.sequential_test:
+	TYX
+.next_count:
+	CMP.w $0000,x
+	BNE.b .resume_scanning
+	INX
+	INC
+	BPL.b .next_count
+	REP.b #$20
+.check_for_false_positive:
+	PHK
+	PLB
+	LDX.w #$0006
+-
+	LDA.w piracy_string_result,x
+	CMP.w rare_string,x
+	BNE.b .write_piracy_string
+	DEX
+	DEX
+	BPL.b -
+	BRA.b .prepare_logo
+
+.write_piracy_string:
+	LDX #$0006
+	LDY #$0004
+.write_next_byte:
+	LDA piracy_string,x
+	STA piracy_string_result,x
+	CMP.l sram_base,x
+	BNE +
+	DEY
++
+	STA.l sram_base,x
+	DEX
+	DEX
+	BPL.b .write_next_byte
+	TYA
+	BEQ.b .prepare_anti_piracy
+	LDY.w #$000F
+	BRA.b .prepare_message
+
+.prepare_anti_piracy:
+	LDY.w #$0010
+endif
+.prepare_message:
+	LDA.w #$0000
+	TCD
+	LDX.w #$01FF
+	TXS
+	%return(display_error_message)
+	%return(clear_VRAM)	
+	BRA.b init_registers
+
+.final_piracy_test:
+	PHK
+	PLB
+if !Define_DKC3_Global_DisableCopyDetection == !FALSE
+	LDX.w #$0006
+-
+	LDA.w piracy_string_result,x
+	CMP.w piracy_string,x
+	BNE.b .prepare_logo
+	DEX
+	DEX
+	BPL -
+	BRA .prepare_anti_piracy
+
+.prepare_logo:
+	LDA.w #$0000
+	STA.l sram_base
+endif
+	LDX.w #stack
+	TXS
+	%return(start_engine)
+	%return(clear_VRAM)
+init_registers:
+	SEP.b #$30
+	LDX.b #$00
+.clear_ppu:
+	STZ.w !REGISTER_OAMSizeAndDataAreaDesignation,x
+	STZ.w !REGISTER_OAMSizeAndDataAreaDesignation,x
+	INX
+	CPX.b #$34
+	BNE.b .clear_ppu
+	LDX.b #$00
+.clear_cpu:
+	STZ.w !REGISTER_Multiplicand,x
+	INX
+	CPX.b #$0B
+	BNE.b .clear_cpu
+	LDA.b #$8F
+	STA.w !REGISTER_ScreenDisplayRegister
+	LDA.b #$80
+	STA.w !REGISTER_VRAMAddressIncrementValue
+	STA.w !REGISTER_Mode7TilemapSettings
+	LDA.b #$01
+	STA.w !REGISTER_EnableFastROM
+	STZ.w !REGISTER_ColorMathSelectAndEnable
+	STZ.w !REGISTER_InitialScreenSettings
+	STZ.w !REGISTER_IRQNMIAndJoypadEnableFlags
+	LDA.b #$FF
+	STA.w !REGISTER_ProgrammableIOPortOutput
+	LDA.b #$E0
+	STA.w !REGISTER_FixedColorData
+	LDA.b #$30
+	STA.w !REGISTER_ColorMathInitialSettings
+	LDA.b #$00
+	STA.w !REGISTER_MosaicSizeAndBGEnable
+	STZ.w !REGISTER_BG1HorizScrollOffset
+	STZ.w !REGISTER_BG1HorizScrollOffset
+	STZ.w !REGISTER_BG2HorizScrollOffset
+	STZ.w !REGISTER_BG2HorizScrollOffset
+	STZ.w !REGISTER_BG3HorizScrollOffset
+	STZ.w !REGISTER_BG3HorizScrollOffset
+	LDA.b #$FF
+	STA.w !REGISTER_BG1VertScrollOffset
+	STA.w !REGISTER_BG1VertScrollOffset
+	STA.w !REGISTER_BG2VertScrollOffset
+	STA.w !REGISTER_BG2VertScrollOffset
+	STA.w !REGISTER_BG3VertScrollOffset
+	STA.w !REGISTER_BG3VertScrollOffset
+	REP.b #$30
+	SEP.b #$20
+	LDX.w #$000A
+.clear_DMA:
+	STZ.w DMA[$00].Parameters,x
+	STZ.w HDMA[$01].Parameters,x
+	STZ.w HDMA[$02].Parameters,x
+	STZ.w HDMA[$03].Parameters,x
+	STZ.w HDMA[$04].Parameters,x
+	STZ.w HDMA[$05].Parameters,x
+	STZ.w HDMA[$06].Parameters,x
+	STZ.w HDMA[$07].Parameters,x
+	DEX
+	BPL .clear_DMA
+	REP #$20
+	RTS
+
+init_registers_global:
+	JSR init_registers
+	RTL
+
+VRAM_zero_fill:
+	dw $0000
+
+clear_VRAM:
+	STZ.w !REGISTER_VRAMAddressLo
+	LDA.w #VRAM_zero_fill
+	STA.w DMA[$00].SourceLo
+	STA.w DMA[$00].Unused2
+	STZ.w DMA[$00].SizeLo
+	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$09
+	STA.w DMA[$00].Parameters
+	SEP.b #$20
+	LDA.b #VRAM_zero_fill>>16
+	STA.w DMA[$00].SourceBank
+	LDA.b #$01
+	STA.w !REGISTER_DMAEnable
+	REP.b #$20
+	RTS
+
+clear_vram_global:
+	JSR clear_VRAM
+	RTL
+
+start_engine:
+if !Define_DKC3_Global_DisableCopyDetection == !FALSE
+	LDX.w #$0006
+CODE_808289:
+	LDA.w piracy_string_result,x
+	CMP.w rare_string,x
+	BNE.b CODE_808295
+	DEX
+	DEX
+	BPL.b CODE_808289
+CODE_808295:
+	CPX.w #$8000
+endif
+	STZ.b $00
+	LDX.w #$0000
+	LDY.w #$0001
+	LDA.w #$FFFF
+	MVN $7E,$7E
+	LDY.w #$0000
+	TYX
+	LDA.w #$FFFF
+	MVN $7F,$7E
+	PHK
+	PLB
+if !Define_DKC3_Global_DisableCopyDetection == !FALSE
+	TDC
+	ROL
+	STA.w $06AB
+	LDX.w #$0006
+CODE_8082BA:
+	LDA.w rare_string,x
+	STA.w piracy_string_result,x
+	DEX
+	DEX
+	BPL.b CODE_8082BA
+endif
+	LDA.w #$3127
+	STA.b $02
+	STA.b $04
+	JSL.l upload_spc_engine_wrapper
+	JSR.w CODE_80BBA6
+	LDA.w #$0004
+	TRB.w $06AB
+	TDC
+	SEP.b #$20
+	LDA.l $B06008
+	BPL.b CODE_8082E2
+	TDC
+CODE_8082E2:
+	CMP.b #$03
+	BCC.b CODE_8082E7
+	TDC
+CODE_8082E7:
+	REP #$20
+	STA.w !RAM_DKC3_Global_FrenchTextFlag
+CODE_8082EC:
+	LDA #$0000
+	TCD
+	LDX #stack
+	TXS
+	JSL disable_screen_wrapper
+	JSR init_registers
+	JSL CODE_808C77
+	STZ.w $04C8
+	LDA.w #$4000
+	STA.w $053B
+	LDA.w #$000F
+	STA.w $06CF
+	JSR.w CODE_808EA8
+	STZ.b $BA
+	LDX.w #CODE_B284D6
+	LDY.w #CODE_B284D6>>16
+	LDA.w #CODE_808370
+	STX.b $4E
+	STY.b $50
+	JMP.w CODE_80839D
+
+CODE_808323:
+	LDA.w #$0001
+	STA.w !REGISTER_DMAEnable
+	BRA.b nmi_return
+
+CODE_80832B:
+	PHK
+	PEA.w nmi_return-$01
+	JMP.w [$0052]
+nmi_return:
+	PLY
+	PLX
+	PLA
+	PLD
+	RTI
+
+CODE_808337:
+	SEP.b #$20
+	LDA.l $0004EC
+	STA.l !REGISTER_ScreenDisplayRegister
+	REP.b #$20
+	RTL
+
+CODE_808344:
+	JSL.l fade_screen
+CODE_808348:
+	LDA.w #stack
+	TCS
+	PHK
+	PLB
+	LDA.w #CODE_80832B
+	STA.b $4A
+	INC.b $00
+	INC.b $C2
+	BNE.b CODE_80835F
+	INC.b $C4
+	BNE.b CODE_80835F
+	DEC.b $C4
+CODE_80835F:
+	JMP.w [$004E]
+
+CODE_808362:
+	LDA.w #stack
+	TCS
+	LDA.w #CODE_80832B
+	STA.b $4A
+	INC.b $00
+	JMP.w [$004E]
+
+CODE_808370:
+	LDA.w #stack
+	TCS
+	LDA.w #CODE_80832B
+	STA.b $4A
+	INC.b $00
+	INC.b $F4
+	BNE.b CODE_808381
+	INC.b $F6
+CODE_808381:
+	JMP.w [$004E]
+
+CODE_808384:
+	JSR.w CODE_808C43
+CODE_808387:
+	PHK
+	PLB
+	LDA.b $4C
+	STA.b $4A
+	SEP.b #$20
+	LDA.w !REGISTER_NMIEnable
+	LDA.b #$81
+	STA.w !REGISTER_IRQNMIAndJoypadEnableFlags
+	STZ.w !REGISTER_JoypadSerialPort1
+CODE_80839A:
+	WAI
+	BRA.b CODE_80839A
+
+CODE_80839D:
+	STA.b $4A
+	STA.b $4C
+	LDA.w #CODE_808337
+	STA.b $52
+	LDA.w #CODE_808337>>16
+	STA.b $54
+	SEP.b #$20
+	LDA.w !REGISTER_IRQEnable
+	LDA.w !REGISTER_NMIEnable
+CODE_8083B3:
+	LDA.w !REGISTER_NMIEnable
+	BMI.b CODE_8083B3
+	LDA.b #$81
+	STA.w !REGISTER_IRQNMIAndJoypadEnableFlags
+	STZ.w !REGISTER_JoypadSerialPort1
+CODE_8083C0:
+	WAI
+	BRA.b CODE_8083C0
+
+CODE_8083C3:
+	PHK
+	PLB
+	STA.b $4E
+	STX.b $50
+	JMP.w CODE_808384
+
+CODE_8083CC:
+	LDA.w #$01FF
+	TCS
+	LDA.w #CODE_80832B
+	STA.b $4A
+	LDA.w #$2000
+	BIT.w $05B1
+	BEQ.b CODE_8083FB
+	LDA.w #$0040
+	TSB.w $05AF
+	LDA.b $F4
+	CMP.w $053D
+	BCC.b CODE_80840A
+	LDA.w $04EC
+	AND.w #$FF00
+	BNE.b CODE_80840A
+	LDA.w #$810F
+	JSL.l set_fade
+	BRA.b CODE_80840A
+
+CODE_8083FB:
+	LDA.b $F4
+	CMP.w $051D
+	BCC.b CODE_80840A
+	LDA.w #$0001
+	STA.w $1D89
+	STZ.b $F4
+CODE_80840A:
+	INC.b $00
+	INC.b $F4
+	JMP.w [$004E]
+
+CODE_808411:
+	LDX.w #$05AF
+	LDY.w #$00F3
+CODE_808417:
+	STZ.b $00,x
+	INX
+	DEY
+	BNE.b CODE_808417
+	STZ.w $05BB
+	STZ.w $05BD
+	STZ.w $05B7
+	LDA.w $053B
+	STA.w $06A1
+	LDA.w #!Define_DKC3_LevelID_LakesideLimbo_Main
+	STA.b !RAM_DKC3_Global_CurrentLevelLo
+	STA.w $05B9
+	LDA.w #$0000
+	STA.w $05B5
+	STZ.w $05AF
+	STZ.w $05B1
+	STZ.b $C2
+	STZ.b $C4
+	JSR.w CODE_80912F
+	LDA.w #$0959
+	STA.w $0630
+	LDA.w #$000C
+	TSB.w $0615
+	LDA.w #$0010
+	TSB.w $0625
+	LDA.w #$0080
+	TSB.w $061B
+	LDA.w #$0020
+	TSB.w $0621
+	LDA.w #$0400
+	STA.w $0611
+	LDA.w #$0004
+	STA.w $0613
+	JSL.l CODE_B4800C
+	STZ.w $0523
+	LDA.w #$0004
+	STA.l $00052F
+	LDA.w #$0002
+	STA.l $000525
+	STZ.w $0527
+	LDA.w #$1D93
+	STA.w $0541
+	STZ.w $0543
+	RTL
+
+CODE_808493:
+	PHK
+	PLB
+	LDA.w #CODE_808337
+	STA.b $52
+	LDA.w #CODE_808337>>16
+	STA.b $54
+	JSL.l CODE_BB8576
+	PHK
+	PLB
+	LDA.w #$0200
+	JSL.l set_fade
+	SEP.b #$20
+	LDA.w $0773
+	STA.b $58
+	LDA.w $0771
+	STA.b $56
+	REP.b #$20
+	LDA.w #CODE_B38076
+	LDX.w #CODE_B38076>>16
+	STA.b $4E
+	STX.b $50
+	JMP.w CODE_808384
+
+CODE_8084C7:
+	SEP.b #$20
+	STA.b $58
+	XBA
+	STA.b $56
+	REP.b #$20
+	LDA.w #CODE_B38076
+	LDX.w #CODE_B38076>>16
+	JMP.w CODE_8083C3
+
+CODE_8084D9:
+	PHX
+	LDX.b $70
+	LDA.b $0A,x
+	PLX
+	AND.w #$1F00
+	BEQ.b CODE_8084EB
+	LDA.w #$0008
+	JSL.l throw_exception
+CODE_8084EB:
+	RTL
+
+throw_exception:
+	RTL
+
+CODE_8084ED:
+	STA.l $001D49
+	LDA.w #$00B4
+	STA.l $001D4B
+	LDA.l $001D4D
+	STA.l $001D4F
+	RTL
+
+set_fade:
+	STZ.w $04ED
+	STA.w $04EC
+	RTL
+
+fade_screen:
+	SEP #$20
+	LDA $04ED
+	BEQ .return
+	BMI .fade_out
+	INC $04EE
+	CMP $04EE
+	BNE .return
+	STZ $04EE
+	INC $04EC
+	LDA #$0F
+	CMP $04EC
+	BCS .return
+	STA $04EC
+	STZ $04ED
+	BRA.b .return
+
+.fade_out:
+	AND #$7F
+	INC $04EE
+	CMP $04EE
+	BNE .return
+	STZ $04EE
+	DEC $04EC
+	BMI .fade_finished
+	BNE .return
+.fade_finished:
+	STZ $04ED
+	STZ $04EC
+.return:
+	REP #$20
+	LDA $1D89
+	BNE CODE_808550
+	RTL
+
+CODE_808550:
+	LDA.w #$0000
+	STA.l $00044A
+	LDA.w #$0778
+	JSL.l CODE_B28018
+	SEP.b #$20
+	LDA.b #$E0
+	STA.w !REGISTER_FixedColorData
+	REP.b #$20
+	LDA.w $04E4
+	AND.w #$1E01
+	STA.w $04E4
+	LDA.w #$0040
+	TSB.w $05AF
+	STZ.w $1D89
+	LDA.w #$8025
+	STA.w $1D8B
+	LDA.w #$8078
+	STA.w $1D8F
+	LDY.w #$026E
+	JSL.l CODE_BB8588
+	LDX.b $76
+	LDA.b $1E,x
+	AND.w #$F1FF
+	ORA.w #$0C00
+	STA.b $1E,x
+	LDA.b !RAM_DKC3_Global_CurrentLevelLo
+	CMP.w #!Define_DKC3_LevelID_BossPhotos
+	BNE.b CODE_8085A7
+	LDA.b $16,x
+	CLC
+	ADC.w #$0010
+	STA.b $16,x
+CODE_8085A7:
+	LDA.w #$0C00
+	ORA.b $1E,x
+	STA.b $1E,x
+	LDA.w #$FFFF
+	STA.b $5E,x
+	PHB
+	PHK
+	PLB
+	LDA.w $05E3
+	ASL
+	ASL
+	ASL
+	TAX
+	LDY.w DATA_80C679,x
+	LDX.w #$FFFF
+	DEY
+CODE_8085C4:
+	INX
+	INY
+	LDA.w $0000,y
+	AND.w #$00FF
+	STA.l $7EFFE0,x
+	BNE.b CODE_8085C4
+	INC.w $05E3
+	PLB
+	LDX.w #$01FE
+	LDA.w #$7FFF
+	STA.w $1D8D
+CODE_8085DF:
+	STA.l $7E2F80,x
+	DEX
+	DEX
+	BPL.b CODE_8085DF
+	LDA.w #$0000
+	STA.w $1D91
+	LDX.w #$000E
+	LDA.w #$7E2F60
+	STA.b $42
+	LDA.w #$7E2F60>>16
+	STA.b $44
+	STA.b $48
+CODE_8085FC:
+	TXY
+	LDA.w $073C,x
+	ASL
+	TAX
+	LDA.l DATA_FD3201,x
+	TYX
+	SEC
+	SBC.w #DATA_FD341B
+	CLC
+	ADC.w #$317E
+	STA.b $46
+	JSR.w CODE_80865A
+	LDA.b $42
+	SEC
+	SBC.w #$0020
+	STA.b $42
+	DEX
+	DEX
+	CPX.w #$0002
+	BCS.b CODE_8085FC
+	LDX.w #$0200
+	LDA.l DATA_FD3201,x
+	DEC
+	DEC
+	STA.b $46
+	LDA.w #DATA_FD341B>>16
+	STA.b $48
+	LDA.w #$7E2F40
+	STA.b $42
+	JSR.w CODE_80865A
+	LDX.w #$0200
+	LDA.l DATA_FD3201,x
+	DEC
+	DEC
+	STA.b $46
+	LDA.w #DATA_FD341B>>16
+	STA.b $48
+	LDA.w #$7E2F60
+	STA.b $42
+	JSR.w CODE_80865A
+	LDA.w #$4000
+	TSB.w $05B1
+	RTL
+
+CODE_80865A:
+	LDY.w #$001E
+CODE_80865D:
+	LDA.b [$46],y
+	STA.b [$42],y
+	DEY
+	DEY
+	BNE.b CODE_80865D
+	TYA
+	STA.b [$42],y
+	RTS
+
+CODE_808669:
+	LDA.w #$1300
+	STA.b $80
+	LDA.w $05E3
+	ASL
+	ASL
+	ASL
+	TAX
+	LDA.l DATA_80C679+$02,x
+	PHA
+	AND.w #$1FFF
+	TAY
+	PLA
+	BPL.b CODE_8086A0
+	BIT.w #$2000
+	BEQ.b CODE_80868F
+	LDA.w #$0003
+	JSL.l CODE_BB85F7
+	BRA.b CODE_8086A4
+
+CODE_80868F:
+	BIT.w #$4000
+	BEQ.b CODE_80869A
+	JSL.l CODE_BB85B8
+	BRA.b CODE_8086A4
+
+CODE_80869A:
+	JSL.l CODE_BB85B5
+	BRA.b CODE_8086A4
+
+CODE_8086A0:
+	JSL.l CODE_BB8585
+CODE_8086A4:
+	STZ.w $05B5
+	LDX.b $76
+	STX.w $04F9
+	LDA.w #$1480
+	CPX.w $0501
+	BEQ.b CODE_8086B7
+	LDA.w #$14D2
+CODE_8086B7:
+	STA.b $72
+	LDA.b $38,x
+	BMI.b CODE_8086BE
+	RTL
+
+CODE_8086BE:
+	EOR.w #$FFFF
+	INC
+	JSL.l CODE_BB85E2
+	PHK
+	PLB
+	RTL
+
+CODE_8086C9:
+	LDA.w $1D8B
+	BEQ.b CODE_8086D6
+	DEC.w $1D8B
+	BMI.b CODE_8086D6
+	STZ.w $1D8B
+CODE_8086D6:
+	LDA.w $1D8F
+	BEQ.b CODE_8086E9
+	DEC.w $1D8F
+	DEC.w $1D8F
+	DEC.w $1D8F
+	BMI.b CODE_8086E9
+	STZ.w $1D8F
+CODE_8086E9:
+	LDA.w #$7E2D80
+	STA.b $42
+	LDA.w #$7E2D80>>16
+	STA.b $44
+	STA.b $1C
+	LDA.w #$7E2F80
+	STA.b $1A
+	LDA.w $1D8B
+	CMP.w #$8020
+	BCC.b CODE_808705
+	LDA.w #$8020
+CODE_808705:
+	AND.w #$003F
+	LDX.w $1D8D
+	LDY.w #$01FE
+	JSL.l CODE_BBC80F
+	LDA.w #$7E2F40
+	STA.b $42
+	LDA.w #$7E2F40>>16
+	STA.b $44
+	STA.b $1C
+	LDA.w #$7E3140
+	STA.b $1A
+	LDA.w $1D8F
+	CMP.w #$8020
+	BCC.b CODE_80872E
+	LDA.w #$8020
+CODE_80872E:
+	AND.w #$003F
+	LDX.w $1D91
+	LDY.w #$001E
+	JSL.l CODE_BBC80F
+	LDA.w #$0000
+	STA.l $7E2F80
+	LDA.w #CODE_808769>>16
+	STA.w $04F7
+	LDA.w #CODE_808769
+	STA.w $04F5
+	LDY.b $76
+	STY.b $70
+	LDA.w $0004,y
+	PHA
+	PLB
+	LDA.w $0002,y
+	PHA
+	LDA.w $0006,y
+	STA.b $6A
+	LDA.w $0038,y
+	AND.w #$00FF
+	ASL
+	TAX
+	RTL
+
+CODE_808769:
+	JSL.l CODE_B7800C
+	JSL.l CODE_B78000
+	JSL.l CODE_80898C
+	JSR.w CODE_809741
+	BEQ.b CODE_80877B
+	RTL
+
+CODE_80877B:
+	LDA.w #$2000
+	TRB.w $05B1
+	STZ.b $F4
+	STZ.w $05BB
+	STZ.w $05BD
+	LDA.w #CODE_80B2C8
+	STA.b $4E
+	LDA.w #CODE_80B2C8>>16
+	STA.b $50
+	LDA.w #CODE_808362
+	JMP.w CODE_80839D
+
+CODE_808799:
+	LDA.w $1D8B
+	BNE.b CODE_8087F9
+	LDA.b $E6
+	CMP.b $E8
+	BEQ.b CODE_8087D4
+	ASL
+	ASL
+	TAX
+	LDA.b $E6
+	INC
+	AND.w #$000F
+	STA.b $E6
+	LDA.w #(!REGISTER_WriteToCGRAMPort&$0000FF<<8)+$00
+	STA.w DMA[$00].Parameters
+	LDA.w #$001E
+	STA.w DMA[$00].SizeLo
+	LDA.w $06FC,x
+	STA.w DMA[$00].SourceLo
+	LDA.w $06FE,x
+	SEP.b #$20
+	STA.w DMA[$00].SourceBank
+	XBA
+	STA.w !REGISTER_CGRAMAddress
+	LDA.b #$01
+	STA.w !REGISTER_DMAEnable
+	REP.b #$20
+CODE_8087D4:
+	RTL
+
+CODE_8087D5:
+	JSL.l CODE_808799
+	LDA.b $E6
+	CMP.b $E8
+	BNE.b CODE_8087D5
+	RTL
+
+CODE_8087E0:
+	STA.w DMA[$00].SourceLo
+	STY.w DMA[$00].SizeLo
+	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01
+	STA.w DMA[$00].Parameters
+	SEP.b #$30
+	STX.w DMA[$00].SourceBank
+	LDA.b #$01
+	STA.w !REGISTER_DMAEnable
+	REP.b #$30
+	RTL
+
+CODE_8087F9:
+	LDA.w #$4000
+	TRB.w $05B1
+	BEQ.b CODE_808804
+	JSR.w CODE_80882A
+CODE_808804:
+	LDA.w #(!REGISTER_WriteToCGRAMPort&$0000FF<<8)+$00
+	STA.w DMA[$00].Parameters
+	LDA.w #$0200
+	STA.w DMA[$00].SizeLo
+	LDA.w #$7E2F80
+	STA.w DMA[$00].SourceLo
+	SEP.b #$20
+	LDA.b #$7E2F80>>16
+	STA.w DMA[$00].SourceBank
+	LDA.b #$00
+	STA.w !REGISTER_CGRAMAddress
+	LDA.b #$01
+	STA.w !REGISTER_DMAEnable
+	REP.b #$20
+	RTL
+
+CODE_80882A:
+	LDA.w #$2000
+	TSB.w $05B1
+	LDA.b !RAM_DKC3_Global_CurrentLevelLo
+	CMP.w #!Define_DKC3_LevelID_BrothersBearPhotos
+	BEQ.b CODE_808898
+	CMP.w #!Define_DKC3_LevelID_BossPhotos
+	BEQ.b CODE_808898
+	LDA.w #$CCCC
+	STA.w !REGISTER_BG1And2WindowMaskSettings
+	STA.w !REGISTER_BG3And4WindowMaskSettings
+	LDA.w #$0000
+	STA.w !REGISTER_ObjectAndColorWindowSettings
+	LDA.w #$1F1F
+	STA.w !REGISTER_MainScreenWindowMask
+	LDA.w #$0030
+	STA.l $7EA15A
+	LDA.w #$0001
+	STA.l $7EA15B
+	LDA.w #$0070
+	STA.l $7EA15D
+	LDA.w #$BF40
+	STA.l $7EA15E
+	LDA.w #$0001
+	STA.l $7EA160
+	STA.l $7EA161
+	SEP.b #$20
+	LDX.w #(!REGISTER_Window2LeftPositionDesignation&$0000FF<<8)+$01
+	STX.w HDMA[$07].Parameters
+	LDX.w #$7EA15A
+	STX.w HDMA[$07].SourceLo
+	LDA.b #$7EA15A>>16
+	STA.w HDMA[$07].SourceBank
+	STA.w HDMA[$07].IndirectSourceBank
+	REP.b #$20
+	LDA.w #$8000
+	TSB.w $04E4
+	BRA.b CODE_80889E
+
+CODE_808898:
+	LDA.w #$0017
+	STA.w !REGISTER_MainScreenLayers
+CODE_80889E:
+	LDA.w #$1E80
+	STA.w !REGISTER_VRAMAddressLo
+	LDX.w #(DATA_FC2F40+$C0)>>16
+	LDA.w #DATA_FC2F40+$C0
+	LDY.w #$0020
+	JSL.l CODE_8087E0
+	LDA.w #$1E90
+	STA.w !REGISTER_VRAMAddressLo
+	LDX.w #(DATA_FC2F40+$C0)>>16
+	LDA.w #DATA_FC2F40+$C0
+	LDY.w #$0020
+	JSL.l CODE_8087E0
+	LDA.w #$1F80
+	STA.w !REGISTER_VRAMAddressLo
+	LDX.w #(DATA_FC2F40+$C0)>>16
+	LDA.w #DATA_FC2F40+$C0
+	LDY.w #$0020
+	JSL.l CODE_8087E0
+	LDA.w #$1F90
+	STA.w !REGISTER_VRAMAddressLo
+	LDX.w #(DATA_FC2F40+$C0)>>16
+	LDA.w #DATA_FC2F40+$C0
+	LDY.w #$0020
+	JSL.l CODE_8087E0
+	LDA.w #$1EA0
+	STA.w !REGISTER_VRAMAddressLo
+	LDX.w #DATA_FC2F40>>16
+	LDA.w #DATA_FC2F40
+	LDY.w #$0060
+	JSL.l CODE_8087E0
+	LDA.w #$1ED0
+	STA.w !REGISTER_VRAMAddressLo
+	LDX.w #(DATA_FC2F40+$40)>>16
+	LDA.w #DATA_FC2F40+$40
+	LDY.w #$0060
+	JSL.l CODE_8087E0
+	LDA.w #$1FA0
+	STA.w !REGISTER_VRAMAddressLo
+	LDX.w #(DATA_FC2F40+$A0)>>16
+	LDA.w #DATA_FC2F40+$A0
+	LDY.w #$0020
+	JSL.l CODE_8087E0
+	LDA.w #$1FB0
+	STA.w !REGISTER_VRAMAddressLo
+	LDX.w #(DATA_FC2F40+$80)>>16
+	LDA.w #DATA_FC2F40+$80
+	LDY.w #$0020
+	JSL.l CODE_8087E0
+	LDA.w #$1FC0
+	STA.w !REGISTER_VRAMAddressLo
+	LDX.w #(DATA_FC2F40+$80)>>16
+	LDA.w #DATA_FC2F40+$80
+	LDY.w #$0020
+	JSL.l CODE_8087E0
+	LDA.w #$1FD0
+	STA.w !REGISTER_VRAMAddressLo
+	LDX.w #(DATA_FC2F40+$80)>>16
+	LDA.w #DATA_FC2F40+$80
+	LDY.w #$0020
+	JSL.l CODE_8087E0
+	LDA.w #$1FF0
+	STA.w !REGISTER_VRAMAddressLo
+	LDX.w #(DATA_FC2F40+$80)>>16
+	LDA.w #DATA_FC2F40+$80
+	LDY.w #$0020
+	JSL.l CODE_8087E0
+	LDA.w #$1FE0
+	STA.w !REGISTER_VRAMAddressLo
+	LDX.w #(DATA_FC2F40+$60)>>16
+	LDA.w #DATA_FC2F40+$60
+	LDY.w #$0020
+	JSL.l CODE_8087E0
+	RTS
+
+set_all_oam_offscreen:
+	LDA.w #$0200
+	STA.b $82
+	JSR.w set_unused_oam_offscreen
+	RTL
+
+CODE_80898C:
+	PHB
+	JSR.w set_unused_oam_offscreen
+	PLB
+	RTL
+
+set_unused_oam_offscreen:
+	PHK
+	PLB
+	LDX $82
+	CPX #$0400
+	BEQ .oam_full
+	LDA #$F0FF
+.next_slot:
+	STA $00,x
+	INX
+	INX
+	INX
+	INX
+	CPX #$0400
+	BNE .next_slot
+.oam_full:
+	RTS
+
+CODE_8089AA:
+	CMP.w #$0001
+	BEQ.b CODE_8089C5
+	LDA.w !REGISTER_Joypad1Lo
+	TAX
+	EOR.w $04CA
+	AND.w !REGISTER_Joypad1Lo
+	STA.w $04CE
+	TXA
+	STA.w $04CA
+	JSR.w CODE_808DFA
+	BRA.b CODE_808A13
+
+CODE_8089C5:
+	JSR.w CODE_808E29
+	BRA.b CODE_808A13
+
+CODE_8089CA:
+	PHK
+	PLB
+	SEP.b #$20
+	LDA.b #$01
+CODE_8089D0:
+	BIT.w !REGISTER_HVBlankFlagsAndJoypadStatus
+	BNE.b CODE_8089D0
+	REP.b #$20
+	LDA.w $0523
+	BNE.b CODE_8089AA
+	LDA.w !REGISTER_Joypad1Lo
+	TAX
+	EOR.w $04CA
+	AND.w !REGISTER_Joypad1Lo
+	STA.w $04CE
+	TXA
+	EOR.w $04CA
+	AND.w $04CA
+	STA.w $04D2
+	STX.w $04CA
+	LDA.w !REGISTER_Joypad2Lo
+	TAX
+	EOR.w $04CC
+	AND.w !REGISTER_Joypad2Lo
+	STA.w $04D0
+	TXA
+	EOR.w $04CC
+	AND.w $04CC
+	STA.w $04D4
+	STX.w $04CC
+	JSR.w CODE_808B28
+CODE_808A13:
+	LDA.w $04C4
+	BEQ.b CODE_808A5B
+	DEC
+	BEQ.b CODE_808A3A
+	LDA.w $04C6
+	ASL
+	TAX
+	LDA.w $04CA,x
+	STA.w $04D6
+	LDA.w $04CC,x
+	STA.w $04D8
+	LDA.w $04CE,x
+	STA.w $04DA
+	LDA.w $04D0,x
+	STA.w $04DC
+	BRA.b CODE_808A6D
+
+CODE_808A3A:
+	LDA.w $05B3
+	AND.w #$0002
+	TAX
+	LDA.w $04CA,x
+	STA.w $04D6
+	LDA.w $04CC,x
+	STA.w $04D8
+	LDA.w $04CE,x
+	STA.w $04DA
+	LDA.w $04D0,x
+	STA.w $04DC
+	BRA.b CODE_808A6D
+
+CODE_808A5B:
+	LDA.w $04CA
+	STA.w $04D6
+	STZ.w $04D8
+	LDA.w $04CE
+	STA.w $04DA
+	STZ.w $04DC
+CODE_808A6D:
+	LDA.w $05AF
+	AND.w #$0040
+	BNE.b CODE_808AE8
+	LDA.w #$0010
+	TRB.w $05B1
+	BNE.b CODE_808ADC
+	LDA.w #$0200
+	TRB.w $05AF
+	BEQ.b CODE_808AB5
+	LDA.w $04D7
+	AND.w #$0003
+	ASL
+	TAX
+	LDA.l DATA_808B8B,x
+	EOR.w $04D6
+	AND.w #$0300
+	EOR.w $04D6
+	STA.w $04D6
+	LDA.w $04DB
+	AND.w #$0003
+	ASL
+	TAX
+	LDA.l DATA_808B8B,x
+	EOR.w $04DA
+	AND.w #$0300
+	EOR.w $04DA
+	STA.w $04DA
+CODE_808AB5:
+	LDA.w $05AF
+	AND.w #$0040
+	RTL
+
+CODE_808ABC:
+	LDA.w $04EC
+	BEQ.b CODE_808AB5
+	CMP.w #$0100
+	BCS.b CODE_808AB5
+	JSR.w CODE_808B0B
+	LDA.w #$00FF
+	TRB.w $0430
+	STZ.w $0424
+	STZ.w $0426
+	LDA.w #$0040
+	TRB.w $05AF
+	RTL
+
+CODE_808ADC:
+	LDA.w #$0040
+	TSB.w $05AF
+	STZ.w $1947
+	JSR.w CODE_808B0B
+CODE_808AE8:
+	LDA.b $4C
+	CMP.w #CODE_8083CC
+	BEQ.b CODE_808AF7
+	LDA.w $04DA
+	AND.w #$1000
+	BNE.b CODE_808ABC
+CODE_808AF7:
+	LDA.b $C2
+	SEC
+	SBC.w #$0001
+	STA.b $C2
+	LDA.b $C4
+	SBC.w #$0000
+	STA.b $C4
+	JSR.w CODE_808B93
+	BRA.b CODE_808AB5
+
+CODE_808B0B:
+	LDA.w #$072D
+	JSL.l CODE_B2801B
+	LDA.w #$062D
+	JSL.l CODE_B2801B
+	LDA.w #$052D
+	JSL.l CODE_B2801B
+	LDA.w #$042D
+	JSL.l CODE_B2801B
+	RTS
+
+CODE_808B28:
+	STZ.b $1A
+	LDA.w $04CA
+	AND.w #$0007
+	BEQ.b CODE_808B47
+	SEP.b #$20
+	LDY.w #$0010
+CODE_808B37:
+	LDA.w !REGISTER_JoypadSerialPort1
+	DEY
+	BNE.b CODE_808B37
+	REP.b #$20
+	STZ.w $04CA
+	STZ.w $04CE
+	BRA.b CODE_808B59
+
+CODE_808B47:
+	SEP.b #$20
+	LDA.w !REGISTER_JoypadSerialPort1
+	REP.b #$20
+	BIT.w #$0001
+	BNE.b CODE_808B59
+	STZ.w $04CA
+	STZ.w $04CE
+CODE_808B59:
+	LDA.w $04CC
+	AND.w #$0007
+	BEQ.b CODE_808B76
+	SEP.b #$20
+	LDY.w #$0010
+CODE_808B66:
+	LDA.w !REGISTER_JoypadSerialPort2
+	DEY
+	BNE.b CODE_808B66
+	REP.b #$20
+	STZ.w $04CC
+	STZ.w $04D0
+	BRA.b CODE_808B88
+
+CODE_808B76:
+	SEP.b #$20
+	LDA.w !REGISTER_JoypadSerialPort2
+	REP.b #$20
+	BIT.w #$0001
+	BNE.b CODE_808B8A
+	STZ.w $04CC
+	STZ.w $04D0
+CODE_808B88:
+	INC.b $1A
+CODE_808B8A:
+	RTS
+
+DATA_808B8B:
+	dw $0000,$0200,$0100,$0000
+
+CODE_808B93:
+	LDA.w $1947
+	BNE.b CODE_808BDC
+	LDA.w $04DA
+	AND.w #$2000
+	BNE.b CODE_808BA4
+	LDA.w #$0040
+	RTS
+
+CODE_808BA4:
+	LDX.w $05B9
+	LDA.w $0632,x
+	AND.w #$0002
+	BEQ.b CODE_808BD3
+	LDA.w $075C
+	CMP.w #$0001
+	BEQ.b CODE_808BC5
+	CMP.w #$0003
+	BEQ.b CODE_808BC5
+	CMP.w #$0006
+	BEQ.b CODE_808BC5
+	LDA.w #$0040
+	RTS
+
+CODE_808BC5:
+	JSL.l CODE_B8807E
+	LDA.w #$FFFE
+	STA.w $195B
+	LDA.w #$0040
+	RTS
+
+CODE_808BD3:
+	LDA.w #$0001
+	STA.w $1947
+	STZ.w $1949
+CODE_808BDC:
+	LDA.w $1949
+	INC
+	BEQ.b CODE_808C31
+	LDA.w $1947
+	ASL
+	TAX
+	LDA.w $04D6
+	AND.w #$0030
+	CMP.w #$0030
+	BNE.b CODE_808C2B
+	LDA.w $04DA
+	BEQ.b CODE_808C31
+	AND.l DATA_808C35-$02,x
+	BEQ.b CODE_808C2B
+	CMP.l DATA_808C35-$02,x
+	BEQ.b CODE_808C17
+	ORA.w $1949
+	AND.w $04D6
+	CMP.l DATA_808C35-$02,x
+	BEQ.b CODE_808C17
+	AND.w $04DA
+	STA.w $1949
+	BRA.b CODE_808C31
+
+CODE_808C17:
+	AND.w $04DA
+	STA.w $1949
+	INX
+	INX
+	INC.w $1947
+	LDA.l DATA_808C35-$02,x
+	INC
+	BEQ.b CODE_808BC5
+	BRA.b CODE_808C31
+
+CODE_808C2B:
+	LDA.w #$FFFF
+	STA.w $1949
+CODE_808C31:
+	LDA.w #$0040
+	RTS
+
+DATA_808C35:
+	dw $2000,$8400,$0840,$2000,$FFFF
+
+CODE_808C3F:
+	JSR.w CODE_808C43
+	RTL
+
+CODE_808C43:
+	LDA.w #$000200
+	STA.w DMA[$00].SourceLo
+	STA.w DMA[$00].Unused2
+	LDA.w #$0220
+	STA.w DMA[$00].SizeLo
+	LDA.w #(!REGISTER_OAMDataWritePort&$0000FF<<8)+$00
+	STA.w DMA[$00].Parameters
+	SEP.b #$20
+	STZ.w DMA[$00].SourceBank
+	REP.b #$20
+	RTS
+
+CODE_808C60:
+	LDA.b $02
+	STA.b $1C
+	ASL
+	LDA.b $04
+	ROL
+	STA.b $1A
+	LDA.b $03
+	EOR.b $1A
+	STA.b $02
+	LDA.b $1C
+	STA.b $04
+	LDA.b $02
+	RTL
+
+CODE_808C77:
+	LDA.b $01,S
+	INC
+	STA.b $1A
+	LDA.b $03,S
+	STA.b $1C
+	LDX.w #$001F
+	TXS
+	INX
+	LDY.w #$7E0020>>16
+	LDA.w #$0683
+	JSL.l CODE_808CEC
+	LDX.w #$7E06D8
+	LDY.w #$7E06D8>>16
+	LDA.w #$F928
+	JSL.l CODE_808CEC
+	LDX.w #$7F0000
+	LDY.w #$7F0000>>16
+	LDA.w #$0000
+	JSL.l CODE_808CEC
+	LDX.w #$01FF
+	TXS
+	JMP.w [$001A]
+
+CODE_808CB0:
+	PHB
+	PHK
+	PLB
+	STZ.w $044A
+	LDX.w #$7E00C6
+	LDY.w #$7E00C6>>16
+	LDA.w #$0034
+	JSL.l CODE_808CEC
+	LDX.w #$7E06D8
+	LDY.w #$7E06D8>>16
+	LDA.w #$16C3
+	JSL.l CODE_808CEC
+	LDX.w #$7E2D80
+	LDY.w #$7E2D80>>16
+	LDA.w #$D280
+	JSL.l CODE_808CEC
+	LDX.w #$7F0000
+	LDY.w #$7F0000>>16
+	LDA.w #$0000
+	JSL.l CODE_808CEC
+	PLB
+	RTL
+
+CODE_808CEC:
+	STA.w DMA[$00].SizeLo
+	TXA
+	STA.w DMA[$00].SourceLo
+	TYA
+	SEP.b #$20
+	STA.w DMA[$00].SourceBank
+	LDA.b #!REGISTER_ReadFromVRAMPortLo
+	STA.w DMA[$00].Destination
+	LDA.b #$80
+	STA.w DMA[$00].Parameters
+	STA.w !REGISTER_VRAMAddressIncrementValue
+	REP.b #$20
+	LDA.w #$0001
+	LDY.w #$0000
+	STY.w !REGISTER_VRAMAddressLo
+	LDX.w !REGISTER_ReadFromVRAMPortLo
+	STY.w !REGISTER_VRAMAddressLo
+	STY.w !REGISTER_WriteToVRAMPortLo
+	STY.w !REGISTER_VRAMAddressLo
+	SEP.b #$20
+	STA.w !REGISTER_DMAEnable
+	REP.b #$20
+	STY.w !REGISTER_VRAMAddressLo
+	STX.w !REGISTER_WriteToVRAMPortLo
+	RTL
+
+CODE_808D2B:
+	STX.b $1A
+	ASL
+	ASL
+	ASL
+	ASL
+	ORA.w #$0008
+	TAY
+CODE_808D35:
+	LDX.w #$0008
+	SEP.b #$20
+CODE_808D3A:
+	STY.w !REGISTER_VRAMAddressLo
+	LDA.w !REGISTER_ReadFromVRAMPortLo
+	ORA.w !REGISTER_ReadFromVRAMPortHi
+	STY.w !REGISTER_VRAMAddressLo
+	STA.w !REGISTER_WriteToVRAMPortLo
+	INY
+	DEX
+	BNE.b CODE_808D3A
+	REP.b #$20
+	TYA
+	CLC
+	ADC.w #$0008
+	TAY
+	DEC.b $1A
+	BNE.b CODE_808D35
+	RTL
+
+CODE_808D5A:
+	PHB
+	PEA.w (DATA_B4FCD2&$FF0000)>>8
+	PLB
+	PLB
+	PHX
+	PHY
+	PHA
+	CMP.w #$0000
+	BPL.b CODE_808D6B
+	LDA.w #$0000
+CODE_808D6B:
+	SEP.b #$30
+	CPX.b #$00
+	BEQ.b CODE_808DD1
+	TAY
+	LDA.w DATA_B4FCD2,x
+	STA.w !REGISTER_Multiplicand
+	STY.w !REGISTER_Multiplier
+	TYA
+	XBA
+	LDY.w !REGISTER_ProductOrRemainderHi
+	STA.w !REGISTER_Multiplier
+	REP.b #$30
+	TYA
+	AND.w #$00FF
+	CLC
+	ADC.w !REGISTER_ProductOrRemainderLo
+	STA.b $1A
+	PLA
+	SEP.b #$30
+	TAY
+	TXA
+	EOR.b #$FF
+	INC
+	TAX
+	LDA.w DATA_B4FCD2,x
+	STA.w !REGISTER_Multiplicand
+	STY.w !REGISTER_Multiplier
+	XBA
+	NOP
+	LDY.w !REGISTER_ProductOrRemainderHi
+	STA.w !REGISTER_Multiplier
+	TYA
+	REP.b #$30
+	AND.w #$00FF
+	CLC
+	ADC.w !REGISTER_ProductOrRemainderLo
+	STA.b $1C
+CODE_808DB5:
+	PLY
+	PLA
+	XBA
+	AND.w #$0003
+	BEQ.b CODE_808DDA
+	CMP.w #$0002
+	BEQ.b CODE_808DE0
+	CMP.w #$0003
+	BEQ.b CODE_808DEF
+	LDA.b $1A
+	LDX.b $1C
+	EOR.w #$FFFF
+	INC
+	BRA.b CODE_808DF8
+
+CODE_808DD1:
+	REP.b #$30
+	STA.b $1C
+	STZ.b $1A
+	PLA
+	BRA.b CODE_808DB5
+
+CODE_808DDA:
+	LDX.b $1A
+	LDA.b $1C
+	BRA.b CODE_808DF8
+
+CODE_808DE0:
+	LDA.b $1A
+	EOR.w #$FFFF
+	INC
+	TAX
+	LDA.b $1C
+	EOR.w #$FFFF
+	INC
+	BRA.b CODE_808DF8
+
+CODE_808DEF:
+	LDA.b $1C
+	EOR.w #$FFFF
+	INC
+	TAX
+	LDA.b $1A
+CODE_808DF8:
+	PLB
+	RTL
+
+CODE_808DFA:
+	LDX.w $0525
+	CPX.w #$1000
+	BCC.b CODE_808E03
+	RTS
+
+CODE_808E03:
+	LDA.w !REGISTER_Joypad1Lo
+	CMP.l $FE8406,x
+	BNE.b CODE_808E16
+	LDA.l $FE8408,x
+	INC
+	STA.l $FE8408,x
+	RTS
+
+CODE_808E16:
+	INX
+	INX
+	INX
+	INX
+	STA.l $FE8406,x
+	LDA.w #$0001
+	STA.l $FE8408,x
+	STX.w $0525
+	RTS
+
+CODE_808E29:
+	PHK
+	PLB
+	LDA.w #$1000
+	BIT.w $05FD
+	BNE.b CODE_808E3B
+	LDA.w !REGISTER_Joypad1Lo
+	AND.w #$D000
+	BNE.b CODE_808E88
+CODE_808E3B:
+	LDA.w $0525
+	CMP.w $052B
+	BPL.b CODE_808E94
+	LDX.w $052D
+	LDA.l DATA_FE8406,x
+	STA.b $1E
+	LDA.w #DATA_FE8428>>16
+	STA.b $20
+	LDY.w $0525
+	LDA.w $0527
+	BNE.b CODE_808E69
+	INY
+	INY
+	INY
+	INY
+	STY.w $0525
+	INY
+	INY
+	LDA.b [$1E],y
+	DEY
+	DEY
+	STA.w $0527
+CODE_808E69:
+	DEC.w $0527
+	BPL.b CODE_808E71
+	STZ.w $0527
+CODE_808E71:
+	LDA.b [$1E],y
+	STA.b $1A
+	TAX
+	EOR.w $04CA
+	AND.b $1A
+	STA.w $04CE
+	STX.w $04CA
+	STA.w $04D0
+	STX.w $04CC
+	RTS
+
+CODE_808E88:
+	LDA.w #$FFFF
+	STA.w $052F
+	LDA.w #$0002
+	TSB.w piracy_string_result
+CODE_808E94:
+	LDA.w #$0001
+	TSB.w $05AF
+	BNE.b CODE_808EA3
+	LDA.w #$810F
+	JSL.l set_fade
+CODE_808EA3:
+	RTS
+
+CODE_808EA4:
+	JSR.w CODE_808EA8
+	RTL
+
+CODE_808EA8:
+	LDX.w $06CF
+	STX.w $06AD
+	SEP.b #$20
+CODE_808EB0:
+	TXA
+	STA.w $06AF,x
+	DEX
+	BPL.b CODE_808EB0
+	REP.b #$20
+	RTS
+
+CODE_808EBA:
+	JSR.w CODE_808EBE
+	RTL
+
+CODE_808EBE:
+	JSL.l CODE_808C60
+	AND.w $06CF
+	TAX
+	LDA.w $06AF,x
+	BIT.w #$0080
+	BNE.b CODE_808EBE
+	ORA.w #$0080
+	STA.w $06AF,x
+	AND.w #$007F
+	TAY
+	DEC.w $06AD
+	BPL.b CODE_808EE3
+	JSR.w CODE_808EA8
+	TYA
+	SEC
+	RTS
+
+CODE_808EE3:
+	CLC
+	TYA
+	RTS
+
+CODE_808EE6:
+	LDA.w #$1000
+	BIT.w $05FD
+	BEQ.b CODE_808EF1
+	JMP.w CODE_8090C3
+
+CODE_808EF1:
+	LDA.w #$8000
+	TSB.w $05AF
+	STZ.b $7E
+	LDA.w #$0001
+	TRB.w $05AF
+	LDA.w #$0002
+	STA.w $0525
+	STZ.w $0527
+	DEC.w $052F
+	BMI.b CODE_808F66
+	LDX.w $052F
+	LDA.w $06D1,x
+	AND.w #$00FF
+	ASL
+	TAX
+	STX.w $052D
+	LDA.l DATA_FE8406,x
+	STA.b $1E
+	LDA.w #DATA_FE8428>>16
+	STA.b $20
+	LDY.w #$0000
+	LDA.b [$1E]
+	BPL.b CODE_808F33
+	AND.w #$7FFF
+	LDY.w #$0001
+CODE_808F33:
+	STY.w $05B5
+	STA.w $052B
+	LDY.w #$0002
+	LDA.b [$1E],y
+	BMI.b CODE_808FA3
+	AND.w #$00FF
+	STA.b !RAM_DKC3_Global_CurrentLevelLo
+	LDY.w #$0003
+	LDA.b [$1E],y
+	AND.w #$00FF
+	STA.w $05B7
+	LDA.w #$4000
+	TSB.w $05AF
+	LDA.w #CODE_808493
+	STA.b $4E
+	LDA.w #CODE_808493>>16
+	STA.b $50
+	LDA.w #CODE_808344
+	JMP.w CODE_80839D
+
+CODE_808F66:
+	LDX.w $052F
+	LDA.w #$0004
+	STA.w $052F
+	STZ.w $0523
+	LDA.w #$0000
+	STA.l $00044A
+	CPX.w #$FFFE
+	BEQ.b CODE_808F93
+	LDA.w #$0003
+	STA.b $BA
+	LDX.w #CODE_B284D6
+	LDY.w #CODE_B284D6>>16
+	STX.b $4E
+	STY.b $50
+	LDA.w #CODE_808370
+	JMP.w CODE_80839D
+
+CODE_808F93:
+	LDA.w #CODE_809489
+	STA.b $4E
+	LDX.w #CODE_809489>>16
+	STX.b $50
+	LDA.w #CODE_808370
+	JMP.w CODE_80839D
+
+CODE_808FA3:
+	CMP.w #$FFFF
+	BNE.b CODE_808FE5
+	LDA.w #$0002
+	STA.w $05E7
+	STZ.w $05E5
+	LDA.w #$0800
+	STA.w $0611
+	LDA.w #$0005
+	TSB.w $05FB
+	LDA.w #$0001
+	STA.w $05EB
+	LDA.w #$4000
+	TSB.w $05AF
+	LDA.w #$8002
+	STA.w $05E3
+	STZ.w $05ED
+	STZ.w $05EF
+	LDA.w #CODE_B48009
+	STA.b $4E
+	LDA.w #CODE_B48009>>16
+	STA.b $50
+	LDA.w #CODE_808344
+	JMP.w CODE_80839D
+
+CODE_808FE5:
+	CMP.w #$FFFE
+	BNE.b CODE_80901E
+	LDA.w #$0003
+	STA.w $05E7
+	LDA.w #$0001
+	STA.w $05E5
+	LDA.w #$0001
+	STA.w $0659
+	STA.w $0639
+	ORA.w #$003E
+	STA.w $0657
+	STA.w $065A
+	LDA.w #$4000
+	TSB.w $05AF
+	LDA.w #CODE_B48009
+	STA.b $4E
+	LDA.w #CODE_B48009>>16
+	STA.b $50
+	LDA.w #CODE_808344
+	JMP.w CODE_80839D
+
+CODE_80901E:
+	LDA.w #$040A
+	STA.w $05E3
+	LDA.w #$4000
+	TSB.w $05AF
+	LDA.w #$8000
+	TSB.w $061D
+	LDA.w #CODE_B48000
+	STA.b $4E
+	LDA.w #CODE_B48000>>16
+	STA.b $50
+	LDA.w #CODE_808344
+	JMP.w CODE_80839D
+
+CODE_809040:
+	LDA.w #!Define_DKC3_MusicID_BananaBirdQueenChase
+	JSL.l CODE_B28009
+	LDA.w #$1000
+	TSB.w $05FD
+	LDA.w #$8000
+	TSB.w $05AF
+	LDA.w #$0041
+	TRB.w $05AF
+	LDA.w #$0002
+	STA.w $0525
+	STZ.w $0527
+	LDX.w #$0020
+	STX.w $052D
+	LDA.l DATA_FE8406,x
+	STA.b $1E
+	LDA.w #DATA_FE8428>>16
+	STA.b $20
+	LDA.b [$1E]
+	AND.w #$7FFF
+	STA.w $052B
+	LDY.w #$0001
+	STY.w $05B5
+	LDA.w #$0002
+	STA.w $05E7
+	STZ.w $05E5
+	LDA.w #$0800
+	STA.w $0611
+	LDA.w #$0005
+	TSB.w $05FB
+	LDA.w #$0001
+	STA.w $05EB
+	LDA.w #$4000
+	TRB.w $05AF
+	LDA.w #$8002
+	STA.w $05E3
+	LDA.w #$0137
+	STA.w $05ED
+	LDA.w #$023D
+	STA.w $05EF
+	LDA.w #$0001
+	TSB.w $0696
+	LDA.w #CODE_B48009
+	LDX.w #CODE_B48009>>16
+	JMP.w CODE_8083C3
+
+CODE_8090C3:
+	LDA.w #$0001
+	TRB.w $05AF
+	LDA.w #$1000
+	TRB.w $05FD
+	STZ.w $0523
+	LDA.w #!Define_DKC3_LevelID_CloseupOfKRoolDrivingHovercraft
+	STA.b !RAM_DKC3_Global_CurrentLevelLo
+	STA.w $05B9
+	STZ.w $05B7
+	LDA.w #$0563
+	JSL.l CODE_B28027
+	LDA.w #CODE_808348
+	STA.b $4A
+	STA.b $4C
+	LDA.w #CODE_808493
+	LDX.w #CODE_808493>>16
+	JMP.w CODE_8083C3
+
+CODE_8090F4:
+	STZ.w $04C6
+	LDA.l $7E2AF9
+	AND.w #$0003
+	STA.w $04C4
+	CMP.w #$0002
+	BEQ.b CODE_80911E
+	JSR.w CODE_8092F2
+CODE_809109:
+	JSR.w CODE_80912F
+	STZ.w $04C6
+	LDA.w #$C000
+	TRB.w $053B
+	LDA.w $06A1
+	JSR.w CODE_8099B3
+	JMP.w CODE_8096C2
+
+CODE_80911E:
+	JSR.w CODE_8092F2
+	JSR.w CODE_80939D
+	JSR.w CODE_8092F2
+	JSR.w CODE_80912F
+	JSR.w CODE_80939D
+	BRA.b CODE_809109
+
+CODE_80912F:
+	LDX.w #$0005
+	LDA.w #$0010
+	BIT.w $053B
+	BEQ.b CODE_80913D
+	LDX.w #$0032
+CODE_80913D:
+	STX.w $05D5
+	RTS
+
+CODE_809141:
+	LDY.w #$0004
+	LDA.b [$84],y
+	AND.w #$FFFE
+	CMP.w #$0052
+	BEQ.b CODE_809158
+	CMP.w #$0152
+	BEQ.b CODE_809158
+	CMP.w #$0252
+	BNE.b CODE_80916F
+CODE_809158:
+	JSR.w CODE_809177
+	LDY.w #$0000
+	LDA.b [$84],y
+	CMP.b $3E
+	BNE.b CODE_80916F
+	LDY.w #$0002
+	LDA.b [$84],y
+	CMP.b $40
+	BNE.b CODE_80916F
+	SEC
+	RTS
+
+CODE_80916F:
+	CLC
+	RTS
+
+DATA_809171:
+	dw $B06062,$B062EC,$B06576
+
+CODE_809177:
+	STZ.b $3E
+	STZ.b $40
+	LDY.w #$0006
+CODE_80917E:
+	LDA.b [$84],y
+	CLC
+	ADC.b $3E
+	STA.b $3E
+	INY
+	INY
+	CPY.w #$028A
+	BNE.b CODE_80917E
+	LDY.w #$0006
+CODE_80918F:
+	LDA.b [$84],y
+	EOR.b $40
+	STA.b $40
+	INY
+	INY
+	CPY.w #$028A
+	BNE.b CODE_80918F
+	LDA.b $3E
+	BNE.b CODE_8091A2
+	INC.b $3E
+CODE_8091A2:
+	RTS
+
+CODE_8091A3:
+	PHB
+	JSR.w CODE_8091A9
+	PLB
+	RTL
+
+CODE_8091A9:
+	JSR.w CODE_80920D
+	JSR.w CODE_8091CB
+	RTS
+
+CODE_8091B0:
+	LDA.w $04C4
+	CMP.w #$0002
+	BNE.b CODE_8091C4
+	JSR.w CODE_80939D
+	JSR.w CODE_80920D
+	JSR.w CODE_8091CB
+	JSR.w CODE_80939D
+CODE_8091C4:
+	JSR.w CODE_80920D
+	JSR.w CODE_8091CB
+	RTS
+
+CODE_8091CB:
+	LDA.w $04C8
+	ASL
+	TAX
+	LDA.l DATA_809171,x
+	STA.b $1A
+	LDA.w #$B06062>>16
+	STA.b $1C
+	PEA.w (($7E2AF4&$FF0000)>>16)|((RESET_start&$FF0000)>>8)
+	PLB
+	LDY.w #$0288
+CODE_8091E2:
+	LDA.w $7E2AF4,y
+	STA.b [$1A],y
+	DEY
+	BPL.b CODE_8091E2
+	PLB
+	RTS
+
+CODE_8091EC:
+	LDA.w $04C8
+	ASL
+	TAX
+	LDA.l DATA_809171,x
+	STA.b $1A
+	LDA.w #$B06062>>16
+	STA.b $1C
+	PEA.w (($7E2AF4&$FF0000)>>16)|((RESET_start&$FF0000)>>8)
+	PLB
+	LDY.w #$0288
+CODE_809203:
+	LDA.b [$1A],y
+	STA.w $7E2AF4,y
+	DEY
+	BPL.b CODE_809203
+	PLB
+	RTS
+
+CODE_80920D:
+	LDA.w #$2AF4
+	STA.b $84
+	LDA.w #$007E
+	STA.b $86
+	SEP.b #$20
+	LDA.w $04C4
+	LDY.w #$0005
+	STA.b [$84],y
+	LDA.w $04C6
+	AND.b #$01
+	ORA.b #$52
+	LDY.w #$0004
+	STA.b [$84],y
+	REP.b #$20
+	LDA.w $04C4
+	CMP.w #$0002
+	BNE.b CODE_809241
+	LDA.w $04C6
+	BEQ.b CODE_809241
+	LDA.w #$0148
+	BRA.b CODE_809244
+
+CODE_809241:
+	LDA.w #$0006
+CODE_809244:
+	CLC
+	ADC.b $84
+	STA.b $D0
+	LDA.w #$0000
+	ADC.b $86
+	STA.b $D2
+	LDA.b $C2
+	LDY.w #$000A
+	STA.b [$D0],y
+	LDA.b $C4
+	INY
+	INY
+	STA.b [$D0],y
+	LDY.w #$0008
+	LDX.w #$0008
+CODE_809263:
+	LDA.w $05D9,x
+	STA.b [$D0],y
+	DEY
+	DEX
+	BPL.b CODE_809263
+	JSR.w CODE_80B18E
+	LDY.w #$000E
+	SEP.b #$20
+	STA.b [$D0],y
+	REP.b #$20
+	LDA.w $05AF
+	LDY.w #$000F
+	STA.b [$D0],y
+	LDA.w $05B1
+	AND.w #$FFDF
+	INY
+	INY
+	STA.b [$D0],y
+	LDA.w $05C9
+	LDY.w #$0013
+	STA.b [$D0],y
+	LDA.w $05CB
+	INY
+	INY
+	STA.b [$D0],y
+	LDA.w $05CD
+	INY
+	INY
+	STA.b [$D0],y
+	LDA.w $05CF
+	INY
+	INY
+	STA.b [$D0],y
+	LDA.w $05D1
+	INY
+	INY
+	STA.b [$D0],y
+	SEP.b #$20
+	LDY.w #$00DC
+	LDX.w #$00BF
+CODE_8092B6:
+	LDA.w $05E3,x
+	STA.b [$D0],y
+	DEY
+	DEX
+	BPL.b CODE_8092B6
+	LDA.w !RAM_DKC3_Global_FrenchTextFlag
+	LDY.w #$00DE
+	STA.b [$D0],y
+	LDA.w $0432
+	LDY.w #$00DF
+	STA.b [$D0],y
+	LDA.w $05B5
+	LDY.w #$00DD
+	STA.b [$D0],y
+	REP.b #$20
+	JSR.w CODE_809177
+	LDY.w #$0000
+	LDA.b $3E
+	STA.b [$84],y
+	LDY.w #$0002
+	LDA.b $40
+	STA.b [$84],y
+	RTS
+
+CODE_8092EB:
+	JSR.w CODE_8091EC
+	JSR.w CODE_8092F2
+	RTL
+
+CODE_8092F2:
+	LDA.w #$2AF4
+	STA.b $84
+	LDA.w #$007E
+	STA.b $86
+	LDA.w $04C4
+	CMP.w #$0002
+	BNE.b CODE_80930E
+	LDA.w $04C6
+	BEQ.b CODE_80930E
+	LDA.w #$0148
+	BRA.b CODE_809311
+
+CODE_80930E:
+	LDA.w #$0006
+CODE_809311:
+	CLC
+	ADC.b $84
+	STA.b $D0
+	LDA.w #$0000
+	ADC.b $86
+	STA.b $D2
+	LDY.w #$000F
+	LDA.b [$D0],y
+	STA.w $05AF
+	LDY.w #$0011
+	LDA.b [$D0],y
+	STA.w $05B1
+	LDY.w #$000A
+	LDA.b [$D0],y
+	STA.b $C2
+	INY
+	INY
+	LDA.b [$D0],y
+	STA.b $C4
+	LDY.w #$0008
+	LDX.w #$0008
+CODE_809340:
+	LDA.b [$D0],y
+	STA.w $05D9,x
+	DEY
+	DEX
+	BPL.b CODE_809340
+	LDY.w #$0013
+	LDA.b [$D0],y
+	STA.w $05C9
+	INY
+	INY
+	LDA.b [$D0],y
+	STA.w $05CB
+	INY
+	INY
+	LDA.b [$D0],y
+	STA.w $05CD
+	INY
+	INY
+	LDA.b [$D0],y
+	STA.w $05CF
+	INY
+	INY
+	LDA.b [$D0],y
+	STA.w $05D1
+	SEP.b #$20
+	LDY.w #$00DC
+	LDX.w #$00BF
+CODE_809375:
+	LDA.b [$D0],y
+	STA.w $05E3,x
+	DEY
+	DEX
+	BPL.b CODE_809375
+	LDY.w #$00DE
+	LDA.b [$D0],y
+	STA.w !RAM_DKC3_Global_FrenchTextFlag
+	LDY.w #$00DF
+	LDA.b [$D0],y
+	STA.w $0432
+	LDY.w #$00DD
+	LDA.b [$D0],y
+	STA.w $05B5
+	REP.b #$20
+	RTS
+
+CODE_809399:
+	JSR.w CODE_80939D
+	RTL
+
+CODE_80939D:
+	JSR.w CODE_8093C7
+	LDA.w $04C6
+	EOR.w #$0001
+	STA.w $04C6
+	JSR.w CODE_8093FF
+	RTS
+
+CODE_8093AD:
+	JSR.w CODE_8093C7
+	STZ.w $04C6
+	JSR.w CODE_8091EC
+	JSR.w CODE_8092F2
+	RTS
+
+CODE_8093BA:
+	LDA.w #$0001
+	STA.w $04C6
+	JSR.w CODE_8091EC
+	JSR.w CODE_8092F2
+	RTS
+
+CODE_8093C7:
+	LDA.w #$007E
+	STA.b $44
+	LDA.w #$2900
+	LDX.w $04C6
+	BEQ.b CODE_8093D8
+	CLC
+	ADC.w #$00FA
+CODE_8093D8:
+	STA.b $42
+	SEP.b #$20
+	LDX.w #$0000
+	LDY.w #$0000
+CODE_8093E2:
+	LDA.b $C0,x
+	STA.b [$42],y
+	INY
+	INX
+	CPX.w #$0006
+	BNE.b CODE_8093E2
+	LDX.w #$0000
+CODE_8093F0:
+	LDA.w $05AF,x
+	STA.b [$42],y
+	INY
+	INX
+	CPX.w #$00F4
+	BNE.b CODE_8093F0
+	REP.b #$20
+	RTS
+
+CODE_8093FF:
+	LDA.w #$007E
+	STA.b $44
+	LDA.w #$2900
+	LDX.w $04C6
+	BEQ.b CODE_809410
+	CLC
+	ADC.w #$00FA
+CODE_809410:
+	STA.b $42
+	SEP.b #$20
+	LDX.w #$0000
+	LDY.w #$0000
+CODE_80941A:
+	LDA.b [$42],y
+	STA.b $C0,x
+	INY
+	INX
+	CPX.w #$0006
+	BNE.b CODE_80941A
+	LDX.w #$0000
+CODE_809428:
+	LDA.b [$42],y
+	STA.w $05AF,x
+	INY
+	INX
+	CPX.w #$00F4
+	BNE.b CODE_809428
+	REP.b #$20
+	RTS
+
+CODE_809437:
+	LDA.w #CODE_808337
+	STA.b $52
+	LDA.w #CODE_808337>>16
+	STA.b $54
+	LDA.w #$1300
+	STA.b $80
+	JSL.l disable_screen_wrapper
+	JSL.l init_registers_global
+	JSL.l CODE_808CB0
+	JSL.l clear_vram_global
+	LDX.w #$7EA15A
+	LDY.w #$7EA15A>>16
+	LDA.w #$0660
+	JSL.l CODE_808CEC
+	JSL.l CODE_BB857F
+	LDA.w #$000200
+	STA.w DMA[$00].SourceLo
+	STA.w DMA[$00].Unused2
+	LDA.w #$0220
+	STA.w DMA[$00].SizeLo
+	LDA.w #(!REGISTER_OAMDataWritePort&$0000FF<<8)+$00
+	STA.w DMA[$00].Parameters
+	SEP.b #$20
+	STZ.w DMA[$00].SourceBank
+	LDA.b #$01
+	STA.w !REGISTER_DMAEnable
+	REP.b #$20
+	RTS
+
+CODE_809489:
+	PHK
+	PLB
+	JSR.w CODE_809437
+	LDA.w #$0020
+	TRB.w $05B1
+	BNE.b CODE_80949D
+	LDA.w #!Define_DKC3_MusicID_CrazyCalypso
+	JSL.l CODE_B28009
+CODE_80949D:
+	SEP.b #$20
+	LDA.l $B06009
+	CMP.b #$01
+	BEQ.b CODE_8094A8
+	TDC
+CODE_8094A8:
+	STA.w $0432
+	REP.b #$20
+	JSL.l CODE_808411
+	LDA.w #$000F
+	JSL.l CODE_BB859A
+	ORA.w #$3000
+	CLC
+	ADC.w #$01C0
+	STA.b $B4
+	LDA.w #$0001
+	STA.w $06D8
+	LDA.w #$0021
+	JSL.l vram_payload_handler_global
+	LDA.w #$001F
+	JSL.l set_PPU_registers_global
+	JSR.w CODE_80A7AA
+	LDA.w #$002F
+	LDX.w #$0020
+	LDY.w #$0000
+	JSL.l CODE_BB856D
+	JSR.w CODE_80957A
+	JSR.w CODE_809E3B
+	LDA.w $04C8
+	JSR.w CODE_809DD0
+	LDA.w #$1C41
+	STA.w $1C3F
+	LDX.w #$7EF000
+	LDY.w #$7EF000>>16
+	LDA.w #$0800
+	JSL.l CODE_808CEC
+	LDY.w #$000C
+	JSR.w CODE_809E1A
+	LDA.w #$5820
+	STA.w $1CB0
+	LDY.w #$024E
+	JSL.l CODE_BB85B5
+	LDA.w #$0001
+	STA.w $0740
+	STA.w $0742
+	LDA.w #$00C6
+	JSL.l CODE_BB859A
+	ORA.w #$1000
+	STA.w $1C81
+	LDA.w #$00C7
+	JSL.l CODE_BB859A
+	ORA.w #$3000
+	STA.w $1C8D
+	PHK
+	PLB
+	JSR.w CODE_809F4A
+	JSR.w CODE_80A113
+	STZ.w $0740
+	STZ.w $0742
+	LDA.w $04C8
+	STA.w $1C37
+	JSR.w CODE_809709
+	LDA.w #$0020
+	JSR.w CODE_80A3E9
+	STZ.w $04C6
+	JSL.l CODE_808799
+	JSL.l CODE_808799
+	JSL.l CODE_808799
+	JSL.l CODE_808799
+	LDA.w #$0200
+	JSL.l set_fade
+	LDA.w #CODE_809586
+	LDX.w #CODE_809586>>16
+	JMP.w CODE_8083C3
+
+CODE_80957A:
+	STZ.b $1E
+	LDA.w #$FFFF
+	STA.b $20
+	JSL.l CODE_B7802A
+	RTS
+
+CODE_809586:
+	LDA.w $04E4
+	STA.w !REGISTER_DMAEnable
+	JSL.l CODE_B38006
+	JSL.l CODE_808799
+	LDX.w #$7C00
+	STX.w !REGISTER_VRAMAddressLo
+	LDA.w #$7EF000
+	STA.w DMA[$00].SourceLo
+	STA.w DMA[$00].Unused2
+	LDA.w #$0700
+	STA.w DMA[$00].SizeLo
+	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01
+	STA.w DMA[$00].Parameters
+	SEP.b #$20
+	LDA.b #$7EF000>>16
+	STA.w DMA[$00].SourceBank
+	LDA.b #$01
+	STA.w !REGISTER_DMAEnable
+	REP.b #$20
+	JSR.w CODE_809FF8
+	SEP.b #$20
+	LDA.w $04EC
+	STA.w !REGISTER_ScreenDisplayRegister
+	REP.b #$20
+	STZ.w $1560
+	STZ.w $155E
+	JSL.l CODE_808C60
+	LDA.w $1C35
+	BIT.w #$4000
+	BNE.b CODE_8095E0
+	JSL.l CODE_8089CA
+CODE_8095E0:
+	LDA.w $1C35
+	BIT.w #$0006
+	BNE.b CODE_809600
+	LDA.w $04D6
+	BEQ.b CODE_8095EF
+	STZ.b $F4
+CODE_8095EF:
+	LDA.b $F4
+	CMP.w #$0E10
+	BCC.b CODE_809600
+	JSL.l CODE_B8807E
+	LDA.w #$0008
+	TSB.w $1C35
+CODE_809600:
+	JSL.l CODE_B7800C
+	JSL.l CODE_BB85C1
+	LDA.w $1C3D
+	BMI.b CODE_809614
+	BEQ.b CODE_809629
+	DEC.w $1C3D
+	BEQ.b CODE_80961B
+CODE_809614:
+	LDA.b $00
+	BIT.w #$0008
+	BNE.b CODE_809623
+CODE_80961B:
+	LDA.w $1C37
+	JSR.w CODE_809DE3
+	BRA.b CODE_809629
+
+CODE_809623:
+	LDA.w $1C37
+	JSR.w CODE_809DB7
+CODE_809629:
+	JSL.l CODE_B6804B
+	JSL.l CODE_B7800F
+	JSR.w CODE_80A08F
+	LDA.w #$0080
+	BIT.w $1C35
+	BEQ.b CODE_809647
+	LDA.w $1C91
+	CMP.w #$0005
+	BCS.b CODE_809647
+	JSR.w CODE_80A608
+CODE_809647:
+	LDA.w #$1000
+	BIT.w $1C35
+	BNE.b CODE_809652
+	JSR.w CODE_80A465
+CODE_809652:
+	JSL.l CODE_80898C
+	JSR.w CODE_809741
+	BEQ.b CODE_80966E
+	LDA.w $1C87
+	BEQ.b CODE_80966B
+	DEC.w $1C87
+	BNE.b CODE_80966B
+	LDA.w #$4000
+	TRB.w $1C35
+CODE_80966B:
+	JMP.w CODE_808384
+
+CODE_80966E:
+	LDA.w #$0001
+	TRB.w $05AF
+	LDA.w #$0001
+	TRB.w $1C35
+	BNE.b CODE_80969A
+	LDA.w #$0008
+	TRB.w $1C35
+	BNE.b CODE_8096AE
+	LDA.w #$0020
+	TRB.w $1C35
+	BNE.b CODE_8096D2
+	LDA.w #$2000
+	BIT.w $1C35
+	BNE.b CODE_8096BF
+	JSR.w CODE_8091EC
+	JMP.w CODE_8090F4
+
+CODE_80969A:
+	LDA.w #$0002
+	TRB.w piracy_string_result
+	LDA.w #$0001
+	STA.b $BA
+	LDA.w #CODE_80B593
+	LDX.w #CODE_80B593>>16
+	JMP.w CODE_8083C3
+
+CODE_8096AE:
+	STZ.b $BA
+	LDA.w #$0002
+	TRB.w piracy_string_result
+	LDA.w #CODE_B284D6
+	LDX.w #CODE_B284D6>>16
+	JMP.w CODE_8083C3
+
+CODE_8096BF:
+	JSR.w CODE_8091B0
+CODE_8096C2:
+	LDA.w #CODE_B48009
+	STA.b $4E
+	LDX.w #CODE_B48009>>16
+	STX.b $50
+	LDA.w #CODE_808362
+	JMP.w CODE_80839D
+
+CODE_8096D2:
+	LDA.w $1C37
+	STA.w $04C8
+	JSR.w CODE_8091EC
+	STZ.w $04C6
+	LDA.l $7E2AF9
+	AND.w #$0003
+	STA.w $04C4
+	JSR.w CODE_8092F2
+	JSR.w CODE_80939D
+	JSR.w CODE_8092F2
+	JSR.w CODE_80939D
+	LDA.w #CODE_80AE3E
+	LDX.w #CODE_80AE3E>>16
+	JMP.w CODE_8083C3
+
+CODE_8096FD:
+	LDA.w #$0003
+CODE_809700:
+	JSR.w CODE_809DB7
+	LDY.w #$000C
+	JSR.w CODE_809E0F
+CODE_809709:
+	LDA.w $1CB0
+	AND.w #$0FFF
+	ORA.w #$5000
+	STA.w $1CB0
+	JSR.w CODE_809F92
+	LDA.w #$0003
+	STA.w $1C39
+	LDA.w #$0000
+	STA.w $1C3B
+	STZ.w $1C3D
+	LDA.w #$FFFF
+	STA.w $1C89
+	LDA.w $1C37
+	RTS
+
+CODE_809731:
+	LDA.w $1C37
+CODE_809734:
+	ASL
+	TAY
+	LDA.w DATA_809171,y
+	STA.b $84
+	LDA.w #$B06062>>16
+	STA.b $86
+	RTS
+
+CODE_809741:
+	JSL.l fade_screen
+	LDA.w $04EC
+	BNE.b CODE_80974D
+	CMP.w $04ED
+CODE_80974D:
+	RTS
+
+DKC3_NorSpr01A4_FileSelectMenu_Main:
+;$80974E
+	LDA.w #$0004
+	TSB.w $1C35
+	LDA.w #$4000
+	BIT.w $1C35
+	BNE.b CODE_80975F
+	JSR.w (DATA_809762,x)
+CODE_80975F:
+	JMP.w [$04F5]
+
+DATA_809762:
+	dw CODE_809C9F
+	dw CODE_809857
+	dw CODE_809884
+	dw CODE_809947
+	dw CODE_809ABD
+	dw CODE_809ACE
+	dw CODE_809BA2
+	dw CODE_809782
+	dw CODE_8097B9
+	dw CODE_8097E3
+	dw CODE_809804
+	dw CODE_80983B
+	dw CODE_809B38
+	dw CODE_809C0A
+	dw CODE_809953
+	dw CODE_80996E
+
+CODE_809782:
+	LDA.w #$000A
+	STA.w $1C3B
+	STZ.w $1C37
+	LDA.w #$0002
+	STA.w $1C39
+	LDA.w #$FFFF
+	STA.w $1C3D
+	TYX
+	STZ.b $38,x
+	LDA.w #$0666
+	JSL.l CODE_B28012
+	LDA.w #$C000
+	EOR.w $1CB0
+	STA.w $1CB0
+	LDA.w #$1000
+	STA.b $38
+	JSR.w CODE_809FA3
+	LDY.w #$001A
+	JSR.w CODE_809E0F
+	RTS
+
+CODE_8097B9:
+	TYX
+	STZ.b $38,x
+	JSR.w CODE_809731
+	LDY.w #$0000
+	LDA.b [$84],y
+	BEQ.b CODE_8097E0
+	LDA.w $1C37
+	STA.w $1C89
+	LDA.w #$000D
+	STA.w $1C3B
+	LDA.w #$0666
+	JSL.l CODE_B28012
+	LDY.w #$001C
+	JSR.w CODE_809E0F
+	RTS
+
+CODE_8097E0:
+	JMP.w CODE_80A3D8
+
+CODE_8097E3:
+	TYX
+	STZ.b $38,x
+	JSR.w CODE_809731
+	LDY.w #$0000
+	LDA.b [$84],y
+	BNE.b CODE_809801
+	JSR.w CODE_80A3F4
+	JSR.w CODE_8096FD
+	JSR.w CODE_809DD0
+	LDA.w #$0666
+	JSL.l CODE_B28018
+	RTS
+
+CODE_809801:
+	JMP.w CODE_80A3D8
+
+CODE_809804:
+	LDA.w #$0007
+	STA.w $1C3B
+	STZ.w $1C37
+	LDA.w #$0002
+	STA.w $1C39
+	LDA.w #$FFFF
+	STA.w $1C3D
+	TYX
+	STZ.b $38,x
+	LDA.w #$3000
+	EOR.w $1CB0
+	STA.w $1CB0
+	LDA.w #$1000
+	STA.b $38
+	JSR.w CODE_809FBF
+	LDA.w #$0666
+	JSL.l CODE_B28012
+	LDY.w #$0018
+	JSR.w CODE_809E0F
+	RTS
+
+CODE_80983B:
+	TYX
+	STZ.b $38,x
+	JSR.w CODE_80A3C3
+	BCC.b CODE_809856
+	JSR.w CODE_8096FD
+	JSR.w CODE_809DD0
+	JSR.w CODE_809731
+	JSR.w CODE_80A1AA
+	LDA.w #$0666
+	JSL.l CODE_B28018
+CODE_809856:
+	RTS
+
+CODE_809857:
+	LDA.w $1C37
+	STA.w $04C8
+	TYX
+	JSR.w CODE_809731
+	LDY.w #$0000
+	LDA.b [$84],y
+	BEQ.b CODE_809875
+	LDA.w #$4200
+	TSB.w $1C35
+	LDA.w $1C37
+	JSR.w CODE_809DB7
+	RTS
+
+CODE_809875:
+	LDA.w #$0666
+	JSL.l CODE_B28012
+	INC.b $38,x
+	LDY.w #$0016
+	JSR.w CODE_809E0F
+CODE_809884:
+	LDA.w #$1000
+	TSB.w $1C35
+	BNE.b CODE_8098F2
+	LDY.w #$0252
+	JSL.l CODE_BB85B8
+	STZ.w $1C3B
+	LDA.w #$00CA
+	JSL.l CODE_BB859A
+	STA.w $1CA8
+	LDA.w #$00CB
+	JSL.l CODE_BB859A
+	STA.w $1CAC
+	LDA.w #$001E
+	STA.w $1C3D
+	LDA.w #$0002
+	STA.w $1C83
+CODE_8098B6:
+	LDY.w #$024C
+	JSL.l CODE_BB8585
+	LDX.b $76
+	LDA.b $1E,x
+	AND.w #$0E00
+	STA.w $1CAA
+	LDA.b $26,x
+	AND.w #$0E00
+	STA.w $1CA6
+	LDA.w $1C37
+	ASL
+	TAY
+	LDA.w DATA_80C322,y
+	STA.b $16,x
+	LDA.w $1C83
+	STA.b $5C,x
+	STA.b $6A,x
+	LDA.w #$0120
+	STA.b $12,x
+	LDA.w #$0002
+	STA.b $38,x
+	DEC.w $1C83
+	BPL.b CODE_8098B6
+	JSR.w CODE_80A2DE
+CODE_8098F2:
+	LDA.w #$4000
+	BIT.w $1C35
+	BNE.b CODE_809946
+	LDA.w $04CE
+	BIT.w #$0200
+	BEQ.b CODE_809912
+	LDA.w $1C8F
+	DEC
+	BPL.b CODE_80990B
+	LDA.w #$0002
+CODE_80990B:
+	STA.w $1C8F
+	STA.w $1C3B
+	RTS
+
+CODE_809912:
+	BIT.w #$0100
+	BEQ.b CODE_80992A
+	LDA.w $1C8F
+	INC
+	CMP.w #$0003
+	BCC.b CODE_809923
+	LDA.w #$0000
+CODE_809923:
+	STA.w $1C8F
+	STA.w $1C3B
+	RTS
+
+CODE_80992A:
+	BIT.w #$9080
+	BEQ.b CODE_809946
+	LDX.b $70
+	INC.b $38,x
+	LDA.w #$0080
+	TSB.w $1C35
+	LDY.w #$0250
+	JSL.l CODE_BB85B5
+	LDA.w $1C8F
+	STA.w $04C4
+CODE_809946:
+	RTS
+
+CODE_809947:
+	LDA.w #$0040
+	TRB.w $1C35
+	BEQ.b CODE_809952
+	TYX
+	INC.b $38,x
+CODE_809952:
+	RTS
+
+CODE_809953:
+	LDA.w #$0040
+	TRB.w $1C35
+	BEQ.b CODE_80996D
+	TYX
+	INC.b $38,x
+	LDA.w $1C9B
+	AND.w #$00FF
+	ORA.w #$A000
+	STA.w $1C9B
+	JSR.w CODE_80A2A5
+CODE_80996D:
+	RTS
+
+CODE_80996E:
+	TYX
+	STZ.b $38,x
+	JSR.w CODE_8099C5
+	BCC.b CODE_809985
+	BEQ.b CODE_8099A8
+	CMP.w #$FFFF
+	BEQ.b CODE_8099A3
+	CMP.w #$FFFE
+	BEQ.b CODE_80999B
+	JSR.w CODE_8099B3
+CODE_809985:
+	JSR.w CODE_8096FD
+	JSR.w CODE_809DD0
+	JSR.w CODE_809731
+	JSR.w CODE_80A188
+	JSR.w CODE_80A1AA
+	LDA.w #$0002
+	TRB.w $1C35
+	RTS
+
+CODE_80999B:
+	LDA.w #$C000
+	TRB.w $053B
+	BRA.b CODE_809985
+
+CODE_8099A3:
+	JSR.w CODE_80BBF5
+	BRA.b CODE_809985
+
+CODE_8099A8:
+	JSL.l CODE_B8807E
+	LDA.w #$4001
+	TSB.w $1C35
+	RTS
+
+CODE_8099B3:
+	STA.b $1A
+	LDA.w #$FF00
+	BIT.b $1A
+	BEQ.b CODE_8099BF
+	TRB.w $053B
+CODE_8099BF:
+	LDA.b $1A
+	TSB.w $053B
+	RTS
+
+CODE_8099C5:
+	LDX.w #$0000
+	LDY.w #$0000
+	STZ.b $1A
+	STZ.b $1C
+CODE_8099CF:
+	LDA.w $1C97,x
+	CMP.w DATA_809A02,y
+	BNE.b CODE_8099EA
+	INY
+	INX
+	CPX.w #$0004
+	BCC.b CODE_8099CF
+	LDA.w #$0705
+	JSL.l CODE_B28012
+	LDA.w DATA_809A02+$01,y
+	SEC
+	RTS
+
+CODE_8099EA:
+	LDA.b $1A
+	CLC
+	ADC.w #$0007
+	STA.b $1A
+	TAY
+	INC.b $1C
+	LDX.w #$0000
+	LDA.w DATA_809A02,y
+	BNE.b CODE_8099CF
+	JSR.w CODE_80A3D8
+	CLC
+	RTS
+
+DATA_809A02:
+	db "MUSIC",$00,$00
+	db "WATER",$04,$00
+	db "LIVES",$10,$00
+	db "COLOR",$40,$00
+	db "HARDR",$FE,$FF
+	db "MERRY",$01,$00
+	db "ASAVE",$02,$00
+	db "TUFST",$80,$80
+	db "ERASE",$FF,$FF
+	db $00,$00
+
+CODE_809A43:
+	LDX.w $1CCE
+	LDA.w $04CE
+	BEQ.b CODE_809A5D
+	EOR.l DATA_809AA7,x
+	BNE.b CODE_809A5E
+	INC.w $1CCE
+	INC.w $1CCE
+	LDA.l DATA_809AA7+$02,x
+	BEQ.b CODE_809A62
+CODE_809A5D:
+	RTS
+
+CODE_809A5E:
+	STZ.w $1CCE
+	RTS
+
+CODE_809A62:
+	STZ.w $1CCE
+	LDX.b $70
+	LDA.w #$000E
+	STA.b $38,x
+	LDA.w #$0080
+	TSB.w $1C35
+	LDY.w #$0250
+	JSL.l CODE_BB85B5
+	LDA.w #$2400
+	STA.b $38
+	LDY.w #$000E
+	JSR.w CODE_809E0F
+	LDA.w #$0002
+	TSB.w $1C35
+	JSR.w CODE_809731
+	LDY.w #$0000
+	LDA.b [$84],y
+	BNE.b CODE_809A9B
+	STZ.w $04C4
+	JSR.w CODE_80A257
+	RTS
+
+CODE_809A9B:
+	LDY.w #$0005
+	LDA.b [$84],y
+	AND.w #$00FF
+	STA.w $04C4
+	RTS
+
+DATA_809AA7:
+	dw $0020,$0010,$0010,$0020,$0010,$0010,$0020,$0010
+	dw $0020,$0010,$0000
+
+CODE_809ABD:
+	LDA.w #$6200
+	TSB.w $1C35
+	LDA.w #$0000
+	STA.w $04C6
+	INC
+	STA.w $05B3
+	RTS
+
+CODE_809ACE:
+	LDA.w #$00D7
+	STA.b $1A
+	LDA.w $1C83
+	BNE.b CODE_809AE5
+	LDA.w #$0666
+	JSL.l CODE_B28012
+	LDA.w #$0008
+	STA.w $1C83
+CODE_809AE5:
+	LDA.w $1CB0
+	AND.w #$0FC0
+	STA.b $1C
+	LDA.w $1CB0
+	AND.w #$003F
+	STA.w $1CB0
+	LDX.w #$1C41
+	JSR.w CODE_809C77
+	JSR.w CODE_809C77
+	JSR.w CODE_809C77
+	JSR.w CODE_809C77
+	LSR.b $1C
+	LDA.b $1C
+	BIT.w #$0020
+	BEQ.b CODE_809B13
+	LDA.w #$0800
+	STA.b $1C
+CODE_809B13:
+	LDA.b $1C
+	TSB.w $1CB0
+	DEC.w $1C83
+	BNE.b CODE_809B37
+	LDA.w #$0006
+	JSR.w CODE_80A3E9
+	TYX
+	STZ.b $38,x
+	LDA.w $0432
+	EOR.w #$0001
+	STA.w $0432
+	SEP.b #$20
+	STA.l $B06009
+	REP.b #$20
+CODE_809B37:
+	RTS
+
+CODE_809B38:
+	LDA.w #$00D7
+	STA.b $1A
+	LDA.w $1C83
+	BNE.b CODE_809B4F
+	LDA.w #$0666
+	JSL.l CODE_B28012
+	LDA.w #$0008
+	STA.w $1C83
+CODE_809B4F:
+	LDA.w $1CB0
+	AND.w #$0FC0
+	STA.b $1C
+	LDA.w $1CB0
+	AND.w #$003F
+	STA.w $1CB0
+	LDX.w #$1C41
+	JSR.w CODE_809C8B
+	JSR.w CODE_809C8B
+	JSR.w CODE_809C8B
+	JSR.w CODE_809C8B
+	ASL.b $1C
+	LDA.b $1C
+	BIT.w #$1000
+	BEQ.b CODE_809B7D
+	LDA.w #$0040
+	STA.b $1C
+CODE_809B7D:
+	LDA.b $1C
+	TSB.w $1CB0
+	DEC.w $1C83
+	BNE.b CODE_809BA1
+	LDA.w #$0006
+	JSR.w CODE_80A3E9
+	TYX
+	STZ.b $38,x
+	LDA.w $0432
+	EOR.w #$0001
+	STA.w $0432
+	SEP.b #$20
+	STA.l $B06009
+	REP.b #$20
+CODE_809BA1:
+	RTS
+
+CODE_809BA2:
+	LDA.w #$00D7
+	STA.b $1A
+	LDA.w $1C83
+	BNE.b CODE_809BB9
+	LDA.w #$0666
+	JSL.l CODE_B28012
+	LDA.w #$0008
+	STA.w $1C83
+CODE_809BB9:
+	LDA.w $1CB0
+	AND.w #$003F
+	STA.b $1C
+	LDA.w $1CB0
+	AND.w #$0FC0
+	STA.w $1CB0
+	LDX.w #$1C51
+	JSR.w CODE_809C77
+	JSR.w CODE_809C77
+	JSR.w CODE_809C77
+	JSR.w CODE_809C77
+	LSR.b $1C
+	BCC.b CODE_809BE2
+	LDA.w #$0020
+	STA.b $1C
+CODE_809BE2:
+	LDA.b $1C
+	TSB.w $1CB0
+	DEC.w $1C83
+	BNE.b CODE_809C09
+	LDA.w #$0006
+	JSR.w CODE_80A3E9
+	TYX
+	STZ.b $38,x
+	LDA.w !RAM_DKC3_Global_FrenchTextFlag
+	EOR.w #$0001
+	STA.w !RAM_DKC3_Global_FrenchTextFlag
+	SEP.b #$20
+	STA.l $B06008
+	REP.b #$20
+	JSR.w CODE_809E09
+CODE_809C09:
+	RTS
+
+CODE_809C0A:
+	LDA.w #$00D7
+	STA.b $1A
+	LDA.w $1C83
+	BNE.b CODE_809C21
+	LDA.w #$0666
+	JSL.l CODE_B28012
+	LDA.w #$0008
+	STA.w $1C83
+CODE_809C21:
+	LDA.w $1CB0
+	AND.w #$003F
+	STA.b $1C
+	LDA.w $1CB0
+	AND.w #$0FC0
+	STA.w $1CB0
+	LDX.w #$1C51
+	JSR.w CODE_809C8B
+	JSR.w CODE_809C8B
+	JSR.w CODE_809C8B
+	JSR.w CODE_809C8B
+	ASL.b $1C
+	LDA.b $1C
+	BIT.w #$0040
+	BEQ.b CODE_809C4F
+	LDA.w #$0001
+	STA.b $1C
+CODE_809C4F:
+	LDA.b $1C
+	TSB.w $1CB0
+	DEC.w $1C83
+	BNE.b CODE_809C76
+	LDA.w #$0006
+	JSR.w CODE_80A3E9
+	TYX
+	STZ.b $38,x
+	LDA.w !RAM_DKC3_Global_FrenchTextFlag
+	EOR.w #$0001
+	STA.w !RAM_DKC3_Global_FrenchTextFlag
+	SEP.b #$20
+	STA.l $B06008
+	REP.b #$20
+	JSR.w CODE_809E09
+CODE_809C76:
+	RTS
+
+CODE_809C77:
+	SEP.b #$20
+	LDA.b $01,x
+	DEC
+	CMP.b #$B8
+	BCS.b CODE_809C82
+	LDA.b $1A
+CODE_809C82:
+	STA.b $01,x
+	INX
+	INX
+	INX
+	INX
+	REP.b #$20
+	RTS
+
+CODE_809C8B:
+	SEP.b #$20
+	LDA.b $01,x
+	INC
+	CMP.b $1A
+	BCC.b CODE_809C96
+	LDA.b #$B7
+CODE_809C96:
+	STA.b $01,x
+	INX
+	INX
+	INX
+	INX
+	REP.b #$20
+	RTS
+
+CODE_809C9F:
+	TYX
+	LDA.w $1C3B
+	BNE.b CODE_809CB0
+	LDA.w $1C37
+	CMP.w #$0003
+	BCS.b CODE_809CB0
+	JSR.w CODE_809A43
+CODE_809CB0:
+	LDA.w #$0004
+	TRB.w $1C35
+	LDA.w $04DA
+	BIT.w #$0800
+	BEQ.b CODE_809CE9
+	LDA.w $1C37
+	BEQ.b CODE_809CE4
+	CMP.w #$0005
+	BPL.b CODE_809CE5
+	JSR.w CODE_809DB7
+	LDA.w $1C37
+	DEC
+	CMP.w #$0003
+	BCC.b CODE_809CD7
+	LDA.w #$0002
+CODE_809CD7:
+	STA.w $1C37
+	JSR.w CODE_809DD0
+	LDA.w #$0565
+	JSL.l CODE_B28012
+CODE_809CE4:
+	RTS
+
+CODE_809CE5:
+	STA.w $0038,y
+	RTS
+
+CODE_809CE9:
+	BIT.w #$0400
+	BEQ.b CODE_809D37
+	LDA.w $1C37
+	CMP.w #$0005
+	BPL.b CODE_809D18
+	CMP.w $1C39
+	BCS.b CODE_809D20
+	JSR.w CODE_809DB7
+	INC.w $1C37
+	LDA.w $1C37
+	CMP.w #$0003
+	BEQ.b CODE_809D14
+	JSR.w CODE_809DD0
+	LDA.w #$0565
+	JSL.l CODE_B28012
+	RTS
+
+CODE_809D14:
+	JSR.w CODE_809DEE
+	RTS
+
+CODE_809D18:
+	CLC
+	ADC.w #$0007
+	STA.w $0038,y
+	RTS
+
+CODE_809D20:
+	LDA.w $1C3B
+	BEQ.b CODE_809D36
+	STZ.b $38,x
+	LDA.w #$0002
+	JSR.w CODE_809700
+	LDA.w #$0003
+	STA.w $1C37
+	JSR.w CODE_809DEE
+CODE_809D36:
+	RTS
+
+CODE_809D37:
+	BIT.w #$B080
+	BEQ.b CODE_809D53
+	LDA.w $1C37
+	CMP.w #$0005
+	BPL.b CODE_809D53
+	CLC
+	ADC.w $1C3B
+	TAX
+	LDA.w DATA_809DA7,x
+	AND.w #$00FF
+	STA.w $0038,y
+	RTS
+
+CODE_809D53:
+	LDX.w $1C37
+	CPX.w #$0003
+	BCC.b CODE_809D83
+	BIT.w #$0100
+	BEQ.b CODE_809D6F
+	CPX.w #$0006
+	BCS.b CODE_809D82
+	INC.w $1C37
+	LDA.w $1C37
+	JSR.w CODE_809DEE
+	RTS
+
+CODE_809D6F:
+	BIT.w #$0200
+	BEQ.b CODE_809D82
+	CPX.w #$0004
+	BCC.b CODE_809D82
+	DEC.w $1C37
+	LDA.w $1C37
+	JSR.w CODE_809DEE
+CODE_809D82:
+	RTS
+
+CODE_809D83:
+	LDX.w $1C3B
+	BNE.b CODE_809D82
+	BIT.w #$0200
+	BNE.b CODE_809D8E
+	RTS
+
+CODE_809D8E:
+	JSR.w CODE_809731
+	LDY.w #$0000
+	LDA.b [$84],y
+	BNE.b CODE_809D99
+	RTS
+
+CODE_809D99:
+	LDA.w #$4020
+	TSB.w $1C35
+	LDA.w #$820F
+	JSL.l set_fade
+	RTS
+
+DATA_809DA7:
+	db $01,$01,$01,$07,$0A,$05,$06,$0B,$0B,$0B,$08,$08,$08,$09,$09,$09
+
+CODE_809DB7:
+	INC
+	ASL
+	TAX
+	LDA.w #$D530
+	CPX.w #$0008
+	BCC.b CODE_809DCB
+	STZ.w !REGISTER_Window1LeftPositionDesignation
+	LDX.w #$000A
+	LDA.w #$9508
+CODE_809DCB:
+	STA.l $7EA15A,x
+	RTS
+
+CODE_809DD0:
+	INC
+	ASL
+	TAX
+	LDA.w #$0030
+	CPX.w #$0008
+	BCC.b CODE_809DDE
+	LDX.w #$000A
+CODE_809DDE:
+	STA.l $7EA15A,x
+	RTS
+
+CODE_809DE3:
+	INC
+	ASL
+	TAX
+	LDA.w #$0030
+	STA.l $7EA15A,x
+	RTS
+
+CODE_809DEE:
+	SEC
+	SBC.w #$0003
+	TAX
+	LDA.w DATA_80C33E,x
+	SEP.b #$20
+	STA.w !REGISTER_Window1LeftPositionDesignation
+	XBA
+	STA.w !REGISTER_Window1RightPositionDesignation
+	REP.b #$20
+	LDA.w #$0565
+	JSL.l CODE_B28012
+	RTS
+
+CODE_809E09:
+	JSR.w CODE_80957A
+	LDY.w #$000C
+CODE_809E0F:
+	LDA.w #$0010
+	JSR.w CODE_80A3E9
+	LDX.w $1D93
+	INC.b $60,x
+CODE_809E1A:
+	PHY
+	LDY.w #$0208
+	JSL.l CODE_BB8588
+	LDX.b $76
+	LDA.w #$FFFF
+	STA.b $5E,x
+	LDA.w #$00F0
+	STA.b $16,x
+	LDA.w #$0008
+	STA.b $60,x
+	PLX
+	LDY.w #$FFDF
+	JSR.w CODE_809F29
+	RTS
+
+CODE_809E3B:
+	SEP.b #$20
+	LDX.w #(!REGISTER_ColorMathSelectAndEnable&$0000FF<<8)+$00
+	STX.w HDMA[$01].Parameters
+	LDX.w #$7EA15A
+	STX.w HDMA[$01].SourceLo
+	LDA.b #$7EA15A>>16
+	STA.w HDMA[$01].SourceBank
+	STA.w HDMA[$01].IndirectSourceBank
+	LDX.w #(!REGISTER_ColorMathInitialSettings&$0000FF<<8)+$00
+	STX.w HDMA[$02].Parameters
+	LDX.w #$7EA17A
+	STX.w HDMA[$02].SourceLo
+	LDA.b #$7EA17A>>16
+	STA.w HDMA[$02].SourceBank
+	STA.w HDMA[$02].IndirectSourceBank
+	LDX.w #(!REGISTER_BG1HorizScrollOffset&$0000FF<<8)+$03
+	STX.w HDMA[$03].Parameters
+	LDX.w #$7EA18A
+	STX.w HDMA[$03].SourceLo
+	LDA.b #$7EA18A>>16
+	STA.w HDMA[$03].SourceBank
+	STA.w HDMA[$03].IndirectSourceBank
+	LDX.w #(!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$03
+	STX.w HDMA[$04].Parameters
+	LDX.w #$7EA1AE
+	STX.w HDMA[$04].SourceLo
+	LDA.b #$7EA1AE>>16
+	STA.w HDMA[$04].SourceBank
+	STA.w HDMA[$04].IndirectSourceBank
+	LDX.w #(!REGISTER_MainScreenLayers&$0000FF<<8)+$00
+	STX.w HDMA[$05].Parameters
+	LDX.w #$7EA1E1
+	STX.w HDMA[$05].SourceLo
+	LDA.b #$7EA1E1>>16
+	STA.w HDMA[$05].SourceBank
+	STA.w HDMA[$05].IndirectSourceBank
+	LDX.w #(!REGISTER_FixedColorData&$0000FF<<8)+$00
+	STX.w HDMA[$06].Parameters
+	LDX.w #$7EA1F2
+	STX.w HDMA[$06].SourceLo
+	LDA.b #$7EA1F2>>16
+	STA.w HDMA[$06].SourceBank
+	STA.w HDMA[$06].IndirectSourceBank
+	REP.b #$20
+	LDA.w #$D528
+	STA.l $7EA15A
+	LDA.w #$D530
+	STA.l $7EA15C
+	STA.l $7EA15E
+	STA.l $7EA160
+	LDA.w #$D50C
+	STA.l $7EA162
+	LDA.w #$9508
+	STA.l $7EA164
+	LDA.w #$D501
+	STA.l $7EA166
+	LDA.w #$0000
+	STA.l $7EA168
+	LDA.w #$007F
+	STA.l $7EA17A
+	LDA.w #$0045
+	STA.l $7EA17C
+	LDA.w #$2008
+	STA.l $7EA17E
+	LDA.w #$0001
+	STA.l $7EA180
+	LDA.w #$0000
+	STA.l $7EA182
+	LDX.w #$0000
+	LDY.w #$0000
+CODE_809F12:
+	LDA.w DATA_80C290,y
+	STA.l $7EA18A,x
+	INX
+	INX
+	INY
+	INY
+	CPY.w #$008A
+	BMI.b CODE_809F12
+	LDA.w #$7E01
+	STA.w $04E4
+	RTS
+
+CODE_809F29:
+	STY.b $1A
+	PEA.w (($7EA7BA&$FF0000)>>16)|((RESET_start&$FF0000)>>8)
+	PLB
+	LDA.l $7EA7BA,x
+	CLC
+	ADC.w #$7EA9DD
+	TAY
+	LDX.b $1A
+CODE_809F3A:
+	INX
+	INY
+	LDA.w $0000,y
+	AND.w #$00FF
+	STA.l $7E0000,x
+	BNE.b CODE_809F3A
+	PLB
+	RTS
+
+CODE_809F4A:
+	JSR.w CODE_809FED
+	STZ.w $1C37
+	JSR.w CODE_809731
+	JSR.w CODE_80A1AA
+	LDY.w #$0262
+	JSL.l CODE_BB85B5
+	LDX.b $76
+	LDA.w $1C37
+	STA.b $5C,x
+	INC.w $1C37
+	JSR.w CODE_809731
+	JSR.w CODE_80A1AA
+	LDY.w #$0262
+	JSL.l CODE_BB85B5
+	LDX.b $76
+	LDA.w $1C37
+	STA.b $5C,x
+	INC.w $1C37
+	JSR.w CODE_809731
+	JSR.w CODE_80A1AA
+	LDY.w #$0262
+	JSL.l CODE_BB85B5
+	LDX.b $76
+	LDA.w $1C37
+	STA.b $5C,x
+CODE_809F92:
+	LDA.w #$0C00
+	STA.b $38
+	JSR.w CODE_809FA3
+	LDA.w #$0C00
+	STA.b $38
+	JSR.w CODE_809FBF
+	RTS
+
+CODE_809FA3:
+	LDX.w #DATA_809FDB
+	LDY.w #$0602
+	JSR.w CODE_80A439
+	LDX.w #DATA_809FE1
+	LDY.w #$0642
+	JSR.w CODE_80A439
+	LDX.w #DATA_809FE7
+	LDY.w #$0682
+	JSR.w CODE_80A439
+	RTS
+
+CODE_809FBF:
+	LDX.w #DATA_809FDB
+	LDY.w #$060E
+	JSR.w CODE_80A439
+	LDX.w #DATA_809FE1
+	LDY.w #$064E
+	JSR.w CODE_80A439
+	LDX.w #DATA_809FE7
+	LDY.w #$068E
+	JSR.w CODE_80A439
+	RTS
+
+DATA_809FDB:
+	db $86,$86,$86,$86,$86,$00
+
+DATA_809FE1:
+	db $87,$87,$87,$87,$87,$00
+
+DATA_809FE7:
+	db $86,$86,$86,$86,$86,$00
+
+CODE_809FED:
+	LDA.w #$7EF000>>16
+	STA.b $44
+	LDA.w #$7EF000
+	STA.b $42
+	RTS
+
+CODE_809FF8:
+	LDA.w $1CB0
+	STA.b $1E
+	LDA.w #$000F
+	STA.b $3E
+CODE_80A002:
+	LSR.b $1E
+	BCC.b CODE_80A02A
+	LDA.b $3E
+	ASL
+	ASL
+	TAX
+	LDA.l DATA_80A02F,x
+	STA.w !REGISTER_VRAMAddressLo
+	STA.b $1A
+	LDA.l DATA_80A02F+$03,x
+	AND.w #$00FF
+	PHA
+	LDA.l DATA_80A02F+$02,x
+CODE_80A020:
+	AND.w #$00FF
+	PLX
+	LDY.w #$0003
+	JSR.w CODE_80A06F
+CODE_80A02A:
+	DEC.b $3E
+	BPL.b CODE_80A002
+	RTS
+
+DATA_80A02F:
+	dw $7B01,$0005,$7B01,$6005,$7B07,$1E05,$7B07,$7E05
+	dw $7B0D,$5A01,$7B0D,$5401,$7B0D,$4E01,$7B0D,$4801
+	dw $7B0D,$4201,$7B0D,$3C01,$7B15,$5A01,$7B15,$5401
+	dw $7B15,$4E01,$7B15,$4801,$7B15,$4201,$7B15,$3C01
+
+CODE_80A06F:
+	PHA
+	STA.b $1C
+CODE_80A072:
+	LDA.l DATA_EA0694,x
+	STA.w !REGISTER_WriteToVRAMPortLo
+	INX
+	INX
+	DEC.b $1C
+	BNE.b CODE_80A072
+	LDA.b $1A
+	CLC
+	ADC.w #$0020
+	STA.b $1A
+	STA.w !REGISTER_VRAMAddressLo
+	PLA
+	DEY
+	BNE.b CODE_80A06F
+	RTS
+
+CODE_80A08F:
+	PHK
+	PLB
+	JSR.w CODE_809FED
+	LDA.w #$B06062>>16
+	STA.b $86
+	STZ.b $2E
+	LDA.w #$B06062
+	LDY.w #$3800
+	JSR.w CODE_80A0BB
+	INC.b $2E
+	LDA.w #$B062EC
+	LDY.w #$6800
+	JSR.w CODE_80A0BB
+	INC.b $2E
+	LDA.w #$B06576
+	LDY.w #$9800
+	JSR.w CODE_80A0BB
+	RTS
+
+CODE_80A0BB:
+	STZ.b $30
+	STZ.b $32
+	STA.b $84
+	STY.b $34
+	JSR.w CODE_80A0D7
+	LDA.w #$0006
+	LDY.b $34
+	JSR.w CODE_80A374
+	JSR.w CODE_80A0FA
+	BCC.b CODE_80A0D6
+	JSR.w CODE_80A374
+CODE_80A0D6:
+	RTS
+
+CODE_80A0D7:
+	LDY.w #$0005
+	LDA.b [$84],y
+	AND.w #$00FF
+	STA.b $32
+	LDY.w #$0000
+	LDA.b [$84],y
+	STA.b $30
+	BEQ.b CODE_80A0F9
+	LDA.b $32
+	CMP.w #$0002
+	BNE.b CODE_80A0F9
+	LDA.b $34
+	SEC
+	SBC.w #$0800
+	STA.b $34
+CODE_80A0F9:
+	RTS
+
+CODE_80A0FA:
+	LDA.b $32
+	CMP.w #$0002
+	BNE.b CODE_80A112
+	LDA.b $30
+	BEQ.b CODE_80A112
+	LDA.b $34
+	CLC
+	ADC.w #$1000
+	STA.b $34
+	TAY
+	LDA.w #$0142
+	SEC
+CODE_80A112:
+	RTS
+
+CODE_80A113:
+	LDA.w $0432
+	STA.b $1A
+	JSR.w CODE_80A166
+	LDA.w #$BC70
+	JSR.w CODE_80A453
+	JSR.w CODE_80A166
+	LDA.w #$C470
+	JSR.w CODE_80A453
+	JSR.w CODE_80A166
+	LDA.w #$CC70
+	JSR.w CODE_80A453
+	JSR.w CODE_80A166
+	LDA.w #$D470
+	JSR.w CODE_80A453
+	LDA.w !RAM_DKC3_Global_FrenchTextFlag
+	STA.b $1A
+	JSR.w CODE_80A177
+	LDA.w #$BCB0
+	JSR.w CODE_80A453
+	JSR.w CODE_80A177
+	LDA.w #$C4B0
+	JSR.w CODE_80A453
+	JSR.w CODE_80A177
+	LDA.w #$CCB0
+	JSR.w CODE_80A453
+	JSR.w CODE_80A177
+	LDA.w #$D4B0
+	JSR.w CODE_80A453
+	RTS
+
+CODE_80A166:
+	LDA.b $1A
+	INC.b $1A
+	AND.w #$0001
+	ASL
+	TAY
+	LDX.w DATA_80A173,y
+	RTS
+
+DATA_80A173:
+	dw DATA_80C365,DATA_80C35F
+
+CODE_80A177:
+	LDA.b $1A
+	INC.b $1A
+	AND.w #$0001
+	ASL
+	TAY
+	LDX.w DATA_80A184,y
+	RTS
+
+DATA_80A184:
+	dw DATA_80C349,DATA_80C358
+
+CODE_80A188:
+	LDX.w #DATA_80C36D
+	LDY.w #$0094
+	JSR.w CODE_80A417
+	JSR.w CODE_80A369
+	LDX.w #DATA_80C36D
+	LDY.w #$0094
+	JSR.w CODE_80A417
+	JSR.w CODE_80A369
+	LDX.w #DATA_80C36D
+	LDY.w #$0094
+	JSR.w CODE_80A417
+	RTS
+
+CODE_80A1AA:
+	JSR.w CODE_80A35A
+	LDA.w #$2400
+	STA.b $38
+	JSR.w CODE_809141
+	BCS.b CODE_80A1BD
+	LDY.w #$0000
+	TYA
+	STA.b [$84],y
+CODE_80A1BD:
+	LDY.w #$0005
+	LDA.b [$84],y
+	AND.w #$00FF
+	STA.w $1CD0
+	LDY.w #$0000
+	LDA.b [$84],y
+	STA.w $1C85
+	BEQ.b CODE_80A188
+	LDA.w #$8002
+	BIT.w $1C35
+	BNE.b CODE_80A1F9
+	LDY.w #$024C
+	JSL.l CODE_BB8585
+	LDA.w #$F000
+	STA.b $42
+	LDX.b $76
+	LDA.w $1C37
+	STA.b $6A,x
+	ASL
+	TAY
+	LDA.w DATA_80C322,y
+	STA.b $16,x
+	LDA.w $1CD0
+	STA.b $5C,x
+CODE_80A1F9:
+	LDA.w $1CD0
+	BNE.b CODE_80A211
+	JSR.w CODE_80A369
+	LDA.w #$0006
+	JSR.w CODE_80A286
+	JSR.w CODE_80A2A5
+	JSR.w CODE_80A2BE
+	JSR.w CODE_80A257
+	RTS
+
+CODE_80A211:
+	LDA.w #$0006
+	JSR.w CODE_80A286
+	JSR.w CODE_80A2A5
+	JSR.w CODE_80A2BE
+	JSR.w CODE_80A366
+	LDY.w $1CD0
+	CPY.w #$0002
+	BEQ.b CODE_80A247
+	LDA.w #$0005
+	JSR.w CODE_80A286
+	JSR.w CODE_80A2A5
+	LDX.w #DATA_80C36B
+	LDY.w #$0096
+	JSR.w CODE_80A417
+	LDX.w #$001C97
+	LDY.w #$009A
+	JSR.w CODE_80A417
+	JSR.w CODE_80A26D
+	RTS
+
+CODE_80A247:
+	LDA.w #$0142
+	JSR.w CODE_80A286
+	JSR.w CODE_80A2A5
+	JSR.w CODE_80A2BE
+	JSR.w CODE_80A26D
+	RTS
+
+CODE_80A257:
+	LDY.w $1C37
+	LDA.w DATA_80C343+$03,y
+	AND.w #$00FF
+	TAX
+	LDA.w #$FFFA
+	STA.l $7EA1B0,x
+	STA.l $7EA1B5,x
+	RTS
+
+CODE_80A26D:
+	LDY.w $1C37
+	LDA.w DATA_80C343+$03,y
+	AND.w #$00FF
+	TAX
+	LDA.w #$FFF7
+	STA.l $7EA1B0,x
+	LDA.w #$FFFD
+	STA.l $7EA1B5,x
+	RTS
+
+CODE_80A286:
+	CLC
+	ADC.b $84
+	STA.b $84
+	TAX
+	LDA.l $B00000,x
+	STA.w $1C97
+	LDA.l $B00002,x
+	STA.w $1C99
+	LDA.l $B00003,x
+	ORA.w #$8000
+	STA.w $1C9A
+	RTS
+
+CODE_80A2A5:
+	LDX.w #$001C97
+	LDY.w #$0096
+	JSR.w CODE_80A417
+	RTS
+
+CODE_80A2AF:
+	LDX.w #$1C97
+	LDA.w #$0096
+	CLC
+	ADC.w $1C95
+	TAY
+	JSR.w CODE_80A439
+	RTS
+
+CODE_80A2BE:
+	LDY.w #$000E
+	LDA.b [$84],y
+	AND.w #$00FF
+	LDX.w $1C95
+	STX.b $36
+	LDX.w #$0003
+	LDY.w #$00A2
+	JSR.w CODE_80A64A
+	LDX.w #DATA_80C369
+	LDY.w #$00A8
+	JSR.w CODE_80A417
+	RTS
+
+CODE_80A2DE:
+	LDA.w #$F000
+	STA.b $42
+	LDA.w #$0800
+	STA.b $38
+	LDX.w #$0002
+	LDA.w $0432
+	BNE.b CODE_80A2F3
+	LDX.w #$0000
+CODE_80A2F3:
+	LDY.w #$061C
+	JSR.w CODE_80A33F
+	JSR.w CODE_80A33F
+	JSR.w CODE_80A33F
+	LDX.w #$0000
+	LDA.w !RAM_DKC3_Global_FrenchTextFlag
+	BEQ.b CODE_80A312
+	LDX.w #$0002
+	CMP.w #$0001
+	BEQ.b CODE_80A312
+	LDX.w #$0004
+CODE_80A312:
+	LDY.w #$062C
+	JSR.w CODE_80A324
+	JSR.w CODE_80A324
+	JSR.w CODE_80A324
+	LDA.w #$2400
+	STA.b $38
+	RTS
+
+CODE_80A324:
+	PHX
+	PHY
+	LDA.w DATA_80A337,x
+	TAX
+	JSR.w CODE_80A41D
+	PLA
+	CLC
+	ADC.w #$0040
+	TAY
+	PLX
+	INX
+	INX
+	RTS
+
+DATA_80A337:
+	dw DATA_80C349,DATA_80C358,DATA_80C349,DATA_80C358
+
+CODE_80A33F:
+	PHX
+	PHY
+	LDA.w DATA_80A352,x
+	TAX
+	JSR.w CODE_80A41D
+	PLA
+	CLC
+	ADC.w #$0040
+	TAY
+	PLX
+	INX
+	INX
+	RTS
+
+DATA_80A352:
+	dw DATA_80C365,DATA_80C35F,DATA_80C365,DATA_80C35F
+
+CODE_80A35A:
+	LDA.w $1C37
+	ASL
+	TAY
+	LDA.w DATA_80C328,y
+	STA.w $1C95
+	RTS
+
+CODE_80A366:
+	JSR.w CODE_80A369
+CODE_80A369:
+	LDA.w $1C95
+	CLC
+	ADC.w #$0040
+	STA.w $1C95
+	RTS
+
+CODE_80A374:
+	STY.b $36
+	LDX.b $30
+	BNE.b CODE_80A37B
+	RTS
+
+CODE_80A37B:
+	CLC
+	ADC.b $84
+	STA.b $84
+	JSR.w CODE_80A697
+	LDA.b $3E
+	LDY.w #$00DD
+	LDX.w #$0002
+	JSR.w CODE_80A4B2
+	LDA.b $40
+	LDY.w #$00C9
+	LDX.w #$0002
+	JSR.w CODE_80A4B2
+	LDA.b $2E
+	CMP.w $1C37
+	BNE.b CODE_80A3A7
+	LDA.b $00
+	BIT.w #$0020
+	BNE.b CODE_80A3C2
+CODE_80A3A7:
+	LDA.w $1C81
+	PHA
+	LDA.w $1C8D
+	STA.w $1C81
+	LDA.b $36
+	CLC
+	ADC.w #$00D5
+	TAY
+	LDX.w #DATA_80C378
+	JSR.w CODE_80A52C
+	PLA
+	STA.w $1C81
+CODE_80A3C2:
+	RTS
+
+CODE_80A3C3:
+	JSR.w CODE_809731
+	LDY.w #$0000
+	LDA.b [$84],y
+	BEQ.b CODE_80A3D8
+	TYA
+	STA.b [$84],y
+	LDA.w #$8000
+	TSB.w $1C35
+	SEC
+	RTS
+
+CODE_80A3D8:
+	LDA.w #$0567
+	JSL.l CODE_B28018
+	LDA.w #$0668
+	JSL.l CODE_B28018
+	LDA.w #$0050
+CODE_80A3E9:
+	STA.w $1C87
+	LDA.w #$4000
+	TSB.w $1C35
+	CLC
+	RTS
+
+CODE_80A3F4:
+	LDA.w $1C89
+	JSR.w CODE_809734
+	LDA.b $84
+	STA.b $1A
+	LDA.b $86
+	STA.b $1C
+	JSR.w CODE_809731
+	LDY.w #$0289
+	SEP.b #$20
+CODE_80A40A:
+	LDA.b [$1A],y
+	STA.b [$84],y
+	DEY
+	BPL.b CODE_80A40A
+	REP.b #$20
+	JSR.w CODE_80A1AA
+	RTS
+
+CODE_80A417:
+	TYA
+	CLC
+	ADC.w $1C95
+	TAY
+CODE_80A41D:
+	LDA.w $0000,x
+	AND.w #$007F
+	BEQ.b CODE_80A429
+	SEC
+	SBC.w #$0020
+CODE_80A429:
+	ORA.b $38
+	STA.b [$42],y
+	INY
+	INY
+	LDA.w $0000,x
+	INX
+	BIT.w #$0080
+	BEQ.b CODE_80A41D
+	RTS
+
+CODE_80A439:
+	LDA.w $0000,x
+	AND.w #$00FF
+CODE_80A43F:
+	SEC
+	SBC.w #$0020
+	ORA.b $38
+	STA.b [$42],y
+	INY
+	INY
+	INX
+	LDA.w $0000,x
+	AND.w #$00FF
+	BNE.b CODE_80A43F
+	RTS
+
+CODE_80A453:
+	LDY.w $1C3F
+	STA.w $0000,y
+	INY
+	INY
+	TXA
+	STA.w $0000,y
+	INY
+	INY
+	STY.w $1C3F
+	RTS
+
+CODE_80A465:
+	PHK
+	PLB
+	LDX.w #$1C41
+	LDY.b $82
+CODE_80A46C:
+if !Define_DKC3_Global_RemappedBank80 == !TRUE
+	LDA.w $0000,x
+else
+	LDA.b $00,x
+endif
+	BEQ.b CODE_80A495
+	STA.b $1A
+	AND.w #$FF00
+	CMP.w #$D400
+	BEQ.b CODE_80A48F
+if !Define_DKC3_Global_RemappedBank80 == !TRUE
+	LDA.w $0002,x
+else
+	LDA.b $02,x
+endif
+	PHX
+	TAX
+CODE_80A47E:
+if !Define_DKC3_Global_RemappedBank80 == !TRUE
+	LDA.w $0000,x
+else
+	LDA.b $00,x
+endif
+	AND.w #$007F
+	JSR.w CODE_80A498
+if !Define_DKC3_Global_RemappedBank80 == !TRUE
+	LDA.w $0000,x
+else
+	LDA.b $00,x
+endif
+	INX
+	BIT.w #$0080
+	BEQ.b CODE_80A47E
+	PLX
+CODE_80A48F:
+	INX
+	INX
+	INX
+	INX
+	BRA.b CODE_80A46C
+
+CODE_80A495:
+	STY.b $82
+	RTS
+
+CODE_80A498:
+	SEC
+	SBC.w #$0020
+	ORA.w $1C81
+	STA.w $0002,y
+	LDA.b $1A
+	STA.w $0000,y
+	CLC
+	ADC.w #$0008
+	STA.b $1A
+	INY
+	INY
+	INY
+	INY
+	RTS
+
+CODE_80A4B2:
+	JSR.w CODE_80A65F
+	TYX
+CODE_80A4B6:
+	PLA
+	CLC
+	ADC.w #$0064
+	ORA.w $1C8D
+	PHY
+	LDY.b $82
+	STA.w $0002,y
+	LDA.b $1C
+	STA.w $0000,y
+	INY
+	INY
+	INY
+	INY
+	STY.b $82
+	PLY
+	CLC
+	ADC.w #$0008
+	STA.b $1C
+	INY
+	INY
+	DEX
+	BNE.b CODE_80A4B6
+	RTS
+
+CODE_80A4DC:
+	JSR.w CODE_80A65F
+	LDA.b $1C
+	CLC
+	ADC.b $42
+	STA.b $42
+	TYX
+CODE_80A4E7:
+	PLA
+	CLC
+	ADC.w #$000F
+	JSR.w CODE_80A4F8
+	DEX
+	BNE.b CODE_80A4E7
+	LDA.w #$F000
+	STA.b $42
+	RTS
+
+CODE_80A4F8:
+	BMI.b CODE_80A50C
+	TAY
+	LDA.b [$46],y
+	AND.w #$00FF
+	ASL
+	ORA.w $1CAE
+	STA.b [$42]
+	INC
+	LDY.w #$0040
+	STA.b [$42],y
+CODE_80A50C:
+	INC.b $42
+	INC.b $42
+	RTS
+
+CODE_80A511:
+	STY.b $1A
+	LDY.b $82
+CODE_80A515:
+	LDA.b $00,x
+	AND.w #$007F
+	SEC
+	SBC.w #$0020
+	JSR.w CODE_80A498
+	LDA.b $00,x
+	INX
+	BIT.w #$0080
+	BEQ.b CODE_80A515
+	STY.b $82
+	RTS
+
+CODE_80A52C:
+	STY.b $1A
+	LDY.b $82
+if !Define_DKC3_Global_RemappedBank80 == !TRUE
+	LDA.w $0000,x
+else
+	LDA.b $00,x
+endif
+	AND.w #$00FF
+CODE_80A535:
+	SEC
+	SBC.w #$0020
+	JSR.w CODE_80A498
+	INX
+if !Define_DKC3_Global_RemappedBank80 == !TRUE
+	LDA.w $0000,x
+else
+	LDA.b $00,x
+endif
+	AND.w #$00FF
+	BNE.b CODE_80A535
+	STY.b $82
+	RTS
+
+CODE_80A547:
+	LDA.w $1CAE
+	PHA
+	TYA
+	CLC
+	ADC.b $42
+	CLC
+	ADC.b $36
+	STA.b $42
+CODE_80A554:
+if !Define_DKC3_Global_RemappedBank80 == !TRUE
+	LDA.w $0000,x
+else
+	LDA.b $00,x
+endif
+	AND.w #$007F
+	CMP.w #$005F
+	BNE.b CODE_80A561
+	LDA.w #$003E
+CODE_80A561:
+	SEC
+	SBC.w #$0021
+	JSR.w CODE_80A4F8
+if !Define_DKC3_Global_RemappedBank80 == !TRUE
+	LDA.w $0000,x
+else
+	LDA.b $00,x
+endif
+	AND.w #$00FF
+	CMP.w #$005E
+	BNE.b CODE_80A578
+	LDY.w #$3400
+	STY.w $1CAE
+CODE_80A578:
+	INX
+	BIT.w #$0080
+	BEQ.b CODE_80A554
+	PLA
+	STA.w $1CAE
+	LDA.w #$F000
+	STA.b $42
+	RTS
+
+CODE_80A588:
+	JSR.w CODE_80A58C
+	RTL
+
+CODE_80A58C:
+	TYA
+	CLC
+	ADC.b $42
+	CLC
+	ADC.b $36
+	STA.b $42
+	LDA.l $7EA7BA,x
+	CLC
+	ADC.w #$A9DE
+	TAX
+CODE_80A59E:
+	LDA.l $7E0000,x
+	AND.w #$00FF
+CODE_80A5A5:
+	CMP.w #$005F
+	BNE.b CODE_80A5AD
+	LDA.w #$003E
+CODE_80A5AD:
+	SEC
+	SBC.w #$0021
+	JSR.w CODE_80A4F8
+	INX
+	LDA.l $7E0000,x
+	AND.w #$00FF
+	BNE.b CODE_80A5A5
+	LDA.w #$F000
+	STA.b $42
+	RTS
+
+CODE_80A5C4:
+	LDA.l $7EA7BA,x
+	CLC
+	ADC.w #$A9DE
+	TAX
+CODE_80A5CD:
+	LDY.w #$FFFF
+CODE_80A5D0:
+	LDA.l $7E0000,x
+	INX
+	INY
+	AND.w #$00FF
+	BNE.b CODE_80A5D0
+	STY.b $1A
+	RTS
+
+CODE_80A5DE:
+	STY.b $1C
+	PHX
+	JSR.w CODE_80A5C4
+	PLX
+	LDA.w #$0020
+	SEC
+	SBC.b $1A
+	AND.w #$FFFE
+	CLC
+	ADC.b $1C
+	TAY
+	RTS
+
+CODE_80A5F3:
+	STY.b $1C
+	PHX
+	JSR.w CODE_80A5CD
+	PLX
+	LDA.w #$0020
+	SEC
+	SBC.b $1A
+	AND.w #$FFFE
+	CLC
+	ADC.b $1C
+	TAY
+	RTS
+
+CODE_80A608:
+	LDY.b $82
+	LDX.w $1C93
+	LDA.w $04C4
+	BNE.b CODE_80A615
+	LDX.w #$0500
+CODE_80A615:
+	STX.b $1C
+	LDA.w $1C37
+	ASL
+	TAX
+	LDA.w DATA_80A644,x
+	STA.b $1A
+	LDX.w #$0005
+CODE_80A624:
+	LDA.b $1A
+	CLC
+	ADC.b $1C
+	STA.w $0000,y
+	LDA.w #$31FF
+	STA.w $0002,y
+	INY
+	INY
+	INY
+	INY
+	LDA.b $1A
+	CLC
+	ADC.w #$0008
+	STA.b $1A
+	DEX
+	BNE.b CODE_80A624
+	STY.b $82
+	RTS
+
+DATA_80A644:
+	dw $3858,$6858,$9858
+
+CODE_80A64A:
+	JSR.w CODE_80A65F
+	TYX
+	LDY.b $1C
+CODE_80A650:
+	PLA
+	CLC
+	ADC.w #$0010
+	ORA.b $38
+	STA.b [$42],y
+	INY
+	INY
+	DEX
+	BNE.b CODE_80A650
+	RTS
+
+CODE_80A65F:
+	STA.b $1E
+	STX.b $20
+	PLA
+	STA.b $22
+	TYA
+	CLC
+	ADC.b $36
+	STA.b $1C
+	LDY.w #$0000
+	LDA.b $1E
+	LDX.w #$000A
+CODE_80A674:
+	SEP.b #$10
+	STA.w !REGISTER_DividendLo
+	STX.w !REGISTER_Divisor
+	REP.b #$10
+	LDA.w !REGISTER_ProductOrRemainderLo
+	LDA.w !REGISTER_ProductOrRemainderLo
+	LDA.w !REGISTER_ProductOrRemainderLo
+	LDA.w !REGISTER_ProductOrRemainderLo
+	PHA
+	INY
+	LDA.w !REGISTER_QuotientLo
+	DEC.b $20
+	BNE.b CODE_80A674
+	LDA.b $22
+	PHA
+	RTS
+
+CODE_80A697:
+	LDY.w #$000A
+	LDA.b [$84],y
+	STA.b $1A
+	STA.b $26
+	LDY.w #$000C
+	LDA.b [$84],y
+	STA.b $1C
+	STA.b $28
+CODE_80A6A9:
+	LDA.w #$003C
+	STA.b $1E
+	JSR.w CODE_80A729
+	LDA.b $20
+	STA.b $1A
+	LDA.b $22
+	STA.b $1C
+	LDA.w #$003C
+	STA.b $1E
+	JSR.w CODE_80A729
+	LDA.b $20
+	STA.b $1A
+	LDA.b $22
+	STA.b $1C
+	LDA.w #$003C
+	STA.b $1E
+	JSR.w CODE_80A729
+	LDA.b $20
+	STA.b $40
+	LDA.b $20
+	SEP.b #$20
+	STA.w !REGISTER_Mode7MatrixParameterB
+	LDA.b #$78
+	STA.w !REGISTER_Mode7MatrixParameterA
+	LDA.b #$69
+	STA.w !REGISTER_Mode7MatrixParameterA
+	REP.b #$20
+	LDA.w !REGISTER_PPUMultiplicationProductLo
+	STA.b $1A
+	LDA.w !REGISTER_PPUMultiplicationProductHi
+	AND.w #$00FF
+	ASL.b $1A
+	ROL
+	ASL.b $1A
+	ROL
+	ASL.b $1A
+	ROL
+	STA.b $1C
+	LDA.b $26
+	SEC
+	SBC.b $1A
+	STA.b $1A
+	LDA.b $28
+	SBC.b $1C
+	STA.b $1C
+	LDA.w #$003C
+	STA.b $1E
+	JSR.w CODE_80A729
+	LDA.b $20
+	STA.b $1A
+	LDA.b $22
+	STA.b $1C
+	LDA.w #$003C
+	STA.b $1E
+	JSR.w CODE_80A729
+	LDA.b $20
+	STA.b $3E
+	SEC
+	RTS
+
+CODE_80A729:
+	STZ.b $1F
+	STZ.b $21
+	STZ.b $23
+	LDA.b $1C
+	STA.w !REGISTER_DividendLo
+	SEP.b #$20
+	LDA.b $1E
+	STA.w !REGISTER_Divisor
+	REP.b #$20
+	LDA.w !REGISTER_QuotientLo
+	LDA.w !REGISTER_QuotientLo
+	LDA.w !REGISTER_QuotientLo
+	LDA.w !REGISTER_QuotientLo
+	STA.b $22
+	LDA.w !REGISTER_ProductOrRemainderLo
+	XBA
+	EOR.b $1B
+	AND.w #$FF00
+	EOR.b $1B
+	STA.w !REGISTER_DividendLo
+	SEP.b #$20
+	LDA.b $1E
+	STA.w !REGISTER_Divisor
+	REP.b #$20
+	LDA.w !REGISTER_QuotientLo
+	LDA.w !REGISTER_QuotientLo
+	LDA.w !REGISTER_QuotientLo
+	LDA.w !REGISTER_QuotientLo
+	CLC
+	ADC.b $21
+	STA.b $21
+	LDA.w #$0000
+	ADC.b $23
+	STA.b $23
+	LDA.w !REGISTER_ProductOrRemainderLo
+	XBA
+	EOR.b $1A
+	AND.w #$FF00
+	EOR.b $1A
+	STA.w !REGISTER_DividendLo
+	SEP.b #$20
+	LDA.b $1E
+	STA.w !REGISTER_Divisor
+	REP.b #$20
+	LDA.w !REGISTER_QuotientLo
+	LDA.w !REGISTER_QuotientLo
+	LDA.w !REGISTER_QuotientLo
+	LDA.w !REGISTER_QuotientLo
+	CLC
+	ADC.b $20
+	STA.b $20
+	LDA.w #$0000
+	ADC.b $22
+	STA.b $22
+	RTS
+
+CODE_80A7AA:
+	STZ.w !REGISTER_VRAMAddressLo
+	LDA.w #DATA_FC14A0
+	STA.b $42
+	LDA.w #DATA_FC14A0>>16
+	STA.b $44
+	LDA.w #$0064
+	STA.w $1C83
+	LDY.w #$0000
+CODE_80A7C0:
+	LDX.w #$0008
+CODE_80A7C3:
+	LDA.b [$42],y
+	STA.w !REGISTER_WriteToVRAMPortLo
+	INY
+	INY
+	DEX
+	BNE.b CODE_80A7C3
+	STZ.w !REGISTER_WriteToVRAMPortLo
+	STZ.w !REGISTER_WriteToVRAMPortLo
+	STZ.w !REGISTER_WriteToVRAMPortLo
+	STZ.w !REGISTER_WriteToVRAMPortLo
+	STZ.w !REGISTER_WriteToVRAMPortLo
+	STZ.w !REGISTER_WriteToVRAMPortLo
+	STZ.w !REGISTER_WriteToVRAMPortLo
+	STZ.w !REGISTER_WriteToVRAMPortLo
+	DEC.w $1C83
+	BNE.b CODE_80A7C0
+	RTS
+
+DKC3_NorSpr01B0_FileSelectNumber_Main:
+;$80A7EB
+	JMP.w (DATA_80A7EE,x)
+
+DATA_80A7EE:
+	dw CODE_80A7F2
+	dw CODE_80A804
+
+CODE_80A7F2:
+	TYX
+	INC.b $38,x
+	LDX.b $5C,y
+	LDA.w #$001C
+CODE_80A7FA:
+	CLC
+	ADC.w #$0030
+	DEX
+	BPL.b CODE_80A7FA
+	STA.w $0016,y
+CODE_80A804:
+	LDX.w $1CB2
+	BEQ.b CODE_80A81A
+	LDA.b $6A,x
+	CMP.w $005C,y
+	BNE.b CODE_80A81A
+	LDA.b $12,x
+	STA.w $0012,y
+	LDA.b $16,x
+	STA.w $0016,y
+CODE_80A81A:
+	LDA.w $005C,y
+	CLC
+	ADC.w #$006F
+	ORA.w $1C81
+	ORA.w #$3000
+	STA.b $1A
+	LDX.b $82
+	LDA.w $0012,y
+	SEP.b #$20
+	SEC
+	SBC.b #$30
+	XBA
+	ORA.w $0016,y
+	SEC
+	SBC.b #$16
+	XBA
+	REP.b #$20
+	STA.b $00,x
+	LDA.b $1A
+	STA.b $02,x
+	INX
+	INX
+	INX
+	INX
+	STX.b $82
+	JMP.w [$04F5]
+
+DKC3_NorSpr0330_FileSelectIcon_Main:
+;$80A84C
+	JMP.w (DATA_80A84F,x)
+
+DATA_80A84F:
+	dw CODE_80A85F
+	dw CODE_80A862
+	dw CODE_80A8A5
+	dw CODE_80A8DA
+	dw CODE_80A914
+	dw CODE_80A922
+	dw CODE_80AA0D
+	dw CODE_80AA66
+
+CODE_80A85F:
+	JSR.w CODE_80AB28
+CODE_80A862:
+	LDA.w $006A,y
+	CMP.w $1C37
+	BNE.b CODE_80A8A2
+	LDA.w #$8000
+	TRB.w $1C35
+	BEQ.b CODE_80A876
+	JSL.l CODE_BB8591
+CODE_80A876:
+	LDA.w #$0200
+	TRB.w $1C35
+	BEQ.b CODE_80A8A2
+	LDA.w $1C37
+	JSR.w CODE_809DB7
+	LDA.w #$0015
+	STA.w $0062,y
+	STY.w $1CB2
+	LDA.w #$0006
+	STA.w $0038,y
+	STZ.b $00
+	LDA.w #$0100
+	TSB.w $1C35
+	LDA.w #$0769
+	JSL.l CODE_B28012
+CODE_80A8A2:
+	JMP.w [$04F5]
+
+CODE_80A8A5:
+	TYX
+	LDA.w #$FA00
+	STA.b $2A,x
+	STA.b $30,x
+	LDA.w #$0040
+	STA.b $5E,x
+	LDA.w #$0070
+	STA.b $4C,x
+	LDA.w #$00A0
+	STA.b $4E,x
+	STA.b $0E,x
+	LDA.w #$0030
+	JSR.w CODE_80A3E9
+	JSR.w CODE_80AB28
+	INC.b $38,x
+	LDY.b $6A,x
+	BEQ.b CODE_80A914
+CODE_80A8CD:
+	JSR.w CODE_80A9A9
+	DEY
+	STY.b $0E,x
+	BNE.b CODE_80A8CD
+	JSR.w CODE_80A9CB
+	BRA.b CODE_80A914
+
+CODE_80A8DA:
+	TYX
+	LDA.b $6A,x
+	CMP.w $1C8F
+	BEQ.b CODE_80A8E7
+	JSR.w CODE_80A9CB
+	BRA.b CODE_80A8EA
+
+CODE_80A8E7:
+	JSR.w CODE_80A9EC
+CODE_80A8EA:
+	LDA.w #$0010
+	JSR.w CODE_80A3E9
+	LDA.b $12,x
+	STA.b $0E,x
+	CMP.w $1C91
+	BNE.b CODE_80A90B
+	LDA.b $2A,x
+	BPL.b CODE_80A8FF
+	STZ.b $0E,x
+CODE_80A8FF:
+	EOR.w #$FFFF
+	INC
+	CMP.w #$8000
+	ROL
+	STA.b $2A,x
+	STA.b $30,x
+CODE_80A90B:
+	INC.b $38,x
+	LDA.w #$0565
+	JSL.l CODE_B28012
+CODE_80A914:
+	LDA.w #$0012
+	JSL.l CODE_B9E003
+	BCS.b CODE_80A920
+	JMP.w [$04F5]
+
+CODE_80A920:
+	INC.b $38,x
+CODE_80A922:
+	TYX
+	LDA.w #$0080
+	BIT.w $1C35
+	BEQ.b CODE_80A96C
+	LDA.w $1C8F
+	CMP.b $6A,x
+	BNE.b CODE_80A965
+	TAY
+	STY.w $04C4
+	LDA.w #$0001
+	STA.b $38,x
+	LDA.w $1C37
+	STA.b $6A,x
+	CPY.w #$0000
+	BNE.b CODE_80A94A
+	JSR.w CODE_80A257
+	BRA.b CODE_80A94D
+
+CODE_80A94A:
+	JSR.w CODE_80A26D
+CODE_80A94D:
+	LDY.w #$0014
+	LDA.w $1C8F
+	BEQ.b CODE_80A958
+	LDY.w #$0010
+CODE_80A958:
+	JSR.w CODE_809E0F
+	LDA.w #$0666
+	JSL.l CODE_B28012
+	JMP.w [$04F5]
+
+CODE_80A965:
+	JSL.l CODE_BB8591
+	JMP.w [$04F5]
+
+CODE_80A96C:
+	LDA.w $04CE
+	BIT.w #$0200
+	BEQ.b CODE_80A98C
+	JSR.w CODE_80A9A9
+	LDA.w #$0003
+	STA.b $38,x
+	LDA.w #$0400
+	STA.b $2A,x
+	STA.b $30,x
+	LDA.w #$00A0
+	STA.w $1C91
+	JMP.w [$04F5]
+
+CODE_80A98C:
+	BIT.w #$0100
+	BEQ.b CODE_80A9A6
+	JSR.w CODE_80A9BA
+	LDA.w #$0003
+	STA.b $38,x
+	LDA.w #$FC00
+	STA.b $2A,x
+	STA.b $30,x
+	LDA.w #$0040
+	STA.w $1C91
+CODE_80A9A6:
+	JMP.w [$04F5]
+
+CODE_80A9A9:
+	LDA.b $5E,x
+	STA.b $1A
+	LDA.b $4C,x
+	STA.b $5E,x
+	LDA.b $4E,x
+	STA.b $4C,x
+	LDA.b $1A
+	STA.b $4E,x
+	RTS
+
+CODE_80A9BA:
+	LDA.b $4E,x
+	STA.b $1A
+	LDA.b $4C,x
+	STA.b $4E,x
+	LDA.b $5E,x
+	STA.b $4C,x
+	LDA.b $1A
+	STA.b $5E,x
+	RTS
+
+CODE_80A9CB:
+	LDA.w $1CAC
+	EOR.b $1E,x
+	AND.w #$0E00
+	EOR.b $1E,x
+	STA.b $1E,x
+	LDA.w $1CA8
+	AND.w #$0E00
+	ORA.w #$8002
+	STA.b $1A
+	EOR.b $26,x
+	AND.w #$4000
+	EOR.b $1A
+	STA.b $26,x
+	RTS
+
+CODE_80A9EC:
+	LDA.w $1CAA
+	EOR.b $1E,x
+	AND.w #$0E00
+	EOR.b $1E,x
+	STA.b $1E,x
+	LDA.w $1CA6
+	AND.w #$0E00
+	ORA.w #$8002
+	STA.b $1A
+	EOR.b $26,x
+	AND.w #$4000
+	EOR.b $1A
+	STA.b $26,x
+	RTS
+
+CODE_80AA0D:
+	TYX
+	DEC.b $62,x
+	BNE.b CODE_80AA3E
+	LDA.w $1C37
+	ASL
+	ASL
+	TAX
+	SEP.b #$20
+	LDA.l $7EA1F4,x
+	PHA
+	LDA.l $7EA1F6,x
+	STA.l $7EA1F4,x
+	PLA
+	STA.l $7EA1F6,x
+	REP.b #$20
+	TYX
+	LDA.w #$000C
+	STA.b $62,x
+	INC.b $38,x
+	LDA.w #$0100
+	TSB.w $1C35
+	BRA.b CODE_80AA48
+
+CODE_80AA3E:
+	DEC.b $16,x
+	LDA.w #$0100
+	TRB.w $1C35
+	BNE.b CODE_80AA4B
+CODE_80AA48:
+	JSR.w CODE_80AA89
+CODE_80AA4B:
+	LDA.b $00
+	BIT.w #$0003
+	BNE.b CODE_80AA55
+	JSR.w CODE_80AB05
+CODE_80AA55:
+	LDA.b $00
+	AND.w #$0003
+	EOR.w #$0003
+	BNE.b CODE_80AA63
+	LDX.b $70
+	INC.b $12,x
+CODE_80AA63:
+	JMP.w [$04F5]
+
+CODE_80AA66:
+	TYX
+	DEC.b $62,x
+	BNE.b CODE_80AA79
+	LDA.w #$0001
+	STA.b $38,x
+	LDA.w #$820F
+	JSL.l set_fade
+	BRA.b CODE_80AA83
+
+CODE_80AA79:
+	INC.b $16,x
+	LDA.w #$0100
+	TRB.w $1C35
+	BNE.b CODE_80AA86
+CODE_80AA83:
+	JSR.w CODE_80AAC7
+CODE_80AA86:
+	JMP.w [$04F5]
+
+CODE_80AA89:
+	LDY.b $6A,x
+	LDA.w DATA_80C343,y
+	AND.w #$00FF
+	TAX
+	LDA.l $7EA18C,x
+	INC
+	STA.l $7EA18C,x
+	LDA.w DATA_80C343+$03,y
+	AND.w #$00FF
+	TAX
+	LDA.l $7EA1B0,x
+	INC
+	STA.l $7EA1B0,x
+	LDA.l $7EA1B5,x
+	INC
+	STA.l $7EA1B5,x
+	LDA.l $7EA1AD,x
+	DEC
+	STA.l $7EA1AD,x
+	LDA.l $7EA1B2,x
+	INC
+	STA.l $7EA1B2,x
+	RTS
+
+CODE_80AAC7:
+	LDY.b $6A,x
+	LDA.w DATA_80C343,y
+	AND.w #$00FF
+	TAX
+	LDA.l $7EA18C,x
+	DEC
+	STA.l $7EA18C,x
+	LDA.w DATA_80C343+$03,y
+	AND.w #$00FF
+	TAX
+	LDA.l $7EA1B0,x
+	DEC
+	STA.l $7EA1B0,x
+	LDA.l $7EA1B5,x
+	DEC
+	STA.l $7EA1B5,x
+	LDA.l $7EA1AD,x
+	INC
+	STA.l $7EA1AD,x
+	LDA.l $7EA1B2,x
+	DEC
+	STA.l $7EA1B2,x
+	RTS
+
+CODE_80AB05:
+	LDA.l $7EA1AE,x
+	DEC
+	STA.l $7EA1AE,x
+	LDA.l $7EA1B3,x
+	DEC
+	STA.l $7EA1B3,x
+	LDA.w DATA_80C343,y
+	AND.w #$00FF
+	TAX
+	LDA.l $7EA18A,x
+	DEC
+	STA.l $7EA18A,x
+	RTS
+
+CODE_80AB28:
+	TYX
+	INC.b $38,x
+	LDA.b $5C,x
+	ASL
+	ASL
+	CLC
+	ADC.b $5C,x
+	CLC
+	ADC.b $24,x
+	STA.b $24,x
+	RTS
+
+DKC3_NorSpr01A8_UnknownSprite01A8_Main:
+;$80AB38
+	LDA.w #$4000
+	BIT.w $1C35
+	BNE.b CODE_80AB43
+	JSR.w (DATA_80AB46,x)
+CODE_80AB43:
+	JMP.w [$04F5]
+
+DATA_80AB46:
+	dw CODE_80AB50
+	dw CODE_80AB82
+	dw CODE_80AB98
+	dw CODE_80ABFE
+	dw CODE_80AC14
+
+CODE_80AB50:
+	TYX
+	INC.b $38,x
+	STZ.w $04DA
+	JSR.w CODE_80A35A
+	LDA.w $04C4
+	BNE.b CODE_80AB61
+	JSR.w CODE_80A369
+CODE_80AB61:
+	LDA.w #$0028
+	LDX.w !RAM_DKC3_Global_FrenchTextFlag
+	CPX.w #$0002
+	BNE.b CODE_80AB6F
+	LDA.w #$0029
+CODE_80AB6F:
+	STA.w $1C9E
+	JSR.w CODE_80AC66
+	STZ.w $1C91
+	STZ.w $1C93
+	LDA.w #$0003
+	STA.w $1C3B
+	RTS
+
+CODE_80AB82:
+	LDA.w #$0F00
+	STA.w $1D83
+	JSR.w CODE_80B28E
+	JSR.w CODE_80AC76
+	JSR.w CODE_80AC9C
+	JSR.w CODE_80A2AF
+	JSR.w CODE_80ACBE
+	RTS
+
+CODE_80AB98:
+	JSL.l CODE_808411
+	LDA.w #$0002
+	BIT.w $1C35
+	BNE.b CODE_80ABC9
+	LDA.w $1CA0
+	CMP.w #$0027
+	BNE.b CODE_80ABBE
+	LDA.w #$4944
+	STA.w $1C97
+	LDA.w #$4958
+	STA.w $1C99
+	LDA.w #$00C5
+	STA.w $1C9B
+CODE_80ABBE:
+	LDX.w #$0000
+	JSR.w CODE_80ADB2
+	LDA.w $04C4
+	BNE.b CODE_80ABD4
+CODE_80ABC9:
+	LDA.w #$0040
+	TSB.w $1C35
+	JSL.l CODE_BB8591
+	RTS
+
+CODE_80ABD4:
+	LDA.w #$0666
+	JSL.l CODE_B28012
+	TYX
+	INC.b $38,x
+	JSR.w CODE_80AC66
+	STZ.w $1C91
+	LDA.w #$0080
+	TSB.w $1C35
+	JSR.w CODE_80A366
+	LDA.w #$0001
+	STA.w $04C6
+	INC
+	STA.w $05B3
+	LDY.w #$0012
+	JSR.w CODE_809E0F
+	RTS
+
+CODE_80ABFE:
+	LDA.w #$0F00
+	STA.w $1D83
+	JSR.w CODE_80B28E
+	JSR.w CODE_80AC76
+	JSR.w CODE_80AC9C
+	JSR.w CODE_80A2AF
+	JSR.w CODE_80ACBE
+	RTS
+
+CODE_80AC14:
+	STZ.w $04C6
+	LDA.w #$0001
+	STA.w $05B3
+	LDA.w $04C4
+	CMP.w #$0002
+	BEQ.b CODE_80AC2D
+	LDX.w #$0005
+	JSR.w CODE_80AC48
+	BRA.b CODE_80AC3D
+
+CODE_80AC2D:
+	JSR.w CODE_80939D
+	JSL.l CODE_808411
+	LDX.w #$0000
+	JSR.w CODE_80AC48
+	JSR.w CODE_80939D
+CODE_80AC3D:
+	LDA.w #$0040
+	TSB.w $1C35
+	JSL.l CODE_BB8591
+	RTS
+
+CODE_80AC48:
+	LDA.w $1CA0
+	CMP.w #$0027
+	BNE.b CODE_80AC62
+	LDA.w #$494B
+	STA.w $1C97
+	LDA.w #$4444
+	STA.w $1C99
+	LDA.w #$00D9
+	STA.w $1C9B
+CODE_80AC62:
+	JSR.w CODE_80ADB2
+	RTS
+
+CODE_80AC66:
+	STZ.w $1CA2
+	LDA.w #$2700
+	STA.w $1CA4
+	LDA.w #$0001
+	STA.w $1CA0
+	RTS
+
+CODE_80AC76:
+	SEP.b #$30
+	LDX.b #$05
+CODE_80AC7A:
+	LDY.w $1CA0,x
+	LDA.w DATA_80C650,y
+	BNE.b CODE_80AC84
+	LDA.b #$20
+CODE_80AC84:
+	STA.w $1C97,x
+	DEX
+	BPL.b CODE_80AC7A
+	LDX.w $1C91
+	CPX.b #$05
+	BEQ.b CODE_80AC96
+	LDA.b #$20
+	STA.w $1C9C
+CODE_80AC96:
+	STZ.w $1C9D
+	REP.b #$30
+	RTS
+
+CODE_80AC9C:
+	LDA.w $04D6
+	BNE.b CODE_80ACBD
+	LDA.b $00
+	BIT.w #$0008
+	BNE.b CODE_80ACBD
+	LDX.w $1C91
+	SEP.b #$30
+	LDY.w $1C97,x
+	LDA.b #$20
+	CPY.b #$20
+	BNE.b CODE_80ACB8
+	LDA.b #$2A
+CODE_80ACB8:
+	STA.w $1C97,x
+	REP.b #$30
+CODE_80ACBD:
+	RTS
+
+CODE_80ACBE:
+	LDX.w $1C91
+	CPX.w #$0005
+	BNE.b CODE_80ACD8
+	LDA.w $1D83
+	BIT.w #$0F00
+	BEQ.b CODE_80ACD8
+	LDA.w $1CA0,x
+	EOR.w #$0001
+	STA.w $1CA0,x
+	RTS
+
+CODE_80ACD8:
+	LDA.w $1D83
+	BIT.w #$0900
+	BEQ.b CODE_80ACFA
+	SEP.b #$20
+	LDA.w $1CA0,x
+	INC
+	CMP.w $1C9E
+	BCC.b CODE_80ACED
+	LDA.b #$01
+CODE_80ACED:
+	STA.w $1CA0,x
+	REP.b #$20
+	LDA.w #$0565
+	JSL.l CODE_B28012
+	RTS
+
+CODE_80ACFA:
+	BIT.w #$0600
+	BEQ.b CODE_80AD1A
+	SEP.b #$20
+	LDA.w $1CA0,x
+	BEQ.b CODE_80AD10
+	DEC
+	BNE.b CODE_80AD0D
+	LDA.w $1C9E
+	DEC
+CODE_80AD0D:
+	STA.w $1CA0,x
+CODE_80AD10:
+	REP.b #$20
+	LDA.w #$0565
+	JSL.l CODE_B28012
+	RTS
+
+CODE_80AD1A:
+	LDA.w $04DA
+	BIT.w #$8080
+	BEQ.b CODE_80AD59
+	JSR.w CODE_80AD67
+	BCS.b CODE_80AD51
+	LDA.w $1C91
+	INC
+	CMP.w #$0006
+	BCS.b CODE_80AD92
+	CMP.w #$0005
+	BCC.b CODE_80AD3E
+	SEP.b #$10
+	LDX.b #$27
+	STX.w $1CA5
+	REP.b #$10
+CODE_80AD3E:
+	STA.w $1C91
+	TAX
+	SEP.b #$20
+	LDA.w $1CA0,x
+	BNE.b CODE_80AD4F
+	LDA.w $1C9F,x
+	STA.w $1CA0,x
+CODE_80AD4F:
+	REP.b #$20
+CODE_80AD51:
+	LDA.w #$0666
+	JSL.l CODE_B28012
+	RTS
+
+CODE_80AD59:
+	BIT.w #$1000
+	BNE.b CODE_80AD92
+	BIT.w #$0200
+	BEQ.b CODE_80AD66
+	DEC.w $1C91
+CODE_80AD66:
+	RTS
+
+CODE_80AD67:
+	LDX.w $1C91
+	LDA.w $1CA0,x
+	AND.w #$00FF
+	CMP.w #$0026
+	BNE.b CODE_80AD8D
+	SEP.b #$20
+	LDA.w $1C91
+	DEC
+	BMI.b CODE_80AD87
+	STA.w $1C91
+	CMP.b #$04
+	BEQ.b CODE_80AD87
+	STZ.w $1CA0,x
+CODE_80AD87:
+	REP.b #$20
+	SEC
+	RTS
+
+CODE_80AD8B:
+	CLC
+	RTS
+
+CODE_80AD8D:
+	CMP.w #$0027
+	BNE.b CODE_80AD8B
+CODE_80AD92:
+	LDX.w $1C91
+	LDA.w #$0027
+	STA.w $1CA0,x
+	LDA.w #$0020
+	STA.w $1C97,x
+	LDA.w #$0A00
+	STA.w $1C93
+	LDA.w #$0080
+	TRB.w $1C35
+	LDX.b $70
+	INC.b $38,x
+	RTS
+
+CODE_80ADB2:
+	LDA.w $1C97
+	STA.w $05D9,x
+	LDA.w $1C98
+	STA.w $05DA,x
+	LDA.w $1C9A
+	STA.w $05DC,x
+	TXA
+	CLC
+	ADC.w $1C91
+	TAX
+	BEQ.b CODE_80ADD5
+	LDA.w $05D8,x
+	ORA.w #$0080
+	STA.w $05D8,x
+CODE_80ADD5:
+	SEP.b #$20
+	LDA.b #$A0
+	STA.w $1C9C
+	REP.b #$20
+	JSR.w CODE_809FED
+	JSR.w CODE_80A2A5
+	LDY.b $70
+	RTS
+
+DKC3_NorSpr0068_PlayModeText_Main:
+;$80ADE7
+	JMP.w (DATA_80ADEA,x)
+
+DATA_80ADEA:
+	dw CODE_80ADEE
+	dw CODE_80ADF5
+
+CODE_80ADEE:
+	TYX
+	INC.b $38,x
+	LDA.b $24,x
+	STA.b $5C,x
+CODE_80ADF5:
+	TYX
+	LDA.w $1C3B
+	ASL
+	ASL
+	TAY
+	CLC
+	ADC.w $1C3B
+	CLC
+	ADC.b $5C,x
+	STA.b $24,x
+	LDA.w DATA_80C32E,y
+	STA.b $12,x
+	LDA.w DATA_80C32E+$02,y
+	STA.b $1A
+	LDA.w $1C37
+	ASL
+	TAY
+	LDA.w DATA_80C322,y
+	CLC
+	ADC.b $1A
+	STA.b $16,x
+	LDA.w #$2000
+	BIT.w $1C35
+	BNE.b CODE_80AE35
+	LDA.b $00
+	BIT.w #$0010
+	BNE.b CODE_80AE32
+	LDA.b $12,x
+	EOR.w #$0100
+	STA.b $12,x
+CODE_80AE32:
+	JMP.w [$04F5]
+
+CODE_80AE35:
+	LDA.b $12,x
+	ORA.w #$0100
+	STA.b $12,x
+	BRA.b CODE_80AE32
+
+CODE_80AE3E:
+	JSR.w CODE_809437
+	LDA.w #$00CF
+	JSL.l CODE_BB859A
+	ORA.w #$3000
+	CLC
+	ADC.w #$01C0
+	STA.b $B4
+	LDA.w #$002A
+	JSL.l vram_payload_handler_global
+	LDA.w #$0028
+	JSL.l set_PPU_registers_global
+	STZ.w !REGISTER_BG1And2WindowMaskSettings
+	LDA.w #$002E
+	LDX.w #$0020
+	LDY.w #$0000
+	JSL.l CODE_BB856D
+	LDX.w #$7EF000
+	LDY.w #$7EF000>>16
+	LDA.w #$0800
+	JSL.l CODE_808CEC
+	SEP.b #$20
+	LDX.w #(!REGISTER_ColorMathInitialSettings&$0000FF<<8)+$01
+	STX.w HDMA[$01].Parameters
+	LDX.w #$7EA15A
+	STX.w HDMA[$01].SourceLo
+	LDA.b #$7EA15A>>16
+	STA.w HDMA[$01].SourceBank
+	STA.w HDMA[$01].IndirectSourceBank
+	LDX.w #(!REGISTER_MainScreenLayers&$0000FF<<8)+$01
+	STX.w HDMA[$02].Parameters
+	LDX.w #$7EA164
+	STX.w HDMA[$02].SourceLo
+	LDA.b #$7EA164>>16
+	STA.w HDMA[$02].SourceBank
+	STA.w HDMA[$02].IndirectSourceBank
+	REP.b #$20
+	LDA.w #$0601
+	STA.w $04E4
+	LDA.w #$0020
+	STA.l $7EA15A
+	LDA.w #$0102
+	STA.l $7EA15B
+	LDA.w #$0060
+	STA.l $7EA15D
+	LDA.w #$0102
+	STA.l $7EA15E
+	LDA.w #$0060
+	STA.l $7EA160
+	LDA.w #$4102
+	STA.l $7EA161
+	LDA.w #$0000
+	STA.l $7EA163
+	STA.l $7EA16D
+	LDA.w #$0050
+	STA.l $7EA164
+	STA.l $7EA167
+	STA.l $7EA16A
+	LDA.w #$1605
+	STA.l $7EA165
+	STA.l $7EA168
+	LDA.w #$1201
+	STA.l $7EA16B
+	LDA.w #$0020
+	BIT.w $05B1
+	BEQ.b CODE_80AF0F
+	JSR.w CODE_8091A9
+CODE_80AF0F:
+	LDA.w #$0001
+	STA.w $06DA
+	JSR.w CODE_80AF3E
+	JSL.l CODE_808799
+	JSL.l CODE_808799
+	JSL.l CODE_808799
+	JSL.l CODE_808799
+	LDA.w #$0200
+	JSL.l set_fade
+	LDA.w #$0001
+	TRB.w $05AF
+	LDA.w #CODE_80B1ED
+	LDX.w #CODE_80B1ED>>16
+	JMP.w CODE_8083C3
+
+CODE_80AF3E:
+	LDA.w #DATA_B6F42C
+	STA.b $46
+	LDA.w #DATA_B6F42C>>16
+	STA.b $48
+	STZ.b $36
+	LDX.w #$3EFF
+	JSR.w CODE_80B040
+	LDA.w #$2000
+	STA.w $1CAE
+	STZ.w $1CC8
+	LDA.w $04C4
+	BEQ.b CODE_80AFA9
+	CMP.w #$0002
+	BEQ.b CODE_80AF7A
+	LDX.w #$05D9
+	JSR.w CODE_80B054
+	LDX.w #$C649
+	JSR.w CODE_80B054
+	LDX.w #$05DE
+	JSR.w CODE_80B054
+	JSR.w CODE_80B076
+	BRA.b CODE_80AFB2
+
+CODE_80AF7A:
+	LDA.w $04C6
+	PHA
+	BEQ.b CODE_80AF83
+	JSR.w CODE_80939D
+CODE_80AF83:
+	LDX.w #$05D9
+	JSR.w CODE_80B054
+	LDX.w #$C64C
+	JSR.w CODE_80B054
+	JSR.w CODE_80939D
+	LDX.w #$05D9
+	JSR.w CODE_80B054
+	JSR.w CODE_80939D
+	PLA
+	BEQ.b CODE_80AFA1
+	JSR.w CODE_80939D
+CODE_80AFA1:
+	JSR.w CODE_809FED
+	JSR.w CODE_80B076
+	BRA.b CODE_80AFDF
+
+CODE_80AFA9:
+	LDX.w #$05D9
+	JSR.w CODE_80B054
+	JSR.w CODE_80B076
+CODE_80AFB2:
+	LDA.w #$3800
+	STA.w $1CAE
+	LDA.w #$0000
+	JSR.w CODE_80B098
+	LDA.w #$0102
+	STA.l $7EA161
+	LDA.w #$FFD3
+	STA.w $1973
+	SEP.b #$20
+	STA.w !REGISTER_BG2VertScrollOffset
+	XBA
+	STA.w !REGISTER_BG2VertScrollOffset
+	XBA
+	STA.w !REGISTER_BG3VertScrollOffset
+	XBA
+	STA.w !REGISTER_BG3VertScrollOffset
+	REP.b #$20
+	RTS
+
+CODE_80AFDF:
+	LDA.w #$3800
+	STA.w $1CAE
+	LDA.w $05B1
+	PHA
+	LDA.w $04C6
+	PHA
+	BEQ.b CODE_80AFFD
+	LDA.w #$0102
+	STA.l $7EA161
+	LDA.w #$4102
+	STA.l $7EA15E
+CODE_80AFFD:
+	JSR.w CODE_8093AD
+	LDA.w #$0000
+	JSR.w CODE_80B098
+	JSR.w CODE_8093BA
+	JSR.w CODE_809FED
+	LDA.w #$0300
+	JSR.w CODE_80B098
+	PLA
+	STA.w $04C6
+	JSR.w CODE_8093FF
+	PLA
+	STA.w $05B1
+	LDA.w #$FFFF
+	STA.w $1973
+	LDA.w #$0020
+	BIT.w $05B1
+	BNE.b CODE_80B039
+	LDA.w #$0102
+	STA.l $7EA161
+	LDA.w #$0102
+	STA.l $7EA15E
+CODE_80B039:
+	LDA.w #$0201
+	STA.w $04E4
+	RTS
+
+CODE_80B040:
+	JSR.w CODE_809FED
+	TXA
+	LDX.w #$F000
+	LDY.w #$0400
+CODE_80B04A:
+	STA.l $7E0000,x
+	INX
+	INX
+	DEY
+	BPL.b CODE_80B04A
+	RTS
+
+CODE_80B054:
+	SEP.b #$20
+	LDY.w $1CC8
+	LDA.b $00,x
+	BIT.b #$80
+	BNE.b CODE_80B06A
+CODE_80B05F:
+	STA.w $1CB4,y
+	INY
+	INX
+	LDA.b $00,x
+	BIT.b #$80
+	BEQ.b CODE_80B05F
+CODE_80B06A:
+	AND.b #$7F
+	STA.w $1CB4,y
+	INY
+	STY.w $1CC8
+	REP.b #$20
+	RTS
+
+CODE_80B076:
+	LDY.w $1CC8
+	LDA.w $1CB3,y
+	ORA.w #$0080
+	STA.w $1CB3,y
+	LDA.w #$0020
+	SEC
+	SBC.w $1CC8
+	AND.w #$00FE
+	CLC
+	ADC.w #$0040
+	TAY
+	LDX.w #$001CB4
+	JSR.w CODE_80A547
+	RTS
+
+CODE_80B098:
+	STA.b $36
+	LSR
+	LSR
+	LSR
+	STA.b $34
+	JSR.w CODE_809FED
+	LDA.b $C2
+	STA.b $1A
+	STA.b $26
+	LDA.b $C4
+	STA.b $1C
+	STA.b $28
+	JSR.w CODE_80A6A9
+	LDA.b $40
+	LDX.w #$0002
+	LDY.w #$0110
+	JSR.w CODE_80A4DC
+	LDA.b $3E
+	LDX.w #$0002
+	LDY.w #$0116
+	JSR.w CODE_80A4DC
+	JSR.w CODE_80B18E
+	LDX.w #$0003
+	LDY.w #$011E
+	JSR.w CODE_80A4DC
+	LDX.w #DATA_80C647
+	LDY.w #$0114
+	JSR.w CODE_80A547
+	LDX.w #DATA_80C648
+	LDY.w #$0124
+	JSR.w CODE_80A547
+	LDA.w $05CF
+	LDX.w #$0002
+	LDY.w #$012E
+	JSR.w CODE_80A4DC
+	LDA.w $05C9
+	LDX.w #$0002
+	LDY.w #$01CE
+	JSR.w CODE_80A4DC
+	LDA.w $05CB
+	LDX.w #$0002
+	LDY.w #$01DA
+	JSR.w CODE_80A4DC
+	LDA.w $05CD
+	LDX.w #$0002
+	LDY.w #$01E6
+	JSR.w CODE_80A4DC
+	LDX.w #$0003
+CODE_80B118:
+	TXA
+	PHX
+	ASL
+	TAX
+	LDY.w DATA_80C31A,x
+	JSL.l CODE_BB85B8
+	LDX.b $76
+	LDA.b $16,x
+	CLC
+	ADC.b $34
+	STA.b $16,x
+	JSL.l CODE_B38006
+	STZ.w $1560
+	STZ.w $155E
+	PLX
+	DEX
+	BPL.b CODE_80B118
+	LDY.w #$0264
+	JSL.l CODE_BB85B5
+	LDX.b $76
+	LDA.w #$00BD
+	STA.b $12,x
+	LDA.w #$0039
+	CLC
+	ADC.b $34
+	STA.b $16,x
+	LDA.w $0603
+	STA.b $5E,x
+	LDY.w #$0260
+	JSL.l CODE_BB85B8
+	LDX.b $76
+	LDA.b $16,x
+	CLC
+	ADC.b $34
+	STA.b $16,x
+	LDY.w #$025C
+	JSL.l CODE_BB85B8
+	LDX.b $76
+	STX.w $18E7
+	LDA.w $0605
+	STA.b $68,x
+	LDA.w $0607
+	STA.b $6A,x
+	LDA.w #$00C8
+	STA.b $12,x
+	LDA.w #$005B
+	CLC
+	ADC.b $34
+	STA.b $16,x
+	LDA.w #$0200
+	STA.b $38,x
+	RTS
+
+CODE_80B18E:
+	STZ.b $1A
+	LDX.w #$004C
+CODE_80B193:
+	LDA.w $0632,x
+	BIT.w #$0002
+	BEQ.b CODE_80B19D
+	INC.b $1A
+CODE_80B19D:
+	AND.w #$001C
+	EOR.w #$001C
+	BNE.b CODE_80B1A7
+	INC.b $1A
+CODE_80B1A7:
+	DEX
+	CPX.w #$0010
+	BCS.b CODE_80B193
+	DEC.b $1A
+	LDA.w $0655
+	BIT.w #$0002
+	BEQ.b CODE_80B1B9
+	INC.b $1A
+CODE_80B1B9:
+	BIT.w #$0200
+	BEQ.b CODE_80B1C0
+	INC.b $1A
+CODE_80B1C0:
+	LDA.w #$0040
+	BIT.w $05B1
+	BEQ.b CODE_80B1CA
+	INC.b $1A
+CODE_80B1CA:
+	LDA.b $1A
+	CMP.w #$0067
+	BNE.b CODE_80B1EA
+	LDA.w $06A1
+	AND.w #$C000
+	BNE.b CODE_80B1DB
+	INC.b $1A
+CODE_80B1DB:
+	LDA.w $06A1
+	AND.w #$8080
+	EOR.w #$8080
+	BNE.b CODE_80B1EA
+	INC.b $1A
+	INC.b $1A
+CODE_80B1EA:
+	LDA.b $1A
+	RTS
+
+CODE_80B1ED:
+	LDA.w $04E4
+	STA.w !REGISTER_DMAEnable
+	LDX.w #$7400
+	STX.w !REGISTER_VRAMAddressLo
+	LDA.w #$7EF000
+	STA.w DMA[$00].SourceLo
+	STA.w DMA[$00].Unused2
+	LDA.w #$0800
+	STA.w DMA[$00].SizeLo
+	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01
+	STA.w DMA[$00].Parameters
+	SEP.b #$20
+	LDA.b #$7EF000>>16
+	STA.w DMA[$00].SourceBank
+	LDA.b #$01
+	STA.w !REGISTER_DMAEnable
+	REP.b #$20
+	JSL.l CODE_B38006
+	JSL.l CODE_808799
+	SEP.b #$20
+	LDA.w $04EC
+	STA.w !REGISTER_ScreenDisplayRegister
+	REP.b #$20
+	STZ.w $1560
+	STZ.w $155E
+	LDA.w $04EC
+	BIT.w #$FF00
+	BNE.b CODE_80B24C
+	JSL.l CODE_8089CA
+	LDA.w $04DA
+	AND.w #$9180
+	BEQ.b CODE_80B24C
+	JSL.l CODE_B8807E
+CODE_80B24C:
+	JSL.l CODE_B7800C
+	JSL.l CODE_BB85C1
+	JSL.l CODE_B7800F
+	JSL.l CODE_80898C
+	JSR.w CODE_809741
+	BEQ.b CODE_80B264
+	JMP.w CODE_808384
+
+CODE_80B264:
+	LDA.w #$0020
+	BIT.w $05B1
+	BNE.b CODE_80B282
+	LDA.w #$0500
+	JSL.l CODE_B28012
+	LDA.w #$0020
+	TSB.w $05B1
+	LDA.w #CODE_809489
+	LDX.w #CODE_809489>>16
+	JMP.w CODE_8083C3
+
+CODE_80B282:
+	STZ.w $05E3
+	LDA.w #CODE_B48000
+	LDX.w #CODE_B48000>>16
+	JMP.w CODE_8083C3
+
+CODE_80B28E:
+	LDA.w $04D6
+	AND.w $1D83
+	BNE.b CODE_80B29A
+	STZ.w $1D83
+	RTS
+
+CODE_80B29A:
+	LDA.w $04DA
+	AND.w $1D83
+	BNE.b CODE_80B2BE
+	LDA.w $1D81
+	BEQ.b CODE_80B2AE
+	DEC.w $1D81
+	STZ.w $1D83
+	RTS
+
+CODE_80B2AE:
+	LDA.w #$0002
+	STA.w $1D81
+	LDA.w $04D6
+	AND.w $1D83
+	STA.w $1D83
+	RTS
+
+CODE_80B2BE:
+	STA.w $1D83
+	LDA.w #$0010
+	STA.w $1D81
+	RTS
+
+CODE_80B2C8:
+	PHK
+	PLB
+	LDA.w #$4001
+	TRB.w $05AF
+	STZ.b $7E
+	LDA.w #$1D93
+	STA.w $0541
+	LDA.w #$0040
+	STA.w $053D
+	LDA.w $05E3
+	ASL
+	ASL
+	ASL
+	TAX
+	LDA.w DATA_80C679+$06,x
+	BMI.b CODE_80B32B
+	STA.w $051D
+	LDA.w DATA_80C679+$04,x
+	AND.w #$00FF
+	STA.b !RAM_DKC3_Global_CurrentLevelLo
+	STZ.w $05B7
+	LDA.w DATA_80C679+$02,x
+	SEC
+	SBC.w #$039A
+	STA.b $BE
+	LDA.w DATA_80C679+$05,x
+	AND.w #$00FF
+	BEQ.b CODE_80B31B
+	STA.b $BA
+	LDA.w #CODE_80B378
+	STA.b $4E
+	LDA.w #CODE_80B378>>16
+	STA.b $50
+	LDA.w #CODE_808370
+	JMP.w CODE_80839D
+
+CODE_80B31B:
+	LDA.w #CODE_808493
+	STA.b $4E
+	LDA.w #CODE_808493>>16
+	STA.b $50
+	LDA.w #CODE_8083CC
+	JMP.w CODE_80839D
+
+CODE_80B32B:
+	LDX.w #CODE_80B33D
+	LDY.w #CODE_80B33D>>16
+	STX.b $4E
+	STY.b $50
+	STZ.b $00
+	LDA.w #CODE_808370
+	JMP.w CODE_80839D
+
+CODE_80B33D:
+	LDA.b $00
+	BIT.w #$0040
+	BNE.b CODE_80B363
+	BIT.w #$000F
+	BNE.b CODE_80B358
+	AND.w #$0030
+	LSR
+	LSR
+	LSR
+	TAX
+	LDA.l DATA_80B35B,x
+	JSL.l CODE_B28027
+CODE_80B358:
+	JMP.w CODE_808387
+
+DATA_80B35B:
+	dw $0763,$0764,$077E,$077F
+
+CODE_80B363:
+	LDA.w #$0004
+	STA.b $BA
+	LDX.w #CODE_B284D6
+	LDY.w #CODE_B284D6>>16
+	STX.b $4E
+	STY.b $50
+	LDA.w #CODE_808370
+	JMP.w CODE_80839D
+
+CODE_80B378:
+	PHK
+	PLB
+	JSL.l disable_screen_wrapper
+	JSL.l init_registers_global
+	JSL.l clear_vram_global
+	JSL.l CODE_808CB0
+	JSL.l CODE_BB857F
+	LDA.w #$000200
+	STA.w DMA[$00].SourceLo
+	STA.w DMA[$00].Unused2
+	LDA.w #$0220
+	STA.w DMA[$00].SizeLo
+	LDA.w #(!REGISTER_OAMDataWritePort&$0000FF<<8)+$00
+	STA.w DMA[$00].Parameters
+	SEP.b #$20
+	STZ.w DMA[$00].SourceBank
+	LDA.b #$01
+	STA.w !REGISTER_DMAEnable
+	REP.b #$20
+	LDA.w #$0001
+	TRB.w $05AF
+	LDA.w #$1300
+	STA.b $80
+	LDA.w #$0001
+	STA.w $04E4
+	LDA.w #$000F
+	JSL.l CODE_BB859A
+	ORA.w #$3000
+	CLC
+	ADC.w #$01C0
+	STA.b $B4
+	LDA.w #$1000
+	TSB.w $05B1
+	BNE.b CODE_80B413
+	LDA.w #!Define_DKC3_MusicID_BaddiesOnParade
+	JSL.l CODE_B28009
+	LDA.w #$8000
+	TSB.w $05AF
+	STZ.w $05E3
+	LDA.w #$004D
+	LDY.w #$0000
+	LDX.w #$0008
+	JSL.l CODE_BB856D
+	LDA.w #$0038
+	JSL.l vram_payload_handler_global
+	LDA.w #$0031
+	JSL.l set_PPU_registers_global
+	LDA.w #$FFFC
+	SEP.b #$20
+	STA.w !REGISTER_BG1HorizScrollOffset
+	XBA
+	STA.w !REGISTER_BG1HorizScrollOffset
+	REP.b #$20
+	BRA.b CODE_80B44D
+
+CODE_80B413:
+	LDA.w #$004E
+	LDY.w #$0010
+	LDX.w #$0004
+	JSL.l CODE_BB856D
+	LDA.w #$0039
+	JSL.l vram_payload_handler_global
+	LDA.w #$0031
+	JSL.l set_PPU_registers_global
+	JSR.w CODE_80957A
+	LDY.w #$032A
+	JSL.l CODE_BB8588
+	LDA.b $BA
+	DEC
+	ASL
+	CLC
+	ADC.w #$003A
+	TAX
+	LDY.w #$FFDF
+	JSR.w CODE_809F29
+	LDA.w #$1D93
+	STA.w $0541
+CODE_80B44D:
+	LDA.w #$0200
+	JSL.l set_fade
+	LDA.w #CODE_80B45D
+	LDX.w #CODE_80B45D>>16
+	JMP.w CODE_8083C3
+
+CODE_80B45D:
+	LDA.w $04E4
+	STA.w !REGISTER_DMAEnable
+	JSL.l CODE_B38006
+	JSL.l CODE_808799
+	SEP.b #$20
+	LDA.w $04EC
+	STA.w !REGISTER_ScreenDisplayRegister
+	REP.b #$20
+	STZ.w $1560
+	STZ.w $155E
+	JSL.l CODE_BB85C1
+	LDA.b $F4
+	CMP.w #$012C
+	BCC.b CODE_80B48A
+	JSL.l CODE_B8807E
+CODE_80B48A:
+	JSL.l CODE_B7800C
+	JSL.l CODE_B6804B
+	JSL.l CODE_80898C
+	JSR.w CODE_809741
+	BEQ.b CODE_80B49E
+	JMP.w CODE_808384
+
+CODE_80B49E:
+	LDA.b $BA
+	CMP.w #$00FF
+	BEQ.b CODE_80B4B5
+	LDA.w #CODE_808493
+	STA.b $4E
+	LDA.w #CODE_808493>>16
+	STA.b $50
+	LDA.w #CODE_8083CC
+	JMP.w CODE_80839D
+
+CODE_80B4B5:
+	INC.w $05E3
+	LDA.w #CODE_80B2C8
+	STA.b $4E
+	LDA.w #CODE_80B2C8>>16
+	STA.b $50
+	LDA.w #CODE_808362
+	JMP.w CODE_80839D
+
+CODE_80B4C8:
+	JSL.l CODE_8092EB
+	STZ.w $053F
+	JSR.w CODE_80B18E
+	LDA.w #$0800
+	TSB.w $05B1
+	LDA.w #$0040
+	BIT.w $05B1
+	BEQ.b CODE_80B4E8
+	LDA.w #$0080
+	BIT.w $05B1
+	BEQ.b CODE_80B539
+CODE_80B4E8:
+	LDA.w #$FFF0
+	STA.b $1C
+	LDX.w #$0040
+CODE_80B4F0:
+	LDA.l $B06021,x
+	AND.w #$00FF
+	CMP.b $1A
+	BMI.b CODE_80B511
+	BNE.b CODE_80B521
+	LDA.l $B0601F,x
+	CMP.b $C4
+	BEQ.b CODE_80B509
+	BPL.b CODE_80B511
+	BRA.b CODE_80B521
+
+CODE_80B509:
+	LDA.l $B0601D,x
+	CMP.b $C2
+	BMI.b CODE_80B521
+CODE_80B511:
+	LDA.b $1C
+	CLC
+	ADC.w #$0010
+	STA.b $1C
+	TXA
+	SEC
+	SBC.w #$0010
+	TAX
+	BPL.b CODE_80B4F0
+CODE_80B521:
+	LDA.b $1C
+	BMI.b CODE_80B539
+	JSR.w CODE_80B53B
+	JSR.w CODE_80BBCB
+	LDA.b $3E
+	STA.l $B0600E
+	LDA.b $40
+	STA.l $B06010
+	SEC
+	RTL
+
+CODE_80B539:
+	CLC
+	RTL
+
+CODE_80B53B:
+	PHX
+	STX.b $3E
+	LDA.w #$0040
+	SEC
+	SBC.b $3E
+	LSR
+	LSR
+	LSR
+	LSR
+	STA.w $053F
+	LDX.w #$B06051
+	LDY.w #$B06061
+	LDA.b $1C
+	BEQ.b CODE_80B55B
+	DEC
+	MVP $B06061>>16,$B06051>>16
+	PHK
+	PLB
+CODE_80B55B:
+	PLA
+	CLC
+	ADC.w #$0010
+	TAX
+	LDA.b $1A
+	SEP.b #$20
+	STA.l $B06021,x
+	REP.b #$20
+	LDA.b $C2
+	STA.l $B0601D,x
+	LDA.b $C4
+	STA.l $B0601F,x
+	LDA.w $04C4
+	STA.l $B06012,x
+	LDY.w #$0000
+	INX
+CODE_80B582:
+	LDA.w $05D9,y
+	STA.l $B06012,x
+	INX
+	INX
+	INY
+	INY
+	CPY.w #$000A
+	BCC.b CODE_80B582
+	RTS
+
+CODE_80B593:
+	PHK
+	PLB
+	JSR.w CODE_809437
+	LDA.w #!Define_DKC3_MusicID_DixieBeat
+	JSL.l CODE_B28009
+	LDA.w #$000F
+	JSL.l CODE_BB859A
+	ORA.w #$3000
+	CLC
+	ADC.w #$01C0
+	STA.b $B4
+	LDA.w #$002A
+	JSL.l vram_payload_handler_global
+	LDA.w #$0028
+	JSL.l set_PPU_registers_global
+	LDA.w #$1201
+	STA.w !REGISTER_MainScreenLayers
+	LDA.w #$0102
+	STA.w !REGISTER_ColorMathInitialSettings
+	LDA.w #$002E
+	LDX.w #$0020
+	LDY.w #$0000
+	JSL.l CODE_BB856D
+	LDX.w #$7EF000
+	LDY.w #$7EF000>>16
+	LDA.w #$0800
+	JSL.l CODE_808CEC
+	JSR.w CODE_80B926
+	LDA.w #$7001
+	STA.w $04E4
+	JSR.w CODE_80B98B
+	JSR.w CODE_80957A
+	LDA.w #$0001
+	TRB.w $05AF
+	LDA.b $BA
+	ASL
+	TAX
+	JMP.w (DATA_80B5FF,x)
+
+DATA_80B5FF:
+	dw CODE_80B9CD
+	dw CODE_80B7FD
+	dw CODE_80B9CD
+
+CODE_80B605:
+	LDA.w $04E4
+	STA.w !REGISTER_DMAEnable
+	JSL.l CODE_B38006
+	JSL.l CODE_808799
+	LDA.w $1D39
+	CMP.w #$008F
+	BNE.b CODE_80B648
+	LDA.w #$1717
+	STA.w !REGISTER_MainScreenWindowMask
+	LDA.w #$3333
+	STA.w !REGISTER_BG1And2WindowMaskSettings
+	STA.w !REGISTER_BG3And4WindowMaskSettings
+	SEP.b #$20
+	STZ.w !REGISTER_BG1HorizScrollOffset
+	STZ.w !REGISTER_BG1HorizScrollOffset
+	STZ.w !REGISTER_BG2HorizScrollOffset
+	STZ.w !REGISTER_BG2HorizScrollOffset
+	STZ.w !REGISTER_BG2VertScrollOffset
+	STZ.w !REGISTER_BG2VertScrollOffset
+	LDA.b #$FF
+	STA.w !REGISTER_BG1VertScrollOffset
+	STA.w !REGISTER_BG1VertScrollOffset
+	REP.b #$20
+CODE_80B648:
+	SEP.b #$20
+	LDA.w $04EC
+	STA.w !REGISTER_ScreenDisplayRegister
+	REP.b #$20
+	STZ.w $1560
+	STZ.w $155E
+	LDA.w $04EC
+	BIT.w #$FF00
+	BNE.b CODE_80B682
+	LDA.w $1D39
+	BNE.b CODE_80B682
+	JSL.l CODE_8089CA
+	LDA.w $04DA
+	AND.w #$9080
+	BEQ.b CODE_80B682
+	JSR.w CODE_80BC90
+	LDA.w #$0090
+	STA.w $1D39
+	LDA.w #$8001
+	STA.w $04E4
+	STZ.b $F4
+CODE_80B682:
+	LDA.w $1D39
+	BEQ.b CODE_80B6B5
+	CMP.w #$0002
+	BCC.b CODE_80B6C7
+	JSL.l CODE_B284D3
+	LDA.w $1D39
+	LDX.w $1D35
+	CPX.w #$0068
+	BCC.b CODE_80B6A7
+	CMP.w #$0028
+	BCS.b CODE_80B6A7
+	LDX.b $F4
+	CPX.w #$0140
+	BCC.b CODE_80B6C7
+CODE_80B6A7:
+	DEC.w $1D39
+	CMP.w #$0010
+	BCS.b CODE_80B6C7
+	JSL.l CODE_B8807E
+	BRA.b CODE_80B6C7
+
+CODE_80B6B5:
+	JSR.w CODE_80B96B
+	JSL.l CODE_808C60
+	AND.w #$00FF
+	BNE.b CODE_80B6C4
+	JSR.w CODE_80B98B
+CODE_80B6C4:
+	JSR.w CODE_80B9AC
+CODE_80B6C7:
+	JSL.l CODE_BB85C1
+	JSL.l CODE_B7800C
+	JSL.l CODE_B6804B
+	JSL.l CODE_B7800F
+	JSL.l CODE_80898C
+	JSR.w CODE_809741
+	BEQ.b CODE_80B6F3
+	LDA.b $F4
+	CMP.w #$0A00
+	BCC.b CODE_80B6F0
+	LDA.w #$0000
+	JSL.l CODE_B2800F
+	STZ.b $F4
+CODE_80B6F0:
+	JMP.w CODE_808384
+
+CODE_80B6F3:
+	LDA.w $04C4
+	CMP.w #$0002
+	BNE.b CODE_80B711
+	LDA.w $061D
+	AND.w #$4000
+	PHA
+	JSL.l CODE_8092EB
+	JSL.l CODE_809399
+	PLA
+	TSB.w $061D
+	JMP.w CODE_8096C2
+
+CODE_80B711:
+	JMP.w CODE_8082EC
+
+CODE_80B714:
+	LDA.w $04E4
+	STA.w !REGISTER_DMAEnable
+	LDX.w #$75C0
+	STX.w !REGISTER_VRAMAddressLo
+	LDA.w #$7EF200
+	STA.w DMA[$00].SourceLo
+	STA.w DMA[$00].Unused2
+	LDA.w #$0380
+	STA.w DMA[$00].SizeLo
+	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01
+	STA.w DMA[$00].Parameters
+	SEP.b #$20
+	LDA.b #$7EF200>>16
+	STA.w DMA[$00].SourceBank
+	LDA.b #$01
+	STA.w !REGISTER_DMAEnable
+	REP.b #$20
+	JSL.l CODE_B38006
+	JSL.l CODE_808799
+	SEP.b #$20
+	LDA.w $04EC
+	STA.w !REGISTER_ScreenDisplayRegister
+	REP.b #$20
+	STZ.w $1560
+	STZ.w $155E
+	JSR.w CODE_80B96B
+	JSL.l CODE_808C60
+	AND.w #$01FF
+	BNE.b CODE_80B76D
+	LDA.w #$0002
+	STA.w $1C3D
+CODE_80B76D:
+	JSR.w CODE_80B9AC
+	LDA.w $04EC
+	BIT.w #$FF00
+	BNE.b CODE_80B7D5
+	JSL.l CODE_8089CA
+	LDA.w $04DA
+	AND.w #$1000
+	BEQ.b CODE_80B788
+	JSL.l CODE_B8807E
+CODE_80B788:
+	LDA.w #$0C00
+	STA.w $1D83
+	JSR.w CODE_80B28E
+	LDA.w $1D83
+	BIT.w #$0400
+	BEQ.b CODE_80B7AD
+	LDA.w $1CCA
+	CLC
+	ADC.w #$0004
+	CMP.w #$008C
+	BCS.b CODE_80B7D5
+	STA.w $1CCA
+	JSR.w CODE_80B8D6
+	BRA.b CODE_80B7D5
+
+CODE_80B7AD:
+	BIT.w #$0800
+	BEQ.b CODE_80B7C3
+	LDA.w $1CCA
+	SEC
+	SBC.w #$0004
+	BMI.b CODE_80B7D5
+	STA.w $1CCA
+	JSR.w CODE_80B8D6
+	BRA.b CODE_80B7D5
+
+CODE_80B7C3:
+	LDA.w $04DA
+	BIT.w #$8080
+	BEQ.b CODE_80B7D5
+	LDY.w $1CCA
+	LDA.w DATA_80C385+$0A,y
+	JSL.l CODE_B2800C
+CODE_80B7D5:
+	JSL.l CODE_BB85C1
+	JSL.l CODE_B7800C
+	JSL.l CODE_B7800F
+	JSL.l CODE_80898C
+	JSR.w CODE_809741
+	BEQ.b CODE_80B7ED
+	JMP.w CODE_808384
+
+CODE_80B7ED:
+	LDX.w #CODE_809489
+	LDY.w #CODE_809489>>16
+	LDA.w #CODE_808370
+	STX.b $4E
+	STY.b $50
+	JMP.w CODE_80839D
+
+CODE_80B7FD:
+	LDA.w #DATA_B6F42C
+	STA.b $46
+	LDA.w #DATA_B6F42C>>16
+	STA.b $48
+	STZ.b $36
+	LDX.w #$3EFF
+	JSR.w CODE_80B040
+	LDX.w #$7400
+	STX.w !REGISTER_VRAMAddressLo
+	LDA.w #$7EF000
+	STA.w DMA[$00].SourceLo
+	STA.w DMA[$00].Unused2
+	LDA.w #$0800
+	STA.w DMA[$00].SizeLo
+	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01
+	STA.w DMA[$00].Parameters
+	SEP.b #$20
+	LDA.b #$7EF000>>16
+	STA.w DMA[$00].SourceBank
+	LDA.b #$01
+	STA.w !REGISTER_DMAEnable
+	REP.b #$20
+	LDA.w #$0001
+	TSB.w $04E4
+	LDY.w #$0286
+	JSL.l CODE_BB8588
+	LDA.w #$0007
+	STA.w $1CCA
+CODE_80B84B:
+	LDY.w #$0284
+	JSL.l CODE_BB85B8
+	LDX.b $76
+	LDA.w $1CCA
+	STA.b $5C,x
+	DEC.w $1CCA
+	BPL.b CODE_80B84B
+	LDA.w #$0036
+	JSL.l vram_payload_handler_global
+	LDY.w #$7440
+	STY.b $1A
+CODE_80B86A:
+	STY.w !REGISTER_VRAMAddressLo
+	LDA.w !REGISTER_ReadFromVRAMPortLo
+	CLC
+	ADC.w #$0078
+	LDY.b $1A
+	STY.w !REGISTER_VRAMAddressLo
+	STA.w !REGISTER_WriteToVRAMPortLo
+	INY
+	STY.b $1A
+	CPY.w #$75C0
+	BCC.b CODE_80B86A
+	LDA.w #$001E
+	LDX.w #$0004
+	LDY.w #$0000
+	JSL.l CODE_BB856D
+	STZ.w $1CCA
+	JSR.w CODE_80B8D6
+	LDA.w #$0200
+	JSL.l set_fade
+	LDA.w #CODE_80B714
+	LDX.w #CODE_80B714>>16
+	JMP.w CODE_8083C3
+
+CODE_80B8A7:
+	PHX
+	LDY.w #$0000
+CODE_80B8AB:
+	LDA.w $0000,x
+	INX
+	INY
+	BIT.w #$0080
+	BEQ.b CODE_80B8AB
+	PLX
+	STY.b $1A
+	LDA.w #$0020
+	SEC
+	SBC.b $1A
+	AND.w #$00FE
+	TAY
+	RTS
+
+CODE_80B8C3:
+	LDA.w #$3EFF
+	LDY.w #$0600
+	LDX.w #$0200
+CODE_80B8CC:
+	STA.l $7EF000,x
+	INX
+	INX
+	DEY
+	BNE.b CODE_80B8CC
+	RTS
+
+CODE_80B8D6:
+	LDA.w #$007E
+	STA.b $44
+	LDA.w #$F000
+	STA.b $42
+	STZ.w $1CCC
+	LDA.w #$3400
+	STA.w $1CAE
+	LDA.w #$0200
+	STA.b $36
+	JSR.w CODE_80B8C3
+	LDA.w $1CCC
+CODE_80B8F4:
+	ASL
+	ASL
+	CLC
+	ADC.w $1CCA
+	TAY
+	LDX.w DATA_80C385,y
+	JSR.w CODE_80B8A7
+	JSR.w CODE_80A547
+	LDA.b $36
+	CLC
+	ADC.w #$0080
+	STA.b $36
+	INC.w $1CCC
+	LDA.w $1CCC
+	LDX.w #$3400
+	CMP.w #$0002
+	BNE.b CODE_80B91D
+	LDX.w #$3800
+CODE_80B91D:
+	STX.w $1CAE
+	CMP.w #$0005
+	BCC.b CODE_80B8F4
+	RTS
+
+CODE_80B926:
+	SEP.b #$20
+	LDX.w #(!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$42
+	STX.w HDMA[$04].Parameters
+	LDX.w #DATA_80C20E
+	STX.w HDMA[$04].SourceLo
+	LDA.b #DATA_80C20E>>16
+	STA.w HDMA[$04].SourceBank
+	LDA.b #$7E
+	STA.w HDMA[$04].IndirectSourceBank
+	LDX.w #(!REGISTER_BG2VertScrollOffset&$0000FF<<8)+$42
+	STX.w HDMA[$06].Parameters
+	LDX.w #DATA_80C20E
+	STX.w HDMA[$06].SourceLo
+	LDA.b #DATA_80C20E>>16
+	STA.w HDMA[$06].SourceBank
+	LDA.b #$7E
+	STA.w HDMA[$06].IndirectSourceBank
+	LDX.w #(!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$01
+	STX.w HDMA[$05].Parameters
+	LDX.w #DATA_80C215
+	STX.w HDMA[$05].SourceLo
+	LDA.b #DATA_80C215>>16
+	STA.w HDMA[$05].SourceBank
+	STA.w HDMA[$05].IndirectSourceBank
+	REP.b #$20
+	RTS
+
+CODE_80B96B:
+	LDY.w #$007F
+	LDX.w #$0000
+CODE_80B971:
+	LDA.l $7EA15A,x
+	CMP.w #$8000
+	ROR
+	CMP.w #$FFFF
+	BNE.b CODE_80B981
+	LDA.w #$0000
+CODE_80B981:
+	STA.l $7EA15A,x
+	INX
+	INX
+	DEY
+	BPL.b CODE_80B971
+	RTS
+
+CODE_80B98B:
+	LDY.w #$007F
+	LDX.w #$0000
+CODE_80B991:
+	JSL.l CODE_808C60
+	STA.l $7EA15A,x
+	INX
+	INX
+	DEY
+	BPL.b CODE_80B991
+	LDA.w #$0002
+	STA.w $1C3D
+	LDA.w #$0665
+	JSL.l CODE_B28012
+	RTS
+
+CODE_80B9AC:
+	LDX.w $1C3D
+	INX
+	INX
+	CPX.w #$00FF
+	BCS.b CODE_80B9B9
+	STX.w $1C3D
+CODE_80B9B9:
+	LDA.l $7EA15C,x
+	INC
+	INC
+	STA.l $7EA15C,x
+	LDA.l $7EA15A,x
+	DEC
+	STA.l $7EA15A,x
+	RTS
+
+CODE_80B9CD:
+	LDA.w #DATA_B6F42C
+	STA.b $46
+	LDA.w #DATA_B6F42C>>16
+	STA.b $48
+	STZ.b $36
+	LDX.w #$3EFF
+	JSR.w CODE_80B040
+	LDA.w #$2000
+	STA.w $1CAE
+	LDA.w #$0211
+	STA.w !REGISTER_MainScreenLayers
+	LDX.w #$001E
+	LDY.w #$0080
+	JSR.w CODE_80A5DE
+	JSR.w CODE_80A58C
+	JSR.w CODE_80BC55
+	LDX.w #$0020
+	LDY.w #$FFDF
+	JSR.w CODE_809F29
+	STX.w $15EC
+	JSR.w CODE_80B18E
+	STA.w $1D35
+	LDX.w #$FFFF
+	LDY.w #$0020
+	SEP.b #$20
+CODE_80BA14:
+	INY
+	INY
+	INX
+	CMP.w DATA_80C37A,x
+	BCC.b CODE_80BA14
+	REP.b #$20
+	LDA.w $06A1
+	BIT.w #$001A
+	BEQ.b CODE_80BA29
+	LDY.w #$0038
+CODE_80BA29:
+	TYX
+	LDY.w $15EC
+	DEY
+	JSR.w CODE_809F29
+	LDA.w $04C4
+	CMP.w #$0001
+	BNE.b CODE_80BA40
+	LDA.w #$0053
+	STA.l $7E0000,x
+CODE_80BA40:
+	LDX.w #$FFE0
+	LDY.w #$F600
+	JSR.w CODE_80A5F3
+	STY.b $42
+	JSR.w CODE_80A59E
+	LDA.w #$3400
+	STA.w $1CAE
+	LDA.w #$04C0
+	STA.b $36
+	STZ.w $1CC8
+	LDX.w #$0004
+CODE_80BA5F:
+	LDA.w #$3400
+	DEC.w $053F
+	BNE.b CODE_80BA6A
+	LDA.w #$3800
+CODE_80BA6A:
+	STA.w $1CAE
+	JSR.w CODE_80BAD6
+	DEX
+	BPL.b CODE_80BA5F
+	STZ.w $053F
+	LDX.w #$7400
+	STX.w !REGISTER_VRAMAddressLo
+	LDA.w #$7EF000
+	STA.w DMA[$00].SourceLo
+	STA.w DMA[$00].Unused2
+	LDA.w #$0800
+	STA.w DMA[$00].SizeLo
+	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01
+	STA.w DMA[$00].Parameters
+	SEP.b #$20
+	LDA.b #$7EF000>>16
+	STA.w DMA[$00].SourceBank
+	LDA.b #$01
+	STA.w !REGISTER_DMAEnable
+	REP.b #$20
+	LDA.w $1D35
+	CMP.w #$0068
+	BCC.b CODE_80BABD
+	LDY.w #$0370
+	JSL.l CODE_BB8585
+	LDA.b $76
+	PHA
+	LDY.w #$0362
+	JSL.l CODE_BB8585
+	LDX.b $76
+	PLA
+	STA.b $5C,x
+CODE_80BABD:
+	LDA.w #$0200
+	JSL.l set_fade
+	STZ.b $F4
+	LDA.w #CODE_808370
+	STA.b $4A
+	STA.b $4C
+	LDA.w #CODE_80B605
+	LDX.w #CODE_80B605>>16
+	JMP.w CODE_8083C3
+
+CODE_80BAD6:
+	STX.w $1CCA
+	LDX.w #$0012
+CODE_80BADC:
+	STZ.w $1CB4,x
+	DEX
+	BPL.b CODE_80BADC
+	LDY.w #$0003
+	LDA.w $1CCA
+	CLC
+	ADC.w #$0031
+	STA.w $1CB4
+	LDA.w #$202E
+	STA.w $1CB5
+	LDY.w #$0003
+	LDA.w $1CCA
+	ASL
+	ASL
+	ASL
+	ASL
+	TAX
+	STX.w $1CCC
+	LDA.l $7EA8DE,x
+	AND.w #$00FF
+	CMP.w #$0001
+	BNE.b CODE_80BB1B
+	JSR.w CODE_80BB90
+	LDA.w #$5D20
+	STA.w $1CB4,y
+	INY
+	INY
+	INY
+CODE_80BB1B:
+	JSR.w CODE_80BB90
+	LDA.w $1CC2
+	ORA.w #$8000
+	STA.w $1CC2
+	LDY.w #$0004
+	LDX.w #$001CB4
+	JSR.w CODE_80A547
+	LDY.w #$0000
+	LDX.w $1CCC
+	LDA.l $7EA8E9,x
+	STA.b $1A
+	STA.b $26
+	LDA.l $7EA8EB,x
+	STA.b $1C
+	STA.b $28
+	JSR.w CODE_80A6A9
+	LDA.b $40
+	LDX.w #$0002
+	LDY.w #$0026
+	JSR.w CODE_80A4DC
+	LDA.b $3E
+	LDX.w #$0002
+	LDY.w #$002C
+	JSR.w CODE_80A4DC
+	LDX.w $1CCC
+	LDA.l $7EA8ED,x
+	AND.w #$00FF
+	LDY.w #$0034
+	LDX.w #$0003
+	JSR.w CODE_80A4DC
+	LDX.w #DATA_80C648
+	LDY.w #$003A
+	JSR.w CODE_80A547
+	LDX.w #DATA_80C647
+	LDY.w #$002A
+	JSR.w CODE_80A547
+	LDA.b $36
+	SEC
+	SBC.w #$00C0
+	STA.b $36
+	LDX.w $1CCA
+	RTS
+
+CODE_80BB90:
+	LDA.l $7EA8DF,x
+	AND.w #$007F
+	STA.w $1CB4,y
+	INY
+	LDA.l $7EA8DF,x
+	INX
+	BIT.w #$0080
+	BEQ.b CODE_80BB90
+	RTS
+
+CODE_80BBA6:
+	LDA.l $B0600A
+	CMP.w #$5269
+	BNE.b CODE_80BBB9
+	LDA.l $B0600C
+	CMP.w #$5241
+	BNE.b CODE_80BBB9
+	RTS
+
+CODE_80BBB9:
+	LDA.w #$5269
+	STA.l $B0600A
+	LDA.w #$5241
+	STA.l $B0600C
+	JSR.w CODE_80BBF5
+	RTS
+
+CODE_80BBCB:
+	STZ.b $3E
+	STZ.b $40
+	LDX.w #$0000
+CODE_80BBD2:
+	LDA.l $B06012,x
+	CLC
+	ADC.b $3E
+	STA.b $3E
+	INX
+	INX
+	CPX.w #$0050
+	BNE.b CODE_80BBD2
+	LDX.w #$0000
+CODE_80BBE5:
+	LDA.l $B06012,x
+	EOR.b $40
+	STA.b $40
+	INX
+	INX
+	CPX.w #$0050
+	BNE.b CODE_80BBE5
+	RTS
+
+CODE_80BBF5:
+	JSR.w CODE_80BC0B
+	JSR.w CODE_80BC7E
+	JSR.w CODE_80BBCB
+	LDA.b $3E
+	STA.l $B0600E
+	LDA.b $40
+	STA.l $B06010
+	RTS
+
+CODE_80BC0B:
+	LDX.w #$0008
+	STZ.b $1A
+CODE_80BC10:
+	PHX
+	SEP.b #$20
+	LDY.w DATA_80C608,x
+	LDX.b $1A
+CODE_80BC18:
+	LDA.w $0000,y
+	STA.l $7EA8DF,x
+	INX
+	LDA.w $0000,y
+	INY
+	BIT.b #$80
+	BEQ.b CODE_80BC18
+	LDX.b $1A
+	LDA.b #$00
+	STA.l $7EA8DE,x
+	REP.b #$20
+	LDA.w $0000,y
+	STA.l $7EA8E9,x
+	LDA.w $0002,y
+	STA.l $7EA8EB,x
+	LDA.w $0003,y
+	STA.l $7EA8EC,x
+	LDA.b $1A
+	CLC
+	ADC.w #$0010
+	STA.b $1A
+	PLX
+	DEX
+	DEX
+	BPL.b CODE_80BC10
+	RTS
+
+CODE_80BC55:
+	JSR.w CODE_80BBCB
+	LDA.l $B0600E
+	CMP.b $3E
+	BNE.b CODE_80BC68
+	LDA.l $B06010
+	CMP.b $40
+	BEQ.b CODE_80BC6C
+CODE_80BC68:
+	JSR.w CODE_80BC0B
+	RTS
+
+CODE_80BC6C:
+	LDX.w #$0000
+CODE_80BC6F:
+	LDA.l $B06012,x
+	STA.l $7EA8DE,x
+	INX
+	CPX.w #$004F
+	BCC.b CODE_80BC6F
+	RTS
+
+CODE_80BC7E:
+	LDX.w #$0000
+CODE_80BC81:
+	LDA.l $7EA8DE,x
+	STA.l $B06012,x
+	INX
+	CPX.w #$004F
+	BCC.b CODE_80BC81
+	RTS
+
+CODE_80BC90:
+	SEP.b #$20
+	LDX.w #(!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$41
+	STX.w HDMA[$07].Parameters
+	LDX.w #$7EA25A
+	STX.w HDMA[$07].SourceLo
+	LDA.b #$7EA25A>>16
+	STA.w HDMA[$07].SourceBank
+	STA.w HDMA[$07].IndirectSourceBank
+	REP.b #$20
+	LDA.w #$00FF
+	STA.l $7EA25A
+	STA.l $7EA25D
+	LDA.w #$A47A
+	STA.l $7EA25B
+	LDA.w #$A578
+	STA.l $7EA25E
+	LDA.w #$0000
+	STA.l $7EA260
+	LDA.w #$0001
+	STA.l $7EA45A
+	LDX.w #$7EA45A
+	LDY.w #$7EA45C
+	LDA.w #$01E0
+	MVN $7EA45C>>16,$7EA45A>>16
+	RTS
+
+CODE_80BCDC:
+	LDA.w #$7EF580>>16
+	STA.b $44
+	STX.b $1C
+	LDA.w #$7EF580
+	STA.b $42
+	STA.b $1A
+	LDY.w #$0006
+CODE_80BCED:
+	LDX.w #$0020
+	LDA.w #$2000
+CODE_80BCF3:
+	STA.b [$42]
+	INC.b $42
+	INC.b $42
+	DEX
+	BNE.b CODE_80BCF3
+	LDA.b $1A
+	CLC
+	ADC.w #$0040
+	STA.b $42
+	STA.b $1A
+	DEY
+	BNE.b CODE_80BCED
+	LDX.b $1C
+	RTL
+
+CODE_80BD0C:
+	LDA.w #DATA_FC14A0
+	STA.b $42
+	LDA.w #DATA_FC14A0>>16
+	STA.b $44
+	LDA.w #$7EF000
+	STA.b $46
+	LDA.w #$7EF000>>16
+	STA.b $48
+	LDA.w #$0064
+	STA.w $1C83
+CODE_80BD26:
+	LDX.w #$0008
+CODE_80BD29:
+	LDA.b [$42]
+	STA.b [$46]
+	INC.b $42
+	INC.b $42
+	INC.b $46
+	INC.b $46
+	DEX
+	BNE.b CODE_80BD29
+	LDX.w #$0008
+CODE_80BD3B:
+	LDA.w #$0000
+	STA.b [$46]
+	INC.b $46
+	INC.b $46
+	DEX
+	BNE.b CODE_80BD3B
+	DEC.w $1C83
+	BNE.b CODE_80BD26
+	RTS
+
+DKC3_NorSpr01E4_UnknownSprite01E4_Main:
+;$80BD4D
+	JMP.w (DATA_80BD50,x)
+
+DATA_80BD50:
+	dw CODE_80BD56
+	dw CODE_80BD97
+	dw CODE_80BDD1
+
+CODE_80BD56:
+	LDA.w #$1D93
+	STA.w $0541
+	LDY.w #$0000
+	LDA.w !RAM_DKC3_Global_FrenchTextFlag
+	BEQ.b CODE_80BD6F
+	LDY.w #$000C
+	CMP.w #$0001
+	BEQ.b CODE_80BD6F
+	LDY.w #$001C
+CODE_80BD6F:
+	LDX.w #$0000
+	LDA.w DATA_80BEDB,y
+CODE_80BD75:
+	STA.l $7EFFE0,x
+	INX
+	INY
+	LDA.w DATA_80BEDB,y
+	AND.w #$00FF
+	BNE.b CODE_80BD75
+	STA.l $7EFFE0,x
+	LDY.w #$035A
+	JSL.l CODE_BB8585
+	BCS.b CODE_80BD94
+	JSL.l CODE_BB8591
+CODE_80BD94:
+	JMP.w [$04F5]
+
+CODE_80BD97:
+	TYX
+	STZ.b $18,x
+	INC.b $38,x
+	LDA.b $5C,x
+	ASL
+	TAY
+	LDA.w DATA_80BE77,y
+	TAY
+	INC
+	INC
+	INC
+	STA.b $66,x
+	LDA.w $0000,y
+	AND.w #$00FF
+	STA.b $5E,x
+	LDA.w $0001,y
+	STA.b $60,x
+	LDA.b $3C,x
+	BNE.b CODE_80BDC8
+	STZ.b $1E
+	STZ.b $20
+	LDA.w #$0001
+	JSL.l CODE_B78027
+	JSR.w CODE_80BD0C
+CODE_80BDC8:
+	LDA.w #$1D93
+	STA.w $0541
+	JMP.w [$04F5]
+
+CODE_80BDD1:
+	TYX
+	LDA.b $5C,x
+	CMP.w #$0005
+	BEQ.b CODE_80BE01
+	LDA.b $64,x
+	CMP.w #$0020
+	BCC.b CODE_80BE01
+	LDA.w $04DA
+	BIT.w #$9080
+	BEQ.b CODE_80BE01
+	LDA.w #$0020
+	STA.b $64,x
+	LDA.b $18,x
+	BEQ.b CODE_80BDF8
+	STZ.b $18,x
+	TAX
+	JSL.l CODE_BB85E8
+CODE_80BDF8:
+	STZ.w $1D93
+	LDA.w #$1D93
+	STA.w $0541
+CODE_80BE01:
+	DEC.b $64,x
+	BNE.b CODE_80BE74
+	LDA.b $5E,x
+	BEQ.b CODE_80BE5C
+	LDY.w #$0360
+	JSL.l CODE_BB8588
+	LDX.b $70
+	BCC.b CODE_80BE19
+	INC.b $64,x
+	JMP.w [$04F5]
+
+CODE_80BE19:
+	LDY.b $76
+	STX.b $4C,y
+	STY.b $18,x
+	LDA.b $5C,x
+	STA.w $002C,y
+	LDA.b $60,x
+	STA.w $005E,y
+	INC
+	INC
+	STA.b $60,x
+	LDA.b $66,x
+	STA.b $1A
+	INC
+	INC
+	STA.b $66,x
+	LDA.b ($1A)
+	XBA
+	AND.w #$00FF
+	ASL
+	STA.w $006C,y
+	CLC
+	ADC.w #$0010
+	STA.b $64,x
+	LDA.b ($1A)
+	AND.w #$00FF
+	STA.w $1D47
+	CLC
+	TYX
+	ADC.w #$00FA
+	JSL.l CODE_BB85A0
+	LDX.b $70
+	DEC.b $5E,x
+	BPL.b CODE_80BE74
+CODE_80BE5C:
+	JSL.l CODE_BB8591
+	LDA.b $18,x
+	BEQ.b CODE_80BE6B
+	STZ.b $18,x
+	TAX
+	JSL.l CODE_BB85E8
+CODE_80BE6B:
+	STZ.w $1D93
+	LDA.w #$1D93
+	STA.w $0541
+CODE_80BE74:
+	JMP.w [$04F5]
+
+DATA_80BE77:
+	dw DATA_80BE83,DATA_80BE8A,DATA_80BE91,DATA_80BE98,DATA_80BEB5,DATA_80BEC4
+
+DATA_80BE83:
+	db $02,$00,$00,$00,$80,$00,$80
+
+DATA_80BE8A:
+	db $02,$04,$00,$00,$80,$00,$80
+
+DATA_80BE91:
+	db $02,$08,$00,$00,$80,$00,$80
+
+DATA_80BE98:
+	db $0D,$0C,$00,$00,$80,$00,$80,$00,$80,$00,$80,$01,$80,$00,$80,$00
+	db $80,$00,$80,$00,$80,$01,$80,$00,$80,$00,$80,$00,$80
+
+DATA_80BEB5:
+	db $06,$26,$00,$00,$80,$00,$80,$00,$80,$00,$80,$01,$80,$00,$80
+
+DATA_80BEC4:
+	db $0A,$32,$00,$02,$80,$02,$80,$02,$80,$02,$80,$03,$80,$03,$80,$02
+	db $80,$04,$80,$01,$80,$04,$80
+
+DATA_80BEDB:
+	db "NEW RECORD!",$00
+	db "NOUVEAU RECORD!",$00
+	db "NEU REKORD!",$00
+
+DKC3_NorSpr0110_UnknownSprite0110_Main:
+;$80BF03
+	JMP.w (DATA_80BF06,x)
+
+DATA_80BF06:
+	dw CODE_80BF0E
+	dw CODE_80BF45
+	dw CODE_80BFD2
+	dw CODE_80C012
+
+CODE_80BF0E:
+	TYX
+	STZ.b $5C,x
+	LDX.b $5E,y
+	LDA.l $7EA7BA,x
+	CLC
+	ADC.w #$7EA9DE
+	TYX
+	TAY
+	INC
+	STA.b $5E,x
+	STZ.b $60,x
+	PEA.w (($7EA9DE&$FF0000)>>16)|((RESET_start&$FF0000)>>8)
+	PLB
+	LDA.w $0000,y
+	AND.w #$00FF
+	STA.b $26
+	CMP.w #$0001
+	BEQ.b CODE_80BF3F
+CODE_80BF33:
+	INY
+	LDA.w $0000,y
+	AND.w #$00FF
+	BNE.b CODE_80BF33
+	INY
+	STY.b $60,x
+CODE_80BF3F:
+	PLB
+	INC.b $38,x
+	JMP.w [$04F5]
+
+CODE_80BF45:
+	TYX
+	LDA.w #$0100
+	STA.b $1C
+	LDA.w #$7E00
+	STA.b $1B
+CODE_80BF50:
+	PEA.w (($7E0000&$FF0000)>>16)|((RESET_start&$FF0000)>>8)
+	PLB
+	LDA.w #$FFFF
+	LDY.b $60,x
+	BEQ.b CODE_80BF66
+	LDA.w $0000,y
+	AND.w #$00FF
+	SEC
+	SBC.w #$0020
+	XBA
+CODE_80BF66:
+	STA.b $24
+	LDY.b $5E,x
+	LDA.w $0000,y
+	PLB
+	AND.w #$00FF
+	BEQ.b CODE_80BFB0
+	SEC
+	SBC.w #$0020
+	XBA
+	JSR.w CODE_80C008
+	LDA.b $5C,x
+	CLC
+	ADC.b $1E,x
+	AND.w #$01FF
+	STA.b $3E
+	JSL.l CODE_B78009
+	BCS.b CODE_80BFAD
+	LDA.b $24
+	BPL.b CODE_80BF90
+	TDC
+CODE_80BF90:
+	JSR.w CODE_80C008
+	LDA.b $3E
+	CLC
+	ADC.w #$0010
+	JSL.l CODE_B78009
+	BCS.b CODE_80BFAD
+	JSR.w CODE_80C048
+	INC.b $5E,x
+	LDA.b $60,x
+	BEQ.b CODE_80BF50
+	INC.b $60,x
+	JMP.w CODE_80BF50
+
+CODE_80BFAD:
+	JMP.w [$04F5]
+
+CODE_80BFB0:
+	LDA.b $5C,x
+	LSR
+	BCC.b CODE_80BFBD
+	LDA.w #$0003
+	STA.b $38,x
+	JMP.w CODE_80C012
+
+CODE_80BFBD:
+	LDA.b $5C,x
+	AND.w #$FFF0
+	BEQ.b CODE_80BFCC
+	LDA.b $5C,x
+	SEC
+	SBC.w #$0010
+	STA.b $5C,x
+CODE_80BFCC:
+	LDA.w #$0002
+	STA.b $38,x
+	TXY
+CODE_80BFD2:
+	TYX
+	LDY.w $0541
+	STX.b $00,y
+	INY
+	INY
+	STY.w $0541
+	LDA.b $2C,x
+	CMP.w #$0005
+	BEQ.b CODE_80BFEC
+	LDA.w $04DA
+	BIT.w #$9080
+	BNE.b CODE_80BFF9
+CODE_80BFEC:
+	DEC.b $6C,x
+	BNE.b CODE_80BFF2
+	BRA.b CODE_80BFF9
+
+CODE_80BFF2:
+	JSL.l CODE_B9E000
+	JMP.w [$04F5]
+
+CODE_80BFF9:
+	LDY.b $4C,x
+	LDA.w #$0000
+	STA.w $0018,y
+	JSL.l CODE_BB8591
+	JMP.w [$04F5]
+
+CODE_80C008:
+	LSR
+	LSR
+	LSR
+	CLC
+	ADC.w #$F000
+	STA.b $1A
+	RTS
+
+CODE_80C012:
+	LDX.b $70
+	LDA.w #$0100
+	STA.b $1C
+	LDA.w #$7E00
+	STA.b $1B
+	LDA.w #$F000
+	STA.b $1A
+	LDA.b $5C,x
+	CLC
+	ADC.b $1E,x
+	AND.w #$01FF
+	STA.b $3E
+	JSL.l CODE_B78009
+	BCS.b CODE_80C045
+	LDA.b $3E
+	CLC
+	ADC.w #$0010
+	JSL.l CODE_B78009
+	BCS.b CODE_80C045
+	JSR.w CODE_80C048
+	JMP.w CODE_80BFBD
+
+CODE_80C045:
+	JMP.w [$04F5]
+
+CODE_80C048:
+	INC.b $5C,x
+	LDA.b $5C,x
+	AND.w #$000F
+	BNE.b CODE_80C059
+	LDA.b $5C,x
+	CLC
+	ADC.w #$0010
+	STA.b $5C,x
+CODE_80C059:
+	RTS
+
+CODE_80C05A:
+	LDA.w $1C5F
+	AND.w #$000C
+	LSR
+	TAX
+	LDA.l DATA_80C0A8,x
+	STA.b $1E
+	EOR.w #$FFFF
+	STA.b $20
+	LDA.w $1C5F
+	AND.w #$0003
+	ASL
+	TAX
+	LDY.w #$0000
+	SEP.b #$30
+CODE_80C07A:
+	STY.w !REGISTER_CGRAMAddress
+	LDA.w !REGISTER_ReadFromCGRAMPort
+	XBA
+	LDA.w !REGISTER_ReadFromCGRAMPort
+	XBA
+	REP.b #$20
+	STA.b $1A
+	JSR.w (DATA_80C0B0,x)
+	STA.b $1C
+	LDA.b $1A
+	AND.b $20
+	ORA.b $1C
+	SEP.b #$20
+	STY.w !REGISTER_CGRAMAddress
+	STA.w !REGISTER_WriteToCGRAMPort
+	XBA
+	STA.w !REGISTER_WriteToCGRAMPort
+	INY
+	CPY.b #$80
+	BNE.b CODE_80C07A
+	REP.b #$30
+	RTL
+
+DATA_80C0A8:
+	dw $001F,$03E0,$7C00,$0000
+
+DATA_80C0B0:
+	dw CODE_80C0B8
+	dw CODE_80C0C8
+	dw CODE_80C0D9
+	dw CODE_80C0EB
+
+CODE_80C0B8:
+	AND.b $1E
+	STA.b $1C
+	LSR
+	LSR
+	EOR.w #$FFFF
+	INC
+	CLC
+	ADC.b $1C
+	AND.b $1E
+	RTS
+
+CODE_80C0C8:
+	AND.b $1E
+	STA.b $1C
+	LSR
+	CLC
+	ADC.b $1C
+	CMP.b $1E
+	BCC.b CODE_80C0D6
+	LDA.b $1E
+CODE_80C0D6:
+	AND.b $1E
+	RTS
+
+CODE_80C0D9:
+	AND.b $1E
+	STA.b $1C
+	LSR
+	LSR
+	CLC
+	ADC.b $1C
+	CMP.b $1E
+	BCC.b CODE_80C0E8
+	LDA.b $1E
+CODE_80C0E8:
+	AND.b $1E
+	RTS
+
+CODE_80C0EB:
+	AND.b $1E
+	LSR
+	AND.b $1E
+	RTS
+
+CODE_80C0F1:
+	LDX.w #$0006
+CODE_80C0F4:
+	LDA.w $073C,x
+	BNE.b CODE_80C0FF
+	LDA.w #$FFFF
+	STA.w $073C,x
+CODE_80C0FF:
+	DEX
+	DEX
+	BPL.b CODE_80C0F4
+	RTL
+
+CODE_80C104:
+	LDX.w #$0006
+CODE_80C107:
+	LDA.w $073C,x
+	BPL.b CODE_80C10F
+	STZ.w $073C,x
+CODE_80C10F:
+	DEX
+	DEX
+	BPL.b CODE_80C107
+	RTL
+
+CODE_80C114:
+	PHK
+	PLB
+	JSR.w CODE_809437
+	LDA.w #$000F
+	JSL.l CODE_BB859A
+	ORA.w #$3000
+	CLC
+	ADC.w #$01C0
+	STA.b $B4
+	LDA.w #$0034
+	JSL.l set_PPU_registers_global
+	LDA.w #$003E
+	LDY.w $04C6
+	BEQ.b CODE_80C13B
+	LDA.w #$003F
+CODE_80C13B:
+	JSL.l vram_payload_handler_global
+	LDA.w #$0082
+	LDY.w $04C6
+	BEQ.b CODE_80C14A
+	LDA.w #$0083
+CODE_80C14A:
+	LDX.w #$0020
+	LDY.w #$0000
+	JSL.l CODE_BB856D
+	JSR.w CODE_80957A
+	LDA.w #$1D93
+	STA.w $0541
+	LDY.w #$0208
+	JSL.l CODE_BB8588
+	LDX.b $76
+	STZ.b $60,x
+	LDA.w #$FFFF
+	STA.b $5E,x
+	LDA.w #$00B0
+	STA.b $16,x
+	LDA.w #$0080
+	STA.b $12,x
+	LDX.w #$004A
+	LDA.w $04C6
+	BEQ.b CODE_80C181
+	INX
+	INX
+CODE_80C181:
+	LDY.w #$FFDF
+	JSR.w CODE_809F29
+	LDA.w #$0001
+	STA.w $04E4
+	LDA.w #$0001
+	TRB.w $05AF
+	LDA.w #$0200
+	JSL.l set_fade
+	LDA.w #!Define_DKC3_MusicID_DefeatedBoss
+	JSL.l CODE_B28009
+	LDA.w #CODE_80C1AA
+	LDX.w #CODE_80C1AA>>16
+	JMP.w CODE_8083C3
+
+CODE_80C1AA:
+	LDA.w $04E4
+	STA.w !REGISTER_DMAEnable
+	JSL.l CODE_B38006
+	JSL.l CODE_808799
+	SEP.b #$20
+	LDA.w $04EC
+	STA.w !REGISTER_ScreenDisplayRegister
+	REP.b #$20
+	STZ.w $1560
+	STZ.w $155E
+	LDA.w $04EC
+	BIT.w #$FF00
+	BNE.b CODE_80C1E0
+	JSL.l CODE_8089CA
+	LDA.w $04DA
+	AND.w #$9080
+	BEQ.b CODE_80C1E0
+	JSL.l CODE_B8807E
+CODE_80C1E0:
+	JSL.l CODE_BB85C1
+	LDA.w #$1D93
+	STA.w $0541
+	JSL.l CODE_B7800C
+	JSL.l CODE_B284CD
+	JSL.l CODE_80898C
+	JSR.w CODE_809741
+	BEQ.b CODE_80C1FE
+	JMP.w CODE_808384
+
+CODE_80C1FE:
+	LDA.w #CODE_80B2C8
+	STA.b $4E
+	LDA.w #CODE_80B2C8>>16
+	STA.b $50
+	LDA.w #CODE_808362
+	JMP.w CODE_80839D
+
+DATA_80C20E:
+	db $FF,$5A,$A1,$FF,$5A,$A1,$00
+
+DATA_80C215:
+	db $0B,$01,$00,$9B,$34,$CB,$30,$CF,$2A,$D5,$24,$DB,$21,$DE,$1F,$E0
+	db $1C,$E3,$1B,$E4,$19,$E6,$18,$E7,$17,$E8,$16,$E9,$15,$EA,$14,$EB
+	db $13,$EC,$13,$EC,$12,$ED,$11,$EE,$11,$EE,$11,$EE,$10,$EF,$10,$EF
+	db $10,$EF,$0F,$F0,$0F,$F0,$0F,$F0,$0F,$F0,$7F,$0E,$F1,$14,$0E,$F1
+	db $9B,$0F,$F0,$0F,$F0,$0F,$F0,$0F,$F0,$10,$EF,$10,$EF,$10,$EF,$11
+	db $EE,$11,$EE,$11,$EE,$12,$ED,$13,$EC,$13,$EC,$14,$EB,$15,$EA,$16
+	db $E9,$17,$E8,$18,$E7,$19,$E6,$1B,$E4,$1C,$E3,$1F,$E0,$21,$DE,$24
+	db $DB,$2A,$D5,$30,$CF,$34,$CB,$01,$01,$00,$00
+
+DATA_80C290:
+	db $2A,$0C,$00,$30,$00,$27,$0C,$00,$D8,$FF,$08,$0C,$00,$00,$00,$27
+	db $0C,$00,$A8,$FF,$08,$0C,$00,$00,$00,$27,$0C,$00,$78,$FF,$01,$0C
+	db $00,$00,$00,$00,$2A,$00,$00,$00,$00,$16,$00,$00,$F7,$FF,$0E,$00
+	db $00,$FD,$FF,$0B,$00,$00,$00,$00,$16,$00,$00,$F7,$FF,$0F,$00,$00
+	db $FD,$FF,$0A,$00,$00,$00,$00,$18,$00,$00,$F7,$FF,$11,$00,$00,$FD
+	db $FF,$01,$00,$00,$03,$00,$00,$1E,$17,$0C,$07,$27,$17,$08,$07,$27
+	db $17,$08,$07,$27,$17,$01,$17,$00,$2A,$E0,$07,$EC,$28,$E3,$09,$EC
+	db $26,$E3,$0A,$EC,$26,$E3,$08,$EF,$90,$4C,$49,$45,$43,$45,$45,$45
+	db $45,$45,$45,$45,$45,$43,$45,$49,$4C,$00
+
+DATA_80C31A:
+	dw $012E,$0256,$0258,$025A
+
+DATA_80C322:
+	dw $004C,$007C,$00AC
+
+DATA_80C328:
+	dw $0100,$0280,$0400
+
+DATA_80C32E:
+	dw $00F4,$FFCC,$00F4,$FFDC,$00F4,$FFEC,$00F4,$FFB7
+
+DATA_80C33E:
+	db $00,$30,$60,$A0,$FF
+
+DATA_80C343:
+	db $06,$10,$1A,$06,$15,$24
+
+DATA_80C349:
+	db "FRANCAI",$D3
+
+UNK_80C351:
+	db "DEUTSC",$C8
+
+DATA_80C358:
+	db "ENGLIS",$C8
+
+DATA_80C35F:
+	db "STERE",$CF
+
+DATA_80C365:
+	db "MON",$CF
+
+DATA_80C369:
+	db $25,$A0
+
+DATA_80C36B:
+	db $26,$A0
+
+DATA_80C36D:
+	db $20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$A0
+
+DATA_80C378:
+	db $AE,$00
+
+DATA_80C37A:
+	db $69,$68,$67,$66,$5F,$50,$46,$3C,$37,$32,$00
+
+DATA_80C385:
+	dw DATA_80C421,$0000
+	dw DATA_80C421,$0000
+	dw DATA_80C571,$0018
+	dw DATA_80C5C4,$0022
+	dw DATA_80C422,$001E
+	dw DATA_80C430,$0006
+	dw DATA_80C43B,$0021
+	dw DATA_80C44A,$001D
+	dw DATA_80C457,$0008
+	dw DATA_80C465,$000E
+	dw DATA_80C46F,$0010
+	dw DATA_80C497,$0017
+	dw DATA_80C4A5,$000F
+	dw DATA_80C4B2,$000B
+	dw DATA_80C4C0,$0019
+	dw DATA_80C4CB,$000A
+	dw DATA_80C4D9,$000C
+	dw DATA_80C4E4,$001A
+	dw DATA_80C4F2,$0401
+	dw DATA_80C529,$0116
+	dw DATA_80C530,$0015
+	dw DATA_80C4FD,$0205
+	dw DATA_80C510,$0005
+	dw DATA_80C51F,$0105
+	dw DATA_80C54F,$0009
+	dw DATA_80C560,$0109
+	dw DATA_80C542,$0004
+	dw DATA_80C57B,$0013
+	dw DATA_80C58F,$0011
+	dw DATA_80C59D,$0012
+	dw DATA_80C482,$0007
+	dw DATA_80C5B7,$001B
+	dw DATA_80C48D,$001C
+	dw DATA_80C5D1,$0020
+	dw DATA_80C5AE,$0114
+	dw DATA_80C5E2,$000D
+	dw DATA_80C5EE,$0023
+	dw DATA_80C421,$0000
+	dw DATA_80C421,$0000
+
+DATA_80C421:
+	db $A0
+
+DATA_80C422:
+	db "CAVERN CAPRIC",$C5
+
+DATA_80C430:
+	db "WATER WORL",$C4
+
+DATA_80C43B:
+	db "ROCKFACE RUMBL",$C5
+
+DATA_80C44A:
+	db "JUNGLE JITTE",$D2
+
+DATA_80C457:
+	db "NUTS AND BOLT",$D3
+
+DATA_80C465:
+	db "MILL FEVE",$D2
+
+DATA_80C46F:
+	db "ENCHANTED RIVERBAN",$CB
+
+DATA_80C482:
+	db "HOT PURSUI",$D4
+
+DATA_80C48D:
+	db "ROCKET RU",$CE
+
+DATA_80C497:
+	db "FROSTY FROLIC",$D3
+
+DATA_80C4A5:
+	db "STILT VILLAG",$C5
+
+DATA_80C4B2:
+	db "TREETOP TUMBL",$C5
+
+DATA_80C4C0:
+	db "POKEY PIPE",$D3
+
+DATA_80C4CB:
+	db "CASCADE CAPER",$D3
+
+DATA_80C4D9:
+	db "BOSS BOOGI",$C5
+
+DATA_80C4E4:
+	db "BIG BOSS BLUE",$D3
+
+DATA_80C4F2:
+	db "BONUS TIME",$A1
+
+DATA_80C4FD:
+	db "WRINKLY'S SAVE CAV",$C5
+
+DATA_80C510:
+	db "GET FIT A-GO-G",$CF
+
+DATA_80C51F:
+	db "WRINKLY 6",$B4
+
+DATA_80C529:
+	db "FANFAR",$C5
+
+DATA_80C530:
+	db "HANGIN' AT FUNKY'",$D3
+
+DATA_80C542:
+	db "BROTHERS BEA",$D2
+
+DATA_80C54F:
+	db "SWANKY'S SIDESHO",$D7
+
+DATA_80C560:
+	db "CRANKY'S SHOWDOW",$CE
+
+DATA_80C571:
+	db "DIXIE BEA",$D4
+
+DATA_80C57B:
+	db "NORTHERN KREMISPHER",$C5
+
+DATA_80C58F:
+	db "SUBMAP SHUFFL",$C5
+
+DATA_80C59D:
+	db "KREMATOA KONCERT",$CF
+
+DATA_80C5AE:
+	db "GAME OVE",$D2
+
+DATA_80C5B7:
+	db "CRYSTAL CHAS",$CD
+
+DATA_80C5C4:
+	db "CRAZY CALYPS",$CF
+
+DATA_80C5D1:
+	db "BADDIES ON PARAD",$C5
+
+DATA_80C5E2:
+	db "JANGLE BELL",$D3
+
+DATA_80C5EE:
+	db "MAMA BIR",$C4
+
+UNK_80C5F7:
+	db "                ",$A0
+
+DATA_80C608:
+	dw DATA_80C63E,DATA_80C632,DATA_80C627,DATA_80C61D,DATA_80C612
+
+DATA_80C612:
+	db "CRANK",$D9,$B0,$4D,$11,$00,$67
+
+DATA_80C61D:
+	db "FUNK",$D9,$90,$F3,$12,$00,$65
+
+DATA_80C627:
+	db "SWANK",$D9,$80,$C6,$13,$00,$58
+
+DATA_80C632:
+	db "WRINKL",$D9,$80,$2B,$18,$00,$3C
+
+DATA_80C63E:
+	db "RAR",$C5,$80,$F5,$20,$00,$01
+
+DATA_80C647:
+	db $DB
+
+DATA_80C648:
+	db $DC,$20,$5D,$A0,$20,$56,$5E,$A0
+
+DATA_80C650:
+	db $00,$41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F
+	db $50,$51,$52,$53,$54,$55,$56,$57,$58,$59,$5A,$30,$31,$32,$33,$34
+	db $35,$36,$37,$38,$39,$20,$88,$89,$5F
+
+DATA_80C679:
+	dw $0000,$039A : db $00,$FF : dw $0000
+	dw DATA_80C829,$03A2 : db !Define_DKC3_LevelID_DoorstopDash_PhotoAlbum,$01 : dw $008A
+	dw DATA_80C879,$03A8 : db !Define_DKC3_LevelID_SquealsOnWheels_PhotoAlbum,$00 : dw $0080
+	dw DATA_80C84F,$03C0 : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $0087
+	dw DATA_80C873,$03A6 : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $0093
+	dw DATA_80C836,$039E : db !Define_DKC3_LevelID_LemguinLunge_PhotoAlbum,$00 : dw $007A
+	dw DATA_80C85D,$03BE : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $00AE
+	dw DATA_80C865,$03BC : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $00AB
+	dw DATA_80C8B8,$039A : db !Define_DKC3_LevelID_SkiddasRow_PhotoAlbum,$00 : dw $0100
+	dw DATA_80C86C,$03BA : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $0070
+	dw DATA_80C881,$03CC : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $0100
+	dw DATA_80C889,$03D0 : db !Define_DKC3_LevelID_LemguinLunge_PhotoAlbum,$00 : dw $0120
+	dw DATA_80C88E,$83AA : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $00A8
+	dw DATA_80C830,$039C : db !Define_DKC3_LevelID_DoorstopDash_PhotoAlbum,$02 : dw $00B0
+	dw DATA_80C83C,$03B8 : db !Define_DKC3_LevelID_SquealsOnWheels_PhotoAlbum,$00 : dw $00B8
+	dw DATA_80C846,$03C2 : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $00C2
+	dw DATA_80C8B4,$03CE : db !Define_DKC3_LevelID_SquealsOnWheels_PhotoAlbum,$00 : dw $008C
+	dw DATA_80C8AC,$03AC : db !Define_DKC3_LevelID_LemguinLunge_PhotoAlbum,$00 : dw $00D0
+	dw DATA_80C8A5,$C3C4 : db !Define_DKC3_LevelID_SquealsOnWheels_PhotoAlbum,$00 : dw $009A
+	dw DATA_80C8BF,$03A0 : db !Define_DKC3_LevelID_SquealsOnWheels_PhotoAlbum,$03 : dw $00AE
+	dw DATA_80C8C4,$03C6 : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $0094
+	dw DATA_80C8CB,$03C8 : db !Define_DKC3_LevelID_SquealsOnWheels_PhotoAlbum,$00 : dw $009E
+	dw DATA_80C89D,$03CA : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $00B3
+	dw DATA_80C8D6,$03A4 : db !Define_DKC3_LevelID_BazzasBlockade_PhotoAlbum,$04 : dw $008D
+	dw DATA_80C8DB,$03B6 : db !Define_DKC3_LevelID_BazzasBlockade_PhotoAlbum,$00 : dw $0110
+	dw DATA_80C8E3,$83AE : db !Define_DKC3_LevelID_BazzasBlockade_PhotoAlbum,$00 : dw $0065
+	dw DATA_80C8EA,$03B0 : db !Define_DKC3_LevelID_BazzasBlockade_PhotoAlbum,$00 : dw $0100
+	dw DATA_80C8F6,$83B2 : db !Define_DKC3_LevelID_BazzasBlockade_PhotoAlbum,$00 : dw $00DC
+	dw DATA_80C8FC,$03B4 : db !Define_DKC3_LevelID_BazzasBlockade_PhotoAlbum,$00 : dw $0100
+	dw DATA_80C90B,$03A0 : db !Define_DKC3_LevelID_BossPhotos,$05 : dw $0006
+	dw DATA_80C912,$03A1 : db !Define_DKC3_LevelID_BossPhotos,$00 : dw $0006
+	dw DATA_80C918,$03A2 : db !Define_DKC3_LevelID_BossPhotos,$00 : dw $0006
+	dw DATA_80C91F,$03A3 : db !Define_DKC3_LevelID_BossPhotos,$00 : dw $0006
+	dw DATA_80C924,$03A4 : db !Define_DKC3_LevelID_BossPhotos,$00 : dw $0006
+	dw DATA_80C92A,$03A5 : db !Define_DKC3_LevelID_BossPhotos,$00 : dw $0006
+	dw DATA_80C931,$A3E8 : db !Define_DKC3_LevelID_KastleKAOS_PhotoAlbum,$00 : dw $0347
+	dw DATA_80C95F,$03D2 : db !Define_DKC3_LevelID_DoorstopDash_PhotoAlbum,$06 : dw $0085
+	dw DATA_80C956,$03D8 : db !Define_DKC3_LevelID_DoorstopDash_PhotoAlbum,$00 : dw $00A1
+	dw DATA_80C965,$03DA : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $00B2
+	dw DATA_80C945,$03D6 : db !Define_DKC3_LevelID_BazzasBlockade_PhotoAlbum,$00 : dw $00D0
+	dw DATA_80C94E,$03D4 : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $0100
+	dw DATA_80C96B,$039A : db !Define_DKC3_LevelID_BrothersBearPhotos,$07 : dw $0006
+	dw DATA_80C984,$039B : db !Define_DKC3_LevelID_BrothersBearPhotos,$00 : dw $0006
+	dw DATA_80C99D,$039C : db !Define_DKC3_LevelID_BrothersBearPhotos,$00 : dw $0006
+	dw DATA_80C9B6,$039D : db !Define_DKC3_LevelID_BrothersBearPhotos,$00 : dw $0006
+	dw DATA_80C9CD,$039E : db !Define_DKC3_LevelID_BrothersBearPhotos,$00 : dw $0006
+	dw DATA_80C9E8,$039F : db !Define_DKC3_LevelID_BrothersBearPhotos,$00 : dw $0006
+	dw DATA_80CA15,$03DC : db !Define_DKC3_LevelID_DoorstopDash_PhotoAlbum,$08 : dw $00E3
+	dw DATA_80CA2D,$A3E0 : db !Define_DKC3_LevelID_DoorstopDash_PhotoAlbum,$00 : dw $0100
+	dw DATA_80CA20,$03DE : db !Define_DKC3_LevelID_DoorstopDash_PhotoAlbum,$00 : dw $0100
+	dw DATA_80CA39,$03E2 : db !Define_DKC3_LevelID_SwankysSideshow_PhotoAlbum,$00 : dw $0100
+	dw DATA_80CA0A,$03E4 : db !Define_DKC3_LevelID_KiddysPhotoAlbumArea,$00 : dw $0278
+	dw DATA_80C9FF,$03E6 : db !Define_DKC3_LevelID_DixiesPhotoAlbumArea,$00 : dw $02D0
+	dw $0000,$0000 : db $00,$00 : dw $FFFF
+
+DATA_80C829:
+	db "KOBBLE",$00
+
+DATA_80C830:
+	db "SNEEK",$00
+
+DATA_80C836:
+	db "KRIMP",$00
+
+DATA_80C83C:
+	db "KNIK-KNAK",$00
+
+DATA_80C846:
+	db "BRISTLES",$00
+
+DATA_80C84F:
+	db "KNOCKA",$00
+
+UNK_80C856:
+	db "KRACKA",$00
+
+DATA_80C85D:
+	db "KRUMPLE",$00
+
+DATA_80C865:
+	db "KOPTER",$00
+
+DATA_80C86C:
+	db "BAZUKA",$00
+
+DATA_80C873:
+	db "KLASP",$00
+
+DATA_80C879:
+	db "RE-KOIL",$00
+
+DATA_80C881:
+	db "KUCHUKA",$00
+
+DATA_80C889:
+	db "KOIN",$00
+
+DATA_80C88E:
+	db "KUFF 'N' KLOUT",$00
+
+DATA_80C89D:
+	db "KARBINE",$00
+
+DATA_80C8A5:
+	db "MINKEY",$00
+
+DATA_80C8AC:
+	db "LEMGUIN",$00
+
+DATA_80C8B4:
+	db "NID",$00
+
+DATA_80C8B8:
+	db "SKIDDA",$00
+
+DATA_80C8BF:
+	db "BUZZ",$00
+
+DATA_80C8C4:
+	db "SWOOPY",$00
+
+DATA_80C8CB:
+	db "BOOTY BIRD",$00
+
+DATA_80C8D6:
+	db "KOCO",$00
+
+DATA_80C8DB:
+	db "LURCHIN",$00
+
+DATA_80C8E3:
+	db "NIBBLA",$00
+
+DATA_80C8EA:
+	db "BOUNTY BASS",$00
+
+DATA_80C8F6:
+	db "BAZZA",$00
+
+DATA_80C8FC:
+	db "GLEAMIN' BREAM",$00
+
+DATA_80C90B:
+	db "BELCHA",$00
+
+DATA_80C912:
+	db "ARICH",$00
+
+DATA_80C918:
+	db "SQUIRT",$00
+
+DATA_80C91F:
+	db "KAOS",$00
+
+DATA_80C924:
+	db "BLEAK",$00
+
+DATA_80C92A:
+	db "BARBOS",$00
+
+DATA_80C931:
+	db "BARON K.ROOLENSTEIN",$00
+
+DATA_80C945:
+	db "ENGUARDE",$00
+
+DATA_80C94E:
+	db "SQUAWKS",$00
+
+DATA_80C956:
+	db "SQUITTER",$00
+
+DATA_80C95F:
+	db "ELLIE",$00
+
+DATA_80C965:
+	db "PARRY",$00
+
+DATA_80C96B:
+	db " BAZAAR         BARNACLE",$00
+
+DATA_80C984:
+	db "  BRASH         BLUNDER ",$00
+
+DATA_80C99D:
+	db "  BLUE          BAZOOKA ",$00
+
+DATA_80C9B6:
+	db "BLIZZARD       BRAMBLE",$00
+
+DATA_80C9CD:
+	db "BENNY ] BJ+RN    BARTER   ",$00
+
+DATA_80C9E8:
+	db "BAFFLE          BOOMER",$00
+
+DATA_80C9FF:
+	db "DIXIE KONG",$00
+
+DATA_80CA0A:
+	db "KIDDY KONG",$00
+
+DATA_80CA15:
+	db "FUNKY KONG",$00
+
+DATA_80CA20:
+	db "WRINKLY KONG",$00
+
+DATA_80CA2D:
+	db "SWANKY KONG",$00
+
+DATA_80CA39:
+	db "CRANKY KONG",$00
+
+CODE_80CA45:
+	JML.l CODE_80CA49
+CODE_80CA49:
+	REP.b #$30
+	PHD
+	PHA
+	PHX
+	PHY
+	LDA.w #$0000
+	TCD
+	CLD
+	SEP.b #$20
+	LDA.l !REGISTER_NMIEnable
+	LDA.b #$8F
+	STA.l !REGISTER_ScreenDisplayRegister
+	REP.b #$20
+	LDA.l $00005A
+	INC
+	STA.l $00005A
+	JMP.w ($004A)
+
+CODE_80CA6E:
+	SEI
+	RTI
+
+UNK_80CA70:
+	db "GUARDE",$00
+
+UNK_80CA77:
+	db "SQUAWKS",$00
+
+UNK_80CA7F:
+	db "SQUITTER",$00
+
+UNK_80CA88:
+	db "ELLIE",$00
+
+UNK_80CA8E:
+	db "PARRY",$00
+
+UNK_80CA94:
+	db " BAZAAR         BARNACLE",$00
+
+UNK_80CAAD:
+	db "  BRASH         BLUNDER ",$00
+
+UNK_80CAC6:
+	db "  BLUE          BAZOOKA ",$00
+
+UNK_80CADF:
+	db "BLIZZARD       BRAMBLE",$00
+
+UNK_80CAF6:
+	db "BENNY ] BJ+RN    BARTER   ",$00
+
+UNK_80CB11:
+	db "BAFFLE          BOOMER",$00
+
+UNK_80CB28:
+	db "DIXIE KONG",$00
+
+UNK_80CB33:
+	db "KIDDY KONG",$00
+
+UNK_80CB3E:
+	db "FUNKY KONG",$00
+
+UNK_80CB49:
+	db "WRINKLY KONG",$00
+
+UNK_80CB56:
+	db "SWANKY KONG",$00
+
+UNK_80CB62:
+	db "CRANKY KONG",$00
+
+CODE_80CB6E:
+	JML.l CODE_80CB72
+CODE_80CB72:
+	REP.b #$30
+	PHD
+	PHA
+	PHX
+	PHY
+	LDA.w #$0000
+	TCD
+	CLD
+	SEP.b #$20
+	LDA.l !REGISTER_NMIEnable
+	LDA.b #$8F
+	STA.l !REGISTER_ScreenDisplayRegister
+	REP.b #$20
+	LDA.l $00005A
+	INC
+	STA.l $00005A
+	JMP.w ($004A)
+
+CODE_80CB97:
+	SEI
+	RTI

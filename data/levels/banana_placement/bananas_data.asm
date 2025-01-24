@@ -1,0 +1,915 @@
+DATA_ECD000:
+	dw DATA_ECF236
+
+DATA_ECD002:
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1A2-DATA_ECD002
+	dw DATA_ECD1F2-DATA_ECD002
+	dw DATA_ECD24E-DATA_ECD002
+	dw DATA_ECD2E6-DATA_ECD002
+	dw DATA_ECD39A-DATA_ECD002
+	dw DATA_ECD47E-DATA_ECD002
+	dw DATA_ECD532-DATA_ECD002
+	dw DATA_ECD5B6-DATA_ECD002
+	dw DATA_ECD5E2-DATA_ECD002
+	dw DATA_ECD67E-DATA_ECD002
+	dw DATA_ECD776-DATA_ECD002
+	dw DATA_ECD846-DATA_ECD002
+	dw DATA_ECD8C6-DATA_ECD002
+	dw DATA_ECD98A-DATA_ECD002
+	dw DATA_ECDA06-DATA_ECD002
+	dw DATA_ECDA26-DATA_ECD002
+	dw DATA_ECDA9A-DATA_ECD002
+	dw DATA_ECDB2E-DATA_ECD002
+	dw DATA_ECDC32-DATA_ECD002
+	dw DATA_ECDD36-DATA_ECD002
+	dw DATA_ECDE06-DATA_ECD002
+	dw DATA_ECDEA2-DATA_ECD002
+	dw DATA_ECDF66-DATA_ECD002
+	dw DATA_ECE016-DATA_ECD002
+	dw DATA_ECE0D2-DATA_ECD002
+	dw DATA_ECE1AA-DATA_ECD002
+	dw DATA_ECE2E6-DATA_ECD002
+	dw DATA_ECE3AE-DATA_ECD002
+	dw DATA_ECE476-DATA_ECD002
+	dw DATA_ECE552-DATA_ECD002
+	dw DATA_ECE5DA-DATA_ECD002
+	dw DATA_ECE6E2-DATA_ECD002
+	dw DATA_ECE826-DATA_ECD002
+	dw DATA_ECE8A2-DATA_ECD002
+	dw DATA_ECE982-DATA_ECD002
+	dw DATA_ECE9EE-DATA_ECD002
+	dw DATA_ECEA56-DATA_ECD002
+	dw DATA_ECEAB6-DATA_ECD002
+	dw DATA_ECEB0A-DATA_ECD002
+	dw DATA_ECEB8A-DATA_ECD002
+	dw DATA_ECECCA-DATA_ECD002
+	dw DATA_ECECCA-DATA_ECD002
+	dw DATA_ECECCA-DATA_ECD002
+	dw DATA_ECECCA-DATA_ECD002
+	dw DATA_ECECFE-DATA_ECD002
+	dw DATA_ECECFE-DATA_ECD002
+	dw DATA_ECED3A-DATA_ECD002
+	dw DATA_ECED3A-DATA_ECD002
+	dw DATA_ECED5E-DATA_ECD002
+	dw DATA_ECED72-DATA_ECD002
+	dw DATA_ECED72-DATA_ECD002
+	dw DATA_ECED72-DATA_ECD002
+	dw DATA_ECED82-DATA_ECD002
+	dw DATA_ECED82-DATA_ECD002
+	dw DATA_ECED86-DATA_ECD002
+	dw DATA_ECED86-DATA_ECD002
+	dw DATA_ECED86-DATA_ECD002
+	dw DATA_ECED86-DATA_ECD002
+	dw DATA_ECED86-DATA_ECD002
+	dw DATA_ECED86-DATA_ECD002
+	dw DATA_ECED86-DATA_ECD002
+	dw DATA_ECEDAA-DATA_ECD002
+	dw DATA_ECEDAA-DATA_ECD002
+	dw DATA_ECEDAA-DATA_ECD002
+	dw DATA_ECEDAA-DATA_ECD002
+	dw DATA_ECEDAA-DATA_ECD002
+	dw DATA_ECEDBE-DATA_ECD002
+	dw DATA_ECEE0A-DATA_ECD002
+	dw DATA_ECEE0A-DATA_ECD002
+	dw DATA_ECEE0A-DATA_ECD002
+	dw DATA_ECEE72-DATA_ECD002
+	dw DATA_ECEE72-DATA_ECD002
+	dw DATA_ECEE72-DATA_ECD002
+	dw DATA_ECEE72-DATA_ECD002
+	dw DATA_ECEE72-DATA_ECD002
+	dw DATA_ECEE72-DATA_ECD002
+	dw DATA_ECEE72-DATA_ECD002
+	dw DATA_ECEE92-DATA_ECD002
+	dw DATA_ECEEB6-DATA_ECD002
+	dw DATA_ECEEB6-DATA_ECD002
+	dw DATA_ECEEB6-DATA_ECD002
+	dw DATA_ECEECA-DATA_ECD002
+	dw DATA_ECEF02-DATA_ECD002
+	dw DATA_ECEF02-DATA_ECD002
+	dw DATA_ECEF22-DATA_ECD002
+	dw DATA_ECEF3A-DATA_ECD002
+	dw DATA_ECEF3A-DATA_ECD002
+	dw DATA_ECEFAA-DATA_ECD002
+	dw DATA_ECEFAA-DATA_ECD002
+	dw DATA_ECEFAA-DATA_ECD002
+	dw DATA_ECEFAA-DATA_ECD002
+	dw DATA_ECEFAA-DATA_ECD002
+	dw DATA_ECEFAA-DATA_ECD002
+	dw DATA_ECEFDE-DATA_ECD002
+	dw DATA_ECEFDE-DATA_ECD002
+	dw DATA_ECF02E-DATA_ECD002
+	dw DATA_ECF02E-DATA_ECD002
+	dw DATA_ECF02E-DATA_ECD002
+	dw DATA_ECF046-DATA_ECD002
+	dw DATA_ECF0CA-DATA_ECD002
+	dw DATA_ECF0CE-DATA_ECD002
+	dw DATA_ECF0CE-DATA_ECD002
+	dw DATA_ECF0DA-DATA_ECD002
+	dw DATA_ECF0DA-DATA_ECD002
+	dw DATA_ECF106-DATA_ECD002
+	dw DATA_ECF106-DATA_ECD002
+	dw DATA_ECF146-DATA_ECD002
+	dw DATA_ECF146-DATA_ECD002
+	dw DATA_ECF146-DATA_ECD002
+	dw DATA_ECF16E-DATA_ECD002
+	dw DATA_ECF1B2-DATA_ECD002
+	dw DATA_ECF1B2-DATA_ECD002
+	dw DATA_ECF1FA-DATA_ECD002
+	dw DATA_ECF1FA-DATA_ECD002
+	dw DATA_ECF1FE-DATA_ECD002
+	dw DATA_ECF1FE-DATA_ECD002
+	dw DATA_ECF1FE-DATA_ECD002
+	dw DATA_ECF1FE-DATA_ECD002
+	dw DATA_ECF1FE-DATA_ECD002
+	dw DATA_ECF22A-DATA_ECD002
+	dw DATA_ECF22A-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+	dw DATA_ECF236-DATA_ECD002
+
+DATA_ECD1A2:
+	incbin "data/levels/banana_placement/LakesideLimbo_Main.bin"
+
+DATA_ECD1F2:
+	incbin "data/levels/banana_placement/KreepingKlasps_Main.bin"
+
+DATA_ECD24E:
+	incbin "data/levels/banana_placement/TidalTrouble_Main.bin"
+
+DATA_ECD2E6:
+	incbin "data/levels/banana_placement/DoorstopDash_Main.bin"
+
+DATA_ECD39A:
+	incbin "data/levels/banana_placement/SquealsOnWheels_Main.bin"
+
+DATA_ECD47E:
+	incbin "data/levels/banana_placement/MurkyMill_Main.bin"
+
+DATA_ECD532:
+	incbin "data/levels/banana_placement/SkiddasRow_Main.bin"
+
+DATA_ECD5B6:
+	incbin "data/levels/banana_placement/LemguinLunge_Main.bin"
+
+DATA_ECD5E2:
+	incbin "data/levels/banana_placement/TearawayToboggan_Main.bin"
+
+DATA_ECD67E:
+	incbin "data/levels/banana_placement/RipsawRage_Main.bin"
+
+DATA_ECD776:
+	incbin "data/levels/banana_placement/SpringinSpiders_Main.bin"
+
+DATA_ECD846:
+	incbin "data/levels/banana_placement/BarrelShieldBustUp_Main.bin"
+
+DATA_ECD8C6:
+	incbin "data/levels/banana_placement/SwoopySalvo_Main.bin"
+
+DATA_ECD98A:
+	incbin "data/levels/banana_placement/RiversideRace_Main.bin"
+
+DATA_ECDA06:
+	incbin "data/levels/banana_placement/LightningLookOut_Main.bin"
+
+DATA_ECDA26:
+	incbin "data/levels/banana_placement/BobbingBarrelBrawl_Main.bin"
+
+DATA_ECDA9A:
+	incbin "data/levels/banana_placement/BazzasBlockade_Main.bin"
+
+DATA_ECDB2E:
+	incbin "data/levels/banana_placement/FishFoodFrenzy_Main.bin"
+
+DATA_ECDC32:
+	incbin "data/levels/banana_placement/FloodlitFish_Main.bin"
+
+DATA_ECDD36:
+	incbin "data/levels/banana_placement/RocketBarrelRide_Main.bin"
+
+DATA_ECDE06:
+	incbin "data/levels/banana_placement/TrackerBarrelTrek_Main.bin"
+
+DATA_ECDEA2:
+	incbin "data/levels/banana_placement/BarrelDropBounce_Main.bin"
+
+DATA_ECDF66:
+	incbin "data/levels/banana_placement/FireballFrenzy_Main.bin"
+
+DATA_ECE016:
+	incbin "data/levels/banana_placement/BlazingBazukas_Main.bin"
+
+DATA_ECE0D2:
+	incbin "data/levels/banana_placement/KrackshotKroc_Main.bin"
+
+DATA_ECE1AA:
+	incbin "data/levels/banana_placement/LowGLabyrinth_Main.bin"
+
+DATA_ECE2E6:
+	incbin "data/levels/banana_placement/PoisonousPipeline_Main.bin"
+
+DATA_ECE3AE:
+	incbin "data/levels/banana_placement/DemolitionDrainPipe_Main.bin"
+
+DATA_ECE476:
+	incbin "data/levels/banana_placement/KreviceKreepers_Main.bin"
+
+DATA_ECE552:
+	incbin "data/levels/banana_placement/KongFusedCliffs_Main.bin"
+
+DATA_ECE5DA:
+	incbin "data/levels/banana_placement/RopeyRumpus_Main.bin"
+
+DATA_ECE6E2:
+	incbin "data/levels/banana_placement/BuzzerBarrage_Main.bin"
+
+DATA_ECE826:
+	incbin "data/levels/banana_placement/PotHolePanic_Main.bin"
+
+DATA_ECE8A2:
+	incbin "data/levels/banana_placement/CreepyCaverns_Main.bin"
+
+DATA_ECE982:
+	incbin "data/levels/banana_placement/KoindozerKlamber_Main.bin"
+
+DATA_ECE9EE:
+	incbin "data/levels/banana_placement/KonveyorRopeKlash_Main.bin"
+
+DATA_ECEA56:
+	incbin "data/levels/banana_placement/StampedeSprint_Main.bin"
+
+DATA_ECEAB6:
+	incbin "data/levels/banana_placement/CrissKrossCliffs_Main.bin"
+
+DATA_ECEB0A:
+	incbin "data/levels/banana_placement/TyrantTwinTussle_Main.bin"
+
+DATA_ECEB8A:
+	incbin "data/levels/banana_placement/RocketRush_Main.bin"
+
+DATA_ECECCA:
+	incbin "data/levels/banana_placement/LakesideLimbo_Bonus1.bin"
+
+DATA_ECECFE:
+	incbin "data/levels/banana_placement/DoorstopDash_Bonus1.bin"
+
+DATA_ECED3A:
+	incbin "data/levels/banana_placement/TidalTrouble_Bonus1.bin"
+
+DATA_ECED5E:
+	incbin "data/levels/banana_placement/TidalTrouble_Bonus2.bin"
+
+DATA_ECED72:
+	incbin "data/levels/banana_placement/SquealsOnWheels_Bonus1.bin"
+
+DATA_ECED82:
+	incbin "data/levels/banana_placement/BarrelShieldBustUp_Bonus1.bin"
+
+DATA_ECED86:
+	incbin "data/levels/banana_placement/SpringinSpiders_Bonus2.bin"
+
+DATA_ECEDAA:
+	incbin "data/levels/banana_placement/RocketBarrelRide_Bonus1.bin"
+
+DATA_ECEDBE:
+	incbin "data/levels/banana_placement/RocketBarrelRide_Bonus2.bin"
+
+DATA_ECEE0A:
+	incbin "data/levels/banana_placement/TrackerBarrelTrek_Bonus1.bin"
+
+DATA_ECEE72:
+	incbin "data/levels/banana_placement/DemolitionDrainPipe_Bonus2.bin"
+
+DATA_ECEE92:
+	incbin "data/levels/banana_placement/RipsawRage_Bonus1.bin"
+
+DATA_ECEEB6:
+	incbin "data/levels/banana_placement/BlazingBazukas_Bonus2.bin"
+
+DATA_ECEECA:
+	incbin "data/levels/banana_placement/LowGLabyrinth_Bonus1.bin"
+
+DATA_ECEF02:
+	incbin "data/levels/banana_placement/KreviceKreepers_Bonus1.bin"
+
+DATA_ECEF22:
+	incbin "data/levels/banana_placement/KreviceKreepers_Bonus2.bin"
+
+DATA_ECEF3A:
+	incbin "data/levels/banana_placement/TearawayToboggan_Bonus2.bin"
+
+DATA_ECEFAA:
+	incbin "data/levels/banana_placement/LemguinLunge_Bonus2.bin"
+
+DATA_ECEFDE:
+	incbin "data/levels/banana_placement/BuzzerBarrage_Bonus2.bin"
+
+DATA_ECF02E:
+	incbin "data/levels/banana_placement/FloodlitFish_Bonus1.bin"
+
+DATA_ECF046:
+	incbin "data/levels/banana_placement/FloodlitFish_Bonus2.bin"
+
+DATA_ECF0CA:
+	incbin "data/levels/banana_placement/PotHolePanic_Bonus1.bin"
+
+DATA_ECF0CE:
+	incbin "data/levels/banana_placement/RopeyRumpus_Bonus1.bin"
+
+DATA_ECF0DA:
+	incbin "data/levels/banana_placement/KoindozerKlamber_Bonus1.bin"
+
+DATA_ECF106:
+	incbin "data/levels/banana_placement/CreepyCaverns_Bonus1.bin"
+
+DATA_ECF146:
+	incbin "data/levels/banana_placement/BobbingBarrelBrawl_Bonus2.bin"
+
+DATA_ECF16E:
+	incbin "data/levels/banana_placement/KonveyorRopeKlash_Bonus1.bin"
+
+DATA_ECF1B2:
+	incbin "data/levels/banana_placement/PoisonousPipeline_Bonus1.bin"
+
+DATA_ECF1FA:
+	incbin "data/levels/banana_placement/SwoopySalvo_Bonus3.bin"
+
+DATA_ECF1FE:
+	incbin "data/levels/banana_placement/TyrantTwinTussle_Bonus1.bin"
+
+DATA_ECF22A:
+	incbin "data/levels/banana_placement/TyrantTwinTussle_Bonus2.bin"
+
+DATA_ECF236:
+	dw DATA_ECF320-DATA_ECF236
+	dw DATA_ECF323-DATA_ECF236
+	dw DATA_ECF326-DATA_ECF236
+	dw DATA_ECF329-DATA_ECF236
+	dw DATA_ECF32C-DATA_ECF236
+	dw DATA_ECF32F-DATA_ECF236
+	dw DATA_ECF332-DATA_ECF236
+	dw DATA_ECF335-DATA_ECF236
+	dw DATA_ECF338-DATA_ECF236
+	dw DATA_ECF33C-DATA_ECF236
+	dw DATA_ECF340-DATA_ECF236
+	dw DATA_ECF344-DATA_ECF236
+	dw DATA_ECF348-DATA_ECF236
+	dw DATA_ECF34C-DATA_ECF236
+	dw DATA_ECF350-DATA_ECF236
+	dw DATA_ECF354-DATA_ECF236
+	dw DATA_ECF358-DATA_ECF236
+	dw DATA_ECF35C-DATA_ECF236
+	dw DATA_ECF360-DATA_ECF236
+	dw DATA_ECF363-DATA_ECF236
+	dw DATA_ECF367-DATA_ECF236
+	dw DATA_ECF36B-DATA_ECF236
+	dw DATA_ECF36F-DATA_ECF236
+	dw DATA_ECF372-DATA_ECF236
+	dw DATA_ECF375-DATA_ECF236
+	dw DATA_ECF378-DATA_ECF236
+	dw DATA_ECF37C-DATA_ECF236
+	dw DATA_ECF380-DATA_ECF236
+	dw DATA_ECF384-DATA_ECF236
+	dw DATA_ECF388-DATA_ECF236
+	dw DATA_ECF38C-DATA_ECF236
+	dw DATA_ECF392-DATA_ECF236
+	dw DATA_ECF398-DATA_ECF236
+	dw DATA_ECF39E-DATA_ECF236
+	dw DATA_ECF3A1-DATA_ECF236
+	dw DATA_ECF3A4-DATA_ECF236
+	dw DATA_ECF3A8-DATA_ECF236
+	dw DATA_ECF3AE-DATA_ECF236
+	dw DATA_ECF3B4-DATA_ECF236
+	dw DATA_ECF3BA-DATA_ECF236
+	dw DATA_ECF3C2-DATA_ECF236
+	dw DATA_ECF3CA-DATA_ECF236
+	dw DATA_ECF3D2-DATA_ECF236
+	dw DATA_ECF3DA-DATA_ECF236
+	dw DATA_ECF3E2-DATA_ECF236
+	dw DATA_ECF3EA-DATA_ECF236
+	dw DATA_ECF3F2-DATA_ECF236
+	dw DATA_ECF3FD-DATA_ECF236
+	dw DATA_ECF400-DATA_ECF236
+	dw DATA_ECF409-DATA_ECF236
+	dw DATA_ECF40C-DATA_ECF236
+	dw DATA_ECF40F-DATA_ECF236
+	dw DATA_ECF415-DATA_ECF236
+	dw DATA_ECF41B-DATA_ECF236
+	dw DATA_ECF422-DATA_ECF236
+	dw DATA_ECF429-DATA_ECF236
+	dw DATA_ECF432-DATA_ECF236
+	dw DATA_ECF43B-DATA_ECF236
+	dw DATA_ECF444-DATA_ECF236
+	dw DATA_ECF44E-DATA_ECF236
+	dw DATA_ECF458-DATA_ECF236
+	dw DATA_ECF462-DATA_ECF236
+	dw DATA_ECF46C-DATA_ECF236
+	dw DATA_ECF478-DATA_ECF236
+	dw DATA_ECF486-DATA_ECF236
+	dw DATA_ECF497-DATA_ECF236
+	dw DATA_ECF49B-DATA_ECF236
+	dw DATA_ECF49F-DATA_ECF236
+	dw DATA_ECF4A5-DATA_ECF236
+	dw DATA_ECF4AB-DATA_ECF236
+	dw DATA_ECF4B1-DATA_ECF236
+	dw DATA_ECF4B9-DATA_ECF236
+	dw DATA_ECF4C1-DATA_ECF236
+	dw DATA_ECF4CB-DATA_ECF236
+	dw DATA_ECF4D8-DATA_ECF236
+	dw DATA_ECF4E5-DATA_ECF236
+	dw DATA_ECF4E9-DATA_ECF236
+	dw DATA_ECF4F0-DATA_ECF236
+	dw DATA_ECF4FB-DATA_ECF236
+	dw DATA_ECF506-DATA_ECF236
+	dw DATA_ECF515-DATA_ECF236
+	dw DATA_ECF524-DATA_ECF236
+	dw DATA_ECF533-DATA_ECF236
+	dw DATA_ECF542-DATA_ECF236
+	dw DATA_ECF551-DATA_ECF236
+	dw DATA_ECF564-DATA_ECF236
+	dw DATA_ECF568-DATA_ECF236
+	dw DATA_ECF571-DATA_ECF236
+	dw DATA_ECF57A-DATA_ECF236
+	dw DATA_ECF57E-DATA_ECF236
+	dw DATA_ECF582-DATA_ECF236
+	dw DATA_ECF58D-DATA_ECF236
+	dw DATA_ECF59C-DATA_ECF236
+	dw DATA_ECF5AD-DATA_ECF236
+	dw DATA_ECF5C0-DATA_ECF236
+	dw DATA_ECF5D6-DATA_ECF236
+	dw DATA_ECF5EE-DATA_ECF236
+	dw DATA_ECF5F2-DATA_ECF236
+	dw DATA_ECF5F6-DATA_ECF236
+	dw DATA_ECF60A-DATA_ECF236
+	dw DATA_ECF60F-DATA_ECF236
+	dw DATA_ECF61C-DATA_ECF236
+	dw DATA_ECF62D-DATA_ECF236
+	dw DATA_ECF643-DATA_ECF236
+	dw DATA_ECF661-DATA_ECF236
+	dw DATA_ECF66D-DATA_ECF236
+	dw DATA_ECF687-DATA_ECF236
+	dw DATA_ECF6A1-DATA_ECF236
+	dw DATA_ECF6A6-DATA_ECF236
+	dw DATA_ECF6AB-DATA_ECF236
+	dw DATA_ECF6BB-DATA_ECF236
+	dw DATA_ECF6CD-DATA_ECF236
+	dw DATA_ECF6E7-DATA_ECF236
+	dw DATA_ECF70C-DATA_ECF236
+	dw DATA_ECF738-DATA_ECF236
+	dw DATA_ECF757-DATA_ECF236
+	dw DATA_ECF76F-DATA_ECF236
+
+DATA_ECF320:
+	db $00,$00,$00
+
+DATA_ECF323:
+	db $01,$01,$01
+
+DATA_ECF326:
+	db $01,$03,$05
+
+DATA_ECF329:
+	db $01,$04,$09
+
+DATA_ECF32C:
+	db $01,$05,$11
+
+DATA_ECF32F:
+	db $01,$06,$21
+
+DATA_ECF332:
+	db $01,$07,$49
+
+DATA_ECF335:
+	db $01,$07,$41
+
+DATA_ECF338:
+	db $01,$09,$01,$01
+
+DATA_ECF33C:
+	db $01,$09,$11,$01
+
+DATA_ECF340:
+	db $01,$0A,$49,$02
+
+DATA_ECF344:
+	db $01,$0B,$21,$04
+
+DATA_ECF348:
+	db $01,$0D,$11,$11
+
+DATA_ECF34C:
+	db $01,$0D,$49,$12
+
+DATA_ECF350:
+	db $01,$0D,$41,$10
+
+DATA_ECF354:
+	db $01,$10,$21,$84
+
+DATA_ECF358:
+	db $02,$06,$01,$08
+
+DATA_ECF35C:
+	db $02,$06,$60,$00
+
+DATA_ECF360:
+	db $03,$01,$05
+
+DATA_ECF363:
+	db $03,$03,$44,$00
+
+DATA_ECF367:
+	db $03,$03,$01,$01
+
+DATA_ECF36B:
+	db $03,$03,$45,$01
+
+DATA_ECF36F:
+	db $04,$01,$09
+
+DATA_ECF372:
+	db $04,$02,$42
+
+DATA_ECF375:
+	db $04,$02,$81
+
+DATA_ECF378:
+	db $04,$03,$01,$08
+
+DATA_ECF37C:
+	db $04,$03,$04,$02
+
+DATA_ECF380:
+	db $04,$04,$01,$80
+
+DATA_ECF384:
+	db $04,$04,$08,$10
+
+DATA_ECF388:
+	db $04,$04,$09,$90
+
+DATA_ECF38C:
+	db $04,$07,$49,$00,$20,$09
+
+DATA_ECF392:
+	db $04,$08,$01,$10,$00,$80
+
+DATA_ECF398:
+	db $04,$08,$80,$00,$10,$01
+
+DATA_ECF39E:
+	db $05,$01,$15
+
+DATA_ECF3A1:
+	db $05,$01,$11
+
+DATA_ECF3A4:
+	db $05,$03,$45,$51
+
+DATA_ECF3A8:
+	db $05,$05,$01,$00,$00,$01
+
+DATA_ECF3AE:
+	db $05,$05,$10,$00,$10,$00
+
+DATA_ECF3B4:
+	db $05,$05,$11,$00,$10,$01
+
+DATA_ECF3BA:
+	db $05,$09,$04,$04,$54,$15,$40,$00
+
+DATA_ECF3C2:
+	db $05,$09,$40,$00,$55,$05,$04,$04
+
+DATA_ECF3CA:
+	db $05,$09,$00,$81,$54,$00,$02,$10
+
+DATA_ECF3D2:
+	db $05,$09,$15,$80,$10,$04,$52,$01
+
+DATA_ECF3DA:
+	db $05,$09,$55,$01,$04,$00,$10,$00
+
+DATA_ECF3E2:
+	db $05,$09,$55,$01,$40,$24,$10,$0A
+
+DATA_ECF3EA:
+	db $05,$09,$11,$01,$00,$00,$10,$11
+
+DATA_ECF3F2:
+	db $05,$0D,$11,$11,$00,$00,$00,$00,$10,$11,$01
+
+DATA_ECF3FD:
+	db $06,$01,$21
+
+DATA_ECF400:
+	db $06,$09,$55,$01,$44,$04,$10,$91,$08
+
+DATA_ECF409:
+	db $07,$01,$49
+
+DATA_ECF40C:
+	db $07,$01,$41
+
+DATA_ECF40F:
+	db $07,$04,$41,$80,$40,$01
+
+DATA_ECF415:
+	db $07,$04,$09,$90,$00,$09
+
+DATA_ECF41B:
+	db $07,$05,$44,$55,$42,$08,$01
+
+DATA_ECF422:
+	db $07,$05,$84,$10,$52,$15,$01
+
+DATA_ECF429:
+	db $07,$07,$01,$00,$00,$01,$00,$00,$01
+
+DATA_ECF432:
+	db $07,$07,$49,$00,$20,$09,$00,$24,$01
+
+DATA_ECF43B:
+	db $07,$07,$40,$00,$00,$01,$00,$04,$00
+
+DATA_ECF444:
+	db $07,$09,$01,$20,$00,$00,$04,$00,$00,$40
+
+DATA_ECF44E:
+	db $07,$09,$00,$21,$00,$10,$00,$00,$40,$00
+
+DATA_ECF458:
+	db $07,$09,$01,$00,$00,$10,$00,$00,$02,$40
+
+DATA_ECF462:
+	db $07,$09,$00,$01,$00,$00,$04,$00,$42,$00
+
+DATA_ECF46C:
+	db $07,$0B,$11,$01,$00,$00,$88,$08,$00,$00,$44,$04
+
+DATA_ECF478:
+	db $07,$0D,$01,$00,$00,$40,$00,$00,$00,$10,$00,$00,$00,$04
+
+DATA_ECF486:
+	db $08,$0F,$10,$40,$02,$40,$14,$94,$A0,$10,$05,$25,$28,$04,$41,$00
+	db $0A
+
+DATA_ECF497:
+	db $09,$01,$01,$01
+
+DATA_ECF49B:
+	db $09,$01,$11,$01
+
+DATA_ECF49F:
+	db $09,$03,$04,$20,$00,$01
+
+DATA_ECF4A5:
+	db $09,$03,$01,$20,$00,$04
+
+DATA_ECF4AB:
+	db $09,$03,$45,$51,$14,$05
+
+DATA_ECF4B1:
+	db $09,$05,$01,$00,$40,$00,$00,$10
+
+DATA_ECF4B9:
+	db $09,$05,$10,$00,$40,$00,$00,$01
+
+DATA_ECF4C1:
+	db $09,$07,$40,$00,$00,$80,$00,$00,$00,$01
+
+DATA_ECF4CB:
+	db $09,$09,$00,$01,$00,$00,$00,$01,$00,$00,$00,$01,$00
+
+DATA_ECF4D8:
+	db $09,$09,$01,$00,$00,$00,$00,$01,$00,$00,$00,$00,$01
+
+DATA_ECF4E5:
+	db $0A,$01,$49,$02
+
+DATA_ECF4E9:
+	db $0A,$04,$09,$90,$00,$09,$90
+
+DATA_ECF4F0:
+	db $0A,$07,$49,$00,$20,$09,$00,$24,$01,$80,$24
+
+DATA_ECF4FB:
+	db $0A,$07,$40,$00,$00,$08,$00,$80,$00,$88,$00
+
+DATA_ECF506:
+	db $0A,$0A,$01,$20,$00,$00,$10,$00,$00,$00,$10,$00,$00,$00,$08
+
+DATA_ECF515:
+	db $0A,$0A,$01,$00,$00,$00,$02,$00,$00,$00,$04,$00,$00,$00,$08
+
+DATA_ECF524:
+	db $0A,$0A,$49,$02,$00,$40,$92,$00,$00,$90,$24,$00,$00,$24,$09
+
+DATA_ECF533:
+	db $0A,$0A,$01,$00,$00,$80,$00,$00,$00,$80,$00,$00,$40,$00,$08
+
+DATA_ECF542:
+	db $0A,$0A,$00,$02,$00,$00,$40,$00,$00,$00,$04,$00,$08,$04,$00
+
+DATA_ECF551:
+	db $0A,$0D,$49,$12,$00,$00,$80,$24,$09,$00,$00,$40,$92,$04,$00,$00
+	db $20,$49,$02
+
+DATA_ECF564:
+	db $0B,$01,$21,$04
+
+DATA_ECF568:
+	db $0B,$05,$01,$20,$00,$20,$00,$08,$04
+
+DATA_ECF571:
+	db $0B,$05,$01,$00,$00,$08,$00,$00,$40
+
+DATA_ECF57A:
+	db $0D,$01,$11,$11
+
+DATA_ECF57E:
+	db $0D,$01,$49,$12
+
+DATA_ECF582:
+	db $0D,$05,$11,$00,$10,$01,$00,$11,$00,$10,$01
+
+DATA_ECF58D:
+	db $0D,$08,$01,$08,$00,$40,$00,$00,$80,$00,$00,$40,$00,$08,$01
+
+DATA_ECF59C:
+	db $0D,$09,$01,$10,$00,$00,$02,$00,$00,$40,$00,$00,$80,$00,$40,$10
+	db $00
+
+DATA_ECF5AD:
+	db $0D,$0A,$49,$02,$00,$40,$92,$00,$00,$90,$24,$00,$00,$24,$09,$00
+	db $00,$49,$02
+
+DATA_ECF5C0:
+	db $0D,$0C,$88,$08,$00,$00,$10,$11,$00,$00,$00,$44,$04,$00,$00,$10
+	db $11,$00,$00,$00,$44,$04
+
+DATA_ECF5D6:
+	db $0D,$0D,$11,$11,$00,$00,$00,$00,$10,$11,$01,$00,$00,$00,$00,$11
+	db $11,$00,$00,$00,$00,$10,$11,$01
+
+DATA_ECF5EE:
+	db $10,$01,$49,$92
+
+DATA_ECF5F2:
+	db $10,$01,$21,$84
+
+DATA_ECF5F6:
+	db $10,$09,$01,$10,$00,$00,$02,$00,$00,$40,$00,$00,$00,$02,$00,$00
+	db $04,$00,$82,$00
+
+DATA_ECF60A:
+	db $11,$01,$11,$11,$01
+
+DATA_ECF60F:
+	db $11,$05,$11,$00,$10,$01,$00,$11,$00,$10,$01,$00,$11
+
+DATA_ECF61C:
+	db $11,$07,$08,$40,$10,$80,$00,$04,$01,$08,$40,$10,$80,$00,$04,$01
+	db $08
+
+DATA_ECF62D:
+	db $11,$09,$11,$01,$00,$00,$10,$11,$00,$00,$00,$11,$01,$00,$00,$10
+	db $11,$00,$00,$00,$11,$01
+
+DATA_ECF643:
+	db $11,$0D,$11,$11,$00,$00,$00,$00,$10,$11,$01,$00,$00,$00,$00,$11
+	db $11,$00,$00,$00,$00,$10,$11,$01,$00,$00,$00,$00,$11,$11
+
+DATA_ECF661:
+	db $13,$04,$09,$90,$00,$09,$90,$00,$09,$90,$00,$09
+
+DATA_ECF66D:
+	db $13,$0A,$41,$00,$80,$20,$00,$41,$00,$80,$20,$00,$41,$00,$80,$20
+	db $00,$41,$00,$80,$20,$00,$41,$00,$80,$20
+
+DATA_ECF687:
+	db $13,$0A,$49,$02,$00,$40,$92,$00,$00,$90,$24,$00,$00,$24,$09,$00
+	db $00,$49,$02,$00,$40,$92,$00,$00,$90,$24
+
+DATA_ECF6A1:
+	db $15,$01,$21,$84,$10
+
+DATA_ECF6A6:
+	db $15,$01,$11,$11,$11
+
+DATA_ECF6AB:
+	db $15,$05,$11,$00,$10,$01,$00,$11,$00,$10,$01,$00,$11,$00,$10,$01
+
+DATA_ECF6BB:
+	db $15,$06,$21,$00,$00,$40,$08,$00,$00,$10,$02,$00,$00,$84,$00,$00
+	db $00,$21
+
+DATA_ECF6CD:
+	db $15,$09,$11,$01,$00,$00,$10,$11,$00,$00,$00,$11,$01,$00,$00,$10
+	db $11,$00,$00,$00,$11,$01,$00,$00,$10,$11
+
+DATA_ECF6E7:
+	db $15,$0D,$11,$11,$00,$00,$00,$00,$10,$11,$01,$00,$00,$00,$00,$11
+	db $11,$00,$00,$00,$00,$10,$11,$01,$00,$00,$00,$00,$11,$11,$00,$00
+	db $00,$00,$10,$11,$01
+
+DATA_ECF70C:
+	db $15,$10,$21,$84,$00,$00,$00,$00,$00,$00,$00,$00,$21,$84,$00,$00
+	db $00,$00,$00,$00,$00,$00,$21,$84,$00,$00,$00,$00,$00,$00,$00,$00
+	db $21,$84,$00,$00,$00,$00,$00,$00,$00,$00,$21,$84
+
+DATA_ECF738:
+	db $17,$0A,$41,$00,$80,$20,$00,$41,$00,$80,$20,$00,$41,$00,$80,$20
+	db $00,$41,$00,$80,$20,$00,$41,$00,$80,$20,$00,$41,$00,$80,$20
+
+DATA_ECF757:
+	db $19,$07,$41,$00,$02,$10,$04,$20,$00,$41,$00,$02,$10,$04,$20,$00
+	db $41,$00,$02,$10,$04,$20,$00,$41
+
+DATA_ECF76F:
+	db $04,$20,$00,$41,$10,$04,$20,$00,$41,$00,$02,$10,$04,$20,$00,$41
