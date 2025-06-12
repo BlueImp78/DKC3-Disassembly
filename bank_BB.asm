@@ -130,319 +130,322 @@ CODE_BB807B:
 UNK_BB807F:
 	db $12,$29,$DE,$B3,$BF
 
-DATA_BB8084:
-	dd (DKC3_NorSpr0000_EmptySpriteSlot_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0004_UnknownSprite0004_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0008_UnknownSprite0008_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr000C_UnknownSprite000C_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0010_HeadToHeadDot_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0014_ThrownSoftball_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0018_UnknownSprite0018_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr001C_UnknownSprite001C_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0020_ArichSpit_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0024_UnknownSprite0024_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0028_UnknownSprite0028_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr002C_ThrownSnowball_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0030_BarrelShield_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0034_BarrelPieces_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0038_MapSwimmingKongSplash_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr003C_UnknownSprite003C_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0040_MinkeyAcorn_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0044_RotatingCylinderKey_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0048_BleakFightCursor_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr004C_TopOfCottonTopCoveWaterfall_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0050_BarbosSpikeProjectile_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0054_BarbosEye_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0058_BarbosPupil_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr005C_UnknownSprite005C_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0060_BottomOfRightCottonTopCoveWaterfall_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0064_BottomOfCottonTopCoveWaterfall_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0068_PlayModeText_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr006C_UnknownSprite006C_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0070_BananaBirdCaveCover_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0074_UnknownSprite0074_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0078_EllieHorizontalWaterShot_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr007C_EllieDiagonalWaterShot_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0080_SquawksEgg_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0084_KremwoodForestLog_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0088_MapCannon_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr008C_UnknownSprite008C_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0090_KAOSLaserHeadFlameJet_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0094_ChairliftChair_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0098_SewerStockpileGrate_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr009C_UnknownSprite009C_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00A0_UnknownSprite00A0_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00A4_UnknownSprite00A4_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00A8_RazorRidgePipe_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00AC_UnknownSprite00AC_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00B0_UnknownSprite00B0_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00B4_KremtoaBridge_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00B8_KuchukaBomb_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00BC_RedGemInBananaBirdQueenBarrier_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00C0_MapBananaBird_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00C4_KRoolFightPlatform_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00C8_KRoolFightBGDecorations_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00CC_SquirtPupil_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00D0_Minkey_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00D4_UnknownSprite00D4_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00D8_BelchaTooth_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00DC_UnknownSprite00DC_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00E0_InventoryItemHUDSquares_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00E4_UnknownSprite00E4_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00E8_Squirt_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr00EC_UpwardsShotBarrel_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00F0_RareLogo_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00F4_UnknownSprite00F4_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00F8_FunkyKong_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr00FC_TitleScreenSign_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0100_SneekWheel_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0104_AreaNameText_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0108_Bleak_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr010C_BananaBirdCaveCrystal_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0110_UnknownSprite0110_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0114_TheEndSign_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0118_KRool_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr011C_KRoolCurtain_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0120_GiantBananaBirdQueenEgg_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0124_LevelEndFlagpole_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr0128_UnknownSprite0128_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr012C_UnknownSprite012C_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0130_UnknownSprite0130_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0134_UnknownSprite0134_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0138_UnknownSprite0138_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr013C_StampedeTrigger_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0140_UnknownSprite0140_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0144_FloorDoor_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0148_ExitDoor_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr014C_SpawnedRegularBanana_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0150_GreenBanana_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0154_GreenBananaSpawner_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0158_KongFusedCliffsRope_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr015C_KongFusedCliffsAutoscroll_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0160_UnknownSprite0160_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0164_KAOSHeadExplosionSpawner_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0168_VerticalAutoscroll_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr016C_WaterfallBarrelSpawner_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0170_BarrelRespawner_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0174_UnknownSprite0174_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0178_BuzzSwarmSpawner_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr017C_UnknownSprite0180_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0180_UnknownSprite0180_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0184_TargetSpawner_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0188_UnknownSprite0188_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr018C_KuffnKlout_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0190_UnknownSprite0190_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0194_ArichBackHitbox_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0198_MapFlag_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr019C_UnknownSprite019C_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01A0_UnknownSprite01A0_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01A4_FileSelectMenu_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01A8_UnknownSprite01A8_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01AC_BrashCabinDigitalDisplay_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01B0_FileSelectNumber_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01B4_UnknownSprite01B4_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01B8_UnknownSprite01B8_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01BC_UnknownSprite01BC_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01C0_SpeedrunTimer_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr01C4_UnknownSprite01C4_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01C8_UnknownSprite01C8_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01CC_UnknownSprite01CC_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01D0_LightningBoltSpawner_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01D4_KnautilusSpriteMask_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01D8_PlayerKrosshairController_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01DC_UnknownSprite01DC_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01E0_UnknownSprite01E0_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01E4_UnknownSprite01E4_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01E8_Belcha_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr01EC_Barbos_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr01F0_UnknownSprite01F0_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01F4_SquealsOnWheelsTracker_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01F8_BazzaSpawner_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr01FC_BananaBird_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0200_UnknownSprite0200_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0204_KAOS_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr0208_UnknownSprite0208_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr020C_UnknownSprite020C_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0210_NintendoPresentsKong_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0214_RotatingCylinderHandle_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0218_RareLogoKiddy_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr021C_RareLogoDixie_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0220_Toboggan_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0224_TobogganSparks_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr0228_LargePipe_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr022C_DixieKong_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0230_KiddyKong_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0234_Ellie_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0238_Enguarde_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr023C_Squawks_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0240_Squitter_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0244_Parry_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0248_WebShot_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr024C_WebPlatform_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0250_AnimalBuddyBox_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0254_AnimalBuddyIcon_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr0258_NoAnimalBuddySign_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr025C_UnknownSprite025C_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr0260_UnknownSprite0260_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0264_UnknownSprite0264_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0268_FireballLandingParticles_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr026C_BurstEffect_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr0270_WaterSplash_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0274_SmokePuff_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr0278_BarrelSwitchS_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr027C_MillPlatform_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0280_UnknownSprite0280_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0284_BearCoin_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0288_UnknownSprite0288_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr028C_BonusBCoin_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0290_CollectableCog_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0294_KongLetters_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0298_Bananas_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr029C_ExtraLifeBalloon_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02A0_LevelEndFlag_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr02A4_UnknownSprite02A4_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr02A8_BonusLevelTimer_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02AC_RopeFire_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02B0_KongWaterSplash_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02B4_BarrelCannon_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02B8_BarrelIcons_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02BC_CheckpointBarrel_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02C0_Barrel_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02C4_DKBarrel_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02C8_UnknownSprite02C8_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02CC_UnknownSprite02CC_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02D0_TNTBarrel_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02D4_SteelKeg_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02D8_WoodenBox_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02DC_WaterfallBarrel_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02E0_InvincibilityBarrel_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02E4_FuelCan_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02E8_KAOSHeadExplosion_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02EC_Rocket_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02F0_RocketFlame_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02F4_RocketEyes_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02F8_Sneek_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr02FC_Buzz_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0300_Koco_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0304_MapKong_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0308_StationaryDisplaySprite1_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr030C_MapVehicle_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0310_UnknownSprite0310_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0314_EndingSwankyKong_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0318_MovingDisplaySprite_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr031C_GameOverBlocks_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0320_BrothersBear_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0324_BrothersBearAccessories_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0328_MainMapWaterfall_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr032C_UnknownSprite032C_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0330_FileSelectIcon_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0334_ChairliftPulley_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0338_UnknownSprite0338_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr033C_StationaryDisplaySprite2_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0340_BramblesVase_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0344_GyrocopterBladesAndShadow_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0348_UnknownSprite0348_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr034C_UnknownSprite034C_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0350_UnknownSprite0350_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0354_SkyHighSecretRock_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0358_Krosshair_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr035C_Knautilus_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0360_UnknownSprite0360_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0364_KRoolHead_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0368_MotorBoatFunkyAndCrankyInEnding_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr036C_WrinklysSaveCave_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0370_MapBananaBirdQueen_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0374_BuzzSwarrm_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0378_FollowingKlasp_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr037C_AutoMovingKlasp_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0380_Lemguin_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0384_FriendlyNibblaHead_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0388_FriendlyNibblaBody_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr038C_DoorLeverHandle_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0390_LeverControlledMetalDoor_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0394_DoorGear_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0398_SneekInWheel_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr039C_SneekControlledMetalDoor_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03A0_ArichLegs_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03A4_ArichHead_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03A8_ArichPupil_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03AC_UnknownSprite03AC_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03B0_UnknownSprite03B0_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03B4_Lurchin_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03B8_BleakSnowball_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03BC_ReKoil_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03C0_BleakFightKong_Main-$01)|($01<<24)
-	dd (DKC3_NorSpr03C4_UnknownSprite03C4_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03C8_SkiddaAndKobble_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03CC_BigSmokeCloud_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03D0_Koin_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03D4_DKCoin_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03D8_LemguinSpawner_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03DC_DefeatedBleakSnowball_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03E0_Knocka_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03E4_KnockaLimbs_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03E8_UnknownSprite03E8_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03EC_SideOfBelchasMouth_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03F0_BurpedUpBarrel_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03F4_KnikKnak_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03F8_Krimp_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr03FC_KnautilusFireballShooter_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0400_BelchaPlatform_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0404_BarbosMouth_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0408_PurpleLurchin_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr040C_BarbosSpawnedGreenLurchin_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0410_SeashellMissle_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0414_Bristle_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0418_Krumple_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr041C_Swoopy_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0420_Kuchuka_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0424_KuchukaHand_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0428_FlyingKnikKnak_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr042C_Bazza_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0430_BountyBass_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0434_BootyBird_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0438_UnknownSprite0438_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr043C_UnknownSprite043C_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0440_UnknownSprite0440_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0444_Nid_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0448_Bazuka_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr044C_BarrelShotByBazuka_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0450_BarrelSwitch_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0454_Kopter_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0458_MurkyMillElevator_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr045C_NibblaHead_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0460_NibblaBody_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0464_BonusBCoinBossPrize_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0468_BearCoinBossPrize_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr046C_KAOSLaserHead_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0470_KAOSSkullHead_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0474_KAOSFlame_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0478_KAOSBlade_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr047C_KAOSBoxingGlove_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0480_KAOSFlameSpread_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0484_Karbine_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0488_KarbineFireball_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr048C_KrosshairFireball_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0490_GleaminBream_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0494_KAOSCylinderHead_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr0498_KAOSBombs_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr049C_UnknownSprite049C_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04A0_TNTExplosion_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04A4_KRoolPropeller_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04A8_KastleKAOSLever_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04AC_ElectricNode_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04B0_KRoolsFeet_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04B4_KnautilusFireballShooterFireball_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04B8_BGSteelKeg_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04BC_SquirtsEyePart_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04C0_UnknownSprite04C0_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04C4_CrankyKong_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04C8_TimerDigit_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04CC_HeadToHeadIcon_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04D0_Target_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04D4_TargetShootKong_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04D8_SwankyKong_Main-$01)|($00<<24)
-	dd (DKC3_NorSpr04DC_PrizeFromSwankyKong_Main-$01)|($00<<24)
+;BB8084
+sprite_main_table:
+%offset(sprite_main_bank, 2)
+%offset(sprite_timestop_flag, 3)
+	dl Spr0000_null_sprite_main-1 : db $00
+	dl Spr0004_unknown_sprite_0004_Main-1 : db $00
+	dl Spr0008_unknown_sprite_0008_Main-1 : db $00
+	dl Spr000C_unknown_sprite_000C_Main-1 : db $00
+	dl Spr0010_HeadToHeadDot_Main-1 : db $00
+	dl Spr0014_ThrownSoftball_Main-1 : db $00
+	dl Spr0018_unknown_sprite_0018_Main-1 : db $00
+	dl Spr001C_unknown_sprite_001C_Main-1 : db $00
+	dl Spr0020_ArichSpit_Main-1 : db $00
+	dl Spr0024_unknown_sprite_0024_Main-1 : db $00
+	dl Spr0028_unknown_sprite_0028_Main-1 : db $00
+	dl Spr002C_ThrownSnowball_Main-1 : db $00
+	dl Spr0030_BarrelShield_Main-1 : db $00
+	dl Spr0034_BarrelPieces_Main-1 : db $00
+	dl Spr0038_MapSwimmingKongSplash_Main-1 : db $00
+	dl Spr003C_unknown_sprite_003C_Main-1 : db $00
+	dl Spr0040_MinkeyAcorn_Main-1 : db $00
+	dl Spr0044_RotatingCylinderKey_Main-1 : db $00
+	dl Spr0048_BleakFightCursor_Main-1 : db $00
+	dl Spr004C_TopOfCottonTopCoveWaterfall_Main-1 : db $00
+	dl Spr0050_BarbosSpikeProjectile_Main-1 : db $00
+	dl Spr0054_BarbosEye_Main-1 : db $00
+	dl Spr0058_BarbosPupil_Main-1 : db $00
+	dl Spr005C_unknown_sprite_005C_Main-1 : db $00
+	dl Spr0060_BottomOfRightCottonTopCoveWaterfall_Main-1 : db $00
+	dl Spr0064_BottomOfCottonTopCoveWaterfall_Main-1 : db $00
+	dl Spr0068_PlayModeText_Main-1 : db $00
+	dl Spr006C_unknown_sprite_006C_Main-1 : db $00
+	dl Spr0070_BananaBirdCaveCover_Main-1 : db $00
+	dl Spr0074_unknown_sprite_0074_Main-1 : db $00
+	dl Spr0078_EllieHorizontalWaterShot_Main-1 : db $00
+	dl Spr007C_EllieDiagonalWaterShot_Main-1 : db $00
+	dl Spr0080_SquawksEgg_Main-1 : db $00
+	dl Spr0084_KremwoodForestLog_Main-1 : db $00
+	dl Spr0088_MapCannon_Main-1 : db $00
+	dl Spr008C_unknown_sprite_008C_Main-1 : db $00
+	dl Spr0090_KAOSLaserHeadFlameJet_Main-1 : db $00
+	dl Spr0094_ChairliftChair_Main-1 : db $00
+	dl Spr0098_SewerStockpileGrate_Main-1 : db $00
+	dl Spr009C_unknown_sprite_009C_Main-1 : db $00
+	dl Spr00A0_unknown_sprite_00A0_Main-1 : db $00
+	dl Spr00A4_unknown_sprite_00A4_Main-1 : db $00
+	dl Spr00A8_RazorRidgePipe_Main-1 : db $00
+	dl Spr00AC_unknown_sprite_00AC_Main-1 : db $00
+	dl Spr00B0_unknown_sprite_00B0_Main-1 : db $00
+	dl Spr00B4_KremtoaBridge_Main-1 : db $00
+	dl Spr00B8_KuchukaBomb_Main-1 : db $00
+	dl Spr00BC_RedGemInBananaBirdQueenBarrier_Main-1 : db $00
+	dl Spr00C0_MapBananaBird_Main-1 : db $00
+	dl Spr00C4_KRoolFightPlatform_Main-1 : db $00
+	dl Spr00C8_KRoolFightBGDecorations_Main-1 : db $00
+	dl Spr00CC_SquirtPupil_Main-1 : db $00
+	dl Spr00D0_Minkey_Main-1 : db $00
+	dl Spr00D4_unknown_sprite_00D4_Main-1 : db $00
+	dl Spr00D8_BelchaTooth_Main-1 : db $00
+	dl Spr00DC_unknown_sprite_00DC_Main-1 : db $00
+	dl Spr00E0_InventoryItemHUDSquares_Main-1 : db $00
+	dl Spr00E4_unknown_sprite_00E4_Main-1 : db $00
+	dl Spr00E8_Squirt_Main-1 : db $01
+	dl Spr00EC_UpwardsShotBarrel_Main-1 : db $00
+	dl Spr00F0_RareLogo_Main-1 : db $00
+	dl Spr00F4_unknown_sprite_00F4_Main-1 : db $00
+	dl Spr00F8_FunkyKong_Main-1 : db $00
+	dl Spr00FC_TitleScreenSign_Main-1 : db $00
+	dl Spr0100_SneekWheel_Main-1 : db $00
+	dl Spr0104_AreaNameText_Main-1 : db $00
+	dl Spr0108_Bleak_Main-1 : db $00
+	dl Spr010C_BananaBirdCaveCrystal_Main-1 : db $00
+	dl Spr0110_unknown_sprite_0110_Main-1 : db $00
+	dl Spr0114_TheEndSign_Main-1 : db $00
+	dl Spr0118_KRool_Main-1 : db $00
+	dl Spr011C_KRoolCurtain_Main-1 : db $00
+	dl Spr0120_GiantBananaBirdQueenEgg_Main-1 : db $00
+	dl Spr0124_LevelEndFlagpole_Main-1 : db $01
+	dl Spr0128_unknown_sprite_0128_Main-1 : db $00
+	dl Spr012C_unknown_sprite_012C_Main-1 : db $00
+	dl Spr0130_unknown_sprite_0130_Main-1 : db $00
+	dl Spr0134_unknown_sprite_0134_Main-1 : db $00
+	dl Spr0138_unknown_sprite_0138_Main-1 : db $00
+	dl Spr013C_StampedeTrigger_Main-1 : db $00
+	dl Spr0140_unknown_sprite_0140_Main-1 : db $00
+	dl Spr0144_FloorDoor_Main-1 : db $00
+	dl Spr0148_ExitDoor_Main-1 : db $00
+	dl Spr014C_SpawnedRegularBanana_Main-1 : db $00
+	dl Spr0150_GreenBanana_Main-1 : db $00
+	dl Spr0154_GreenBananaSpawner_Main-1 : db $00
+	dl Spr0158_KongFusedCliffsRope_Main-1 : db $00
+	dl Spr015C_KongFusedCliffsAutoscroll_Main-1 : db $00
+	dl Spr0160_unknown_sprite_0160_Main-1 : db $00
+	dl Spr0164_KAOSHeadExplosionSpawner_Main-1 : db $00
+	dl Spr0168_VerticalAutoscroll_Main-1 : db $00
+	dl Spr016C_WaterfallBarrelSpawner_Main-1 : db $00
+	dl Spr0170_BarrelRespawner_Main-1 : db $00
+	dl Spr0174_unknown_sprite_0174_Main-1 : db $00
+	dl Spr0178_BuzzSwarmSpawner_Main-1 : db $00
+	dl Spr017C_unknown_sprite_0180_Main-1 : db $00
+	dl Spr0180_unknown_sprite_0180_Main-1 : db $00
+	dl Spr0184_TargetSpawner_Main-1 : db $00
+	dl Spr0188_unknown_sprite_0188_Main-1 : db $00
+	dl Spr018C_KuffnKlout_Main-1 : db $00
+	dl Spr0190_unknown_sprite_0190_Main-1 : db $00
+	dl Spr0194_ArichBackHitbox_Main-1 : db $00
+	dl Spr0198_MapFlag_Main-1 : db $00
+	dl Spr019C_unknown_sprite_019C_Main-1 : db $00
+	dl Spr01A0_unknown_sprite_01A0_Main-1 : db $00
+	dl Spr01A4_FileSelectMenu_Main-1 : db $00
+	dl Spr01A8_unknown_sprite_01A8_Main-1 : db $00
+	dl Spr01AC_BrashCabinDigitalDisplay_Main-1 : db $00
+	dl Spr01B0_FileSelectNumber_Main-1 : db $00
+	dl Spr01B4_unknown_sprite_01B4_Main-1 : db $00
+	dl Spr01B8_unknown_sprite_01B8_Main-1 : db $00
+	dl Spr01BC_unknown_sprite_01BC_Main-1 : db $00
+	dl Spr01C0_SpeedrunTimer_Main-1 : db $01
+	dl Spr01C4_unknown_sprite_01C4_Main-1 : db $00
+	dl Spr01C8_unknown_sprite_01C8_Main-1 : db $00
+	dl Spr01CC_unknown_sprite_01CC_Main-1 : db $00
+	dl Spr01D0_LightningBoltSpawner_Main-1 : db $00
+	dl Spr01D4_KnautilusSpriteMask_Main-1 : db $00
+	dl Spr01D8_PlayerKrosshairController_Main-1 : db $00
+	dl Spr01DC_unknown_sprite_01DC_Main-1 : db $00
+	dl Spr01E0_unknown_sprite_01E0_Main-1 : db $00
+	dl Spr01E4_unknown_sprite_01E4_Main-1 : db $00
+	dl Spr01E8_Belcha_Main-1 : db $01
+	dl Spr01EC_Barbos_Main-1 : db $01
+	dl Spr01F0_unknown_sprite_01F0_Main-1 : db $00
+	dl Spr01F4_SquealsOnWheelsTracker_Main-1 : db $00
+	dl Spr01F8_BazzaSpawner_Main-1 : db $00
+	dl Spr01FC_BananaBird_Main-1 : db $00
+	dl Spr0200_unknown_sprite_0200_Main-1 : db $00
+	dl Spr0204_KAOS_Main-1 : db $01
+	dl Spr0208_unknown_sprite_0208_Main-1 : db $00
+	dl Spr020C_unknown_sprite_020C_Main-1 : db $00
+	dl Spr0210_NintendoPresentsKong_Main-1 : db $00
+	dl Spr0214_RotatingCylinderHandle_Main-1 : db $00
+	dl Spr0218_RareLogoKiddy_Main-1 : db $00
+	dl Spr021C_RareLogoDixie_Main-1 : db $00
+	dl Spr0220_Toboggan_Main-1 : db $00
+	dl Spr0224_TobogganSparks_Main-1 : db $01
+	dl Spr0228_LargePipe_Main-1 : db $00
+	dl Spr022C_DixieKong_Main-1 : db $00
+	dl Spr0230_KiddyKong_Main-1 : db $00
+	dl Spr0234_Ellie_Main-1 : db $00
+	dl Spr0238_Enguarde_Main-1 : db $00
+	dl Spr023C_Squawks_Main-1 : db $00
+	dl Spr0240_Squitter_Main-1 : db $00
+	dl Spr0244_Parry_Main-1 : db $00
+	dl Spr0248_WebShot_Main-1 : db $00
+	dl Spr024C_WebPlatform_Main-1 : db $00
+	dl Spr0250_AnimalBuddyBox_Main-1 : db $00
+	dl Spr0254_AnimalBuddyIcon_Main-1 : db $01
+	dl Spr0258_NoAnimalBuddySign_Main-1 : db $01
+	dl Spr025C_unknown_sprite_025C_Main-1 : db $01
+	dl Spr0260_unknown_sprite_0260_Main-1 : db $00
+	dl Spr0264_unknown_sprite_0264_Main-1 : db $00
+	dl Spr0268_FireballLandingParticles_Main-1 : db $00
+	dl Spr026C_BurstEffect_Main-1 : db $01
+	dl Spr0270_WaterSplash_Main-1 : db $00
+	dl Spr0274_SmokePuff_Main-1 : db $01
+	dl Spr0278_BarrelSwitchS_Main-1 : db $00
+	dl Spr027C_MillPlatform_Main-1 : db $00
+	dl Spr0280_unknown_sprite_0280_Main-1 : db $00
+	dl Spr0284_BearCoin_Main-1 : db $00
+	dl Spr0288_unknown_sprite_0288_Main-1 : db $00
+	dl Spr028C_BonusBCoin_Main-1 : db $00
+	dl Spr0290_CollectableCog_Main-1 : db $00
+	dl Spr0294_KongLetters_Main-1 : db $00
+	dl Spr0298_Bananas_Main-1 : db $00
+	dl Spr029C_ExtraLifeBalloon_Main-1 : db $00
+	dl Spr02A0_LevelEndFlag_Main-1 : db $01
+	dl Spr02A4_unknown_sprite_02A4_Main-1 : db $01
+	dl Spr02A8_BonusLevelTimer_Main-1 : db $00
+	dl Spr02AC_RopeFire_Main-1 : db $00
+	dl Spr02B0_KongWaterSplash_Main-1 : db $00
+	dl Spr02B4_BarrelCannon_Main-1 : db $00
+	dl Spr02B8_BarrelIcons_Main-1 : db $00
+	dl Spr02BC_CheckpointBarrel_Main-1 : db $00
+	dl Spr02C0_Barrel_Main-1 : db $00
+	dl Spr02C4_DKBarrel_Main-1 : db $00
+	dl Spr02C8_unknown_sprite_02C8_Main-1 : db $00
+	dl Spr02CC_unknown_sprite_02CC_Main-1 : db $00
+	dl Spr02D0_TNTBarrel_Main-1 : db $00
+	dl Spr02D4_SteelKeg_Main-1 : db $00
+	dl Spr02D8_WoodenBox_Main-1 : db $00
+	dl Spr02DC_WaterfallBarrel_Main-1 : db $00
+	dl Spr02E0_InvincibilityBarrel_Main-1 : db $00
+	dl Spr02E4_FuelCan_Main-1 : db $00
+	dl Spr02E8_KAOSHeadExplosion_Main-1 : db $00
+	dl Spr02EC_Rocket_Main-1 : db $00
+	dl Spr02F0_RocketFlame_Main-1 : db $00
+	dl Spr02F4_RocketEyes_Main-1 : db $00
+	dl Spr02F8_Sneek_Main-1 : db $00
+	dl Spr02FC_Buzz_Main-1 : db $00
+	dl Spr0300_Koco_Main-1 : db $00
+	dl Spr0304_MapKong_Main-1 : db $00
+	dl Spr0308_StationaryDisplaySprite1_Main-1 : db $00
+	dl Spr030C_MapVehicle_Main-1 : db $00
+	dl Spr0310_unknown_sprite_0310_Main-1 : db $00
+	dl Spr0314_EndingSwankyKong_Main-1 : db $00
+	dl Spr0318_MovingDisplaySprite_Main-1 : db $00
+	dl Spr031C_GameOverBlocks_Main-1 : db $00
+	dl Spr0320_BrothersBear_Main-1 : db $00
+	dl Spr0324_BrothersBearAccessories_Main-1 : db $00
+	dl Spr0328_MainMapWaterfall_Main-1 : db $00
+	dl Spr032C_unknown_sprite_032C_Main-1 : db $00
+	dl Spr0330_FileSelectIcon_Main-1 : db $00
+	dl Spr0334_ChairliftPulley_Main-1 : db $00
+	dl Spr0338_unknown_sprite_0338_Main-1 : db $00
+	dl Spr033C_StationaryDisplaySprite2_Main-1 : db $00
+	dl Spr0340_BramblesVase_Main-1 : db $00
+	dl Spr0344_GyrocopterBladesAndShadow_Main-1 : db $00
+	dl Spr0348_unknown_sprite_0348_Main-1 : db $00
+	dl Spr034C_unknown_sprite_034C_Main-1 : db $00
+	dl Spr0350_unknown_sprite_0350_Main-1 : db $00
+	dl Spr0354_SkyHighSecretRock_Main-1 : db $00
+	dl Spr0358_Krosshair_Main-1 : db $00
+	dl Spr035C_Knautilus_Main-1 : db $00
+	dl Spr0360_unknown_sprite_0360_Main-1 : db $00
+	dl Spr0364_KRoolHead_Main-1 : db $00
+	dl Spr0368_MotorBoatFunkyAndCrankyInEnding_Main-1 : db $00
+	dl Spr036C_WrinklysSaveCave_Main-1 : db $00
+	dl Spr0370_MapBananaBirdQueen_Main-1 : db $00
+	dl Spr0374_BuzzSwarrm_Main-1 : db $00
+	dl Spr0378_FollowingKlasp_Main-1 : db $00
+	dl Spr037C_AutoMovingKlasp_Main-1 : db $00
+	dl Spr0380_Lemguin_Main-1 : db $00
+	dl Spr0384_FriendlyNibblaHead_Main-1 : db $00
+	dl Spr0388_FriendlyNibblaBody_Main-1 : db $00
+	dl Spr038C_DoorLeverHandle_Main-1 : db $00
+	dl Spr0390_LeverControlledMetalDoor_Main-1 : db $00
+	dl Spr0394_DoorGear_Main-1 : db $00
+	dl Spr0398_SneekInWheel_Main-1 : db $00
+	dl Spr039C_SneekControlledMetalDoor_Main-1 : db $00
+	dl Spr03A0_ArichLegs_Main-1 : db $00
+	dl Spr03A4_ArichHead_Main-1 : db $00
+	dl Spr03A8_ArichPupil_Main-1 : db $00
+	dl Spr03AC_unknown_sprite_03AC_Main-1 : db $00
+	dl Spr03B0_unknown_sprite_03B0_Main-1 : db $00
+	dl Spr03B4_Lurchin_Main-1 : db $00
+	dl Spr03B8_BleakSnowball_Main-1 : db $00
+	dl Spr03BC_ReKoil_Main-1 : db $00
+	dl Spr03C0_BleakFightKong_Main-1 : db $01
+	dl Spr03C4_unknown_sprite_03C4_Main-1 : db $00
+	dl Spr03C8_SkiddaAndKobble_Main-1 : db $00
+	dl Spr03CC_BigSmokeCloud_Main-1 : db $00
+	dl Spr03D0_Koin_Main-1 : db $00
+	dl Spr03D4_DKCoin_Main-1 : db $00
+	dl Spr03D8_LemguinSpawner_Main-1 : db $00
+	dl Spr03DC_DefeatedBleakSnowball_Main-1 : db $00
+	dl Spr03E0_Knocka_Main-1 : db $00
+	dl Spr03E4_KnockaLimbs_Main-1 : db $00
+	dl Spr03E8_unknown_sprite_03E8_Main-1 : db $00
+	dl Spr03EC_SideOfBelchasMouth_Main-1 : db $00
+	dl Spr03F0_BurpedUpBarrel_Main-1 : db $00
+	dl Spr03F4_KnikKnak_Main-1 : db $00
+	dl Spr03F8_Krimp_Main-1 : db $00
+	dl Spr03FC_KnautilusFireballShooter_Main-1 : db $00
+	dl Spr0400_BelchaPlatform_Main-1 : db $00
+	dl Spr0404_BarbosMouth_Main-1 : db $00
+	dl Spr0408_PurpleLurchin_Main-1 : db $00
+	dl Spr040C_BarbosSpawnedGreenLurchin_Main-1 : db $00
+	dl Spr0410_SeashellMissle_Main-1 : db $00
+	dl Spr0414_Bristle_Main-1 : db $00
+	dl Spr0418_Krumple_Main-1 : db $00
+	dl Spr041C_Swoopy_Main-1 : db $00
+	dl Spr0420_Kuchuka_Main-1 : db $00
+	dl Spr0424_KuchukaHand_Main-1 : db $00
+	dl Spr0428_FlyingKnikKnak_Main-1 : db $00
+	dl Spr042C_Bazza_Main-1 : db $00
+	dl Spr0430_BountyBass_Main-1 : db $00
+	dl Spr0434_BootyBird_Main-1 : db $00
+	dl Spr0438_unknown_sprite_0438_Main-1 : db $00
+	dl Spr043C_unknown_sprite_043C_Main-1 : db $00
+	dl Spr0440_unknown_sprite_0440_Main-1 : db $00
+	dl Spr0444_Nid_Main-1 : db $00
+	dl Spr0448_Bazuka_Main-1 : db $00
+	dl Spr044C_BarrelShotByBazuka_Main-1 : db $00
+	dl Spr0450_BarrelSwitch_Main-1 : db $00
+	dl Spr0454_Kopter_Main-1 : db $00
+	dl Spr0458_MurkyMillElevator_Main-1 : db $00
+	dl Spr045C_NibblaHead_Main-1 : db $00
+	dl Spr0460_NibblaBody_Main-1 : db $00
+	dl Spr0464_BonusBCoinBossPrize_Main-1 : db $00
+	dl Spr0468_BearCoinBossPrize_Main-1 : db $00
+	dl Spr046C_KAOSLaserHead_Main-1 : db $00
+	dl Spr0470_KAOSSkullHead_Main-1 : db $00
+	dl Spr0474_KAOSFlame_Main-1 : db $00
+	dl Spr0478_KAOSBlade_Main-1 : db $00
+	dl Spr047C_KAOSBoxingGlove_Main-1 : db $00
+	dl Spr0480_KAOSFlameSpread_Main-1 : db $00
+	dl Spr0484_Karbine_Main-1 : db $00
+	dl Spr0488_KarbineFireball_Main-1 : db $00
+	dl Spr048C_KrosshairFireball_Main-1 : db $00
+	dl Spr0490_GleaminBream_Main-1 : db $00
+	dl Spr0494_KAOSCylinderHead_Main-1 : db $00
+	dl Spr0498_KAOSBombs_Main-1 : db $00
+	dl Spr049C_unknown_sprite_049C_Main-1 : db $00
+	dl Spr04A0_TNTExplosion_Main-1 : db $00
+	dl Spr04A4_KRoolPropeller_Main-1 : db $00
+	dl Spr04A8_KastleKAOSLever_Main-1 : db $00
+	dl Spr04AC_ElectricNode_Main-1 : db $00
+	dl Spr04B0_KRoolsFeet_Main-1 : db $00
+	dl Spr04B4_KnautilusFireballShooterFireball_Main-1 : db $00
+	dl Spr04B8_BGSteelKeg_Main-1 : db $00
+	dl Spr04BC_SquirtsEyePart_Main-1 : db $00
+	dl Spr04C0_unknown_sprite_04C0_Main-1 : db $00
+	dl Spr04C4_CrankyKong_Main-1 : db $00
+	dl Spr04C8_TimerDigit_Main-1 : db $00
+	dl Spr04CC_HeadToHeadIcon_Main-1 : db $00
+	dl Spr04D0_Target_Main-1 : db $00
+	dl Spr04D4_TargetShootKong_Main-1 : db $00
+	dl Spr04D8_SwankyKong_Main-1 : db $00
+	dl Spr04DC_PrizeFromSwankyKong_Main-1 : db $00
 
 disable_screen_wrapper:
 	JMP.w disable_screen
@@ -5992,7 +5995,7 @@ CODE_BBABE4:
 	SEC
 	RTL
 
-DKC3_NorSpr0260_UnknownSprite0260_Main:
+Spr0260_unknown_sprite_0260_Main:
 ;$BBABFC
 	LDY.b $70
 	LDA.w $0038,y
@@ -7440,10 +7443,10 @@ CODE_BBB884:
 	TXY
 	TAX
 	STX.b DKC3_Level_SpriteDataRAM[$00].SpriteIDLo,y
-	LDA.l DATA_BB8084,x
+	LDA.l sprite_main_table,x
 	STA.w DKC3_Level_SpriteDataRAM[$00].RoutinePtrLo,y
 	SEP.b #$20
-	LDA.l DATA_BB8084+$02,x
+	LDA.l sprite_main_bank,x
 	STA.w DKC3_Level_SpriteDataRAM[$00].RoutinePtrBank,y
 	STA.w $0005,y
 	REP.b #$20
@@ -7520,7 +7523,7 @@ CODE_BBB92E:
 	LDA.w $194B
 	AND.w #$0024
 	BEQ.b CODE_BBB95F
-	LDA.l DATA_BB8084+$03,x
+	LDA.l sprite_timestop_flag,x
 	AND.w #$0001
 	BEQ.b CODE_BBB976
 	BRA.b CODE_BBB95F
@@ -8549,7 +8552,7 @@ CODE_BBC827:
 	JSL.l CODE_BBAB52
 	JMP.w [$04F5]
 
-DKC3_NorSpr0124_LevelEndFlagpole_Main:
+Spr0124_LevelEndFlagpole_Main:
 ;$BBC82E
 	LDA.w $0039,y
 	AND.w #$00FF
@@ -8794,7 +8797,7 @@ CODE_BBC9E4:
 	STY.b $32,x
 	RTS
 
-DKC3_NorSpr02A0_LevelEndFlag_Main:
+Spr02A0_LevelEndFlag_Main:
 ;$BBCA0D
 	JMP.w (DATA_BBCA10,x)
 
@@ -9031,7 +9034,7 @@ CODE_BBCB7A:
 CODE_BBCBB1:
 	RTS
 
-DKC3_NorSpr0148_ExitDoor_Main:
+Spr0148_ExitDoor_Main:
 ;$BBCBB2
 	JMP.w (DATA_BBCBB5,x)
 
@@ -9216,7 +9219,7 @@ CODE_BBCCD7:
 CODE_BBCCE8:
 	JMP.w [$04F5]
 
-DKC3_NorSpr0294_KongLetters_Main:
+Spr0294_KongLetters_Main:
 CODE_BBCCEB:
 	JMP.w (DATA_BBCCEE,x)
 
@@ -9609,7 +9612,7 @@ CODE_BBCFAF:
 DATA_BBCFB0:
 	db $5C,$10,$12,$64,$5E,$14,$16,$66,$60,$2A,$2C,$58,$62,$30,$32,$5A
 
-DKC3_NorSpr014C_SpawnedRegularBanana_Main:
+Spr014C_SpawnedRegularBanana_Main:
 ;$BBCFC0
 	JMP.w (DATA_BBCFC3,x)
 
@@ -9652,7 +9655,7 @@ CODE_BBCFF3:
 	JSL.l CODE_BB8591
 	JMP.w [$04F5]
 
-DKC3_NorSpr0298_Bananas_Main:
+Spr0298_Bananas_Main:
 CODE_BBD015:
 	JMP.w (DATA_BBD018,x)
 
@@ -9704,7 +9707,7 @@ CODE_BBD073:
 	JSL.l CODE_B9A006
 	JMP.w [$04F5]
 
-DKC3_NorSpr0154_GreenBananaSpawner_Main:
+Spr0154_GreenBananaSpawner_Main:
 ;$BBD07A
 	JMP.w (DATA_BBD07D,x)
 
@@ -9751,7 +9754,7 @@ CODE_BBD0A2:
 	CLC
 	ADC.w $005C,y
 	TAY
-	PEA.w ((DATA_FFB5AD&$FF0000)>>16)|((DKC3_NorSpr0154_GreenBananaSpawner_Main&$FF0000)>>8)
+	PEA.w ((DATA_FFB5AD&$FF0000)>>16)|((Spr0154_GreenBananaSpawner_Main&$FF0000)>>8)
 	PLB
 	LDA.w $0000,y
 	STA.b $12,x
@@ -9785,7 +9788,7 @@ CODE_BBD103:
 	STA.b $38,x
 	JMP.w [$04F5]
 
-DKC3_NorSpr0150_GreenBanana_Main:
+Spr0150_GreenBanana_Main:
 ;$BBD110
 	JMP.w (DATA_BBD113,x)
 
@@ -9869,7 +9872,7 @@ CODE_BBD1AB:
 	STA.b $60,x
 	RTS
 
-DKC3_NorSpr029C_ExtraLifeBalloon_Main:
+Spr029C_ExtraLifeBalloon_Main:
 ;$BBD1B9
 	JMP.w (DATA_BBD1BC,x)
 
@@ -9940,7 +9943,7 @@ CODE_BBD241:
 	JSL.l CODE_BB8597
 	JMP.w [$04F5]
 
-DKC3_NorSpr0284_BearCoin_Main:
+Spr0284_BearCoin_Main:
 CODE_BBD24E:
 	JSL.l CODE_B9A006
 	JSL.l CODE_BCE425
@@ -9954,7 +9957,7 @@ CODE_BBD25F:
 	JSL.l CODE_BBD42A
 	JMP.w [$04F5]
 
-DKC3_NorSpr0288_UnknownSprite0288_Main:
+Spr0288_unknown_sprite_0288_Main:
 CODE_BBD26A:
 	JSL.l CODE_B9A006
 	JSL.l CODE_BCE425
@@ -9981,7 +9984,7 @@ CODE_BBD294:
 	JSL.l CODE_BBD42A
 	JMP.w [$04F5]
 
-DKC3_NorSpr02A4_UnknownSprite02A4_Main:
+Spr02A4_unknown_sprite_02A4_Main:
 ;$BBD29F
 	JMP.w (DATA_BBD2A2,x)
 
@@ -10008,7 +10011,7 @@ CODE_BBD2B8:
 	JSL.l CODE_BBD42A
 	JMP.w [$04F5]
 
-DKC3_NorSpr028C_BonusBCoin_Main:
+Spr028C_BonusBCoin_Main:
 CODE_BBD2CB:
 	JMP.w (DATA_BBD2CE,x)
 
@@ -10104,7 +10107,7 @@ CODE_BBD373:
 	STA.b $38,x
 	JMP.w [$04F5]
 
-DKC3_NorSpr0290_CollectableCog_Main:
+Spr0290_CollectableCog_Main:
 ;$BBD381
 	JMP.w (DATA_BBD384,x)
 
@@ -10527,7 +10530,7 @@ CODE_BBD6BF:
 CODE_BBD6CF:
 	RTS
 
-DKC3_NorSpr02A8_BonusLevelTimer_Main:
+Spr02A8_BonusLevelTimer_Main:
 ;$BBD6D0
 	JMP.w (DATA_BBD6D3,x)
 
@@ -10877,7 +10880,7 @@ CODE_BBD974:
 	CMP.w #$0001
 	RTS
 
-DKC3_NorSpr0144_FloorDoor_Main:
+Spr0144_FloorDoor_Main:
 ;$BBD97E
 	JMP.w (DATA_BBD981,x)
 
@@ -11080,7 +11083,7 @@ CODE_BBDAFA:
 	SEC
 	RTS
 
-DKC3_NorSpr0158_KongFusedCliffsRope_Main:
+Spr0158_KongFusedCliffsRope_Main:
 ;$BBDB10
 	TYX
 	LDA.b $4C,x
@@ -11162,7 +11165,7 @@ CODE_BBDB51:
 CODE_BBDBA2:
 	JMP.w [$04F5]
 
-DKC3_NorSpr015C_KongFusedCliffsAutoscroll_Main:
+Spr015C_KongFusedCliffsAutoscroll_Main:
 ;$BBDBA5
 	JMP.w (DATA_BBDBA8,x)
 
@@ -11393,7 +11396,7 @@ CODE_BBDD25:
 CODE_BBDD5E:
 	RTL
 
-DKC3_NorSpr02AC_RopeFire_Main:
+Spr02AC_RopeFire_Main:
 ;$BBDD5F
 	JMP.w (DATA_BBDD62,x)
 
@@ -11421,7 +11424,7 @@ CODE_BBDD80:
 	JSL.l CODE_B9E000
 	JMP.w CODE_BBC827
 
-DKC3_NorSpr0160_UnknownSprite0160_Main:
+Spr0160_unknown_sprite_0160_Main:
 ;$BBDD96
 	JMP.w (DATA_BBDD99,x)
 
@@ -11612,7 +11615,7 @@ CODE_BBDEF3:
 DATA_BBDF15:
 	db $01,$02,$04,$08,$10,$20,$40,$80
 
-DKC3_NorSpr0140_UnknownSprite0140_Main:
+Spr0140_unknown_sprite_0140_Main:
 ;$BBDF1D
 	JMP.w (DATA_BBDF20,x)
 

@@ -29,8 +29,14 @@ DATA_F35E23:
 	incbin "data/world_maps/8x8_tilemaps/k3_layer2_waterfall_8x8_tilemap.bin"
 
 DATA_F36023:
-	dw DATA_F36033+$0000,DATA_F36033+$02C0,DATA_F36033+$0580,DATA_F36033+$0840
-	dw DATA_F36033+$0B00,DATA_F36033+$0DC0,DATA_F36033+$1080,DATA_F36033+$1340
+	dw DATA_F36033
+	dw DATA_F36033+$02C0
+	dw DATA_F36033+$0580
+	dw DATA_F36033+$0840
+	dw DATA_F36033+$0B00
+	dw DATA_F36033+$0DC0
+	dw DATA_F36033+$1080
+	dw DATA_F36033+$1340
 
 DATA_F36033:
 	incbin "data/world_maps/tiledata/animated/k3_layer2_waterfall_tiledata.bin"

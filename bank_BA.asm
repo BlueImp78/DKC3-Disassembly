@@ -1,4 +1,4 @@
-DKC3_NorSpr00F4_UnknownSprite00F4_Main:
+Spr00F4_unknown_sprite_00F4_Main:
 ;$BAFFFC
 	JMP.w [$04F5]
 

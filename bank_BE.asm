@@ -1252,7 +1252,7 @@ CODE_BEC864:
 CODE_BEC870:
 	JMP.w CODE_BEC38F
 
-DKC3_NorSpr0030_BarrelShield_Main:
+Spr0030_BarrelShield_Main:
 ;$BEC873
 	JMP.w (DATA_BEC876,x)
 
@@ -1301,7 +1301,7 @@ CODE_BEC8BD:
 CODE_BEC8C5:
 	JMP.w [$04F5]
 
-DKC3_NorSpr02B8_BarrelIcons_Main:
+Spr02B8_BarrelIcons_Main:
 ;$BEC8C8
 	LDA.w $004A,y
 	BNE.b CODE_BEC8D4
@@ -1315,7 +1315,7 @@ CODE_BEC8D4:
 CODE_BEC8DD:
 	JMP.w [$04F5]
 
-DKC3_NorSpr02B4_BarrelCannon_Main:
+Spr02B4_BarrelCannon_Main:
 ;$BEC8E0
 	JMP.w (DATA_BEC8E3,x)
 
@@ -2407,7 +2407,7 @@ CODE_BED0E4:
 	JSR.w CODE_BECF10
 	RTL
 
-DKC3_NorSpr0280_UnknownSprite0280_Main:
+Spr0280_unknown_sprite_0280_Main:
 ;$BED0ED
 	JMP.w (DATA_BED0F0,x)
 
@@ -2508,14 +2508,14 @@ CODE_BED189:
 	STA.w $0016,y
 	RTS
 
-DKC3_NorSpr0034_BarrelPieces_Main:
+Spr0034_BarrelPieces_Main:
 ;$BED196
 	JSL.l CODE_B9A006
 	JSL.l CODE_B9E000
 	JSL.l CODE_BBAB46
 	JMP.w [$04F5]
 
-DKC3_NorSpr02E0_InvincibilityBarrel_Main:
+Spr02E0_InvincibilityBarrel_Main:
 ;$BED1A5
 	JSL.l CODE_BCE425
 	LDA.w #$0000
@@ -2532,7 +2532,7 @@ CODE_BED1B6:
 	JSL.l CODE_BB8597
 	JMP.w [$04F5]
 
-DKC3_NorSpr0164_KAOSHeadExplosionSpawner_Main:
+Spr0164_KAOSHeadExplosionSpawner_Main:
 ;$BED1CC
 	JSL.l CODE_B9E000
 	DEC.b $5C,x
@@ -2586,7 +2586,7 @@ DATA_BED229:
 	dw $0000,$0004,$0000,$FFFC,$FFF8,$0004,$0008,$FFF4
 	dw $0008,$0004,$FFF8,$FFF4,$0008,$FFFC,$FFF8,$FFFC
 
-DKC3_NorSpr02E8_KAOSHeadExplosion_Main:
+Spr02E8_KAOSHeadExplosion_Main:
 ;$BED249
 	JSL.l CODE_BCE425
 	LDA.w #$0240
@@ -2643,7 +2643,7 @@ CODE_BED28A:
 	STY.b $32,x
 	RTS
 
-DKC3_NorSpr02C8_UnknownSprite02C8_Main:
+Spr02C8_unknown_sprite_02C8_Main:
 ;$BED2B3
 	JMP.w (DATA_BED2B6,x)
 
@@ -2683,7 +2683,7 @@ CODE_BED2F7:
 	JSL.l CODE_B9A006
 	JMP.w CODE_BEE182
 
-DKC3_NorSpr02C4_DKBarrel_Main:
+Spr02C4_DKBarrel_Main:
 ;$BED2FE
 	JMP.w (DATA_BED301,x)
 
@@ -2705,7 +2705,7 @@ CODE_BED31F:
 	JSL.l CODE_B9A006
 	JMP.w CODE_BEE182
 
-DKC3_NorSpr02CC_UnknownSprite02CC_Main:
+Spr02CC_unknown_sprite_02CC_Main:
 ;$BED326
 	JSR.w CODE_BED907
 	BCS.b CODE_BED33C
@@ -2761,7 +2761,7 @@ CODE_BED36D:
 	JSL.l CODE_BEE83D
 	JMP.w [$04F5]
 
-DKC3_NorSpr02C0_Barrel_Main:
+Spr02C0_Barrel_Main:
 ;$BED39A
 	JSR.w CODE_BED907
 	BCS.b CODE_BED3A2
@@ -2972,7 +2972,7 @@ CODE_BED52D:
 	JSR.w CODE_BEDADB
 	JMP.w [$04F5]
 
-DKC3_NorSpr02D0_TNTBarrel_Main:
+Spr02D0_TNTBarrel_Main:
 ;$BED558
 	JSR.w CODE_BED907
 	BCS.b CODE_BED570
@@ -3115,7 +3115,7 @@ CODE_BED664:
 	JSL.l CODE_BB8597
 	JMP.w [$04F5]
 
-DKC3_NorSpr02D4_SteelKeg_Main:
+Spr02D4_SteelKeg_Main:
 ;$BED68B
 	JSR.w CODE_BED907
 	BCS.b CODE_BED6A9
@@ -3525,7 +3525,7 @@ CODE_BED9B0:
 CODE_BED9B5:
 	RTS
 
-DKC3_NorSpr02D8_WoodenBox_Main:
+Spr02D8_WoodenBox_Main:
 ;$BED9B6
 	JSR.w CODE_BED907
 	BCS.b CODE_BED9D0
@@ -3829,7 +3829,7 @@ CODE_BEDBED:
 CODE_BEDC06:
 	RTS
 
-DKC3_NorSpr02BC_CheckpointBarrel_Main:
+Spr02BC_CheckpointBarrel_Main:
 CODE_BEDC07:
 	JMP.w (DATA_BEDC0A,x)
 
@@ -4007,7 +4007,7 @@ CODE_BEDD5C:
 	STA.b $12,x
 	RTS
 
-DKC3_NorSpr02EC_Rocket_Main:
+Spr02EC_Rocket_Main:
 ;$BEDD61
 	JMP.w (DATA_BEDD64,x)
 
@@ -4230,7 +4230,7 @@ CODE_BEDEF7:
 	JSR.w CODE_BECF10
 	RTS
 
-DKC3_NorSpr005C_UnknownSprite005C_Main:
+Spr005C_unknown_sprite_005C_Main:
 ;$BEDF23
 	LDX.b $5C,y
 	LDA.w $001E,y
@@ -4270,7 +4270,7 @@ CODE_BEDF4D:
 CODE_BEDF6F:
 	JMP.w [$04F5]
 
-DKC3_NorSpr02F0_RocketFlame_Main:
+Spr02F0_RocketFlame_Main:
 ;$BEDF72
 	JMP.w (DATA_BEDF75,x)
 
@@ -4410,7 +4410,7 @@ CODE_BEE080:
 	STA.w $0016,y
 	RTS
 
-DKC3_NorSpr02F4_RocketEyes_Main:
+Spr02F4_RocketEyes_Main:
 ;$BEE086
 	LDY.b $70
 	LDX.b $5C,y
@@ -4458,7 +4458,7 @@ DATA_BEE0CD:
 	dw $0014,$0019,$001E,$0000,$000F,$0000,$0023,$0000
 	dw $000A,$0005,$0028
 
-DKC3_NorSpr02E4_FuelCan_Main:
+Spr02E4_FuelCan_Main:
 ;$BEE0E3
 	LDA.w $0039,y
 	AND.w #$00FF
@@ -4540,7 +4540,7 @@ CODE_BEE16A:
 	JSL.l CODE_BB8591
 	JMP.w [$04F5]
 
-DKC3_NorSpr02B0_KongWaterSplash_Main:
+Spr02B0_KongWaterSplash_Main:
 ;$BEE17B
 	JSL.l CODE_B9A006
 	JMP.w [$04F5]
@@ -4549,7 +4549,7 @@ CODE_BEE182:
 	JSL.l CODE_BBAB52
 	JMP.w [$04F5]
 
-DKC3_NorSpr0168_VerticalAutoscroll_Main:
+Spr0168_VerticalAutoscroll_Main:
 ;$BEE189
 	JMP.w (DATA_BEE18C,x)
 
@@ -4709,7 +4709,7 @@ CODE_BEE2BC:
 DATA_BEE2BD:
 	dw $0159,$0218,$02D9,$039B,$0000
 
-DKC3_NorSpr016C_WaterfallBarrelSpawner_Main:
+Spr016C_WaterfallBarrelSpawner_Main:
 ;$BEE2C7
 	JMP.w (DATA_BEE2CA,x)
 
@@ -4784,7 +4784,7 @@ CODE_BEE34F:
 	LDA.l $7E9880,x
 	CMP.l $7E9882,x
 	BCC.b CODE_BEE3A0
-	PEA.w (($7E9882&$FF0000)>>16)|((DKC3_NorSpr016C_WaterfallBarrelSpawner_Main&$FF0000)>>8)
+	PEA.w (($7E9882&$FF0000)>>16)|((Spr016C_WaterfallBarrelSpawner_Main&$FF0000)>>8)
 	PLB
 	LDY.w $7E9882,x
 	STA.w $7E9882,x
@@ -5061,7 +5061,7 @@ CODE_BEE55B:
 CODE_BEE58B:
 	RTS
 
-DKC3_NorSpr02DC_WaterfallBarrel_Main:
+Spr02DC_WaterfallBarrel_Main:
 ;$BEE58C
 	JMP.w (DATA_BEE58F,x)
 
@@ -5156,7 +5156,7 @@ CODE_BEE64D:
 	SEC
 	RTS
 
-DKC3_NorSpr0170_BarrelRespawner_Main:
+Spr0170_BarrelRespawner_Main:
 ;$BEE64F
 	JMP.w (DATA_BEE652,x)
 
@@ -5425,7 +5425,7 @@ CODE_BEE83D:
 	LDA.w #$0766
 	JML.l CODE_B28018
 
-DKC3_NorSpr0174_UnknownSprite0174_Main:
+Spr0174_unknown_sprite_0174_Main:
 ;$BEE844
 	LDA.w $0060,y
 	BEQ.b CODE_BEE855

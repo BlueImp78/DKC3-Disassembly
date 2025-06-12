@@ -254,7 +254,7 @@ ADDR_BBC20D:
 	JMP.w (UNK_BBC210,x)
 
 UNK_BBC210:
-	dw $0000
+	dw !null_pointer
 	dw ADDR_BBC216
 	dw ADDR_BBC221
 

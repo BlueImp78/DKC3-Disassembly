@@ -2,7 +2,7 @@
 ;The 16-bit pointers are for the hitbox data.
 
 DATA_BC8000:
-	dl $000000 : dw $0000
+	dl !null_pointer : dw !null_pointer
 	dl DATA_C000BC : dw DATA_BCC4C0
 	dl DATA_C000C3 : dw DATA_BCC4C0
 	dl DATA_C000CA : dw DATA_BCC4C0

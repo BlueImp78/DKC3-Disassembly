@@ -1,4 +1,4 @@
-DKC3_NorSpr00C8_KRoolFightBGDecorations_Main:
+Spr00C8_KRoolFightBGDecorations_Main:
 ;$ACB000
 	JMP.w (DATA_ACB003,x)
 
@@ -70,7 +70,7 @@ DATA_ACB073:
 	dw $0040,$0040,$0040,$0040,$0040,$0040,$0040,$0341
 	dw $0280,$01C0,$0100,$0040,$0040,$0040,$0040
 
-DKC3_NorSpr04B8_BGSteelKeg_Main:
+Spr04B8_BGSteelKeg_Main:
 ;$ACB0A1
 	JMP.w (DATA_ACB0A4,x)
 
@@ -150,7 +150,7 @@ CODE_ACB127:
 CODE_ACB131:
 	JMP.w [$04F5]
 
-DKC3_NorSpr0478_KAOSBlade_Main:
+Spr0478_KAOSBlade_Main:
 ;$ACB134
 	JMP.w (DATA_ACB137,x)
 
