@@ -2,45 +2,45 @@ DATA_F50000:
 	incbin "data/world_maps/tiledata/main_map_tiledata.bin"
 
 DATA_F5702E:
-	db $0D,$08 : dw DATA_F57540
-	db $06,$07 : dw DATA_F57610
-	db $07,$05 : dw DATA_F5743A
-	db $08,$05 : dw DATA_F57B18
-	db $09,$05 : dw DATA_F57846
-	db $0D,$05 : dw DATA_F57664
-	db $10,$05 : dw DATA_F576E6
-	db $0C,$08 : dw DATA_F57786
-	db $01,$02 : dw DATA_F57BFC
-	db $08,$04 : dw DATA_F57C00
-	db $08,$04 : dw DATA_F57B68
-	db $08,$05 : dw DATA_F57BA8
-	db $01,$02 : dw DATA_F57BF8
-	db $07,$04 : dw DATA_F57C40
-	db $12,$05 : dw DATA_F57C78
-	db $03,$05 : dw DATA_F570CA
-	db $05,$07 : dw DATA_F570E8
-	db $04,$08 : dw DATA_F5712E
-	db $0C,$08 : dw DATA_F57480
-	db $0C,$08 : dw DATA_F5716E
-	db $05,$07 : dw DATA_F5722E
-	db $05,$04 : dw DATA_F573E0
-	db $0C,$0B : dw DATA_F57294
-	db $05,$02 : dw DATA_F5739C
-	db $04,$06 : dw DATA_F573B0
-	db $04,$04 : dw DATA_F57274
-	db $04,$05 : dw DATA_F578A0
-	db $05,$06 : dw DATA_F578C8
-	db $06,$05 : dw DATA_F57904
-	db $05,$05 : dw DATA_F57408
-	db $06,$05 : dw DATA_F57940
-	db $07,$03 : dw DATA_F5797C
-	db $06,$05 : dw DATA_F579A6
-	db $05,$07 : dw DATA_F579E2
-	db $0A,$0C : dw DATA_F57A28
-	db $05,$07 : dw DATA_F57D2C
-	db $0C,$06 : dw DATA_F5730C
-	db $0C,$05 : dw DATA_F57D72
-	db $07,$07 : dw DATA_F57DEA
+	db $0D, $08 : dw DATA_F57540
+	db $06, $07 : dw DATA_F57610
+	db $07, $05 : dw DATA_F5743A
+	db $08, $05 : dw DATA_F57B18
+	db $09, $05 : dw DATA_F57846
+	db $0D, $05 : dw DATA_F57664
+	db $10, $05 : dw DATA_F576E6
+	db $0C, $08 : dw DATA_F57786
+	db $01, $02 : dw DATA_F57BFC
+	db $08, $04 : dw DATA_F57C00
+	db $08, $04 : dw DATA_F57B68
+	db $08, $05 : dw DATA_F57BA8
+	db $01, $02 : dw DATA_F57BF8
+	db $07, $04 : dw DATA_F57C40
+	db $12, $05 : dw DATA_F57C78
+	db $03, $05 : dw DATA_F570CA
+	db $05, $07 : dw DATA_F570E8
+	db $04, $08 : dw DATA_F5712E
+	db $0C, $08 : dw DATA_F57480
+	db $0C, $08 : dw DATA_F5716E
+	db $05, $07 : dw DATA_F5722E
+	db $05, $04 : dw DATA_F573E0
+	db $0C, $0B : dw DATA_F57294
+	db $05, $02 : dw DATA_F5739C
+	db $04, $06 : dw DATA_F573B0
+	db $04, $04 : dw DATA_F57274
+	db $04, $05 : dw DATA_F578A0
+	db $05, $06 : dw DATA_F578C8
+	db $06, $05 : dw DATA_F57904
+	db $05, $05 : dw DATA_F57408
+	db $06, $05 : dw DATA_F57940
+	db $07, $03 : dw DATA_F5797C
+	db $06, $05 : dw DATA_F579A6
+	db $05, $07 : dw DATA_F579E2
+	db $0A, $0C : dw DATA_F57A28
+	db $05, $07 : dw DATA_F57D2C
+	db $0C, $06 : dw DATA_F5730C
+	db $0C, $05 : dw DATA_F57D72
+	db $07, $07 : dw DATA_F57DEA
 
 DATA_F570CA:
 	dw $4C5A,$4C59,$4C58,$446C,$19FF,$0600,$0A01,$0A02

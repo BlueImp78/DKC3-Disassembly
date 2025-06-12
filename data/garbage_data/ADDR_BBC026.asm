@@ -30,7 +30,7 @@ ADDR_BBC043:
 	LDA.w #$800A
 	STA.w $0026,y
 	JSR.w ADDR_BBC182
-	LDX.w $05B9
+	LDX.w parent_level_number
 	LDA.w $0632,x
 	LDY.w #$0032
 	BIT.w #$0002
@@ -42,8 +42,8 @@ ADDR_BBC043:
 ADDR_BBC077:
 	JSL.l $BB8585
 	BCS.b ADDR_BBC087
-	LDX.b $70
-	LDY.b $76
+	LDX.b current_sprite
+	LDY.b alternate_sprite
 	STX.b $5C,y
 	STY.b $5C,x
 	INC.b $39,x
@@ -59,7 +59,7 @@ ADDR_BBC08A:
 	JMP.w ADDR_BBC115
 
 ADDR_BBC097:
-	LDA.w $05B9
+	LDA.w parent_level_number
 	CMP.w #$0032
 	BNE.b ADDR_BBC0C7
 	LDA.w $0630
@@ -87,11 +87,11 @@ ADDR_BBC0C7:
 	JSL.l $B2800F
 	LDA.w #$074D
 	JSL.l $B28018
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $5E,x
 	BEQ.b ADDR_BBC107
 	LDY.w #$007E
-	LDX.w $05B9
+	LDX.w parent_level_number
 	LDA.w $0632,x
 	AND.w #$0002
 	BEQ.b ADDR_BBC0EC
@@ -104,7 +104,7 @@ ADDR_BBC0EC:
 	JSL.l $B28018
 	LDA.w #$0119
 	JSL.l $B28018
-	LDX.b $70
+	LDX.b current_sprite
 ADDR_BBC107:
 	INC.b $39,x
 	LDA.w #$8000
@@ -165,14 +165,14 @@ ADDR_BBC16A:
 ADDR_BBC173:
 	JSL.l $BBACFB
 	BCC.b ADDR_BBC17F
-	LDY.b $70
+	LDY.b current_sprite
 	LDX.b $5C,y
 	STZ.b $5C,x
 ADDR_BBC17F:
 	JMP.w [$04F5]
 
 ADDR_BBC182:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $46,x
 	AND.w #$0003
 	CLC
@@ -229,7 +229,7 @@ ADDR_BBC1E3:
 	RTS
 
 ADDR_BBC1E4:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $12,x
 	STA.b $54,x
 	LDA.b $16,x
@@ -239,7 +239,7 @@ ADDR_BBC1E4:
 	LDA.b $32,x
 	STA.b $16,x
 	JSL.l $B9E000
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $2C,x
 	LDY.b $12,x
 	STA.b $12,x
@@ -346,7 +346,7 @@ ADDR_BBC2A3:
 	TAX
 	LDA.w #$2F80
 	STA.w $06FC,x
-	LDY.b $70
+	LDY.b current_sprite
 	LDA.w $001F,y
 	AND.w #$000E
 	ASL
@@ -554,12 +554,12 @@ ADDR_BBC41B:
 	JMP.w $BBC027
 
 ADDR_BBC41E:
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	LDA.b $1E,x
 	AND.w #$CFFF
 	ORA.w #$2000
 	STA.b $1E,x
-	LDX.b $7C
+	LDX.b current_mount
 	BEQ.b ADDR_BBC439
 	LDA.b $1E,x
 	AND.w #$CFFF
@@ -569,7 +569,7 @@ ADDR_BBC439:
 	LDA.w #$001D
 	JSL.l $B88069
 	BCS.b ADDR_BBC455
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $4C,x
 	STA.w $17CA
 	LDA.b $60,x
@@ -584,15 +584,15 @@ ADDR_BBC458:
 	JMP.w [$04F5]
 
 ADDR_BBC45B:
-	LDY.b $7C
+	LDY.b current_mount
 	BEQ.b ADDR_BBC462
 	JSR.w ADDR_BBC46B
 ADDR_BBC462:
-	LDY.w $04FD
+	LDY.w follower_kong_sprite
 	JSR.w ADDR_BBC46B
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 ADDR_BBC46B:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0012,y
 	CMP.b $5C,x
 	ROR.b $1A
@@ -642,7 +642,7 @@ ADDR_BBC4A5:
 
 ADDR_BBC4BF:
 	TYX
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $0012,y
 	CMP.b $5C,x
 	BIT.b $1E,x
@@ -658,7 +658,7 @@ ADDR_BBC4D4:
 	JMP.w $BBC027
 
 ADDR_BBC4D7:
-	LDX.b $70
+	LDX.b current_sprite
 	INC.b $38,x
 	LDA.w #$001F
 	STA.w $1949
@@ -720,7 +720,7 @@ ADDR_BBC51C:
 ADDR_BBC54F:
 	LDA.b $68,x
 	JSL.l $B28012
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $05D7
 	LSR
 	BCS.b ADDR_BBC55F
@@ -753,7 +753,7 @@ ADDR_BBC57C:
 	STA.b $1C
 	LDA.w #$0008
 	STA.b $1D
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $1E,x
 	AND.w #$01E0
 	JSL.l $B78009
@@ -776,7 +776,7 @@ ADDR_BBC5C2:
 	JMP.w [$04F5]
 
 ADDR_BBC5C5:
-	LDX.b $70
+	LDX.b current_sprite
 	STX.w $18DB
 	LDA.w #$C000
 	STA.b $26,x
@@ -864,7 +864,7 @@ ADDR_BBC64F:
 	REP.b #$20
 	LDA.b $3E
 	BNE.b ADDR_BBC668
-	LDA.b $70
+	LDA.b current_sprite
 	CMP.w $18DB
 	BNE.b ADDR_BBC664
 	STZ.w $18DB
@@ -876,7 +876,7 @@ ADDR_BBC668:
 ADDR_BBC66B:
 	LDA.w #$0078
 	STA.w $18D3
-	LDX.b $70
+	LDX.b current_sprite
 	INC.b $6C,x
 	LDA.b $6C,x
 	CMP.w #$002F
@@ -912,7 +912,7 @@ ADDR_BBC6B3:
 	CLC
 	JSR.w ADDR_BBC716
 	BPL.b ADDR_BBC6C9
-	LDX.b $70
+	LDX.b current_sprite
 	INC.b $38,x
 	BRA.b ADDR_BBC6F6
 
@@ -954,7 +954,7 @@ ADDR_BBC6FE:
 	JSL.l $BB8597
 	LDA.w #$0001
 	JSL.l $B88087
-	LDX.b $70
+	LDX.b current_sprite
 	CPX.w $18DB
 	BNE.b ADDR_BBC713
 	STZ.w $18DB
@@ -1021,7 +1021,7 @@ ADDR_BBC779:
 	LDA.l UNK_BBC7B0,x
 	AND.w #$00FF
 	CLC
-	ADC.b $70
+	ADC.b current_sprite
 	STA.w $0020,y
 	INX
 	INY

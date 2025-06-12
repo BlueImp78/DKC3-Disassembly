@@ -20,7 +20,7 @@ CODE_BDF1F1:
 	BRA.b CODE_BDF21D
 
 CODE_BDF208:
-	STX.b $76
+	STX.b alternate_sprite
 CODE_BDF20A:
 	INX
 	INX
@@ -46,7 +46,7 @@ CODE_BDF227:
 	LDA.w $0C69,x
 	XBA
 	AND.w #$000E
-	STA.b $76
+	STA.b alternate_sprite
 	TAX
 	LDA.w $1AD3,x
 	CMP.b $8C
@@ -61,7 +61,7 @@ CODE_BDF241:
 	LDA.w $0C69,x
 	XBA
 	AND.w #$000E
-	STA.b $76
+	STA.b alternate_sprite
 	JSR.w CODE_BDF253
 	DEC.w $1AE3,x
 	RTL
@@ -76,7 +76,7 @@ CODE_BDF253:
 	TAX
 	LDA.b $8C
 	STA.w $1A8F,x
-	LDA.b $76
+	LDA.b alternate_sprite
 	ASL
 	ASL
 	ASL
@@ -89,7 +89,7 @@ CODE_BDF253:
 	INC
 	AND.w #$000F
 	STA.w $1AD1
-	LDX.b $76
+	LDX.b alternate_sprite
 	INC.w $1AE3,x
 	LDA.b $8C
 	STA.w $1AD3,x
@@ -106,7 +106,7 @@ CODE_BDF28D:
 	CLC
 	ADC.w #$A5AD
 	STA.w $1A8F,x
-	LDA.b $76
+	LDA.b alternate_sprite
 	ASL
 	ASL
 	ASL
@@ -119,7 +119,7 @@ CODE_BDF28D:
 	INC
 	AND.w #$000F
 	STA.w $1AD1
-	LDX.b $76
+	LDX.b alternate_sprite
 	INC.w $1AE3,x
 	LDA.b $8C
 	STA.w $1AD3,x
@@ -404,7 +404,7 @@ CODE_BDF432:
 	RTL
 
 CODE_BDF438:
-	LDX.b $82
+	LDX.b next_oam_slot
 	LDA.w $0D45,x
 	LDX.w #$0002
 CODE_BDF440:
@@ -418,36 +418,36 @@ CODE_BDF445:
 	BRA.b CODE_BDF463
 
 CODE_BDF44E:
-	CPX.b $82
+	CPX.b next_oam_slot
 	BEQ.b CODE_BDF445
-	LDX.b $82
+	LDX.b next_oam_slot
 	LDA.w $0C69,x
 	JSR.w CODE_BDF2C7
-	LDX.b $82
+	LDX.b next_oam_slot
 	STZ.w $0D45,x
 	STZ.w $15FD,x
 	RTL
 
 CODE_BDF463:
-	LDX.b $82
+	LDX.b next_oam_slot
 	LDA.w $0D45,x
 	BEQ.b CODE_BDF47D
 	LDA.w $0C69,x
 	JSR.w CODE_BDF2C7
-	LDX.b $82
+	LDX.b next_oam_slot
 	JSR.w CODE_BDF379
 CODE_BDF475:
-	LDX.b $82
+	LDX.b next_oam_slot
 	STZ.w $0D45,x
 	STZ.w $15FD,x
 CODE_BDF47D:
 	RTL
 
 CODE_BDF47E:
-	LDX.b $82
+	LDX.b next_oam_slot
 	LDA.w $0C69,x
 	JSR.w CODE_BDF2C7
-	LDX.b $82
+	LDX.b next_oam_slot
 	STZ.w $0D45,x
 	RTL
 
@@ -478,7 +478,7 @@ CODE_BDF4A7:
 	CMP.w #$0002
 	BEQ.b CODE_BDF4EA
 	JSR.w $BDF7CE
-	LDX.b $82
+	LDX.b next_oam_slot
 	BCC.b CODE_BDF4C5
 	DEC.w $14F9,x
 	BPL.b CODE_BDF4CB
@@ -515,7 +515,7 @@ CODE_BDF4EA:
 	JMP.w $BDF6A3
 
 CODE_BDF4ED:
-	LDX.b $82
+	LDX.b next_oam_slot
 CODE_BDF4EF:
 	PHB
 	PHK

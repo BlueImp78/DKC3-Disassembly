@@ -165,7 +165,7 @@ CODE_B780EA:
 
 CODE_B780EB:
 	STA.b $1A
-	LDX.b $82
+	LDX.b next_oam_slot
 	LDA.b $1B
 	AND.w #$00FF
 	CLC
@@ -211,7 +211,7 @@ CODE_B78133:
 	STA.b $1C
 	LDA.w #$0400
 	SEP.b #$20
-	LDA.b $82
+	LDA.b next_oam_slot
 	LSR
 	LSR
 	LSR
@@ -416,7 +416,7 @@ CODE_B782A4:
 	STA.b $24
 	LDY.w #$0008
 CODE_B782C3:
-	LDA.b $82
+	LDA.b next_oam_slot
 	LSR
 	LSR
 	SEP.b #$20
@@ -437,7 +437,7 @@ CODE_B782D1:
 	TAX
 	LDA.w DATA_B79154,x
 	STA.b $26
-	LDX.b $82
+	LDX.b next_oam_slot
 	CLC
 CODE_B782E4:
 	DEC.b $1E
@@ -506,7 +506,7 @@ CODE_B78342:
 	ADC.b $1F
 	BMI.b CODE_B78352
 	REP.b #$20
-	STX.b $82
+	STX.b next_oam_slot
 	RTS
 
 CODE_B78352:
@@ -573,7 +573,7 @@ CODE_B783AE:
 	ADC.b $21
 	BMI.b CODE_B783BE
 	REP.b #$20
-	STX.b $82
+	STX.b next_oam_slot
 	RTS
 
 CODE_B783BE:
@@ -633,7 +633,7 @@ CODE_B78412:
 
 CODE_B7841A:
 	REP.b #$20
-	STX.b $82
+	STX.b next_oam_slot
 	RTS
 
 CODE_B7841F:
@@ -664,7 +664,7 @@ CODE_B78439:
 	STA.b $24
 	LDY.w #$0008
 CODE_B78458:
-	LDA.b $82
+	LDA.b next_oam_slot
 	LSR
 	LSR
 	SEP.b #$20
@@ -685,7 +685,7 @@ CODE_B78466:
 	TAX
 	LDA.w DATA_B79154,x
 	STA.b $26
-	LDX.b $82
+	LDX.b next_oam_slot
 	CLC
 CODE_B78479:
 	DEC.b $1E
@@ -755,7 +755,7 @@ CODE_B784D9:
 	ADC.b $1F
 	BMI.b CODE_B784E9
 	REP.b #$20
-	STX.b $82
+	STX.b next_oam_slot
 	RTS
 
 CODE_B784E9:
@@ -823,7 +823,7 @@ CODE_B78547:
 	ADC.b $21
 	BMI.b CODE_B78557
 	REP.b #$20
-	STX.b $82
+	STX.b next_oam_slot
 	RTS
 
 CODE_B78557:
@@ -884,16 +884,16 @@ CODE_B785AD:
 
 CODE_B785B5:
 	REP.b #$20
-	STX.b $82
+	STX.b next_oam_slot
 	RTS
 
 CODE_B785BA:
 	PHK
 	PLB
 	JSL.l CODE_B79BCC
-	LDA.w #$0200
-	STA.b $82
-	LDX.w #$0400
+	LDA.w #oam_table
+	STA.b next_oam_slot
+	LDX.w #oam_attribute_table
 	STZ.b $00,x
 	STZ.b $02,x
 	STZ.b $04,x
@@ -926,9 +926,9 @@ CODE_B785FC:
 CODE_B78605:
 	PHK
 	PLB
-	LDY.b $82
+	LDY.b next_oam_slot
 	LDX.w #$0000
-	LDA.b !RAM_DKC3_Global_CurrentLevelLo
+	LDA.b level_number
 	CMP.w #$000F
 	BEQ.b CODE_B7861D
 	CMP.w #$0011
@@ -999,31 +999,92 @@ CODE_B7866D:
 	DEC.b $1E
 	BNE.b CODE_B78668
 CODE_B78694:
-	STY.b $82
+	STY.b next_oam_slot
 	RTS
 
 DATA_B78697:
-	dw $3040,$3FEA,$30B0,$7FEA,$90B0,$FFEA,$9040,$BFEA
-	dw $3050,$3FEC,$3060,$3FEC,$3070,$3FEC,$3080,$3FEC
-	dw $3090,$3FEC,$30A0,$3FEC,$9050,$BFEC,$9060,$BFEC
-	dw $9070,$BFEC,$9080,$BFEC,$9090,$BFEC,$90A0,$BFEC
-	dw $4040,$3FEE,$5040,$3FEE,$6040,$3FEE,$7040,$3FEE
-	dw $8040,$3FEE,$40B0,$7FEE,$50B0,$7FEE,$60B0,$7FEE
-	dw $70B0,$7FEE,$80B0,$7FEE,$FFFF,$4828,$3FEA,$4850
-	dw $7FEA,$8050,$FFEA,$8028,$BFEA,$4838,$3FEC,$4840
-	dw $3FEC,$8038,$BFEC,$8040,$BFEC,$5828,$3FEE,$6828
-	dw $3FEE,$7028,$3FEE,$5850,$7FEE,$6850,$7FEE,$7050
-	dw $7FEE,$FFFF,$48A0,$3FEA,$48C8,$7FEA,$80C8,$FFEA
-	dw $80A0,$BFEA,$48B0,$3FEC,$48B8,$3FEC,$80B0,$BFEC
-	dw $80B8,$BFEC,$58A0,$3FEE,$68A0,$3FEE,$70A0,$3FEE
-	dw $58C8,$7FEE,$68C8,$7FEE,$70C8,$7FEE,$FFFF,$3848
-	dw $3FEA,$38A8,$7FEA,$A8A8,$FFEA,$A848,$BFEA,$3858
-	dw $3FEC,$3868,$3FEC,$3878,$3FEC,$3888,$3FEC,$3898
-	dw $3FEC,$A858,$BFEC,$A868,$BFEC,$A878,$BFEC,$A888
-	dw $BFEC,$A898,$BFEC,$4848,$3FEE,$5848,$3FEE,$6848
-	dw $3FEE,$7848,$3FEE,$8848,$3FEE,$9848,$3FEE,$48A8
-	dw $7FEE,$58A8,$7FEE,$68A8,$7FEE,$78A8,$7FEE,$88A8
-	dw $7FEE,$98A8,$7FEE,$FFFF
+	dw $3040, $3FEA 
+	dw $30B0, $7FEA 
+	dw $90B0, $FFEA 
+	dw $9040, $BFEA
+	dw $3050, $3FEC 
+	dw $3060, $3FEC 
+	dw $3070, $3FEC 
+	dw $3080, $3FEC
+	dw $3090, $3FEC 
+	dw $30A0, $3FEC 
+	dw $9050, $BFEC 
+	dw $9060, $BFEC
+	dw $9070, $BFEC 
+	dw $9080, $BFEC 
+	dw $9090, $BFEC 
+	dw $90A0, $BFEC
+	dw $4040, $3FEE 
+	dw $5040, $3FEE 
+	dw $6040, $3FEE 
+	dw $7040, $3FEE
+	dw $8040, $3FEE 
+	dw $40B0, $7FEE 
+	dw $50B0, $7FEE 
+	dw $60B0, $7FEE
+	dw $70B0, $7FEE 
+	dw $80B0, $7FEE 
+	dw $FFFF, $4828 
+	dw $3FEA, $4850
+	dw $7FEA, $8050 
+	dw $FFEA, $8028 
+	dw $BFEA, $4838 
+	dw $3FEC, $4840
+	dw $3FEC, $8038 
+	dw $BFEC, $8040 
+	dw $BFEC, $5828 
+	dw $3FEE, $6828
+	dw $3FEE, $7028 
+	dw $3FEE, $5850 
+	dw $7FEE, $6850 
+	dw $7FEE, $7050
+	dw $7FEE, $FFFF 
+	dw $48A0, $3FEA 
+	dw $48C8, $7FEA 
+	dw $80C8, $FFEA
+	dw $80A0, $BFEA 
+	dw $48B0, $3FEC 
+	dw $48B8, $3FEC 
+	dw $80B0, $BFEC
+	dw $80B8, $BFEC 
+	dw $58A0, $3FEE 
+	dw $68A0, $3FEE 
+	dw $70A0, $3FEE
+	dw $58C8, $7FEE 
+	dw $68C8, $7FEE 
+	dw $70C8, $7FEE 
+	dw $FFFF, $3848
+	dw $3FEA, $38A8 
+	dw $7FEA, $A8A8 
+	dw $FFEA, $A848 
+	dw $BFEA, $3858
+	dw $3FEC, $3868 
+	dw $3FEC, $3878 
+	dw $3FEC, $3888 
+	dw $3FEC, $3898
+	dw $3FEC, $A858 
+	dw $BFEC, $A868 
+	dw $BFEC, $A878 
+	dw $BFEC, $A888
+	dw $BFEC, $A898 
+	dw $BFEC, $4848 
+	dw $3FEE, $5848 
+	dw $3FEE, $6848
+	dw $3FEE, $7848 
+	dw $3FEE, $8848 
+	dw $3FEE, $9848 
+	dw $3FEE, $48A8
+	dw $7FEE, $58A8 
+	dw $7FEE, $68A8 
+	dw $7FEE, $78A8 
+	dw $7FEE, $88A8
+	dw $7FEE, $98A8
+	dw $7FEE, $FFFF
 
 CODE_B787DF:
 	JSR.w CODE_B787E3
@@ -1050,15 +1111,22 @@ CODE_B787E3:
 	RTS
 
 DATA_B787FF:
-	dw $0002,$0000,$0008,$0000,$0020,$0000,$0080,$0000
+	dw $0002
+	dw $0000
+	dw $0008
+	dw $0000
+	dw $0020
+	dw $0000
+	dw $0080
+	dw $0000
 
 CODE_B7880F:
 	PHK
 	PLB
 	JSL.l CODE_B79BCC
-	LDA.w #$0200
-	STA.b $82
-	LDX.w #$0400
+	LDA.w #oam_table
+	STA.b next_oam_slot
+	LDX.w #oam_attribute_table
 	STZ.b $00,x
 	STZ.b $02,x
 	STZ.b $04,x
@@ -1093,7 +1161,7 @@ CODE_B78845:
 	RTL
 
 CODE_B78857:
-	LDA.b $82
+	LDA.b next_oam_slot
 	LSR
 	LSR
 	LSR
@@ -1104,7 +1172,7 @@ CODE_B78857:
 	STA.b $86
 	STZ.b $6E
 CODE_B78868:
-	LDA.b $82
+	LDA.b next_oam_slot
 	CMP.w #$0400
 	BNE.b CODE_B78875
 	PEA.w ((RESET_start&$FF0000)>>16)|((RESET_start&$FF0000)>>8)
@@ -1651,7 +1719,7 @@ CODE_B78C66:
 	PLY
 	BCS.b CODE_B78CD7
 CODE_B78C76:
-	LDX.b $82
+	LDX.b next_oam_slot
 	LDA.w $0002,y
 	AND.w #$00FF
 	ADC.b $8A
@@ -1696,7 +1764,7 @@ CODE_B78CB6:
 	INX
 	CPX.w #$0400
 	BCS.b CODE_B78CD7
-	STX.b $82
+	STX.b next_oam_slot
 CODE_B78CD0:
 	INY
 	INY
@@ -1748,7 +1816,7 @@ CODE_B78D1E:
 	JMP.w CODE_B79140
 
 CODE_B78D28:
-	LDY.b $82
+	LDY.b next_oam_slot
 	LDX.w #$0000
 	LDA.w #$0050
 	STA.b $1E
@@ -1830,7 +1898,7 @@ CODE_B78DAD:
 	INY
 	INY
 	INY
-	STY.b $82
+	STY.b next_oam_slot
 CODE_B78DB9:
 	PLX
 	RTS
@@ -1840,7 +1908,7 @@ CODE_B78DBB:
 	STA.b $1E
 	LDA.w #$0003
 	STA.b $1A
-	LDY.b $82
+	LDY.b next_oam_slot
 CODE_B78DC7:
 	LDX.w $18E7
 	LDA.b $1E
@@ -1862,7 +1930,7 @@ CODE_B78DC7:
 	INY
 	INY
 	INY
-	STY.b $82
+	STY.b next_oam_slot
 	LDA.b $1E
 	SEC
 	SBC.w #$0014
@@ -2063,7 +2131,7 @@ CODE_B78F65:
 	LDA.w DATA_B78FA6,y
 	AND.w #$00FF
 	STA.b $1C
-	LDY.b $82
+	LDY.b next_oam_slot
 CODE_B78F80:
 	LDA.b $1C
 	ASL
@@ -2081,7 +2149,7 @@ CODE_B78F80:
 	INY
 	INY
 	INY
-	STY.b $82
+	STY.b next_oam_slot
 	DEC.b $1C
 	BNE.b CODE_B78F80
 	JMP.w CODE_B790AA
@@ -2093,7 +2161,7 @@ DATA_B78FA6:
 CODE_B78FBE:
 	PLX
 	TYX
-	LDY.b $82
+	LDY.b next_oam_slot
 	SEP.b #$20
 	LDA.b $16,x
 	XBA
@@ -2126,7 +2194,7 @@ CODE_B78FF0:
 	INY
 	INY
 	INY
-	STY.b $82
+	STY.b next_oam_slot
 CODE_B78FFF:
 	DEX
 	DEX
@@ -2385,7 +2453,7 @@ CODE_B792BC:
 	STA.b $24
 	LDY.w #$0008
 CODE_B792DB:
-	LDA.b $82
+	LDA.b next_oam_slot
 	LSR
 	LSR
 	SEP.b #$20
@@ -2411,7 +2479,7 @@ CODE_B792F2:
 	TAX
 	LDA.w DATA_B79154,x
 	STA.b $26
-	LDX.b $82
+	LDX.b next_oam_slot
 	CLC
 CODE_B79305:
 	DEC.b $1E
@@ -2589,7 +2657,7 @@ CODE_B79421:
 
 CODE_B79429:
 	REP.b #$20
-	STX.b $82
+	STX.b next_oam_slot
 	RTS
 
 CODE_B7942E:
@@ -2657,7 +2725,7 @@ CODE_B79496:
 	STA.b $24
 	LDY.w #$0008
 CODE_B794B5:
-	LDA.b $82
+	LDA.b next_oam_slot
 	LSR
 	LSR
 	SEP.b #$20
@@ -2683,7 +2751,7 @@ CODE_B794CC:
 	TAX
 	LDA.w DATA_B79154,x
 	STA.b $26
-	LDX.b $82
+	LDX.b next_oam_slot
 	CLC
 CODE_B794DF:
 	DEC.b $1E
@@ -2868,7 +2936,7 @@ CODE_B7960C:
 
 CODE_B79614:
 	REP.b #$20
-	STX.b $82
+	STX.b next_oam_slot
 	RTS
 
 CODE_B79619:
@@ -2936,7 +3004,7 @@ CODE_B79681:
 	STA.b $24
 	LDY.w #$0008
 CODE_B796A0:
-	LDA.b $82
+	LDA.b next_oam_slot
 	LSR
 	LSR
 	SEP.b #$20
@@ -2962,7 +3030,7 @@ CODE_B796B7:
 	TAX
 	LDA.w DATA_B79154,x
 	STA.b $26
-	LDX.b $82
+	LDX.b next_oam_slot
 	CLC
 CODE_B796CA:
 	DEC.b $1E
@@ -3147,7 +3215,7 @@ CODE_B797F4:
 
 CODE_B797FC:
 	REP.b #$20
-	STX.b $82
+	STX.b next_oam_slot
 	RTS
 
 CODE_B79801:
@@ -3215,7 +3283,7 @@ CODE_B79869:
 	STA.b $24
 	LDY.w #$0008
 CODE_B79888:
-	LDA.b $82
+	LDA.b next_oam_slot
 	LSR
 	LSR
 	SEP.b #$20
@@ -3241,7 +3309,7 @@ CODE_B7989F:
 	TAX
 	LDA.w DATA_B79154,x
 	STA.b $26
-	LDX.b $82
+	LDX.b next_oam_slot
 	CLC
 CODE_B798B2:
 	DEC.b $1E
@@ -3433,7 +3501,7 @@ CODE_B799ED:
 
 CODE_B799F5:
 	REP.b #$20
-	STX.b $82
+	STX.b next_oam_slot
 	RTS
 
 CODE_B799FA:
@@ -3453,7 +3521,7 @@ CODE_B799FA:
 	BCS.b CODE_B79A15
 	STA.b $40
 CODE_B79A15:
-	LDX.b $82
+	LDX.b next_oam_slot
 CODE_B79A17:
 	CPX.w #$0400
 	BCS.b CODE_B79A6A
@@ -3506,7 +3574,7 @@ CODE_B79A66:
 	BNE.b CODE_B79A17
 CODE_B79A6A:
 	REP.b #$20
-	STX.b $82
+	STX.b next_oam_slot
 CODE_B79A6E:
 	RTS
 
@@ -3532,7 +3600,7 @@ CODE_B79A7E:
 	BCS.b CODE_B79A8E
 	STA.b $40
 CODE_B79A8E:
-	LDX.b $82
+	LDX.b next_oam_slot
 CODE_B79A90:
 	CPX.w #$0400
 	BCS.b CODE_B79B09
@@ -3612,7 +3680,7 @@ CODE_B79B05:
 	BNE.b CODE_B79A90
 CODE_B79B09:
 	REP.b #$20
-	STX.b $82
+	STX.b next_oam_slot
 CODE_B79B0D:
 	RTS
 
@@ -3622,7 +3690,7 @@ CODE_B79B0E:
 	INC
 	INC
 	STA.b $1C
-	LDA.b $82
+	LDA.b next_oam_slot
 	LSR
 	LSR
 	TAX
@@ -3637,7 +3705,7 @@ CODE_B79B0E:
 	LDA.w DATA_B79154,x
 	STA.b $26
 	REP.b #$20
-	LDX.b $82
+	LDX.b next_oam_slot
 	LDA.b $8A
 	STA.b $01,x
 	CLC
@@ -3731,7 +3799,7 @@ CODE_B79BB9:
 	BRA.b CODE_B79B74
 
 CODE_B79BC9:
-	STX.b $82
+	STX.b next_oam_slot
 	RTS
 
 CODE_B79BCC:
@@ -3872,7 +3940,7 @@ CODE_B79D35:										; Note: Routine that decompressed text.
 	ASL
 	ASL
 	STA.b $24
-	LDX.w !RAM_DKC3_Global_FrenchTextFlag
+	LDX.w language_select
 	LDA.w DATA_B79DF2,x
 	AND.w #$00FF
 	CLC
@@ -3884,7 +3952,7 @@ CODE_B79D35:										; Note: Routine that decompressed text.
 	STA.b $42
 	LDA.w #DATA_FA0000>>16
 	STA.b $44
-	LDA.w !RAM_DKC3_Global_FrenchTextFlag
+	LDA.w language_select
 	ASL
 	TAX
 	LDA.w DATA_B79DE6,x
@@ -4206,7 +4274,7 @@ DATA_B79EE5:
 CODE_B7A88F:
 	LDY.w $1C87
 	LDA.w $005C,y
-	LDX.b $82
+	LDX.b next_oam_slot
 	STA.b $02,x
 	LDA.w $0016,y
 	SEC
@@ -4246,7 +4314,7 @@ CODE_B7A88F:
 	INX
 	INX
 	INX
-	STX.b $82
+	STX.b next_oam_slot
 CODE_B7A8E8:
 	RTL
 
@@ -4277,7 +4345,7 @@ CODE_B7A8F7:
 	INX
 	INX
 	INX
-	STX.b $82
+	STX.b next_oam_slot
 CODE_B7A914:
 	RTL
 
@@ -6880,9 +6948,9 @@ CODE_B7C76D:
 	AND.w #$1000
 	BNE.b CODE_B7C7E0
 	LDA.b $6E
-	CMP.w $04F9
+	CMP.w active_kong_sprite
 	BEQ.b CODE_B7C7E0
-	CMP.w $04FD
+	CMP.w follower_kong_sprite
 	BEQ.b CODE_B7C7E0
 	CMP.w $1B63
 	BEQ.b CODE_B7C7E0
@@ -6906,9 +6974,9 @@ CODE_B7C7A4:
 	AND.w #$1000
 	BNE.b CODE_B7C7E0
 	LDA.b $6E
-	CMP.w $04F9
+	CMP.w active_kong_sprite
 	BEQ.b CODE_B7C7E0
-	CMP.w $04FD
+	CMP.w follower_kong_sprite
 	BEQ.b CODE_B7C7E0
 	CMP.w $1B63
 	BEQ.b CODE_B7C7E0
@@ -8866,7 +8934,7 @@ CODE_B7D4BC:
 	STA.w $04BA
 	STZ.w $04BC
 	STZ.w $04BE
-	LDA.b !RAM_DKC3_Global_CurrentLevelLo
+	LDA.b level_number
 	ASL
 	TAX
 	LDA.l DATA_FDC259+$02,x
@@ -9295,7 +9363,7 @@ CODE_B7D816:
 	RTL
 
 CODE_B7D87B:
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDY.w #$0000
 	LDA.w $0792
 	BIT.w #$0030
@@ -9354,7 +9422,7 @@ CODE_B7D8DE:
 	STA.w $0464
 	LDY.w $04A4
 	BNE.b CODE_B7D904
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 CODE_B7D904:
 	JSR.w CODE_B7D931
 	PHD
@@ -9460,7 +9528,7 @@ CODE_B7D9BB:
 	SEC
 	SBC.b $50
 	STA.b $9A
-	LDA.b $7C
+	LDA.b current_mount
 	SBC.b $52
 	BMI.b CODE_B7D9D6
 	STA.b $9C
@@ -9740,7 +9808,7 @@ CODE_B7DB90:
 	BRA.b CODE_B7DBC5
 
 CODE_B7DBBE:
-	LDA.b $76
+	LDA.b alternate_sprite
 	BEQ.b CODE_B7DBC5
 	JSR.w CODE_B7E109
 CODE_B7DBC5:
@@ -10505,7 +10573,7 @@ CODE_B7E107:
 	RTS
 
 CODE_B7E109:
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.b $7B
 	INX
 	INX
@@ -10743,14 +10811,14 @@ CODE_B7E295:
 	BPL.b CODE_B7E2A8
 	LDA.w #$FFFF
 	STA.b $52
-	EOR.b $82
+	EOR.b next_oam_slot
 	INC
 	CMP.b $50
 	BCC.b CODE_B7E2B2
 	BCS.b CODE_B7E2B0
 CODE_B7E2A8:
 	STZ.b $52
-	LDA.b $82
+	LDA.b next_oam_slot
 	CMP.b $50
 	BCS.b CODE_B7E2B2
 CODE_B7E2B0:
@@ -11112,7 +11180,7 @@ CODE_B7E4D6:
 	STA.b $26
 	LDA.w DATA_B7E747+$04,x
 	STA.b $1E
-	LDA.b !RAM_DKC3_Global_CurrentLevelLo
+	LDA.b level_number
 	ASL
 	TAX
 	LDA.l DATA_ECD002+$02,x
@@ -11397,8 +11465,23 @@ CODE_B7E71E:
 	RTL
 
 DATA_B7E727:
-	dw $0001,$0002,$0004,$0008,$0010,$0020,$0040,$0080
-	dw $0100,$0200,$0400,$0800,$1000,$2000,$4000,$8000
+	dw $0001
+	dw $0002
+	dw $0004
+	dw $0008
+	dw $0010
+	dw $0020
+	dw $0040
+	dw $0080
+	dw $0100
+	dw $0200
+	dw $0400
+	dw $0800
+	dw $1000
+	dw $2000
+	dw $4000
+	dw $8000
+
 
 DATA_B7E747:
 	dw $3FF8,$03F8,CODE_B7E784
@@ -11534,7 +11617,7 @@ CODE_B7E864:
 	PHB
 	PHK
 	PLB
-	LDA.b $82
+	LDA.b next_oam_slot
 	CMP.w #$0400
 	BCS.b CODE_B7E8D6
 	STA.w !REGISTER_WRAMAddressLo
@@ -11579,7 +11662,7 @@ CODE_B7E894:
 	ASL
 	ASL
 	ADC.w #$0200
-	STA.b $82
+	STA.b next_oam_slot
 	LDX.w #$0004
 	SEP.b #$20
 	LDA.b $32
@@ -11593,8 +11676,8 @@ CODE_B7E8C5:
 	TXA
 	ASL
 	ASL
-	ADC.b $82
-	STA.b $82
+	ADC.b next_oam_slot
+	STA.b next_oam_slot
 CODE_B7E8D6:
 	PLB
 	RTL
@@ -11838,7 +11921,7 @@ CODE_B7EA80:
 	REP.b #$30
 	PLA
 	LDA.w #$0400
-	STA.b $82
+	STA.b next_oam_slot
 	RTS
 
 CODE_B7EA89:
@@ -11894,7 +11977,7 @@ CODE_B7EAE4:
 	PLX
 	REP.b #$30
 	LDA.w #$0400
-	STA.b $82
+	STA.b next_oam_slot
 	RTS
 
 CODE_B7EAED:
@@ -11917,7 +12000,7 @@ CODE_B7EB08:
 	STZ.w $190D
 	STZ.w $190F
 	LDY.w #$0000
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDA.b $4A,x
 	AND.w #$4000
 	BEQ.b CODE_B7EB35
@@ -12241,7 +12324,7 @@ CODE_B7ED26:
 	BCS.b CODE_B7EDBC
 	STA.l $7E9780
 	TAX
-	LDY.b $70
+	LDY.b current_sprite
 	LDA.b $1A
 	BPL.b CODE_B7ED50
 	ORA.w #$00FF
@@ -12275,7 +12358,7 @@ CODE_B7ED6B:
 	SEC
 	ADC.w #$0040
 	STA.l $7E9842,x
-	LDY.b $70
+	LDY.b current_sprite
 	LDA.b $19
 	BPL.b CODE_B7ED8B
 	ORA.w #$00FF
@@ -12387,7 +12470,7 @@ CODE_B7EE3A:
 	BPL.b CODE_B7EE30
 	REP.b #$30
 	LDA.w #$0400
-	STA.b $82
+	STA.b next_oam_slot
 CODE_B7EE4F:
 	PLB
 	RTS

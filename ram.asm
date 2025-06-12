@@ -10,15 +10,15 @@ spc_transaction = $06
 current_song = $08
 
 
-global_frame_counter = $54
 NMI_pointer = $56
 game_logic_pointer = $58
+global_frame_counter = $5A
 sprite_contants_pointer = $6A
 
 current_sprite = $70
 current_kong_control_variables = $72
 alternate_sprite = $76
-current_animal_sprite = $7C
+current_mount = $7C
 current_animal_type = $7E
 
 next_oam_slot = $82
@@ -31,6 +31,7 @@ stack_end = $0100
 stack = $01FF
 
 oam_table = $0200
+oam_attribute_table = $0400
 
 
 
@@ -116,7 +117,7 @@ kiddy_control_variables = $14D2
 sprite_render_table = $1524
 
 
-held_object_index = $186B
+current_held_sprite = $186B
 kong_animal_x_offset = $1885
 kong_animal_y_offset = $1889
 ellie_ammo_count = $1891

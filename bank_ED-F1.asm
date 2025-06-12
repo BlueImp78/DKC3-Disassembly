@@ -152,9 +152,29 @@ DATA_ED0D86:
 padbyte $00 : pad $ED0F36
 
 DATA_ED0F36:
-	dw $00A7,$00A8,$00AE,$00A3,$00A5,$00A6,$0083,$00B9
-	dw $00A1,$00A2,$00A4,$00B7,$00AC,$00B0,$00A9,$0078
-	dw $0079,$003E,$0047,$0048,$0049,$004A,$FFFF
+	dw $00A7
+	dw $00A8
+	dw $00AE
+	dw $00A3
+	dw $00A5
+	dw $00A6
+	dw $0083
+	dw $00B9
+	dw $00A1
+	dw $00A2
+	dw $00A4
+	dw $00B7
+	dw $00AC
+	dw $00B0
+	dw $00A9
+	dw $0078
+	dw $0079
+	dw $003E
+	dw $0047
+	dw $0048
+	dw $0049
+	dw $004A
+	dw $FFFF
 
 DATA_ED0F64:
 	incbin "data/sound/music/None.bin"
@@ -166,242 +186,838 @@ DATA_ED0FD0:
 	incbin "data/sound/music/BonusTime.bin"
 
 DATA_ED1AFD:
-	dw $00BB,$00BC,$00BD,$00BA,$00C0,$00B8,$00BE,$00C2
-	dw $0008,$00BF,$00C1,$0097,$009E,$0073,$00B5,$00B4
-	dw $00AB,$0063,$005D,$0082,$009A,$0067,$00B1,$007E
-	dw $00C3,$00AA,$0075,$FFFF
+	dw $00BB
+	dw $00BC
+	dw $00BD
+	dw $00BA
+	dw $00C0
+	dw $00B8
+	dw $00BE
+	dw $00C2
+	dw $0008
+	dw $00BF
+	dw $00C1
+	dw $0097
+	dw $009E
+	dw $0073
+	dw $00B5
+	dw $00B4
+	dw $00AB
+	dw $0063
+	dw $005D
+	dw $0082
+	dw $009A
+	dw $0067
+	dw $00B1
+	dw $007E
+	dw $00C3
+	dw $00AA
+	dw $0075
+	dw $FFFF
 
 DATA_ED1B35:
 	incbin "data/sound/music/CrazyCalypso.bin"
 
 DATA_ED1F4D:
-	dw $0015,$0014,$00C1,$0023,$006F,$00AA,$00BA,$00B8
-	dw $007C,$000B,$0021,$0024,$0075,$FFFF
+	dw $0015
+	dw $0014
+	dw $00C1
+	dw $0023
+	dw $006F
+	dw $00AA
+	dw $00BA
+	dw $00B8
+	dw $007C
+	dw $000B
+	dw $0021
+	dw $0024
+	dw $0075
+	dw $FFFF
 
 DATA_ED1F69:
-	dw $00BB,$00BC,$00BD,$00BA,$00C0,$00B8,$00BE,$00C2
-	dw $0008,$00BF,$00C1,$00B5,$00B4,$0081,$007E,$00C3
-	dw $00AA,$0095,$00AB,$006F,$009A,$0082,$006C,$0076
-	dw $008F,$008E,$0059,$FFFF
+	dw $00BB
+	dw $00BC
+	dw $00BD
+	dw $00BA
+	dw $00C0
+	dw $00B8
+	dw $00BE
+	dw $00C2
+	dw $0008
+	dw $00BF
+	dw $00C1
+	dw $00B5
+	dw $00B4
+	dw $0081
+	dw $007E
+	dw $00C3
+	dw $00AA
+	dw $0095
+	dw $00AB
+	dw $006F
+	dw $009A
+	dw $0082
+	dw $006C
+	dw $0076
+	dw $008F
+	dw $008E
+	dw $0059
+	dw $FFFF
 
 DATA_ED1FA1:
 	incbin "data/sound/music/BrothersBear.bin"
 
 DATA_ED23D3:
-	dw $00BD,$00B8,$00BF,$000F,$000A,$0071,$007E,$007F
-	dw $0094,$0075,$0013,$00B5,$0090,$0087,$00BB,$000B
+	dw $00BD
+	dw $00B8
+	dw $00BF
+	dw $000F
+	dw $000A
+	dw $0071
+	dw $007E
+	dw $007F
+	dw $0094
+	dw $0075
+	dw $0013
+	dw $00B5
+	dw $0090
+	dw $0087
+	dw $00BB
+	dw $000B
 	dw $FFFF
 
 DATA_ED23F5:
 	incbin "data/sound/music/WrinklyKongSongs.bin"
 
 DATA_ED2AEF:
-	dw $0004,$000C,$0032,$0033,$0034,$0035,$0036,$0037
-	dw $0038,$0039,$003A,$003B,$003C,$003D,$003F,$0040
-	dw $0041,$0042,$0043,$0044,$0045,$0046,$0018,$0022
-	dw $00AA,$00BD,$00BA,$00B8,$0098,$0099,$009F,$0094
-	dw $000B,$0071,$007E,$007F,$FFFF
+	dw $0004
+	dw $000C
+	dw $0032
+	dw $0033
+	dw $0034
+	dw $0035
+	dw $0036
+	dw $0037
+	dw $0038
+	dw $0039
+	dw $003A
+	dw $003B
+	dw $003C
+	dw $003D
+	dw $003F
+	dw $0040
+	dw $0041
+	dw $0042
+	dw $0043
+	dw $0044
+	dw $0045
+	dw $0046
+	dw $0018
+	dw $0022
+	dw $00AA
+	dw $00BD
+	dw $00BA
+	dw $00B8
+	dw $0098
+	dw $0099
+	dw $009F
+	dw $0094
+	dw $000B
+	dw $0071
+	dw $007E
+	dw $007F
+	dw $FFFF
 
 DATA_ED2B39:
 	incbin "data/sound/music/WaterWorld.bin"
 
 DATA_ED376D:
-	dw $000B,$0051,$0024,$001E,$0004,$0006,$0018,$002D
-	dw $002C,$0005,$0029,$002E,$004E,$001B,$0010,$00AA
-	dw $0095,$007D,$00AD,$00B6,$00AF,$0075,$006A,$005D
-	dw $00B1,$0073,$0074,$0061,$0002,$FFFF
+	dw $000B
+	dw $0051
+	dw $0024
+	dw $001E
+	dw $0004
+	dw $0006
+	dw $0018
+	dw $002D
+	dw $002C
+	dw $0005
+	dw $0029
+	dw $002E
+	dw $004E
+	dw $001B
+	dw $0010
+	dw $00AA
+	dw $0095
+	dw $007D
+	dw $00AD
+	dw $00B6
+	dw $00AF
+	dw $0075
+	dw $006A
+	dw $005D
+	dw $00B1
+	dw $0073
+	dw $0074
+	dw $0061
+	dw $0002
+	dw $FFFF
 
 DATA_ED37A9:
 	incbin "data/sound/music/HotPursuit.bin"
 
 DATA_ED4263:
-	dw $0024,$0029,$002E,$002C,$0005,$0025,$0010,$0006
-	dw $0028,$0021,$00B4,$00B5,$00B3,$00AA,$0081,$0077
-	dw $006F,$0095,$0067,$007E,$0075,$009C,$009F,$00B1
-	dw $00B6,$0060,$0069,$0082,$006A,$00AB,$00C3,$0073
+	dw $0024
+	dw $0029
+	dw $002E
+	dw $002C
+	dw $0005
+	dw $0025
+	dw $0010
+	dw $0006
+	dw $0028
+	dw $0021
+	dw $00B4
+	dw $00B5
+	dw $00B3
+	dw $00AA
+	dw $0081
+	dw $0077
+	dw $006F
+	dw $0095
+	dw $0067
+	dw $007E
+	dw $0075
+	dw $009C
+	dw $009F
+	dw $00B1
+	dw $00B6
+	dw $0060
+	dw $0069
+	dw $0082
+	dw $006A
+	dw $00AB
+	dw $00C3
+	dw $0073
 	dw $FFFF
 
 DATA_ED42A5:
 	incbin "data/sound/music/NutsAndBolts.bin"
 
 DATA_ED4C61:
-	dw $004F,$0050,$0010,$001F,$001D,$000D,$000E,$002E
-	dw $00BB,$00BC,$000C,$0021,$0081,$0077,$00AA,$00B5
-	dw $00B4,$00B3,$00AB,$0095,$0072,$0075,$0073,$0063
-	dw $005D,$006A,$FFFF
+	dw $004F
+	dw $0050
+	dw $0010
+	dw $001F
+	dw $001D
+	dw $000D
+	dw $000E
+	dw $002E
+	dw $00BB
+	dw $00BC
+	dw $000C
+	dw $0021
+	dw $0081
+	dw $0077
+	dw $00AA
+	dw $00B5
+	dw $00B4
+	dw $00B3
+	dw $00AB
+	dw $0095
+	dw $0072
+	dw $0075
+	dw $0073
+	dw $0063
+	dw $005D
+	dw $006A
+	dw $FFFF
 
 DATA_ED4C97:
 	incbin "data/sound/music/SwankysSideshow.bin"
 
 DATA_ED5884:
-	dw $0010,$00BD,$0008,$0015,$00BC,$0029,$0026,$0016
-	dw $0017,$000F,$0025,$002B,$002C,$002E,$000A,$009E
-	dw $009A,$009B,$0095,$0082,$0080,$0094,$000B,$FFFF
+	dw $0010
+	dw $00BD
+	dw $0008
+	dw $0015
+	dw $00BC
+	dw $0029
+	dw $0026
+	dw $0016
+	dw $0017
+	dw $000F
+	dw $0025
+	dw $002B
+	dw $002C
+	dw $002E
+	dw $000A
+	dw $009E
+	dw $009A
+	dw $009B
+	dw $0095
+	dw $0082
+	dw $0080
+	dw $0094
+	dw $000B
+	dw $FFFF
 
 DATA_ED58B4:
 	incbin "data/sound/music/CascadeCapers.bin"
 
 DATA_ED6378:
-	dw $0032,$0033,$0034,$0035,$0036,$0037,$0038,$0039
-	dw $003A,$003B,$003C,$003D,$003F,$0040,$0041,$0042
-	dw $0043,$0044,$0045,$0046,$0004,$0018,$00A0,$0006
-	dw $00BD,$002C,$0010,$0059,$0022,$0005,$00B3,$00AA
-	dw $0081,$0077,$0066,$0067,$0082,$0095,$00B5,$00B4
-	dw $007E,$00BB,$0075,$0073,$0069,$0060,$006A,$001B
+	dw $0032
+	dw $0033
+	dw $0034
+	dw $0035
+	dw $0036
+	dw $0037
+	dw $0038
+	dw $0039
+	dw $003A
+	dw $003B
+	dw $003C
+	dw $003D
+	dw $003F
+	dw $0040
+	dw $0041
+	dw $0042
+	dw $0043
+	dw $0044
+	dw $0045
+	dw $0046
+	dw $0004
+	dw $0018
+	dw $00A0
+	dw $0006
+	dw $00BD
+	dw $002C
+	dw $0010
+	dw $0059
+	dw $0022
+	dw $0005
+	dw $00B3
+	dw $00AA
+	dw $0081
+	dw $0077
+	dw $0066
+	dw $0067
+	dw $0082
+	dw $0095
+	dw $00B5
+	dw $00B4
+	dw $007E
+	dw $00BB
+	dw $0075
+	dw $0073
+	dw $0069
+	dw $0060
+	dw $006A
+	dw $001B
 	dw $FFFF
 
 DATA_ED63DA:
 	incbin "data/sound/music/TreetopTumble.bin"
 
 DATA_ED6B41:
-	dw $0004,$0006,$0010,$0059,$0014,$001C,$0029,$0058
-	dw $002D,$00B3,$007E,$0076,$00AA,$0081,$0077,$0095
-	dw $0067,$009A,$0082,$006C,$00B5,$00B4,$00C3,$008F
-	dw $008E,$0075,$0069,$0073,$006A,$FFFF
+	dw $0004
+	dw $0006
+	dw $0010
+	dw $0059
+	dw $0014
+	dw $001C
+	dw $0029
+	dw $0058
+	dw $002D
+	dw $00B3
+	dw $007E
+	dw $0076
+	dw $00AA
+	dw $0081
+	dw $0077
+	dw $0095
+	dw $0067
+	dw $009A
+	dw $0082
+	dw $006C
+	dw $00B5
+	dw $00B4
+	dw $00C3
+	dw $008F
+	dw $008E
+	dw $0075
+	dw $0069
+	dw $0073
+	dw $006A
+	dw $FFFF
 
 DATA_ED6B7D:
 	incbin "data/sound/music/BossBoogie.bin"
 
 DATA_ED7509:
-	dw $0010,$0021,$0014,$000B,$0029,$002C,$002E,$0005
-	dw $004B,$00BC,$0007,$006C,$0082,$009A,$009B,$0092
-	dw $0093,$00AA,$005A,$005B,$006A,$FFFF
+	dw $0010
+	dw $0021
+	dw $0014
+	dw $000B
+	dw $0029
+	dw $002C
+	dw $002E
+	dw $0005
+	dw $004B
+	dw $00BC
+	dw $0007
+	dw $006C
+	dw $0082
+	dw $009A
+	dw $009B
+	dw $0092
+	dw $0093
+	dw $00AA
+	dw $005A
+	dw $005B
+	dw $006A
+	dw $FFFF
 
 DATA_ED7535:
 	incbin "data/sound/music/JangleBells.bin"
 
 DATA_ED7DA6:
-	dw $0056,$002F,$002B,$0010,$0025,$0016,$0031,$002E
-	dw $009C,$009B,$00AA,$0081,$00B5,$00B4,$007E,$0095
-	dw $0075,$0073,$0058,$0069,$006A,$FFFF
+	dw $0056
+	dw $002F
+	dw $002B
+	dw $0010
+	dw $0025
+	dw $0016
+	dw $0031
+	dw $002E
+	dw $009C
+	dw $009B
+	dw $00AA
+	dw $0081
+	dw $00B5
+	dw $00B4
+	dw $007E
+	dw $0095
+	dw $0075
+	dw $0073
+	dw $0058
+	dw $0069
+	dw $006A
+	dw $FFFF
 
 DATA_ED7DD2:
 	incbin "data/sound/music/MillFever.bin"
 
 DATA_ED8961:
-	dw $0014,$000A,$00C0,$0011,$0012,$0016,$0010,$002E
-	dw $00B3,$00AA,$0081,$0082,$0095,$00B5,$00B4,$007E
-	dw $0073,$0075,$0086,$009E,$0097,$0072,$0050,$0060
-	dw $0069,$006A,$FFFF
+	dw $0014
+	dw $000A
+	dw $00C0
+	dw $0011
+	dw $0012
+	dw $0016
+	dw $0010
+	dw $002E
+	dw $00B3
+	dw $00AA
+	dw $0081
+	dw $0082
+	dw $0095
+	dw $00B5
+	dw $00B4
+	dw $007E
+	dw $0073
+	dw $0075
+	dw $0086
+	dw $009E
+	dw $0097
+	dw $0072
+	dw $0050
+	dw $0060
+	dw $0069
+	dw $006A
+	dw $FFFF
 
 DATA_ED8997:
 	incbin "data/sound/music/StiltVillage.bin"
 
 DATA_ED9404:
-	dw $0009,$0030,$002E,$002C,$0029,$0019,$0023,$0017
-	dw $0069,$00B3,$00AA,$0081,$001B,$0082,$0095,$00B5
-	dw $00B4,$007E,$00AD,$0073,$00B1,$0075,$006A,$00B6
-	dw $00AF,$0060,$005D,$FFFF
+	dw $0009
+	dw $0030
+	dw $002E
+	dw $002C
+	dw $0029
+	dw $0019
+	dw $0023
+	dw $0017
+	dw $0069
+	dw $00B3
+	dw $00AA
+	dw $0081
+	dw $001B
+	dw $0082
+	dw $0095
+	dw $00B5
+	dw $00B4
+	dw $007E
+	dw $00AD
+	dw $0073
+	dw $00B1
+	dw $0075
+	dw $006A
+	dw $00B6
+	dw $00AF
+	dw $0060
+	dw $005D
+	dw $FFFF
 
 DATA_ED943C:
 	incbin "data/sound/music/EnchantedRiverbank.bin"
 
 DATA_EDA137:
-	dw $0027,$004B,$004C,$004D,$0057,$001C,$0014,$002A
-	dw $0004,$0006,$0019,$002C,$002E,$001A,$001B,$0010
-	dw $00B5,$00B4,$0081,$0069,$007E,$0095,$00AA,$0075
-	dw $00B1,$00B6,$0060,$00AD,$006A,$005D,$FFFF
+	dw $0027
+	dw $004B
+	dw $004C
+	dw $004D
+	dw $0057
+	dw $001C
+	dw $0014
+	dw $002A
+	dw $0004
+	dw $0006
+	dw $0019
+	dw $002C
+	dw $002E
+	dw $001A
+	dw $001B
+	dw $0010
+	dw $00B5
+	dw $00B4
+	dw $0081
+	dw $0069
+	dw $007E
+	dw $0095
+	dw $00AA
+	dw $0075
+	dw $00B1
+	dw $00B6
+	dw $0060
+	dw $00AD
+	dw $006A
+	dw $005D
+	dw $FFFF
 
 DATA_EDA175:
 	incbin "data/sound/music/SubmapShuffle.bin"
 
 DATA_EDA69E:
-	dw $0014,$002A,$0006,$0057,$002C,$000A,$0031,$009C
-	dw $00B1,$00B2,$00B5,$0075,$006C,$009D,$FFFF
+	dw $0014
+	dw $002A
+	dw $0006
+	dw $0057
+	dw $002C
+	dw $000A
+	dw $0031
+	dw $009C
+	dw $00B1
+	dw $00B2
+	dw $00B5
+	dw $0075
+	dw $006C
+	dw $009D
+	dw $FFFF
 
 DATA_EDA6BC:
 	incbin "data/sound/music/KremtoaKoncerto.bin"
 
 DATA_EDAA22:
-	dw $0006,$000A,$001E,$004B,$0018,$009D,$0090,$0087
-	dw $0091,$0096,$006F,$006C,$0075,$FFFF
+	dw $0006
+	dw $000A
+	dw $001E
+	dw $004B
+	dw $0018
+	dw $009D
+	dw $0090
+	dw $0087
+	dw $0091
+	dw $0096
+	dw $006F
+	dw $006C
+	dw $0075
+	dw $FFFF
 
 DATA_EDAA3E:
 	incbin "data/sound/music/NorthernKremisphere.bin"
 
 DATA_EDAEEE:
-	dw $0033,$0036,$0038,$003C,$0006,$000A,$004B,$0018
-	dw $0004,$002C,$0005,$0022,$0030,$006C,$009D,$0090
-	dw $0096,$00B1,$00B2,$0075,$FFFF
+	dw $0033
+	dw $0036
+	dw $0038
+	dw $003C
+	dw $0006
+	dw $000A
+	dw $004B
+	dw $0018
+	dw $0004
+	dw $002C
+	dw $0005
+	dw $0022
+	dw $0030
+	dw $006C
+	dw $009D
+	dw $0090
+	dw $0096
+	dw $00B1
+	dw $00B2
+	dw $0075
+	dw $FFFF
 
 DATA_EDAF18:
 	incbin "data/sound/music/GameOver.bin"
 
 DATA_EDAFF6:
-	dw $0051,$0084,$0086,$008B,$FFFF
+	dw $0051
+	dw $0084
+	dw $0086
+	dw $008B
+	dw $FFFF
 
 DATA_EDB000:
 	incbin "data/sound/music/HanginAtFunkys.bin"
 
 DATA_EDB3E4:
-	dw $000F,$0016,$002B,$0029,$002C,$002E,$0030,$0052
-	dw $0053,$0054,$0055,$006B,$0088,$0089,$008A,$0094
-	dw $000B,$0085,$FFFF
+	dw $000F
+	dw $0016
+	dw $002B
+	dw $0029
+	dw $002C
+	dw $002E
+	dw $0030
+	dw $0052
+	dw $0053
+	dw $0054
+	dw $0055
+	dw $006B
+	dw $0088
+	dw $0089
+	dw $008A
+	dw $0094
+	dw $000B
+	dw $0085
+	dw $FFFF
 
 DATA_EDB40A:
 	incbin "data/sound/music/Fanfare.bin"
 
 DATA_EDB981:
-	dw $0051,$0008,$0015,$0017,$0006,$0014,$0029,$00BD
-	dw $006F,$002C,$0005,$0007,$000C,$00B8,$FFFF
+	dw $0051
+	dw $0008
+	dw $0015
+	dw $0017
+	dw $0006
+	dw $0014
+	dw $0029
+	dw $00BD
+	dw $006F
+	dw $002C
+	dw $0005
+	dw $0007
+	dw $000C
+	dw $00B8
+	dw $FFFF
 
 DATA_EDB99F:
 	incbin "data/sound/music/FrostyFrolics.bin"
 
 DATA_EDC0BD:
-	dw $00BF,$000A,$0004,$0018,$001E,$0031,$0051,$0013
-	dw $002C,$002E,$001C,$0081,$0095,$00AA,$009C,$009B
-	dw $00B5,$00B4,$007E,$0058,$0075,$0073,$0069,$006A
+	dw $00BF
+	dw $000A
+	dw $0004
+	dw $0018
+	dw $001E
+	dw $0031
+	dw $0051
+	dw $0013
+	dw $002C
+	dw $002E
+	dw $001C
+	dw $0081
+	dw $0095
+	dw $00AA
+	dw $009C
+	dw $009B
+	dw $00B5
+	dw $00B4
+	dw $007E
+	dw $0058
+	dw $0075
+	dw $0073
+	dw $0069
+	dw $006A
 	dw $FFFF
 
 DATA_EDC0EF:
 	incbin "data/sound/music/DixieBeat.bin"
 
 DATA_EDC8EF:
-	dw $0059,$009F,$00BB,$00BC,$00BD,$00BA,$00C0,$00B8
-	dw $00BE,$00C2,$0008,$00C1,$0016,$00BF,$009A,$009B
-	dw $0003,$FFFF
+	dw $0059
+	dw $009F
+	dw $00BB
+	dw $00BC
+	dw $00BD
+	dw $00BA
+	dw $00C0
+	dw $00B8
+	dw $00BE
+	dw $00C2
+	dw $0008
+	dw $00C1
+	dw $0016
+	dw $00BF
+	dw $009A
+	dw $009B
+	dw $0003
+	dw $FFFF
 
 DATA_EDC913:
 	incbin "data/sound/music/PokeyPipes.bin"
 
 DATA_EDD371:
-	dw $00B8,$0004,$004B,$0033,$0036,$003A,$0040,$002E
-	dw $002C,$001C,$0013,$0018,$0014,$00B3,$00AA,$0081
-	dw $0095,$00B5,$00B4,$007E,$007D,$00C3,$00AF,$0075
-	dw $0073,$00B6,$00B1,$0069,$006A,$005D,$FFFF
+	dw $00B8
+	dw $0004
+	dw $004B
+	dw $0033
+	dw $0036
+	dw $003A
+	dw $0040
+	dw $002E
+	dw $002C
+	dw $001C
+	dw $0013
+	dw $0018
+	dw $0014
+	dw $00B3
+	dw $00AA
+	dw $0081
+	dw $0095
+	dw $00B5
+	dw $00B4
+	dw $007E
+	dw $007D
+	dw $00C3
+	dw $00AF
+	dw $0075
+	dw $0073
+	dw $00B6
+	dw $00B1
+	dw $0069
+	dw $006A
+	dw $005D
+	dw $FFFF
 
 DATA_EDD3AF:
 	incbin "data/sound/music/BigBossBlues.bin"
 
 DATA_EDDB03:
-	dw $00B8,$00BC,$002C,$000B,$000A,$000D,$001D,$001F
-	dw $000C,$0007,$0024,$0067,$00B5,$0064,$0063,$00AA
-	dw $0097,$006A,$0072,$005A,$0094,$0073,$FFFF
+	dw $00B8
+	dw $00BC
+	dw $002C
+	dw $000B
+	dw $000A
+	dw $000D
+	dw $001D
+	dw $001F
+	dw $000C
+	dw $0007
+	dw $0024
+	dw $0067
+	dw $00B5
+	dw $0064
+	dw $0063
+	dw $00AA
+	dw $0097
+	dw $006A
+	dw $0072
+	dw $005A
+	dw $0094
+	dw $0073
+	dw $FFFF
 
 DATA_EDDB31:
 	incbin "data/sound/music/CrystalChasm.bin"
 
 DATA_EDE1C8:
-	dw $0033,$0036,$003A,$0040,$0018,$0013,$001E,$0006
-	dw $0071,$007E,$007F,$006D,$0031,$002F,$FFFF
+	dw $0033
+	dw $0036
+	dw $003A
+	dw $0040
+	dw $0018
+	dw $0013
+	dw $001E
+	dw $0006
+	dw $0071
+	dw $007E
+	dw $007F
+	dw $006D
+	dw $0031
+	dw $002F
+	dw $FFFF
 
 DATA_EDE1E6:
 	incbin "data/sound/music/RocketRun.bin"
 
 DATA_EDEE18:
-	dw $0024,$001E,$002C,$002E,$000A,$0014,$0008,$0030
-	dw $0021,$0006,$00B5,$00B4,$00AA,$0095,$0075,$00BB
-	dw $0072,$0050,$0073,$006A,$FFFF
+	dw $0024
+	dw $001E
+	dw $002C
+	dw $002E
+	dw $000A
+	dw $0014
+	dw $0008
+	dw $0030
+	dw $0021
+	dw $0006
+	dw $00B5
+	dw $00B4
+	dw $00AA
+	dw $0095
+	dw $0075
+	dw $00BB
+	dw $0072
+	dw $0050
+	dw $0073
+	dw $006A
+	dw $FFFF
 
 DATA_EDEE42:
 	incbin "data/sound/music/JungleJitter.bin"
 
 DATA_EDF999:
-	dw $00BC,$00BD,$00C0,$00BA,$0006,$00B8,$0008,$0017
-	dw $0014,$0023,$0077,$0081,$00AA,$001B,$0082,$0066
-	dw $0067,$0095,$00B5,$00B4,$007E,$0075,$0073,$0069
-	dw $006A,$FFFF
+	dw $00BC
+	dw $00BD
+	dw $00C0
+	dw $00BA
+	dw $0006
+	dw $00B8
+	dw $0008
+	dw $0017
+	dw $0014
+	dw $0023
+	dw $0077
+	dw $0081
+	dw $00AA
+	dw $001B
+	dw $0082
+	dw $0066
+	dw $0067
+	dw $0095
+	dw $00B5
+	dw $00B4
+	dw $007E
+	dw $0075
+	dw $0073
+	dw $0069
+	dw $006A
+	dw $FFFF
 
 check bankcross off
 DATA_EDF9CD:
@@ -409,79 +1025,357 @@ DATA_EDF9CD:
 check bankcross full
 
 DATA_EE0330:
-	dw $0021,$0024,$001C,$0018,$0014,$0007,$0006,$0010
-	dw $002E,$002C,$0004,$0077,$00AA,$0081,$001B,$0082
-	dw $0066,$0067,$009A,$0095,$00B5,$00B4,$007E,$00C3
-	dw $00AB,$0061,$0062,$0075,$0073,$0069,$006A,$FFFF
+	dw $0021
+	dw $0024
+	dw $001C
+	dw $0018
+	dw $0014
+	dw $0007
+	dw $0006
+	dw $0010
+	dw $002E
+	dw $002C
+	dw $0004
+	dw $0077
+	dw $00AA
+	dw $0081
+	dw $001B
+	dw $0082
+	dw $0066
+	dw $0067
+	dw $009A
+	dw $0095
+	dw $00B5
+	dw $00B4
+	dw $007E
+	dw $00C3
+	dw $00AB
+	dw $0061
+	dw $0062
+	dw $0075
+	dw $0073
+	dw $0069
+	dw $006A
+	dw $FFFF
 
 DATA_EE0370:
-	dw $0014,$0010,$0021,$000B,$0029,$002C,$002E,$0005
-	dw $004B,$00BC,$0007,$0081,$0074,$00B8,$0082,$009A
-	dw $009B,$007A,$007B,$007D,$00AA,$006E,$00B6,$0072
-	dw $00AF,$005D,$006A,$FFFF
+	dw $0014
+	dw $0010
+	dw $0021
+	dw $000B
+	dw $0029
+	dw $002C
+	dw $002E
+	dw $0005
+	dw $004B
+	dw $00BC
+	dw $0007
+	dw $0081
+	dw $0074
+	dw $00B8
+	dw $0082
+	dw $009A
+	dw $009B
+	dw $007A
+	dw $007B
+	dw $007D
+	dw $00AA
+	dw $006E
+	dw $00B6
+	dw $0072
+	dw $00AF
+	dw $005D
+	dw $006A
+	dw $FFFF
 
 DATA_EE03A8:
-	dw $00BB,$00BC,$00BD,$00BA,$00C0,$00B8,$00BE,$00C2
-	dw $0008,$00BF,$00C1,$0073,$005D,$00B6,$00B1,$0082
-	dw $00AF,$00AD,$00B5,$00B4,$007E,$00C3,$009F,$007D
-	dw $009C,$009B,$0081,$00AA,$0074,$0002,$FFFF
+	dw $00BB
+	dw $00BC
+	dw $00BD
+	dw $00BA
+	dw $00C0
+	dw $00B8
+	dw $00BE
+	dw $00C2
+	dw $0008
+	dw $00BF
+	dw $00C1
+	dw $0073
+	dw $005D
+	dw $00B6
+	dw $00B1
+	dw $0082
+	dw $00AF
+	dw $00AD
+	dw $00B5
+	dw $00B4
+	dw $007E
+	dw $00C3
+	dw $009F
+	dw $007D
+	dw $009C
+	dw $009B
+	dw $0081
+	dw $00AA
+	dw $0074
+	dw $0002
+	dw $FFFF
 
 DATA_EE03E6:
-	dw $0033,$0036,$0038,$003C,$0006,$000A,$004B,$0018
-	dw $0004,$002C,$0005,$0022,$0030,$006C,$009D,$0087
-	dw $0096,$00B1,$00B2,$0075,$FFFF
+	dw $0033
+	dw $0036
+	dw $0038
+	dw $003C
+	dw $0006
+	dw $000A
+	dw $004B
+	dw $0018
+	dw $0004
+	dw $002C
+	dw $0005
+	dw $0022
+	dw $0030
+	dw $006C
+	dw $009D
+	dw $0087
+	dw $0096
+	dw $00B1
+	dw $00B2
+	dw $0075
+	dw $FFFF
 
 DATA_EE0410:
-	dw $0033,$0036,$0038,$003C,$0006,$000A,$004B,$0018
-	dw $0004,$002C,$0005,$0022,$0030,$006C,$009D,$0091
-	dw $0096,$00B1,$00B2,$0075,$FFFF
+	dw $0033
+	dw $0036
+	dw $0038
+	dw $003C
+	dw $0006
+	dw $000A
+	dw $004B
+	dw $0018
+	dw $0004
+	dw $002C
+	dw $0005
+	dw $0022
+	dw $0030
+	dw $006C
+	dw $009D
+	dw $0091
+	dw $0096
+	dw $00B1
+	dw $00B2
+	dw $0075
+	dw $FFFF
 
 DATA_EE043A:
-	dw $004F,$0050,$0010,$001F,$001D,$000D,$000E,$002E
-	dw $00BB,$00BC,$000C,$0021,$0081,$0077,$00AA,$00B5
-	dw $00B4,$00B3,$00AB,$0075,$0082,$005C,$0095,$0063
-	dw $005D,$006A,$FFFF
+	dw $004F
+	dw $0050
+	dw $0010
+	dw $001F
+	dw $001D
+	dw $000D
+	dw $000E
+	dw $002E
+	dw $00BB
+	dw $00BC
+	dw $000C
+	dw $0021
+	dw $0081
+	dw $0077
+	dw $00AA
+	dw $00B5
+	dw $00B4
+	dw $00B3
+	dw $00AB
+	dw $0075
+	dw $0082
+	dw $005C
+	dw $0095
+	dw $0063
+	dw $005D
+	dw $006A
+	dw $FFFF
 
 DATA_EE0470:
-	dw $00B8,$00BC,$002C,$000B,$000A,$000D,$001D,$001F
-	dw $000C,$0007,$0024,$00BB,$0095,$0063,$0075,$006C
-	dw $0064,$00AA,$006A,$0067,$0094,$0062,$FFFF
+	dw $00B8
+	dw $00BC
+	dw $002C
+	dw $000B
+	dw $000A
+	dw $000D
+	dw $001D
+	dw $001F
+	dw $000C
+	dw $0007
+	dw $0024
+	dw $00BB
+	dw $0095
+	dw $0063
+	dw $0075
+	dw $006C
+	dw $0064
+	dw $00AA
+	dw $006A
+	dw $0067
+	dw $0094
+	dw $0062
+	dw $FFFF
 
 DATA_EE049E:
-	dw $0014,$0010,$0021,$000B,$0029,$002C,$002E,$0005
-	dw $004B,$00BC,$0007,$00BB,$0095,$0063,$006C,$0064
-	dw $00B5,$00AA,$006A,$0060,$00AB,$005D,$00B6,$FFFF
+	dw $0014
+	dw $0010
+	dw $0021
+	dw $000B
+	dw $0029
+	dw $002C
+	dw $002E
+	dw $0005
+	dw $004B
+	dw $00BC
+	dw $0007
+	dw $00BB
+	dw $0095
+	dw $0063
+	dw $006C
+	dw $0064
+	dw $00B5
+	dw $00AA
+	dw $006A
+	dw $0060
+	dw $00AB
+	dw $005D
+	dw $00B6
+	dw $FFFF
 
 DATA_EE04CE:
-	dw $0021,$0024,$001C,$0018,$0014,$0007,$0006,$0010
-	dw $002E,$002C,$0004,$00C3,$007E,$0069,$00B4,$00B5
-	dw $009A,$0061,$0062,$00AB,$00AA,$0095,$0075,$0073
-	dw $006A,$007D,$005D,$00AF,$0060,$00B3,$00B6,$00B1
+	dw $0021
+	dw $0024
+	dw $001C
+	dw $0018
+	dw $0014
+	dw $0007
+	dw $0006
+	dw $0010
+	dw $002E
+	dw $002C
+	dw $0004
+	dw $00C3
+	dw $007E
+	dw $0069
+	dw $00B4
+	dw $00B5
+	dw $009A
+	dw $0061
+	dw $0062
+	dw $00AB
+	dw $00AA
+	dw $0095
+	dw $0075
+	dw $0073
+	dw $006A
+	dw $007D
+	dw $005D
+	dw $00AF
+	dw $0060
+	dw $00B3
+	dw $00B6
+	dw $00B1
 	dw $FFFF
 
 DATA_EE0510:
-	dw $0056,$002F,$002B,$0010,$0025,$0016,$0031,$002E
-	dw $0097,$009E,$0073,$00B5,$00B4,$00AB,$0063,$005D
-	dw $009A,$0067,$00B1,$007E,$00C3,$00AA,$0075,$0082
+	dw $0056
+	dw $002F
+	dw $002B
+	dw $0010
+	dw $0025
+	dw $0016
+	dw $0031
+	dw $002E
+	dw $0097
+	dw $009E
+	dw $0073
+	dw $00B5
+	dw $00B4
+	dw $00AB
+	dw $0063
+	dw $005D
+	dw $009A
+	dw $0067
+	dw $00B1
+	dw $007E
+	dw $00C3
+	dw $00AA
+	dw $0075
+	dw $0082
 	dw $FFFF
 
 DATA_EE0542:
-	dw $0056,$002F,$002B,$0010,$0025,$0016,$0031,$002E
-	dw $00B5,$00B4,$0081,$007E,$00C3,$00AA,$0095,$00AB
-	dw $006F,$009A,$0082,$006C,$0076,$008F,$008E,$0059
+	dw $0056
+	dw $002F
+	dw $002B
+	dw $0010
+	dw $0025
+	dw $0016
+	dw $0031
+	dw $002E
+	dw $00B5
+	dw $00B4
+	dw $0081
+	dw $007E
+	dw $00C3
+	dw $00AA
+	dw $0095
+	dw $00AB
+	dw $006F
+	dw $009A
+	dw $0082
+	dw $006C
+	dw $0076
+	dw $008F
+	dw $008E
+	dw $0059
 	dw $FFFF
 
 DATA_EE0574:
-	dw $0056,$002F,$002B,$0010,$0025,$0016,$0031,$002E
-	dw $0073,$005D,$00B6,$00B1,$0082,$00AF,$00AD,$00B5
-	dw $00B4,$007E,$00C3,$009F,$007D,$009C,$009B,$0081
-	dw $00AA,$0074,$0002,$FFFF
+	dw $0056
+	dw $002F
+	dw $002B
+	dw $0010
+	dw $0025
+	dw $0016
+	dw $0031
+	dw $002E
+	dw $0073
+	dw $005D
+	dw $00B6
+	dw $00B1
+	dw $0082
+	dw $00AF
+	dw $00AD
+	dw $00B5
+	dw $00B4
+	dw $007E
+	dw $00C3
+	dw $009F
+	dw $007D
+	dw $009C
+	dw $009B
+	dw $0081
+	dw $00AA
+	dw $0074
+	dw $0002
+	dw $FFFF
 
 DATA_EE05AC:
 	incbin "data/sound/music/DefeatedBoss.bin"
 
 DATA_EE077E:
-	dw $00BD,$00B8,$0008,$00C2,$0025,$FFFF
+	dw $00BD
+	dw $00B8
+	dw $0008
+	dw $00C2
+	dw $0025
+	dw $FFFF
 
 ;sample table
 DATA_EE078A:
@@ -1486,33 +2380,101 @@ DATA_F19E0A:
 	incbin "data/sound/music/BaddiesOnParade.bin"
 
 DATA_F1A165:
-	dw $002E,$002C,$0030,$0017,$0015,$0016,$002B,$000A
-	dw $007C,$FFFF
+	dw $002E
+	dw $002C
+	dw $0030
+	dw $0017
+	dw $0015
+	dw $0016
+	dw $002B
+	dw $000A
+	dw $007C
+	dw $FFFF
 
 DATA_F1A179:
 	incbin "data/sound/music/RockfaceRumble.bin"
 
 DATA_F1A95C:
-	dw $00BD,$001C,$002C,$0058,$001D,$00BC,$0030,$0006
-	dw $001B,$0082,$00AA,$0095,$0067,$00B5,$00B4,$007E
-	dw $0075,$00BB,$006F,$009A,$0069,$006A,$00B3,$0081
-	dw $006C,$0094,$0073,$FFFF
+	dw $00BD
+	dw $001C
+	dw $002C
+	dw $0058
+	dw $001D
+	dw $00BC
+	dw $0030
+	dw $0006
+	dw $001B
+	dw $0082
+	dw $00AA
+	dw $0095
+	dw $0067
+	dw $00B5
+	dw $00B4
+	dw $007E
+	dw $0075
+	dw $00BB
+	dw $006F
+	dw $009A
+	dw $0069
+	dw $006A
+	dw $00B3
+	dw $0081
+	dw $006C
+	dw $0094
+	dw $0073
+	dw $FFFF
 
 DATA_F1A994:
 	incbin "data/sound/music/MamaBird.bin"
 
 DATA_F1AE3B:
-	dw $0051,$0031,$0013,$0018,$0058,$002C,$0004,$001E
-	dw $00BF,$009D,$00A0,$0071,$007E,$007F,$0063,$00B0
-	dw $0008,$FFFF
+	dw $0051
+	dw $0031
+	dw $0013
+	dw $0018
+	dw $0058
+	dw $002C
+	dw $0004
+	dw $001E
+	dw $00BF
+	dw $009D
+	dw $00A0
+	dw $0071
+	dw $007E
+	dw $007F
+	dw $0063
+	dw $00B0
+	dw $0008
+	dw $FFFF
 
 DATA_F1AE5F:
 	incbin "data/sound/music/BananaBirdQueenChase.bin"
 
 DATA_F1B633:
-	dw $00B8,$0010,$002E,$00A1,$004B,$000C,$0021,$000A
-	dw $00BE,$001D,$00BD,$00BB,$00BA,$0096,$007E,$0090
-	dw $0091,$006E,$001C,$00B1,$0001,$006A,$0000,$FFFF
+	dw $00B8
+	dw $0010
+	dw $002E
+	dw $00A1
+	dw $004B
+	dw $000C
+	dw $0021
+	dw $000A
+	dw $00BE
+	dw $001D
+	dw $00BD
+	dw $00BB
+	dw $00BA
+	dw $0096
+	dw $007E
+	dw $0090
+	dw $0091
+	dw $006E
+	dw $001C
+	dw $00B1
+	dw $0001
+	dw $006A
+	dw $0000
+	dw $FFFF
 
 DATA_F1B663:
 	incbin "data/sound/sound_effects/GlobalSoundEffects.bin"

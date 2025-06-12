@@ -38,7 +38,7 @@ CODE_B48021:
 	STA.b $52
 	LDA.w #CODE_808337>>16
 	STA.b $54
-	STZ.b $7E
+	STZ.b current_animal_type
 	LDA.w #$1400
 	STA.b $80
 	STZ.w $1C35
@@ -51,7 +51,7 @@ CODE_B48021:
 	JSL.l CODE_BB857F
 	LDA.w #$1D93
 	STA.w $0541
-	STZ.b $7E
+	STZ.b current_animal_type
 	LDA.w #$000200
 	STA.w DMA[$00].SourceLo
 	STA.w DMA[$00].Unused2
@@ -163,7 +163,7 @@ CODE_B48164:
 	JSR.w CODE_B486BC
 	JSR.w CODE_B4B00B
 	SEP.b #$20
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	STZ.w $1560
@@ -224,7 +224,7 @@ CODE_B481EF:
 	BIT.w $1C35
 	BEQ.b CODE_B48233
 CODE_B481F7:
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BNE.b CODE_B48233
 	BIT.w $05AF
 	BPL.b CODE_B4820B
@@ -233,13 +233,13 @@ CODE_B481F7:
 	JML.l CODE_808003
 
 CODE_B4820B:
-	STZ.w $05E5
+	STZ.w current_world
 	LDA.w #$4000
 	TRB.w $0611
 	LDX.w $1C49
 	BEQ.b CODE_B48229
 	DEX
-	STX.w $05EB
+	STX.w current_boat
 	LDA.w #$8000
 	TSB.w $05E3
 	LDA.w #$0004
@@ -333,7 +333,7 @@ CODE_B482DE:
 	BEQ.b CODE_B4830B
 	LDA.w $1C65
 	BPL.b CODE_B4830B
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	LDA.b $5A,x
 	BNE.b CODE_B48336
 	STZ.w $1C49
@@ -351,7 +351,7 @@ CODE_B4830B:
 CODE_B48310:
 	LDA.w $1C65
 	BPL.b CODE_B48336
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	LDA.b $5A,x
 	BNE.b CODE_B48336
 	LDA.w #$0100
@@ -524,7 +524,7 @@ CODE_B4847E:
 	LDA.w $15E2
 	CMP.w #$0002
 	BNE.b CODE_B48496
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	LDA.w #$0002
 	STA.b $38,x
 	STZ.b $26,x
@@ -773,9 +773,9 @@ CODE_B4869C:
 CODE_B486A9:
 	LDA.w #$0040
 	TSB.w $1C35
-	STZ.w $04ED
+	STZ.w screen_fade_speed
 	LDA.w #$820F
-	STA.w $04EC
+	STA.w screen_brightness
 	DEC.w $1C3B
 	RTS
 
@@ -821,7 +821,7 @@ CODE_B48701:
 	LDA.w #$635E
 	STA.b $1C
 	STZ.b $1E
-	LDX.w !RAM_DKC3_Global_FrenchTextFlag
+	LDX.w language_select
 	LDA.l DATA_B4874B,x
 	AND.w #$00FF
 	CLC
@@ -858,7 +858,7 @@ CODE_B4874E:
 	JSL.l CODE_80801E
 	JSR.w CODE_B488DA
 	SEP.b #$20
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	STZ.w $1560
@@ -943,7 +943,7 @@ CODE_B48825:
 	BIT.w $1C35
 	BEQ.b CODE_B48871
 CODE_B4882D:
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BNE.b CODE_B48871
 	BIT.w $05AF
 	BPL.b CODE_B48841
@@ -958,7 +958,7 @@ CODE_B48841:
 	LDA.w $1C49
 	BEQ.b CODE_B48867
 	LDX.w #!Define_DKC3_LevelID_SwankysSideshowInTent
-	STX.b !RAM_DKC3_Global_CurrentLevelLo
+	STX.b level_number
 	LSR
 	LSR
 	LSR
@@ -1038,7 +1038,7 @@ CODE_B488E9:
 	DEY
 	BNE.b CODE_B488E9
 	LDY.w #$0800
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDA.b $12,x
 	CMP.w #$0060
 	BPL.b CODE_B4890D
@@ -1267,9 +1267,9 @@ CODE_B48AA9:
 CODE_B48AD1:
 	LDA.w #$0040
 	TSB.w $1C35
-	STZ.w $04ED
+	STZ.w screen_fade_speed
 	LDA.w #$820F
-	STA.w $04EC
+	STA.w screen_brightness
 	DEC.w $1C3B
 	STZ.w $0545
 	RTS
@@ -1422,7 +1422,9 @@ CODE_B48C03:
 	RTS
 
 DATA_B48C41:
-	dw $0140,$0120,$0110
+	dw $0140
+	dw $0120
+	dw $0110
 
 CODE_B48C47:
 	LDA.w #$0002
@@ -1471,7 +1473,9 @@ DATA_B48CB1:
 	db $10,$40,$20
 
 DATA_B48CB4:
-	dw $002E,$002A,$002C
+	dw $002E
+	dw $002A
+	dw $002C
 
 CODE_B48CBA:
 	LDA.w #$FF98
@@ -1492,12 +1496,14 @@ CODE_B48CD9:
 	TAX
 	LDA.l DATA_B48CEC,x
 	LDX.w $1C3D
-	STX.b $70
+	STX.b current_sprite
 	JSL.l CODE_B9A000
 	RTS
 
 DATA_B48CEC:
-	dw $02E0,$02E1,$02DF
+	dw $02E0
+	dw $02E1
+	dw $02DF
 
 CODE_B48CF2:
 	CLC
@@ -1585,7 +1591,7 @@ CODE_B48D82:
 CODE_B48DA6:
 	JSR.w CODE_B49FAA
 	SEP.b #$20
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	STZ.w $1560
@@ -1653,7 +1659,7 @@ CODE_B48E3C:
 	BIT.w $1C35
 	BEQ.b CODE_B48E6E
 CODE_B48E44:
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BNE.b CODE_B48E6E
 	BIT.w $05AF
 	BPL.b CODE_B48E58
@@ -2884,7 +2890,7 @@ CODE_B497ED:
 	TSB.w $1C35
 	LDY.w #$0352
 	JSL.l CODE_BB85B5
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w $1C9B
 	STA.b $5E,x
 	LDA.w #$0002
@@ -2901,7 +2907,7 @@ CODE_B4982C:
 	CMP.w #$0005
 	BEQ.b CODE_B49850
 	LDA.w #$000F
-	STA.w $05B9
+	STA.w parent_level_number
 	LDY.w #$02A0
 	LDA.w $05CB
 	JSR.w CODE_B4AB25
@@ -3039,7 +3045,7 @@ CODE_B49930:
 	JSR.w CODE_B49F4B
 	JSR.w CODE_B4B00B
 	SEP.b #$20
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	STZ.w $1560
@@ -3090,7 +3096,7 @@ CODE_B499C1:
 	LDA.w #$0040
 	BIT.w $1C35
 	BEQ.b CODE_B499F9
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BNE.b CODE_B499F9
 	BIT.w $05AF
 	BPL.b CODE_B499DD
@@ -3233,9 +3239,9 @@ CODE_B49AED:
 	BRA.b CODE_B49AB2
 
 CODE_B49AF2:
-	STZ.w $05E5
+	STZ.w current_world
 	LDA.w #$0001
-	STA.w $05E7
+	STA.w map_node_number
 	STZ.w $05ED
 	LDA.w #$0044
 	TRB.w $05FB
@@ -3268,11 +3274,11 @@ CODE_B49B3A:
 	JSL.l CODE_80806F
 	LDY.w #$0214
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	STX.w $1C4F
 	LDY.w #$0216
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	STX.w $1C45
 	LDA.w $1C49
 	BNE.b CODE_B49B71
@@ -3449,7 +3455,7 @@ CODE_B49CD3:
 	JSL.l CODE_80801E
 	JSR.w CODE_B49D54
 	SEP.b #$20
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	STZ.w $1560
@@ -3461,7 +3467,7 @@ CODE_B49CD3:
 	LDA.w #$0040
 	BIT.w $1C35
 	BEQ.b CODE_B49D3C
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BNE.b CODE_B49D3C
 	LDA.w $04C4
 	CMP.w #$0002
@@ -3606,7 +3612,7 @@ CODE_B49E33:
 	TSB.w $1C35
 	BNE.b CODE_B49E46
 	LDA.w #$820F
-	STA.w $04EC
+	STA.w screen_brightness
 CODE_B49E46:
 	LDA.w #$0000
 	BRA.b CODE_B49E79
@@ -3690,7 +3696,7 @@ CODE_B49ED0:
 	STA.w !REGISTER_BG2VertScrollOffset
 	XBA
 	STA.w !REGISTER_BG2VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	STZ.w $1560
@@ -3711,9 +3717,9 @@ CODE_B49F1D:
 	JSL.l CODE_B7800F
 	JSL.l CODE_808012
 	JSL.l CODE_808021
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BNE.b CODE_B49F33
-	CMP.w $04ED
+	CMP.w screen_fade_speed
 	BEQ.b CODE_B49F37
 CODE_B49F33:
 	JML.l CODE_808006
@@ -3875,7 +3881,7 @@ CODE_B4A076:
 	BIT.w #$1000
 	BNE.b CODE_B4A0AB
 	LDX.w $1C3D
-	STX.b $70
+	STX.b current_sprite
 	LDA.w $1C6B
 	JSL.l CODE_B9A000
 CODE_B4A0AB:
@@ -3999,15 +4005,15 @@ CODE_B4A185:
 	INX
 	LDY.w $0000,x
 	BNE.b CODE_B4A15C
-	LDX.b $76
+	LDX.b alternate_sprite
 	STX.w $1C3D
-	STX.b $70
+	STX.b current_sprite
 	RTS
 
 CODE_B4A196:
 	LDY.w #$0220
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	STX.w $1C3D
 	LDA.w $1C5F
 	STA.b $5E,x
@@ -4021,13 +4027,13 @@ CODE_B4A196:
 	BEQ.b CODE_B4A1C6
 	LDY.w #$023E
 	JSL.l CODE_BB8585
-	LDY.b $76
+	LDY.b alternate_sprite
 	BRA.b CODE_B4A1FE
 
 CODE_B4A1C6:
 	LDY.w #$01FC
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDY.w $1C3D
 	STX.b $68,y
 	LDY.w $1C61
@@ -4042,7 +4048,7 @@ CODE_B4A1C6:
 	LDA.w $000D,y
 	AND.w #$00FF
 	JSL.l CODE_BB859A
-	LDY.b $76
+	LDY.b alternate_sprite
 	EOR.w $001E,y
 	AND.w #$0E00
 	EOR.w $001E,y
@@ -4075,8 +4081,8 @@ CODE_B4A20B:
 	LDA.b $1E,x
 	EOR.w #$4000
 	STA.b $1E,x
-	LDX.w $04F9
-	LDY.w $04FD
+	LDX.w active_kong_sprite
+	LDY.w follower_kong_sprite
 	LDA.w #$FFE0
 	STA.b $12,x
 	LDA.w #$FFD0
@@ -4095,8 +4101,8 @@ CODE_B4A20B:
 CODE_B4A266:
 	LDA.w #$0100
 	STA.w $1C59
-	LDX.w $04F9
-	LDY.w $04FD
+	LDX.w active_kong_sprite
+	LDY.w follower_kong_sprite
 	LDA.w #$0120
 	STA.b $12,x
 	LDA.w #$0130
@@ -4138,7 +4144,7 @@ CODE_B4A2CE:
 	RTS
 
 CODE_B4A2CF:
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $0000,x
 	STA.w $0012,y
 	LDA.w $0002,x
@@ -4156,7 +4162,7 @@ CODE_B4A2CF:
 	LDA.w #$0002
 	TSB.w $05FB
 	BNE.b CODE_B4A322
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	LDA.w #$00B8
 	STA.b $16,x
 	LDA.w #$0070
@@ -4169,7 +4175,7 @@ CODE_B4A2CF:
 	BRA.b CODE_B4A346
 
 CODE_B4A322:
-	LDY.w $04FD
+	LDY.w follower_kong_sprite
 	LDA.w $0004,x
 	STA.w $0012,y
 	LDA.w $0006,x
@@ -4202,7 +4208,7 @@ CODE_B4A347:
 	STZ.b $1E
 	LDA.w #$0400
 	STA.w $1C6D
-	LDX.w !RAM_DKC3_Global_FrenchTextFlag
+	LDX.w language_select
 	LDA.l DATA_B4874B,x
 	AND.w #$00FF
 	TAX
@@ -4280,7 +4286,7 @@ CODE_B4A410:
 	LDA.w #$3C00
 	STA.w $1C4F
 	LDX.w #DATA_B4F52F
-	LDY.w !RAM_DKC3_Global_FrenchTextFlag
+	LDY.w language_select
 	BEQ.b CODE_B4A447
 	LDX.w #DATA_B4F58E
 	CPY.w #$0001
@@ -4608,7 +4614,10 @@ CODE_B4A688:
 	RTS
 
 DATA_B4A6AE:
-	dw $0000,$0003,$0006,$0009
+	dw $0000
+	dw $0003
+	dw $0006
+	dw $0009
 
 CODE_B4A6B6:
 	JSR.w CODE_B4A6C0
@@ -4938,7 +4947,7 @@ CODE_B4A909:
 	STA.w $06E6
 	LDY.w #$025C
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	STX.w $18E7
 	LDA.w #$0D00
 	STA.b $5E,x
@@ -5031,12 +5040,12 @@ CODE_B4AA03:
 	STA.b $B6
 	LDA.w #$FFFF
 	STA.w $06F2
-	LDA.b !RAM_DKC3_Global_CurrentLevelLo
+	LDA.b level_number
 	PHA
-	STZ.b !RAM_DKC3_Global_CurrentLevelLo
+	STZ.b level_number
 	JSL.l CODE_B7E49C
 	PLA
-	STA.b !RAM_DKC3_Global_CurrentLevelLo
+	STA.b level_number
 	LDA.w $05D5
 	STA.w $18D1
 	STZ.w $18D3
@@ -5128,7 +5137,7 @@ CODE_B4AB1F:
 CODE_B4AB25:
 	STA.w $1C6D
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	STX.w $1C6F
 	LDA.w $1C6D
 	STA.b $64,x
@@ -5330,9 +5339,9 @@ CODE_B4AD33:
 	RTS
 
 CODE_B4AD34:
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	JSR.w CODE_B4AD45
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	LDA.b $16,x
 	SEC
 	SBC.w #$0010
@@ -5396,7 +5405,7 @@ CODE_B4ADC0:
 	JSL.l CODE_BCF9CB
 	LDY.w #$025C
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	STX.w $18E7
 	LDA.w $1C5F
 	STA.b $5E,x
@@ -5498,9 +5507,21 @@ CODE_B4AE66:
 	STA.w $04E4
 	RTS
 
+;CGRAM colors
 DATA_B4AECF:
-	dw $7FFF,$23E8,$33EA,$4ABF,$6F27,$395F,$7E08,$3313
-	dw $7FFF,$2E9B,$2E9B,$3398,$2A1A
+	dw $7FFF
+	dw $23E8
+	dw $33EA
+	dw $4ABF
+	dw $6F27
+	dw $395F
+	dw $7E08
+	dw $3313
+	dw $7FFF
+	dw $2E9B
+	dw $2E9B
+	dw $3398
+	dw $2A1A
 
 CODE_B4AEE9:
 	LDY.w $1C61
@@ -5617,7 +5638,7 @@ CODE_B4AFA6:
 	LDA.w $05AF
 	BIT.w #$4000
 	BNE.b CODE_B4AFD0
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	LDA.w #$C000
 	STA.b $26,x
 CODE_B4AFD0:
@@ -5723,9 +5744,9 @@ CODE_B4B087:
 	AND.w #$8000
 	STA.w $044A
 	BMI.b CODE_B4B0B5
-	LDX.w $05E5
+	LDX.w current_world
 	BNE.b CODE_B4B0A6
-	LDX.w $05EB
+	LDX.w current_boat
 	LDA.l DATA_B4B175,x
 	AND.w #$00FF
 	BRA.b CODE_B4B0B1
@@ -5738,7 +5759,7 @@ CODE_B4B0A6:
 CODE_B4B0B1:
 	JSL.l CODE_B28009
 CODE_B4B0B5:
-	LDA.w $05E5
+	LDA.w current_world
 	BNE.b CODE_B4B0C3
 	LDY.w #$0001
 	STY.w $06E0
@@ -5822,12 +5843,12 @@ CODE_B4B179:
 	JSL.l CODE_80801E
 	JSR.w CODE_B4BBF7
 	SEP.b #$20
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	STZ.w $1560
 	STZ.w $155E
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BIT.w #$FF00
 	BNE.b CODE_B4B1C7
 	LDA.w #$2000
@@ -5844,8 +5865,8 @@ CODE_B4B179:
 	LDA.w #$0020
 	STA.w $1C39
 CODE_B4B1C7:
-	LDY.w $04F9
-	LDA.w $05E7
+	LDY.w active_kong_sprite
+	LDA.w map_node_number
 	BEQ.b CODE_B4B1E0
 	LDA.w $0038,y
 	BPL.b CODE_B4B1E0
@@ -5857,7 +5878,7 @@ CODE_B4B1E0:
 	JSL.l CODE_808015
 	PHK
 	PLB
-	LDA.w $05E5
+	LDA.w current_world
 	BEQ.b CODE_B4B1F3
 	LDA.w #$2000
 	BIT.w $05FB
@@ -5887,7 +5908,7 @@ CODE_B4B21D:
 	JSL.l CODE_B7800F
 	PHK
 	PLB
-	LDA.w $05E5
+	LDA.w current_world
 	BNE.b CODE_B4B24C
 	JSR.w CODE_B4B4EB
 	LDX.w $1C97
@@ -5908,29 +5929,29 @@ CODE_B4B254:
 	BNE.b CODE_B4B25C
 	JSR.w CODE_B4B5C5
 CODE_B4B25C:
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDA.b $38,x
 	CMP.w #$0009
 	BNE.b CODE_B4B271
-	LDA.w $05EB
+	LDA.w current_boat
 	CMP.w #$0003
 	BEQ.b CODE_B4B271
 	JSR.w CODE_B4B60B
 CODE_B4B271:
 	JSL.l CODE_808012
-	LDA.w $05E5
+	LDA.w current_world
 	BEQ.b CODE_B4B28F
-	LDA.w $05E7
+	LDA.w map_node_number
 	BNE.b CODE_B4B28F
 	LDA.w #$0100
 	BIT.w $1C35
 	BEQ.b CODE_B4B28F
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $005C,y
 	BNE.b CODE_B4B298
 CODE_B4B28F:
 	JSL.l CODE_808021
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BEQ.b CODE_B4B29C
 CODE_B4B298:
 	JML.l CODE_808006
@@ -5963,14 +5984,14 @@ CODE_B4B2BD:
 	BNE.b CODE_B4B330
 CODE_B4B2D5:
 	STZ.w $05F1
-	LDA.w $05E7
+	LDA.w map_node_number
 	BEQ.b CODE_B4B33E
 	JSR.w CODE_B4B804
 	LDA.w $0001,x
 	AND.w #$00FF
 	CMP.w #$0002
 	BCC.b CODE_B4B2FA
-	LDY.w $05E5
+	LDY.w current_world
 	BEQ.b CODE_B4B312
 	CMP.w #$0010
 	BCS.b CODE_B4B354
@@ -6000,10 +6021,10 @@ CODE_B4B312:
 
 CODE_B4B31F:
 	AND.w #$003F
-	STA.w $05E5
-	LDA.w $05E7
+	STA.w current_world
+	LDA.w map_node_number
 	STA.w $05E9
-	STZ.w $05E7
+	STZ.w map_node_number
 	BRA.b CODE_B4B34A
 
 CODE_B4B330:
@@ -6015,8 +6036,8 @@ CODE_B4B330:
 CODE_B4B33E:
 	JSR.w CODE_B4B3DF
 	LDA.w $05E9
-	STA.w $05E7
-	STZ.w $05E5
+	STA.w map_node_number
+	STZ.w current_world
 CODE_B4B34A:
 	LDA.w #CODE_B4B087
 	LDX.w #CODE_B4B087>>16
@@ -6043,7 +6064,7 @@ CODE_B4B367:
 	JML.l CODE_808003
 
 CODE_B4B37B:
-	STA.b !RAM_DKC3_Global_CurrentLevelLo
+	STA.b level_number
 	JSR.w CODE_B4B391
 	LDA.w #CODE_808348
 	STA.b $4A
@@ -6053,12 +6074,12 @@ CODE_B4B37B:
 	JML.l CODE_808003
 
 CODE_B4B391:
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDY.b $12,x
 	STY.w $05F1
 	LDY.b $16,x
 	STY.w $05F3
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	LDY.b $12,x
 	STY.w $05F5
 	LDY.b $16,x
@@ -6069,7 +6090,7 @@ CODE_B4B391:
 
 CODE_B4B3B2:
 	TAY
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDA.w $05F1
 	CLC
 	BEQ.b CODE_B4B3DD
@@ -6078,7 +6099,7 @@ CODE_B4B3B2:
 	LDA.w $05F3
 	STA.b $16,x
 	STA.w $1C57
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	LDA.w $05F5
 	STA.b $12,x
 	LDA.w $05F7
@@ -6126,7 +6147,7 @@ CODE_B4B409:
 	STZ.b $1A
 CODE_B4B41F:
 	LDA.w $05E9
-	STA.w $05E7
+	STA.w map_node_number
 	STZ.b $22
 	JSR.w CODE_B4B44E
 	JSR.w CODE_B4B47A
@@ -6136,8 +6157,8 @@ CODE_B4B41F:
 	STA.w $1C4F
 	LDA.w #$0002
 	TSB.b $22
-	LDA.w $05E7
-	STZ.w $05E5
+	LDA.w map_node_number
+	STZ.w current_world
 	JSR.w CODE_B4B783
 	JSR.w CODE_B4B906
 	JSR.w CODE_B4B4A3
@@ -6194,7 +6215,7 @@ CODE_B4B4A2:
 	RTS
 
 CODE_B4B4A3:
-	LDA.w $05E7
+	LDA.w map_node_number
 	CMP.w #$0005
 	BNE.b CODE_B4B4B8
 	LDA.w #$0007
@@ -6210,7 +6231,7 @@ CODE_B4B4BB:
 	BMI.b CODE_B4B4D4
 	INY
 	AND.w #$00FF
-	CMP.w $05E7
+	CMP.w map_node_number
 	BNE.b CODE_B4B4BB
 	LDA.w DATA_B4B4D5,y
 	BMI.b CODE_B4B4D4
@@ -6290,7 +6311,7 @@ CODE_B4B54C:
 	INX
 	INX
 	INX
-	STX.b $82
+	STX.b next_oam_slot
 CODE_B4B56D:
 	LDA.b $3E
 	SEC
@@ -6302,8 +6323,22 @@ CODE_B4B57A:
 	RTS
 
 DATA_B4B57B:
-	dw $7175,$61E6,$6299,$21E8,$92A5,$61E8,$71CD,$21E6
-	dw $8175,$11EA,$7299,$11EA,$A2A5,$11EA,$81CD,$11EA
+	dw $7175
+	dw $61E6
+	dw $6299
+	dw $21E8
+	dw $92A5
+	dw $61E8
+	dw $71CD
+	dw $21E6
+	dw $8175
+	dw $11EA
+	dw $7299
+	dw $11EA
+	dw $A2A5
+	dw $11EA
+	dw $81CD
+	dw $11EA
 
 CODE_B4B59B:
 	PHX
@@ -6318,20 +6353,23 @@ CODE_B4B59B:
 	AND.w #$001F
 	TAX
 	LDA.w DATA_B4B5B5,y
-	ORA.w $0400,x
-	STA.w $0400,x
+	ORA.w oam_attribute_table,x
+	STA.w oam_attribute_table,x
 	PLX
 	RTS
 
 DATA_B4B5B5:
-	dw $0002,$0000,$0008,$0000,$0020,$0000,$0080,$0000
+	dw $0002, $0000
+	dw $0008, $0000
+	dw $0020, $0000
+	dw $0080, $0000
 
 CODE_B4B5C5:
 	LDA.w #$0002
 	BIT.w $05FD
 	BNE.b CODE_B4B600
 	LDX.w #$0008
-	LDY.b $82
+	LDY.b next_oam_slot
 CODE_B4B5D2:
 	LDA.l DATA_B4B601,x
 	STA.w $0000,y
@@ -6354,7 +6392,7 @@ CODE_B4B5D2:
 	INY
 	INY
 	INY
-	STY.b $82
+	STY.b next_oam_slot
 CODE_B4B5FC:
 	DEX
 	DEX
@@ -6363,7 +6401,11 @@ CODE_B4B600:
 	RTS
 
 DATA_B4B601:
-	dw $76B1,$7CB4,$7EBC,$79C2,$72C3
+	dw $76B1
+	dw $7CB4
+	dw $7EBC
+	dw $79C2
+	dw $72C3
 
 CODE_B4B60B:
 	LDX.w #$000E
@@ -6399,7 +6441,7 @@ CODE_B4B640:
 	BEQ.b CODE_B4B679
 	LDA.w #$0004
 	STA.b $1A
-	LDX.b $82
+	LDX.b next_oam_slot
 CODE_B4B64C:
 	TDC
 	SEP.b #$20
@@ -6420,7 +6462,7 @@ CODE_B4B64C:
 	INX
 	INX
 	INX
-	STX.b $82
+	STX.b next_oam_slot
 	TYA
 	CLC
 	ADC.w #$006E
@@ -6435,7 +6477,7 @@ CODE_B4B67A:
 	PHK
 	PLB
 	STY.b $1A
-	LDY.b $82
+	LDY.b next_oam_slot
 	LDA.w $0000,x
 CODE_B4B684:
 	SEP.b #$20
@@ -6460,7 +6502,7 @@ CODE_B4B684:
 	INX
 	LDA.w $0000,x
 	BNE.b CODE_B4B684
-	STY.b $82
+	STY.b next_oam_slot
 	PLB
 	RTS
 
@@ -6468,10 +6510,10 @@ CODE_B4B6AE:
 	JSL.l CODE_80807E
 	JSL.l CODE_B88072
 	STZ.w $1C8D
-	LDA.w $05E7
+	LDA.w map_node_number
 	BPL.b CODE_B4B6EF
 	AND.w #$7FFF
-	STA.w $05E7
+	STA.w map_node_number
 	STA.w $1C8D
 	LDX.w $05B5
 	STX.b $1A
@@ -6493,12 +6535,12 @@ CODE_B4B6E9:
 CODE_B4B6EF:
 	LDA.w $05B5
 	JSL.l CODE_B8805A
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDA.w #$0170
 	STA.b $5E,x
 	LDA.w #$0004
 	STA.b $38,x
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	STA.b $38,x
 	LDA.w #$0180
 	STA.b $5E,x
@@ -6516,16 +6558,16 @@ CODE_B4B722:
 	RTS
 
 CODE_B4B726:
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	JSR.w CODE_B4B72F
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 CODE_B4B72F:
 	LDA.w #$C000
 	STA.b $26,x
 	RTS
 
 CODE_B4B735:
-	LDA.w $05E7
+	LDA.w map_node_number
 	JSR.w CODE_B4B804
 	LDA.w $000A,x
 	BIT.w #$0040
@@ -6537,16 +6579,16 @@ CODE_B4B744:
 	LDA.w #$2000
 	BIT.w $05FB
 	BNE.b CODE_B4B752
-	STZ.w $05E7
+	STZ.w map_node_number
 CODE_B4B752:
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	JSR.w CODE_B4B75B
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 CODE_B4B75B:
 	LDA.w #$0006
 	STA.b $38,x
 	LDY.w #$0100
-	LDA.w $05E5
+	LDA.w current_world
 	CMP.w #$0007
 	BEQ.b CODE_B4B76E
 	LDY.w #$0000
@@ -6556,9 +6598,9 @@ CODE_B4B76E:
 
 CODE_B4B771:
 	JSR.w CODE_B4B7F6
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	JSR.w CODE_B4B77D
-	LDY.w $04FD
+	LDY.w follower_kong_sprite
 CODE_B4B77D:
 	STA.w $0012,y
 	STX.b $16,y
@@ -6632,7 +6674,7 @@ CODE_B4B7F0:
 	RTS
 
 CODE_B4B7F6:
-	LDA.w $05E7
+	LDA.w map_node_number
 	JSR.w CODE_B4B804
 	TXY
 	LDA.w $0002,y
@@ -6674,7 +6716,7 @@ CODE_B4B826:
 
 CODE_B4B82E:
 	STA.b $1C
-	LDA.w $05E7
+	LDA.w map_node_number
 	JSR.w CODE_B4B804
 	CLC
 	ADC.b $1C
@@ -6741,7 +6783,7 @@ CODE_B4B89D:
 	LDY.w #$0208
 	JSL.l CODE_BB85F7
 	BCS.b CODE_B4B905
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w $04C4
 	CMP.w #$0002
 	BNE.b CODE_B4B8BC
@@ -6750,7 +6792,7 @@ CODE_B4B89D:
 	LDA.w #$00D5
 	JSL.l CODE_BB85A0
 CODE_B4B8BC:
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w #$FFFF
 	STA.b $5E,x
 	STX.b $18,y
@@ -6787,7 +6829,7 @@ CODE_B4B905:
 	RTS
 
 CODE_B4B906:
-	LDA.w $05E7
+	LDA.w map_node_number
 CODE_B4B909:
 	JSR.w CODE_B4B804
 	LDY.w #$0004
@@ -6815,7 +6857,7 @@ CODE_B4B922:
 	TAX
 	LDA.w $0000,x
 	AND.w #$003F
-	CMP.w $05E7
+	CMP.w map_node_number
 	BEQ.b CODE_B4B95E
 	BMI.b CODE_B4B95E
 	JSR.w CODE_B4B804
@@ -6894,7 +6936,7 @@ CODE_B4B9D5:
 	JSL.l CODE_B28012
 	LDY.w #$0296
 	JSL.l CODE_BB8585
-	LDY.b $76
+	LDY.b alternate_sprite
 	LDA.w #$0100
 	TSB.w $05FB
 	RTS
@@ -6908,7 +6950,7 @@ CODE_B4B9F3:
 	BEQ.b CODE_B4BA16
 	CMP.w #$0002
 	BEQ.b CODE_B4BA1F
-	LDY.w $05E5
+	LDY.w current_world
 	BEQ.b CODE_B4BA28
 CODE_B4BA0D:
 	TAY
@@ -6921,13 +6963,13 @@ CODE_B4BA12:
 
 CODE_B4BA16:
 	CLC
-	ADC.w $05E5
+	ADC.w current_world
 	ADC.w #$004D
 	BRA.b CODE_B4BA0D
 
 CODE_B4BA1F:
 	CLC
-	ADC.w $05E5
+	ADC.w current_world
 	ADC.w #$0053
 	BRA.b CODE_B4BA0D
 
@@ -7012,7 +7054,7 @@ CODE_B4BAA9:
 	RTS
 
 CODE_B4BAAB:
-	LDY.w $05E5
+	LDY.w current_world
 	CPY.w #$0008
 	BNE.b CODE_B4BAC7
 	TAY
@@ -7047,7 +7089,7 @@ CODE_B4BAD9:
 	LDX.b $1A
 	LDY.w $0002,x
 	BEQ.b CODE_B4BACD
-	STA.w $05E7
+	STA.w map_node_number
 	JSR.w CODE_B4B7EB
 	STZ.w $1C53
 	LDX.b $1A
@@ -7081,7 +7123,7 @@ CODE_B4BB09:
 	BEQ.b CODE_B4BB28
 	JSR.w CODE_B4B7A1
 CODE_B4BB28:
-	LDA.w $05E7
+	LDA.w map_node_number
 	BEQ.b CODE_B4BB3D
 	JSR.w CODE_B4B7F6
 	STA.b [$46]
@@ -7095,18 +7137,18 @@ CODE_B4BB3D:
 	JSR.w CODE_B4BBB3
 	LDA.w $0000,y
 	AND.w #$007F
-	LDY.w $04F9
-	LDX.w $04FD
+	LDY.w active_kong_sprite
+	LDX.w follower_kong_sprite
 	STA.w $001A,y
 	LDA.b $46
 	STA.w $006A,y
-	LDY.w $05E7
+	LDY.w map_node_number
 	BEQ.b CODE_B4BB5D
 	SEC
 	SBC.w #$0004
 CODE_B4BB5D:
 	STA.b $6A,x
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w #$0014
 	STA.b $2E
 	JSR.w CODE_B4B7F0
@@ -7130,7 +7172,7 @@ CODE_B4BB90:
 	TYA
 	STA.b $5C,x
 	STA.b $68,x
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w #$0009
 	STA.w $005A,y
 	STZ.b $5A,x
@@ -7163,7 +7205,7 @@ CODE_B4BBB3:
 	RTS
 
 CODE_B4BBDD:
-	LDA.w $05E5
+	LDA.w current_world
 	ASL
 	TAX
 	JMP.w (DATA_B4BBE5,x)
@@ -7180,7 +7222,7 @@ DATA_B4BBE5:
 	dw CODE_B4C2F9
 
 CODE_B4BBF7:
-	LDA.w $05E5
+	LDA.w current_world
 	ASL
 	TAX
 	JMP.w (DATA_B4BBFF,x)
@@ -7197,7 +7239,7 @@ DATA_B4BBFF:
 	dw CODE_B4C883
 
 CODE_B4BC11:
-	LDA.w $05E5
+	LDA.w current_world
 	ASL
 	TAX
 	JMP.w (DATA_B4BC19,x)
@@ -7276,11 +7318,11 @@ CODE_B4BCC0:
 	RTS
 
 CODE_B4BCCD:
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $0038,y
 	CMP.w #$0006
 	BEQ.b CODE_B4BCE2
-	LDA.w $05E7
+	LDA.w map_node_number
 	BNE.b CODE_B4BCE2
 	TXA
 	JSR.w CODE_B4B82E
@@ -7289,9 +7331,9 @@ CODE_B4BCCD:
 CODE_B4BCE2:
 	LDA.w $05E3
 	BMI.b CODE_B4BD14
-	LDA.w $05E7
+	LDA.w map_node_number
 	JSR.w CODE_B4B804
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $0000,x
 	AND.w #$007F
 	STA.w $001A,y
@@ -7309,7 +7351,7 @@ CODE_B4BD14:
 	RTS
 
 CODE_B4BD15:
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BIT.w #$FF00
 	BNE.b CODE_B4BD4E
 	LDA.w $05FB
@@ -7318,7 +7360,7 @@ CODE_B4BD15:
 	LDA.w $05FD
 	BIT.w #$2000
 	BNE.b CODE_B4BD4E
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $005A,y
 	CMP.w #$0002
 	BCS.b CODE_B4BD4E
@@ -7336,7 +7378,7 @@ CODE_B4BD4E:
 CODE_B4BD4F:
 	LDA.w #$1200
 	STA.b $80
-	LDA.w $05EB
+	LDA.w current_boat
 	INC
 	INC
 	STA.b $C0
@@ -7356,10 +7398,10 @@ CODE_B4BD78:
 	BIT.w $05FD
 	BEQ.b CODE_B4BD92
 	LDA.w #$0006
-	STA.b !RAM_DKC3_Global_CurrentLevelLo
+	STA.b level_number
 	LDY.w #$0374
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	STZ.b $38,x
 	BRA.b CODE_B4BDA7
 
@@ -7375,19 +7417,19 @@ CODE_B4BDA7:
 	BNE.b CODE_B4BDAF
 	JSR.w CODE_B4BE97
 CODE_B4BDAF:
-	LDA.w $05EB
+	LDA.w current_boat
 	ASL
 	TAX
 	LDY.w DATA_B4CFB1,x
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	STX.w $1C3D
 	LDA.w #$1000
 	BIT.w $05FD
 	BEQ.b CODE_B4BDDB
 	LDA.b $32,x
 	STA.b $06,x
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $05ED
 	STA.w $0012,y
 	LDA.w $05EF
@@ -7426,8 +7468,8 @@ CODE_B4BE01:
 	LDA.w #$0180
 	STA.b $62,x
 CODE_B4BE21:
-	LDY.w $04F9
-	LDX.w $04FD
+	LDY.w active_kong_sprite
+	LDX.w follower_kong_sprite
 	LDA.w #$0008
 	STA.b $38,x
 	STA.w $0038,y
@@ -7475,7 +7517,7 @@ CODE_B4BE73:
 CODE_B4BE97:
 	LDY.w #$0210
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$01CE
 	STA.b $12,x
 	LDA.w #$0269
@@ -7489,7 +7531,7 @@ CODE_B4BEB3:
 	JSR.w CODE_B4CAF6
 	LDY.w #$0210
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$004E
 	STA.b $12,x
 	LDA.w #$00AD
@@ -7498,7 +7540,7 @@ CODE_B4BEB3:
 	JSL.l CODE_BB85B8
 	LDY.w #$02A2
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$000A
 	STA.b $5E,x
 	LDA.w #$0648
@@ -7511,12 +7553,12 @@ CODE_B4BEB3:
 	LDX.w #$0008
 	JSR.w CODE_B4BCCD
 	JSR.w CODE_B4C0EF
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDA.w #$0020
 	STA.w $196D
 	STA.b $52,x
 	STZ.w $1C67
-	LDA.w $05E7
+	LDA.w map_node_number
 	CMP.w #$0008
 	BNE.b CODE_B4BF22
 	LDA.w $1C8D
@@ -7545,7 +7587,7 @@ CODE_B4BF2C:
 	JSR.w CODE_B4A159
 	LDY.w #$0210
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$00E7
 	STA.b $12,x
 	LDA.w #$0029
@@ -7554,7 +7596,7 @@ CODE_B4BF2C:
 	JSL.l CODE_BB85A0
 	LDY.w #$029E
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$000A
 	STA.b $5E,x
 	LDA.w #$0649
@@ -7570,7 +7612,7 @@ CODE_B4BF82:
 	JSR.w CODE_B4BCCD
 	LDA.w #$FFFF
 	STA.w $1C8B
-	LDA.w $05E7
+	LDA.w map_node_number
 	CMP.w #$0009
 	BNE.b CODE_B4BFAA
 	LDA.w $1C8D
@@ -7588,7 +7630,7 @@ CODE_B4BFAB:
 	JSR.w CODE_B4CB04
 	LDY.w #$0210
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$0078
 	STA.b $12,x
 	LDA.w #$0027
@@ -7600,7 +7642,7 @@ CODE_B4BFAB:
 	JSR.w CODE_B4A159
 	LDY.w #$029C
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$000A
 	STA.b $5E,x
 	LDA.w #$064A
@@ -7645,7 +7687,7 @@ CODE_B4C043:
 	STA.l $7E84FE
 	STA.l $7E8500
 CODE_B4C04C:
-	LDA.w $05E7
+	LDA.w map_node_number
 	CMP.w #$0009
 	BNE.b CODE_B4C065
 	LDA.w $1C8D
@@ -7662,7 +7704,7 @@ CODE_B4C066:
 	JSR.w CODE_B4C0EF
 	LDY.w #$0210
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$00F5
 	STA.b $12,x
 	LDA.w #$0012
@@ -7687,14 +7729,14 @@ CODE_B4C087:						; Note: This adds the rope to the Mekanos layer 2 tilemap.
 	STA.w $04E4
 	LDX.w #DATA_B4D055
 	JSR.w CODE_B4A159
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDA.w #$0020
 	STA.w $196D
 	STA.b $52,x
 	STZ.w $1C67
 	LDX.w #$0008
 	JSR.w CODE_B4BCCD
-	LDA.w $05E7
+	LDA.w map_node_number
 	CMP.w #$0009
 	BNE.b CODE_B4C0DD
 	LDA.w $1C8D
@@ -7707,9 +7749,9 @@ CODE_B4C0DD:
 	RTS
 
 CODE_B4C0DE:
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	JSR.w CODE_B4C0E7
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 CODE_B4C0E7:
 	LDA.b $1E,x
 	ORA.w #$3000
@@ -7730,7 +7772,7 @@ CODE_B4C102:
 	JSR.w CODE_B4A159
 	LDY.w #$02A4
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$000A
 	STA.b $5E,x
 	LDA.w #$064C
@@ -7750,7 +7792,7 @@ CODE_B4C102:
 	LDX.w #$0006
 	JSR.w CODE_B4BCCD
 	STZ.w $1C67
-	LDA.w $05E7
+	LDA.w map_node_number
 	CMP.w #$0007
 	BNE.b CODE_B4C15F
 	LDA.w $1C8D
@@ -7767,26 +7809,26 @@ CODE_B4C160:
 	LDX.w #DATA_B4D05D
 	JSR.w CODE_B4A159
 	JSR.w CODE_B4C0EF
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDA.w #$0020
 	STA.w $196D
 	STA.b $52,x
 	LDY.w #$02FA
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	STX.w $1C7D
 	LDY.w #$02FC
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	STX.w $1C7F
 	LDY.w #$02C2
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w $1C7F
 	STA.b $18,x
 	LDY.w #$02C4
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w $1C7F
 	STA.b $18,x
 	LDX.w #$0004
@@ -7798,28 +7840,28 @@ CODE_B4C1B9:
 	STX.w $1C83
 	LDY.w #$02C6
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w $1C7D
 	STA.b $18,x
 	LDA.w $1C83
 	STA.b $38,x
 	LDY.w #$02C8
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w $1C7D
 	STA.b $18,x
 	LDA.w $1C83
 	STA.b $38,x
 	LDY.w #$02A6
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$000B
 	STA.b $5E,x
 	LDA.w #$064D
 	STA.b $5C,x
 	LDY.w #$0210
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$003A
 	STA.b $12,x
 	LDA.w #$0047
@@ -7845,7 +7887,7 @@ CODE_B4C21D:
 	STZ.w $1C67
 	LDX.w #$0008
 	JSR.w CODE_B4BCCD
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $0012,y
 	CMP.w #$00A8
 	BNE.b CODE_B4C262
@@ -7860,7 +7902,7 @@ CODE_B4C262:
 	RTS
 
 CODE_B4C263:
-	LDA.w $05E7
+	LDA.w map_node_number
 	CMP.w #$0008
 	BCC.b CODE_B4C273
 	CMP.w #$000A
@@ -7870,7 +7912,7 @@ CODE_B4C273:
 	JSR.w CODE_B4CB20
 	LDY.w #$0210
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$00EC
 	STA.b $12,x
 	LDA.w #$00A7
@@ -7905,15 +7947,15 @@ CODE_B4C2A7:
 	STA.l $7EA75E
 	STZ.w $1C67
 	JSR.w CODE_B4BCE2
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDA.w #$0200
 	STA.b $62,x
 	RTS
 
 CODE_B4C2E8:
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	JSR.w CODE_B4C2F1
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 CODE_B4C2F1:
 	LDA.b $1E,x
 	ORA.w #$3000
@@ -7945,7 +7987,7 @@ CODE_B4C317:
 	TSB.w $05FB
 	LDY.w #$02CA
 	JSL.l CODE_BB85B5
-	LDX.b $76
+	LDX.b alternate_sprite
 	STX.w $1C5D
 	LDY.w #$02CC
 	JSL.l CODE_BB85B5
@@ -7956,7 +7998,7 @@ CODE_B4C317:
 CODE_B4C354:
 	LDY.w #$0210
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$00E2
 	STA.b $12,x
 	LDA.w #$00B2
@@ -8121,7 +8163,7 @@ CODE_B4C4C1:
 	LDA.b #$01
 	STA.w $078F
 	REP.b #$20
-	LDX.w $05EB
+	LDX.w current_boat
 	LDA.l DATA_B4C545,x
 	AND.w #$00FF
 	STA.b $C0
@@ -8388,8 +8430,14 @@ CODE_B4C718:
 	RTS
 
 DATA_B4C719:
-	dw $FFFF,$FFFE,$FFFF,$0000,$0001,$0002,$0003,$0003
-	dw $0002,$0001,$FFFF,$FFFE,$FFFC,$FFFE,$FFFF,$0000
+	dw $FFFF, $FFFE
+	dw $FFFF, $0000
+	dw $0001, $0002
+	dw $0003, $0003
+	dw $0002, $0001
+	dw $FFFF, $FFFE
+	dw $FFFC, $FFFE
+	dw $FFFF, $0000
 
 CODE_B4C739:
 	JSR.w CODE_B4C8E5
@@ -8532,7 +8580,10 @@ CODE_B4C86A:
 	RTS
 
 DATA_B4C86B:
-	dw $0042,$0041,$0040,$003F
+	dw $0042
+	dw $0041
+	dw $0040
+	dw $003F
 
 DATA_B4C873:
 	dw DATA_EC8978+$0000
@@ -8861,7 +8912,7 @@ CODE_B4CB2E:
 	LDA.w #$0001
 	BIT.w $05FB
 	BNE.b CODE_B4CB49
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDY.b $5A,x
 	BNE.b CODE_B4CB49
 	ORA.w #$0020
@@ -8935,7 +8986,7 @@ CODE_B4CBDF:
 	LDY.w #$02F8
 	JSL.l CODE_BB8585
 	BCS.b CODE_B4CC33
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$0080
 	STA.b $44,x
 	JSL.l CODE_808018
@@ -9045,7 +9096,7 @@ CODE_B4CCB3:
 	LDA.w #$0002
 	BIT.w $05FD
 	BNE.b CODE_B4CD09
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BIT.w #$FF00
 	BNE.b CODE_B4CD09
 	LDA.b $00
@@ -9177,28 +9228,28 @@ CODE_B4CD9D:
 	LDA.w #$0800
 	TRB.w $05FB
 	BEQ.b CODE_B4CDBF
-	LDA.w $05E7
+	LDA.w map_node_number
 	CMP.w #$0003
 	BEQ.b CODE_B4CDB2
 	CMP.w #$000A
 	BNE.b CODE_B4CDB7
 CODE_B4CDB2:
-	INC.w $05E7
+	INC.w map_node_number
 	BRA.b CODE_B4CDBA
 
 CODE_B4CDB7:
-	DEC.w $05E7
+	DEC.w map_node_number
 CODE_B4CDBA:
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	STZ.b $38,x
 CODE_B4CDBF:
 	RTS
 
 CODE_B4CDC0:
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BIT.w #$FF00
 	BNE.b CODE_B4CDD2
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDA.b $16,x
 	CMP.w #$00E6
 	BCS.b CODE_B4CDD6
@@ -9270,7 +9321,7 @@ CODE_B4CE39:
 	STA.b $26
 	LDY.w #$01FE
 	JSL.l CODE_BB85B5
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w $1C4D
 	STA.b $5E,x
 	LDA.w $1C5B
@@ -9279,7 +9330,7 @@ CODE_B4CE39:
 	STA.b $62,x
 	LDA.b $84
 	STA.b $64,x
-	LDA.w $05E5
+	LDA.w current_world
 	ASL
 	TAY
 	LDA.w DATA_B4CEDB,y
@@ -9328,7 +9379,7 @@ CODE_B4CEB7:
 CODE_B4CEBA:
 	LDY.w #$02E2
 	JSL.l CODE_BB85B5
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w $1C4D
 	AND.w #$EFFF
 	STA.b $5E,x
@@ -9352,42 +9403,127 @@ DATA_B4CEDB:
 DATA_B4CEE9:
 	dw DATA_B4CF59
 	dw DATA_B4CF99
-	dw $00CA,$0090,$00BC,$0077,$0063,$009D,$000B,$009B
+	dw $00CA
+	dw $0090
+	dw $00BC
+	dw $0077
+	dw $0063
+	dw $009D
+	dw $000B
+	dw $009B
 
 DATA_B4CEFD:
-	dw $008D,$0037,$007B,$00A0,$0043,$00A8,$001D,$005B
-	dw $0063,$0048
+	dw $008D
+	dw $0037
+	dw $007B
+	dw $00A0
+	dw $0043
+	dw $00A8
+	dw $001D
+	dw $005B
+	dw $0063
+	dw $0048
 
 DATA_B4CF11:
-	dw $00A7,$005C,$02CC,$02DD,$02E4,$0266,$01AE,$01F0
-	dw $0210,$0214,$023C,$0152,$02CD,$015E,$029D,$013D
+	dw $00A7
+	dw $005C
+	dw $02CC
+	dw $02DD
+	dw $02E4
+	dw $0266
+	dw $01AE
+	dw $01F0
+	dw $0210
+	dw $0214
+	dw $023C
+	dw $0152
+	dw $02CD
+	dw $015E
+	dw $029D
+	dw $013D
+
 
 DATA_B4CF31:
-	dw $02A7,$01FB,$0036,$0079,$008D,$00A6,$0069,$002F
-	dw $00EE,$0027
+	dw $02A7
+	dw $01FB
+	dw $0036
+	dw $0079
+	dw $008D
+	dw $00A6
+	dw $0069
+	dw $002F
+	dw $00EE
+	dw $0027
 
 DATA_B4CF45:
-	dw $010D,$0046,$0012,$808D,$002D,$0058,$00BB,$0026
-	dw $00A6,$0058
+	dw $010D
+	dw $0046
+	dw $0012
+	dw $808D
+	dw $002D
+	dw $0058
+	dw $00BB
+	dw $0026
+	dw $00A6
+	dw $0058
 
 DATA_B4CF59:
-	dw $0092,$8090,$002E,$0098,$003D,$006C,$00D2,$009C
-	dw $00E6,$0066
+	dw $0092
+	dw $8090
+	dw $002E
+	dw $0098
+	dw $003D
+	dw $006C
+	dw $00D2
+	dw $009C
+	dw $00E6
+	dw $0066
 
 DATA_B4CF6D:
-	dw $00B5,$005F,$003A,$0088,$0102,$005D,$00EA,$8095
-	dw $00C4,$00AB,$0074,$00AF
+	dw $00B5
+	dw $005F
+	dw $003A
+	dw $0088
+	dw $0102
+	dw $005D
+	dw $00EA
+	dw $8095
+	dw $00C4
+	dw $00AB
+	dw $0074
+	dw $00AF
 
 DATA_B4CF85:
-	dw $00A8,$8071,$0041,$00B7,$00D9,$009F,$00CA,$0047
-	dw $00A4,$001B
+	dw $00A8
+	dw $8071
+	dw $0041
+	dw $00B7
+	dw $00D9
+	dw $009F
+	dw $00CA
+	dw $0047
+	dw $00A4
+	dw $001B
 
 DATA_B4CF99:
-	dw $006F,$0025,$003A,$00C8,$000A,$0045,$0061,$002A
-	dw $0093,$0033,$00F3,$003F
+	dw $006F
+	dw $0025
+	dw $003A
+	dw $00C8
+	dw $000A
+	dw $0045
+	dw $0061
+	dw $002A
+	dw $0093
+	dw $0033
+	dw $00F3
+	dw $003F
 
 DATA_B4CFB1:
-	dw $0200,$0202,$026A,$0204
+	dw $0200
+	dw $0202
+	dw $026A
+	dw $0204
 
 DATA_B4CFB9:
 	dw DATA_B4CFCB
@@ -9628,7 +9764,7 @@ DATA_B4D66C:
 	dw $0607,DATA_B4DB0E,DATA_B4DB22
 	dw $0708,DATA_B4DB22,DATA_B4DB2F
 	dw $0809,DATA_B4DB2F,DATA_B4DB35
-	dw aux_sprite_table,DATA_B4DB35,DATA_B4DB3F
+	dw $080A,DATA_B4DB35,DATA_B4DB3F
 	dw $0980,DATA_B4DB3F,DATA_B4DB60
 
 DATA_B4D6AE:

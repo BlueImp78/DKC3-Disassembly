@@ -13,7 +13,7 @@ CODE_ACB00A:
 	LDA.b $00
 	BIT.w #$0003
 	BNE.b CODE_ACB056
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $1E,x
 	AND.w #$0E00
 	ASL
@@ -66,9 +66,29 @@ CODE_ACB059:
 	RTS
 
 DATA_ACB073:
-	dw $0040,$0040,$0040,$0341,$0280,$01C0,$0100,$0040
-	dw $0040,$0040,$0040,$0040,$0040,$0040,$0040,$0341
-	dw $0280,$01C0,$0100,$0040,$0040,$0040,$0040
+	dw $0040
+	dw $0040
+	dw $0040
+	dw $0341
+	dw $0280
+	dw $01C0
+	dw $0100
+	dw $0040
+	dw $0040
+	dw $0040
+	dw $0040
+	dw $0040
+	dw $0040
+	dw $0040
+	dw $0040
+	dw $0341
+	dw $0280
+	dw $01C0
+	dw $0100
+	dw $0040
+	dw $0040
+	dw $0040
+	dw $0040
 
 Spr04B8_BGSteelKeg_Main:
 ;$ACB0A1
@@ -178,12 +198,12 @@ CODE_ACB158:
 	STA.b $24,x
 	STZ.b $5E,x
 	JSL.l CODE_B9A006
-	LDX.b $70
+	LDX.b current_sprite
 	BRA.b CODE_ACB182
 
 CODE_ACB168:
 	JSL.l CODE_B9A006
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $24,x
 	CMP.b $20,x
 	BEQ.b CODE_ACB182
@@ -228,17 +248,17 @@ CODE_ACB1B0:
 	JMP.w [$04F5]
 
 CODE_ACB1C2:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $68,x
 	XBA
 	AND.w #$FF00
 	STA.b $68,x
 	JSL.l CODE_BEC018
 	BCC.b CODE_ACB1F1
-	LDY.b $76
+	LDY.b alternate_sprite
 	LDA.w $002E,y
 	BMI.b CODE_ACB1F1
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w #$0001
 	ORA.b $68,x
 	STA.b $68,x
@@ -253,7 +273,7 @@ CODE_ACB1F1:
 
 CODE_ACB1F2:
 	PHA
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $12,x
 	STA.b $54,x
 	LDA.b $16,x
@@ -316,8 +336,17 @@ CODE_ACB25A:
 	RTS
 
 DATA_ACB26F:
-	dw $0000,$00F4,$FEEA,$FCE2,$FADC,$F7D8,$F4D4,$F2D4
-	dw $F0D4,$EED6,$ECD8
+	dw $0000
+	dw $00F4
+	dw $FEEA
+	dw $FCE2
+	dw $FADC
+	dw $F7D8
+	dw $F4D4
+	dw $F2D4
+	dw $F0D4
+	dw $EED6
+	dw $ECD8
 
 CODE_ACB285:
 	JSL.l CODE_BB8591

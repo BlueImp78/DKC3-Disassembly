@@ -30,7 +30,7 @@ CODE_B9A01B:
 
 CODE_B9A01E:
 	STA.b $3E
-	LDY.b $70
+	LDY.b current_sprite
 	LDA.w $0000,y
 	SEC
 	SBC.w #$0234
@@ -48,11 +48,11 @@ CODE_B9A035:
 	LDA.b $00,x
 	PHX
 	PHA
-	LDA.b $70
+	LDA.b current_sprite
 	PHA
-	LDY.b $7C
+	LDY.b current_mount
 	BEQ.b CODE_B9A05D
-	STY.b $70
+	STY.b current_sprite
 	LDA.w $0000,y
 	SEC
 	SBC.w #$0234
@@ -64,16 +64,16 @@ CODE_B9A035:
 	JSL.l CODE_B9A0AC
 CODE_B9A05D:
 	PLA
-	STA.b $70
+	STA.b current_sprite
 	PLA
 	PLX
 	STA.b $00,x
-	LDX.b $70
+	LDX.b current_sprite
 	RTL
 
 CODE_B9A067:
 	TAY
-	LDA.b $7E
+	LDA.b current_animal_type
 	SEC
 	SBC.w #$0234
 	LSR
@@ -84,13 +84,13 @@ CODE_B9A067:
 	BRA.b CODE_B9A0AC
 
 CODE_B9A078:
-	LDX.b $70
+	LDX.b current_sprite
 	STX.b $6E
-	LDX.b $76
-	STX.b $70
+	LDX.b alternate_sprite
+	STX.b current_sprite
 	JSL.l CODE_B9A0BA
 	LDX.b $6E
-	STX.b $70
+	STX.b current_sprite
 	RTL
 
 CODE_B9A089:
@@ -100,18 +100,18 @@ CODE_B9A089:
 	RTL
 
 CODE_B9A091:
-	LDX.b $70
+	LDX.b current_sprite
 	LDY.b $72
 	PHX
 	PHY
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	LDY.w $04FF
-	STX.b $70
+	STX.b current_sprite
 	STY.b $72
 	JSL.l CODE_B9A0AC
 	PLY
 	PLX
-	STX.b $70
+	STX.b current_sprite
 	STY.b $72
 	RTL
 
@@ -127,7 +127,7 @@ CODE_B9A0BA:
 	PEA.w DATA_F90100>>8
 	PLB
 	PLB
-	LDX.b $70
+	LDX.b current_sprite
 	STA.b $40,x
 	ASL
 	ASL
@@ -146,7 +146,7 @@ CODE_B9A0BA:
 	BRA.b CODE_B9A11A
 
 CODE_B9A0E2:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $38,x
 	PHA
 	JSL.l CODE_B9A101
@@ -168,7 +168,7 @@ CODE_B9A0EF:
 	BRA.b CODE_B9A112
 
 CODE_B9A101:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $F8
 	BNE.b CODE_B9A0EF
 	LDA.b $42,x
@@ -264,7 +264,7 @@ DATA_B9A15A:						; Info: Animation script opcodes...
 	dw CODE_B9A190					; $9A - 
 
 CODE_B9A190:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $40,x
 	ASL
 	ASL
@@ -275,7 +275,7 @@ CODE_B9A190:
 	BRL.w CODE_B9A11A
 
 CODE_B9A1A0:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	STA.b $42
 	INY
@@ -289,18 +289,18 @@ CODE_B9A1A0:
 CODE_B9A1B0:
 	PLY
 	PLB
-	LDX.b $70
+	LDX.b current_sprite
 	BRL.w CODE_B9A11A
 
 CODE_B9A1B7:
 	PLY
 	PLB
-	LDX.b $70
+	LDX.b current_sprite
 	STZ.b $42,x
 	BRL.w CODE_B9A13A
 
 CODE_B9A1C0:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	STA.b $42
 	INY
@@ -315,20 +315,20 @@ CODE_B9A1D3:
 	PLB
 	PLY
 	BCS.b CODE_B9A1DE
-	LDX.b $70
+	LDX.b current_sprite
 	INY
 	INY
 	JMP.w CODE_B9A11A
 
 CODE_B9A1DE:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	TAY
 	JMP.w CODE_B9A11A
 
 CODE_B9A1E7:
 	NOP #3
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	STA.b $42
 	INY
@@ -341,7 +341,7 @@ CODE_B9A1E7:
 	BRA.b CODE_B9A209
 
 CODE_B9A1FD:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	STA.b $42
 	INY
@@ -357,7 +357,7 @@ CODE_B9A209:
 CODE_B9A212:
 	PLB
 	PLA
-	LDX.b $70
+	LDX.b current_sprite
 	CMP.b $46,x
 	BNE.b CODE_B9A21E
 	TAY
@@ -372,7 +372,7 @@ CODE_B9A221:
 	RTS
 
 CODE_B9A226:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	STA.b $48,x
 	INY
@@ -380,7 +380,7 @@ CODE_B9A226:
 	JMP.w CODE_B9A11A
 
 CODE_B9A232:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	STA.b $42
 	INY
@@ -406,7 +406,7 @@ CODE_B9A250:
 	JMP.w CODE_B9A0AC
 
 CODE_B9A257:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	XBA
 	AND.w #$FF00
@@ -436,7 +436,7 @@ CODE_B9A27D:
 	BRA.b CODE_B9A272
 
 CODE_B9A286:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	XBA
 	AND.w #$FF00
@@ -470,7 +470,7 @@ CODE_B9A2B6:
 	LDA.w $0000,y
 	AND.w #$00FF
 	CLC
-	ADC.b $70
+	ADC.b current_sprite
 	TAX
 	INY
 	LDA.w $0000,y
@@ -478,17 +478,17 @@ CODE_B9A2B6:
 	INY
 	STY.b $00,x
 	TAY
-	LDX.b $70
+	LDX.b current_sprite
 	JMP.w CODE_B9A11A
 
 CODE_B9A2CE:
 	LDA.w $0000,y
 	AND.w #$00FF
 	CLC
-	ADC.b $70
+	ADC.b current_sprite
 	TAX
 	LDY.b $00,x
-	LDX.b $70
+	LDX.b current_sprite
 	JMP.w CODE_B9A11A
 
 CODE_B9A2DF:
@@ -502,11 +502,11 @@ CODE_B9A2DF:
 	PLB
 	INY
 	INY
-	LDX.b $70
+	LDX.b current_sprite
 	JMP.w CODE_B9A11A
 
 CODE_B9A2F3:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	STA.b $58,x
 	BEQ.b CODE_B9A305
@@ -529,7 +529,7 @@ CODE_B9A314:
 	JMP.w CODE_B9A11A
 
 CODE_B9A319:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	AND.w #$00FF
 	XBA
@@ -551,7 +551,7 @@ CODE_B9A333:
 	JMP.w CODE_B9A13A
 
 CODE_B9A33F:
-	LDA.b $70
+	LDA.b current_sprite
 	CLC
 	ADC.w $0000,y
 	TAX
@@ -561,11 +561,11 @@ CODE_B9A33F:
 	INY
 	INY
 	INY
-	LDX.b $70
+	LDX.b current_sprite
 	JMP.w CODE_B9A11A
 
 CODE_B9A354:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	XBA
 	AND.w #$FF00
@@ -620,7 +620,7 @@ CODE_B9A393:
 	CLC
 	ADC.w $0000,y
 	AND.w #$00FF
-	LDX.b $70
+	LDX.b current_sprite
 	XBA
 	CLC
 	ADC.b $42,x
@@ -647,7 +647,7 @@ CODE_B9A393:
 	JMP.w CODE_B9A13A
 
 CODE_B9A3F8:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	XBA
 	AND.w #$FF00
@@ -659,7 +659,7 @@ CODE_B9A3F8:
 	CLC
 	ADC.w $0001,y
 	STA.b $42
-	LDA.b $70
+	LDA.b current_sprite
 	CMP.l $0004FD
 	BNE.b CODE_B9A41E
 	LDA.l $0004F9
@@ -674,7 +674,7 @@ CODE_B9A41E:
 	AND.w $0005,y
 	AND.w #$00FF
 	BNE.b CODE_B9A445
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $24,x
 	SEC
 	SBC.w #$0005
@@ -684,7 +684,7 @@ CODE_B9A41E:
 	BRA.b CODE_B9A456
 
 CODE_B9A445:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $24,x
 	CLC
 	ADC.w #$0005
@@ -701,7 +701,7 @@ CODE_B9A456:
 	JMP.w CODE_B9A13A
 
 CODE_B9A462:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	AND.w #$00FF
 	XBA
@@ -735,7 +735,7 @@ CODE_B9A49B:
 	JMP.w CODE_B9A13A
 
 CODE_B9A4A5:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	AND.w #$00FF
 	XBA
@@ -757,7 +757,7 @@ CODE_B9A4BE:
 	TAX
 	LDA.w $0003,y
 	STA.b $24,x
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0005,y
 	STA.l $00186D
 	LDA.w $0007,y
@@ -770,7 +770,7 @@ CODE_B9A4DF:
 	JMP.w CODE_B9A13A
 
 CODE_B9A4E9:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	AND.w #$00FF
 	XBA
@@ -805,7 +805,7 @@ CODE_B9A525:
 	JMP.w CODE_B9A13A
 
 CODE_B9A52F:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w $0000,y
 	AND.w #$00FF
 	XBA
@@ -848,7 +848,7 @@ CODE_B9A57F:
 
 CODE_B9A589:
 	PLB
-	LDX.b $70
+	LDX.b current_sprite
 	STZ.b $48,x
 	JSL.l CODE_BB8591
 	JMP.w CODE_B9A13B
@@ -887,7 +887,7 @@ CODE_B9A5BC:
 	RTS
 
 CODE_B9A5C4:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $30,x
 	BEQ.b CODE_B9A5D4
 	LSR
@@ -918,7 +918,7 @@ CODE_B9A5E3:
 	RTS
 
 CODE_B9A5E6:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $2A,x
 	CMP.w #$8000
 	ROR.b $2A,x
@@ -940,7 +940,7 @@ CODE_B9A602:
 	RTS
 
 CODE_B9A607:
-	STZ.w $186B
+	STZ.w current_held_sprite
 	RTS
 
 CODE_B9A60B:
@@ -1006,7 +1006,7 @@ CODE_B9A659:
 	RTS
 
 CODE_B9A65D:
-	LDX.b $70
+	LDX.b current_sprite
 	JSR.w CODE_B9A625
 	TAX
 	JMP.w (DATA_B9A666,x)
@@ -1033,7 +1033,7 @@ CODE_B9A680:
 	JMP.w CODE_B9A7D4
 
 CODE_B9A683:
-	LDX.b $70
+	LDX.b current_sprite
 	JSR.w CODE_B9A625
 	BEQ.b CODE_B9A69D
 	CMP.w #$0002
@@ -1108,10 +1108,10 @@ CODE_B9A6EE:
 	RTL
 
 CODE_B9A6F2:
-	LDX.b $70
-	LDA.b $7E
+	LDX.b current_sprite
+	LDA.b current_animal_type
 	BNE.b CODE_B9A729
-	LDA.w $186B
+	LDA.w current_held_sprite
 	BNE.b CODE_B9A70A
 	LDA.w #$0001
 	STA.b $38,x
@@ -1120,7 +1120,7 @@ CODE_B9A6F2:
 	RTS
 
 CODE_B9A70A:
-	CMP.w $04FD
+	CMP.w follower_kong_sprite
 	BEQ.b CODE_B9A71C
 	LDA.w #$0010
 	STA.b $38,x
@@ -1136,10 +1136,10 @@ CODE_B9A71C:
 	RTS
 
 CODE_B9A729:
-	LDA.w $186B
+	LDA.w current_held_sprite
 	BNE.b CODE_B9A746
 	TXY
-	LDA.b $7E
+	LDA.b current_animal_type
 	SEC
 	SBC.w #$0234
 	TAX
@@ -1160,10 +1160,10 @@ DATA_B9A753:
 	dw $0023,$0000,$002D,$0002,$0063,$0000,$0067,$0000
 
 CODE_B9A763:
-	LDX.b $70
-	LDA.b $7E
+	LDX.b current_sprite
+	LDA.b current_animal_type
 	BNE.b CODE_B9A79A
-	LDA.w $186B
+	LDA.w current_held_sprite
 	BNE.b CODE_B9A77B
 	LDA.w #$0001
 	STA.b $38,x
@@ -1172,7 +1172,7 @@ CODE_B9A763:
 	RTS
 
 CODE_B9A77B:
-	CMP.w $04FD
+	CMP.w follower_kong_sprite
 	BEQ.b CODE_B9A78D
 	LDA.w #$0010
 	STA.b $38,x
@@ -1188,10 +1188,10 @@ CODE_B9A78D:
 	RTS
 
 CODE_B9A79A:
-	LDA.w $186B
+	LDA.w current_held_sprite
 	BNE.b CODE_B9A7B7
 	TXY
-	LDA.b $7E
+	LDA.b current_animal_type
 	SEC
 	SBC.w #$0234
 	TAX
@@ -1212,10 +1212,10 @@ DATA_B9A7C4:
 	dw $0023,$0001,$002D,$0002,$0063,$0001,$0067,$0001
 
 CODE_B9A7D4:
-	LDX.b $70
-	LDA.b $7E
+	LDX.b current_sprite
+	LDA.b current_animal_type
 	BNE.b CODE_B9A7F9
-	LDA.w $186B
+	LDA.w current_held_sprite
 	BNE.b CODE_B9A7EC
 	LDA.w #$0001
 	STA.b $38,x
@@ -1231,10 +1231,10 @@ CODE_B9A7EC:
 	RTS
 
 CODE_B9A7F9:
-	LDA.w $186B
+	LDA.w current_held_sprite
 	BNE.b CODE_B9A816
 	TXY
-	LDA.b $7E
+	LDA.b current_animal_type
 	SEC
 	SBC.w #$0234
 	TAX
@@ -1255,7 +1255,7 @@ DATA_B9A823:
 	dw $0023,$0002,$002D,$0002,$0063,$0002,$0067,$0002
 
 CODE_B9A833:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $30,x
 	BEQ.b CODE_B9A841
 	LSR
@@ -1267,9 +1267,9 @@ CODE_B9A841:
 	RTS
 
 CODE_B9A843:
-	LDA.b $7E
+	LDA.b current_animal_type
 	BNE.b CODE_B9A86C
-	LDA.w $186B
+	LDA.w current_held_sprite
 	BNE.b CODE_B9A855
 	LDA.w #$0003
 	JSL.l CODE_B9A0AC
@@ -1277,7 +1277,7 @@ CODE_B9A843:
 	RTS
 
 CODE_B9A855:
-	CMP.w $04FD
+	CMP.w follower_kong_sprite
 	BEQ.b CODE_B9A863
 	LDA.w #$0013
 	JSL.l CODE_B9A0AC
@@ -1291,21 +1291,21 @@ CODE_B9A863:
 	RTS
 
 CODE_B9A86C:
-	LDA.w $186B
+	LDA.w current_held_sprite
 	BNE.b CODE_B9A879
 	LDA.w #$0003
 	JSL.l CODE_B9A067
 	RTS
 
 CODE_B9A879:
-	LDA.b $7E
+	LDA.b current_animal_type
 	CMP.w #$023C
 	BEQ.b CODE_B9A89B
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $1E,x
 	EOR.w #$4000
 	STA.b $1E,x
-	LDX.w $186B
+	LDX.w current_held_sprite
 	LDA.b $1E,x
 	EOR.w #$4000
 	STA.b $1E,x
@@ -1323,12 +1323,12 @@ CODE_B9A8A3:
 	RTL
 
 CODE_B9A8A7:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $28,x
 	AND.w #$0101
 	BEQ.b CODE_B9A8D9
 CODE_B9A8B0:
-	LDX.b $70
+	LDX.b current_sprite
 	JSR.w CODE_B9A625
 	TXY
 	TAX
@@ -1357,10 +1357,10 @@ CODE_B9A8D6:
 
 CODE_B9A8D9:
 	JSL.l CODE_B88060
-	LDA.b $7E
+	LDA.b current_animal_type
 	BNE.b CODE_B9A8F6
-	LDA.w $186B
-	CMP.w $04FD
+	LDA.w current_held_sprite
+	CMP.w follower_kong_sprite
 	BEQ.b CODE_B9A90F
 	LDA.w #$0007
 	STA.b $38,x
@@ -1371,9 +1371,9 @@ CODE_B9A8D9:
 CODE_B9A8F6:
 	LDA.w #$0006
 	JSL.l CODE_B9A067
-	LDX.b $70
+	LDX.b current_sprite
 	LDY.w #$0024
-	LDA.b $7E
+	LDA.b current_animal_type
 	CMP.w #$0234
 	BEQ.b CODE_B9A90C
 	LDY.w #$0068
@@ -1382,7 +1382,7 @@ CODE_B9A90C:
 	RTS
 
 CODE_B9A90F:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w #$0043
 	STA.b $38,x
 	LDA.w #$0031
@@ -1414,7 +1414,7 @@ CODE_B9A93A:
 	RTS
 
 CODE_B9A93C:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $2A,x
 	BPL.b CODE_B9A946
 	EOR.w #$FFFF
@@ -1430,7 +1430,7 @@ CODE_B9A94D:
 	RTS
 
 CODE_B9A94F:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $2A,x
 	BPL.b CODE_B9A959
 	EOR.w #$FFFF
@@ -1467,7 +1467,7 @@ CODE_B9A978:
 	JMP.w CODE_B9A1B0
 
 CODE_B9A97B:
-	CPX.w $186B
+	CPX.w current_held_sprite
 	BEQ.b CODE_B9A9AD
 	JMP.w CODE_B9A1B0
 
@@ -1540,7 +1540,7 @@ CODE_B9A9CB:
 	JMP.w CODE_B9A1B7
 
 CODE_B9A9F5:
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	LDA.b $38,x
 	CMP.w #$0049
 	BEQ.b CODE_B9A9AD
@@ -1752,7 +1752,7 @@ CODE_B9AB3D:
 
 CODE_B9AB3F:
 	JSL.l CODE_B88093
-	LDA.w $186B
+	LDA.w current_held_sprite
 	BNE.b CODE_B9AB51
 	LDA.w #$0002
 	STA.b $38,x
@@ -1760,7 +1760,7 @@ CODE_B9AB3F:
 	RTS
 
 CODE_B9AB51:
-	CMP.w $04FD
+	CMP.w follower_kong_sprite
 	BEQ.b CODE_B9AB5C
 	LDA.w #$0011
 	STA.b $38,x
@@ -1774,11 +1774,11 @@ CODE_B9AB5C:
 CODE_B9AB62:
 	JSL.l CODE_B88093
 	LDA.w #$0068
-	LDY.b $7E
+	LDY.b current_animal_type
 	CPY.w #$0240
 	BEQ.b CODE_B9AB7B
 	LDA.w #$0024
-	LDY.w $186B
+	LDY.w current_held_sprite
 	BEQ.b CODE_B9AB7B
 	LDA.w #$0027
 CODE_B9AB7B:
@@ -1788,7 +1788,7 @@ CODE_B9AB7B:
 	RTS
 
 CODE_B9AB85:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w #$FE00
 	STA.b $2E,x
 	LDA.w #$0200
@@ -1847,7 +1847,7 @@ CODE_B9ABCD:
 	RTS
 
 CODE_B9ABD2:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $28,x
 	AND.w #$1010
 	BEQ.b CODE_B9ABDF
@@ -1872,7 +1872,7 @@ CODE_B9ABF7:
 	RTS
 
 CODE_B9AC04:
-	CPX.w $04FD
+	CPX.w follower_kong_sprite
 	BEQ.b CODE_B9AC14
 	LDA.b $30,x
 	BEQ.b CODE_B9AC14
@@ -1882,7 +1882,7 @@ CODE_B9AC14:
 	RTS
 
 CODE_B9AC15:
-	CPX.w $04FD
+	CPX.w follower_kong_sprite
 	BEQ.b CODE_B9AC30
 	LDA.b $2A,x
 	SEC
@@ -1901,7 +1901,7 @@ CODE_B9AC30:
 	RTS
 
 CODE_B9AC31:
-	CPX.w $04FD
+	CPX.w follower_kong_sprite
 	BEQ.b CODE_B9AC4F
 	LDA.b $30,x
 	BNE.b CODE_B9AC4F
@@ -1972,7 +1972,7 @@ CODE_B9ACA3:
 	RTS
 
 CODE_B9ACA9:
-	CPX.w $04FD
+	CPX.w follower_kong_sprite
 	BEQ.b CODE_B9ACBC
 	LDA.b $34,x
 	BEQ.b CODE_B9ACB9
@@ -1996,7 +1996,7 @@ CODE_B9ACD0:
 	RTS
 
 CODE_B9ACD1:
-	CPX.w $04FD
+	CPX.w follower_kong_sprite
 	BEQ.b CODE_B9ACED
 	JSR.w CODE_B9ACBD
 	LDA.b $2E,x
@@ -2013,7 +2013,7 @@ CODE_B9ACEA:
 	RTS
 
 CODE_B9ACED:
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $002E,y
 	BPL.b CODE_B9ACF9
 	EOR.w #$FFFF
@@ -2028,7 +2028,7 @@ CODE_B9AD02:
 	RTS
 
 CODE_B9AD05:
-	CPX.w $04FD
+	CPX.w follower_kong_sprite
 	BEQ.b CODE_B9AD20
 	LDA.b $34,x
 	BNE.b CODE_B9AD20
@@ -2059,7 +2059,7 @@ CODE_B9AD2F:
 	RTS
 
 CODE_B9AD36:
-	LDA.w $186B
+	LDA.w current_held_sprite
 	BEQ.b CODE_B9AD3E
 	JMP.w CODE_B9A65D
 
@@ -2067,7 +2067,7 @@ CODE_B9AD3E:
 	JMP.w CODE_B9A8A7
 
 CODE_B9AD41:
-	LDA.w $186B
+	LDA.w current_held_sprite
 	BEQ.b CODE_B9AD69
 	JSR.w CODE_B9A833
 	BCS.b CODE_B9AD68
@@ -2094,7 +2094,7 @@ CODE_B9AD69:
 	JMP.w CODE_B9A8A7
 
 CODE_B9AD6C:
-	LDX.w $186B
+	LDX.w current_held_sprite
 	BEQ.b CODE_B9AD9D
 	STZ.b $2A,x
 	STZ.b $30,x
@@ -2104,11 +2104,11 @@ CODE_B9AD6C:
 	INY
 	INY
 	LDA.b [$42],y
-	STX.b $76
+	STX.b alternate_sprite
 	JSL.l CODE_B9A078
-	LDX.w $186B
+	LDX.w current_held_sprite
 	JSL.l CODE_B9E021
-	LDY.w $186B
+	LDY.w current_held_sprite
 	LDA.w $0012,y
 	STA.w $0054,y
 	LDA.w $0016,y
@@ -2117,7 +2117,7 @@ CODE_B9AD9D:
 	RTS
 
 CODE_B9AD9E:
-	LDA.w $186B
+	LDA.w current_held_sprite
 	BEQ.b CODE_B9ADA6
 	JMP.w CODE_B9A1B7
 
@@ -2128,7 +2128,7 @@ CODE_B9ADA9:
 	RTS
 
 CODE_B9ADAA:
-	CPX.w $04FD
+	CPX.w follower_kong_sprite
 	BNE.b CODE_B9ADB0
 	RTS
 
@@ -2146,7 +2146,7 @@ CODE_B9ADBE:
 	RTS
 
 CODE_B9ADC7:
-	LDA.w $186B
+	LDA.w current_held_sprite
 	BEQ.b CODE_B9ADCF
 	JMP.w CODE_B9A65D
 
@@ -2154,10 +2154,10 @@ CODE_B9ADCF:
 	JMP.w CODE_B9A8A7
 
 CODE_B9ADD2:
-	LDX.w $186B
+	LDX.w current_held_sprite
 	BEQ.b CODE_B9ADFA
 	LDY.w #$0012
-	LDA.b $7E
+	LDA.b current_animal_type
 	CMP.w #$023C
 	BNE.b CODE_B9ADE4
 	LDY.w #$0026
@@ -2175,7 +2175,7 @@ CODE_B9ADFA:
 	RTS
 
 CODE_B9ADFB:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $28,x
 	AND.w #$0101
 	BNE.b CODE_B9AE0B
@@ -2183,7 +2183,7 @@ CODE_B9ADFB:
 	ORA.w #$0800
 	STA.b $4A,x
 CODE_B9AE0B:
-	LDX.w $186B
+	LDX.w current_held_sprite
 	BNE.b CODE_B9AE11
 	RTS
 
@@ -2198,13 +2198,13 @@ CODE_B9AE11:
 	INY
 	INY
 	LDA.b [$42],y
-	STX.b $76
+	STX.b alternate_sprite
 	JSL.l CODE_B9A078
-	LDX.w $186B
+	LDX.w current_held_sprite
 	JSL.l CODE_B9E021
 	LDY.b $72
 	LDA.w $0004,y
-	LDX.b $7E
+	LDX.b current_animal_type
 	BEQ.b CODE_B9AE4C
 	LDX.w #$0250
 	LDY.w #$0258
@@ -2223,12 +2223,12 @@ CODE_B9AE4C:
 	LDY.w #$0148
 CODE_B9AE5D:
 	LDA.b [$6A],y
-	LDY.w $186B
+	LDY.w current_held_sprite
 	STA.w $002E,y
 	TXY
 	LDA.b [$6A],y
-	LDX.b $70
-	LDY.w $186B
+	LDX.b current_sprite
+	LDY.w current_held_sprite
 	BIT.b $1E,x
 	BVC.b CODE_B9AE75
 	EOR.w #$FFFF
@@ -2252,14 +2252,14 @@ CODE_B9AE75:
 	STA.w $003A,y
 	LDA.w $1873
 	STA.w $000E,y
-	STZ.w $186B
+	STZ.w current_held_sprite
 	RTS
 
 CODE_B9AEAD:
-	LDX.w $186B
+	LDX.w current_held_sprite
 	BEQ.b CODE_B9AEC4
 	LDY.w #$0012
-	LDA.b $7E
+	LDA.b current_animal_type
 	CMP.w #$023C
 	BNE.b CODE_B9AEBF
 	LDY.w #$0026
@@ -2270,7 +2270,7 @@ CODE_B9AEC4:
 	RTS
 
 CODE_B9AEC5:
-	LDX.w $186B
+	LDX.w current_held_sprite
 	BNE.b CODE_B9AECB
 	RTS
 
@@ -2285,11 +2285,11 @@ CODE_B9AECB:
 	INY
 	INY
 	LDA.b [$42],y
-	STX.b $76
+	STX.b alternate_sprite
 	JSL.l CODE_B9A078
 	JSR.w CODE_B9AF4B
-	LDX.b $70
-	LDY.w $186B
+	LDX.b current_sprite
+	LDY.w current_held_sprite
 	LDA.w #$FF80
 	STA.w $002E,y
 	BIT.b $1E,x
@@ -2328,12 +2328,12 @@ CODE_B9AF13:
 	STA.w $003A,y
 	LDA.w $1873
 	STA.w $000E,y
-	STZ.w $186B
+	STZ.w current_held_sprite
 	RTS
 
 CODE_B9AF4B:
-	LDX.w $186B
-	LDY.w $04F9
+	LDX.w current_held_sprite
+	LDY.w active_kong_sprite
 	LDA.w $0016,y
 	PHA
 	LDA.b $16,x
@@ -2344,12 +2344,12 @@ CODE_B9AF5F:
 	STA.w $0016,y
 	JSL.l CODE_B9E021
 	PLA
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	STA.w $0016,y
 	RTS
 
 CODE_B9AF6E:
-	LDX.w $186B
+	LDX.w current_held_sprite
 	BEQ.b CODE_B9AF9B
 	STZ.b $2A,x
 	STZ.b $30,x
@@ -2359,10 +2359,10 @@ CODE_B9AF6E:
 	INY
 	INY
 	LDA.b [$42],y
-	STX.b $76
+	STX.b alternate_sprite
 	JSL.l CODE_B9A078
 	JSR.w CODE_B9AF4B
-	LDY.w $186B
+	LDY.w current_held_sprite
 	LDA.w $0012,y
 	STA.w $0054,y
 	LDA.w $0016,y
@@ -2415,7 +2415,7 @@ CODE_B9AFDF:
 	RTS
 
 CODE_B9AFE7:
-	CPX.w $04F9
+	CPX.w active_kong_sprite
 	BNE.b CODE_B9AFFF
 	LDA.w #$820F
 	JSL.l CODE_808024
@@ -2428,7 +2428,7 @@ CODE_B9AFFF:
 
 CODE_B9B000:
 	LDA.w $1957
-	CPX.w $04F9
+	CPX.w active_kong_sprite
 	BEQ.b CODE_B9B00B
 	LDA.w $1927
 CODE_B9B00B:
@@ -2438,7 +2438,7 @@ CODE_B9B00B:
 	RTS
 
 CODE_B9B015:
-	CPX.w $04F9
+	CPX.w active_kong_sprite
 	BEQ.b CODE_B9B02B
 	LDA.w $195A
 	AND.w #$FFFD
@@ -2456,7 +2456,7 @@ CODE_B9B02B:
 	RTS
 
 CODE_B9B03C:
-	CPX.w $04F9
+	CPX.w active_kong_sprite
 	BEQ.b CODE_B9B052
 	LDA.w $195A
 	AND.w #$FFFE
@@ -2474,7 +2474,7 @@ CODE_B9B052:
 	RTS
 
 CODE_B9B063:
-	CPX.w $04F9
+	CPX.w active_kong_sprite
 	BEQ.b CODE_B9B079
 	LDA.w #$0003
 	TRB.w $195A
@@ -2492,7 +2492,7 @@ CODE_B9B079:
 	RTS
 
 CODE_B9B08A:
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	LDA.b $38,x
 	CMP.w #$0040
 	BNE.b CODE_B9B09F
@@ -2525,7 +2525,7 @@ CODE_B9B0BD:
 	RTS
 
 CODE_B9B0C3:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $28,x
 	AND.w #$0101
 	BNE.b CODE_B9B0D3
@@ -2533,7 +2533,7 @@ CODE_B9B0C3:
 	ORA.w #$0800
 	STA.b $4A,x
 CODE_B9B0D3:
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	LDA.w #$00D8
 	STA.b $0E,x
 	LDA.w $04D6
@@ -2544,8 +2544,8 @@ CODE_B9B0D3:
 CODE_B9B0E6:
 	LDA.w #$0035
 	JSL.l CODE_B9A091
-	LDX.w $04F9
-	LDY.w $04FD
+	LDX.w active_kong_sprite
+	LDY.w follower_kong_sprite
 	LDA.w #$0046
 	STA.b $38,x
 	LDA.w #$0000
@@ -2553,17 +2553,17 @@ CODE_B9B0E6:
 	LDA.w $003A,y
 	ORA.w #$0024
 	STA.w $003A,y
-	LDX.w $186B
+	LDX.w current_held_sprite
 	JSL.l CODE_B9E021
-	STZ.w $186B
+	STZ.w current_held_sprite
 	LDY.w #$0060
 	LDA.b [$6A],y
-	LDY.w $04FD
+	LDY.w follower_kong_sprite
 	STA.w $002E,y
 	LDY.w #$0058
 	LDA.b [$6A],y
-	LDY.w $04FD
-	LDX.b $70
+	LDY.w follower_kong_sprite
+	LDX.b current_sprite
 	BIT.b $1E,x
 	BVC.b CODE_B9B12E
 	EOR.w #$FFFF
@@ -2588,8 +2588,8 @@ CODE_B9B143:
 CODE_B9B150:
 	LDA.w #$0033
 	JSL.l CODE_B9A091
-	LDX.w $04F9
-	LDY.w $04FD
+	LDX.w active_kong_sprite
+	LDY.w follower_kong_sprite
 	LDA.w #$0048
 	STA.b $38,x
 	LDA.w #$0049
@@ -2600,14 +2600,14 @@ CODE_B9B16D:
 	STA.w $0038,y
 	LDY.w #$0070
 	LDA.b [$6A],y
-	LDY.w $04FD
+	LDY.w follower_kong_sprite
 	STA.w $002E,y
 	LDA.w #$0000
 	CPY.w $0501
 	BEQ.b CODE_B9B193
 	LDY.w #$0068
 	LDA.b [$6A],y
-	LDY.w $04FD
+	LDY.w follower_kong_sprite
 	BIT.b $1E,x
 	BVC.b CODE_B9B193
 	EOR.w #$FFFF
@@ -2620,19 +2620,25 @@ CODE_B9B193:
 	LDA.w $003A,y
 	ORA.w #$00B4
 	STA.w $003A,y
-	LDX.w $186B
+	LDX.w current_held_sprite
 	JSL.l CODE_B9E021
-	STZ.w $186B
+	STZ.w current_held_sprite
 	RTS
 
 DATA_B9B1B3:
-	dw $0041,$0041,$0064,$0041
+	dw $0041
+	dw $0041
+	dw $0064
+	dw $0041
 
 DATA_B9B1BB:
-	dw $0042,$0059,$0065,$0072
+	dw $0042
+	dw $0059
+	dw $0065
+	dw $0072
 
 CODE_B9B1C7:
-	LDX.b $7C
+	LDX.b current_mount
 	BEQ.b CODE_B9B1CB
 	JSL.l CODE_B9A035
 CODE_B9B1CB:
@@ -2649,7 +2655,7 @@ CODE_B9B1D4:
 	TAX
 	LDA.b $30,x
 	BEQ.b CODE_B9B1E3
-	LDX.b $70
+	LDX.b current_sprite
 	STY.b $46,x
 	STZ.b $48,x
 CODE_B9B1E3:
@@ -2891,8 +2897,8 @@ CODE_B9B372:
 	LDA.w #$0001
 	STA.w $1871
 	JSR.w CODE_B9AD2F
-	LDX.w $186B
-	LDY.b $70
+	LDX.w current_held_sprite
+	LDY.b current_sprite
 	LDA.w $001E,y
 	EOR.b $1E,x
 	AND.w #$4000
@@ -2907,11 +2913,11 @@ CODE_B9B372:
 CODE_B9B399:
 	LDA.w #$FFFF
 	STA.w $1871
-	LDX.w $186B
+	LDX.w current_held_sprite
 	LDA.b $1E,x
 	AND.w #$BFFF
 	STA.b $1E,x
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $4A,x
 	AND.w #$FFFE
 	STA.b $4A,x
@@ -3102,10 +3108,10 @@ CODE_B9B4EA:
 	LDY.w #$0012
 	JSL.l CODE_BB85B8
 	BCS.b CODE_B9B50C
-	LDX.b $76
+	LDX.b alternate_sprite
 	JSL.l CODE_B9E021
-	LDX.b $76
-	LDY.b $70
+	LDX.b alternate_sprite
+	LDY.b current_sprite
 	LDA.w $002A,y
 	CLC
 	ADC.b $2A,x
@@ -3135,18 +3141,18 @@ CODE_B9B51D:
 CODE_B9B525:
 	JSR.w CODE_B9A833
 	BCS.b CODE_B9B532
-	LDA.w $186B
+	LDA.w current_held_sprite
 	BNE.b CODE_B9B532
 	JSR.w CODE_B9A6F2
 CODE_B9B532:
 	RTS
 
 CODE_B9B533:
-	LDX.w $186B
+	LDX.w current_held_sprite
 	LDA.b $1E,x
 	AND.w #$BFFF
 	STA.b $1E,x
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $4A,x
 	AND.w #$FFFE
 	STA.b $4A,x
@@ -3200,22 +3206,112 @@ CODE_B9B592:
 	LDY.w #$011F
 	JMP.w CODE_B9B867
 
+;Graphic ID's
 DATA_B9B598:
-	dw $2549,$0000,$254E,$0000,$2553,$0000,$254E,$0000
-	dw $2549,$0000,$254E,$0000,$2553,$0000,$254E,$0000
-	dw $24A9,$24AE,$24B3,$24B8,$24BD,$24C2,$24C7,$24CC
-	dw $24D1,$24D6,$24DB,$24E0,$24E5,$24EA,$24EF,$24F4
-	dw $24F9,$24FE,$2503,$2508,$250D,$2512,$2517,$251C
-	dw $2521,$2526,$252B,$2530,$2535,$253A,$253F,$2544
-	dw $25CB,$25CB,$25CB,$25CB,$25CB,$25CB,$25CB,$25CB
-	dw $25CB,$25CB,$25CB,$25CB,$25CB,$25CB,$25CB,$25CB
-	dw $25B2,$0000,$25B7,$0000,$25BC,$0000,$25C1,$0000
-	dw $25C6,$0000,$25C1,$0000,$25BC,$0000,$25B7,$0000
-	dw $25FD,$25FD,$25FD,$25FD,$25FD,$25FD,$25FD,$25FD
-	dw $25FD,$25FD,$25FD,$25FD,$25FD,$25FD,$25FD,$25FD
+	dw $2549
+	dw $0000
+	dw $254E
+	dw $0000
+	dw $2553
+	dw $0000
+	dw $254E
+	dw $0000
+	dw $2549
+	dw $0000
+	dw $254E
+	dw $0000
+	dw $2553
+	dw $0000
+	dw $254E
+	dw $0000
+	dw $24A9
+	dw $24AE
+	dw $24B3
+	dw $24B8
+	dw $24BD
+	dw $24C2
+	dw $24C7
+	dw $24CC
+	dw $24D1
+	dw $24D6
+	dw $24DB
+	dw $24E0
+	dw $24E5
+	dw $24EA
+	dw $24EF
+	dw $24F4
+	dw $24F9
+	dw $24FE
+	dw $2503
+	dw $2508
+	dw $250D
+	dw $2512
+	dw $2517
+	dw $251C
+	dw $2521
+	dw $2526
+	dw $252B
+	dw $2530
+	dw $2535
+	dw $253A
+	dw $253F
+	dw $2544
+	dw $25CB
+	dw $25CB
+	dw $25CB
+	dw $25CB
+	dw $25CB
+	dw $25CB
+	dw $25CB
+	dw $25CB
+	dw $25CB
+	dw $25CB
+	dw $25CB
+	dw $25CB
+	dw $25CB
+	dw $25CB
+	dw $25CB
+	dw $25CB
+	dw $25B2
+	dw $0000
+	dw $25B7
+	dw $0000
+	dw $25BC
+	dw $0000
+	dw $25C1
+	dw $0000
+	dw $25C6
+	dw $0000
+	dw $25C1
+	dw $0000
+	dw $25BC
+	dw $0000
+	dw $25B7
+	dw $0000
+	dw $25FD
+	dw $25FD
+	dw $25FD
+	dw $25FD
+	dw $25FD
+	dw $25FD
+	dw $25FD
+	dw $25FD
+	dw $25FD
+	dw $25FD
+	dw $25FD
+	dw $25FD
+	dw $25FD
+	dw $25FD
+	dw $25FD
+	dw $25FD
+
 
 DATA_B9B658:
-	dw $2558,$255D,$2562,$2567,$2206
+	dw $2558
+	dw $255D
+	dw $2562
+	dw $2567
+	dw $2206
 
 CODE_B9B662:
 	LDA.w #$1135
@@ -3304,24 +3400,85 @@ CODE_B9B6DC:
 	RTS
 
 DATA_B9B6E7:
-	dw $8005,$2738,$030C,$4286,$3A57,$8050,$420E,$00AA
-	dw $43DF,$411E,$414B,$4178,$41CD,$3B0B,$3A70,$0401
-	dw $0438,$0492,$049C,$04D8,$0550,$0569,$4295,$429F
-	dw $0582,$0537,$0596,$05A0,$43DA,$4376,$3B2E,$0618
-	dw $3B33,$402E,$3A89,$43EE,$3DC2,$3D7C,$1BC1,$00A0
-	dw $258A,$2977,$226A
+	dw $8005
+	dw $2738
+	dw $030C
+	dw $4286
+	dw $3A57
+	dw $8050
+	dw $420E
+	dw $00AA
+	dw $43DF
+	dw $411E
+	dw $414B
+	dw $4178
+	dw $41CD
+	dw $3B0B
+	dw $3A70
+	dw $0401
+	dw $0438
+	dw $0492
+	dw $049C
+	dw $04D8
+	dw $0550
+	dw $0569
+	dw $4295
+	dw $429F
+	dw $0582
+	dw $0537
+	dw $0596
+	dw $05A0
+	dw $43DA
+	dw $4376
+	dw $3B2E
+	dw $0618
+	dw $3B33
+	dw $402E
+	dw $3A89
+	dw $43EE
+	dw $3DC2
+	dw $3D7C
+	dw $1BC1
+	dw $00A0
+	dw $258A
+	dw $2977
+	dw $226A
+
 
 DATA_B9B73D:
 	dw $22D3
 
 CODE_B9B73F:
-	dw $2607,$2684
+	dw $2607
+	dw $2684
 
 DATA_B9B743:
-	dw $2616,$2981,$256C,$25F8,$28D7,$285A,$2602,$2643
-	dw $29F9,$297C,$0249,$3034,$03B1,$0384,$01E0,$3638
-	dw $385E,$0640,$351B,$064F,$0654,$36D3,$39DF,$39AD
+	dw $2616
+	dw $2981
+	dw $256C
+	dw $25F8
+	dw $28D7
+	dw $285A
+	dw $2602
+	dw $2643
+	dw $29F9
+	dw $297C
+	dw $0249
+	dw $3034
+	dw $03B1
+	dw $0384
+	dw $01E0
+	dw $3638
+	dw $385E
+	dw $0640
+	dw $351B
+	dw $064F
+	dw $0654
+	dw $36D3
+	dw $39DF
+	dw $39AD
 	dw $8005
+
 
 DATA_B9B775:
 	dw !null_pointer
@@ -3412,7 +3569,7 @@ DATA_B9B827:
 	db $00
 
 CODE_B9B837:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $1E,x
 	EOR.w #$8000
 	STA.b $1E,x
@@ -3474,7 +3631,7 @@ CODE_B9B88A:
 
 CODE_B9B88D:
 	STA.b $1A
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $0012,y
 	SEC
 	SBC.b $12,x
@@ -3494,7 +3651,7 @@ CODE_B9B8B0:
 
 CODE_B9B8B1:
 	STA.b $1A
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $0012,y
 	SEC
 	SBC.b $12,x
@@ -3586,7 +3743,7 @@ CODE_B9B93E:
 	RTS
 
 CODE_B9B93F:
-	LDX.w $05B9
+	LDX.w parent_level_number
 	LDA.l $000632,x
 	AND.w #$001C
 	CMP.w #$001C
@@ -3622,9 +3779,9 @@ CODE_B9B969:
 	BCC.b CODE_B9B97C
 	LDA.w #$0010
 CODE_B9B97C:
-	LDX.w $05B9
+	LDX.w parent_level_number
 	AND.w $0632,x
-	LDX.b $70
+	LDX.b current_sprite
 	STA.b $5C,x
 	CMP.w #$0001
 	RTS
@@ -3680,7 +3837,7 @@ CODE_B9B9D2:
 	RTS
 
 CODE_B9B9D9:
-	LDA.b $7E
+	LDA.b current_animal_type
 	CMP.w #$023C
 	BEQ.b CODE_B9BA02
 	JSL.l CODE_B9E021
@@ -3694,7 +3851,7 @@ CODE_B9B9D9:
 	LDY.w #$0008
 	LDA.b [$6A],y
 	JSL.l CODE_B9A0BA
-	STZ.w $186B
+	STZ.w current_held_sprite
 	RTS
 
 CODE_B9BA02:
@@ -3709,7 +3866,7 @@ CODE_B9BA02:
 	LDY.w #$0008
 	LDA.b [$6A],y
 	JSL.l CODE_B9A0BA
-	STZ.w $186B
+	STZ.w current_held_sprite
 	RTS
 
 CODE_B9BA23:
@@ -3729,7 +3886,7 @@ CODE_B9BA34:
 
 CODE_B9BA37:
 	JSR.w CODE_B9B84C
-	LDY.b $70
+	LDY.b current_sprite
 	LDX.b $5C,y
 	BEQ.b CODE_B9BA42
 	STZ.b $5C,x
@@ -3775,7 +3932,7 @@ CODE_B9BA77:
 	JMP.w CODE_B9A1B0
 
 CODE_B9BA7A:
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.b $12,x
 	SEC
 	SBC.w $0012,y
@@ -3786,7 +3943,7 @@ CODE_B9BA7A:
 	RTS
 
 CODE_B9BA89:
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.b $12,x
 	CLC
 	ADC.w #$0080
@@ -3887,7 +4044,7 @@ CODE_B9BB1E:
 CODE_B9BB23:
 	LDA.w #$0008
 CODE_B9BB26:
-	LDX.b $70
+	LDX.b current_sprite
 	LDY.b $5C,x
 	BEQ.b CODE_B9BB3D
 	STA.w $0058,y
@@ -3961,7 +4118,7 @@ CODE_B9BB8A:
 	JMP.w CODE_B9B867
 
 CODE_B9BB96:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $38,x
 	AND.w #$00FF
 	CMP.w #$000C
@@ -3998,7 +4155,7 @@ CODE_B9BBC9:
 	RTS
 
 CODE_B9BBCF:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $44,x
 	CLC
 	ADC.w #$000E
@@ -4006,7 +4163,7 @@ CODE_B9BBCF:
 	RTS
 
 CODE_B9BBDA:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $44,x
 	SEC
 	SBC.w #$0005
@@ -4266,7 +4423,7 @@ CODE_B9BD32:
 CODE_B9BD33:
 	LDA.b $38,x
 	BEQ.b CODE_B9BD7E
-	CPX.w $04FD
+	CPX.w follower_kong_sprite
 	BEQ.b CODE_B9BD44
 	LDA.w $04D6
 	BIT.w #$0F00
@@ -4350,7 +4507,7 @@ CODE_B9BDC0:
 	RTS
 
 CODE_B9BDC8:
-	LDA.w $05E5
+	LDA.w current_world
 	CMP.w #$0008
 	BEQ.b CODE_B9BDD6
 	LDA.w #$0100
@@ -4499,8 +4656,8 @@ CODE_B9BE93:
 CODE_B9BE9B:
 	LDY.w #$03EE
 	JSL.l CODE_BB8585
-	LDY.b $76
-	LDX.b $70
+	LDY.b alternate_sprite
+	LDX.b current_sprite
 	STY.b $5C,x
 	RTS
 
@@ -4525,7 +4682,7 @@ CODE_B9BEC3:
 	STA.b $2C,x
 CODE_B9BECD:
 	JSL.l CODE_B28021
-	LDX.b $70
+	LDX.b current_sprite
 	RTS
 
 CODE_B9BED4:
@@ -4582,7 +4739,14 @@ CODE_B9BF14:
 	RTS
 
 DATA_B9BF27:
-	dw DATA_F97CFA,DATA_F97D1E,DATA_F97D1E,DATA_F97D0F,DATA_F97CD6,DATA_F97CFA,DATA_F97CEB,DATA_F97CEB
+	dw DATA_F97CFA
+	dw DATA_F97D1E
+	dw DATA_F97D1E
+	dw DATA_F97D0F
+	dw DATA_F97CD6
+	dw DATA_F97CFA
+	dw DATA_F97CEB
+	dw DATA_F97CEB
 
 CODE_B9BF37:
 	STZ.b $3E
@@ -4603,7 +4767,14 @@ CODE_B9BF46:
 	RTS
 
 DATA_B9BF59:
-	dw DATA_F97DA8,DATA_F97DA8,DATA_F97DA8,DATA_F97D84,DATA_F97D47,DATA_F97D47,DATA_F97D5C,DATA_F97D5C
+	dw DATA_F97DA8
+	dw DATA_F97DA8
+	dw DATA_F97DA8
+	dw DATA_F97D84
+	dw DATA_F97D47
+	dw DATA_F97D47
+	dw DATA_F97D5C
+	dw DATA_F97D5C
 
 UNK_B9BF69:
 	db $7D,$A8,$7D,$A8,$7D,$84,$7D,$47,$7D,$47,$7D,$5C,$7D,$5C,$7D,$8B
@@ -4651,8 +4822,8 @@ CODE_B9BFB1:
 CODE_B9BFB9:
 	LDY.w #$03EE
 	JSL.l CODE_BB8585
-	LDY.b $76
-	LDX.b $70
+	LDY.b alternate_sprite
+	LDX.b current_sprite
 	STY.b $5C,x
 	RTS
 
@@ -4677,7 +4848,7 @@ CODE_B9BFE1:
 	STA.b $2C,x
 CODE_B9BFEB:
 	JSL.l CODE_B28021
-	LDX.b $70
+	LDX.b current_sprite
 	RTS
 
 CODE_B9BFF2:
@@ -4825,7 +4996,7 @@ CODE_B9E027:
 
 ;process_current_movement
 CODE_B9E02A:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $5A,x
 ;process_alternate_movement
 CODE_B9E02E:
@@ -4837,9 +5008,9 @@ CODE_B9E02E:
 	XBA
 	AND.w #$00FF
 	ASL
-	LDY.b $70
+	LDY.b current_sprite
 	JSR.w (DATA_B9E042,x)
-	LDX.b $70
+	LDX.b current_sprite
 	RTL
 
 
@@ -5148,7 +5319,7 @@ CODE_B9E244:
 	EOR.b $34,x
 	BPL.b CODE_B9E2A8
 CODE_B9E251:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $64,x
 	LDY.b $60,x
 	BEQ.b CODE_B9E25A
@@ -5161,7 +5332,7 @@ CODE_B9E25A:
 	XBA
 	AND.w #$00FF
 	JSL.l CODE_B9F478
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $66,x
 	BEQ.b CODE_B9E29A
 	SEC
@@ -5193,7 +5364,7 @@ CODE_B9E29A:
 	RTS
 
 CODE_B9E29B:
-	LDX.b $70
+	LDX.b current_sprite
 	SEP.b #$20
 	LDA.b $66,x
 	LSR
@@ -5216,7 +5387,7 @@ CODE_B9E2B0:
 	STA.b $38,x
 	STZ.b $5A,x
 	STZ.b $5C,x
-	LDY.b $70
+	LDY.b current_sprite
 	RTS
 
 CODE_B9E2C4:
@@ -5320,7 +5491,7 @@ DATA_B9E34C:
 CODE_B9E362:
 	PLX
 	LDA.b [$3E],y
-	CPX.w $04FD
+	CPX.w follower_kong_sprite
 	BEQ.b CODE_B9E372
 	PHX
 	PHY
@@ -5367,7 +5538,7 @@ CODE_B9E39D:
 	INY
 	LDA.b [$3E],y
 	STA.b $00,x
-	LDX.b $70
+	LDX.b current_sprite
 	INC.b $5C,x
 	INC.b $5C,x
 	BRL.w CODE_B9E2B0
@@ -5513,7 +5684,7 @@ CODE_B9E470:
 	STA.b $2A,x
 	INC.b $5B,x
 CODE_B9E47F:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $60,x
 	CLC
 	ADC.b $2A,x
@@ -5543,7 +5714,7 @@ CODE_B9E493:
 CODE_B9E4A7:
 	INC.b $5B,x
 CODE_B9E4A9:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $64,x
 	BIT.b $30,x
 	BMI.b CODE_B9E4B2
@@ -5580,7 +5751,7 @@ CODE_B9E4D9:
 CODE_B9E4E1:
 	LDA.w #$000A
 	JSL.l CODE_B9F4B0
-	LDX.b $70
+	LDX.b current_sprite
 	JSR.w CODE_B9E4EE
 	RTS
 
@@ -5595,14 +5766,14 @@ CODE_B9E4EE:
 	STA.b $40
 	JSL.l CODE_B9F260
 	JSR.w CODE_B9E520
-	LDX.b $70
+	LDX.b current_sprite
 	CLC
 	ADC.b $5C,x
 	STA.b $12,x
 	LDA.b $40
 	JSL.l CODE_B9F26A
 	JSR.w CODE_B9E520
-	LDX.b $70
+	LDX.b current_sprite
 	EOR.w #$FFFF
 	SEC
 	ADC.b $5E,x
@@ -5631,7 +5802,7 @@ CODE_B9E535:
 	RTS
 
 CODE_B9E548:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w #$0108
 	CMP.b $12,x
 	BCS.b CODE_B9E55C
@@ -5791,7 +5962,7 @@ CODE_B9E649:
 	JSR.w CODE_B9E655
 	PHP
 	JSR.w CODE_B9EE64
-	LDX.b $70
+	LDX.b current_sprite
 	PLP
 	RTL
 
@@ -5829,7 +6000,7 @@ CODE_B9E68B:
 CODE_B9E68D:
 	PLA
 	JSR.w CODE_B9E5CF
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $16,x
 	CMP.b $5C,x
 	BCC.b CODE_B9E6A3
@@ -6017,7 +6188,7 @@ CODE_B9E7B6:
 	JSR.w CODE_B9E711
 	INC.b $5B,x
 CODE_B9E7C0:
-	LDX.b $70
+	LDX.b current_sprite
 	DEC.b $6A,x
 	BNE.b CODE_B9E7D0
 	LDA.b $62,x
@@ -6127,7 +6298,7 @@ DATA_B9E857:
 
 CODE_B9E85B:
 	TYX
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $0016,y
 	CMP.b $16,x
 	BCS.b CODE_B9E86A
@@ -6228,7 +6399,7 @@ CODE_B9E8F3:
 	AND.w #$00FF
 	JSL.l CODE_B9F260
 	JSR.w CODE_B9E520
-	LDX.b $70
+	LDX.b current_sprite
 	CLC
 	ADC.b $5C,x
 	STA.b $12,x
@@ -6247,7 +6418,7 @@ CODE_B9E91A:
 	JSR.w CODE_B9E711
 	INC.b $5B,x
 CODE_B9E924:
-	LDX.b $70
+	LDX.b current_sprite
 	DEC.b $6A,x
 	BNE.b CODE_B9E92C
 	SEC
@@ -6332,7 +6503,7 @@ CODE_B9E9A2:
 CODE_B9E9AB:
 	LDA.b [$6A]
 	STA.b $1A
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDA.b $12,x
 	SEC
 	SBC.w $0012,y
@@ -6388,7 +6559,7 @@ CODE_B9E9FD:
 	TAX
 	JSR.w (DATA_B9EA13,x)
 	BCS.b CODE_B9EA12
-	LDY.b $70
+	LDY.b current_sprite
 	JSR.w CODE_B9E0EC
 	JMP.w CODE_B9EE6E
 
@@ -6474,7 +6645,7 @@ CODE_B9EA8A:
 	TAX
 	JSR.w (DATA_B9EAA0,x)
 	BCS.b CODE_B9EA9F
-	LDY.b $70
+	LDY.b current_sprite
 	JSR.w CODE_B9E108
 	JMP.w CODE_B9EE64
 
@@ -6700,7 +6871,7 @@ CODE_B9EC0E:
 	RTS
 
 CODE_B9EC13:
-	LDX.b $70
+	LDX.b current_sprite
 	CLC
 	ADC.w #$0010
 	CMP.b $16,x
@@ -6718,7 +6889,7 @@ CODE_B9EC13:
 	ASL
 	ROR.b $2E,x
 	JSL.l CODE_B9EEA0
-	LDX.b $70
+	LDX.b current_sprite
 	PLA
 	STA.b $2E,x
 	PLA
@@ -6730,7 +6901,7 @@ CODE_B9EC3C:
 	PHA
 	JSR.w CODE_B9EBF8
 	PLY
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w #$0002
 	AND.b $28,x
 	BEQ.b CODE_B9EC54
@@ -6867,21 +7038,21 @@ CODE_B9ED25:
 	JSR.w CODE_B9E711
 	INC.b $5B,x
 CODE_B9ED2F:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $66,x
 	CLC
 	ADC.b $2E,x
 	STA.b $2E,x
 	TXY
 	JSL.l CODE_B9EEA0
-	LDX.b $70
+	LDX.b current_sprite
 	RTL
 
 CODE_B9ED40:
 	PLA
 	JSR.w CODE_B9EE6E
 	JSL.l CODE_B9EEA0
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $12,x
 	CMP.b $62,x
 	LDY.b $30,x
@@ -6899,7 +7070,7 @@ CODE_B9ED58:
 
 CODE_B9ED5A:
 	TYX
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $0012,y
 	SEC
 	SBC.b $12,x
@@ -6925,7 +7096,7 @@ CODE_B9ED78:
 
 CODE_B9ED8A:
 	TYX
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $0012,y
 	SEC
 	SBC.b $12,x
@@ -6974,7 +7145,7 @@ CODE_B9EDE4:
 CODE_B9EDE7:
 	JSR.w CODE_B9EE6E
 	JSL.l CODE_B9EEA0
-	LDY.b $70
+	LDY.b current_sprite
 	LDA.w $0028,y
 	BIT.w #$0002
 	BEQ.b CODE_B9EE05
@@ -7052,7 +7223,7 @@ CODE_B9EE6E:
 	RTS
 
 CODE_B9EE78:
-	LDX.b $70
+	LDX.b current_sprite
 	LDY.w #$0000
 	LDA.b [$6A],y
 	LDY.w #$0002
@@ -7077,7 +7248,7 @@ CODE_B9EE90:
 
 CODE_B9EEA0:
 	PHB
-	LDX.b $70
+	LDX.b current_sprite
 	SEP.b #$20
 	LDA.b $28,x
 	STA.b $29,x
@@ -7292,7 +7463,7 @@ CODE_B9F019:
 	ASL
 	TAX
 	LDA.l DATA_B9F126,x
-	LDX.b $70
+	LDX.b current_sprite
 CODE_B9F034:
 	STA.b $2E,x
 	STY.b $16,x
@@ -7430,7 +7601,14 @@ CODE_B9F119:
 	RTL
 
 DATA_B9F126:
-	dw $0300,$0300,$0300,$0400,$0500,$0600,$0800,$0800
+	dw $0300
+	dw $0300
+	dw $0300
+	dw $0400
+	dw $0500
+	dw $0600
+	dw $0800
+	dw $0800
 
 CODE_B9F136:
 	JSR.w CODE_B9F13A
@@ -7506,7 +7684,7 @@ CODE_B9F1AD:
 	RTS
 
 CODE_B9F1AE:
-	LDX.b $70
+	LDX.b current_sprite
 	LDY.w #$0000
 	LDA.b $2A,x
 	BPL.b CODE_B9F1B8
@@ -7523,7 +7701,7 @@ CODE_B9F1B8:
 	RTS
 
 CODE_B9F1C7:
-	LDX.b $70
+	LDX.b current_sprite
 	LDY.w #$0000
 	LDA.b $2E,x
 	BPL.b CODE_B9F1D1
@@ -7540,7 +7718,7 @@ CODE_B9F1D1:
 	RTS
 
 CODE_B9F1E0:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $29,x
 	AND.w #$0010
 	BNE.b CODE_B9F200
@@ -7585,7 +7763,7 @@ CODE_B9F217:
 	RTS
 
 CODE_B9F226:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $29,x
 	AND.w #$0010
 	BNE.b CODE_B9F246
@@ -7673,7 +7851,7 @@ DATA_B9F278:
 CODE_B9F478:
 	ASL
 	TAX
-	LDY.b $70
+	LDY.b current_sprite
 	LDA.w $0034,y
 	SEC
 	SBC.w $002E,y
@@ -7707,7 +7885,7 @@ CODE_B9F4A8:
 CODE_B9F4B0:
 	ASL
 	TAX
-	LDY.b $70
+	LDY.b current_sprite
 	LDA.w $0030,y
 	CLC
 	ADC.w $0036,y
@@ -8006,7 +8184,7 @@ CODE_B9F611:
 	RTS
 
 CODE_B9F612:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $28,x
 	AND.w #$0101
 	CMP.w #$0101
@@ -8029,10 +8207,10 @@ CODE_B9F62E:
 	LDA.w $0777
 	AND.w #$0080
 	BEQ.b CODE_B9F65E
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $1A,x
 	BNE.b CODE_B9F65B
-	LDA.w $05B9
+	LDA.w parent_level_number
 	CMP.w #$0042
 	BEQ.b CODE_B9F651
 	LDA.w #DATA_B9F79A
@@ -8061,10 +8239,10 @@ CODE_B9F66B:
 	LDA.w #DATA_B9F6DA
 CODE_B9F66E:
 	STA.b $1C
-	LDA.b !RAM_DKC3_Global_CurrentLevelLo
+	LDA.b level_number
 	CMP.w #!Define_DKC3_LevelID_Knautilus
 	BEQ.b CODE_B9F612
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $28,x
 	AND.w #$0011
 	CMP.w #$0001
@@ -8154,7 +8332,7 @@ DATA_B9F79A:
 CODE_B9F7CA:
 	NOP #4
 	STX.b $E0
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w #$0100
 	CMP.b $12,x
 	BCS.b CODE_B9F7E3
@@ -8179,7 +8357,7 @@ CODE_B9F7EF:
 	LDA.b $A4
 	BNE.b CODE_B9F82B
 	TYA
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	SBC.w $0016,y
 	BPL.b CODE_B9F82D
 	CMP.w #$FFF0
@@ -8199,7 +8377,7 @@ CODE_B9F7EF:
 CODE_B9F82B:
 	STA.b $8A
 CODE_B9F82D:
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $0012,y
 	STA.b $D0
 	CMP.b $88
@@ -8246,7 +8424,7 @@ CODE_B9F870:
 	RTL
 
 CODE_B9F87F:
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $0012,y
 	STA.b $88
 	CMP.b $D0
@@ -8281,7 +8459,7 @@ CODE_B9F8A9:
 	LDA.b $D4
 	BNE.b CODE_B9F893
 	LDX.b $E0
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 CODE_B9F8C5:
 	LDA.w $0012,y
 	STA.b $12,x

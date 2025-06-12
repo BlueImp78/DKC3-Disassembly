@@ -455,7 +455,7 @@ CODE_8082E2:
 	TDC
 CODE_8082E7:
 	REP #$20
-	STA.w !RAM_DKC3_Global_FrenchTextFlag
+	STA.w language_select
 CODE_8082EC:
 	LDA #$0000
 	TCD
@@ -595,7 +595,7 @@ CODE_8083CC:
 	LDA.b $F4
 	CMP.w $053D
 	BCC.b CODE_80840A
-	LDA.w $04EC
+	LDA.w screen_brightness
 	AND.w #$FF00
 	BNE.b CODE_80840A
 	LDA.w #$810F
@@ -628,8 +628,8 @@ CODE_808417:
 	LDA.w $053B
 	STA.w $06A1
 	LDA.w #!Define_DKC3_LevelID_LakesideLimbo_Main
-	STA.b !RAM_DKC3_Global_CurrentLevelLo
-	STA.w $05B9
+	STA.b level_number
+	STA.w parent_level_number
 	LDA.w #$0000
 	STA.w $05B5
 	STZ.w $05AF
@@ -699,7 +699,7 @@ CODE_8084C7:
 
 CODE_8084D9:
 	PHX
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.b $0A,x
 	PLX
 	AND.w #$1F00
@@ -721,8 +721,8 @@ CODE_8084ED:
 	RTL
 
 set_fade:
-	STZ.w $04ED
-	STA.w $04EC
+	STZ.w screen_fade_speed
+	STA.w screen_brightness
 	RTL
 
 fade_screen:
@@ -781,12 +781,12 @@ CODE_808550:
 	STA.w $1D8F
 	LDY.w #$026E
 	JSL.l CODE_BB8588
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.b $1E,x
 	AND.w #$F1FF
 	ORA.w #$0C00
 	STA.b $1E,x
-	LDA.b !RAM_DKC3_Global_CurrentLevelLo
+	LDA.b level_number
 	CMP.w #!Define_DKC3_LevelID_BossPhotos
 	BNE.b CODE_8085A7
 	LDA.b $16,x
@@ -926,8 +926,8 @@ CODE_8086A0:
 	JSL.l CODE_BB8585
 CODE_8086A4:
 	STZ.w $05B5
-	LDX.b $76
-	STX.w $04F9
+	LDX.b alternate_sprite
+	STX.w active_kong_sprite
 	LDA.w #$1480
 	CPX.w $0501
 	BEQ.b CODE_8086B7
@@ -999,8 +999,8 @@ CODE_80872E:
 	STA.w $04F7
 	LDA.w #CODE_808769
 	STA.w $04F5
-	LDY.b $76
-	STY.b $70
+	LDY.b alternate_sprite
+	STY.b current_sprite
 	LDA.w $0004,y
 	PHA
 	PLB
@@ -1109,7 +1109,7 @@ CODE_808804:
 CODE_80882A:
 	LDA.w #$2000
 	TSB.w $05B1
-	LDA.b !RAM_DKC3_Global_CurrentLevelLo
+	LDA.b level_number
 	CMP.w #!Define_DKC3_LevelID_BrothersBearPhotos
 	BEQ.b CODE_808898
 	CMP.w #!Define_DKC3_LevelID_BossPhotos
@@ -1224,8 +1224,8 @@ CODE_80889E:
 	RTS
 
 set_all_oam_offscreen:
-	LDA.w #$0200
-	STA.b $82
+	LDA.w #oam_table
+	STA.b next_oam_slot
 	JSR.w set_unused_oam_offscreen
 	RTL
 
@@ -1375,7 +1375,7 @@ CODE_808AB5:
 	RTL
 
 CODE_808ABC:
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BEQ.b CODE_808AB5
 	CMP.w #$0100
 	BCS.b CODE_808AB5
@@ -1487,7 +1487,7 @@ CODE_808B93:
 	RTS
 
 CODE_808BA4:
-	LDX.w $05B9
+	LDX.w parent_level_number
 	LDA.w $0632,x
 	AND.w #$0002
 	BEQ.b CODE_808BD3
@@ -1931,7 +1931,7 @@ CODE_808EE6:
 CODE_808EF1:
 	LDA.w #$8000
 	TSB.w $05AF
-	STZ.b $7E
+	STZ.b current_animal_type
 	LDA.w #$0001
 	TRB.w $05AF
 	LDA.w #$0002
@@ -1961,7 +1961,7 @@ CODE_808F33:
 	LDA.b [$1E],y
 	BMI.b CODE_808FA3
 	AND.w #$00FF
-	STA.b !RAM_DKC3_Global_CurrentLevelLo
+	STA.b level_number
 	LDY.w #$0003
 	LDA.b [$1E],y
 	AND.w #$00FF
@@ -2005,14 +2005,14 @@ CODE_808FA3:
 	CMP.w #$FFFF
 	BNE.b CODE_808FE5
 	LDA.w #$0002
-	STA.w $05E7
-	STZ.w $05E5
+	STA.w map_node_number
+	STZ.w current_world
 	LDA.w #$0800
 	STA.w $0611
 	LDA.w #$0005
 	TSB.w $05FB
 	LDA.w #$0001
-	STA.w $05EB
+	STA.w current_boat
 	LDA.w #$4000
 	TSB.w $05AF
 	LDA.w #$8002
@@ -2030,9 +2030,9 @@ CODE_808FE5:
 	CMP.w #$FFFE
 	BNE.b CODE_80901E
 	LDA.w #$0003
-	STA.w $05E7
+	STA.w map_node_number
 	LDA.w #$0001
-	STA.w $05E5
+	STA.w current_world
 	LDA.w #$0001
 	STA.w $0659
 	STA.w $0639
@@ -2086,14 +2086,14 @@ CODE_809040:
 	LDY.w #$0001
 	STY.w $05B5
 	LDA.w #$0002
-	STA.w $05E7
-	STZ.w $05E5
+	STA.w map_node_number
+	STZ.w current_world
 	LDA.w #$0800
 	STA.w $0611
 	LDA.w #$0005
 	TSB.w $05FB
 	LDA.w #$0001
-	STA.w $05EB
+	STA.w current_boat
 	LDA.w #$4000
 	TRB.w $05AF
 	LDA.w #$8002
@@ -2115,8 +2115,8 @@ CODE_8090C3:
 	TRB.w $05FD
 	STZ.w $0523
 	LDA.w #!Define_DKC3_LevelID_CloseupOfKRoolDrivingHovercraft
-	STA.b !RAM_DKC3_Global_CurrentLevelLo
-	STA.w $05B9
+	STA.b level_number
+	STA.w parent_level_number
 	STZ.w $05B7
 	LDA.w #$0563
 	JSL.l CODE_B28027
@@ -2370,10 +2370,10 @@ CODE_8092B6:
 	DEY
 	DEX
 	BPL.b CODE_8092B6
-	LDA.w !RAM_DKC3_Global_FrenchTextFlag
+	LDA.w language_select
 	LDY.w #$00DE
 	STA.b [$D0],y
-	LDA.w $0432
+	LDA.w stereo_select
 	LDY.w #$00DF
 	STA.b [$D0],y
 	LDA.w $05B5
@@ -2467,10 +2467,10 @@ CODE_809375:
 	BPL.b CODE_809375
 	LDY.w #$00DE
 	LDA.b [$D0],y
-	STA.w !RAM_DKC3_Global_FrenchTextFlag
+	STA.w language_select
 	LDY.w #$00DF
 	LDA.b [$D0],y
-	STA.w $0432
+	STA.w stereo_select
 	LDY.w #$00DD
 	LDA.b [$D0],y
 	STA.w $05B5
@@ -2611,7 +2611,7 @@ CODE_80949D:
 	BEQ.b CODE_8094A8
 	TDC
 CODE_8094A8:
-	STA.w $0432
+	STA.w stereo_select
 	REP.b #$20
 	JSL.l CODE_808411
 	LDA.w #$000F
@@ -2709,7 +2709,7 @@ CODE_809586:
 	REP.b #$20
 	JSR.w CODE_809FF8
 	SEP.b #$20
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	STZ.w $1560
@@ -2878,9 +2878,9 @@ CODE_809734:
 
 CODE_809741:
 	JSL.l fade_screen
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BNE.b CODE_80974D
-	CMP.w $04ED
+	CMP.w screen_fade_speed
 CODE_80974D:
 	RTS
 
@@ -3048,7 +3048,7 @@ CODE_809884:
 CODE_8098B6:
 	LDY.w #$024C
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.b $1E,x
 	AND.w #$0E00
 	STA.w $1CAA
@@ -3102,7 +3102,7 @@ CODE_809923:
 CODE_80992A:
 	BIT.w #$9080
 	BEQ.b CODE_809946
-	LDX.b $70
+	LDX.b current_sprite
 	INC.b $38,x
 	LDA.w #$0080
 	TSB.w $1C35
@@ -3247,7 +3247,7 @@ CODE_809A5E:
 
 CODE_809A62:
 	STZ.w $1CCE
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w #$000E
 	STA.b $38,x
 	LDA.w #$0080
@@ -3276,8 +3276,17 @@ CODE_809A9B:
 	RTS
 
 DATA_809AA7:
-	dw $0020,$0010,$0010,$0020,$0010,$0010,$0020,$0010
-	dw $0020,$0010,$0000
+	dw $0020
+	dw $0010
+	dw $0010
+	dw $0020
+	dw $0010
+	dw $0010
+	dw $0020
+	dw $0010
+	dw $0020
+	dw $0010
+	dw $0000
 
 CODE_809ABD:
 	LDA.w #$6200
@@ -3324,9 +3333,9 @@ CODE_809B13:
 	JSR.w CODE_80A3E9
 	TYX
 	STZ.b $38,x
-	LDA.w $0432
+	LDA.w stereo_select
 	EOR.w #$0001
-	STA.w $0432
+	STA.w stereo_select
 	SEP.b #$20
 	STA.l $B06009
 	REP.b #$20
@@ -3369,9 +3378,9 @@ CODE_809B7D:
 	JSR.w CODE_80A3E9
 	TYX
 	STZ.b $38,x
-	LDA.w $0432
+	LDA.w stereo_select
 	EOR.w #$0001
-	STA.w $0432
+	STA.w stereo_select
 	SEP.b #$20
 	STA.l $B06009
 	REP.b #$20
@@ -3412,9 +3421,9 @@ CODE_809BE2:
 	JSR.w CODE_80A3E9
 	TYX
 	STZ.b $38,x
-	LDA.w !RAM_DKC3_Global_FrenchTextFlag
+	LDA.w language_select
 	EOR.w #$0001
-	STA.w !RAM_DKC3_Global_FrenchTextFlag
+	STA.w language_select
 	SEP.b #$20
 	STA.l $B06008
 	REP.b #$20
@@ -3458,9 +3467,9 @@ CODE_809C4F:
 	JSR.w CODE_80A3E9
 	TYX
 	STZ.b $38,x
-	LDA.w !RAM_DKC3_Global_FrenchTextFlag
+	LDA.w language_select
 	EOR.w #$0001
-	STA.w !RAM_DKC3_Global_FrenchTextFlag
+	STA.w language_select
 	SEP.b #$20
 	STA.l $B06008
 	REP.b #$20
@@ -3698,7 +3707,7 @@ CODE_809E1A:
 	PHY
 	LDY.w #$0208
 	JSL.l CODE_BB8588
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$FFFF
 	STA.b $5E,x
 	LDA.w #$00F0
@@ -3820,7 +3829,7 @@ CODE_809F4A:
 	JSR.w CODE_80A1AA
 	LDY.w #$0262
 	JSL.l CODE_BB85B5
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w $1C37
 	STA.b $5C,x
 	INC.w $1C37
@@ -3828,7 +3837,7 @@ CODE_809F4A:
 	JSR.w CODE_80A1AA
 	LDY.w #$0262
 	JSL.l CODE_BB85B5
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w $1C37
 	STA.b $5C,x
 	INC.w $1C37
@@ -3836,7 +3845,7 @@ CODE_809F4A:
 	JSR.w CODE_80A1AA
 	LDY.w #$0262
 	JSL.l CODE_BB85B5
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w $1C37
 	STA.b $5C,x
 CODE_809F92:
@@ -4014,7 +4023,7 @@ CODE_80A112:
 	RTS
 
 CODE_80A113:
-	LDA.w $0432
+	LDA.w stereo_select
 	STA.b $1A
 	JSR.w CODE_80A166
 	LDA.w #$BC70
@@ -4028,7 +4037,7 @@ CODE_80A113:
 	JSR.w CODE_80A166
 	LDA.w #$D470
 	JSR.w CODE_80A453
-	LDA.w !RAM_DKC3_Global_FrenchTextFlag
+	LDA.w language_select
 	STA.b $1A
 	JSR.w CODE_80A177
 	LDA.w #$BCB0
@@ -4107,7 +4116,7 @@ CODE_80A1BD:
 	JSL.l CODE_BB8585
 	LDA.w #$F000
 	STA.b $42
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w $1C37
 	STA.b $6A,x
 	ASL
@@ -4226,7 +4235,7 @@ CODE_80A2DE:
 	LDA.w #$0800
 	STA.b $38
 	LDX.w #$0002
-	LDA.w $0432
+	LDA.w stereo_select
 	BNE.b CODE_80A2F3
 	LDX.w #$0000
 CODE_80A2F3:
@@ -4235,7 +4244,7 @@ CODE_80A2F3:
 	JSR.w CODE_80A33F
 	JSR.w CODE_80A33F
 	LDX.w #$0000
-	LDA.w !RAM_DKC3_Global_FrenchTextFlag
+	LDA.w language_select
 	BEQ.b CODE_80A312
 	LDX.w #$0002
 	CMP.w #$0001
@@ -4448,7 +4457,7 @@ CODE_80A465:
 	PHK
 	PLB
 	LDX.w #$1C41
-	LDY.b $82
+	LDY.b next_oam_slot
 CODE_80A46C:
 if !Define_DKC3_Global_RemappedBank80 == !TRUE
 	LDA.w $0000,x
@@ -4492,7 +4501,7 @@ CODE_80A48F:
 	BRA.b CODE_80A46C
 
 CODE_80A495:
-	STY.b $82
+	STY.b next_oam_slot
 	RTS
 
 CODE_80A498:
@@ -4520,7 +4529,7 @@ CODE_80A4B6:
 	ADC.w #$0064
 	ORA.w $1C8D
 	PHY
-	LDY.b $82
+	LDY.b next_oam_slot
 	STA.w $0002,y
 	LDA.b $1C
 	STA.w $0000,y
@@ -4528,7 +4537,7 @@ CODE_80A4B6:
 	INY
 	INY
 	INY
-	STY.b $82
+	STY.b next_oam_slot
 	PLY
 	CLC
 	ADC.w #$0008
@@ -4575,7 +4584,7 @@ CODE_80A50C:
 
 CODE_80A511:
 	STY.b $1A
-	LDY.b $82
+	LDY.b next_oam_slot
 CODE_80A515:
 	LDA.b $00,x
 	AND.w #$007F
@@ -4586,12 +4595,12 @@ CODE_80A515:
 	INX
 	BIT.w #$0080
 	BEQ.b CODE_80A515
-	STY.b $82
+	STY.b next_oam_slot
 	RTS
 
 CODE_80A52C:
 	STY.b $1A
-	LDY.b $82
+	LDY.b next_oam_slot
 if !Define_DKC3_Global_RemappedBank80 == !TRUE
 	LDA.w $0000,x
 else
@@ -4610,7 +4619,7 @@ else
 endif
 	AND.w #$00FF
 	BNE.b CODE_80A535
-	STY.b $82
+	STY.b next_oam_slot
 	RTS
 
 CODE_80A547:
@@ -4735,7 +4744,7 @@ CODE_80A5F3:
 	RTS
 
 CODE_80A608:
-	LDY.b $82
+	LDY.b next_oam_slot
 	LDX.w $1C93
 	LDA.w $04C4
 	BNE.b CODE_80A615
@@ -4765,11 +4774,13 @@ CODE_80A624:
 	STA.b $1A
 	DEX
 	BNE.b CODE_80A624
-	STY.b $82
+	STY.b next_oam_slot
 	RTS
 
 DATA_80A644:
-	dw $3858,$6858,$9858
+	dw $3858
+	dw $6858
+	dw $9858
 
 CODE_80A64A:
 	JSR.w CODE_80A65F
@@ -5010,7 +5021,7 @@ CODE_80A81A:
 	ORA.w $1C81
 	ORA.w #$3000
 	STA.b $1A
-	LDX.b $82
+	LDX.b next_oam_slot
 	LDA.w $0012,y
 	SEP.b #$20
 	SEC
@@ -5028,7 +5039,7 @@ CODE_80A81A:
 	INX
 	INX
 	INX
-	STX.b $82
+	STX.b next_oam_slot
 	JMP.w [$04F5]
 
 Spr0330_FileSelectIcon_Main:
@@ -5298,7 +5309,7 @@ CODE_80AA55:
 	AND.w #$0003
 	EOR.w #$0003
 	BNE.b CODE_80AA63
-	LDX.b $70
+	LDX.b current_sprite
 	INC.b $12,x
 CODE_80AA63:
 	JMP.w [$04F5]
@@ -5427,7 +5438,7 @@ CODE_80AB50:
 	JSR.w CODE_80A369
 CODE_80AB61:
 	LDA.w #$0028
-	LDX.w !RAM_DKC3_Global_FrenchTextFlag
+	LDX.w language_select
 	CPX.w #$0002
 	BNE.b CODE_80AB6F
 	LDA.w #$0029
@@ -5712,7 +5723,7 @@ CODE_80AD92:
 	STA.w $1C93
 	LDA.w #$0080
 	TRB.w $1C35
-	LDX.b $70
+	LDX.b current_sprite
 	INC.b $38,x
 	RTS
 
@@ -5738,7 +5749,7 @@ CODE_80ADD5:
 	REP.b #$20
 	JSR.w CODE_809FED
 	JSR.w CODE_80A2A5
-	LDY.b $70
+	LDY.b current_sprite
 	RTS
 
 Spr0068_PlayModeText_Main:
@@ -6092,7 +6103,7 @@ CODE_80B118:
 	TAX
 	LDY.w DATA_80C31A,x
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.b $16,x
 	CLC
 	ADC.b $34
@@ -6105,7 +6116,7 @@ CODE_80B118:
 	BPL.b CODE_80B118
 	LDY.w #$0264
 	JSL.l CODE_BB85B5
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w #$00BD
 	STA.b $12,x
 	LDA.w #$0039
@@ -6116,14 +6127,14 @@ CODE_80B118:
 	STA.b $5E,x
 	LDY.w #$0260
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.b $16,x
 	CLC
 	ADC.b $34
 	STA.b $16,x
 	LDY.w #$025C
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	STX.w $18E7
 	LDA.w $0605
 	STA.b $68,x
@@ -6210,12 +6221,12 @@ CODE_80B1ED:
 	JSL.l CODE_B38006
 	JSL.l CODE_808799
 	SEP.b #$20
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	STZ.w $1560
 	STZ.w $155E
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BIT.w #$FF00
 	BNE.b CODE_80B24C
 	JSL.l CODE_8089CA
@@ -6286,7 +6297,7 @@ CODE_80B2C8:
 	PLB
 	LDA.w #$4001
 	TRB.w $05AF
-	STZ.b $7E
+	STZ.b current_animal_type
 	LDA.w #$1D93
 	STA.w $0541
 	LDA.w #$0040
@@ -6301,7 +6312,7 @@ CODE_80B2C8:
 	STA.w $051D
 	LDA.w DATA_80C679+$04,x
 	AND.w #$00FF
-	STA.b !RAM_DKC3_Global_CurrentLevelLo
+	STA.b level_number
 	STZ.w $05B7
 	LDA.w DATA_80C679+$02,x
 	SEC
@@ -6455,7 +6466,7 @@ CODE_80B45D:
 	JSL.l CODE_B38006
 	JSL.l CODE_808799
 	SEP.b #$20
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	STZ.w $1560
@@ -6669,12 +6680,12 @@ CODE_80B605:
 	REP.b #$20
 CODE_80B648:
 	SEP.b #$20
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	STZ.w $1560
 	STZ.w $155E
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BIT.w #$FF00
 	BNE.b CODE_80B682
 	LDA.w $1D39
@@ -6773,7 +6784,7 @@ CODE_80B714:
 	JSL.l CODE_B38006
 	JSL.l CODE_808799
 	SEP.b #$20
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	STZ.w $1560
@@ -6786,7 +6797,7 @@ CODE_80B714:
 	STA.w $1C3D
 CODE_80B76D:
 	JSR.w CODE_80B9AC
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BIT.w #$FF00
 	BNE.b CODE_80B7D5
 	JSL.l CODE_8089CA
@@ -6877,7 +6888,7 @@ CODE_80B7FD:
 CODE_80B84B:
 	LDY.w #$0284
 	JSL.l CODE_BB85B8
-	LDX.b $76
+	LDX.b alternate_sprite
 	LDA.w $1CCA
 	STA.b $5C,x
 	DEC.w $1CCA
@@ -7146,11 +7157,11 @@ CODE_80BA6A:
 	BCC.b CODE_80BABD
 	LDY.w #$0370
 	JSL.l CODE_BB8585
-	LDA.b $76
+	LDA.b alternate_sprite
 	PHA
 	LDY.w #$0362
 	JSL.l CODE_BB8585
-	LDX.b $76
+	LDX.b alternate_sprite
 	PLA
 	STA.b $5C,x
 CODE_80BABD:
@@ -7471,7 +7482,7 @@ CODE_80BD56:
 	LDA.w #$1D93
 	STA.w $0541
 	LDY.w #$0000
-	LDA.w !RAM_DKC3_Global_FrenchTextFlag
+	LDA.w language_select
 	BEQ.b CODE_80BD6F
 	LDY.w #$000C
 	CMP.w #$0001
@@ -7554,13 +7565,13 @@ CODE_80BE01:
 	BEQ.b CODE_80BE5C
 	LDY.w #$0360
 	JSL.l CODE_BB8588
-	LDX.b $70
+	LDX.b current_sprite
 	BCC.b CODE_80BE19
 	INC.b $64,x
 	JMP.w [$04F5]
 
 CODE_80BE19:
-	LDY.b $76
+	LDY.b alternate_sprite
 	STX.b $4C,y
 	STY.b $18,x
 	LDA.b $5C,x
@@ -7590,7 +7601,7 @@ CODE_80BE19:
 	TYX
 	ADC.w #$00FA
 	JSL.l CODE_BB85A0
-	LDX.b $70
+	LDX.b current_sprite
 	DEC.b $5E,x
 	BPL.b CODE_80BE74
 CODE_80BE5C:
@@ -7636,9 +7647,9 @@ DATA_80BEC4:
 	db $80,$04,$80,$01,$80,$04,$80
 
 DATA_80BEDB:
-	db "NEW RECORD!",$00
-	db "NOUVEAU RECORD!",$00
-	db "NEU REKORD!",$00
+	db "NEW RECORD!", $00
+	db "NOUVEAU RECORD!", $00
+	db "NEU REKORD!", $00
 
 Spr0110_unknown_sprite_0110_Main:
 ;$80BF03
@@ -7795,7 +7806,7 @@ CODE_80C008:
 	RTS
 
 CODE_80C012:
-	LDX.b $70
+	LDX.b current_sprite
 	LDA.w #$0100
 	STA.b $1C
 	LDA.w #$7E00
@@ -7981,7 +7992,7 @@ CODE_80C14A:
 	STA.w $0541
 	LDY.w #$0208
 	JSL.l CODE_BB8588
-	LDX.b $76
+	LDX.b alternate_sprite
 	STZ.b $60,x
 	LDA.w #$FFFF
 	STA.b $5E,x
@@ -8015,12 +8026,12 @@ CODE_80C1AA:
 	JSL.l CODE_B38006
 	JSL.l CODE_808799
 	SEP.b #$20
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	STZ.w $1560
 	STZ.w $155E
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BIT.w #$FF00
 	BNE.b CODE_80C1E0
 	JSL.l CODE_8089CA
@@ -8090,19 +8101,19 @@ DATA_80C343:
 	db $06,$10,$1A,$06,$15,$24
 
 DATA_80C349:
-	db "FRANCAI",$D3
+	db "FRANCAI", $D3
 
 UNK_80C351:
-	db "DEUTSC",$C8
+	db "DEUTSC", $C8
 
 DATA_80C358:
-	db "ENGLIS",$C8
+	db "ENGLIS", $C8
 
 DATA_80C35F:
-	db "STERE",$CF
+	db "STERE", $CF
 
 DATA_80C365:
-	db "MON",$CF
+	db "MON", $CF
 
 DATA_80C369:
 	db $25,$A0
@@ -8165,112 +8176,112 @@ DATA_80C421:
 	db $A0
 
 DATA_80C422:
-	db "CAVERN CAPRIC",$C5
+	db "CAVERN CAPRIC", $C5
 
 DATA_80C430:
-	db "WATER WORL",$C4
+	db "WATER WORL", $C4
 
 DATA_80C43B:
-	db "ROCKFACE RUMBL",$C5
+	db "ROCKFACE RUMBL", $C5
 
 DATA_80C44A:
-	db "JUNGLE JITTE",$D2
+	db "JUNGLE JITTE", $D2
 
 DATA_80C457:
-	db "NUTS AND BOLT",$D3
+	db "NUTS AND BOLT", $D3
 
 DATA_80C465:
-	db "MILL FEVE",$D2
+	db "MILL FEVE", $D2
 
 DATA_80C46F:
-	db "ENCHANTED RIVERBAN",$CB
+	db "ENCHANTED RIVERBAN", $CB
 
 DATA_80C482:
-	db "HOT PURSUI",$D4
+	db "HOT PURSUI", $D4
 
 DATA_80C48D:
-	db "ROCKET RU",$CE
+	db "ROCKET RU", $CE
 
 DATA_80C497:
-	db "FROSTY FROLIC",$D3
+	db "FROSTY FROLIC", $D3
 
 DATA_80C4A5:
-	db "STILT VILLAG",$C5
+	db "STILT VILLAG", $C5
 
 DATA_80C4B2:
-	db "TREETOP TUMBL",$C5
+	db "TREETOP TUMBL", $C5
 
 DATA_80C4C0:
-	db "POKEY PIPE",$D3
+	db "POKEY PIPE", $D3
 
 DATA_80C4CB:
-	db "CASCADE CAPER",$D3
+	db "CASCADE CAPER", $D3
 
 DATA_80C4D9:
-	db "BOSS BOOGI",$C5
+	db "BOSS BOOGI", $C5
 
 DATA_80C4E4:
-	db "BIG BOSS BLUE",$D3
+	db "BIG BOSS BLUE", $D3
 
 DATA_80C4F2:
-	db "BONUS TIME",$A1
+	db "BONUS TIME", $A1
 
 DATA_80C4FD:
-	db "WRINKLY'S SAVE CAV",$C5
+	db "WRINKLY'S SAVE CAV", $C5
 
 DATA_80C510:
-	db "GET FIT A-GO-G",$CF
+	db "GET FIT A-GO-G", $CF
 
 DATA_80C51F:
-	db "WRINKLY 6",$B4
+	db "WRINKLY 6", $B4
 
 DATA_80C529:
-	db "FANFAR",$C5
+	db "FANFAR", $C5
 
 DATA_80C530:
-	db "HANGIN' AT FUNKY'",$D3
+	db "HANGIN' AT FUNKY'", $D3
 
 DATA_80C542:
-	db "BROTHERS BEA",$D2
+	db "BROTHERS BEA", $D2
 
 DATA_80C54F:
-	db "SWANKY'S SIDESHO",$D7
+	db "SWANKY'S SIDESHO", $D7
 
 DATA_80C560:
-	db "CRANKY'S SHOWDOW",$CE
+	db "CRANKY'S SHOWDOW", $CE
 
 DATA_80C571:
-	db "DIXIE BEA",$D4
+	db "DIXIE BEA", $D4
 
 DATA_80C57B:
-	db "NORTHERN KREMISPHER",$C5
+	db "NORTHERN KREMISPHER", $C5
 
 DATA_80C58F:
-	db "SUBMAP SHUFFL",$C5
+	db "SUBMAP SHUFFL", $C5
 
 DATA_80C59D:
-	db "KREMATOA KONCERT",$CF
+	db "KREMATOA KONCERT", $CF
 
 DATA_80C5AE:
-	db "GAME OVE",$D2
+	db "GAME OVE", $D2
 
 DATA_80C5B7:
-	db "CRYSTAL CHAS",$CD
+	db "CRYSTAL CHAS", $CD
 
 DATA_80C5C4:
-	db "CRAZY CALYPS",$CF
+	db "CRAZY CALYPS", $CF
 
 DATA_80C5D1:
-	db "BADDIES ON PARAD",$C5
+	db "BADDIES ON PARAD", $C5
 
 DATA_80C5E2:
-	db "JANGLE BELL",$D3
+	db "JANGLE BELL", $D3
 
 DATA_80C5EE:
-	db "MAMA BIR",$C4
+	db "MAMA BIR", $C4
 
 UNK_80C5F7:
-	db "                ",$A0
+	db "                ", $A0
 
 DATA_80C608:
 	dw DATA_80C63E
@@ -8280,19 +8291,19 @@ DATA_80C608:
 	dw DATA_80C612
 
 DATA_80C612:
-	db "CRANK",$D9,$B0,$4D,$11,$00,$67
+	db "CRANK", $D9, $B0, $4D, $11, $00, $67
 
 DATA_80C61D:
-	db "FUNK",$D9,$90,$F3,$12,$00,$65
+	db "FUNK", $D9, $90, $F3, $12, $00, $65
 
 DATA_80C627:
-	db "SWANK",$D9,$80,$C6,$13,$00,$58
+	db "SWANK", $D9, $80, $C6, $13, $00, $58
 
 DATA_80C632:
-	db "WRINKL",$D9,$80,$2B,$18,$00,$3C
+	db "WRINKL", $D9, $80, $2B, $18, $00, $3C
 
 DATA_80C63E:
-	db "RAR",$C5,$80,$F5,$20,$00,$01
+	db "RAR", $C5, $80, $F5, $20, $00, $01
 
 DATA_80C647:
 	db $DB
@@ -8362,163 +8373,163 @@ DATA_80C679:
 	dw $0000,$0000 : db $00,$00 : dw $FFFF
 
 DATA_80C829:
-	db "KOBBLE",$00
+	db "KOBBLE", $00
 
 DATA_80C830:
-	db "SNEEK",$00
+	db "SNEEK", $00
 
 DATA_80C836:
-	db "KRIMP",$00
+	db "KRIMP", $00
 
 DATA_80C83C:
-	db "KNIK-KNAK",$00
+	db "KNIK-KNAK", $00
 
 DATA_80C846:
-	db "BRISTLES",$00
+	db "BRISTLES", $00
 
 DATA_80C84F:
-	db "KNOCKA",$00
+	db "KNOCKA", $00
 
 UNK_80C856:
-	db "KRACKA",$00
+	db "KRACKA", $00
 
 DATA_80C85D:
-	db "KRUMPLE",$00
+	db "KRUMPLE", $00
 
 DATA_80C865:
-	db "KOPTER",$00
+	db "KOPTER", $00
 
 DATA_80C86C:
-	db "BAZUKA",$00
+	db "BAZUKA", $00
 
 DATA_80C873:
-	db "KLASP",$00
+	db "KLASP", $00
 
 DATA_80C879:
-	db "RE-KOIL",$00
+	db "RE-KOIL", $00
 
 DATA_80C881:
-	db "KUCHUKA",$00
+	db "KUCHUKA", $00
 
 DATA_80C889:
-	db "KOIN",$00
+	db "KOIN", $00
 
 DATA_80C88E:
-	db "KUFF 'N' KLOUT",$00
+	db "KUFF 'N' KLOUT", $00
 
 DATA_80C89D:
-	db "KARBINE",$00
+	db "KARBINE", $00
 
 DATA_80C8A5:
-	db "MINKEY",$00
+	db "MINKEY", $00
 
 DATA_80C8AC:
-	db "LEMGUIN",$00
+	db "LEMGUIN", $00
 
 DATA_80C8B4:
-	db "NID",$00
+	db "NID", $00
 
 DATA_80C8B8:
-	db "SKIDDA",$00
+	db "SKIDDA", $00
 
 DATA_80C8BF:
-	db "BUZZ",$00
+	db "BUZZ", $00
 
 DATA_80C8C4:
-	db "SWOOPY",$00
+	db "SWOOPY", $00
 
 DATA_80C8CB:
-	db "BOOTY BIRD",$00
+	db "BOOTY BIRD", $00
 
 DATA_80C8D6:
-	db "KOCO",$00
+	db "KOCO", $00
 
 DATA_80C8DB:
-	db "LURCHIN",$00
+	db "LURCHIN", $00
 
 DATA_80C8E3:
-	db "NIBBLA",$00
+	db "NIBBLA", $00
 
 DATA_80C8EA:
-	db "BOUNTY BASS",$00
+	db "BOUNTY BASS", $00
 
 DATA_80C8F6:
-	db "BAZZA",$00
+	db "BAZZA", $00
 
 DATA_80C8FC:
-	db "GLEAMIN' BREAM",$00
+	db "GLEAMIN' BREAM", $00
 
 DATA_80C90B:
-	db "BELCHA",$00
+	db "BELCHA", $00
 
 DATA_80C912:
-	db "ARICH",$00
+	db "ARICH", $00
 
 DATA_80C918:
-	db "SQUIRT",$00
+	db "SQUIRT", $00
 
 DATA_80C91F:
-	db "KAOS",$00
+	db "KAOS", $00
 
 DATA_80C924:
-	db "BLEAK",$00
+	db "BLEAK", $00
 
 DATA_80C92A:
-	db "BARBOS",$00
+	db "BARBOS", $00
 
 DATA_80C931:
-	db "BARON K.ROOLENSTEIN",$00
+	db "BARON K.ROOLENSTEIN", $00
 
 DATA_80C945:
-	db "ENGUARDE",$00
+	db "ENGUARDE", $00
 
 DATA_80C94E:
-	db "SQUAWKS",$00
+	db "SQUAWKS", $00
 
 DATA_80C956:
-	db "SQUITTER",$00
+	db "SQUITTER", $00
 
 DATA_80C95F:
-	db "ELLIE",$00
+	db "ELLIE", $00
 
 DATA_80C965:
-	db "PARRY",$00
+	db "PARRY", $00
 
 DATA_80C96B:
-	db " BAZAAR         BARNACLE",$00
+	db " BAZAAR         BARNACLE", $00
 
 DATA_80C984:
-	db "  BRASH         BLUNDER ",$00
+	db "  BRASH         BLUNDER ", $00
 
 DATA_80C99D:
-	db "  BLUE          BAZOOKA ",$00
+	db "  BLUE          BAZOOKA ", $00
 
 DATA_80C9B6:
-	db "BLIZZARD       BRAMBLE",$00
+	db "BLIZZARD       BRAMBLE", $00
 
 DATA_80C9CD:
-	db "BENNY ] BJ+RN    BARTER   ",$00
+	db "BENNY ] BJ+RN    BARTER   ", $00
 
 DATA_80C9E8:
-	db "BAFFLE          BOOMER",$00
+	db "BAFFLE          BOOMER", $00
 
 DATA_80C9FF:
-	db "DIXIE KONG",$00
+	db "DIXIE KONG", $00
 
 DATA_80CA0A:
-	db "KIDDY KONG",$00
+	db "KIDDY KONG", $00
 
 DATA_80CA15:
-	db "FUNKY KONG",$00
+	db "FUNKY KONG", $00
 
 DATA_80CA20:
-	db "WRINKLY KONG",$00
+	db "WRINKLY KONG", $00
 
 DATA_80CA2D:
-	db "SWANKY KONG",$00
+	db "SWANKY KONG", $00
 
 DATA_80CA39:
-	db "CRANKY KONG",$00
+	db "CRANKY KONG", $00
 
 CODE_80CA45:
 	JML.l CODE_80CA49
@@ -8546,55 +8557,55 @@ CODE_80CA6E:
 	RTI
 
 UNK_80CA70:
-	db "GUARDE",$00
+	db "GUARDE", $00
 
 UNK_80CA77:
-	db "SQUAWKS",$00
+	db "SQUAWKS", $00
 
 UNK_80CA7F:
-	db "SQUITTER",$00
+	db "SQUITTER", $00
 
 UNK_80CA88:
-	db "ELLIE",$00
+	db "ELLIE", $00
 
 UNK_80CA8E:
-	db "PARRY",$00
+	db "PARRY", $00
 
 UNK_80CA94:
-	db " BAZAAR         BARNACLE",$00
+	db " BAZAAR         BARNACLE", $00
 
 UNK_80CAAD:
-	db "  BRASH         BLUNDER ",$00
+	db "  BRASH         BLUNDER ", $00
 
 UNK_80CAC6:
-	db "  BLUE          BAZOOKA ",$00
+	db "  BLUE          BAZOOKA ", $00
 
 UNK_80CADF:
-	db "BLIZZARD       BRAMBLE",$00
+	db "BLIZZARD       BRAMBLE", $00
 
 UNK_80CAF6:
-	db "BENNY ] BJ+RN    BARTER   ",$00
+	db "BENNY ] BJ+RN    BARTER   ", $00
 
 UNK_80CB11:
-	db "BAFFLE          BOOMER",$00
+	db "BAFFLE          BOOMER", $00
 
 UNK_80CB28:
-	db "DIXIE KONG",$00
+	db "DIXIE KONG", $00
 
 UNK_80CB33:
-	db "KIDDY KONG",$00
+	db "KIDDY KONG", $00
 
 UNK_80CB3E:
-	db "FUNKY KONG",$00
+	db "FUNKY KONG", $00
 
 UNK_80CB49:
-	db "WRINKLY KONG",$00
+	db "WRINKLY KONG", $00
 
 UNK_80CB56:
-	db "SWANKY KONG",$00
+	db "SWANKY KONG", $00
 
 UNK_80CB62:
-	db "CRANKY KONG",$00
+	db "CRANKY KONG", $00
 
 CODE_80CB6E:
 	JML.l CODE_80CB72

@@ -5,7 +5,7 @@ ADDR_BAD100:
 	STA.w $1D6D
 	LDA.w $04AE
 	STA.w $1D6F
-	LDY.w $04F9
+	LDY.w active_kong_sprite
 	LDA.w $0012,y
 	CLC
 	ADC.w #$0003
@@ -31,7 +31,7 @@ ADDR_BAD100:
 	LDA.w #$0800
 	STA.w $0482
 	STA.w $0486
-	LDX.w $04FD
+	LDX.w follower_kong_sprite
 	STZ.b $22,x
 	STZ.b $20,x
 	STZ.b $24,x
@@ -332,7 +332,7 @@ ADDR_BAD3B5:
 
 ADDR_BAD3C0:
 	LDA.w #$0200
-	STA.b $82
+	STA.b next_oam_slot
 	LDX.w #$001E
 ADDR_BAD3C8:
 	STZ.w $0400,x
@@ -3588,7 +3588,7 @@ ADDR_BAEC85:
 	PHA
 	PHX
 	LDX.b $1E
-	LDY.b $82
+	LDY.b next_oam_slot
 	EOR.l UNK_BAECB1,x
 	CLC
 	ADC.l UNK_BAECE1,x
@@ -3603,7 +3603,7 @@ ADDR_BAEC85:
 	INY
 	INY
 	INY
-	STY.b $82
+	STY.b next_oam_slot
 	INC.b $1E
 	INC.b $1E
 	PLX
@@ -3770,7 +3770,7 @@ ADDR_BAEDE9:
 	SEP.b #$20
 	STA.b $1A
 	REP.b #$20
-	LDY.b $82
+	LDY.b next_oam_slot
 	CPY.w #$0400
 	BCS.b ADDR_BAEE56
 	JSR.w ADDR_BAEF19
@@ -3782,7 +3782,7 @@ ADDR_BAEDE9:
 	INY
 	INY
 	INY
-	STY.b $82
+	STY.b next_oam_slot
 ADDR_BAEE17:
 	SEP.b #$20
 	AND.b #$1F
@@ -3794,7 +3794,7 @@ ADDR_BAEE23:
 	SEP.b #$20
 	STA.b $1A
 	REP.b #$20
-	LDY.b $82
+	LDY.b next_oam_slot
 	CPY.w #$0400
 	BCS.b ADDR_BAEE56
 ADDR_BAEE30:
@@ -3806,7 +3806,7 @@ ADDR_BAEE30:
 	INY
 	INY
 	INY
-	STY.b $82
+	STY.b next_oam_slot
 	CPY.w #$0400
 	BCS.b ADDR_BAEE56
 	SEP.b #$20
@@ -3875,7 +3875,7 @@ ADDR_BAEEA3:
 	REP.b #$20
 	CMP.w #$FFF8
 	BCC.b ADDR_BAEED5
-	LDY.b $82
+	LDY.b next_oam_slot
 	CPY.w #$0400
 	BCS.b ADDR_BAEF18
 	BIT.b $20
@@ -3890,7 +3890,7 @@ ADDR_BAEEC5:
 	INY
 	INY
 	INY
-	STY.b $82
+	STY.b next_oam_slot
 ADDR_BAEED5:
 	LDA.b $1B
 	AND.w #$001F
@@ -3900,7 +3900,7 @@ ADDR_BAEEDE:
 	SEP.b #$20
 	STA.b $1B
 	REP.b #$20
-	LDY.b $82
+	LDY.b next_oam_slot
 	CPY.w #$0400
 	BCS.b ADDR_BAEF18
 ADDR_BAEEEB:
@@ -3916,7 +3916,7 @@ ADDR_BAEEFC:
 	INY
 	INY
 	INY
-	STY.b $82
+	STY.b next_oam_slot
 	CPY.w #$0400
 	BCS.b ADDR_BAEF18
 	SEP.b #$20
@@ -3956,7 +3956,7 @@ UNK_BAEF33:
 
 ADDR_BAEF41:
 	LDA.w #$0200
-	STA.b $82
+	STA.b next_oam_slot
 	LDX.w #$001E
 ADDR_BAEF49:
 	STZ.w $0400,x
@@ -6060,7 +6060,7 @@ ADDR_BAFDDE:
 	LDA.w $0828
 	AND.w #$3FFF
 	STA.b $1A
-	LDX.b $82
+	LDX.b next_oam_slot
 	LDA.w #$0000
 	LDY.w #$0000
 	JSR.w ADDR_BAFE1D
@@ -6079,7 +6079,7 @@ ADDR_BAFDDE:
 	LDA.w #$0000
 	LDY.b $1E
 	JSR.w ADDR_BAFE1D
-	STX.b $82
+	STX.b next_oam_slot
 	TYA
 	BNE.b ADDR_BAFE79
 	RTS

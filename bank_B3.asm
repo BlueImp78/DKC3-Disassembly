@@ -162,7 +162,7 @@ CODE_B3810B:
 	STZ.w !REGISTER_BG2VertScrollOffset
 	STZ.w !REGISTER_BG3VertScrollOffset
 	STZ.w !REGISTER_BG3VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -174,7 +174,7 @@ CODE_B3813E:
 	LDA.w $1975
 	STA.w !REGISTER_BG2VertScrollOffset
 	STZ.w !REGISTER_BG2VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -349,7 +349,7 @@ CODE_B38259:
 	SEP.b #$20
 	STA.w !REGISTER_BG3VertScrollOffset
 	STZ.w !REGISTER_BG3VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -395,7 +395,7 @@ CODE_B382EC:
 	LDA.w $1975
 	STA.w !REGISTER_BG1VertScrollOffset
 	STZ.w !REGISTER_BG1VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -476,7 +476,7 @@ CODE_B383A8:
 	LDA.w $1975
 	STA.w !REGISTER_BG1VertScrollOffset
 	STZ.w !REGISTER_BG1VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -551,13 +551,14 @@ CODE_B38475:
 	STZ.w !REGISTER_BG1VertScrollOffset
 	REP.b #$20
 	SEP.b #$20
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
 
 DATA_B384B1:
-	dw $4A08,$1880
+	dw $4A08
+	dw $1880
 
 CODE_B384B5:
 	JSR.w CODE_B380F4
@@ -603,7 +604,7 @@ CODE_B384B5:
 	LDA.w $1975
 	STA.w !REGISTER_BG1VertScrollOffset
 	STZ.w !REGISTER_BG1VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -656,7 +657,7 @@ CODE_B3853C:
 	STA.w !REGISTER_BG3VertScrollOffset
 	XBA
 	STA.w !REGISTER_BG3VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$30
 	RTS
@@ -697,7 +698,7 @@ CODE_B3858F:
 	LDA.w $1975
 	STA.w !REGISTER_BG1VertScrollOffset
 	STZ.w !REGISTER_BG1VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -920,7 +921,7 @@ CODE_B39359:
 	LDA.w $1975
 	STA.w !REGISTER_BG1VertScrollOffset
 	STZ.w !REGISTER_BG1VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -1062,7 +1063,7 @@ CODE_B394EB:
 	PLP
 	ADC.b #$00
 	STA.l $7EA35D
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -1223,7 +1224,7 @@ CODE_B39702:
 	LDA.w $1975
 	STA.w !REGISTER_BG1VertScrollOffset
 	STZ.w !REGISTER_BG1VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -1275,7 +1276,7 @@ CODE_B39781:
 	LDA.w $1975
 	STA.w !REGISTER_BG1VertScrollOffset
 	STZ.w !REGISTER_BG1VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -1317,7 +1318,7 @@ CODE_B397E9:
 	LDA.b #$02
 	STA.w !REGISTER_BG1VertScrollOffset
 	STZ.w !REGISTER_BG1VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	LDA.w #$0100
@@ -1353,7 +1354,7 @@ CODE_B39816:
 	STA.w !REGISTER_BG1VertScrollOffset
 	LDA.w $1B7A
 	STA.w !REGISTER_BG1VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -1504,7 +1505,7 @@ CODE_B3997A:
 	LDA.w $1975
 	STA.w !REGISTER_BG1VertScrollOffset
 	STZ.w !REGISTER_BG1VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -1537,7 +1538,7 @@ CODE_B39BB5:
 	LDA.l $7EA358
 	STA.w !REGISTER_BG3VertScrollOffset
 	STZ.w !REGISTER_BG3VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -1580,7 +1581,7 @@ CODE_B39C20:
 	CLC
 	ADC.b $1A
 	TAX
-	LDA.w $05B9
+	LDA.w parent_level_number
 	CMP.w #$002C
 	BNE.b CODE_B39C3B
 	TXA
@@ -1588,7 +1589,7 @@ CODE_B39C20:
 	ADC.w #$00A0
 	TAX
 CODE_B39C3B:
-	LDA.w $05B9
+	LDA.w parent_level_number
 	CMP.w #$002D
 	BNE.b CODE_B39C49
 	TXA
@@ -1881,7 +1882,7 @@ CODE_B39E6A:
 	STZ.w !REGISTER_BG1VertScrollOffset
 	STA.w !REGISTER_BG2VertScrollOffset
 	STZ.w !REGISTER_BG2VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	LDA.w #$0100
@@ -1929,7 +1930,7 @@ CODE_B39EB1:
 	LDA.w $1975
 	STA.w !REGISTER_BG1VertScrollOffset
 	STZ.w !REGISTER_BG1VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -1950,7 +1951,7 @@ CODE_B39F1C:
 	STA.w HDMA[$02].SourceLo
 CODE_B39F34:
 	SEP.b #$20
-	LDA.b $5A
+	LDA.b global_frame_counter
 	AND.b #$01
 	ASL
 	ASL
@@ -2083,7 +2084,7 @@ CODE_B39F34:
 	SEP.b #$20
 	STA.w !REGISTER_BG3VertScrollOffset
 	STZ.w !REGISTER_BG3VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -2248,7 +2249,7 @@ CODE_B3A21E:
 	ADC.l $7EA35A
 	STA.w !REGISTER_BG3HorizScrollOffset
 	STZ.w !REGISTER_BG3HorizScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -2386,7 +2387,7 @@ CODE_B3A357:
 	LDA.w $1975
 	STA.w !REGISTER_BG2VertScrollOffset
 	STZ.w !REGISTER_BG2VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -2397,7 +2398,7 @@ CODE_B3A3A4:
 	JSL.l CODE_B3D843
 	JSL.l CODE_80801E
 	SEP.b #$20
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -2416,7 +2417,7 @@ CODE_B3A3BD:
 	LDA.w $1C4B
 	STA.w !REGISTER_BG2VertScrollOffset
 	STZ.w !REGISTER_BG2VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -2659,7 +2660,7 @@ CODE_B3A5C8:
 	STZ.w !REGISTER_BG2VertScrollOffset
 	STA.w !REGISTER_BG1VertScrollOffset
 	STZ.w !REGISTER_BG1VertScrollOffset
-	LDA.w $04EC
+	LDA.w screen_brightness
 	STA.w !REGISTER_ScreenDisplayRegister
 	REP.b #$20
 	RTS
@@ -2718,7 +2719,7 @@ CODE_B3A694:
 	AND.w #$7000
 	BNE.b CODE_B3A6B9
 	JSL.l CODE_808021
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BEQ.b CODE_B3A6AB
 	JML.l CODE_808006
 
@@ -2867,13 +2868,63 @@ DATA_B3A7C0:
 	db $D4,$38,$04,$00
 
 DATA_B3A874:
-	dw $1801,$0C02,$1003,$3004,$3805,$3806,$B806,$1008
-	dw $1C09,$1C0A,$1C0A,$300B,$380C,$380D,$1C0F,$1C09
-	dw $1C0A,$1C0A,$3010,$3811,$3812,$0C14,$1015,$1C0A
-	dw $1C0A,$3016,$3017,$3018,$0C19,$1C09,$1C0A,$1C0A
-	dw $300B,$381A,$381B,$0C1D,$0C1E,$0C1F,$0C20,$3010
-	dw $3821,$3822,$1824,$1823,$1823,$1824,$3825,$3426
-	dw $3427,$1029,$1028,$1028,$1029,$302A,$3426,$342B
+	dw $1801
+	dw $0C02
+	dw $1003
+	dw $3004
+	dw $3805
+	dw $3806
+	dw $B806
+	dw $1008
+	dw $1C09
+	dw $1C0A
+	dw $1C0A
+	dw $300B
+	dw $380C
+	dw $380D
+	dw $1C0F
+	dw $1C09
+	dw $1C0A
+	dw $1C0A
+	dw $3010
+	dw $3811
+	dw $3812
+	dw $0C14
+	dw $1015
+	dw $1C0A
+	dw $1C0A
+	dw $3016
+	dw $3017
+	dw $3018
+	dw $0C19
+	dw $1C09
+	dw $1C0A
+	dw $1C0A
+	dw $300B
+	dw $381A
+	dw $381B
+	dw $0C1D
+	dw $0C1E
+	dw $0C1F
+	dw $0C20
+	dw $3010
+	dw $3821
+	dw $3822
+	dw $1824
+	dw $1823
+	dw $1823
+	dw $1824
+	dw $3825
+	dw $3426
+	dw $3427
+	dw $1029
+	dw $1028
+	dw $1028
+	dw $1029
+	dw $302A
+	dw $3426
+	dw $342B
+
 
 CODE_B3A8E4:
 	PHK
@@ -4003,7 +4054,7 @@ CODE_B3B36C:
 	JMP.w CODE_B3A694
 
 CODE_B3B36F:
-	LDA.w $05B9
+	LDA.w parent_level_number
 	CMP.w #$0048
 	BEQ.b CODE_B3B378
 	RTS
@@ -4349,20 +4400,80 @@ DATA_B3B646:
 	dw DATA_B3B676
 
 DATA_B3B656:
-	dw $140B,$140C,$140D,$140E,$540E,$540D,$540C,$540B
-	dw $140F,$1410,$1411,$1412,$5412,$5411,$5410,$540F
+	dw $140B
+	dw $140C
+	dw $140D
+	dw $140E
+	dw $540E
+	dw $540D
+	dw $540C
+	dw $540B
+	dw $140F
+	dw $1410
+	dw $1411
+	dw $1412
+	dw $5412
+	dw $5411
+	dw $5410
+	dw $540F
+
 
 DATA_B3B676:
-	dw $140B,$1413,$1414,$1415,$5415,$5414,$5413,$540B
-	dw $1416,$1417,$1418,$1419,$5419,$5418,$5417,$5416
+	dw $140B
+	dw $1413
+	dw $1414
+	dw $1415
+	dw $5415
+	dw $5414
+	dw $5413
+	dw $540B
+	dw $1416
+	dw $1417
+	dw $1418
+	dw $1419
+	dw $5419
+	dw $5418
+	dw $5417
+	dw $5416
+
 
 DATA_B3B696:
-	dw $141A,$141B,$141C,$541C,$141C,$541C,$541B,$541A
-	dw $101D,$141E,$101F,$1020,$1020,$501F,$541E,$501D
+	dw $141A
+	dw $141B
+	dw $141C
+	dw $541C
+	dw $141C
+	dw $541C
+	dw $541B
+	dw $541A
+	dw $101D
+	dw $141E
+	dw $101F
+	dw $1020
+	dw $1020
+	dw $501F
+	dw $541E
+	dw $501D
+
 
 DATA_B3B6B6:
-	dw $1421,$1422,$141C,$541C,$141C,$541C,$5422,$5421
-	dw $1023,$1024,$1020,$1020,$1020,$1020,$5024,$5023
+	dw $1421
+	dw $1422
+	dw $141C
+	dw $541C
+	dw $141C
+	dw $541C
+	dw $5422
+	dw $5421
+	dw $1023
+	dw $1024
+	dw $1020
+	dw $1020
+	dw $1020
+	dw $1020
+	dw $5024
+	dw $5023
+
 
 CODE_B3B6D6:
 	LDA.w $15EA
@@ -4803,7 +4914,7 @@ CODE_B3BC48:
 	JSL.l CODE_BB8582
 	JSL.l CODE_BB85C1
 	JSL.l CODE_B7B009
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDA.b $12,x
 	JSR.w CODE_B3DE89
 	JSR.w CODE_B3BC7C
@@ -5328,17 +5439,63 @@ CODE_B3C040:
 	RTS
 
 DATA_B3C090:
-	dw $6A1A,$271C,$6B1A,$0F9C,$6E0A,$0304,$691A,$149C
-	dw $6983,$18D0
+	dw $6A1A
+	dw $271C
+	dw $6B1A
+	dw $0F9C
+	dw $6E0A
+	dw $0304
+	dw $691A
+	dw $149C
+	dw $6983
+	dw $18D0
+
 
 DATA_B3C0A4:
-	dw $5001,$2802,$5003,$7004,$5405,$7006,$5405,$3000
-	dw $5407,$3000,$4C08,$3000,$4C09,$740A,$700B,$300C
+	dw $5001
+	dw $2802
+	dw $5003
+	dw $7004
+	dw $5405
+	dw $7006
+	dw $5405
+	dw $3000
+	dw $5407
+	dw $3000
+	dw $4C08
+	dw $3000
+	dw $4C09
+	dw $740A
+	dw $700B
+	dw $300C
+
 
 DATA_B3C0C4:
-	dw $300D,$300E,$1001,$300F,$3004,$1003,$3010,$0000
-	dw $1405,$B011,$0000,$1405,$3011,$0000,$1407,$3012
-	dw $0000,$0C08,$3013,$340A,$0C09,$3014,$3015,$300B
+	dw $300D
+	dw $300E
+	dw $1001
+	dw $300F
+	dw $3004
+	dw $1003
+	dw $3010
+	dw $0000
+	dw $1405
+	dw $B011
+	dw $0000
+	dw $1405
+	dw $3011
+	dw $0000
+	dw $1407
+	dw $3012
+	dw $0000
+	dw $0C08
+	dw $3013
+	dw $340A
+	dw $0C09
+	dw $3014
+	dw $3015
+	dw $300B
+
 
 CODE_B3C0F4:
 	LDA.w #$0158
@@ -6011,12 +6168,32 @@ CODE_B3C6D2:
 	RTS
 
 DATA_B3C6EA:
-	dw $0410,$0530,$0620,$0680,$06A0,$06B0,$06E0,$0920
-	dw $0990,$09A0,$FF00
+	dw $0410
+	dw $0530
+	dw $0620
+	dw $0680
+	dw $06A0
+	dw $06B0
+	dw $06E0
+	dw $0920
+	dw $0990
+	dw $09A0
+	dw $FF00
+
 
 DATA_B3C700:
-	dw $0460,$06A0,$02A0,$0140,$0460,$07E0,$06A0,$0860
-	dw $0420,$02A0,$FF00
+	dw $0460
+	dw $06A0
+	dw $02A0
+	dw $0140
+	dw $0460
+	dw $07E0
+	dw $06A0
+	dw $0860
+	dw $0420
+	dw $02A0
+	dw $FF00
+
 
 CODE_B3C716:
 	LDA.b $00
@@ -6429,7 +6606,7 @@ CODE_B3CAD0:
 	RTS
 
 CODE_B3CADC:
-	LDX.w $04F9
+	LDX.w active_kong_sprite
 	LDA.b $16,x
 	BMI.b CODE_B3CB20
 	CMP.w $050F
@@ -6446,8 +6623,8 @@ CODE_B3CAF9:
 	LDA.w $0777
 	AND.w #$2000
 	BNE.b CODE_B3CB0D
-	LDX.w $04F9
-	STX.b $70
+	LDX.w active_kong_sprite
+	STX.b current_sprite
 	LDY.w #$0028
 	JSL.l CODE_BB8585
 CODE_B3CB0D:
@@ -6856,15 +7033,50 @@ CODE_B3CED3:
 	RTS
 
 DATA_B3CED4:
-	dw $1462,$1462,$1462,$418B,$418B,$7FFD,$1462,$418B
+	dw $1462
+	dw $1462
+	dw $1462
+	dw $418B
+	dw $418B
+	dw $7FFD
+	dw $1462
+	dw $418B
 
 DATA_B3CEE4:
-	dw $0420,$0820,$0840,$0C40,$1060,$1481,$1CA1,$20E2
-	dw $2D24,$3586,$41C8,$5247,$62E6,$7366,$7FE5
+	dw $0420
+	dw $0820
+	dw $0840
+	dw $0C40
+	dw $1060
+	dw $1481
+	dw $1CA1
+	dw $20E2
+	dw $2D24
+	dw $3586
+	dw $41C8
+	dw $5247
+	dw $62E6
+	dw $7366
+	dw $7FE5
+
 
 DATA_B3CF02:
-	dw $0000,$0023,$0049,$04AE,$0D14,$115A,$19BF,$2A9F
-	dw $031A,$0254,$018D,$0CA4,$1927,$1988,$1DE9
+	dw $0000
+	dw $0023
+	dw $0049
+	dw $04AE
+	dw $0D14
+	dw $115A
+	dw $19BF
+	dw $2A9F
+	dw $031A
+	dw $0254
+	dw $018D
+	dw $0CA4
+	dw $1927
+	dw $1988
+	dw $1DE9
+
 
 CODE_B3CF20:
 	LDA.b $E8
@@ -7630,9 +7842,9 @@ CODE_B3D571:
 	JSL.l CODE_B7800F
 	JSL.l CODE_808012
 	JSL.l CODE_808021
-	LDA.w $04EC
+	LDA.w screen_brightness
 	BNE.b CODE_B3D59A
-	CMP.w $04ED
+	CMP.w screen_fade_speed
 	BEQ.b CODE_B3D59E
 CODE_B3D59A:
 	JML.l CODE_808006
@@ -8635,12 +8847,12 @@ CODE_B3DDB3:
 	LDA.w $15E8
 	BEQ.b CODE_B3DDE8
 	LDX.w #$0096
-	LDA.w $05B9
+	LDA.w parent_level_number
 	CMP.w #$002C
 	BNE.b CODE_B3DDC6
 	LDX.w #$0136
 CODE_B3DDC6:
-	LDA.w $05B9
+	LDA.w parent_level_number
 	CMP.w #$002D
 	BNE.b CODE_B3DDD1
 	LDX.w #$01D6
@@ -9490,7 +9702,7 @@ CODE_B3E878:
 	INX
 	CPX.w #$002D
 	BNE.b CODE_B3E878
-	LDA.w $05B9
+	LDA.w parent_level_number
 	CMP.w #$0022
 	BEQ.b CODE_B3E8C3
 	CMP.w #$0036
@@ -9724,7 +9936,7 @@ CODE_B3EB47:
 	CPX.w #$0224
 	BNE.b CODE_B3EB47
 	LDX.w #$0000
-	LDA.w $05B9
+	LDA.w parent_level_number
 	CMP.w #$0034
 	BEQ.b CODE_B3EB7A
 CODE_B3EB61:
