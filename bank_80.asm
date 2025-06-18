@@ -38,6 +38,7 @@ CODE_808024:
 	JMP.w set_fade
 
 throw_exception_wrapper:
+;$808027
 	JMP throw_exception
 
 CODE_80802A:
@@ -148,21 +149,23 @@ piracy_string:
 endif
 
 display_error_message:
+;$80809D
 	TYA
-	JSL vram_payload_handler_global
-	LDA #$001D
-	LDY #$0000
-	LDX #$0020
-	JSL CODE_BB856D
-	LDA #$001F
-	LDY #$0000
-	LDX #$0001
-	JSL CODE_BB856D
-	LDA #$000F
-	JSL set_PPU_registers_global
+	JSL.l vram_payload_handler_global
+	LDA.w #$001D
+	LDY.w #$0000
+	LDX.w #$0020
+	JSL.l CODE_BB856D
+	LDA.w #$001F
+	LDY.w #$0000
+	LDX.w #$0001
+	JSL.l CODE_BB856D
+	LDA.w #$000F
+	JSL.l set_PPU_registers_global
 	STP
 
 RESET_start:
+;$8080C4
 	SEI
 	LDA.b #$80
 	STA.w !REGISTER_ScreenDisplayRegister
@@ -249,7 +252,7 @@ if !Define_DKC3_Global_DisableCopyDetection == !FALSE
 	PHK
 	PLB
 	LDX.w #$0006
--
+-:
 	LDA.w piracy_string_result,x
 	CMP.w rare_string,x
 	BNE.b .write_piracy_string
@@ -267,7 +270,7 @@ if !Define_DKC3_Global_DisableCopyDetection == !FALSE
 	CMP.l sram_base,x
 	BNE +
 	DEY
-+
++:
 	STA.l sram_base,x
 	DEX
 	DEX
@@ -294,7 +297,7 @@ endif
 	PLB
 if !Define_DKC3_Global_DisableCopyDetection == !FALSE
 	LDX.w #$0006
--
+-:
 	LDA.w piracy_string_result,x
 	CMP.w piracy_string,x
 	BNE.b .prepare_logo
@@ -312,6 +315,7 @@ endif
 	%return(start_engine)
 	%return(clear_VRAM)
 init_registers:
+;$8081C5
 	SEP.b #$30
 	LDX.b #$00
 .clear_ppu:
@@ -375,13 +379,16 @@ init_registers:
 	RTS
 
 init_registers_global:
+;$808258
 	JSR init_registers
 	RTL
 
 VRAM_zero_fill:
+;$80825C
 	dw $0000
 
 clear_VRAM:
+;80825E
 	STZ.w !REGISTER_VRAMAddressLo
 	LDA.w #VRAM_zero_fill
 	STA.w DMA[$00].SourceLo
@@ -398,10 +405,12 @@ clear_VRAM:
 	RTS
 
 clear_vram_global:
+;$808282
 	JSR clear_VRAM
 	RTL
 
 start_engine:
+;$808286
 if !Define_DKC3_Global_DisableCopyDetection == !FALSE
 	LDX.w #$0006
 CODE_808289:
@@ -487,7 +496,9 @@ CODE_80832B:
 	PHK
 	PEA.w nmi_return-$01
 	JMP.w [$0052]
+
 nmi_return:
+;$808332
 	PLY
 	PLX
 	PLA
@@ -710,6 +721,7 @@ CODE_8084EB:
 	RTL
 
 throw_exception:
+;$8084EC
 	RTL
 
 CODE_8084ED:
@@ -721,43 +733,45 @@ CODE_8084ED:
 	RTL
 
 set_fade:
+;$808501
 	STZ.w screen_fade_speed
 	STA.w screen_brightness
 	RTL
 
 fade_screen:
-	SEP #$20
-	LDA $04ED
-	BEQ .return
-	BMI .fade_out
-	INC $04EE
-	CMP $04EE
-	BNE .return
-	STZ $04EE
-	INC $04EC
-	LDA #$0F
-	CMP $04EC
-	BCS .return
-	STA $04EC
-	STZ $04ED
+;$808508
+	SEP.b #$20
+	LDA.w $04ED
+	BEQ.b .return
+	BMI.b .fade_out
+	INC.w $04EE
+	CMP.w $04EE
+	BNE.b .return
+	STZ.w $04EE
+	INC.w $04EC
+	LDA.b #$0F
+	CMP.w $04EC
+	BCS.b .return
+	STA.w $04EC
+	STZ.w $04ED
 	BRA.b .return
 
 .fade_out:
-	AND #$7F
-	INC $04EE
-	CMP $04EE
-	BNE .return
-	STZ $04EE
-	DEC $04EC
-	BMI .fade_finished
-	BNE .return
+	AND.b #$7F
+	INC.w $04EE
+	CMP.w $04EE
+	BNE.b .return
+	STZ.w $04EE
+	DEC.w $04EC
+	BMI.b .fade_finished
+	BNE.b .return
 .fade_finished:
-	STZ $04ED
-	STZ $04EC
+	STZ.w $04ED
+	STZ.w $04EC
 .return:
-	REP #$20
-	LDA $1D89
-	BNE CODE_808550
+	REP.b #$20
+	LDA.w $1D89
+	BNE.b CODE_808550
 	RTL
 
 CODE_808550:
@@ -1224,6 +1238,7 @@ CODE_80889E:
 	RTS
 
 set_all_oam_offscreen:
+;$808983
 	LDA.w #oam_table
 	STA.b next_oam_slot
 	JSR.w set_unused_oam_offscreen
@@ -1236,20 +1251,21 @@ CODE_80898C:
 	RTL
 
 set_unused_oam_offscreen:
+;$808992
 	PHK
 	PLB
-	LDX $82
-	CPX #$0400
-	BEQ .oam_full
-	LDA #$F0FF
+	LDX.b $82
+	CPX.w #$0400
+	BEQ.b .oam_full
+	LDA.w #$F0FF
 .next_slot:
-	STA $00,x
+	STA.b $00,x
 	INX
 	INX
 	INX
 	INX
-	CPX #$0400
-	BNE .next_slot
+	CPX.w #$0400
+	BNE.b .next_slot
 .oam_full:
 	RTS
 
@@ -4063,7 +4079,8 @@ CODE_80A166:
 	RTS
 
 DATA_80A173:
-	dw DATA_80C365,DATA_80C35F
+	dw DATA_80C365
+	dw DATA_80C35F
 
 CODE_80A177:
 	LDA.b $1A
@@ -4075,7 +4092,8 @@ CODE_80A177:
 	RTS
 
 DATA_80A184:
-	dw DATA_80C349,DATA_80C358
+	dw DATA_80C349
+	dw DATA_80C358
 
 CODE_80A188:
 	LDX.w #DATA_80C36D
@@ -8531,6 +8549,7 @@ DATA_80CA2D:
 DATA_80CA39:
 	db "CRANKY KONG", $00
 
+;NMI_START
 CODE_80CA45:
 	JML.l CODE_80CA49
 CODE_80CA49:

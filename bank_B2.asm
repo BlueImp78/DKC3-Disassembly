@@ -1,4 +1,5 @@
 upload_spc_engine_wrapper:
+;$B28000
 	JMP upload_spc_engine
 
 CODE_B28003:
@@ -44,6 +45,7 @@ CODE_B2802A:
 	JMP.w CODE_B28104
 
 upload_spc_engine:
+;$B2802D
 	PHB
 	PHK
 	PLB

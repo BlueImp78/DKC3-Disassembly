@@ -4374,8 +4374,8 @@ Spr00D0_Minkey_Main:
 ;$B69FAC
 
 ;Vars:
-;$5C,x	attack interval
-;$5E,x	animation speed
+;	$5C,x	attack interval
+;	$5E,x	animation speed
 	JMP.w (DATA_B69FAF,x)
 
 DATA_B69FAF:
@@ -16046,7 +16046,7 @@ CODE_B6F54C:
 DATA_B6F553:
 	dw CODE_B6F609
 	dw CODE_B6F63C
-	dw $0000
+	dw !null_pointer
 	dw CODE_B6F659
 	dw CODE_B6F6D2
 	dw CODE_B6F6E1

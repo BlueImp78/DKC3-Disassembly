@@ -463,6 +463,7 @@ CODE_BEC2FB:
 	PHK
 	PEA.w CODE_BEC311-$01
 	JMP.w [$1864]
+
 CODE_BEC311:
 	BCS.b CODE_BEC338
 	LDX.b current_sprite
@@ -2300,12 +2301,42 @@ CODE_BECFC2:
 	RTS
 
 DATA_BECFD0:
-	dw $0000,$0000,$0000,$0000,$0000,$0000,$8000,$0000
-	dw $8000,$0000,$C000,$0000,$4000,$0000,$4000,$0000
+	dw $0000
+	dw $0000
+	dw $0000
+	dw $0000
+	dw $0000
+	dw $0000
+	dw $8000
+	dw $0000
+	dw $8000
+	dw $0000
+	dw $C000
+	dw $0000
+	dw $4000
+	dw $0000
+	dw $4000
+	dw $0000
+
 
 DATA_BECFF0:
-	dw $0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000
-	dw $0000,$0000,$4000,$0000,$4000,$0000,$4000,$0000
+	dw $0000
+	dw $0000
+	dw $0000
+	dw $0000
+	dw $0000
+	dw $0000
+	dw $0000
+	dw $0000
+	dw $0000
+	dw $0000
+	dw $4000
+	dw $0000
+	dw $4000
+	dw $0000
+	dw $4000
+	dw $0000
+
 
 CODE_BED010:
 	LDA.b $6A
@@ -2583,8 +2614,14 @@ CODE_BED226:
 	JMP.w [$04F5]
 
 DATA_BED229:
-	dw $0000,$0004,$0000,$FFFC,$FFF8,$0004,$0008,$FFF4
-	dw $0008,$0004,$FFF8,$FFF4,$0008,$FFFC,$FFF8,$FFFC
+	dw $0000, $0004
+	dw $0000, $FFFC
+	dw $FFF8, $0004
+	dw $0008, $FFF4
+	dw $0008, $0004
+	dw $FFF8, $FFF4
+	dw $0008, $FFFC
+	dw $FFF8, $FFFC
 
 Spr02E8_KAOSHeadExplosion_Main:
 ;$BED249
@@ -4455,8 +4492,17 @@ CODE_BEE0C9:
 	RTS
 
 DATA_BEE0CD:
-	dw $0014,$0019,$001E,$0000,$000F,$0000,$0023,$0000
-	dw $000A,$0005,$0028
+	dw $0014
+	dw $0019
+	dw $001E
+	dw $0000
+	dw $000F
+	dw $0000
+	dw $0023
+	dw $0000
+	dw $000A
+	dw $0005
+	dw $0028
 
 Spr02E4_FuelCan_Main:
 ;$BEE0E3
@@ -4707,7 +4753,11 @@ CODE_BEE2BC:
 	RTS
 
 DATA_BEE2BD:
-	dw $0159,$0218,$02D9,$039B,$0000
+	dw $0159
+	dw $0218
+	dw $02D9
+	dw $039B
+	dw $0000
 
 Spr016C_WaterfallBarrelSpawner_Main:
 ;$BEE2C7

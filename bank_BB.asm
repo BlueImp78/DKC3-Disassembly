@@ -130,8 +130,8 @@ CODE_BB807B:
 UNK_BB807F:
 	db $12,$29,$DE,$B3,$BF
 
-;BB8084
 sprite_main_table:
+;BB8084
 %offset(sprite_main_bank, 2)
 %offset(sprite_timestop_flag, 3)
 	dl Spr0000_null_sprite_main-1 : db $00
@@ -448,12 +448,15 @@ sprite_main_table:
 	dl Spr04DC_PrizeFromSwankyKong_Main-1 : db $00
 
 disable_screen_wrapper:
+;$BB8564
 	JMP.w disable_screen
 
 vram_payload_handler_global:
+;$BB8567
 	JMP vram_payload_handler
 
 set_PPU_registers_global:
+;BB856A
 	JMP.w set_PPU_registers
 
 CODE_BB856D:
@@ -1694,11 +1697,12 @@ DATA_BB8CBC:
 	dw $0003,$000F,$003F,$00FF
 
 set_PPU_registers:
+;$BB8CC4
 	PHB
 	%pea_shift_dbr(DATA_FD294E)
 	PLB
 	PLB
-	SEP #$20
+	SEP.b #$20
 	ASL
 	TAY
 	LDX.w DATA_FD294E,y
@@ -1708,27 +1712,28 @@ set_PPU_registers:
 	BEQ.b .return
 	INY
 	INY
-	STX $3A
-	ASL $3B
+	STX.b $3A
+	ASL.b $3B
 	BCC.b .single_register
-	LSR $3B
-	LDX $3A
+	LSR.b $3B
+	LDX.b $3A
 	LDA.w DATA_FD294E,y
-	STA $00,x
+	STA.b $00,x
 	INX
 	INY
 .single_register:
 	LDA.w DATA_FD294E,y
-	STA $00,x
+	STA.b $00,x
 	INY
 	BRA.b .next_register
 
 .return:
-	REP #$20
+	REP.b #$20
 	PLB
 	RTL
 
 vram_payload_handler:
+;$BB8CF6
 	PHB
 	PEA.w DATA_FD1B03>>8
 	PLB
@@ -2017,15 +2022,16 @@ CODE_BB8EAB:
 	RTS
 
 init_sprite_render_order:
-	LDX #$0000
-	LDA #aux_sprite_table
+;$BB8EFD
+	LDX.w #$0000
+	LDA.w #aux_sprite_table
 .next_slot:
-	STA sprite_render_table,x
+	STA.w sprite_render_table,x
 	CLC
-	ADC #sizeof(sprite)
+	ADC.w #sizeof(sprite)
 	INX
 	INX
-	CPX #$003A
+	CPX.w #$003A
 	BNE.b .next_slot
 	RTL
 
@@ -2190,10 +2196,12 @@ CODE_BB8FF1:
 	BRA parse_initscript_entry
 
 parse_initscript:
+;$BB8FF9
 	PHB
 	BRA parse_initscript_entry
 
 set_sprite_config:
+;$BB8FFC
 	TCD
 	LDA.w $0001,y
 	STA $00,x
@@ -2212,6 +2220,7 @@ parse_initscript_entry:
 	JMP (initscript_commands,x)
 
 initscript_commands:								; Info: Sprite spawn script opcodes
+;$BB9018
 	dw CODE_BB9062								; $FF - Spawn sprite?
 	dw CODE_BB9071								; $FE - 
 	dw CODE_BB9096								; $FD - 
@@ -3056,10 +3065,12 @@ CODE_BB95BD:
 	RTS
 
 request_palette_direct_global:
+;$BB95C4
 	JSR.w request_palette_direct
 	RTL
 
 request_palette_direct:
+;$BB95C8:
 	STA.w $04EF
 	LDX.w #$0000
 CODE_BB95CE:
@@ -3764,6 +3775,7 @@ CODE_BB9B2F:
 	RTL
 
 disable_screen:
+;$BB9B42
 	SEP #$20
 	LDA #$00
 	STA.l !REGISTER_HDMAEnable
@@ -6641,13 +6653,13 @@ CODE_BBB079:
 	RTS
 
 DATA_BBB0F1:
-dw $01C6,$0000,$0000,$0002,$01C5,$0001,$0000,$0002
-dw $01C4,$0002,$0000,$0002,$01C4,$0001,$0001,$0002
-dw $01C4,$0000,$0002,$0002,$01C4,$0000,$0001,$0003
-dw $01C4,$0000,$0000,$0004,$01C4,$0000,$0000,$0003
-dw $01C6,$0000,$0002,$01C5,$0001,$0002,$01C4,$0002
-dw $0002,$01C4,$0001,$0003,$01C4,$0000,$0004,$01C4
-dw $0000,$0003
+	dw $01C6,$0000,$0000,$0002,$01C5,$0001,$0000,$0002
+	dw $01C4,$0002,$0000,$0002,$01C4,$0001,$0001,$0002
+	dw $01C4,$0000,$0002,$0002,$01C4,$0000,$0001,$0003
+	dw $01C4,$0000,$0000,$0004,$01C4,$0000,$0000,$0003
+	dw $01C6,$0000,$0002,$01C5,$0001,$0002,$01C4,$0002
+	dw $0002,$01C4,$0001,$0003,$01C4,$0000,$0004,$01C4
+	dw $0000,$0003
 
 CODE_BBB155:
 	LDY.w $18E1
@@ -9846,7 +9858,10 @@ CODE_BBD171:
 	JMP.w [$04F5]
 
 DATA_BBD181:
-	dw $0001,$0003,$0007,$000F
+	dw $0001
+	dw $0003
+	dw $0007
+	dw $000F
 
 CODE_BBD189:
 	LDX.w #$F8F8
