@@ -453,7 +453,7 @@ disable_screen_wrapper:
 
 vram_payload_handler_global:
 ;$BB8567
-	JMP vram_payload_handler
+	JMP.w vram_payload_handler
 
 set_PPU_registers_global:
 ;BB856A
@@ -2181,43 +2181,43 @@ CODE_BB8FDD:
 	LDA.l DATA_FF218C,x
 	TAY
 CODE_BB8FE3:
-	LDX alternate_sprite
-	STZ $28,x
-	STZ $3A,x
-	STZ $36,x
-	STZ $06,x
-	STZ $08,x
-	STZ $3C,x
+	LDX.b alternate_sprite
+	STZ.b $28,x
+	STZ.b $3A,x
+	STZ.b $36,x
+	STZ.b $06,x
+	STZ.b $08,x
+	STZ.b $3C,x
 CODE_BB8FF1:
 	PHB
 	%pea_shift_dbr(DATA_FF218C)
 	PLB
 	PLB
-	BRA parse_initscript_entry
+	BRA.b parse_initscript_entry
 
 parse_initscript:
 ;$BB8FF9
 	PHB
-	BRA parse_initscript_entry
+	BRA.b parse_initscript_entry
 
 set_sprite_config:
 ;$BB8FFC
 	TCD
 	LDA.w $0001,y
-	STA $00,x
+	STA.b $00,x
 initscript_next:
 	INY
 	INY
 	INY
 parse_initscript_entry:
 	LDA.w $0000,y
-	AND #$00FF
-	CMP #$00EF
-	BCC set_sprite_config
-	EOR #$00FF
+	AND.w #$00FF
+	CMP.w #$00EF
+	BCC.b set_sprite_config
+	EOR.w #$00FF
 	ASL
 	TAX
-	JMP (initscript_commands,x)
+	JMP.w (initscript_commands,x)
 
 initscript_commands:								; Info: Sprite spawn script opcodes
 ;$BB9018
@@ -3777,14 +3777,14 @@ CODE_BB9B2F:
 disable_screen:
 ;$BB9B42
 	SEP #$20
-	LDA #$00
+	LDA.b #$00
 	STA.l !REGISTER_HDMAEnable
-	LDA #$01
+	LDA.b #$01
 	STA.l !REGISTER_IRQNMIAndJoypadEnableFlags
-	LDA #$8F
+	LDA.b #$8F
 	STA.l !REGISTER_ScreenDisplayRegister
 	REP #$20
-	LDA #$0000
+	LDA.w #$0000
 	STA.l $0004E4
 	RTL
 
@@ -5893,29 +5893,29 @@ CODE_BBAB4C:
 	RTL
 
 CODE_BBAB52:
-	LDX current_sprite
-	LDA $08,x
-	BNE CODE_BBAB7F		;If the current sprite was spawned by the level
+	LDX.b current_sprite
+	LDA.b $08,x
+	BNE.b CODE_BBAB7F		;If the current sprite was spawned by the level
 	TXY
-	LDA $0A,x
-	AND #$000F
+	LDA.b $0A,x
+	AND.w #$000F
 	ASL
 	TAX
-	JSR (DATA_BBA958,x)
-	BCC CODE_BBAB6C
+	JSR.w (DATA_BBA958,x)
+	BCC.b CODE_BBAB6C
 	TYX
-	LDA $0C,x
-	BNE CODE_BBAB9A
+	LDA.b $0C,x
+	BNE.b CODE_BBAB9A
 	CLC
 	RTL
 
 CODE_BBAB6C:
 	TYX
-	LDA $0C,x
+	LDA.b $0C,x
 	SEC
-	SBC #$0100
-	BCC CODE_BBAB79
-	STA $0C,x
+	SBC.w #$0100
+	BCC.b CODE_BBAB79
+	STA.b $0C,x
 	CLC
 	RTL
 
@@ -5926,26 +5926,26 @@ CODE_BBAB79:
 
 CODE_BBAB7F:
 	TXY
-	LDA $0A,x
-	AND #$1F00
-	BNE CODE_BBABAF			;If sprite is in a spawn group
+	LDA.b $0A,x
+	AND.w #$1F00
+	BNE.b CODE_BBABAF			;If sprite is in a spawn group
 CODE_BBAB87:
-	LDA $0A,x
-	AND #$000F
+	LDA.b $0A,x
+	AND.w #$000F
 	ASL
 	TAX
-	JSR (DATA_BBA958,x)
-	BCC CODE_BBABA2
+	JSR.w (DATA_BBA958,x)
+	BCC.b CODE_BBABA2
 	TYX
-	LDA $0C,x
-	BNE CODE_BBAB9A
+	LDA.b $0C,x
+	BNE.b CODE_BBAB9A
 	CLC
 	RTL
 
 CODE_BBAB9A:
-	SEP #$20
-	STA $0D,x
-	REP #$20
+	SEP.b #$20
+	STA.b $0D,x
+	REP.b #$20
 	CLC
 	RTL
 
@@ -6049,28 +6049,28 @@ CODE_BBAC30:
 	BRL.w CODE_BBACC7
 
 CODE_BBAC47:
-	LDX current_sprite
-	LDA $5C,x
+	LDX.b current_sprite
+	LDA.b $5C,x
 	DEC
 	ASL
 	CLC
-	ADC $001780
+	ADC.l $001780
 	TAX
 	LDA.l $7E0000,x
 	TAX
-	STA $1782
-	LDA $059B
-	AND #$0100
-	BNE CODE_BBAC65
+	STA.w $1782
+	LDA.w $059B
+	AND.w #$0100
+	BNE.b CODE_BBAC65
 CODE_BBAC63:
-	BRA CODE_BBAC94
+	BRA.b CODE_BBAC94
 
 CODE_BBAC65:
-	LDY current_sprite
-	LDA $0000,y
-	CMP #$0134 		;#!sprite_debug_spawn_group_manager
-	BNE CODE_BBACC7
-	BRA CODE_BBAC63
+	LDY.b current_sprite
+	LDA.w $0000,y
+	CMP.w #$0134 		;#!sprite_debug_spawn_group_manager
+	BNE.b CODE_BBACC7
+	BRA.b CODE_BBAC63
 
 CODE_BBAC71:
 	PHX

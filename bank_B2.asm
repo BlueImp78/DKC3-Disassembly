@@ -1,6 +1,6 @@
 upload_spc_engine_wrapper:
 ;$B28000
-	JMP upload_spc_engine
+	JMP.w upload_spc_engine
 
 CODE_B28003:
 	JMP.w CODE_B2804B

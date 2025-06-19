@@ -8636,24 +8636,24 @@ CODE_B8C72F:
 	RTS
 
 check_sprite_underwater:
-	LDX $70
-	LDA $050F
-	BMI .no_water
+	LDX.b $70
+	LDA.w $050F
+	BMI.b .no_water
 	SEC
-	SBC $16,x
-	CMP #$FFEC
-	BMI .in_water
-	CMP #$FFF8
-	BPL .no_water
-	LDA #$0001
+	SBC.b $16,x
+	CMP.w #$FFEC
+	BMI.b .in_water
+	CMP.w #$FFF8
+	BPL.b .no_water
+	LDA.w #$0001
 	RTS
 
 .no_water:
-	LDA #$0000
+	LDA.w #$0000
 	RTS
 
 .in_water:
-	LDA #$0002
+	LDA.w #$0002
 	RTS
 
 CODE_B8C75A:

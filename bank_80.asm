@@ -39,7 +39,7 @@ CODE_808024:
 
 throw_exception_wrapper:
 ;$808027
-	JMP throw_exception
+	JMP.w throw_exception
 
 CODE_80802A:
 	JMP.w CODE_8091A3
@@ -262,11 +262,11 @@ if !Define_DKC3_Global_DisableCopyDetection == !FALSE
 	BRA.b .prepare_logo
 
 .write_piracy_string:
-	LDX #$0006
-	LDY #$0004
+	LDX.w #$0006
+	LDY.w #$0004
 .write_next_byte:
-	LDA piracy_string,x
-	STA piracy_string_result,x
+	LDA.w piracy_string,x
+	STA.w piracy_string_result,x
 	CMP.l sram_base,x
 	BNE +
 	DEY
@@ -380,7 +380,7 @@ init_registers:
 
 init_registers_global:
 ;$808258
-	JSR init_registers
+	JSR.w init_registers
 	RTL
 
 VRAM_zero_fill:
@@ -406,7 +406,7 @@ clear_VRAM:
 
 clear_vram_global:
 ;$808282
-	JSR clear_VRAM
+	JSR.w clear_VRAM
 	RTL
 
 start_engine:
@@ -466,13 +466,13 @@ CODE_8082E7:
 	REP #$20
 	STA.w language_select
 CODE_8082EC:
-	LDA #$0000
+	LDA.w #$0000
 	TCD
-	LDX #stack
+	LDX.w #stack
 	TXS
-	JSL disable_screen_wrapper
-	JSR init_registers
-	JSL CODE_808C77
+	JSL.l disable_screen_wrapper
+	JSR.w init_registers
+	JSL.l CODE_808C77
 	STZ.w $04C8
 	LDA.w #$4000
 	STA.w $053B
