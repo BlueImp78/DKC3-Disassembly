@@ -1,69 +1,69 @@
 Spr00C8_KRoolFightBGDecorations_Main:
 ;$ACB000
-	JMP.w (DATA_ACB003,x)
+	JMP.w (DATA_ACB003,x)			;$ACB000
 
 DATA_ACB003:
 	dw CODE_ACB007
 	dw CODE_ACB00A
 
 CODE_ACB007:
-	JMP.w CODE_ACB28C
+	JMP.w CODE_ACB28C			;$ACB007
 
 CODE_ACB00A:
-	LDA.b $00
-	BIT.w #$0003
-	BNE.b CODE_ACB056
-	LDX.b current_sprite
-	LDA.b $1E,x
-	AND.w #$0E00
-	ASL
-	ASL
-	ASL
-	CLC
-	ADC.w #$8100
-	ORA.w #$7EA1AA>>16
-	STA.w $04F3
-	LDA.w #$7EA1AA
-	STA.w $04F1
-	JSR.w CODE_ACB059
-	LDA.l $7EA1C8
-	INC
-	CMP.w #$000C
-	BNE.b CODE_ACB03B
-	LDA.w #$0000
+	LDA.b $00				;$ACB00A
+	BIT.w #$0003				;$ACB00C
+	BNE.b CODE_ACB056			;$ACB00F
+	LDX.b current_sprite			;$ACB011
+	LDA.b $1E,x				;$ACB013
+	AND.w #$0E00				;$ACB015
+	ASL					;$ACB018
+	ASL					;$ACB019
+	ASL					;$ACB01A
+	CLC					;$ACB01B
+	ADC.w #$8100				;$ACB01C
+	ORA.w #$7EA1AA>>16			;$ACB01F
+	STA.w $04F3				;$ACB022
+	LDA.w #$7EA1AA				;$ACB025
+	STA.w $04F1				;$ACB028
+	JSR.w CODE_ACB059			;$ACB02B
+	LDA.l $7EA1C8				;$ACB02E
+	INC					;$ACB032
+	CMP.w #$000C				;$ACB033
+	BNE.b CODE_ACB03B			;$ACB036
+	LDA.w #$0000				;$ACB038
 CODE_ACB03B:
-	STA.l $7EA1C8
-	ASL
-	TAY
-	PHK
-	PLB
-	LDX.w #$0000
+	STA.l $7EA1C8				;$ACB03B
+	ASL					;$ACB03F
+	TAY					;$ACB040
+	PHK					;$ACB041
+	PLB					;$ACB042
+	LDX.w #$0000				;$ACB043
 CODE_ACB046:
-	LDA.w DATA_ACB073,y
-	STA.l $7EA1AE,x
-	INY
-	INY
-	INX
-	INX
-	CPX.w #$0018
-	BNE.b CODE_ACB046
+	LDA.w DATA_ACB073,y			;$ACB046
+	STA.l $7EA1AE,x				;$ACB049
+	INY					;$ACB04D
+	INY					;$ACB04E
+	INX					;$ACB04F
+	INX					;$ACB050
+	CPX.w #$0018				;$ACB051
+	BNE.b CODE_ACB046			;$ACB054
 CODE_ACB056:
-	JMP.w [$04F5]
+	JMP.w [$04F5]				;$ACB056
 
 CODE_ACB059:
-	LDA.b $E8
-	ASL
-	ASL
-	TAX
-	LDA.w $04F1
-	STA.w $06FC,x
-	LDA.w $04F3
-	STA.w $06FE,x
-	LDA.b $E8
-	INC
-	AND.w #$000F
-	STA.b $E8
-	RTS
+	LDA.b $E8				;$ACB059
+	ASL					;$ACB05B
+	ASL					;$ACB05C
+	TAX					;$ACB05D
+	LDA.w $04F1				;$ACB05E
+	STA.w $06FC,x				;$ACB061
+	LDA.w $04F3				;$ACB064
+	STA.w $06FE,x				;$ACB067
+	LDA.b $E8				;$ACB06A
+	INC					;$ACB06C
+	AND.w #$000F				;$ACB06D
+	STA.b $E8				;$ACB070
+	RTS					;$ACB072
 
 DATA_ACB073:
 	dw $0040
@@ -92,7 +92,7 @@ DATA_ACB073:
 
 Spr04B8_BGSteelKeg_Main:
 ;$ACB0A1
-	JMP.w (DATA_ACB0A4,x)
+	JMP.w (DATA_ACB0A4,x)			;$ACB0A1
 
 DATA_ACB0A4:
 	dw CODE_ACB0AC
@@ -101,78 +101,78 @@ DATA_ACB0A4:
 	dw CODE_ACB111
 
 CODE_ACB0AC:
-	TYX
-	LDA.w #$002D
-	STA.b $5C,x
-	INC.b $38,x
+	TYX					;$ACB0AC
+	LDA.w #$002D				;$ACB0AD
+	STA.b $5C,x				;$ACB0B0
+	INC.b $38,x				;$ACB0B2
 CODE_ACB0B4:
-	TYX
-	DEC.b $5C,x
-	BNE.b CODE_ACB0C2
-	STZ.b $26,x
-	LDA.w #$0300
-	STA.b $2E,x
-	INC.b $38,x
+	TYX					;$ACB0B4
+	DEC.b $5C,x				;$ACB0B5
+	BNE.b CODE_ACB0C2			;$ACB0B7
+	STZ.b $26,x				;$ACB0B9
+	LDA.w #$0300				;$ACB0BB
+	STA.b $2E,x				;$ACB0BE
+	INC.b $38,x				;$ACB0C0
 CODE_ACB0C2:
-	JMP.w [$04F5]
+	JMP.w [$04F5]				;$ACB0C2
 
 CODE_ACB0C5:
-	LDY.w $1BBF
-	JSL.l CODE_BEC003
-	BCC.b CODE_ACB0D9
-	LDY.w $1BBD
-	LDA.w #$0018
-	STA.w $003C,y
-	BRA.b CODE_ACB0E2
+	LDY.w $1BBF				;$ACB0C5
+	JSL.l CODE_BEC003			;$ACB0C8
+	BCC.b CODE_ACB0D9			;$ACB0CC
+	LDY.w $1BBD				;$ACB0CE
+	LDA.w #$0018				;$ACB0D1
+	STA.w $003C,y				;$ACB0D4
+	BRA.b CODE_ACB0E2			;$ACB0D7
 
 CODE_ACB0D9:
-	LDY.w $1BBD
-	JSL.l CODE_BEC003
-	BCC.b CODE_ACB103
+	LDY.w $1BBD				;$ACB0D9
+	JSL.l CODE_BEC003			;$ACB0DC
+	BCC.b CODE_ACB103			;$ACB0E0
 CODE_ACB0E2:
-	LDY.w #$0239
-	LDA.w #$0002
-	JSL.l CODE_B58006
-	PHA
-	PLA
-	BEQ.b CODE_ACB0F3
-	LDY.w #$01C3
+	LDY.w #$0239				;$ACB0E2
+	LDA.w #$0002				;$ACB0E5
+	JSL.l CODE_B58006			;$ACB0E8
+	PHA					;$ACB0EC
+	PLA					;$ACB0ED
+	BEQ.b CODE_ACB0F3			;$ACB0EE
+	LDY.w #$01C3				;$ACB0F0
 CODE_ACB0F3:
-	STY.b $62,x
-	LDA.w #$0174
-	STA.b $64,x
-	LDA.w #$001A
-	STA.b $5A,x
-	INC.b $38,x
-	BRA.b CODE_ACB127
+	STY.b $62,x				;$ACB0F3
+	LDA.w #$0174				;$ACB0F5
+	STA.b $64,x				;$ACB0F8
+	LDA.w #$001A				;$ACB0FA
+	STA.b $5A,x				;$ACB0FD
+	INC.b $38,x				;$ACB0FF
+	BRA.b CODE_ACB127			;$ACB101
 
 CODE_ACB103:
-	LDA.b $16,x
-	CMP.w #$017B
-	BCS.b CODE_ACB0E2
-	JSL.l CODE_B9E000
-	JMP.w [$04F5]
+	LDA.b $16,x				;$ACB103
+	CMP.w #$017B				;$ACB105
+	BCS.b CODE_ACB0E2			;$ACB108
+	JSL.l CODE_B9E000			;$ACB10A
+	JMP.w [$04F5]				;$ACB10E
 
 CODE_ACB111:
-	JSL.l CODE_B9E000
-	BCC.b CODE_ACB127
-	LDA.w #$0010
-	TSB.w $1C33
-	JSL.l CODE_B58042
-	STZ.w $1BB1
-	JMP.w CODE_ACB285
+	JSL.l CODE_B9E000			;$ACB111
+	BCC.b CODE_ACB127			;$ACB115
+	LDA.w #$0010				;$ACB117
+	TSB.w $1C33				;$ACB11A
+	JSL.l CODE_B58042			;$ACB11D
+	STZ.w $1BB1				;$ACB121
+	JMP.w CODE_ACB285			;$ACB124
 
 CODE_ACB127:
-	LDA.b $2E,x
-	BMI.b CODE_ACB131
-	LDA.w #$2000
-	JSR.w CODE_ACB293
+	LDA.b $2E,x				;$ACB127
+	BMI.b CODE_ACB131			;$ACB129
+	LDA.w #$2000				;$ACB12B
+	JSR.w CODE_ACB293			;$ACB12E
 CODE_ACB131:
-	JMP.w [$04F5]
+	JMP.w [$04F5]				;$ACB131
 
 Spr0478_KAOSBlade_Main:
 ;$ACB134
-	JMP.w (DATA_ACB137,x)
+	JMP.w (DATA_ACB137,x)			;$ACB134
 
 DATA_ACB137:
 	dw CODE_ACB13D
@@ -180,160 +180,160 @@ DATA_ACB137:
 	dw CODE_ACB18A
 
 CODE_ACB13D:
-	JSR.w CODE_ACB25A
-	LDA.w $0024,y
-	JSR.w CODE_ACB1F2
-	JMP.w [$04F5]
+	JSR.w CODE_ACB25A			;$ACB13D
+	LDA.w $0024,y				;$ACB140
+	JSR.w CODE_ACB1F2			;$ACB143
+	JMP.w [$04F5]				;$ACB146
 
 CODE_ACB149:
-	JSR.w CODE_ACB25A
-	TYX
-	LDA.b $64,x
-	BEQ.b CODE_ACB158
-	LDA.w #CODE_ACB1C2
-	JSL.l CODE_BB85D6
+	JSR.w CODE_ACB25A			;$ACB149
+	TYX					;$ACB14C
+	LDA.b $64,x				;$ACB14D
+	BEQ.b CODE_ACB158			;$ACB14F
+	LDA.w #CODE_ACB1C2			;$ACB151
+	JSL.l CODE_BB85D6			;$ACB154
 CODE_ACB158:
-	LDA.b $5E,x
-	BEQ.b CODE_ACB168
-	STA.b $24,x
-	STZ.b $5E,x
-	JSL.l CODE_B9A006
-	LDX.b current_sprite
-	BRA.b CODE_ACB182
+	LDA.b $5E,x				;$ACB158
+	BEQ.b CODE_ACB168			;$ACB15A
+	STA.b $24,x				;$ACB15C
+	STZ.b $5E,x				;$ACB15E
+	JSL.l CODE_B9A006			;$ACB160
+	LDX.b current_sprite			;$ACB164
+	BRA.b CODE_ACB182			;$ACB166
 
 CODE_ACB168:
-	JSL.l CODE_B9A006
-	LDX.b current_sprite
-	LDA.b $24,x
-	CMP.b $20,x
-	BEQ.b CODE_ACB182
-	STA.b $5E,x
-	LDA.b $20,x
-	STA.b $24,x
-	LDA.b $5E,x
-	JSR.w CODE_ACB1F2
-	JMP.w [$04F5]
+	JSL.l CODE_B9A006			;$ACB168
+	LDX.b current_sprite			;$ACB16C
+	LDA.b $24,x				;$ACB16E
+	CMP.b $20,x				;$ACB170
+	BEQ.b CODE_ACB182			;$ACB172
+	STA.b $5E,x				;$ACB174
+	LDA.b $20,x				;$ACB176
+	STA.b $24,x				;$ACB178
+	LDA.b $5E,x				;$ACB17A
+	JSR.w CODE_ACB1F2			;$ACB17C
+	JMP.w [$04F5]				;$ACB17F
 
 CODE_ACB182:
-	LDA.b $24,x
-	JSR.w CODE_ACB1F2
-	JMP.w [$04F5]
+	LDA.b $24,x				;$ACB182
+	JSR.w CODE_ACB1F2			;$ACB184
+	JMP.w [$04F5]				;$ACB187
 
 CODE_ACB18A:
-	JSL.l CODE_B68015
-	LDA.b $24,x
-	JSR.w CODE_ACB1F2
-	LDA.b $2C,x
-	STA.b $12,x
-	LDA.b $32,x
-	STA.b $16,x
-	LDA.b $38,x
-	XBA
-	STA.b $38,x
-	STZ.b $64,x
-	JSL.l CODE_B58048
-	BCS.b CODE_ACB1AD
-	LDA.w #$0000
-	BRA.b CODE_ACB1B0
+	JSL.l CODE_B68015			;$ACB18A
+	LDA.b $24,x				;$ACB18E
+	JSR.w CODE_ACB1F2			;$ACB190
+	LDA.b $2C,x				;$ACB193
+	STA.b $12,x				;$ACB195
+	LDA.b $32,x				;$ACB197
+	STA.b $16,x				;$ACB199
+	LDA.b $38,x				;$ACB19B
+	XBA					;$ACB19D
+	STA.b $38,x				;$ACB19E
+	STZ.b $64,x				;$ACB1A0
+	JSL.l CODE_B58048			;$ACB1A2
+	BCS.b CODE_ACB1AD			;$ACB1A6
+	LDA.w #$0000				;$ACB1A8
+	BRA.b CODE_ACB1B0			;$ACB1AB
 
 CODE_ACB1AD:
-	LDA.w #$4000
+	LDA.w #$4000				;$ACB1AD
 CODE_ACB1B0:
-	EOR.b $1E,x
-	AND.w #$4000
-	EOR.b $1E,x
-	STA.b $1E,x
-	LDA.b $62,x
-	JSL.l CODE_B9A000
-	JMP.w [$04F5]
+	EOR.b $1E,x				;$ACB1B0
+	AND.w #$4000				;$ACB1B2
+	EOR.b $1E,x				;$ACB1B5
+	STA.b $1E,x				;$ACB1B7
+	LDA.b $62,x				;$ACB1B9
+	JSL.l CODE_B9A000			;$ACB1BB
+	JMP.w [$04F5]				;$ACB1BF
 
 CODE_ACB1C2:
-	LDX.b current_sprite
-	LDA.b $68,x
-	XBA
-	AND.w #$FF00
-	STA.b $68,x
-	JSL.l CODE_BEC018
-	BCC.b CODE_ACB1F1
-	LDY.b alternate_sprite
-	LDA.w $002E,y
-	BMI.b CODE_ACB1F1
-	LDX.b current_sprite
-	LDA.w #$0001
-	ORA.b $68,x
-	STA.b $68,x
-	LSR
-	BNE.b CODE_ACB1F1
-	LDA.w #$0080
-	STA.w $1B97
-	LDA.w #$0200
-	STA.w $1B99
+	LDX.b current_sprite			;$ACB1C2
+	LDA.b $68,x				;$ACB1C4
+	XBA					;$ACB1C6
+	AND.w #$FF00				;$ACB1C7
+	STA.b $68,x				;$ACB1CA
+	JSL.l CODE_BEC018			;$ACB1CC
+	BCC.b CODE_ACB1F1			;$ACB1D0
+	LDY.b alternate_sprite			;$ACB1D2
+	LDA.w $002E,y				;$ACB1D4
+	BMI.b CODE_ACB1F1			;$ACB1D7
+	LDX.b current_sprite			;$ACB1D9
+	LDA.w #$0001				;$ACB1DB
+	ORA.b $68,x				;$ACB1DE
+	STA.b $68,x				;$ACB1E0
+	LSR					;$ACB1E2
+	BNE.b CODE_ACB1F1			;$ACB1E3
+	LDA.w #$0080				;$ACB1E5
+	STA.w $1B97				;$ACB1E8
+	LDA.w #$0200				;$ACB1EB
+	STA.w $1B99				;$ACB1EE
 CODE_ACB1F1:
-	RTL
+	RTL					;$ACB1F1
 
 CODE_ACB1F2:
-	PHA
-	LDX.b current_sprite
-	LDA.b $12,x
-	STA.b $54,x
-	LDA.b $16,x
-	STA.b $56,x
-	LDA.b $2C,x
-	STA.b $12,x
-	LDA.b $32,x
-	STA.b $16,x
-	PLA
-	SEC
-	SBC.w #$3679
-	STA.w !REGISTER_DividendLo
-	SEP.b #$20
-	LDA.b #$05
-	STA.w !REGISTER_Divisor
-	REP.b #$20
-	JSL.l CODE_B58003
-	LDA.w !REGISTER_QuotientLo
-	ASL
-	TAY
-	LDA.w DATA_ACB26F+$01,y
-	PHA
-	LDA.w DATA_ACB26F,y
-	JSL.l CODE_B58021
-	BIT.b $1E,x
-	BVC.b CODE_ACB232
-	EOR.w #$FFFF
-	INC
+	PHA					;$ACB1F2
+	LDX.b current_sprite			;$ACB1F3
+	LDA.b $12,x				;$ACB1F5
+	STA.b $54,x				;$ACB1F7
+	LDA.b $16,x				;$ACB1F9
+	STA.b $56,x				;$ACB1FB
+	LDA.b $2C,x				;$ACB1FD
+	STA.b $12,x				;$ACB1FF
+	LDA.b $32,x				;$ACB201
+	STA.b $16,x				;$ACB203
+	PLA					;$ACB205
+	SEC					;$ACB206
+	SBC.w #$3679				;$ACB207
+	STA.w !REGISTER_DividendLo		;$ACB20A
+	SEP.b #$20				;$ACB20D
+	LDA.b #$05				;$ACB20F
+	STA.w !REGISTER_Divisor			;$ACB211
+	REP.b #$20				;$ACB214
+	JSL.l CODE_B58003			;$ACB216
+	LDA.w !REGISTER_QuotientLo		;$ACB21A
+	ASL					;$ACB21D
+	TAY					;$ACB21E
+	LDA.w DATA_ACB26F+$01,y			;$ACB21F
+	PHA					;$ACB222
+	LDA.w DATA_ACB26F,y			;$ACB223
+	JSL.l CODE_B58021			;$ACB226
+	BIT.b $1E,x				;$ACB22A
+	BVC.b CODE_ACB232			;$ACB22C
+	EOR.w #$FFFF				;$ACB22E
+	INC					;$ACB231
 CODE_ACB232:
-	LDY.w $1B6B
-	CLC
-	ADC.w $0012,y
-	STA.b $12,x
-	PLA
-	JSL.l CODE_B58021
-	CLC
-	ADC.w $0016,y
-	CLC
-	ADC.b $60,x
-	STA.b $16,x
-	LDA.b $2C,x
-	LDY.b $12,x
-	STA.b $12,x
-	STY.b $2C,x
-	LDA.b $32,x
-	LDY.b $16,x
-	STA.b $16,x
-	STY.b $32,x
-	RTS
+	LDY.w $1B6B				;$ACB232
+	CLC					;$ACB235
+	ADC.w $0012,y				;$ACB236
+	STA.b $12,x				;$ACB239
+	PLA					;$ACB23B
+	JSL.l CODE_B58021			;$ACB23C
+	CLC					;$ACB240
+	ADC.w $0016,y				;$ACB241
+	CLC					;$ACB244
+	ADC.b $60,x				;$ACB245
+	STA.b $16,x				;$ACB247
+	LDA.b $2C,x				;$ACB249
+	LDY.b $12,x				;$ACB24B
+	STA.b $12,x				;$ACB24D
+	STY.b $2C,x				;$ACB24F
+	LDA.b $32,x				;$ACB251
+	LDY.b $16,x				;$ACB253
+	STA.b $16,x				;$ACB255
+	STY.b $32,x				;$ACB257
+	RTS					;$ACB259
 
 CODE_ACB25A:
-	LDA.w $002C,y
-	CLC
-	ADC.w $1B83
-	STA.w $002C,y
-	LDA.w $0032,y
-	CLC
-	ADC.w $1B85
-	STA.w $0032,y
-	RTS
+	LDA.w $002C,y				;$ACB25A
+	CLC					;$ACB25D
+	ADC.w $1B83				;$ACB25E
+	STA.w $002C,y				;$ACB261
+	LDA.w $0032,y				;$ACB264
+	CLC					;$ACB267
+	ADC.w $1B85				;$ACB268
+	STA.w $0032,y				;$ACB26B
+	RTS					;$ACB26E
 
 DATA_ACB26F:
 	dw $0000
@@ -349,16 +349,16 @@ DATA_ACB26F:
 	dw $ECD8
 
 CODE_ACB285:
-	JSL.l CODE_BB8591
-	JMP.w [$04F5]
+	JSL.l CODE_BB8591			;$ACB285
+	JMP.w [$04F5]				;$ACB289
 
 CODE_ACB28C:
-	JSL.l CODE_B9A006
-	JMP.w [$04F5]
+	JSL.l CODE_B9A006			;$ACB28C
+	JMP.w [$04F5]				;$ACB290
 
 CODE_ACB293:
-	EOR.b $1E,x
-	AND.w #$3000
-	EOR.b $1E,x
-	STA.b $1E,x
-	RTS
+	EOR.b $1E,x				;$ACB293
+	AND.w #$3000				;$ACB295
+	EOR.b $1E,x				;$ACB298
+	STA.b $1E,x				;$ACB29A
+	RTS					;$ACB29C

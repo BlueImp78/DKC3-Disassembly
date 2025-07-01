@@ -1,10 +1,5 @@
-;as a convention, any unused address will be named UNUSED_<address> and treated as a single byte
-;Most addresses shall be assumed 2 bytes unless otherwise noted.  Single byte addresses won't be specifically
-;noted as their addresses will carry that point.
-;Duplicate addresses imply an address withg multiple contexts.
-;Temporaries are named after the address they point to rather than a sequence.
-;Temporaries used for any significant context should have local reassignment
-;Temporaries are generally any addres used in multi contexts.
+includeonce
+
 
 spc_transaction = $06
 current_song = $08

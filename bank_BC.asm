@@ -5025,940 +5025,940 @@ DATA_BCE14B:
 	dw $FFC5,$FFEB,$0058,$0010,$FFB5,$FFEB,$0078,$0010
 
 CODE_BCE2CB:
-	JMP.w CODE_BCE2F5
+	JMP.w CODE_BCE2F5			;$BCE2CB
 
 CODE_BCE2CE:
-	JMP.w CODE_BCE321
+	JMP.w CODE_BCE321			;$BCE2CE
 
 CODE_BCE2D1:
-	JMP.w CODE_BCE343
+	JMP.w CODE_BCE343			;$BCE2D1
 
 CODE_BCE2D4:
-	JMP.w CODE_BCE376
+	JMP.w CODE_BCE376			;$BCE2D4
 
 CODE_BCE2D7:
-	JMP.w CODE_BCE3FC
+	JMP.w CODE_BCE3FC			;$BCE2D7
 
 CODE_BCE2DA:
-	JMP.w CODE_BCE82F
+	JMP.w CODE_BCE82F			;$BCE2DA
 
 CODE_BCE2DD:
-	JMP.w CODE_BCE837
+	JMP.w CODE_BCE837			;$BCE2DD
 
 CODE_BCE2E0:
-	JMP.w CODE_BCE83F
+	JMP.w CODE_BCE83F			;$BCE2E0
 
 CODE_BCE2E3:
-	JMP.w CODE_BCE847
+	JMP.w CODE_BCE847			;$BCE2E3
 
 CODE_BCE2E6:
-	JMP.w CODE_BCE84F
+	JMP.w CODE_BCE84F			;$BCE2E6
 
 CODE_BCE2E9:
-	JMP.w CODE_BCE857
+	JMP.w CODE_BCE857			;$BCE2E9
 
 CODE_BCE2EC:
-	JMP.w CODE_BCE8A3
+	JMP.w CODE_BCE8A3			;$BCE2EC
 
 CODE_BCE2EF:
-	JMP.w CODE_BCE365
+	JMP.w CODE_BCE365			;$BCE2EF
 
 CODE_BCE2F2:
-	JMP.w CODE_BCE3B7
+	JMP.w CODE_BCE3B7			;$BCE2F2
 
 CODE_BCE2F5:
-	STZ.w $1804
-	STZ.w $180C
-	STZ.w $1814
-	STZ.w $181C
-	STZ.w $1824
-	STZ.w $182C
-	STZ.w $184C
-	LDA.w #CODE_BCE59E>>8
-	STA.w $1865
-	LDA.w #CODE_BCE59E
-	STA.w $1864
-	LDX.w active_kong_sprite
-	LDA.b $4A,x
-	AND.w #$BFFF
-	STA.b $4A,x
-	RTL
+	STZ.w $1804				;$BCE2F5
+	STZ.w $180C				;$BCE2F8
+	STZ.w $1814				;$BCE2FB
+	STZ.w $181C				;$BCE2FE
+	STZ.w $1824				;$BCE301
+	STZ.w $182C				;$BCE304
+	STZ.w $184C				;$BCE307
+	LDA.w #CODE_BCE59E>>8			;$BCE30A
+	STA.w $1865				;$BCE30D
+	LDA.w #CODE_BCE59E			;$BCE310
+	STA.w $1864				;$BCE313
+	LDX.w active_kong_sprite		;$BCE316
+	LDA.b $4A,x				;$BCE319
+	AND.w #$BFFF				;$BCE31B
+	STA.b $4A,x				;$BCE31E
+	RTL					;$BCE320
 
 CODE_BCE321:
-	PHD
-	LDY.w #$1808
-	LDX.b current_sprite
-	CPX.w active_kong_sprite
-	BEQ.b CODE_BCE33B
-	LDY.w #CODE_BCE58E>>8
-	STY.w $1865
-	LDY.w #CODE_BCE58E
-	STY.w $1864
-	LDY.w #$1820
+	PHD					;$BCE321
+	LDY.w #$1808				;$BCE322
+	LDX.b current_sprite			;$BCE325
+	CPX.w active_kong_sprite		;$BCE327
+	BEQ.b CODE_BCE33B			;$BCE32A
+	LDY.w #CODE_BCE58E>>8			;$BCE32C
+	STY.w $1865				;$BCE32F
+	LDY.w #CODE_BCE58E			;$BCE332
+	STY.w $1864				;$BCE335
+	LDY.w #$1820				;$BCE338
 CODE_BCE33B:
-	JSR.w CODE_BCE519
-	JSR.w CODE_BCE4B6
-	PLD
-	RTL
+	JSR.w CODE_BCE519			;$BCE33B
+	JSR.w CODE_BCE4B6			;$BCE33E
+	PLD					;$BCE341
+	RTL					;$BCE342
 
 CODE_BCE343:
-	PHD
-	LDY.w #$1800
-	LDX.b current_sprite
-	CPX.w active_kong_sprite
-	BEQ.b CODE_BCE35D
-	LDY.w #CODE_BCE58E>>8
-	STY.w $1865
-	LDY.w #CODE_BCE58E
-	STY.w $1864
-	LDY.w #$1818
+	PHD					;$BCE343
+	LDY.w #$1800				;$BCE344
+	LDX.b current_sprite			;$BCE347
+	CPX.w active_kong_sprite		;$BCE349
+	BEQ.b CODE_BCE35D			;$BCE34C
+	LDY.w #CODE_BCE58E>>8			;$BCE34E
+	STY.w $1865				;$BCE351
+	LDY.w #CODE_BCE58E			;$BCE354
+	STY.w $1864				;$BCE357
+	LDY.w #$1818				;$BCE35A
 CODE_BCE35D:
-	JSR.w CODE_BCE519
-	JSR.w CODE_BCE4A5
-	PLD
-	RTL
+	JSR.w CODE_BCE519			;$BCE35D
+	JSR.w CODE_BCE4A5			;$BCE360
+	PLD					;$BCE363
+	RTL					;$BCE364
 
 CODE_BCE365:
-	PHD
-	LDY.w #$1808
-	LDX.b current_sprite
-	JSR.w CODE_BCE519
-	LDA.w #$1800
-	JSR.w CODE_BCE4C7
-	PLD
-	RTL
+	PHD					;$BCE365
+	LDY.w #$1808				;$BCE366
+	LDX.b current_sprite			;$BCE369
+	JSR.w CODE_BCE519			;$BCE36B
+	LDA.w #$1800				;$BCE36E
+	JSR.w CODE_BCE4C7			;$BCE371
+	PLD					;$BCE374
+	RTL					;$BCE375
 
 CODE_BCE376:
-	LDX.b current_sprite
-	CPX.w active_kong_sprite
-	BNE.b CODE_BCE3A7
-	PHD
-	LDY.w #$1800
-	BIT.w $1804
-	BEQ.b CODE_BCE389
-	LDY.w #$1808
+	LDX.b current_sprite			;$BCE376
+	CPX.w active_kong_sprite		;$BCE378
+	BNE.b CODE_BCE3A7			;$BCE37B
+	PHD					;$BCE37D
+	LDY.w #$1800				;$BCE37E
+	BIT.w $1804				;$BCE381
+	BEQ.b CODE_BCE389			;$BCE384
+	LDY.w #$1808				;$BCE386
 CODE_BCE389:
-	JSR.w CODE_BCE535
-	JSR.w CODE_BCE3C0
-	LDA.w #$1800
-	JSR.w CODE_BCE4C7
-	PLD
-	LDX.w $1B63
-	BNE.b CODE_BCE3A8
-	LDX.b $7A
-	BNE.b CODE_BCE3B7
-	LDA.b current_animal_type
-	BEQ.b CODE_BCE3A7
-	LDX.b current_mount
-	BNE.b CODE_BCE3B7
+	JSR.w CODE_BCE535			;$BCE389
+	JSR.w CODE_BCE3C0			;$BCE38C
+	LDA.w #$1800				;$BCE38F
+	JSR.w CODE_BCE4C7			;$BCE392
+	PLD					;$BCE395
+	LDX.w $1B63				;$BCE396
+	BNE.b CODE_BCE3A8			;$BCE399
+	LDX.b $7A				;$BCE39B
+	BNE.b CODE_BCE3B7			;$BCE39D
+	LDA.b current_animal_type		;$BCE39F
+	BEQ.b CODE_BCE3A7			;$BCE3A1
+	LDX.b current_mount			;$BCE3A3
+	BNE.b CODE_BCE3B7			;$BCE3A5
 CODE_BCE3A7:
-	RTL
+	RTL					;$BCE3A7
 
 CODE_BCE3A8:
-	PHD
-	LDY.w #$1808
-	JSR.w CODE_BCE535
-	LDA.w #$1800
-	JSR.w CODE_BCE4C7
-	PLD
-	RTL
+	PHD					;$BCE3A8
+	LDY.w #$1808				;$BCE3A9
+	JSR.w CODE_BCE535			;$BCE3AC
+	LDA.w #$1800				;$BCE3AF
+	JSR.w CODE_BCE4C7			;$BCE3B2
+	PLD					;$BCE3B5
+	RTL					;$BCE3B6
 
 CODE_BCE3B7:
-	PHD
-	LDY.w #$1848
-	JSR.w CODE_BCE535
-	PLD
-	RTL
+	PHD					;$BCE3B7
+	LDY.w #$1848				;$BCE3B8
+	JSR.w CODE_BCE535			;$BCE3BB
+	PLD					;$BCE3BE
+	RTL					;$BCE3BF
 
 CODE_BCE3C0:
-	LDA.w $0026,x
-	AND.w #$800F
-	CMP.w #$8001
-	BNE.b CODE_BCE3FB
-	LDA.w $0058,x
-	AND.w #$FF00
-	BPL.b CODE_BCE3D6
-	ORA.w #$00FF
+	LDA.w $0026,x				;$BCE3C0
+	AND.w #$800F				;$BCE3C3
+	CMP.w #$8001				;$BCE3C6
+	BNE.b CODE_BCE3FB			;$BCE3C9
+	LDA.w $0058,x				;$BCE3CB
+	AND.w #$FF00				;$BCE3CE
+	BPL.b CODE_BCE3D6			;$BCE3D1
+	ORA.w #$00FF				;$BCE3D3
 CODE_BCE3D6:
-	XBA
-	PHA
-	CLC
-	ADC.b $02
-	STA.b $02
-	PLA
-	CLC
-	ADC.b $06
-	STA.b $06
-	LDA.w $0057,x
-	AND.w #$FF00
-	BPL.b CODE_BCE3EE
-	ORA.w #$00FF
+	XBA					;$BCE3D6
+	PHA					;$BCE3D7
+	CLC					;$BCE3D8
+	ADC.b $02				;$BCE3D9
+	STA.b $02				;$BCE3DB
+	PLA					;$BCE3DD
+	CLC					;$BCE3DE
+	ADC.b $06				;$BCE3DF
+	STA.b $06				;$BCE3E1
+	LDA.w $0057,x				;$BCE3E3
+	AND.w #$FF00				;$BCE3E6
+	BPL.b CODE_BCE3EE			;$BCE3E9
+	ORA.w #$00FF				;$BCE3EB
 CODE_BCE3EE:
-	XBA
+	XBA					;$BCE3EE
 CODE_BCE3EF:
-	PHA
-	CLC
-	ADC.b $00
-	STA.b $00
-	PLA
-	CLC
-	ADC.b $04
-	STA.b $04
+	PHA					;$BCE3EF
+	CLC					;$BCE3F0
+	ADC.b $00				;$BCE3F1
+	STA.b $00				;$BCE3F3
+	PLA					;$BCE3F5
+	CLC					;$BCE3F6
+	ADC.b $04				;$BCE3F7
+	STA.b $04				;$BCE3F9
 CODE_BCE3FB:
-	RTS
+	RTS					;$BCE3FB
 
 CODE_BCE3FC:
-	PHD
-	LDX.w follower_kong_sprite
-	LDY.w #$1818
-	LDA.w $181C
-	BEQ.b CODE_BCE40B
-	LDY.w #$1820
+	PHD					;$BCE3FC
+	LDX.w follower_kong_sprite		;$BCE3FD
+	LDY.w #$1818				;$BCE400
+	LDA.w $181C				;$BCE403
+	BEQ.b CODE_BCE40B			;$BCE406
+	LDY.w #$1820				;$BCE408
 CODE_BCE40B:
-	JSR.w CODE_BCE535
-	JSR.w CODE_BCE3C0
-	LDA.w #$1818
-	JSR.w CODE_BCE4C7
-	PLD
-	LDA.w #CODE_BCE58E>>8
-	STA.w $1865
-	LDA.w #CODE_BCE58E
-	STA.w $1864
-	RTL
+	JSR.w CODE_BCE535			;$BCE40B
+	JSR.w CODE_BCE3C0			;$BCE40E
+	LDA.w #$1818				;$BCE411
+	JSR.w CODE_BCE4C7			;$BCE414
+	PLD					;$BCE417
+	LDA.w #CODE_BCE58E>>8			;$BCE418
+	STA.w $1865				;$BCE41B
+	LDA.w #CODE_BCE58E			;$BCE41E
+	STA.w $1864				;$BCE421
+	RTL					;$BCE424
 
-CODE_BCE425:
-	PHD
-	LDX.b current_sprite
-	LDY.w #$1830
-	JSR.w CODE_BCE535
-	JSR.w CODE_BCE4A5
-	PLD
-	STZ.w $183C
-	STZ.w $1860
-	STZ.w $1862
-	RTL
+populate_sprite_clipping:
+	PHD					;$BCE425
+	LDX.b current_sprite			;$BCE426
+	LDY.w #$1830				;$BCE428
+	JSR.w CODE_BCE535			;$BCE42B
+	JSR.w CODE_BCE4A5			;$BCE42E
+	PLD					;$BCE431
+	STZ.w $183C				;$BCE432
+	STZ.w $1860				;$BCE435
+	STZ.w $1862				;$BCE438
+	RTL					;$BCE43B
 
 CODE_BCE43C:
-	PHD
-	LDX.b current_sprite
-	LDY.w #$1830
-	JSR.w CODE_BCE519
-	JSR.w CODE_BCE4A5
-	PLD
-	STZ.w $183C
-	STZ.w $1860
-	STZ.w $1862
-	RTL
+	PHD					;$BCE43C
+	LDX.b current_sprite			;$BCE43D
+	LDY.w #$1830				;$BCE43F
+	JSR.w CODE_BCE519			;$BCE442
+	JSR.w CODE_BCE4A5			;$BCE445
+	PLD					;$BCE448
+	STZ.w $183C				;$BCE449
+	STZ.w $1860				;$BCE44C
+	STZ.w $1862				;$BCE44F
+	RTL					;$BCE452
 
 CODE_BCE453:
-	PHD
-	LDX.b current_sprite
-	LDY.w #$1838
-	JSR.w CODE_BCE519
-	LDA.w #$1830
-	JSR.w CODE_BCE4C7
-	PLD
-	RTL
+	PHD					;$BCE453
+	LDX.b current_sprite			;$BCE454
+	LDY.w #$1838				;$BCE456
+	JSR.w CODE_BCE519			;$BCE459
+	LDA.w #$1830				;$BCE45C
+	JSR.w CODE_BCE4C7			;$BCE45F
+	PLD					;$BCE462
+	RTL					;$BCE463
 
 CODE_BCE464:
-	PHD
-	LDX.b current_sprite
-	LDY.w #$1830
-	JSR.w CODE_BCE519
-	LDA.w #$1830
-	TCD
-	LDA.b $10
-	STA.b $08
-	CMP.b $00
-	BCC.b CODE_BCE47D
-	LDA.b $00
-	STA.b $10
+	PHD					;$BCE464
+	LDX.b current_sprite			;$BCE465
+	LDY.w #$1830				;$BCE467
+	JSR.w CODE_BCE519			;$BCE46A
+	LDA.w #$1830				;$BCE46D
+	TCD					;$BCE470
+	LDA.b $10				;$BCE471
+	STA.b $08				;$BCE473
+	CMP.b $00				;$BCE475
+	BCC.b CODE_BCE47D			;$BCE477
+	LDA.b $00				;$BCE479
+	STA.b $10				;$BCE47B
 CODE_BCE47D:
-	LDA.w $1844
-	STA.w $183C
-	CMP.b $04
-	BCS.b CODE_BCE48B
-	LDA.b $04
-	STA.b $14
+	LDA.w $1844				;$BCE47D
+	STA.w $183C				;$BCE480
+	CMP.b $04				;$BCE483
+	BCS.b CODE_BCE48B			;$BCE485
+	LDA.b $04				;$BCE487
+	STA.b $14				;$BCE489
 CODE_BCE48B:
-	LDA.b $12
-	STA.b $0A
-	CMP.b $02
-	BCC.b CODE_BCE497
-	LDA.b $02
-	STA.b $12
+	LDA.b $12				;$BCE48B
+	STA.b $0A				;$BCE48D
+	CMP.b $02				;$BCE48F
+	BCC.b CODE_BCE497			;$BCE491
+	LDA.b $02				;$BCE493
+	STA.b $12				;$BCE495
 CODE_BCE497:
-	LDA.b $16
-	STA.b $0E
-	CMP.b $06
-	BCS.b CODE_BCE4A3
-	LDA.b $06
-	STA.b $16
+	LDA.b $16				;$BCE497
+	STA.b $0E				;$BCE499
+	CMP.b $06				;$BCE49B
+	BCS.b CODE_BCE4A3			;$BCE49D
+	LDA.b $06				;$BCE49F
+	STA.b $16				;$BCE4A1
 CODE_BCE4A3:
-	PLD
-	RTL
+	PLD					;$BCE4A3
+	RTL					;$BCE4A4
 
 CODE_BCE4A5:
-	LDA.b $00
-	STA.b $10
-	LDA.b $04
-	STA.b $14
-	LDA.b $06
-	STA.b $16
-	LDA.b $02
-	STA.b $12
-	RTS
+	LDA.b $00				;$BCE4A5
+	STA.b $10				;$BCE4A7
+	LDA.b $04				;$BCE4A9
+	STA.b $14				;$BCE4AB
+	LDA.b $06				;$BCE4AD
+	STA.b $16				;$BCE4AF
+	LDA.b $02				;$BCE4B1
+	STA.b $12				;$BCE4B3
+	RTS					;$BCE4B5
 
 CODE_BCE4B6:
-	LDA.b $00
-	STA.b $08
-	LDA.b $04
-	STA.b $0C
-	LDA.b $06
-	STA.b $0E
-	LDA.b $02
-	STA.b $0A
-	RTS
+	LDA.b $00				;$BCE4B6
+	STA.b $08				;$BCE4B8
+	LDA.b $04				;$BCE4BA
+	STA.b $0C				;$BCE4BC
+	LDA.b $06				;$BCE4BE
+	STA.b $0E				;$BCE4C0
+	LDA.b $02				;$BCE4C2
+	STA.b $0A				;$BCE4C4
+	RTS					;$BCE4C6
 
 CODE_BCE4C7:
-	TCD
-	LDA.b $0C
-	BEQ.b CODE_BCE4F7
-	LDA.b $04
-	BEQ.b CODE_BCE508
-	CMP.b $0C
-	BCS.b CODE_BCE4D6
-	LDA.b $0C
+	TCD					;$BCE4C7
+	LDA.b $0C				;$BCE4C8
+	BEQ.b CODE_BCE4F7			;$BCE4CA
+	LDA.b $04				;$BCE4CC
+	BEQ.b CODE_BCE508			;$BCE4CE
+	CMP.b $0C				;$BCE4D0
+	BCS.b CODE_BCE4D6			;$BCE4D2
+	LDA.b $0C				;$BCE4D4
 CODE_BCE4D6:
-	STA.b $14
-	LDA.b $00
-	CMP.b $08
-	BCC.b CODE_BCE4E0
-	LDA.b $08
+	STA.b $14				;$BCE4D6
+	LDA.b $00				;$BCE4D8
+	CMP.b $08				;$BCE4DA
+	BCC.b CODE_BCE4E0			;$BCE4DC
+	LDA.b $08				;$BCE4DE
 CODE_BCE4E0:
-	STA.b $10
-	LDA.b $02
-	CMP.b $0A
-	BCC.b CODE_BCE4EA
-	LDA.b $0A
+	STA.b $10				;$BCE4E0
+	LDA.b $02				;$BCE4E2
+	CMP.b $0A				;$BCE4E4
+	BCC.b CODE_BCE4EA			;$BCE4E6
+	LDA.b $0A				;$BCE4E8
 CODE_BCE4EA:
-	STA.b $12
-	LDA.b $06
-	CMP.b $0E
-	BCS.b CODE_BCE4F4
-	LDA.b $0E
+	STA.b $12				;$BCE4EA
+	LDA.b $06				;$BCE4EC
+	CMP.b $0E				;$BCE4EE
+	BCS.b CODE_BCE4F4			;$BCE4F0
+	LDA.b $0E				;$BCE4F2
 CODE_BCE4F4:
-	STA.b $16
-	RTS
+	STA.b $16				;$BCE4F4
+	RTS					;$BCE4F6
 
 CODE_BCE4F7:
-	LDA.b $00
-	STA.b $10
-	LDA.b $04
-	STA.b $14
-	LDA.b $06
-	STA.b $16
-	LDA.b $02
-	STA.b $12
-	RTS
+	LDA.b $00				;$BCE4F7
+	STA.b $10				;$BCE4F9
+	LDA.b $04				;$BCE4FB
+	STA.b $14				;$BCE4FD
+	LDA.b $06				;$BCE4FF
+	STA.b $16				;$BCE501
+	LDA.b $02				;$BCE503
+	STA.b $12				;$BCE505
+	RTS					;$BCE507
 
 CODE_BCE508:
-	LDA.b $08
-	STA.b $10
-	LDA.b $0C
-	STA.b $14
-	LDA.b $0E
-	STA.b $16
-	LDA.b $0A
-	STA.b $12
-	RTS
+	LDA.b $08				;$BCE508
+	STA.b $10				;$BCE50A
+	LDA.b $0C				;$BCE50C
+	STA.b $14				;$BCE50E
+	LDA.b $0E				;$BCE510
+	STA.b $16				;$BCE512
+	LDA.b $0A				;$BCE514
+	STA.b $12				;$BCE516
+	RTS					;$BCE518
 
 CODE_BCE519:
-	ASL
-	ASL
-	ASL
-	ADC.w #DATA_BCE14B
-	BRA.b CODE_BCE542
+	ASL					;$BCE519
+	ASL					;$BCE51A
+	ASL					;$BCE51B
+	ADC.w #DATA_BCE14B			;$BCE51C
+	BRA.b CODE_BCE542			;$BCE51F
 
 CODE_BCE521:
-	PHY
-	PLD
-	STA.b $04
-	RTS
+	PHY					;$BCE521
+	PLD					;$BCE522
+	STA.b $04				;$BCE523
+	RTS					;$BCE525
 
 CODE_BCE526:
-	PHX
-	ASL
-	LSR
-	ADC.l $7FFFFE
-	TAX
-	LDA.l $7F0003,x
-	PLX
-	BRA.b CODE_BCE542
+	PHX					;$BCE526
+	ASL					;$BCE527
+	LSR					;$BCE528
+	ADC.l $7FFFFE				;$BCE529
+	TAX					;$BCE52D
+	LDA.l $7F0003,x				;$BCE52E
+	PLX					;$BCE532
+	BRA.b CODE_BCE542			;$BCE533
 
 CODE_BCE535:
-	LDA.b $24,x
-	BEQ.b CODE_BCE521
-	BMI.b CODE_BCE526
-	PHX
-	TAX
-	LDA.l DATA_BC8000+$03,x
-	PLX
+	LDA.b $24,x				;$BCE535
+	BEQ.b CODE_BCE521			;$BCE537
+	BMI.b CODE_BCE526			;$BCE539
+	PHX					;$BCE53B
+	TAX					;$BCE53C
+	LDA.l DATA_BC8000+$03,x			;$BCE53D
+	PLX					;$BCE541
 CODE_BCE542:
-	PHB
-	PHK
-	PLB
-	PHY
-	TAY
-	PLD
-	LDA.w $0012,x
-	BIT.w $001E,x
-	BVS.b CODE_BCE55E
-	CLC
-	ADC.w $0000,y
-	STA.b $00
-	CLC
-	ADC.w $0004,y
-	STA.b $04
-	BRA.b CODE_BCE56A
+	PHB					;$BCE542
+	PHK					;$BCE543
+	PLB					;$BCE544
+	PHY					;$BCE545
+	TAY					;$BCE546
+	PLD					;$BCE547
+	LDA.w $0012,x				;$BCE548
+	BIT.w $001E,x				;$BCE54B
+	BVS.b CODE_BCE55E			;$BCE54E
+	CLC					;$BCE550
+	ADC.w $0000,y				;$BCE551
+	STA.b $00				;$BCE554
+	CLC					;$BCE556
+	ADC.w $0004,y				;$BCE557
+	STA.b $04				;$BCE55A
+	BRA.b CODE_BCE56A			;$BCE55C
 
 CODE_BCE55E:
-	SEC
-	SBC.w $0000,y
-	STA.b $04
-	SEC
-	SBC.w $0004,y
-	STA.b $00
+	SEC					;$BCE55E
+	SBC.w $0000,y				;$BCE55F
+	STA.b $04				;$BCE562
+	SEC					;$BCE564
+	SBC.w $0004,y				;$BCE565
+	STA.b $00				;$BCE568
 CODE_BCE56A:
-	LDA.w $0016,x
-	BIT.w $001E,x
-	BMI.b CODE_BCE580
-	CLC
-	ADC.w $0002,y
-	STA.b $02
-	CLC
-	ADC.w $0006,y
-	STA.b $06
-	PLB
-	RTS
+	LDA.w $0016,x				;$BCE56A
+	BIT.w $001E,x				;$BCE56D
+	BMI.b CODE_BCE580			;$BCE570
+	CLC					;$BCE572
+	ADC.w $0002,y				;$BCE573
+	STA.b $02				;$BCE576
+	CLC					;$BCE578
+	ADC.w $0006,y				;$BCE579
+	STA.b $06				;$BCE57C
+	PLB					;$BCE57E
+	RTS					;$BCE57F
 
 CODE_BCE580:
-	SEC
-	SBC.w $0002,y
-	STA.b $06
-	SEC
-	SBC.w $0006,y
-	STA.b $02
-	PLB
-	RTS
+	SEC					;$BCE580
+	SBC.w $0002,y				;$BCE581
+	STA.b $06				;$BCE584
+	SEC					;$BCE586
+	SBC.w $0006,y				;$BCE587
+	STA.b $02				;$BCE58A
+	PLB					;$BCE58C
+	RTS					;$BCE58D
 
 CODE_BCE58E:
-	STA.b $E2
-	LDX.w follower_kong_sprite
-	STX.b $78
-	LDY.w #$0018
-	JSR.w CODE_BCE682
-	BCC.b CODE_BCE5BC
-	RTL
+	STA.b $E2				;$BCE58E
+	LDX.w follower_kong_sprite		;$BCE590
+	STX.b $78				;$BCE593
+	LDY.w #$0018				;$BCE595
+	JSR.w CODE_BCE682			;$BCE598
+	BCC.b CODE_BCE5BC			;$BCE59B
+	RTL					;$BCE59D
 
 CODE_BCE59E:
-	STA.b $E2
-	LDX.w active_kong_sprite
-	STX.b $78
-	LDY.w #$0000
-	JSR.w CODE_BCE682
-	BCC.b CODE_BCE5BC
-	RTL
+	STA.b $E2				;$BCE59E
+	LDX.w active_kong_sprite		;$BCE5A0
+	STX.b $78				;$BCE5A3
+	LDY.w #$0000				;$BCE5A5
+	JSR.w CODE_BCE682			;$BCE5A8
+	BCC.b CODE_BCE5BC			;$BCE5AB
+	RTL					;$BCE5AD
 
 CODE_BCE5AE:
-	STA.b $E2
-	LDX.w active_kong_sprite
-	STX.b $78
-	LDY.w #$0000
-	JSR.w CODE_BCE682
-	RTL
+	STA.b $E2				;$BCE5AE
+	LDX.w active_kong_sprite		;$BCE5B0
+	STX.b $78				;$BCE5B3
+	LDY.w #$0000				;$BCE5B5
+	JSR.w CODE_BCE682			;$BCE5B8
+	RTL					;$BCE5BB
 
 CODE_BCE5BC:
-	LDA.b $E2
-	BEQ.b CODE_BCE5D2
-	LDX.w active_kong_sprite
-	CPX.b $78
-	BEQ.b CODE_BCE5D4
-	STX.b $78
-	LDY.w #$0000
-	JSR.w CODE_BCE682
-	BCC.b CODE_BCE5D4
-	RTL
+	LDA.b $E2				;$BCE5BC
+	BEQ.b CODE_BCE5D2			;$BCE5BE
+	LDX.w active_kong_sprite		;$BCE5C0
+	CPX.b $78				;$BCE5C3
+	BEQ.b CODE_BCE5D4			;$BCE5C5
+	STX.b $78				;$BCE5C7
+	LDY.w #$0000				;$BCE5C9
+	JSR.w CODE_BCE682			;$BCE5CC
+	BCC.b CODE_BCE5D4			;$BCE5CF
+	RTL					;$BCE5D1
 
 CODE_BCE5D2:
-	CLC
-	RTL
+	CLC					;$BCE5D2
+	RTL					;$BCE5D3
 
 CODE_BCE5D4:
-	LDA.b $7A
-	BEQ.b CODE_BCE5DB
-	STA.b $78
-	TAX
+	LDA.b $7A				;$BCE5D4
+	BEQ.b CODE_BCE5DB			;$BCE5D6
+	STA.b $78				;$BCE5D8
+	TAX					;$BCE5DA
 CODE_BCE5DB:
-	STZ.w $1852
-	LDA.b $E2
-	AND.b $3A,x
-	BEQ.b CODE_BCE654
-	LDA.w $184C
-	BEQ.b CODE_BCE654
-	CMP.w $1840
-	BCC.b CODE_BCE654
-	LDA.w $1844
-	CMP.w $1848
-	BCC.b CODE_BCE654
-	LDA.w $1846
-	CMP.w $184A
-	BCC.b CODE_BCE654
-	LDA.w $184E
-	CMP.w $1842
-	BCC.b CODE_BCE654
-	LDA.w $183C
-	BEQ.b CODE_BCE64E
-	CMP.w $1848
-	BCC.b CODE_BCE62E
-	LDA.w $184C
-	CMP.w $1838
-	BCC.b CODE_BCE62E
-	LDA.w $183E
-	CMP.w $184A
-	BCC.b CODE_BCE62E
-	LDA.w $184E
-	CMP.w $183A
-	BCC.b CODE_BCE62E
-	LDA.w #$0200
-	TSB.w $1852
+	STZ.w $1852				;$BCE5DB
+	LDA.b $E2				;$BCE5DE
+	AND.b $3A,x				;$BCE5E0
+	BEQ.b CODE_BCE654			;$BCE5E2
+	LDA.w $184C				;$BCE5E4
+	BEQ.b CODE_BCE654			;$BCE5E7
+	CMP.w $1840				;$BCE5E9
+	BCC.b CODE_BCE654			;$BCE5EC
+	LDA.w $1844				;$BCE5EE
+	CMP.w $1848				;$BCE5F1
+	BCC.b CODE_BCE654			;$BCE5F4
+	LDA.w $1846				;$BCE5F6
+	CMP.w $184A				;$BCE5F9
+	BCC.b CODE_BCE654			;$BCE5FC
+	LDA.w $184E				;$BCE5FE
+	CMP.w $1842				;$BCE601
+	BCC.b CODE_BCE654			;$BCE604
+	LDA.w $183C				;$BCE606
+	BEQ.b CODE_BCE64E			;$BCE609
+	CMP.w $1848				;$BCE60B
+	BCC.b CODE_BCE62E			;$BCE60E
+	LDA.w $184C				;$BCE610
+	CMP.w $1838				;$BCE613
+	BCC.b CODE_BCE62E			;$BCE616
+	LDA.w $183E				;$BCE618
+	CMP.w $184A				;$BCE61B
+	BCC.b CODE_BCE62E			;$BCE61E
+	LDA.w $184E				;$BCE620
+	CMP.w $183A				;$BCE623
+	BCC.b CODE_BCE62E			;$BCE626
+	LDA.w #$0200				;$BCE628
+	TSB.w $1852				;$BCE62B
 CODE_BCE62E:
-	LDA.w $184C
-	CMP.w $1830
-	BCC.b CODE_BCE654
-	LDA.w $1834
-	CMP.w $1848
-	BCC.b CODE_BCE654
-	LDA.w $1836
-	CMP.w $1802
-	BCC.b CODE_BCE654
-	LDA.w $1806
-	CMP.w $1832
-	BCC.b CODE_BCE654
+	LDA.w $184C				;$BCE62E
+	CMP.w $1830				;$BCE631
+	BCC.b CODE_BCE654			;$BCE634
+	LDA.w $1834				;$BCE636
+	CMP.w $1848				;$BCE639
+	BCC.b CODE_BCE654			;$BCE63C
+	LDA.w $1836				;$BCE63E
+	CMP.w $1802				;$BCE641
+	BCC.b CODE_BCE654			;$BCE644
+	LDA.w $1806				;$BCE646
+	CMP.w $1832				;$BCE649
+	BCC.b CODE_BCE654			;$BCE64C
 CODE_BCE64E:
-	LDA.w #$0400
-	TSB.w $1852
+	LDA.w #$0400				;$BCE64E
+	TSB.w $1852				;$BCE651
 CODE_BCE654:
-	LDA.w $0775
-	AND.w #$0200
-	BEQ.b CODE_BCE677
-	LDX.b current_sprite
-	LDY.b $78
-	LDA.b $1E,x
-	EOR.w $001E,y
-	AND.w #$3000
-	BEQ.b CODE_BCE677
-	LDA.b $3A,x
-	ORA.w $003A,y
-	AND.w #$2000
-	BNE.b CODE_BCE677
-	STZ.w $1852
+	LDA.w $0775				;$BCE654
+	AND.w #$0200				;$BCE657
+	BEQ.b CODE_BCE677			;$BCE65A
+	LDX.b current_sprite			;$BCE65C
+	LDY.b $78				;$BCE65E
+	LDA.b $1E,x				;$BCE660
+	EOR.w $001E,y				;$BCE662
+	AND.w #$3000				;$BCE665
+	BEQ.b CODE_BCE677			;$BCE668
+	LDA.b $3A,x				;$BCE66A
+	ORA.w $003A,y				;$BCE66C
+	AND.w #$2000				;$BCE66F
+	BNE.b CODE_BCE677			;$BCE672
+	STZ.w $1852				;$BCE674
 CODE_BCE677:
-	STZ.b $E2
-	LDA.w $1852
-	CMP.w #$0001
-	RTL
+	STZ.b $E2				;$BCE677
+	LDA.w $1852				;$BCE679
+	CMP.w #$0001				;$BCE67C
+	RTL					;$BCE67F
 
 CODE_BCE680:
-	CLC
-	RTS
+	CLC					;$BCE680
+	RTS					;$BCE681
 
 CODE_BCE682:
-	STZ.w $1852
-	LDA.b $E2
-	AND.b $3A,x
-	BEQ.b CODE_BCE680
-	LDA.w $1814,y
-	CMP.w $1840
-	BCC.b CODE_BCE680
-	LDA.w $1844
-	CMP.w $1810,y
-	BCC.b CODE_BCE680
-	LDA.w $1846
-	CMP.w $1812,y
-	BCC.b CODE_BCE680
-	LDA.w $1816,y
-	CMP.w $1842
-	BCC.b CODE_BCE680
-	LDA.w $180C,y
-	BEQ.b CODE_BCE6D3
-	CMP.w $1830
-	BCC.b CODE_BCE6D3
-	LDA.w $1834
-	CMP.w $1808,y
-	BCC.b CODE_BCE6D3
-	LDA.w $1836
-	CMP.w $180A,y
-	BCC.b CODE_BCE6D3
-	LDA.w $180E,y
-	CMP.w $1832
-	BCC.b CODE_BCE6D3
-	LDA.w #$0001
-	TSB.w $1852
+	STZ.w $1852				;$BCE682
+	LDA.b $E2				;$BCE685
+	AND.b $3A,x				;$BCE687
+	BEQ.b CODE_BCE680			;$BCE689
+	LDA.w $1814,y				;$BCE68B
+	CMP.w $1840				;$BCE68E
+	BCC.b CODE_BCE680			;$BCE691
+	LDA.w $1844				;$BCE693
+	CMP.w $1810,y				;$BCE696
+	BCC.b CODE_BCE680			;$BCE699
+	LDA.w $1846				;$BCE69B
+	CMP.w $1812,y				;$BCE69E
+	BCC.b CODE_BCE680			;$BCE6A1
+	LDA.w $1816,y				;$BCE6A3
+	CMP.w $1842				;$BCE6A6
+	BCC.b CODE_BCE680			;$BCE6A9
+	LDA.w $180C,y				;$BCE6AB
+	BEQ.b CODE_BCE6D3			;$BCE6AE
+	CMP.w $1830				;$BCE6B0
+	BCC.b CODE_BCE6D3			;$BCE6B3
+	LDA.w $1834				;$BCE6B5
+	CMP.w $1808,y				;$BCE6B8
+	BCC.b CODE_BCE6D3			;$BCE6BB
+	LDA.w $1836				;$BCE6BD
+	CMP.w $180A,y				;$BCE6C0
+	BCC.b CODE_BCE6D3			;$BCE6C3
+	LDA.w $180E,y				;$BCE6C5
+	CMP.w $1832				;$BCE6C8
+	BCC.b CODE_BCE6D3			;$BCE6CB
+	LDA.w #$0001				;$BCE6CD
+	TSB.w $1852				;$BCE6D0
 CODE_BCE6D3:
-	LDA.w $183C
-	BEQ.b CODE_BCE6FB
-	CMP.w $1800,y
-	BCC.b CODE_BCE6FB
-	LDA.w $1804,y
-	CMP.w $1838
-	BCC.b CODE_BCE6FB
-	LDA.w $1806,y
-	CMP.w $183A
-	BCC.b CODE_BCE6FB
-	LDA.w $183E
-	CMP.w $1802,y
-	BCC.b CODE_BCE6FB
-	LDA.w #$0002
-	TSB.w $1852
+	LDA.w $183C				;$BCE6D3
+	BEQ.b CODE_BCE6FB			;$BCE6D6
+	CMP.w $1800,y				;$BCE6D8
+	BCC.b CODE_BCE6FB			;$BCE6DB
+	LDA.w $1804,y				;$BCE6DD
+	CMP.w $1838				;$BCE6E0
+	BCC.b CODE_BCE6FB			;$BCE6E3
+	LDA.w $1806,y				;$BCE6E5
+	CMP.w $183A				;$BCE6E8
+	BCC.b CODE_BCE6FB			;$BCE6EB
+	LDA.w $183E				;$BCE6ED
+	CMP.w $1802,y				;$BCE6F0
+	BCC.b CODE_BCE6FB			;$BCE6F3
+	LDA.w #$0002				;$BCE6F5
+	TSB.w $1852				;$BCE6F8
 CODE_BCE6FB:
-	LDA.w $1804,y
-	CMP.w $1830
-	BCC.b CODE_BCE721
-	LDA.w $1834
-	CMP.w $1800,y
-	BCC.b CODE_BCE721
-	LDA.w $1836
-	CMP.w $1802,y
-	BCC.b CODE_BCE721
-	LDA.w $1806,y
-	CMP.w $1832
-	BCC.b CODE_BCE721
-	LDA.w #$0004
-	TSB.w $1852
+	LDA.w $1804,y				;$BCE6FB
+	CMP.w $1830				;$BCE6FE
+	BCC.b CODE_BCE721			;$BCE701
+	LDA.w $1834				;$BCE703
+	CMP.w $1800,y				;$BCE706
+	BCC.b CODE_BCE721			;$BCE709
+	LDA.w $1836				;$BCE70B
+	CMP.w $1802,y				;$BCE70E
+	BCC.b CODE_BCE721			;$BCE711
+	LDA.w $1806,y				;$BCE713
+	CMP.w $1832				;$BCE716
+	BCC.b CODE_BCE721			;$BCE719
+	LDA.w #$0004				;$BCE71B
+	TSB.w $1852				;$BCE71E
 CODE_BCE721:
-	LDA.w $0775
-	AND.w #$0200
-	BEQ.b CODE_BCE744
-	LDX.b current_sprite
-	LDY.b $78
-	LDA.b $1E,x
-	EOR.w $001E,y
-	AND.w #$3000
-	BEQ.b CODE_BCE744
-	LDA.b $3A,x
-	ORA.w $003A,y
-	AND.w #$2000
-	BNE.b CODE_BCE744
-	STZ.w $1852
+	LDA.w $0775				;$BCE721
+	AND.w #$0200				;$BCE724
+	BEQ.b CODE_BCE744			;$BCE727
+	LDX.b current_sprite			;$BCE729
+	LDY.b $78				;$BCE72B
+	LDA.b $1E,x				;$BCE72D
+	EOR.w $001E,y				;$BCE72F
+	AND.w #$3000				;$BCE732
+	BEQ.b CODE_BCE744			;$BCE735
+	LDA.b $3A,x				;$BCE737
+	ORA.w $003A,y				;$BCE739
+	AND.w #$2000				;$BCE73C
+	BNE.b CODE_BCE744			;$BCE73F
+	STZ.w $1852				;$BCE741
 CODE_BCE744:
-	LDA.w $1852
-	CMP.w #$0001
-	RTS
+	LDA.w $1852				;$BCE744
+	CMP.w #$0001				;$BCE747
+	RTS					;$BCE74A
 
 CODE_BCE74B:
-	PHX
-	TYA
-	ASL
-	LSR
-	ADC.l $7FFFFE
-	TAX
-	LDA.l $7F0003,x
-	TAY
-	PLX
-	BRA.b CODE_BCE7A0
+	PHX					;$BCE74B
+	TYA					;$BCE74C
+	ASL					;$BCE74D
+	LSR					;$BCE74E
+	ADC.l $7FFFFE				;$BCE74F
+	TAX					;$BCE753
+	LDA.l $7F0003,x				;$BCE754
+	TAY					;$BCE758
+	PLX					;$BCE759
+	BRA.b CODE_BCE7A0			;$BCE75A
 
 CODE_BCE75C:
-	PLB
-	RTL
+	PLB					;$BCE75C
+	RTL					;$BCE75D
 
 CODE_BCE75E:
-	STA.b $E2
-	LDA.w #$1480
-	STA.b $78
-	LDA.w $1840
-	STA.b $D0
-	LDA.w $1844
-	STA.b $D4
-	LDA.w $1846
-	STA.b $D6
-	LDA.w $1842
-	STA.b $D2
+	STA.b $E2				;$BCE75E
+	LDA.w #$1480				;$BCE760
+	STA.b $78				;$BCE763
+	LDA.w $1840				;$BCE765
+	STA.b $D0				;$BCE768
+	LDA.w $1844				;$BCE76A
+	STA.b $D4				;$BCE76D
+	LDA.w $1846				;$BCE76F
+	STA.b $D6				;$BCE772
+	LDA.w $1842				;$BCE774
+	STA.b $D2				;$BCE777
 CODE_BCE779:
-	PHB
-	PHK
-	PLB
+	PHB					;$BCE779
+	PHK					;$BCE77A
+	PLB					;$BCE77B
 CODE_BCE77C:
-	LDA.b $78
-	SEC
-	SBC.w #$006E
-	STA.b $78
-	CMP.w #$08E7
-	BCC.b CODE_BCE75C
-	CMP.b current_sprite
-	BEQ.b CODE_BCE77C
-	TAX
-	LDA.b $00,x
-	BEQ.b CODE_BCE77C
-	LDA.b $3A,x
-	AND.b $E2
-	BEQ.b CODE_BCE77C
-	LDY.b $24,x
-	BMI.b CODE_BCE74B
-	LDA.w DATA_BC8000+$03,y
-	TAY
+	LDA.b $78				;$BCE77C
+	SEC					;$BCE77E
+	SBC.w #$006E				;$BCE77F
+	STA.b $78				;$BCE782
+	CMP.w #$08E7				;$BCE784
+	BCC.b CODE_BCE75C			;$BCE787
+	CMP.b current_sprite			;$BCE789
+	BEQ.b CODE_BCE77C			;$BCE78B
+	TAX					;$BCE78D
+	LDA.b $00,x				;$BCE78E
+	BEQ.b CODE_BCE77C			;$BCE790
+	LDA.b $3A,x				;$BCE792
+	AND.b $E2				;$BCE794
+	BEQ.b CODE_BCE77C			;$BCE796
+	LDY.b $24,x				;$BCE798
+	BMI.b CODE_BCE74B			;$BCE79A
+	LDA.w DATA_BC8000+$03,y			;$BCE79C
+	TAY					;$BCE79F
 CODE_BCE7A0:
-	LDA.b $16,x
-	BIT.b $1E,x
-	BPL.b CODE_BCE7BD
-	SEC
-	SBC.w $0002,y
-	CMP.b $D2
-	BCC.b CODE_BCE77C
-	STA.b $DE
-	SBC.w $0006,y
-	CMP.b $D6
-	BCC.b CODE_BCE7B9
-	BNE.b CODE_BCE77C
+	LDA.b $16,x				;$BCE7A0
+	BIT.b $1E,x				;$BCE7A2
+	BPL.b CODE_BCE7BD			;$BCE7A4
+	SEC					;$BCE7A6
+	SBC.w $0002,y				;$BCE7A7
+	CMP.b $D2				;$BCE7AA
+	BCC.b CODE_BCE77C			;$BCE7AC
+	STA.b $DE				;$BCE7AE
+	SBC.w $0006,y				;$BCE7B0
+	CMP.b $D6				;$BCE7B3
+	BCC.b CODE_BCE7B9			;$BCE7B5
+	BNE.b CODE_BCE77C			;$BCE7B7
 CODE_BCE7B9:
-	STA.b $DA
-	BRA.b CODE_BCE7D3
+	STA.b $DA				;$BCE7B9
+	BRA.b CODE_BCE7D3			;$BCE7BB
 
 CODE_BCE7BD:
-	CLC
-	ADC.w $0002,y
-	CMP.b $D6
-	BCC.b CODE_BCE7C8
-	BNE.b CODE_BCE77C
-	CLC
+	CLC					;$BCE7BD
+	ADC.w $0002,y				;$BCE7BE
+	CMP.b $D6				;$BCE7C1
+	BCC.b CODE_BCE7C8			;$BCE7C3
+	BNE.b CODE_BCE77C			;$BCE7C5
+	CLC					;$BCE7C7
 CODE_BCE7C8:
-	STA.b $DA
-	ADC.w $0006,y
-	CMP.b $D2
-	BCC.b CODE_BCE77C
-	STA.b $DE
+	STA.b $DA				;$BCE7C8
+	ADC.w $0006,y				;$BCE7CA
+	CMP.b $D2				;$BCE7CD
+	BCC.b CODE_BCE77C			;$BCE7CF
+	STA.b $DE				;$BCE7D1
 CODE_BCE7D3:
-	LDA.b $12,x
-	BIT.b $1E,x
-	BVC.b CODE_BCE7F0
-	SEC
-	SBC.w $0000,y
-	CMP.b $D0
-	BCC.b CODE_BCE77C
-	STA.b $DC
-	SBC.w $0004,y
-	CMP.b $D4
-	BCC.b CODE_BCE7EC
-	BNE.b CODE_BCE77C
+	LDA.b $12,x				;$BCE7D3
+	BIT.b $1E,x				;$BCE7D5
+	BVC.b CODE_BCE7F0			;$BCE7D7
+	SEC					;$BCE7D9
+	SBC.w $0000,y				;$BCE7DA
+	CMP.b $D0				;$BCE7DD
+	BCC.b CODE_BCE77C			;$BCE7DF
+	STA.b $DC				;$BCE7E1
+	SBC.w $0004,y				;$BCE7E3
+	CMP.b $D4				;$BCE7E6
+	BCC.b CODE_BCE7EC			;$BCE7E8
+	BNE.b CODE_BCE77C			;$BCE7EA
 CODE_BCE7EC:
-	STA.b $D8
-	BRA.b CODE_BCE809
+	STA.b $D8				;$BCE7EC
+	BRA.b CODE_BCE809			;$BCE7EE
 
 CODE_BCE7F0:
-	CLC
-	ADC.w $0000,y
-	CMP.b $D4
-	BCC.b CODE_BCE7FB
-	BNE.b CODE_BCE77C
-	CLC
+	CLC					;$BCE7F0
+	ADC.w $0000,y				;$BCE7F1
+	CMP.b $D4				;$BCE7F4
+	BCC.b CODE_BCE7FB			;$BCE7F6
+	BNE.b CODE_BCE77C			;$BCE7F8
+	CLC					;$BCE7FA
 CODE_BCE7FB:
-	STA.b $D8
-	ADC.w $0004,y
-	CMP.b $D0
-	BCS.b CODE_BCE807
-	BRL.w CODE_BCE77C
+	STA.b $D8				;$BCE7FB
+	ADC.w $0004,y				;$BCE7FD
+	CMP.b $D0				;$BCE800
+	BCS.b CODE_BCE807			;$BCE802
+	BRL.w CODE_BCE77C			;$BCE804
 
 CODE_BCE807:
-	STA.b $DC
+	STA.b $DC				;$BCE807
 CODE_BCE809:
-	LDA.w $0775
-	AND.w #$0200
-	BEQ.b CODE_BCE82C
-	LDX.b current_sprite
-	LDY.b $78
-	LDA.b $1E,x
-	EOR.w $001E,y
-	AND.w #$3000
-	BEQ.b CODE_BCE82C
-	LDA.b $3A,x
-	ORA.w $003A,y
-	AND.w #$2000
-	BNE.b CODE_BCE82C
-	PLB
-	CLC
-	RTL
+	LDA.w $0775				;$BCE809
+	AND.w #$0200				;$BCE80C
+	BEQ.b CODE_BCE82C			;$BCE80F
+	LDX.b current_sprite			;$BCE811
+	LDY.b $78				;$BCE813
+	LDA.b $1E,x				;$BCE815
+	EOR.w $001E,y				;$BCE817
+	AND.w #$3000				;$BCE81A
+	BEQ.b CODE_BCE82C			;$BCE81D
+	LDA.b $3A,x				;$BCE81F
+	ORA.w $003A,y				;$BCE821
+	AND.w #$2000				;$BCE824
+	BNE.b CODE_BCE82C			;$BCE827
+	PLB					;$BCE829
+	CLC					;$BCE82A
+	RTL					;$BCE82B
 
 CODE_BCE82C:
-	PLB
-	SEC
-	RTL
+	PLB					;$BCE82C
+	SEC					;$BCE82D
+	RTL					;$BCE82E
 
 CODE_BCE82F:
-	LDX.w #$00D8
-	LDY.w #$1808
-	BRA.b CODE_BCE85F
+	LDX.w #$00D8				;$BCE82F
+	LDY.w #$1808				;$BCE832
+	BRA.b CODE_BCE85F			;$BCE835
 
 CODE_BCE837:
-	LDX.w #$00D8
-	LDY.w #$1810
-	BRA.b CODE_BCE85F
+	LDX.w #$00D8				;$BCE837
+	LDY.w #$1810				;$BCE83A
+	BRA.b CODE_BCE85F			;$BCE83D
 
 CODE_BCE83F:
-	LDX.w #$00D8
-	LDY.w #$1800
-	BRA.b CODE_BCE85F
+	LDX.w #$00D8				;$BCE83F
+	LDY.w #$1800				;$BCE842
+	BRA.b CODE_BCE85F			;$BCE845
 
 CODE_BCE847:
-	LDX.w #$00D0
-	LDY.w #$1838
-	BRA.b CODE_BCE87E
+	LDX.w #$00D0				;$BCE847
+	LDY.w #$1838				;$BCE84A
+	BRA.b CODE_BCE87E			;$BCE84D
 
 CODE_BCE84F:
-	LDX.w #$00D0
-	LDY.w #$1840
-	BRA.b CODE_BCE87E
+	LDX.w #$00D0				;$BCE84F
+	LDY.w #$1840				;$BCE852
+	BRA.b CODE_BCE87E			;$BCE855
 
 CODE_BCE857:
-	LDX.w #$00D0
-	LDY.w #$1830
-	BRA.b CODE_BCE87E
+	LDX.w #$00D0				;$BCE857
+	LDY.w #$1830				;$BCE85A
+	BRA.b CODE_BCE87E			;$BCE85D
 
 CODE_BCE85F:
-	LDA.b $78
-	CMP.w active_kong_sprite
-	BEQ.b CODE_BCE87E
-	CMP.w follower_kong_sprite
-	BNE.b CODE_BCE873
-	TYA
-	CLC
-	ADC.w #$0018
-	TAY
-	BRA.b CODE_BCE87E
+	LDA.b $78				;$BCE85F
+	CMP.w active_kong_sprite		;$BCE861
+	BEQ.b CODE_BCE87E			;$BCE864
+	CMP.w follower_kong_sprite		;$BCE866
+	BNE.b CODE_BCE873			;$BCE869
+	TYA					;$BCE86B
+	CLC					;$BCE86C
+	ADC.w #$0018				;$BCE86D
+	TAY					;$BCE870
+	BRA.b CODE_BCE87E			;$BCE871
 
 CODE_BCE873:
-	CMP.b current_mount
-	BEQ.b CODE_BCE87B
-	CMP.b $7A
-	BNE.b CODE_BCE894
+	CMP.b current_mount			;$BCE873
+	BEQ.b CODE_BCE87B			;$BCE875
+	CMP.b $7A				;$BCE877
+	BNE.b CODE_BCE894			;$BCE879
 CODE_BCE87B:
-	LDY.w #$1848
+	LDY.w #$1848				;$BCE87B
 CODE_BCE87E:
-	LDA.w $0004,y
-	BEQ.b CODE_BCE896
-	STA.b $04,x
-	LDA.w $0000,y
-	STA.b $00,x
-	LDA.w $0006,y
-	STA.b $06,x
-	LDA.w $0002,y
-	STA.b $02,x
+	LDA.w $0004,y				;$BCE87E
+	BEQ.b CODE_BCE896			;$BCE881
+	STA.b $04,x				;$BCE883
+	LDA.w $0000,y				;$BCE885
+	STA.b $00,x				;$BCE888
+	LDA.w $0006,y				;$BCE88A
+	STA.b $06,x				;$BCE88D
+	LDA.w $0002,y				;$BCE88F
+	STA.b $02,x				;$BCE892
 CODE_BCE894:
-	CLC
-	RTL
+	CLC					;$BCE894
+	RTL					;$BCE895
 
 CODE_BCE896:
-	LDA.w #$0000
-	STA.b $04,x
-	STA.b $00,x
-	STA.b $06,x
-	STA.b $02,x
-	SEC
-	RTL
+	LDA.w #$0000				;$BCE896
+	STA.b $04,x				;$BCE899
+	STA.b $00,x				;$BCE89B
+	STA.b $06,x				;$BCE89D
+	STA.b $02,x				;$BCE89F
+	SEC					;$BCE8A1
+	RTL					;$BCE8A2
 
 CODE_BCE8A3:
-	PHB
-	PHK
-	PLB
-	STX.b $D8
-	STY.b $DA
-	TAX
-	BPL.b CODE_BCE8BB
-	ASL
-	LSR
-	ADC.l $7FFFFE
-	TAX
-	LDA.l $7F0003,x
-	TAY
-	BRA.b CODE_BCE8BE
+	PHB					;$BCE8A3
+	PHK					;$BCE8A4
+	PLB					;$BCE8A5
+	STX.b $D8				;$BCE8A6
+	STY.b $DA				;$BCE8A8
+	TAX					;$BCE8AA
+	BPL.b CODE_BCE8BB			;$BCE8AB
+	ASL					;$BCE8AD
+	LSR					;$BCE8AE
+	ADC.l $7FFFFE				;$BCE8AF
+	TAX					;$BCE8B3
+	LDA.l $7F0003,x				;$BCE8B4
+	TAY					;$BCE8B8
+	BRA.b CODE_BCE8BE			;$BCE8B9
 
 CODE_BCE8BB:
-	LDY.w DATA_BC8000+$03,x
+	LDY.w DATA_BC8000+$03,x			;$BCE8BB
 CODE_BCE8BE:
-	LDA.b $D8
-	BCS.b CODE_BCE8CF
-	ADC.w $0000,y
-	STA.b $D8
-	CLC
-	ADC.w $0004,y
-	STA.b $DC
-	BRA.b CODE_BCE8DA
+	LDA.b $D8				;$BCE8BE
+	BCS.b CODE_BCE8CF			;$BCE8C0
+	ADC.w $0000,y				;$BCE8C2
+	STA.b $D8				;$BCE8C5
+	CLC					;$BCE8C7
+	ADC.w $0004,y				;$BCE8C8
+	STA.b $DC				;$BCE8CB
+	BRA.b CODE_BCE8DA			;$BCE8CD
 
 CODE_BCE8CF:
-	SBC.w $0000,y
-	STA.b $DC
-	SEC
-	SBC.w $0004,y
-	STA.b $D8
+	SBC.w $0000,y				;$BCE8CF
+	STA.b $DC				;$BCE8D2
+	SEC					;$BCE8D4
+	SBC.w $0004,y				;$BCE8D5
+	STA.b $D8				;$BCE8D8
 CODE_BCE8DA:
-	LDA.b $DA
-	CLC
-	ADC.w $0002,y
-	STA.b $DA
-	CLC
-	ADC.w $0006,y
-	STA.b $DE
-	PLB
-	RTL
+	LDA.b $DA				;$BCE8DA
+	CLC					;$BCE8DC
+	ADC.w $0002,y				;$BCE8DD
+	STA.b $DA				;$BCE8E0
+	CLC					;$BCE8E2
+	ADC.w $0006,y				;$BCE8E3
+	STA.b $DE				;$BCE8E6
+	PLB					;$BCE8E8
+	RTL					;$BCE8E9
 
 CODE_BCE8EA:
-	STA.b $E2
-	LDA.w #$1480
-	STA.b $78
-	LDA.w $1840
-	STA.b $D0
-	LDA.w $1844
-	STA.b $D4
-	LDA.w $1846
-	STA.b $D6
-	LDA.w $1842
-	STA.b $D2
+	STA.b $E2				;$BCE8EA
+	LDA.w #$1480				;$BCE8EC
+	STA.b $78				;$BCE8EF
+	LDA.w $1840				;$BCE8F1
+	STA.b $D0				;$BCE8F4
+	LDA.w $1844				;$BCE8F6
+	STA.b $D4				;$BCE8F9
+	LDA.w $1846				;$BCE8FB
+	STA.b $D6				;$BCE8FE
+	LDA.w $1842				;$BCE900
+	STA.b $D2				;$BCE903
 CODE_BCE905:
-	PHB
-	PHK
-	PLB
+	PHB					;$BCE905
+	PHK					;$BCE906
+	PLB					;$BCE907
 CODE_BCE908:
-	LDA.b $78
-	CMP.w #$0878
-	BCC.b CODE_BCE93B
-	SBC.w #$006E
-	STA.b $78
-	CMP.b current_sprite
-	BEQ.b CODE_BCE908
-	TAX
-	LDA.b $00,x
-	BEQ.b CODE_BCE908
-	LDA.b $3A,x
-	AND.b $E2
-	BEQ.b CODE_BCE908
-	LDA.b $16,x
-	CMP.b $D2
-	BCC.b CODE_BCE908
-	CMP.b $D6
-	BCS.b CODE_BCE908
-	LDA.b $12,x
-	CMP.b $D0
-	BCC.b CODE_BCE908
-	DEC
-	CMP.b $D4
-	BCS.b CODE_BCE908
-	PLB
-	SEC
-	RTL
+	LDA.b $78				;$BCE908
+	CMP.w #$0878				;$BCE90A
+	BCC.b CODE_BCE93B			;$BCE90D
+	SBC.w #$006E				;$BCE90F
+	STA.b $78				;$BCE912
+	CMP.b current_sprite			;$BCE914
+	BEQ.b CODE_BCE908			;$BCE916
+	TAX					;$BCE918
+	LDA.b $00,x				;$BCE919
+	BEQ.b CODE_BCE908			;$BCE91B
+	LDA.b $3A,x				;$BCE91D
+	AND.b $E2				;$BCE91F
+	BEQ.b CODE_BCE908			;$BCE921
+	LDA.b $16,x				;$BCE923
+	CMP.b $D2				;$BCE925
+	BCC.b CODE_BCE908			;$BCE927
+	CMP.b $D6				;$BCE929
+	BCS.b CODE_BCE908			;$BCE92B
+	LDA.b $12,x				;$BCE92D
+	CMP.b $D0				;$BCE92F
+	BCC.b CODE_BCE908			;$BCE931
+	DEC					;$BCE933
+	CMP.b $D4				;$BCE934
+	BCS.b CODE_BCE908			;$BCE936
+	PLB					;$BCE938
+	SEC					;$BCE939
+	RTL					;$BCE93A
 
 CODE_BCE93B:
-	PLB
-	CLC
-	RTL
+	PLB					;$BCE93B
+	CLC					;$BCE93C
+	RTL					;$BCE93D
 
 if !include_garbage_data = 1
 	incbin "data/garbage_data/DATA_BCE93E.bin"
@@ -5967,286 +5967,286 @@ else
 endif	
 
 CODE_BCF800:
-	STX.b $1E
-	STZ.b $1A
+	STX.b $1E				;$BCF800
+	STZ.b $1A				;$BCF802
 CODE_BCF804:
-	STX.w !REGISTER_VRAMAddressLo
-	LDA.w !REGISTER_ReadFromVRAMPortLo
-	EOR.w #$4000
-	STA.b $1C
-	LDA.w #$001F
-	SEC
-	SBC.b $1A
-	CLC
-	ADC.b $1E
-	TAX
-	STX.w !REGISTER_VRAMAddressLo
-	PHX
-	LDA.w !REGISTER_ReadFromVRAMPortLo
-	EOR.w #$4000
-	LDX.b $1E
-	STX.w !REGISTER_VRAMAddressLo
-	STA.w !REGISTER_WriteToVRAMPortLo
-	PLX
-	STX.w !REGISTER_VRAMAddressLo
-	LDA.b $1C
-	STA.w !REGISTER_WriteToVRAMPortLo
-	INC.b $1E
-	LDX.b $1E
-	INC.b $1A
-	INC.b $1A
-	LDA.b $1A
-	CMP.w #$001F
-	BMI.b CODE_BCF804
-	TXA
-	CLC
-	ADC.w #$0010
-	TAX
-	DEY
-	BNE.b CODE_BCF800
-	RTL
+	STX.w !REGISTER_VRAMAddressLo		;$BCF804
+	LDA.w !REGISTER_ReadFromVRAMPortLo	;$BCF807
+	EOR.w #$4000				;$BCF80A
+	STA.b $1C				;$BCF80D
+	LDA.w #$001F				;$BCF80F
+	SEC					;$BCF812
+	SBC.b $1A				;$BCF813
+	CLC					;$BCF815
+	ADC.b $1E				;$BCF816
+	TAX					;$BCF818
+	STX.w !REGISTER_VRAMAddressLo		;$BCF819
+	PHX					;$BCF81C
+	LDA.w !REGISTER_ReadFromVRAMPortLo	;$BCF81D
+	EOR.w #$4000				;$BCF820
+	LDX.b $1E				;$BCF823
+	STX.w !REGISTER_VRAMAddressLo		;$BCF825
+	STA.w !REGISTER_WriteToVRAMPortLo	;$BCF828
+	PLX					;$BCF82B
+	STX.w !REGISTER_VRAMAddressLo		;$BCF82C
+	LDA.b $1C				;$BCF82F
+	STA.w !REGISTER_WriteToVRAMPortLo	;$BCF831
+	INC.b $1E				;$BCF834
+	LDX.b $1E				;$BCF836
+	INC.b $1A				;$BCF838
+	INC.b $1A				;$BCF83A
+	LDA.b $1A				;$BCF83C
+	CMP.w #$001F				;$BCF83E
+	BMI.b CODE_BCF804			;$BCF841
+	TXA					;$BCF843
+	CLC					;$BCF844
+	ADC.w #$0010				;$BCF845
+	TAX					;$BCF848
+	DEY					;$BCF849
+	BNE.b CODE_BCF800			;$BCF84A
+	RTL					;$BCF84C
 
 CODE_BCF84D:
-	LDA.w #$0800
-	TSB.w $1C35
-	BEQ.b CODE_BCF856
-	RTL
+	LDA.w #$0800				;$BCF84D
+	TSB.w $1C35				;$BCF850
+	BEQ.b CODE_BCF856			;$BCF853
+	RTL					;$BCF855
 
 CODE_BCF856:
-	LDX.w active_kong_sprite
-	LDY.w #$0200
-	LDA.b $2A,x
-	BNE.b CODE_BCF863
-	LDY.w #$0100
+	LDX.w active_kong_sprite		;$BCF856
+	LDY.w #$0200				;$BCF859
+	LDA.b $2A,x				;$BCF85C
+	BNE.b CODE_BCF863			;$BCF85E
+	LDY.w #$0100				;$BCF860
 CODE_BCF863:
-	STY.b $1A
-	STY.b $44,x
-	LDY.w #$0380
-	LDA.b $2A,x
-	BPL.b CODE_BCF871
-	LDY.w #$FC80
+	STY.b $1A				;$BCF863
+	STY.b $44,x				;$BCF865
+	LDY.w #$0380				;$BCF867
+	LDA.b $2A,x				;$BCF86A
+	BPL.b CODE_BCF871			;$BCF86C
+	LDY.w #$FC80				;$BCF86E
 CODE_BCF871:
-	STY.b $2A,x
-	LDX.w follower_kong_sprite
-	STY.b $2A,x
-	LDA.b $1A
-	STA.b $44,x
-	LDA.w $1C39
-	BEQ.b CODE_BCF887
-	LDA.w #$0040
-	STA.w $1C39
+	STY.b $2A,x				;$BCF871
+	LDX.w follower_kong_sprite		;$BCF873
+	STY.b $2A,x				;$BCF876
+	LDA.b $1A				;$BCF878
+	STA.b $44,x				;$BCF87A
+	LDA.w $1C39				;$BCF87C
+	BEQ.b CODE_BCF887			;$BCF87F
+	LDA.w #$0040				;$BCF881
+	STA.w $1C39				;$BCF884
 CODE_BCF887:
-	RTL
+	RTL					;$BCF887
 
 CODE_BCF888:
-	JSL.l CODE_80807E
-	JSL.l CODE_B8806F
-	LDA.w $05B5
-	JSL.l CODE_B8805A
-	LDA.w $05AF
-	BIT.w #$4000
-	BNE.b CODE_BCF8A7
-	LDX.w follower_kong_sprite
-	LDA.w #$C000
-	STA.b $26,x
+	JSL.l CODE_80807E			;$BCF888
+	JSL.l CODE_B8806F			;$BCF88C
+	LDA.w $05B5				;$BCF890
+	JSL.l CODE_B8805A			;$BCF893
+	LDA.w $05AF				;$BCF897
+	BIT.w #$4000				;$BCF89A
+	BNE.b CODE_BCF8A7			;$BCF89D
+	LDX.w follower_kong_sprite		;$BCF89F
+	LDA.w #$C000				;$BCF8A2
+	STA.b $26,x				;$BCF8A5
 CODE_BCF8A7:
-	JSL.l CODE_808081
-	RTL
+	JSL.l CODE_808081			;$BCF8A7
+	RTL					;$BCF8AB
 
 CODE_BCF8AC:
-	LDA.w #$0800
-	TRB.w $1C35
-	LDX.w follower_kong_sprite
-	LDA.b $2E,x
-	EOR.w #$FFFF
-	INC
-	STA.b $2E,x
-	JSL.l CODE_BCF8C4
-	LDX.w active_kong_sprite
+	LDA.w #$0800				;$BCF8AC
+	TRB.w $1C35				;$BCF8AF
+	LDX.w follower_kong_sprite		;$BCF8B2
+	LDA.b $2E,x				;$BCF8B5
+	EOR.w #$FFFF				;$BCF8B7
+	INC					;$BCF8BA
+	STA.b $2E,x				;$BCF8BB
+	JSL.l CODE_BCF8C4			;$BCF8BD
+	LDX.w active_kong_sprite		;$BCF8C1
 CODE_BCF8C4:
-	LDA.w #$0004
-	STA.b $38,x
-	LDA.w #$FFC0
-	STA.b $5E,x
-	LDA.w #$FEE0
-	STA.b $30,x
-	STA.b $2A,x
-	RTL
+	LDA.w #$0004				;$BCF8C4
+	STA.b $38,x				;$BCF8C7
+	LDA.w #$FFC0				;$BCF8C9
+	STA.b $5E,x				;$BCF8CC
+	LDA.w #$FEE0				;$BCF8CE
+	STA.b $30,x				;$BCF8D1
+	STA.b $2A,x				;$BCF8D3
+	RTL					;$BCF8D5
 
 CODE_BCF8D6:
-	LDA.w #$0800
-	TRB.w $1C35
-	LDX.w active_kong_sprite
-	JSL.l CODE_BCF8E6
-	LDX.w follower_kong_sprite
+	LDA.w #$0800				;$BCF8D6
+	TRB.w $1C35				;$BCF8D9
+	LDX.w active_kong_sprite		;$BCF8DC
+	JSL.l CODE_BCF8E6			;$BCF8DF
+	LDX.w follower_kong_sprite		;$BCF8E3
 CODE_BCF8E6:
-	LDA.w #$0001
-	STA.b $38,x
-	LDA.w #$0120
-	STA.b $5E,x
-	LDA.w #$0120
-	STA.b $30,x
-	STA.b $2A,x
-	RTL
+	LDA.w #$0001				;$BCF8E6
+	STA.b $38,x				;$BCF8E9
+	LDA.w #$0120				;$BCF8EB
+	STA.b $5E,x				;$BCF8EE
+	LDA.w #$0120				;$BCF8F0
+	STA.b $30,x				;$BCF8F3
+	STA.b $2A,x				;$BCF8F5
+	RTL					;$BCF8F7
 
 CODE_BCF8F8:
-	LDX.w active_kong_sprite
-	LDA.w #$02A0
-	JSL.l CODE_BCF908
-	LDX.w follower_kong_sprite
-	LDA.w #$0280
+	LDX.w active_kong_sprite		;$BCF8F8
+	LDA.w #$02A0				;$BCF8FB
+	JSL.l CODE_BCF908			;$BCF8FE
+	LDX.w follower_kong_sprite		;$BCF902
+	LDA.w #$0280				;$BCF905
 CODE_BCF908:
-	STA.b $30,x
-	STA.b $2A,x
-	LDA.w #$0002
-	STA.b $38,x
-	LDA.w #$0180
-	STA.b $5E,x
-	LDA.w #$00C0
-	STA.b $6A,x
-	RTL
+	STA.b $30,x				;$BCF908
+	STA.b $2A,x				;$BCF90A
+	LDA.w #$0002				;$BCF90C
+	STA.b $38,x				;$BCF90F
+	LDA.w #$0180				;$BCF911
+	STA.b $5E,x				;$BCF914
+	LDA.w #$00C0				;$BCF916
+	STA.b $6A,x				;$BCF919
+	RTL					;$BCF91B
 
 CODE_BCF91C:
-	LDA.w $1C5F
-	CMP.w #$000A
-	BNE.b CODE_BCF92A
-	LDA.w #$1000
-	TSB.w $0629
+	LDA.w $1C5F				;$BCF91C
+	CMP.w #$000A				;$BCF91F
+	BNE.b CODE_BCF92A			;$BCF922
+	LDA.w #$1000				;$BCF924
+	TSB.w $0629				;$BCF927
 CODE_BCF92A:
-	LDX.w active_kong_sprite
-	LDA.w #$FCC0
-	JSL.l CODE_BCF93A
-	LDX.w follower_kong_sprite
-	LDA.w #$FD00
+	LDX.w active_kong_sprite		;$BCF92A
+	LDA.w #$FCC0				;$BCF92D
+	JSL.l CODE_BCF93A			;$BCF930
+	LDX.w follower_kong_sprite		;$BCF934
+	LDA.w #$FD00				;$BCF937
 CODE_BCF93A:
-	STA.b $30,x
-	STA.b $2A,x
-	LDA.w #$0002
-	STA.b $38,x
-	LDA.w #$FF80
-	STA.b $5E,x
-	LDA.w #$0090
-	STA.b $6A,x
-	RTL
+	STA.b $30,x				;$BCF93A
+	STA.b $2A,x				;$BCF93C
+	LDA.w #$0002				;$BCF93E
+	STA.b $38,x				;$BCF941
+	LDA.w #$FF80				;$BCF943
+	STA.b $5E,x				;$BCF946
+	LDA.w #$0090				;$BCF948
+	STA.b $6A,x				;$BCF94B
+	RTL					;$BCF94D
 
 CODE_BCF94E:
-	LDA.w #$0360
-	LDX.w active_kong_sprite
-	JSL.l CODE_BCF95E
-	LDA.w #$0300
-	LDX.w follower_kong_sprite
+	LDA.w #$0360				;$BCF94E
+	LDX.w active_kong_sprite		;$BCF951
+	JSL.l CODE_BCF95E			;$BCF954
+	LDA.w #$0300				;$BCF958
+	LDX.w follower_kong_sprite		;$BCF95B
 CODE_BCF95E:
-	STA.b $30,x
-	STA.b $2A,x
-	LDA.w #$0002
-	STA.b $38,x
-	LDA.w #$0180
-	STA.b $5E,x
-	LDA.w #$0070
-	STA.b $6A,x
-	RTL
+	STA.b $30,x				;$BCF95E
+	STA.b $2A,x				;$BCF960
+	LDA.w #$0002				;$BCF962
+	STA.b $38,x				;$BCF965
+	LDA.w #$0180				;$BCF967
+	STA.b $5E,x				;$BCF96A
+	LDA.w #$0070				;$BCF96C
+	STA.b $6A,x				;$BCF96F
+	RTL					;$BCF971
 
 CODE_BCF972:
-	LDA.w #$0090
-	LDX.w active_kong_sprite
-	JSL.l CODE_BCF982
-	LDA.w #$0070
-	LDX.w follower_kong_sprite
+	LDA.w #$0090				;$BCF972
+	LDX.w active_kong_sprite		;$BCF975
+	JSL.l CODE_BCF982			;$BCF978
+	LDA.w #$0070				;$BCF97C
+	LDX.w follower_kong_sprite		;$BCF97F
 CODE_BCF982:
-	STA.b $5E,x
-	LDA.w #$0002
-	STA.b $38,x
-	LDA.w #$FD60
-	STA.b $30,x
-	STA.b $2A,x
-	LDA.w #$8120
-	STA.b $6A,x
-	LDA.b $12,x
-	CLC
-	ADC.w #$01A0
-	STA.b $12,x
-	RTL
+	STA.b $5E,x				;$BCF982
+	LDA.w #$0002				;$BCF984
+	STA.b $38,x				;$BCF987
+	LDA.w #$FD60				;$BCF989
+	STA.b $30,x				;$BCF98C
+	STA.b $2A,x				;$BCF98E
+	LDA.w #$8120				;$BCF990
+	STA.b $6A,x				;$BCF993
+	LDA.b $12,x				;$BCF995
+	CLC					;$BCF997
+	ADC.w #$01A0				;$BCF998
+	STA.b $12,x				;$BCF99B
+	RTL					;$BCF99D
 
 CODE_BCF99E:
-	LDX.w follower_kong_sprite
-	LDA.w #$FFD8
-	STA.b $2E,x
-	RTL
+	LDX.w follower_kong_sprite		;$BCF99E
+	LDA.w #$FFD8				;$BCF9A1
+	STA.b $2E,x				;$BCF9A4
+	RTL					;$BCF9A6
 
 CODE_BCF9A7:
-	LDX.w $1C6F
-	LDA.w #$0018
-	STA.b $62,x
-	LDX.w active_kong_sprite
-	JSL.l CODE_BCF9B9
-	LDX.w follower_kong_sprite
+	LDX.w $1C6F				;$BCF9A7
+	LDA.w #$0018				;$BCF9AA
+	STA.b $62,x				;$BCF9AD
+	LDX.w active_kong_sprite		;$BCF9AF
+	JSL.l CODE_BCF9B9			;$BCF9B2
+	LDX.w follower_kong_sprite		;$BCF9B6
 CODE_BCF9B9:
-	LDA.w #$0001
-	STA.b $38,x
-	LDA.w #$0098
-	STA.b $5E,x
-	LDA.w #$0100
-	STA.b $30,x
-	STA.b $2A,x
-	RTL
+	LDA.w #$0001				;$BCF9B9
+	STA.b $38,x				;$BCF9BC
+	LDA.w #$0098				;$BCF9BE
+	STA.b $5E,x				;$BCF9C1
+	LDA.w #$0100				;$BCF9C3
+	STA.b $30,x				;$BCF9C6
+	STA.b $2A,x				;$BCF9C8
+	RTL					;$BCF9CA
 
 CODE_BCF9CB:
-	STA.b $1A
-	LDX.w active_kong_sprite
-	JSL.l CODE_BCF9D7
-	LDX.w follower_kong_sprite
+	STA.b $1A				;$BCF9CB
+	LDX.w active_kong_sprite		;$BCF9CD
+	JSL.l CODE_BCF9D7			;$BCF9D0
+	LDX.w follower_kong_sprite		;$BCF9D4
 CODE_BCF9D7:
-	LDA.b $1E,x
-	AND.w #$CFFF
-	ORA.b $1A
-	STA.b $1E,x
-	LDA.w #$00EE
-	STA.b $0E,x
-	RTL
+	LDA.b $1E,x				;$BCF9D7
+	AND.w #$CFFF				;$BCF9D9
+	ORA.b $1A				;$BCF9DC
+	STA.b $1E,x				;$BCF9DE
+	LDA.w #$00EE				;$BCF9E0
+	STA.b $0E,x				;$BCF9E3
+	RTL					;$BCF9E5
 
 CODE_BCF9E6:
-	LDX.w active_kong_sprite
-	LDY.w follower_kong_sprite
-	CPY.w #$0878
-	BNE.b CODE_BCF9FE
-	LDA.w #$00F0
-	STA.w $000E,y
-	LDA.w #$00A1
-	STA.b $16,x
-	BRA.b CODE_BCFA03
+	LDX.w active_kong_sprite		;$BCF9E6
+	LDY.w follower_kong_sprite		;$BCF9E9
+	CPY.w #$0878				;$BCF9EC
+	BNE.b CODE_BCF9FE			;$BCF9EF
+	LDA.w #$00F0				;$BCF9F1
+	STA.w $000E,y				;$BCF9F4
+	LDA.w #$00A1				;$BCF9F7
+	STA.b $16,x				;$BCF9FA
+	BRA.b CODE_BCFA03			;$BCF9FC
 
 CODE_BCF9FE:
-	LDA.w #$00EC
-	STA.b $0E,x
+	LDA.w #$00EC				;$BCF9FE
+	STA.b $0E,x				;$BCFA01
 CODE_BCFA03:
-	RTL
+	RTL					;$BCFA03
 
 CODE_BCFA04:
-	LDX.w active_kong_sprite
-	LDY.w follower_kong_sprite
-	CPY.w #$0878
-	BNE.b CODE_BCFA1C
-	LDA.w #$00F0
-	STA.w $000E,y
-	LDA.w #$00A1
-	STA.b $16,x
-	BRA.b CODE_BCFA21
+	LDX.w active_kong_sprite		;$BCFA04
+	LDY.w follower_kong_sprite		;$BCFA07
+	CPY.w #$0878				;$BCFA0A
+	BNE.b CODE_BCFA1C			;$BCFA0D
+	LDA.w #$00F0				;$BCFA0F
+	STA.w $000E,y				;$BCFA12
+	LDA.w #$00A1				;$BCFA15
+	STA.b $16,x				;$BCFA18
+	BRA.b CODE_BCFA21			;$BCFA1A
 
 CODE_BCFA1C:
-	LDA.w #$00EC
-	STA.b $0E,x
+	LDA.w #$00EC				;$BCFA1C
+	STA.b $0E,x				;$BCFA1F
 CODE_BCFA21:
-	LDA.w #$00A0
-	STA.b $12,x
-	STA.w $0012,y
-	LDA.w #$FE80
-	STA.b $30,x
-	STA.b $2A,x
-	LDA.w #$FED0
-	STA.w $0030,y
-	STA.w $002A,y
-	LDA.w #$0030
-	STA.b $5E,x
-	LDA.w #$0018
-	STA.b $5E,x
-	RTL
+	LDA.w #$00A0				;$BCFA21
+	STA.b $12,x				;$BCFA24
+	STA.w $0012,y				;$BCFA26
+	LDA.w #$FE80				;$BCFA29
+	STA.b $30,x				;$BCFA2C
+	STA.b $2A,x				;$BCFA2E
+	LDA.w #$FED0				;$BCFA30
+	STA.w $0030,y				;$BCFA33
+	STA.w $002A,y				;$BCFA36
+	LDA.w #$0030				;$BCFA39
+	STA.b $5E,x				;$BCFA3C
+	LDA.w #$0018				;$BCFA3E
+	STA.b $5E,x				;$BCFA41
+	RTL					;$BCFA43

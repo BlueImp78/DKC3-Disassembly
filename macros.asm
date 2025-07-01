@@ -1,3 +1,5 @@
+includeonce
+
 function bank_word(addr) = ((addr&$FFFF)<<8)|(addr>>16)
 function fake(addr) = addr
 function sound(channel, effect) = channel<<8|effect

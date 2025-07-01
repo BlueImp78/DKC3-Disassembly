@@ -6,14 +6,12 @@ optimize address mirrors
 ;!override_lakeside_limbo = 0
 ;!lakeside_limbo_replacement = $00
 
-
-org $008000			;dummy org so functions work
+	incsrc ram.asm
 	incsrc macros.asm
 	incsrc constants.asm
-	incsrc ram.asm
 	incsrc old_defines.asm
 	incsrc structs.asm
-	incsrc mmio.asm
+	;incsrc mmio.asm
 
 
 

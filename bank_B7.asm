@@ -1,1006 +1,1006 @@
 CODE_B78000:
-	JMP.w CODE_B785BA
+	JMP.w CODE_B785BA			;$B78000
 
 CODE_B78003:
-	JMP.w CODE_B79BCC
+	JMP.w CODE_B79BCC			;$B78003
 
 CODE_B78006:
-	JMP.w CODE_B78857
+	JMP.w CODE_B78857			;$B78006
 
 CODE_B78009:
-	JMP.w CODE_B78041
+	JMP.w CODE_B78041			;$B78009
 
 CODE_B7800C:
-	JMP.w CODE_B7880F
+	JMP.w CODE_B7880F			;$B7800C
 
 CODE_B7800F:
-	JMP.w CODE_B7883E
+	JMP.w CODE_B7883E			;$B7800F
 
 CODE_B78012:
-	JMP.w CODE_B78036
+	JMP.w CODE_B78036			;$B78012
 
 CODE_B78015:
-	JMP.w CODE_B7808D
+	JMP.w CODE_B7808D			;$B78015
 
 CODE_B78018:
-	JMP.w CODE_B780AA
+	JMP.w CODE_B780AA			;$B78018
 
 CODE_B7801B:
-	JMP.w CODE_B780B8
+	JMP.w CODE_B780B8			;$B7801B
 
 CODE_B7801E:
-	JMP.w CODE_B78845
+	JMP.w CODE_B78845			;$B7801E
 
 CODE_B78021:
-	JMP.w CODE_B780EB
+	JMP.w CODE_B780EB			;$B78021
 
 CODE_B78024:
-	JMP.w CODE_B787DF
+	JMP.w CODE_B787DF			;$B78024
 
 CODE_B78027:
-	JMP.w CODE_B79D35
+	JMP.w CODE_B79D35			;$B78027
 
 CODE_B7802A:
-	JMP.w CODE_B79D2B
+	JMP.w CODE_B79D2B			;$B7802A
 
 CODE_B7802D:
-	JMP.w CODE_B7A8E9
+	JMP.w CODE_B7A8E9			;$B7802D
 
 CODE_B78030:
-	JMP.w CODE_B7A88F
+	JMP.w CODE_B7A88F			;$B78030
 
 CODE_B78033:
-	JMP.w CODE_B7A8F0
+	JMP.w CODE_B7A8F0			;$B78033
 
 CODE_B78036:
-	PHX
-	LDX.w $155E
-	STA.w $1564,x
-	LDA.b $1D
-	BRA.b CODE_B78054
+	PHX					;$B78036
+	LDX.w $155E				;$B78037
+	STA.w $1564,x				;$B7803A
+	LDA.b $1D				;$B7803D
+	BRA.b CODE_B78054			;$B7803F
 
 CODE_B78041:
-	PHX
-	LDX.w $155E
-	ASL
-	ASL
-	ASL
-	ASL
-	STA.w $1564,x
-	LDA.b $1C
-	AND.w #$FF00
-	LSR
-	LSR
-	LSR
+	PHX					;$B78041
+	LDX.w $155E				;$B78042
+	ASL					;$B78045
+	ASL					;$B78046
+	ASL					;$B78047
+	ASL					;$B78048
+	STA.w $1564,x				;$B78049
+	LDA.b $1C				;$B7804C
+	AND.w #$FF00				;$B7804E
+	LSR					;$B78051
+	LSR					;$B78052
+	LSR					;$B78053
 CODE_B78054:
-	STA.w $1562,x
-	ADC.w #$0032
-	ADC.w $1560
-	CMP.b $80
-	BCS.b CODE_B7808B
-	STA.w $1560
-	LDA.b $1A
-	STA.w $1566,x
-	LDA.b $1C
-	AND.w #$00FF
-	ORA.w #$8000
-	STA.w $1568,x
-	TXA
-	CLC
-	ADC.w #$0008
-	STA.w $155E
-	TAX
-	STZ.w $1568,x
-	CPX.w #$0070
-	BCC.b CODE_B7808B
-	LDA.b $80
-	STA.w $1560
-	CLC
+	STA.w $1562,x				;$B78054
+	ADC.w #$0032				;$B78057
+	ADC.w $1560				;$B7805A
+	CMP.b $80				;$B7805D
+	BCS.b CODE_B7808B			;$B7805F
+	STA.w $1560				;$B78061
+	LDA.b $1A				;$B78064
+	STA.w $1566,x				;$B78066
+	LDA.b $1C				;$B78069
+	AND.w #$00FF				;$B7806B
+	ORA.w #$8000				;$B7806E
+	STA.w $1568,x				;$B78071
+	TXA					;$B78074
+	CLC					;$B78075
+	ADC.w #$0008				;$B78076
+	STA.w $155E				;$B78079
+	TAX					;$B7807C
+	STZ.w $1568,x				;$B7807D
+	CPX.w #$0070				;$B78080
+	BCC.b CODE_B7808B			;$B78083
+	LDA.b $80				;$B78085
+	STA.w $1560				;$B78087
+	CLC					;$B7808A
 CODE_B7808B:
-	PLX
-	RTL
+	PLX					;$B7808B
+	RTL					;$B7808C
 
 CODE_B7808D:
-	PHB
-	PHK
-	PLB
-	LSR
-	LSR
-	LSR
-	LSR
-	SEC
-	SBC.w #$0170
-	STA.b $8A
-	TXA
-	LSR
-	LSR
-	LSR
-	LSR
-	SEC
-	SBC.w #$0180
-	STA.b $88
-	JSR.w CODE_B78133
-	PLB
-	RTL
+	PHB					;$B7808D
+	PHK					;$B7808E
+	PLB					;$B7808F
+	LSR					;$B78090
+	LSR					;$B78091
+	LSR					;$B78092
+	LSR					;$B78093
+	SEC					;$B78094
+	SBC.w #$0170				;$B78095
+	STA.b $8A				;$B78098
+	TXA					;$B7809A
+	LSR					;$B7809B
+	LSR					;$B7809C
+	LSR					;$B7809D
+	LSR					;$B7809E
+	SEC					;$B7809F
+	SBC.w #$0180				;$B780A0
+	STA.b $88				;$B780A3
+	JSR.w CODE_B78133			;$B780A5
+	PLB					;$B780A8
+	RTL					;$B780A9
 
 CODE_B780AA:
-	PHB
-	PHK
-	PLB
-	JSL.l CODE_B780B8
-	BCS.b CODE_B780B6
-	JSR.w CODE_B78133
+	PHB					;$B780AA
+	PHK					;$B780AB
+	PLB					;$B780AC
+	JSL.l CODE_B780B8			;$B780AD
+	BCS.b CODE_B780B6			;$B780B1
+	JSR.w CODE_B78133			;$B780B3
 CODE_B780B6:
-	PLB
-	RTL
+	PLB					;$B780B6
+	RTL					;$B780B7
 
 CODE_B780B8:
-	SEC
-	SBC.w #$0080
-	SEC
-	SBC.w $1973
-	CLC
-	ADC.w #$0090
-	CMP.w #$0130
-	BCS.b CODE_B780EA
-	SBC.w #$007F
-	STA.b $8A
-	TXA
-	SEC
-	SBC.w $196D
-	CLC
-	ADC.w #$0030
-	CMP.w #$0160
-	BCS.b CODE_B780EA
-	SBC.w #$00AF
-	STA.b $88
-	SEP.b #$20
-	XBA
-	LDA.b $8A
-	XBA
-	REP.b #$20
-	CLC
+	SEC					;$B780B8
+	SBC.w #$0080				;$B780B9
+	SEC					;$B780BC
+	SBC.w $1973				;$B780BD
+	CLC					;$B780C0
+	ADC.w #$0090				;$B780C1
+	CMP.w #$0130				;$B780C4
+	BCS.b CODE_B780EA			;$B780C7
+	SBC.w #$007F				;$B780C9
+	STA.b $8A				;$B780CC
+	TXA					;$B780CE
+	SEC					;$B780CF
+	SBC.w $196D				;$B780D0
+	CLC					;$B780D3
+	ADC.w #$0030				;$B780D4
+	CMP.w #$0160				;$B780D7
+	BCS.b CODE_B780EA			;$B780DA
+	SBC.w #$00AF				;$B780DC
+	STA.b $88				;$B780DF
+	SEP.b #$20				;$B780E1
+	XBA					;$B780E3
+	LDA.b $8A				;$B780E4
+	XBA					;$B780E6
+	REP.b #$20				;$B780E7
+	CLC					;$B780E9
 CODE_B780EA:
-	RTL
+	RTL					;$B780EA
 
 CODE_B780EB:
-	STA.b $1A
-	LDX.b next_oam_slot
-	LDA.b $1B
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B78132
-	SBC.w #$000F
-	STA.b $1D
-	LDA.b $1A
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	BIT.w #$0100
-	SEP.b #$20
-	STA.b $1C
-	BEQ.b CODE_B7812D
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.l DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	STA.b $1A				;$B780EB
+	LDX.b next_oam_slot			;$B780ED
+	LDA.b $1B				;$B780EF
+	AND.w #$00FF				;$B780F1
+	CLC					;$B780F4
+	ADC.b $8A				;$B780F5
+	CMP.w #$00F0				;$B780F7
+	BCS.b CODE_B78132			;$B780FA
+	SBC.w #$000F				;$B780FC
+	STA.b $1D				;$B780FF
+	LDA.b $1A				;$B78101
+	AND.w #$00FF				;$B78103
+	CLC					;$B78106
+	ADC.b $88				;$B78107
+	BIT.w #$0100				;$B78109
+	SEP.b #$20				;$B7810C
+	STA.b $1C				;$B7810E
+	BEQ.b CODE_B7812D			;$B78110
+	STX.b $84				;$B78112
+	REP.b #$20				;$B78114
+	TXA					;$B78116
+	AND.w #$01FC				;$B78117
+	LSR					;$B7811A
+	LSR					;$B7811B
+	TAX					;$B7811C
+	LSR					;$B7811D
+	LSR					;$B7811E
+	SEP.b #$20				;$B7811F
+	STA.b $86				;$B78121
+	LDA.l DATA_B791D4,x			;$B78123
+	ORA.b ($86)				;$B78127
+	STA.b ($86)				;$B78129
+	LDX.b $84				;$B7812B
 CODE_B7812D:
-	REP.b #$20
-	LDA.b $1C
-	CLC
+	REP.b #$20				;$B7812D
+	LDA.b $1C				;$B7812F
+	CLC					;$B78131
 CODE_B78132:
-	RTL
+	RTL					;$B78132
 
 CODE_B78133:
-	STY.b $6E
-	LDA.w $001E,y
-	STA.b $1A
-	STA.b $1C
-	LDA.w #$0400
-	SEP.b #$20
-	LDA.b next_oam_slot
-	LSR
-	LSR
-	LSR
-	LSR
-	AND.b #$1F
-	REP.b #$20
-	STA.b $86
-	LDX.b $24,y
-	BEQ.b CODE_B7817F
-	CPX.w #$0673
-	BCS.b CODE_B78180
-	STX.b $22,y
-	LDA.l DATA_BC8000,x
-	STA.b $28
-	INC
-	STA.b $2C
-	LDA.l DATA_BC8000+$02,x
-	STA.b $2A
-	STA.b $2E
-	LDA.w $001E,y
-	BIT.w #$8000
-	BNE.b CODE_B78174
-	JMP.w CODE_B7828A
+	STY.b $6E				;$B78133
+	LDA.w $001E,y				;$B78135
+	STA.b $1A				;$B78138
+	STA.b $1C				;$B7813A
+	LDA.w #$0400				;$B7813C
+	SEP.b #$20				;$B7813F
+	LDA.b next_oam_slot			;$B78141
+	LSR					;$B78143
+	LSR					;$B78144
+	LSR					;$B78145
+	LSR					;$B78146
+	AND.b #$1F				;$B78147
+	REP.b #$20				;$B78149
+	STA.b $86				;$B7814B
+	LDX.b $24,y				;$B7814D
+	BEQ.b CODE_B7817F			;$B7814F
+	CPX.w #$0673				;$B78151
+	BCS.b CODE_B78180			;$B78154
+	STX.b $22,y				;$B78156
+	LDA.l DATA_BC8000,x			;$B78158
+	STA.b $28				;$B7815C
+	INC					;$B7815E
+	STA.b $2C				;$B7815F
+	LDA.l DATA_BC8000+$02,x			;$B78161
+	STA.b $2A				;$B78165
+	STA.b $2E				;$B78167
+	LDA.w $001E,y				;$B78169
+	BIT.w #$8000				;$B7816C
+	BNE.b CODE_B78174			;$B7816F
+	JMP.w CODE_B7828A			;$B78171
 
 CODE_B78174:
-	LDA.b $8A
-	SEC
-	SBC.w #$0008
-	STA.b $8A
-	JMP.w CODE_B7841F
+	LDA.b $8A				;$B78174
+	SEC					;$B78176
+	SBC.w #$0008				;$B78177
+	STA.b $8A				;$B7817A
+	JMP.w CODE_B7841F			;$B7817C
 
 CODE_B7817F:
-	RTS
+	RTS					;$B7817F
 
 CODE_B78180:
-	TXA
-	CMP.w $0022,y
-	BEQ.b CODE_B781CE
-	ASL
-	BCC.b CODE_B7819D
-	LSR
-	ADC.l $7FFFFE
-	TAX
-	LDA.l $7F0000,x
-	STA.b $28
-	LDA.l $7F0002,x
-	LDX.b $24,y
-	BRA.b CODE_B781A7
+	TXA					;$B78180
+	CMP.w $0022,y				;$B78181
+	BEQ.b CODE_B781CE			;$B78184
+	ASL					;$B78186
+	BCC.b CODE_B7819D			;$B78187
+	LSR					;$B78189
+	ADC.l $7FFFFE				;$B7818A
+	TAX					;$B7818E
+	LDA.l $7F0000,x				;$B7818F
+	STA.b $28				;$B78193
+	LDA.l $7F0002,x				;$B78195
+	LDX.b $24,y				;$B78199
+	BRA.b CODE_B781A7			;$B7819B
 
 CODE_B7819D:
-	LDA.l DATA_BC8000,x
-	STA.b $28
-	LDA.l DATA_BC8000+$02,x
+	LDA.l DATA_BC8000,x			;$B7819D
+	STA.b $28				;$B781A1
+	LDA.l DATA_BC8000+$02,x			;$B781A3
 CODE_B781A7:
-	STA.b $2A
-	PHY
-	LDY.w #$0005
-	LDA.b [$28],y
-	CLC
-	LDY.w #$0007
-	ADC.b [$28],y
-	PLY
-	AND.w #$00FF
-	XBA
-	LSR
-	LSR
-	LSR
-	ADC.w #$0032
-	ADC.w $1560
-	CMP.b $80
-	BCC.b CODE_B781CB
-	LDX.b $20,y
-	BRA.b CODE_B781CE
+	STA.b $2A				;$B781A7
+	PHY					;$B781A9
+	LDY.w #$0005				;$B781AA
+	LDA.b [$28],y				;$B781AD
+	CLC					;$B781AF
+	LDY.w #$0007				;$B781B0
+	ADC.b [$28],y				;$B781B3
+	PLY					;$B781B5
+	AND.w #$00FF				;$B781B6
+	XBA					;$B781B9
+	LSR					;$B781BA
+	LSR					;$B781BB
+	LSR					;$B781BC
+	ADC.w #$0032				;$B781BD
+	ADC.w $1560				;$B781C0
+	CMP.b $80				;$B781C3
+	BCC.b CODE_B781CB			;$B781C5
+	LDX.b $20,y				;$B781C7
+	BRA.b CODE_B781CE			;$B781C9
 
 CODE_B781CB:
-	STA.w $1560
+	STA.w $1560				;$B781CB
 CODE_B781CE:
-	STX.b $22,y
-	TXA
-	ASL
-	BEQ.b CODE_B7817F
-	BCC.b CODE_B781EB
-	LSR
-	ADC.l $7FFFFE
-	TAX
-	LDA.l $7F0000,x
-	STA.b $28
-	INC
-	STA.b $2C
-	LDA.l $7F0002,x
-	BRA.b CODE_B781F8
+	STX.b $22,y				;$B781CE
+	TXA					;$B781D0
+	ASL					;$B781D1
+	BEQ.b CODE_B7817F			;$B781D2
+	BCC.b CODE_B781EB			;$B781D4
+	LSR					;$B781D6
+	ADC.l $7FFFFE				;$B781D7
+	TAX					;$B781DB
+	LDA.l $7F0000,x				;$B781DC
+	STA.b $28				;$B781E0
+	INC					;$B781E2
+	STA.b $2C				;$B781E3
+	LDA.l $7F0002,x				;$B781E5
+	BRA.b CODE_B781F8			;$B781E9
 
 CODE_B781EB:
-	LDA.l DATA_BC8000,x
-	STA.b $28
-	INC
-	STA.b $2C
-	LDA.l DATA_BC8000+$02,x
+	LDA.l DATA_BC8000,x			;$B781EB
+	STA.b $28				;$B781EF
+	INC					;$B781F1
+	STA.b $2C				;$B781F2
+	LDA.l DATA_BC8000+$02,x			;$B781F4
 CODE_B781F8:
-	STA.b $2A
-	STA.b $2E
-	JSR.w CODE_B782A4
-	LDX.b $6E
-	LDA.b $24,x
-	CMP.b $20,x
-	BEQ.b CODE_B78253
-	STA.b $20,x
-	LDX.w $155E
-	TYA
-	CLC
-	ADC.b $28
-	STA.w $1566,x
-	LDA.b $23
-	AND.w #$00FF
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	STA.w $1562,x
-	ADC.w $1566,x
-	TAY
-	LDA.b $1A
-	AND.w #$01FF
-	ASL
-	ASL
-	ASL
-	ASL
-	STA.w $1564,x
-	LDA.b $2A
-	ORA.w #$FF00
-	STA.w $1568,x
-	LDA.b $25
-	AND.w #$000F
-	BNE.b CODE_B78254
-	TXA
-	ADC.w #$0008
-	STA.w $155E
-	STZ.w $1570,x
-	CPX.w #$0070
-	BCC.b CODE_B78253
-	LDA.b $80
-	STA.w $1560
+	STA.b $2A				;$B781F8
+	STA.b $2E				;$B781FA
+	JSR.w CODE_B782A4			;$B781FC
+	LDX.b $6E				;$B781FF
+	LDA.b $24,x				;$B78201
+	CMP.b $20,x				;$B78203
+	BEQ.b CODE_B78253			;$B78205
+	STA.b $20,x				;$B78207
+	LDX.w $155E				;$B78209
+	TYA					;$B7820C
+	CLC					;$B7820D
+	ADC.b $28				;$B7820E
+	STA.w $1566,x				;$B78210
+	LDA.b $23				;$B78213
+	AND.w #$00FF				;$B78215
+	ASL					;$B78218
+	ASL					;$B78219
+	ASL					;$B7821A
+	ASL					;$B7821B
+	ASL					;$B7821C
+	STA.w $1562,x				;$B7821D
+	ADC.w $1566,x				;$B78220
+	TAY					;$B78223
+	LDA.b $1A				;$B78224
+	AND.w #$01FF				;$B78226
+	ASL					;$B78229
+	ASL					;$B7822A
+	ASL					;$B7822B
+	ASL					;$B7822C
+	STA.w $1564,x				;$B7822D
+	LDA.b $2A				;$B78230
+	ORA.w #$FF00				;$B78232
+	STA.w $1568,x				;$B78235
+	LDA.b $25				;$B78238
+	AND.w #$000F				;$B7823A
+	BNE.b CODE_B78254			;$B7823D
+	TXA					;$B7823F
+	ADC.w #$0008				;$B78240
+	STA.w $155E				;$B78243
+	STZ.w $1570,x				;$B78246
+	CPX.w #$0070				;$B78249
+	BCC.b CODE_B78253			;$B7824C
+	LDA.b $80				;$B7824E
+	STA.w $1560				;$B78250
 CODE_B78253:
-	RTS
+	RTS					;$B78253
 
 CODE_B78254:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	STA.w $156A,x
-	TXA
-	ADC.w #$0010
-	STA.w $155E
-	STZ.w $1578,x
-	LDA.b $24
-	AND.w #$00FF
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.w $1564,x
-	STA.w $156C,x
-	TYA
-	STA.w $156E,x
-	LDA.w $1568,x
-	STA.w $1570,x
-	CPX.w #$0070
-	BCC.b CODE_B78289
-	LDA.b $80
-	STA.w $1560
+	ASL					;$B78254
+	ASL					;$B78255
+	ASL					;$B78256
+	ASL					;$B78257
+	ASL					;$B78258
+	STA.w $156A,x				;$B78259
+	TXA					;$B7825C
+	ADC.w #$0010				;$B7825D
+	STA.w $155E				;$B78260
+	STZ.w $1578,x				;$B78263
+	LDA.b $24				;$B78266
+	AND.w #$00FF				;$B78268
+	ASL					;$B7826B
+	ASL					;$B7826C
+	ASL					;$B7826D
+	ASL					;$B7826E
+	ADC.w $1564,x				;$B7826F
+	STA.w $156C,x				;$B78272
+	TYA					;$B78275
+	STA.w $156E,x				;$B78276
+	LDA.w $1568,x				;$B78279
+	STA.w $1570,x				;$B7827C
+	CPX.w #$0070				;$B7827F
+	BCC.b CODE_B78289			;$B78282
+	LDA.b $80				;$B78284
+	STA.w $1560				;$B78286
 CODE_B78289:
-	RTS
+	RTS					;$B78289
 
 CODE_B7828A:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$0005
-	BRA.b CODE_B782C3
+	LDY.w #$0000				;$B7828A
+	LDA.b [$28],y				;$B7828D
+	STA.b $1E				;$B7828F
+	LDY.w #$0002				;$B78291
+	LDA.b [$28],y				;$B78294
+	STA.b $20				;$B78296
+	LDY.w #$0004				;$B78298
+	LDA.b [$28],y				;$B7829B
+	STA.b $22				;$B7829D
+	LDY.w #$0005				;$B7829F
+	BRA.b CODE_B782C3			;$B782A2
 
 CODE_B782A4:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$0006
-	LDA.b [$28],y
-	STA.b $24
-	LDY.w #$0008
+	LDY.w #$0000				;$B782A4
+	LDA.b [$28],y				;$B782A7
+	STA.b $1E				;$B782A9
+	LDY.w #$0002				;$B782AB
+	LDA.b [$28],y				;$B782AE
+	STA.b $20				;$B782B0
+	LDY.w #$0004				;$B782B2
+	LDA.b [$28],y				;$B782B5
+	STA.b $22				;$B782B7
+	LDY.w #$0006				;$B782B9
+	LDA.b [$28],y				;$B782BC
+	STA.b $24				;$B782BE
+	LDY.w #$0008				;$B782C0
 CODE_B782C3:
-	LDA.b next_oam_slot
-	LSR
-	LSR
-	SEP.b #$20
-	TAX
-	ADC.b $1E
-	BMI.b CODE_B782D1
-	REP.b #$20
-	RTS
+	LDA.b next_oam_slot			;$B782C3
+	LSR					;$B782C5
+	LSR					;$B782C6
+	SEP.b #$20				;$B782C7
+	TAX					;$B782C9
+	ADC.b $1E				;$B782CA
+	BMI.b CODE_B782D1			;$B782CC
+	REP.b #$20				;$B782CE
+	RTS					;$B782D0
 
 CODE_B782D1:
-	TXA
-	LSR
-	LSR
-	AND.b #$1F
-	STA.b $86
-	TXA
-	AND.b #$03
-	TAX
-	LDA.w DATA_B79154,x
-	STA.b $26
-	LDX.b next_oam_slot
-	CLC
+	TXA					;$B782D1
+	LSR					;$B782D2
+	LSR					;$B782D3
+	AND.b #$1F				;$B782D4
+	STA.b $86				;$B782D6
+	TXA					;$B782D8
+	AND.b #$03				;$B782D9
+	TAX					;$B782DB
+	LDA.w DATA_B79154,x			;$B782DC
+	STA.b $26				;$B782DF
+	LDX.b next_oam_slot			;$B782E1
+	CLC					;$B782E3
 CODE_B782E4:
-	DEC.b $1E
-	BMI.b CODE_B78342
-	LDA.b [$2C],y
-	REP.b #$20
-	AND.w #$00FF
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B7832D
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	CMP.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	LDA.b $26
-	BCS.b CODE_B78310
-	AND.b #$AA
+	DEC.b $1E				;$B782E4
+	BMI.b CODE_B78342			;$B782E6
+	LDA.b [$2C],y				;$B782E8
+	REP.b #$20				;$B782EA
+	AND.w #$00FF				;$B782EC
+	ADC.b $8A				;$B782EF
+	CMP.w #$00F0				;$B782F1
+	BCS.b CODE_B7832D			;$B782F4
+	SBC.w #$000F				;$B782F6
+	STA.b $01,x				;$B782F9
+	LDA.b [$28],y				;$B782FB
+	AND.w #$00FF				;$B782FD
+	CLC					;$B78300
+	ADC.b $88				;$B78301
+	CMP.w #$0100				;$B78303
+	SEP.b #$20				;$B78306
+	STA.b $00,x				;$B78308
+	LDA.b $26				;$B7830A
+	BCS.b CODE_B78310			;$B7830C
+	AND.b #$AA				;$B7830E
 CODE_B78310:
-	ORA.b ($86)
-	STA.b ($86)
-	LDA.b $26
-	BPL.b CODE_B7831F
-	INC.b $86
-	LDA.b #$03
-	CLC
-	BRA.b CODE_B78321
+	ORA.b ($86)				;$B78310
+	STA.b ($86)				;$B78312
+	LDA.b $26				;$B78314
+	BPL.b CODE_B7831F			;$B78316
+	INC.b $86				;$B78318
+	LDA.b #$03				;$B7831A
+	CLC					;$B7831C
+	BRA.b CODE_B78321			;$B7831D
 
 CODE_B7831F:
-	ASL
-	ASL
+	ASL					;$B7831F
+	ASL					;$B78320
 CODE_B78321:
-	STA.b $26
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	STA.b $26				;$B78321
+	REP.b #$20				;$B78323
+	LDA.b $1C				;$B78325
+	STA.b $02,x				;$B78327
+	INX					;$B78329
+	INX					;$B7832A
+	INX					;$B7832B
+	INX					;$B7832C
 CODE_B7832D:
-	CLC
-	LDA.b $1C
-	INC
-	INC
-	BIT.w #$0010
-	BEQ.b CODE_B7833A
-	ADC.w #$0010
+	CLC					;$B7832D
+	LDA.b $1C				;$B7832E
+	INC					;$B78330
+	INC					;$B78331
+	BIT.w #$0010				;$B78332
+	BEQ.b CODE_B7833A			;$B78335
+	ADC.w #$0010				;$B78337
 CODE_B7833A:
-	STA.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B782E4
+	STA.b $1C				;$B7833A
+	SEP.b #$20				;$B7833C
+	INY					;$B7833E
+	INY					;$B7833F
+	BRA.b CODE_B782E4			;$B78340
 
 CODE_B78342:
-	REP.b #$20
-	TXA
-	LSR
-	LSR
-	SEP.b #$20
-	ADC.b $1F
-	BMI.b CODE_B78352
-	REP.b #$20
-	STX.b next_oam_slot
-	RTS
+	REP.b #$20				;$B78342
+	TXA					;$B78344
+	LSR					;$B78345
+	LSR					;$B78346
+	SEP.b #$20				;$B78347
+	ADC.b $1F				;$B78349
+	BMI.b CODE_B78352			;$B7834B
+	REP.b #$20				;$B7834D
+	STX.b next_oam_slot			;$B7834F
+	RTS					;$B78351
 
 CODE_B78352:
-	LDA.b $20
-	CLC
-	ADC.b $1A
-	STA.b $1C
+	LDA.b $20				;$B78352
+	CLC					;$B78354
+	ADC.b $1A				;$B78355
+	STA.b $1C				;$B78357
 CODE_B78359:
-	DEC.b $1F
-	BMI.b CODE_B783AE
-	LDA.b [$2C],y
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B783A6
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	BIT.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	BEQ.b CODE_B7839C
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	DEC.b $1F				;$B78359
+	BMI.b CODE_B783AE			;$B7835B
+	LDA.b [$2C],y				;$B7835D
+	REP.b #$20				;$B7835F
+	AND.w #$00FF				;$B78361
+	CLC					;$B78364
+	ADC.b $8A				;$B78365
+	CMP.w #$00F0				;$B78367
+	BCS.b CODE_B783A6			;$B7836A
+	SBC.w #$000F				;$B7836C
+	STA.b $01,x				;$B7836F
+	LDA.b [$28],y				;$B78371
+	AND.w #$00FF				;$B78373
+	CLC					;$B78376
+	ADC.b $88				;$B78377
+	BIT.w #$0100				;$B78379
+	SEP.b #$20				;$B7837C
+	STA.b $00,x				;$B7837E
+	BEQ.b CODE_B7839C			;$B78380
+	STX.b $84				;$B78382
+	REP.b #$20				;$B78384
+	TXA					;$B78386
+	AND.w #$01FC				;$B78387
+	LSR					;$B7838A
+	LSR					;$B7838B
+	TAX					;$B7838C
+	LSR					;$B7838D
+	LSR					;$B7838E
+	SEP.b #$20				;$B7838F
+	STA.b $86				;$B78391
+	LDA.w DATA_B791D4,x			;$B78393
+	ORA.b ($86)				;$B78396
+	STA.b ($86)				;$B78398
+	LDX.b $84				;$B7839A
 CODE_B7839C:
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	REP.b #$20				;$B7839C
+	LDA.b $1C				;$B7839E
+	STA.b $02,x				;$B783A0
+	INX					;$B783A2
+	INX					;$B783A3
+	INX					;$B783A4
+	INX					;$B783A5
 CODE_B783A6:
-	INC.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B78359
+	INC.b $1C				;$B783A6
+	SEP.b #$20				;$B783A8
+	INY					;$B783AA
+	INY					;$B783AB
+	BRA.b CODE_B78359			;$B783AC
 
 CODE_B783AE:
-	REP.b #$20
-	TXA
-	LSR
-	LSR
-	SEP.b #$20
-	ADC.b $21
-	BMI.b CODE_B783BE
-	REP.b #$20
-	STX.b next_oam_slot
-	RTS
+	REP.b #$20				;$B783AE
+	TXA					;$B783B0
+	LSR					;$B783B1
+	LSR					;$B783B2
+	SEP.b #$20				;$B783B3
+	ADC.b $21				;$B783B5
+	BMI.b CODE_B783BE			;$B783B7
+	REP.b #$20				;$B783B9
+	STX.b next_oam_slot			;$B783BB
+	RTS					;$B783BD
 
 CODE_B783BE:
-	LDA.b $22
-	CLC
-	ADC.b $1A
-	STA.b $1C
+	LDA.b $22				;$B783BE
+	CLC					;$B783C0
+	ADC.b $1A				;$B783C1
+	STA.b $1C				;$B783C3
 CODE_B783C5:
-	DEC.b $21
-	BMI.b CODE_B7841A
-	LDA.b [$2C],y
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B78412
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	BIT.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	BEQ.b CODE_B78408
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	DEC.b $21				;$B783C5
+	BMI.b CODE_B7841A			;$B783C7
+	LDA.b [$2C],y				;$B783C9
+	REP.b #$20				;$B783CB
+	AND.w #$00FF				;$B783CD
+	CLC					;$B783D0
+	ADC.b $8A				;$B783D1
+	CMP.w #$00F0				;$B783D3
+	BCS.b CODE_B78412			;$B783D6
+	SBC.w #$000F				;$B783D8
+	STA.b $01,x				;$B783DB
+	LDA.b [$28],y				;$B783DD
+	AND.w #$00FF				;$B783DF
+	CLC					;$B783E2
+	ADC.b $88				;$B783E3
+	BIT.w #$0100				;$B783E5
+	SEP.b #$20				;$B783E8
+	STA.b $00,x				;$B783EA
+	BEQ.b CODE_B78408			;$B783EC
+	STX.b $84				;$B783EE
+	REP.b #$20				;$B783F0
+	TXA					;$B783F2
+	AND.w #$01FC				;$B783F3
+	LSR					;$B783F6
+	LSR					;$B783F7
+	TAX					;$B783F8
+	LSR					;$B783F9
+	LSR					;$B783FA
+	SEP.b #$20				;$B783FB
+	STA.b $86				;$B783FD
+	LDA.w DATA_B791D4,x			;$B783FF
+	ORA.b ($86)				;$B78402
+	STA.b ($86)				;$B78404
+	LDX.b $84				;$B78406
 CODE_B78408:
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	REP.b #$20				;$B78408
+	LDA.b $1C				;$B7840A
+	STA.b $02,x				;$B7840C
+	INX					;$B7840E
+	INX					;$B7840F
+	INX					;$B78410
+	INX					;$B78411
 CODE_B78412:
-	INC.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B783C5
+	INC.b $1C				;$B78412
+	SEP.b #$20				;$B78414
+	INY					;$B78416
+	INY					;$B78417
+	BRA.b CODE_B783C5			;$B78418
 
 CODE_B7841A:
-	REP.b #$20
-	STX.b next_oam_slot
-	RTS
+	REP.b #$20				;$B7841A
+	STX.b next_oam_slot			;$B7841C
+	RTS					;$B7841E
 
 CODE_B7841F:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$0005
-	BRA.b CODE_B78458
+	LDY.w #$0000				;$B7841F
+	LDA.b [$28],y				;$B78422
+	STA.b $1E				;$B78424
+	LDY.w #$0002				;$B78426
+	LDA.b [$28],y				;$B78429
+	STA.b $20				;$B7842B
+	LDY.w #$0004				;$B7842D
+	LDA.b [$28],y				;$B78430
+	STA.b $22				;$B78432
+	LDY.w #$0005				;$B78434
+	BRA.b CODE_B78458			;$B78437
 
 CODE_B78439:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$0006
-	LDA.b [$28],y
-	STA.b $24
-	LDY.w #$0008
+	LDY.w #$0000				;$B78439
+	LDA.b [$28],y				;$B7843C
+	STA.b $1E				;$B7843E
+	LDY.w #$0002				;$B78440
+	LDA.b [$28],y				;$B78443
+	STA.b $20				;$B78445
+	LDY.w #$0004				;$B78447
+	LDA.b [$28],y				;$B7844A
+	STA.b $22				;$B7844C
+	LDY.w #$0006				;$B7844E
+	LDA.b [$28],y				;$B78451
+	STA.b $24				;$B78453
+	LDY.w #$0008				;$B78455
 CODE_B78458:
-	LDA.b next_oam_slot
-	LSR
-	LSR
-	SEP.b #$20
-	TAX
-	ADC.b $1E
-	BMI.b CODE_B78466
-	REP.b #$20
-	RTS
+	LDA.b next_oam_slot			;$B78458
+	LSR					;$B7845A
+	LSR					;$B7845B
+	SEP.b #$20				;$B7845C
+	TAX					;$B7845E
+	ADC.b $1E				;$B7845F
+	BMI.b CODE_B78466			;$B78461
+	REP.b #$20				;$B78463
+	RTS					;$B78465
 
 CODE_B78466:
-	TXA
-	LSR
-	LSR
-	AND.b #$1F
-	STA.b $86
-	TXA
-	AND.b #$03
-	TAX
-	LDA.w DATA_B79154,x
-	STA.b $26
-	LDX.b next_oam_slot
-	CLC
+	TXA					;$B78466
+	LSR					;$B78467
+	LSR					;$B78468
+	AND.b #$1F				;$B78469
+	STA.b $86				;$B7846B
+	TXA					;$B7846D
+	AND.b #$03				;$B7846E
+	TAX					;$B78470
+	LDA.w DATA_B79154,x			;$B78471
+	STA.b $26				;$B78474
+	LDX.b next_oam_slot			;$B78476
+	CLC					;$B78478
 CODE_B78479:
-	DEC.b $1E
-	BMI.b CODE_B784D9
-	LDA.b [$2C],y
-	EOR.b #$FF
-	REP.b #$20
-	AND.w #$00FF
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B784C4
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	CMP.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	LDA.b $26
-	BCS.b CODE_B784A7
-	AND.b #$AA
+	DEC.b $1E				;$B78479
+	BMI.b CODE_B784D9			;$B7847B
+	LDA.b [$2C],y				;$B7847D
+	EOR.b #$FF				;$B7847F
+	REP.b #$20				;$B78481
+	AND.w #$00FF				;$B78483
+	ADC.b $8A				;$B78486
+	CMP.w #$00F0				;$B78488
+	BCS.b CODE_B784C4			;$B7848B
+	SBC.w #$000F				;$B7848D
+	STA.b $01,x				;$B78490
+	LDA.b [$28],y				;$B78492
+	AND.w #$00FF				;$B78494
+	CLC					;$B78497
+	ADC.b $88				;$B78498
+	CMP.w #$0100				;$B7849A
+	SEP.b #$20				;$B7849D
+	STA.b $00,x				;$B7849F
+	LDA.b $26				;$B784A1
+	BCS.b CODE_B784A7			;$B784A3
+	AND.b #$AA				;$B784A5
 CODE_B784A7:
-	ORA.b ($86)
-	STA.b ($86)
-	LDA.b $26
-	BPL.b CODE_B784B6
-	INC.b $86
-	LDA.b #$03
-	CLC
-	BRA.b CODE_B784B8
+	ORA.b ($86)				;$B784A7
+	STA.b ($86)				;$B784A9
+	LDA.b $26				;$B784AB
+	BPL.b CODE_B784B6			;$B784AD
+	INC.b $86				;$B784AF
+	LDA.b #$03				;$B784B1
+	CLC					;$B784B3
+	BRA.b CODE_B784B8			;$B784B4
 
 CODE_B784B6:
-	ASL
-	ASL
+	ASL					;$B784B6
+	ASL					;$B784B7
 CODE_B784B8:
-	STA.b $26
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	STA.b $26				;$B784B8
+	REP.b #$20				;$B784BA
+	LDA.b $1C				;$B784BC
+	STA.b $02,x				;$B784BE
+	INX					;$B784C0
+	INX					;$B784C1
+	INX					;$B784C2
+	INX					;$B784C3
 CODE_B784C4:
-	CLC
-	LDA.b $1C
-	INC
-	INC
-	BIT.w #$0010
-	BEQ.b CODE_B784D1
-	ADC.w #$0010
+	CLC					;$B784C4
+	LDA.b $1C				;$B784C5
+	INC					;$B784C7
+	INC					;$B784C8
+	BIT.w #$0010				;$B784C9
+	BEQ.b CODE_B784D1			;$B784CC
+	ADC.w #$0010				;$B784CE
 CODE_B784D1:
-	STA.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B78479
+	STA.b $1C				;$B784D1
+	SEP.b #$20				;$B784D3
+	INY					;$B784D5
+	INY					;$B784D6
+	BRA.b CODE_B78479			;$B784D7
 
 CODE_B784D9:
-	REP.b #$20
-	TXA
-	LSR
-	LSR
-	SEP.b #$20
-	ADC.b $1F
-	BMI.b CODE_B784E9
-	REP.b #$20
-	STX.b next_oam_slot
-	RTS
+	REP.b #$20				;$B784D9
+	TXA					;$B784DB
+	LSR					;$B784DC
+	LSR					;$B784DD
+	SEP.b #$20				;$B784DE
+	ADC.b $1F				;$B784E0
+	BMI.b CODE_B784E9			;$B784E2
+	REP.b #$20				;$B784E4
+	STX.b next_oam_slot			;$B784E6
+	RTS					;$B784E8
 
 CODE_B784E9:
-	LDA.b $20
-	CLC
-	ADC.b $1A
-	STA.b $1C
+	LDA.b $20				;$B784E9
+	CLC					;$B784EB
+	ADC.b $1A				;$B784EC
+	STA.b $1C				;$B784EE
 CODE_B784F0:
-	DEC.b $1F
-	BMI.b CODE_B78547
-	LDA.b [$2C],y
-	EOR.b #$FF
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B7853F
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	BIT.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	BEQ.b CODE_B78535
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	DEC.b $1F				;$B784F0
+	BMI.b CODE_B78547			;$B784F2
+	LDA.b [$2C],y				;$B784F4
+	EOR.b #$FF				;$B784F6
+	REP.b #$20				;$B784F8
+	AND.w #$00FF				;$B784FA
+	CLC					;$B784FD
+	ADC.b $8A				;$B784FE
+	CMP.w #$00F0				;$B78500
+	BCS.b CODE_B7853F			;$B78503
+	SBC.w #$000F				;$B78505
+	STA.b $01,x				;$B78508
+	LDA.b [$28],y				;$B7850A
+	AND.w #$00FF				;$B7850C
+	CLC					;$B7850F
+	ADC.b $88				;$B78510
+	BIT.w #$0100				;$B78512
+	SEP.b #$20				;$B78515
+	STA.b $00,x				;$B78517
+	BEQ.b CODE_B78535			;$B78519
+	STX.b $84				;$B7851B
+	REP.b #$20				;$B7851D
+	TXA					;$B7851F
+	AND.w #$01FC				;$B78520
+	LSR					;$B78523
+	LSR					;$B78524
+	TAX					;$B78525
+	LSR					;$B78526
+	LSR					;$B78527
+	SEP.b #$20				;$B78528
+	STA.b $86				;$B7852A
+	LDA.w DATA_B791D4,x			;$B7852C
+	ORA.b ($86)				;$B7852F
+	STA.b ($86)				;$B78531
+	LDX.b $84				;$B78533
 CODE_B78535:
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	REP.b #$20				;$B78535
+	LDA.b $1C				;$B78537
+	STA.b $02,x				;$B78539
+	INX					;$B7853B
+	INX					;$B7853C
+	INX					;$B7853D
+	INX					;$B7853E
 CODE_B7853F:
-	INC.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B784F0
+	INC.b $1C				;$B7853F
+	SEP.b #$20				;$B78541
+	INY					;$B78543
+	INY					;$B78544
+	BRA.b CODE_B784F0			;$B78545
 
 CODE_B78547:
-	REP.b #$20
-	TXA
-	LSR
-	LSR
-	SEP.b #$20
-	ADC.b $21
-	BMI.b CODE_B78557
-	REP.b #$20
-	STX.b next_oam_slot
-	RTS
+	REP.b #$20				;$B78547
+	TXA					;$B78549
+	LSR					;$B7854A
+	LSR					;$B7854B
+	SEP.b #$20				;$B7854C
+	ADC.b $21				;$B7854E
+	BMI.b CODE_B78557			;$B78550
+	REP.b #$20				;$B78552
+	STX.b next_oam_slot			;$B78554
+	RTS					;$B78556
 
 CODE_B78557:
-	LDA.b $22
-	CLC
-	ADC.b $1A
-	STA.b $1C
+	LDA.b $22				;$B78557
+	CLC					;$B78559
+	ADC.b $1A				;$B7855A
+	STA.b $1C				;$B7855C
 CODE_B7855E:
-	DEC.b $21
-	BMI.b CODE_B785B5
-	LDA.b [$2C],y
-	EOR.b #$FF
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B785AD
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	BIT.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	BEQ.b CODE_B785A3
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	DEC.b $21				;$B7855E
+	BMI.b CODE_B785B5			;$B78560
+	LDA.b [$2C],y				;$B78562
+	EOR.b #$FF				;$B78564
+	REP.b #$20				;$B78566
+	AND.w #$00FF				;$B78568
+	CLC					;$B7856B
+	ADC.b $8A				;$B7856C
+	CMP.w #$00F0				;$B7856E
+	BCS.b CODE_B785AD			;$B78571
+	SBC.w #$000F				;$B78573
+	STA.b $01,x				;$B78576
+	LDA.b [$28],y				;$B78578
+	AND.w #$00FF				;$B7857A
+	CLC					;$B7857D
+	ADC.b $88				;$B7857E
+	BIT.w #$0100				;$B78580
+	SEP.b #$20				;$B78583
+	STA.b $00,x				;$B78585
+	BEQ.b CODE_B785A3			;$B78587
+	STX.b $84				;$B78589
+	REP.b #$20				;$B7858B
+	TXA					;$B7858D
+	AND.w #$01FC				;$B7858E
+	LSR					;$B78591
+	LSR					;$B78592
+	TAX					;$B78593
+	LSR					;$B78594
+	LSR					;$B78595
+	SEP.b #$20				;$B78596
+	STA.b $86				;$B78598
+	LDA.w DATA_B791D4,x			;$B7859A
+	ORA.b ($86)				;$B7859D
+	STA.b ($86)				;$B7859F
+	LDX.b $84				;$B785A1
 CODE_B785A3:
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	REP.b #$20				;$B785A3
+	LDA.b $1C				;$B785A5
+	STA.b $02,x				;$B785A7
+	INX					;$B785A9
+	INX					;$B785AA
+	INX					;$B785AB
+	INX					;$B785AC
 CODE_B785AD:
-	INC.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B7855E
+	INC.b $1C				;$B785AD
+	SEP.b #$20				;$B785AF
+	INY					;$B785B1
+	INY					;$B785B2
+	BRA.b CODE_B7855E			;$B785B3
 
 CODE_B785B5:
-	REP.b #$20
-	STX.b next_oam_slot
-	RTS
+	REP.b #$20				;$B785B5
+	STX.b next_oam_slot			;$B785B7
+	RTS					;$B785B9
 
 CODE_B785BA:
-	PHK
-	PLB
-	JSL.l CODE_B79BCC
-	LDA.w #oam_table
-	STA.b next_oam_slot
-	LDX.w #oam_attribute_table
-	STZ.b $00,x
-	STZ.b $02,x
-	STZ.b $04,x
-	STZ.b $06,x
-	STZ.b $08,x
-	STZ.b $0A,x
-	STZ.b $0C,x
-	STZ.b $0E,x
-	STZ.b $10,x
-	STZ.b $12,x
-	STZ.b $14,x
-	STZ.b $16,x
-	STZ.b $18,x
-	STZ.b $1A,x
-	STZ.b $1C,x
-	STZ.b $1E,x
-	JSL.l CODE_B6804B
-	JSL.l CODE_BB85BE
-	JSL.l CODE_B78857
-	JSR.w CODE_B785FC
-	JSL.l CODE_B7E49F
-	RTL
+	PHK					;$B785BA
+	PLB					;$B785BB
+	JSL.l CODE_B79BCC			;$B785BC
+	LDA.w #oam_table			;$B785C0
+	STA.b next_oam_slot			;$B785C3
+	LDX.w #oam_attribute_table		;$B785C5
+	STZ.b $00,x				;$B785C8
+	STZ.b $02,x				;$B785CA
+	STZ.b $04,x				;$B785CC
+	STZ.b $06,x				;$B785CE
+	STZ.b $08,x				;$B785D0
+	STZ.b $0A,x				;$B785D2
+	STZ.b $0C,x				;$B785D4
+	STZ.b $0E,x				;$B785D6
+	STZ.b $10,x				;$B785D8
+	STZ.b $12,x				;$B785DA
+	STZ.b $14,x				;$B785DC
+	STZ.b $16,x				;$B785DE
+	STZ.b $18,x				;$B785E0
+	STZ.b $1A,x				;$B785E2
+	STZ.b $1C,x				;$B785E4
+	STZ.b $1E,x				;$B785E6
+	JSL.l CODE_B6804B			;$B785E8
+	JSL.l CODE_BB85BE			;$B785EC
+	JSL.l CODE_B78857			;$B785F0
+	JSR.w CODE_B785FC			;$B785F4
+	JSL.l CODE_B7E49F			;$B785F7
+	RTL					;$B785FB
 
 CODE_B785FC:
-	LDA.w #$2000
-	BIT.w $05B1
-	BNE.b CODE_B78605
-	RTS
+	LDA.w #$2000				;$B785FC
+	BIT.w $05B1				;$B785FF
+	BNE.b CODE_B78605			;$B78602
+	RTS					;$B78604
 
 CODE_B78605:
-	PHK
-	PLB
-	LDY.b next_oam_slot
-	LDX.w #$0000
-	LDA.b level_number
-	CMP.w #$000F
-	BEQ.b CODE_B7861D
-	CMP.w #$0011
-	BNE.b CODE_B78626
-	LDX.w #$00DE
-	BRA.b CODE_B78626
+	PHK					;$B78605
+	PLB					;$B78606
+	LDY.b next_oam_slot			;$B78607
+	LDX.w #$0000				;$B78609
+	LDA.b level_number			;$B7860C
+	CMP.w #$000F				;$B7860E
+	BEQ.b CODE_B7861D			;$B78611
+	CMP.w #$0011				;$B78613
+	BNE.b CODE_B78626			;$B78616
+	LDX.w #$00DE				;$B78618
+	BRA.b CODE_B78626			;$B7861B
 
 CODE_B7861D:
-	LDX.w #$006A
-	JSR.w CODE_B78626
-	LDX.w #$00A4
+	LDX.w #$006A				;$B7861D
+	JSR.w CODE_B78626			;$B78620
+	LDX.w #$00A4				;$B78623
 CODE_B78626:
-	LDA.w DATA_B78697,x
-	CMP.w #$FFFF
-	BEQ.b CODE_B78644
-	STA.w $0000,y
-	LDA.w DATA_B78697+$02,x
-	STA.w $0002,y
-	JSR.w CODE_B787E3
-	INY
-	INY
-	INY
-	INY
-	INX
-	INX
-	INX
-	INX
-	BRA.b CODE_B78626
+	LDA.w DATA_B78697,x			;$B78626
+	CMP.w #$FFFF				;$B78629
+	BEQ.b CODE_B78644			;$B7862C
+	STA.w $0000,y				;$B7862E
+	LDA.w DATA_B78697+$02,x			;$B78631
+	STA.w $0002,y				;$B78634
+	JSR.w CODE_B787E3			;$B78637
+	INY					;$B7863A
+	INY					;$B7863B
+	INY					;$B7863C
+	INY					;$B7863D
+	INX					;$B7863E
+	INX					;$B7863F
+	INX					;$B78640
+	INX					;$B78641
+	BRA.b CODE_B78626			;$B78642
 
 CODE_B78644:
-	LDA.w $05E3
-	CMP.w #$0024
-	BEQ.b CODE_B7865B
-	CMP.w #$0028
-	BEQ.b CODE_B7865B
-	CMP.w #$0018
-	BCC.b CODE_B78694
-	CMP.w #$001E
-	BCS.b CODE_B78694
+	LDA.w $05E3				;$B78644
+	CMP.w #$0024				;$B78647
+	BEQ.b CODE_B7865B			;$B7864A
+	CMP.w #$0028				;$B7864C
+	BEQ.b CODE_B7865B			;$B7864F
+	CMP.w #$0018				;$B78651
+	BCC.b CODE_B78694			;$B78654
+	CMP.w #$001E				;$B78656
+	BCS.b CODE_B78694			;$B78659
 CODE_B7865B:
-	LDX.w #$0FE8
-	LDA.w #$3848
-	STA.b $1A
-	LDA.w #$0006
-	STA.b $1E
+	LDX.w #$0FE8				;$B7865B
+	LDA.w #$3848				;$B7865E
+	STA.b $1A				;$B78661
+	LDA.w #$0006				;$B78663
+	STA.b $1E				;$B78666
 CODE_B78668:
-	LDA.w #$0007
-	STA.b $1C
+	LDA.w #$0007				;$B78668
+	STA.b $1C				;$B7866B
 CODE_B7866D:
-	LDA.b $1A
-	STA.w $0000,y
-	CLC
-	ADC.w #$0010
-	STA.b $1A
-	STX.b $02,y
-	JSR.w CODE_B787E3
-	INY
-	INY
-	INY
-	INY
-	DEC.b $1C
-	BNE.b CODE_B7866D
-	LDA.b $1A
-	AND.w #$FF00
-	CLC
-	ADC.w #$1048
-	STA.b $1A
-	DEC.b $1E
-	BNE.b CODE_B78668
+	LDA.b $1A				;$B7866D
+	STA.w $0000,y				;$B7866F
+	CLC					;$B78672
+	ADC.w #$0010				;$B78673
+	STA.b $1A				;$B78676
+	STX.b $02,y				;$B78678
+	JSR.w CODE_B787E3			;$B7867A
+	INY					;$B7867D
+	INY					;$B7867E
+	INY					;$B7867F
+	INY					;$B78680
+	DEC.b $1C				;$B78681
+	BNE.b CODE_B7866D			;$B78683
+	LDA.b $1A				;$B78685
+	AND.w #$FF00				;$B78687
+	CLC					;$B7868A
+	ADC.w #$1048				;$B7868B
+	STA.b $1A				;$B7868E
+	DEC.b $1E				;$B78690
+	BNE.b CODE_B78668			;$B78692
 CODE_B78694:
-	STY.b next_oam_slot
-	RTS
+	STY.b next_oam_slot			;$B78694
+	RTS					;$B78696
 
 DATA_B78697:
 	dw $3040, $3FEA 
@@ -1087,28 +1087,28 @@ DATA_B78697:
 	dw $7FEE, $FFFF
 
 CODE_B787DF:
-	JSR.w CODE_B787E3
-	RTL
+	JSR.w CODE_B787E3			;$B787DF
+	RTL					;$B787E2
 
 CODE_B787E3:
-	PHX
-	PHY
-	TYA
-	AND.w #$000C
-	TAX
-	TYA
-	LSR
-	LSR
-	LSR
-	LSR
-	AND.w #$001F
-	TAY
-	LDA.w DATA_B787FF,x
-	ORA.w $0400,y
-	STA.w $0400,y
-	PLY
-	PLX
-	RTS
+	PHX					;$B787E3
+	PHY					;$B787E4
+	TYA					;$B787E5
+	AND.w #$000C				;$B787E6
+	TAX					;$B787E9
+	TYA					;$B787EA
+	LSR					;$B787EB
+	LSR					;$B787EC
+	LSR					;$B787ED
+	LSR					;$B787EE
+	AND.w #$001F				;$B787EF
+	TAY					;$B787F2
+	LDA.w DATA_B787FF,x			;$B787F3
+	ORA.w $0400,y				;$B787F6
+	STA.w $0400,y				;$B787F9
+	PLY					;$B787FC
+	PLX					;$B787FD
+	RTS					;$B787FE
 
 DATA_B787FF:
 	dw $0002
@@ -1121,250 +1121,250 @@ DATA_B787FF:
 	dw $0000
 
 CODE_B7880F:
-	PHK
-	PLB
-	JSL.l CODE_B79BCC
-	LDA.w #oam_table
-	STA.b next_oam_slot
-	LDX.w #oam_attribute_table
-	STZ.b $00,x
-	STZ.b $02,x
-	STZ.b $04,x
-	STZ.b $06,x
-	STZ.b $08,x
-	STZ.b $0A,x
-	STZ.b $0C,x
-	STZ.b $0E,x
-	STZ.b $10,x
-	STZ.b $12,x
-	STZ.b $14,x
-	STZ.b $16,x
-	STZ.b $18,x
-	STZ.b $1A,x
-	STZ.b $1C,x
-	STZ.b $1E,x
-	RTL
+	PHK					;$B7880F
+	PLB					;$B78810
+	JSL.l CODE_B79BCC			;$B78811
+	LDA.w #oam_table			;$B78815
+	STA.b next_oam_slot			;$B78818
+	LDX.w #oam_attribute_table		;$B7881A
+	STZ.b $00,x				;$B7881D
+	STZ.b $02,x				;$B7881F
+	STZ.b $04,x				;$B78821
+	STZ.b $06,x				;$B78823
+	STZ.b $08,x				;$B78825
+	STZ.b $0A,x				;$B78827
+	STZ.b $0C,x				;$B78829
+	STZ.b $0E,x				;$B7882B
+	STZ.b $10,x				;$B7882D
+	STZ.b $12,x				;$B7882F
+	STZ.b $14,x				;$B78831
+	STZ.b $16,x				;$B78833
+	STZ.b $18,x				;$B78835
+	STZ.b $1A,x				;$B78837
+	STZ.b $1C,x				;$B78839
+	STZ.b $1E,x				;$B7883B
+	RTL					;$B7883D
 
 CODE_B7883E:
-	PHK
-	PLB
-	JSL.l CODE_B78857
-	RTL
+	PHK					;$B7883E
+	PLB					;$B7883F
+	JSL.l CODE_B78857			;$B78840
+	RTL					;$B78844
 
 CODE_B78845:
-	PHK
-	PLB
-	JSL.l CODE_B6804B
-	JSR.w CODE_B785FC
-	JSL.l CODE_BB85BE
-	JSL.l CODE_B78857
-	RTL
+	PHK					;$B78845
+	PLB					;$B78846
+	JSL.l CODE_B6804B			;$B78847
+	JSR.w CODE_B785FC			;$B7884B
+	JSL.l CODE_BB85BE			;$B7884E
+	JSL.l CODE_B78857			;$B78852
+	RTL					;$B78856
 
 CODE_B78857:
-	LDA.b next_oam_slot
-	LSR
-	LSR
-	LSR
-	LSR
-	AND.w #$001F
-	CLC
-	ADC.w #$0400
-	STA.b $86
-	STZ.b $6E
+	LDA.b next_oam_slot			;$B78857
+	LSR					;$B78859
+	LSR					;$B7885A
+	LSR					;$B7885B
+	LSR					;$B7885C
+	AND.w #$001F				;$B7885D
+	CLC					;$B78860
+	ADC.w #$0400				;$B78861
+	STA.b $86				;$B78864
+	STZ.b $6E				;$B78866
 CODE_B78868:
-	LDA.b next_oam_slot
-	CMP.w #$0400
-	BNE.b CODE_B78875
-	PEA.w ((RESET_start&$FF0000)>>16)|((RESET_start&$FF0000)>>8)
-	PLB
-	PLB
-	RTL
+	LDA.b next_oam_slot			;$B78868
+	CMP.w #$0400				;$B7886A
+	BNE.b CODE_B78875			;$B7886D
+	PEA.w ((RESET_start&$FF0000)>>16)|((RESET_start&$FF0000)>>8)	;$B7886F
+	PLB					;$B78872
+	PLB					;$B78873
+	RTL					;$B78874
 
 CODE_B78875:
-	PHK
-	PLB
-	LDY.b $6E
-	LDA.w sprite_render_table,y
-	TAY
-	LDA.w $0000,y
-	BNE.b CODE_B78885
+	PHK					;$B78875
+	PLB					;$B78876
+	LDY.b $6E				;$B78877
+	LDA.w sprite_render_table,y		;$B78879
+	TAY					;$B7887C
+	LDA.w $0000,y				;$B7887D
+	BNE.b CODE_B78885			;$B78880
 CODE_B78882:
-	JMP.w CODE_B79140
+	JMP.w CODE_B79140			;$B78882
 
 CODE_B78885:
-	LDX.b $24,y
-	TXA
-	CMP.w $0022,y
-	BEQ.b CODE_B788DA
-	CMP.w #$0673
-	BCC.b CODE_B788DA
-	ASL
-	BCC.b CODE_B788A9
-	LSR
-	ADC.l $7FFFFE
-	TAX
-	LDA.l $7F0000,x
-	STA.b $28
-	LDA.l $7F0002,x
-	LDX.b $24,y
-	BRA.b CODE_B788B3
+	LDX.b $24,y				;$B78885
+	TXA					;$B78887
+	CMP.w $0022,y				;$B78888
+	BEQ.b CODE_B788DA			;$B7888B
+	CMP.w #$0673				;$B7888D
+	BCC.b CODE_B788DA			;$B78890
+	ASL					;$B78892
+	BCC.b CODE_B788A9			;$B78893
+	LSR					;$B78895
+	ADC.l $7FFFFE				;$B78896
+	TAX					;$B7889A
+	LDA.l $7F0000,x				;$B7889B
+	STA.b $28				;$B7889F
+	LDA.l $7F0002,x				;$B788A1
+	LDX.b $24,y				;$B788A5
+	BRA.b CODE_B788B3			;$B788A7
 
 CODE_B788A9:
-	LDA.l DATA_BC8000,x
-	STA.b $28
-	LDA.l DATA_BC8000+$02,x
+	LDA.l DATA_BC8000,x			;$B788A9
+	STA.b $28				;$B788AD
+	LDA.l DATA_BC8000+$02,x			;$B788AF
 CODE_B788B3:
-	STA.b $2A
-	PHY
-	LDY.w #$0005
-	LDA.b [$28],y
-	CLC
-	LDY.w #$0007
-	ADC.b [$28],y
-	PLY
-	AND.w #$00FF
-	XBA
-	LSR
-	LSR
-	LSR
-	ADC.w #$0032
-	ADC.w $1560
-	CMP.b $80
-	BCC.b CODE_B788D7
-	LDX.b $20,y
-	BRA.b CODE_B788DA
+	STA.b $2A				;$B788B3
+	PHY					;$B788B5
+	LDY.w #$0005				;$B788B6
+	LDA.b [$28],y				;$B788B9
+	CLC					;$B788BB
+	LDY.w #$0007				;$B788BC
+	ADC.b [$28],y				;$B788BF
+	PLY					;$B788C1
+	AND.w #$00FF				;$B788C2
+	XBA					;$B788C5
+	LSR					;$B788C6
+	LSR					;$B788C7
+	LSR					;$B788C8
+	ADC.w #$0032				;$B788C9
+	ADC.w $1560				;$B788CC
+	CMP.b $80				;$B788CF
+	BCC.b CODE_B788D7			;$B788D1
+	LDX.b $20,y				;$B788D3
+	BRA.b CODE_B788DA			;$B788D5
 
 CODE_B788D7:
-	STA.w $1560
+	STA.w $1560				;$B788D7
 CODE_B788DA:
-	STX.b $22,y
-	TXA
-	ASL
-	BEQ.b CODE_B78882
-	BCC.b CODE_B788F7
-	LSR
-	ADC.l $7FFFFE
-	TAX
-	LDA.l $7F0000,x
-	STA.b $28
-	INC
-	STA.b $2C
-	LDA.l $7F0002,x
-	BRA.b CODE_B78904
+	STX.b $22,y				;$B788DA
+	TXA					;$B788DC
+	ASL					;$B788DD
+	BEQ.b CODE_B78882			;$B788DE
+	BCC.b CODE_B788F7			;$B788E0
+	LSR					;$B788E2
+	ADC.l $7FFFFE				;$B788E3
+	TAX					;$B788E7
+	LDA.l $7F0000,x				;$B788E8
+	STA.b $28				;$B788EC
+	INC					;$B788EE
+	STA.b $2C				;$B788EF
+	LDA.l $7F0002,x				;$B788F1
+	BRA.b CODE_B78904			;$B788F5
 
 CODE_B788F7:
-	LDA.l DATA_BC8000,x
-	STA.b $28
-	INC
-	STA.b $2C
-	LDA.l DATA_BC8000+$02,x
+	LDA.l DATA_BC8000,x			;$B788F7
+	STA.b $28				;$B788FB
+	INC					;$B788FD
+	STA.b $2C				;$B788FE
+	LDA.l DATA_BC8000+$02,x			;$B78900
 CODE_B78904:
-	STA.b $2A
-	STA.b $2E
-	LDA.w $0026,y
-	BPL.b CODE_B78910
-	JMP.w CODE_B789C4
+	STA.b $2A				;$B78904
+	STA.b $2E				;$B78906
+	LDA.w $0026,y				;$B78908
+	BPL.b CODE_B78910			;$B7890B
+	JMP.w CODE_B789C4			;$B7890D
 
 CODE_B78910:
-	LDA.w $0016,y
-	SEC
-	SBC.w #$0080
-	SEC
-	SBC.w $1973
-	STA.b $8A
-	ADC.w #$0090
-	CMP.w #$0130
-	BCS.b CODE_B7895F
-	LDA.w $0012,y
-	SBC.w $196D
-	STA.b $88
-	CLC
-	ADC.w #$0030
-	CMP.w #$0160
-	BCS.b CODE_B7895F
+	LDA.w $0016,y				;$B78910
+	SEC					;$B78913
+	SBC.w #$0080				;$B78914
+	SEC					;$B78917
+	SBC.w $1973				;$B78918
+	STA.b $8A				;$B7891B
+	ADC.w #$0090				;$B7891D
+	CMP.w #$0130				;$B78920
+	BCS.b CODE_B7895F			;$B78923
+	LDA.w $0012,y				;$B78925
+	SBC.w $196D				;$B78928
+	STA.b $88				;$B7892B
+	CLC					;$B7892D
+	ADC.w #$0030				;$B7892E
+	CMP.w #$0160				;$B78931
+	BCS.b CODE_B7895F			;$B78934
 CODE_B78936:
-	LDA.w $001E,y
-	STA.b $1A
-	STA.b $1C
-	BIT.w #$8000
-	BNE.b CODE_B78989
-	BIT.w #$4000
-	BNE.b CODE_B78968
-	LDA.b $88
-	SEC
-	SBC.w #$0080
-	STA.b $88
-	LDA.b $8A
-	CLC
-	ADC.w #$0010
-	STA.b $8A
-	CPX.w #$0673
-	BCS.b CODE_B78962
-	JSR.w CODE_B79254
+	LDA.w $001E,y				;$B78936
+	STA.b $1A				;$B78939
+	STA.b $1C				;$B7893B
+	BIT.w #$8000				;$B7893D
+	BNE.b CODE_B78989			;$B78940
+	BIT.w #$4000				;$B78942
+	BNE.b CODE_B78968			;$B78945
+	LDA.b $88				;$B78947
+	SEC					;$B78949
+	SBC.w #$0080				;$B7894A
+	STA.b $88				;$B7894D
+	LDA.b $8A				;$B7894F
+	CLC					;$B78951
+	ADC.w #$0010				;$B78952
+	STA.b $8A				;$B78955
+	CPX.w #$0673				;$B78957
+	BCS.b CODE_B78962			;$B7895A
+	JSR.w CODE_B79254			;$B7895C
 CODE_B7895F:
-	JMP.w CODE_B79140
+	JMP.w CODE_B79140			;$B7895F
 
 CODE_B78962:
-	JSR.w CODE_B792BC
-	JMP.w CODE_B790AA
+	JSR.w CODE_B792BC			;$B78962
+	JMP.w CODE_B790AA			;$B78965
 
 CODE_B78968:
-	LDA.b $88
-	SEC
-	SBC.w #$008F
-	STA.b $88
-	LDA.b $8A
-	CLC
-	ADC.w #$0010
-	STA.b $8A
-	CPX.w #$0673
-	BCS.b CODE_B78983
-	JSR.w CODE_B7942E
-	JMP.w CODE_B79140
+	LDA.b $88				;$B78968
+	SEC					;$B7896A
+	SBC.w #$008F				;$B7896B
+	STA.b $88				;$B7896E
+	LDA.b $8A				;$B78970
+	CLC					;$B78972
+	ADC.w #$0010				;$B78973
+	STA.b $8A				;$B78976
+	CPX.w #$0673				;$B78978
+	BCS.b CODE_B78983			;$B7897B
+	JSR.w CODE_B7942E			;$B7897D
+	JMP.w CODE_B79140			;$B78980
 
 CODE_B78983:
-	JSR.w CODE_B79496
-	JMP.w CODE_B790AA
+	JSR.w CODE_B79496			;$B78983
+	JMP.w CODE_B790AA			;$B78986
 
 CODE_B78989:
-	BIT.w #$4000
-	BNE.b CODE_B789A9
-	LDA.b $88
-	SEC
-	SBC.w #$0080
-	STA.b $88
-	INC.b $8A
-	CPX.w #$0673
-	BCS.b CODE_B789A3
-	JSR.w CODE_B79619
-	JMP.w CODE_B79140
+	BIT.w #$4000				;$B78989
+	BNE.b CODE_B789A9			;$B7898C
+	LDA.b $88				;$B7898E
+	SEC					;$B78990
+	SBC.w #$0080				;$B78991
+	STA.b $88				;$B78994
+	INC.b $8A				;$B78996
+	CPX.w #$0673				;$B78998
+	BCS.b CODE_B789A3			;$B7899B
+	JSR.w CODE_B79619			;$B7899D
+	JMP.w CODE_B79140			;$B789A0
 
 CODE_B789A3:
-	JSR.w CODE_B79681
-	JMP.w CODE_B790AA
+	JSR.w CODE_B79681			;$B789A3
+	JMP.w CODE_B790AA			;$B789A6
 
 CODE_B789A9:
-	LDA.b $88
-	SEC
-	SBC.w #$008F
-	STA.b $88
-	INC.b $8A
-	CPX.w #$0673
-	BCS.b CODE_B789BE
-	JSR.w CODE_B79801
-	JMP.w CODE_B79140
+	LDA.b $88				;$B789A9
+	SEC					;$B789AB
+	SBC.w #$008F				;$B789AC
+	STA.b $88				;$B789AF
+	INC.b $8A				;$B789B1
+	CPX.w #$0673				;$B789B3
+	BCS.b CODE_B789BE			;$B789B6
+	JSR.w CODE_B79801			;$B789B8
+	JMP.w CODE_B79140			;$B789BB
 
 CODE_B789BE:
-	JSR.w CODE_B79869
-	JMP.w CODE_B790AA
+	JSR.w CODE_B79869			;$B789BE
+	JMP.w CODE_B790AA			;$B789C1
 
 CODE_B789C4:
-	ASL
-	BMI.b CODE_B789E5
-	AND.w #$001E
-	PHX
-	TAX
-	JMP.w (DATA_B789CF,x)
+	ASL					;$B789C4
+	BMI.b CODE_B789E5			;$B789C5
+	AND.w #$001E				;$B789C7
+	PHX					;$B789CA
+	TAX					;$B789CB
+	JMP.w (DATA_B789CF,x)			;$B789CC
 
 DATA_B789CF:
 	dw CODE_B789EE
@@ -1380,993 +1380,993 @@ DATA_B789CF:
 	dw CODE_B79026
 
 CODE_B789E5:
-	LDA.w $0020,y
-	STA.w $0022,y
-	JMP.w CODE_B79140
+	LDA.w $0020,y				;$B789E5
+	STA.w $0022,y				;$B789E8
+	JMP.w CODE_B79140			;$B789EB
 
 CODE_B789EE:
-	PLX
-	LDA.w $0012,y
-	STA.b $88
-	LDA.w $0016,y
-	SEC
-	SBC.w #$0080
-	STA.b $8A
-	JMP.w CODE_B78936
+	PLX					;$B789EE
+	LDA.w $0012,y				;$B789EF
+	STA.b $88				;$B789F2
+	LDA.w $0016,y				;$B789F4
+	SEC					;$B789F7
+	SBC.w #$0080				;$B789F8
+	STA.b $8A				;$B789FB
+	JMP.w CODE_B78936			;$B789FD
 
 CODE_B78A00:
-	PLX
-	LDA.w $0058,y
-	AND.w #$FF00
-	BPL.b CODE_B78A0C
-	ORA.w #$00FF
+	PLX					;$B78A00
+	LDA.w $0058,y				;$B78A01
+	AND.w #$FF00				;$B78A04
+	BPL.b CODE_B78A0C			;$B78A07
+	ORA.w #$00FF				;$B78A09
 CODE_B78A0C:
-	XBA
-	CLC
-	ADC.w $0016,y
-	SEC
-	SBC.w #$0080
-	SEC
-	SBC.w $1973
-	STA.b $8A
-	ADC.w #$0090
-	CMP.w #$0130
-	BCS.b CODE_B78A44
-	LDA.w $0057,y
-	AND.w #$FF00
-	BPL.b CODE_B78A2E
-	ORA.w #$00FF
+	XBA					;$B78A0C
+	CLC					;$B78A0D
+	ADC.w $0016,y				;$B78A0E
+	SEC					;$B78A11
+	SBC.w #$0080				;$B78A12
+	SEC					;$B78A15
+	SBC.w $1973				;$B78A16
+	STA.b $8A				;$B78A19
+	ADC.w #$0090				;$B78A1B
+	CMP.w #$0130				;$B78A1E
+	BCS.b CODE_B78A44			;$B78A21
+	LDA.w $0057,y				;$B78A23
+	AND.w #$FF00				;$B78A26
+	BPL.b CODE_B78A2E			;$B78A29
+	ORA.w #$00FF				;$B78A2B
 CODE_B78A2E:
-	XBA
-	CLC
-	ADC.w $0012,y
-	SBC.w $196D
-	STA.b $88
-	CLC
-	ADC.w #$0030
-	CMP.w #$0160
-	BCS.b CODE_B78A44
-	JMP.w CODE_B78936
+	XBA					;$B78A2E
+	CLC					;$B78A2F
+	ADC.w $0012,y				;$B78A30
+	SBC.w $196D				;$B78A33
+	STA.b $88				;$B78A36
+	CLC					;$B78A38
+	ADC.w #$0030				;$B78A39
+	CMP.w #$0160				;$B78A3C
+	BCS.b CODE_B78A44			;$B78A3F
+	JMP.w CODE_B78936			;$B78A41
 
 CODE_B78A44:
-	JMP.w CODE_B79140
+	JMP.w CODE_B79140			;$B78A44
 
 CODE_B78A47:
-	PLX
-	LDA.w $0016,y
-	SEC
-	SBC.w #$0080
-	SEC
-	SBC.w $1973
-	STA.b $8A
-	ADC.w #$0090
-	CMP.w #$0130
-	BCC.b CODE_B78A60
-	JMP.w CODE_B78882
+	PLX					;$B78A47
+	LDA.w $0016,y				;$B78A48
+	SEC					;$B78A4B
+	SBC.w #$0080				;$B78A4C
+	SEC					;$B78A4F
+	SBC.w $1973				;$B78A50
+	STA.b $8A				;$B78A53
+	ADC.w #$0090				;$B78A55
+	CMP.w #$0130				;$B78A58
+	BCC.b CODE_B78A60			;$B78A5B
+	JMP.w CODE_B78882			;$B78A5D
 
 CODE_B78A60:
-	LDA.w $0012,y
-	SBC.w $196D
-	STA.b $88
-	CLC
-	ADC.w #$0030
-	CMP.w #$0160
-	BCC.b CODE_B78A74
-	JMP.w CODE_B79140
+	LDA.w $0012,y				;$B78A60
+	SBC.w $196D				;$B78A63
+	STA.b $88				;$B78A66
+	CLC					;$B78A68
+	ADC.w #$0030				;$B78A69
+	CMP.w #$0160				;$B78A6C
+	BCC.b CODE_B78A74			;$B78A6F
+	JMP.w CODE_B79140			;$B78A71
 
 CODE_B78A74:
-	LDA.w $001E,y
-	STA.b $1A
-	STA.b $1C
-	BIT.w #$8000
-	BNE.b CODE_B78AE7
-	BIT.w #$4000
-	BNE.b CODE_B78AB2
-	LDA.b $88
-	SEC
-	SBC.w #$0080
-	STA.b $88
-	LDA.b $8A
-	CLC
-	ADC.w #$0010
-	STA.b $8A
-	JSR.w CODE_B7926F
-	STY.b $84
-	LDY.b $6E
-	LDA.w sprite_render_table,y
-	TAY
-	LDA.w $0026,y
-	EOR.b $1A
-	AND.w #$0E00
-	EOR.b $1A
-	STA.b $1A
-	JSR.w CODE_B7928A
-	JMP.w CODE_B790AA
+	LDA.w $001E,y				;$B78A74
+	STA.b $1A				;$B78A77
+	STA.b $1C				;$B78A79
+	BIT.w #$8000				;$B78A7B
+	BNE.b CODE_B78AE7			;$B78A7E
+	BIT.w #$4000				;$B78A80
+	BNE.b CODE_B78AB2			;$B78A83
+	LDA.b $88				;$B78A85
+	SEC					;$B78A87
+	SBC.w #$0080				;$B78A88
+	STA.b $88				;$B78A8B
+	LDA.b $8A				;$B78A8D
+	CLC					;$B78A8F
+	ADC.w #$0010				;$B78A90
+	STA.b $8A				;$B78A93
+	JSR.w CODE_B7926F			;$B78A95
+	STY.b $84				;$B78A98
+	LDY.b $6E				;$B78A9A
+	LDA.w sprite_render_table,y		;$B78A9C
+	TAY					;$B78A9F
+	LDA.w $0026,y				;$B78AA0
+	EOR.b $1A				;$B78AA3
+	AND.w #$0E00				;$B78AA5
+	EOR.b $1A				;$B78AA8
+	STA.b $1A				;$B78AAA
+	JSR.w CODE_B7928A			;$B78AAC
+	JMP.w CODE_B790AA			;$B78AAF
 
 CODE_B78AB2:
-	LDA.b $88
-	SEC
-	SBC.w #$008F
-	STA.b $88
-	LDA.b $8A
-	CLC
-	ADC.w #$0010
-	STA.b $8A
-	JSR.w CODE_B79449
-	LDA.b $88
-	SEC
-	SBC.w #$0008
-	STA.b $88
-	STY.b $84
-	LDY.b $6E
-	LDA.w sprite_render_table,y
-	TAY
-	LDA.w $0026,y
-	EOR.b $1A
-	AND.w #$0E00
-	EOR.b $1A
-	STA.b $1A
-	JSR.w CODE_B79464
-	JMP.w CODE_B790AA
+	LDA.b $88				;$B78AB2
+	SEC					;$B78AB4
+	SBC.w #$008F				;$B78AB5
+	STA.b $88				;$B78AB8
+	LDA.b $8A				;$B78ABA
+	CLC					;$B78ABC
+	ADC.w #$0010				;$B78ABD
+	STA.b $8A				;$B78AC0
+	JSR.w CODE_B79449			;$B78AC2
+	LDA.b $88				;$B78AC5
+	SEC					;$B78AC7
+	SBC.w #$0008				;$B78AC8
+	STA.b $88				;$B78ACB
+	STY.b $84				;$B78ACD
+	LDY.b $6E				;$B78ACF
+	LDA.w sprite_render_table,y		;$B78AD1
+	TAY					;$B78AD4
+	LDA.w $0026,y				;$B78AD5
+	EOR.b $1A				;$B78AD8
+	AND.w #$0E00				;$B78ADA
+	EOR.b $1A				;$B78ADD
+	STA.b $1A				;$B78ADF
+	JSR.w CODE_B79464			;$B78AE1
+	JMP.w CODE_B790AA			;$B78AE4
 
 CODE_B78AE7:
-	BIT.w #$4000
-	BNE.b CODE_B78B1B
-	LDA.b $88
-	SEC
-	SBC.w #$0080
-	STA.b $88
-	INC.b $8A
-	JSR.w CODE_B79634
-	LDA.b $8A
-	SEC
-	SBC.w #$0008
-	STA.b $8A
-	STY.b $84
-	LDY.b $6E
-	LDA.w sprite_render_table,y
-	TAY
-	LDA.w $0026,y
-	EOR.b $1A
-	AND.w #$0E00
-	EOR.b $1A
-	STA.b $1A
-	JSR.w CODE_B7964F
-	JMP.w CODE_B790AA
+	BIT.w #$4000				;$B78AE7
+	BNE.b CODE_B78B1B			;$B78AEA
+	LDA.b $88				;$B78AEC
+	SEC					;$B78AEE
+	SBC.w #$0080				;$B78AEF
+	STA.b $88				;$B78AF2
+	INC.b $8A				;$B78AF4
+	JSR.w CODE_B79634			;$B78AF6
+	LDA.b $8A				;$B78AF9
+	SEC					;$B78AFB
+	SBC.w #$0008				;$B78AFC
+	STA.b $8A				;$B78AFF
+	STY.b $84				;$B78B01
+	LDY.b $6E				;$B78B03
+	LDA.w sprite_render_table,y		;$B78B05
+	TAY					;$B78B08
+	LDA.w $0026,y				;$B78B09
+	EOR.b $1A				;$B78B0C
+	AND.w #$0E00				;$B78B0E
+	EOR.b $1A				;$B78B11
+	STA.b $1A				;$B78B13
+	JSR.w CODE_B7964F			;$B78B15
+	JMP.w CODE_B790AA			;$B78B18
 
 CODE_B78B1B:
-	LDA.b $88
-	SEC
-	SBC.w #$008F
-	STA.b $88
-	INC.b $8A
-	JSR.w CODE_B7981C
-	LDA.b $88
-	SEC
-	SBC.w #$0008
-	STA.b $88
-	LDA.b $8A
-	SEC
-	SBC.w #$0008
-	STA.b $8A
-	STY.b $84
-	LDY.b $6E
-	LDA.w sprite_render_table,y
-	TAY
-	LDA.w $0026,y
-	EOR.b $1A
-	AND.w #$0E00
-	EOR.b $1A
-	STA.b $1A
-	JSR.w CODE_B79837
-	JMP.w CODE_B790AA
+	LDA.b $88				;$B78B1B
+	SEC					;$B78B1D
+	SBC.w #$008F				;$B78B1E
+	STA.b $88				;$B78B21
+	INC.b $8A				;$B78B23
+	JSR.w CODE_B7981C			;$B78B25
+	LDA.b $88				;$B78B28
+	SEC					;$B78B2A
+	SBC.w #$0008				;$B78B2B
+	STA.b $88				;$B78B2E
+	LDA.b $8A				;$B78B30
+	SEC					;$B78B32
+	SBC.w #$0008				;$B78B33
+	STA.b $8A				;$B78B36
+	STY.b $84				;$B78B38
+	LDY.b $6E				;$B78B3A
+	LDA.w sprite_render_table,y		;$B78B3C
+	TAY					;$B78B3F
+	LDA.w $0026,y				;$B78B40
+	EOR.b $1A				;$B78B43
+	AND.w #$0E00				;$B78B45
+	EOR.b $1A				;$B78B48
+	STA.b $1A				;$B78B4A
+	JSR.w CODE_B79837			;$B78B4C
+	JMP.w CODE_B790AA			;$B78B4F
 
 CODE_B78B52:
-	PLX
-	LDA.w $0016,y
-	SEC
-	SBC.w #$0080
-	SEC
-	SBC.w $1973
-	STA.b $8A
-	ADC.w #$0090
-	CMP.w #$0130
-	BCS.b CODE_B78BCD
-	LDA.w $0012,y
-	SBC.w $196D
-	STA.b $88
-	CLC
-	ADC.w #$0030
-	CMP.w #$0160
-	BCS.b CODE_B78BCD
-	LDA.w $001E,y
-	STA.b $1A
-	STA.b $1C
-	LDA.b $8A
-	CLC
-	ADC.w #$0010
-	STA.b $8A
-	LDA.b $88
-	SEC
-	SBC.w #$0080
-	STA.b $88
-	JSR.w CODE_B792BC
-	LDX.b $6E
-	LDA.w sprite_render_table,x
-	TAX
-	LDA.b $58,x
-	STA.b $3E
-	LDA.b $68,x
-	STA.b $40
-	XBA
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	STA.b $1C
-	JSR.w CODE_B799FA
-	LDX.b $6E
-	LDA.w sprite_render_table,x
-	TAX
-	LDA.b $6A,x
-	STA.b $3E
-	LDA.b $6C,x
-	STA.b $40
-	XBA
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	EOR.w #$4000
-	STA.b $1C
-	JSR.w CODE_B799FA
-	JMP.w CODE_B790AA
+	PLX					;$B78B52
+	LDA.w $0016,y				;$B78B53
+	SEC					;$B78B56
+	SBC.w #$0080				;$B78B57
+	SEC					;$B78B5A
+	SBC.w $1973				;$B78B5B
+	STA.b $8A				;$B78B5E
+	ADC.w #$0090				;$B78B60
+	CMP.w #$0130				;$B78B63
+	BCS.b CODE_B78BCD			;$B78B66
+	LDA.w $0012,y				;$B78B68
+	SBC.w $196D				;$B78B6B
+	STA.b $88				;$B78B6E
+	CLC					;$B78B70
+	ADC.w #$0030				;$B78B71
+	CMP.w #$0160				;$B78B74
+	BCS.b CODE_B78BCD			;$B78B77
+	LDA.w $001E,y				;$B78B79
+	STA.b $1A				;$B78B7C
+	STA.b $1C				;$B78B7E
+	LDA.b $8A				;$B78B80
+	CLC					;$B78B82
+	ADC.w #$0010				;$B78B83
+	STA.b $8A				;$B78B86
+	LDA.b $88				;$B78B88
+	SEC					;$B78B8A
+	SBC.w #$0080				;$B78B8B
+	STA.b $88				;$B78B8E
+	JSR.w CODE_B792BC			;$B78B90
+	LDX.b $6E				;$B78B93
+	LDA.w sprite_render_table,x		;$B78B95
+	TAX					;$B78B98
+	LDA.b $58,x				;$B78B99
+	STA.b $3E				;$B78B9B
+	LDA.b $68,x				;$B78B9D
+	STA.b $40				;$B78B9F
+	XBA					;$B78BA1
+	AND.w #$00FF				;$B78BA2
+	CLC					;$B78BA5
+	ADC.b $1A				;$B78BA6
+	STA.b $1C				;$B78BA8
+	JSR.w CODE_B799FA			;$B78BAA
+	LDX.b $6E				;$B78BAD
+	LDA.w sprite_render_table,x		;$B78BAF
+	TAX					;$B78BB2
+	LDA.b $6A,x				;$B78BB3
+	STA.b $3E				;$B78BB5
+	LDA.b $6C,x				;$B78BB7
+	STA.b $40				;$B78BB9
+	XBA					;$B78BBB
+	AND.w #$00FF				;$B78BBC
+	CLC					;$B78BBF
+	ADC.b $1A				;$B78BC0
+	EOR.w #$4000				;$B78BC2
+	STA.b $1C				;$B78BC5
+	JSR.w CODE_B799FA			;$B78BC7
+	JMP.w CODE_B790AA			;$B78BCA
 
 CODE_B78BCD:
-	JMP.w CODE_B7895F
+	JMP.w CODE_B7895F			;$B78BCD
 
 CODE_B78BD0:
-	PLX
-	JSR.w CODE_B78BDD
-	JSR.w CODE_B78C4A
-	JSR.w CODE_B78BFB
-	JMP.w CODE_B79140
+	PLX					;$B78BD0
+	JSR.w CODE_B78BDD			;$B78BD1
+	JSR.w CODE_B78C4A			;$B78BD4
+	JSR.w CODE_B78BFB			;$B78BD7
+	JMP.w CODE_B79140			;$B78BDA
 
 CODE_B78BDD:
-	LDA.w $005E,y
-	STA.b $2A
-	LDA.w $0024,y
-	STA.b $34
-	STZ.b $28
-	LDA.w #DATA_B79C3B
-	LDX.b $5C,y
-	BEQ.b CODE_B78BF7
+	LDA.w $005E,y				;$B78BDD
+	STA.b $2A				;$B78BE0
+	LDA.w $0024,y				;$B78BE2
+	STA.b $34				;$B78BE5
+	STZ.b $28				;$B78BE7
+	LDA.w #DATA_B79C3B			;$B78BE9
+	LDX.b $5C,y				;$B78BEC
+	BEQ.b CODE_B78BF7			;$B78BEE
 CODE_B78BF0:
-	CLC
-	ADC.w #$0004
-	DEX
-	BNE.b CODE_B78BF0
+	CLC					;$B78BF0
+	ADC.w #$0004				;$B78BF1
+	DEX					;$B78BF4
+	BNE.b CODE_B78BF0			;$B78BF5
 CODE_B78BF7:
-	JSR.w CODE_B78C66
-	RTS
+	JSR.w CODE_B78C66			;$B78BF7
+	RTS					;$B78BFA
 
 CODE_B78BFB:
-	LDA.w $0024,y
-	LDX.b $5E,y
-	STX.b $2A
-	STZ.b $28
-	BIT.w #$0002
-	BEQ.b CODE_B78C2D
-	BIT.w #$0040
-	BEQ.b CODE_B78C13
-	LDX.w #$0024
-	STX.b $28
+	LDA.w $0024,y				;$B78BFB
+	LDX.b $5E,y				;$B78BFE
+	STX.b $2A				;$B78C00
+	STZ.b $28				;$B78C02
+	BIT.w #$0002				;$B78C04
+	BEQ.b CODE_B78C2D			;$B78C07
+	BIT.w #$0040				;$B78C09
+	BEQ.b CODE_B78C13			;$B78C0C
+	LDX.w #$0024				;$B78C0E
+	STX.b $28				;$B78C11
 CODE_B78C13:
-	BIT.w #$0004
-	BEQ.b CODE_B78C3D
-	BIT.w #$0008
-	BEQ.b CODE_B78C3D
-	BIT.w #$0010
-	BEQ.b CODE_B78C3D
-	AND.w #$0700
-	XBA
-	ASL
-	TAX
-	LDA.w DATA_B79C13,x
-	BRA.b CODE_B78C46
+	BIT.w #$0004				;$B78C13
+	BEQ.b CODE_B78C3D			;$B78C16
+	BIT.w #$0008				;$B78C18
+	BEQ.b CODE_B78C3D			;$B78C1B
+	BIT.w #$0010				;$B78C1D
+	BEQ.b CODE_B78C3D			;$B78C20
+	AND.w #$0700				;$B78C22
+	XBA					;$B78C25
+	ASL					;$B78C26
+	TAX					;$B78C27
+	LDA.w DATA_B79C13,x			;$B78C28
+	BRA.b CODE_B78C46			;$B78C2B
 
 CODE_B78C2D:
-	AND.w #$0700
-	XBA
-	ASL
-	TAX
-	LDA.w $0060,y
-	STA.b $2A
-	LDA.w DATA_B79C2B,x
-	BRA.b CODE_B78C46
+	AND.w #$0700				;$B78C2D
+	XBA					;$B78C30
+	ASL					;$B78C31
+	TAX					;$B78C32
+	LDA.w $0060,y				;$B78C33
+	STA.b $2A				;$B78C36
+	LDA.w DATA_B79C2B,x			;$B78C38
+	BRA.b CODE_B78C46			;$B78C3B
 
 CODE_B78C3D:
-	AND.w #$0300
-	XBA
-	ASL
-	TAX
-	LDA.w DATA_B79C23,x
+	AND.w #$0300				;$B78C3D
+	XBA					;$B78C40
+	ASL					;$B78C41
+	TAX					;$B78C42
+	LDA.w DATA_B79C23,x			;$B78C43
 CODE_B78C46:
-	JSR.w CODE_B78C66
-	RTS
+	JSR.w CODE_B78C66			;$B78C46
+	RTS					;$B78C49
 
 CODE_B78C4A:
-	LDA.w $005E,y
-	STA.b $2A
-	LDA.w $0024,y
-	STZ.b $28
-	BIT.w #$0020
-	BEQ.b CODE_B78C65
-	AND.w #$0300
-	XBA
-	ASL
-	TAX
-	LDA.w DATA_B79C0B,x
-	JSR.w CODE_B78C66
+	LDA.w $005E,y				;$B78C4A
+	STA.b $2A				;$B78C4D
+	LDA.w $0024,y				;$B78C4F
+	STZ.b $28				;$B78C52
+	BIT.w #$0020				;$B78C54
+	BEQ.b CODE_B78C65			;$B78C57
+	AND.w #$0300				;$B78C59
+	XBA					;$B78C5C
+	ASL					;$B78C5D
+	TAX					;$B78C5E
+	LDA.w DATA_B79C0B,x			;$B78C5F
+	JSR.w CODE_B78C66			;$B78C62
 CODE_B78C65:
-	RTS
+	RTS					;$B78C65
 
 CODE_B78C66:
-	TAY
-	LDA.w $0000,y
-	AND.w #$00FF
-	STA.b $24
-	PHY
-	JSR.w CODE_B78CDD
-	PLY
-	BCS.b CODE_B78CD7
+	TAY					;$B78C66
+	LDA.w $0000,y				;$B78C67
+	AND.w #$00FF				;$B78C6A
+	STA.b $24				;$B78C6D
+	PHY					;$B78C6F
+	JSR.w CODE_B78CDD			;$B78C70
+	PLY					;$B78C73
+	BCS.b CODE_B78CD7			;$B78C74
 CODE_B78C76:
-	LDX.b next_oam_slot
-	LDA.w $0002,y
-	AND.w #$00FF
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B78CD0
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.w $0001,y
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	BIT.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	BEQ.b CODE_B78CB6
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	LDX.b next_oam_slot			;$B78C76
+	LDA.w $0002,y				;$B78C78
+	AND.w #$00FF				;$B78C7B
+	ADC.b $8A				;$B78C7E
+	CMP.w #$00F0				;$B78C80
+	BCS.b CODE_B78CD0			;$B78C83
+	SBC.w #$000F				;$B78C85
+	STA.b $01,x				;$B78C88
+	LDA.w $0001,y				;$B78C8A
+	AND.w #$00FF				;$B78C8D
+	CLC					;$B78C90
+	ADC.b $88				;$B78C91
+	BIT.w #$0100				;$B78C93
+	SEP.b #$20				;$B78C96
+	STA.b $00,x				;$B78C98
+	BEQ.b CODE_B78CB6			;$B78C9A
+	STX.b $84				;$B78C9C
+	REP.b #$20				;$B78C9E
+	TXA					;$B78CA0
+	AND.w #$01FC				;$B78CA1
+	LSR					;$B78CA4
+	LSR					;$B78CA5
+	TAX					;$B78CA6
+	LSR					;$B78CA7
+	LSR					;$B78CA8
+	SEP.b #$20				;$B78CA9
+	STA.b $86				;$B78CAB
+	LDA.w DATA_B791D4,x			;$B78CAD
+	ORA.b ($86)				;$B78CB0
+	STA.b ($86)				;$B78CB2
+	LDX.b $84				;$B78CB4
 CODE_B78CB6:
-	REP.b #$20
-	LDA.w $0003,y
-	AND.w #$00FF
-	ORA.b $2A
-	CLC
-	ADC.b $28
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
-	CPX.w #$0400
-	BCS.b CODE_B78CD7
-	STX.b next_oam_slot
+	REP.b #$20				;$B78CB6
+	LDA.w $0003,y				;$B78CB8
+	AND.w #$00FF				;$B78CBB
+	ORA.b $2A				;$B78CBE
+	CLC					;$B78CC0
+	ADC.b $28				;$B78CC1
+	STA.b $02,x				;$B78CC3
+	INX					;$B78CC5
+	INX					;$B78CC6
+	INX					;$B78CC7
+	INX					;$B78CC8
+	CPX.w #$0400				;$B78CC9
+	BCS.b CODE_B78CD7			;$B78CCC
+	STX.b next_oam_slot			;$B78CCE
 CODE_B78CD0:
-	INY
-	INY
-	INY
-	DEC.b $24
-	BNE.b CODE_B78C76
+	INY					;$B78CD0
+	INY					;$B78CD1
+	INY					;$B78CD2
+	DEC.b $24				;$B78CD3
+	BNE.b CODE_B78C76			;$B78CD5
 CODE_B78CD7:
-	LDX.b $6E
-	LDY.w sprite_render_table,x
-	RTS
+	LDX.b $6E				;$B78CD7
+	LDY.w sprite_render_table,x		;$B78CD9
+	RTS					;$B78CDC
 
 CODE_B78CDD:
-	LDX.b $6E
-	LDY.w sprite_render_table,x
-	LDA.w $0016,y
-	SEC
-	SBC.w $005C,y
-	SEC
-	SBC.w #$0080
-	SEC
-	SBC.w $1973
-	STA.b $8A
-	ADC.w #$0090
-	CMP.w #$0130
-	BCS.b CODE_B78D1D
-	LDA.w $0012,y
-	SBC.w $196D
-	STA.b $88
-	CLC
-	ADC.w #$0030
-	CMP.w #$0160
-	BCS.b CODE_B78D1D
-	LDA.b $8A
-	CLC
-	ADC.w #$0010
-	STA.b $8A
-	LDA.b $88
-	SEC
-	SBC.w #$0080
-	STA.b $88
-	CLC
+	LDX.b $6E				;$B78CDD
+	LDY.w sprite_render_table,x		;$B78CDF
+	LDA.w $0016,y				;$B78CE2
+	SEC					;$B78CE5
+	SBC.w $005C,y				;$B78CE6
+	SEC					;$B78CE9
+	SBC.w #$0080				;$B78CEA
+	SEC					;$B78CED
+	SBC.w $1973				;$B78CEE
+	STA.b $8A				;$B78CF1
+	ADC.w #$0090				;$B78CF3
+	CMP.w #$0130				;$B78CF6
+	BCS.b CODE_B78D1D			;$B78CF9
+	LDA.w $0012,y				;$B78CFB
+	SBC.w $196D				;$B78CFE
+	STA.b $88				;$B78D01
+	CLC					;$B78D03
+	ADC.w #$0030				;$B78D04
+	CMP.w #$0160				;$B78D07
+	BCS.b CODE_B78D1D			;$B78D0A
+	LDA.b $8A				;$B78D0C
+	CLC					;$B78D0E
+	ADC.w #$0010				;$B78D0F
+	STA.b $8A				;$B78D12
+	LDA.b $88				;$B78D14
+	SEC					;$B78D16
+	SBC.w #$0080				;$B78D17
+	STA.b $88				;$B78D1A
+	CLC					;$B78D1C
 CODE_B78D1D:
-	RTS
+	RTS					;$B78D1D
 
 CODE_B78D1E:
-	PLX
-	JSR.w CODE_B78D28
-	JSR.w CODE_B78DBB
-	JMP.w CODE_B79140
+	PLX					;$B78D1E
+	JSR.w CODE_B78D28			;$B78D1F
+	JSR.w CODE_B78DBB			;$B78D22
+	JMP.w CODE_B79140			;$B78D25
 
 CODE_B78D28:
-	LDY.b next_oam_slot
-	LDX.w #$0000
-	LDA.w #$0050
-	STA.b $1E
-	STZ.b $2E
+	LDY.b next_oam_slot			;$B78D28
+	LDX.w #$0000				;$B78D2A
+	LDA.w #$0050				;$B78D2D
+	STA.b $1E				;$B78D30
+	STZ.b $2E				;$B78D32
 CODE_B78D34:
-	LDA.w $0609,x
-	BEQ.b CODE_B78D4B
-	JSR.w CODE_B78D4C
-	LDA.b $1E
-	SEC
-	SBC.w #$0014
-	STA.b $1E
-	INX
-	INX
-	CPX.w #$0008
-	BCC.b CODE_B78D34
+	LDA.w $0609,x				;$B78D34
+	BEQ.b CODE_B78D4B			;$B78D37
+	JSR.w CODE_B78D4C			;$B78D39
+	LDA.b $1E				;$B78D3C
+	SEC					;$B78D3E
+	SBC.w #$0014				;$B78D3F
+	STA.b $1E				;$B78D42
+	INX					;$B78D44
+	INX					;$B78D45
+	CPX.w #$0008				;$B78D46
+	BCC.b CODE_B78D34			;$B78D49
 CODE_B78D4B:
-	RTS
+	RTS					;$B78D4B
 
 CODE_B78D4C:
-	PHX
-	STA.b $1A
-	STA.b $20
-	BIT.w #$2002
-	BEQ.b CODE_B78D73
-	LDA.b $2E
-	BNE.b CODE_B78DB9
-	LDA.w $0605
-	AND.w #$2002
-	EOR.w #$2002
-	BNE.b CODE_B78D73
-	INC.b $2E
-	LDA.w #$0020
-	STA.b $1C
-	LDA.w #$0001
-	STA.b $3E
-	BRA.b CODE_B78D84
+	PHX					;$B78D4C
+	STA.b $1A				;$B78D4D
+	STA.b $20				;$B78D4F
+	BIT.w #$2002				;$B78D51
+	BEQ.b CODE_B78D73			;$B78D54
+	LDA.b $2E				;$B78D56
+	BNE.b CODE_B78DB9			;$B78D58
+	LDA.w $0605				;$B78D5A
+	AND.w #$2002				;$B78D5D
+	EOR.w #$2002				;$B78D60
+	BNE.b CODE_B78D73			;$B78D63
+	INC.b $2E				;$B78D65
+	LDA.w #$0020				;$B78D67
+	STA.b $1C				;$B78D6A
+	LDA.w #$0001				;$B78D6C
+	STA.b $3E				;$B78D6F
+	BRA.b CODE_B78D84			;$B78D71
 
 CODE_B78D73:
-	LDA.w #$FFFE
-	STA.b $1C
-	STZ.b $3E
+	LDA.w #$FFFE				;$B78D73
+	STA.b $1C				;$B78D76
+	STZ.b $3E				;$B78D78
 CODE_B78D7A:
-	INC
-	INC
-	STA.b $1C
-	INC.b $3E
-	LSR.b $1A
-	BCC.b CODE_B78D7A
+	INC					;$B78D7A
+	INC					;$B78D7B
+	STA.b $1C				;$B78D7C
+	INC.b $3E				;$B78D7E
+	LSR.b $1A				;$B78D80
+	BCC.b CODE_B78D7A			;$B78D82
 CODE_B78D84:
-	LDA.b $1E
-	LDX.w $18E7
-	SEP.b #$20
-	EOR.b #$FF
-	INC
-	CLC
-	ADC.b $12,x
-	XBA
-	ORA.b $16,x
-	XBA
-	REP.b #$20
-	STA.w $0000,y
-	LDA.b $20
-	BIT.w #$0028
-	BNE.b CODE_B78DA8
-	LDA.b $1C
-	CLC
-	ADC.b $4C,x
-	BRA.b CODE_B78DAD
+	LDA.b $1E				;$B78D84
+	LDX.w $18E7				;$B78D86
+	SEP.b #$20				;$B78D89
+	EOR.b #$FF				;$B78D8B
+	INC					;$B78D8D
+	CLC					;$B78D8E
+	ADC.b $12,x				;$B78D8F
+	XBA					;$B78D91
+	ORA.b $16,x				;$B78D92
+	XBA					;$B78D94
+	REP.b #$20				;$B78D95
+	STA.w $0000,y				;$B78D97
+	LDA.b $20				;$B78D9A
+	BIT.w #$0028				;$B78D9C
+	BNE.b CODE_B78DA8			;$B78D9F
+	LDA.b $1C				;$B78DA1
+	CLC					;$B78DA3
+	ADC.b $4C,x				;$B78DA4
+	BRA.b CODE_B78DAD			;$B78DA6
 
 CODE_B78DA8:
-	LDA.b $1C
-	CLC
-	ADC.b $4E,x
+	LDA.b $1C				;$B78DA8
+	CLC					;$B78DAA
+	ADC.b $4E,x				;$B78DAB
 CODE_B78DAD:
-	STA.w $0002,y
-	JSR.w CODE_B787E3
-	INY
-	INY
-	INY
-	INY
-	STY.b next_oam_slot
+	STA.w $0002,y				;$B78DAD
+	JSR.w CODE_B787E3			;$B78DB0
+	INY					;$B78DB3
+	INY					;$B78DB4
+	INY					;$B78DB5
+	INY					;$B78DB6
+	STY.b next_oam_slot			;$B78DB7
 CODE_B78DB9:
-	PLX
-	RTS
+	PLX					;$B78DB9
+	RTS					;$B78DBA
 
 CODE_B78DBB:
-	LDA.w #$FFEC
-	STA.b $1E
-	LDA.w #$0003
-	STA.b $1A
-	LDY.b next_oam_slot
+	LDA.w #$FFEC				;$B78DBB
+	STA.b $1E				;$B78DBE
+	LDA.w #$0003				;$B78DC0
+	STA.b $1A				;$B78DC3
+	LDY.b next_oam_slot			;$B78DC5
 CODE_B78DC7:
-	LDX.w $18E7
-	LDA.b $1E
-	AND.w #$00FF
-	SEP.b #$20
-	CLC
-	ADC.b $12,x
-	XBA
-	ORA.b $16,x
-	XBA
-	REP.b #$20
-	STA.w $0000,y
-	LDA.w #$0026
-	CLC
-	ADC.b $4E,x
-	STA.w $0002,y
-	JSR.w CODE_B787E3
-	INY
-	INY
-	INY
-	INY
-	STY.b next_oam_slot
-	LDA.b $1E
-	SEC
-	SBC.w #$0014
-	STA.b $1E
-	DEC.b $1A
-	BPL.b CODE_B78DC7
-	RTS
+	LDX.w $18E7				;$B78DC7
+	LDA.b $1E				;$B78DCA
+	AND.w #$00FF				;$B78DCC
+	SEP.b #$20				;$B78DCF
+	CLC					;$B78DD1
+	ADC.b $12,x				;$B78DD2
+	XBA					;$B78DD4
+	ORA.b $16,x				;$B78DD5
+	XBA					;$B78DD7
+	REP.b #$20				;$B78DD8
+	STA.w $0000,y				;$B78DDA
+	LDA.w #$0026				;$B78DDD
+	CLC					;$B78DE0
+	ADC.b $4E,x				;$B78DE1
+	STA.w $0002,y				;$B78DE3
+	JSR.w CODE_B787E3			;$B78DE6
+	INY					;$B78DE9
+	INY					;$B78DEA
+	INY					;$B78DEB
+	INY					;$B78DEC
+	STY.b next_oam_slot			;$B78DED
+	LDA.b $1E				;$B78DEF
+	SEC					;$B78DF1
+	SBC.w #$0014				;$B78DF2
+	STA.b $1E				;$B78DF5
+	DEC.b $1A				;$B78DF7
+	BPL.b CODE_B78DC7			;$B78DF9
+	RTS					;$B78DFB
 
 CODE_B78DFC:
-	PLX
-	LDA.w $005E,y
-	CLC
-	ADC.w #$0008
-	SEC
-	SBC.w $0060,y
-	STA.b $3E
-	LDA.w $0012,y
-	SEC
-	SBC.w $196D
-	STA.b $88
-	CLC
-	ADC.w #$0010
-	CMP.w #$0120
-	BCS.b CODE_B78E57
-	LDA.w $0016,y
-	SEC
-	SBC.w $1973
-	STA.b $8A
-	BCS.b CODE_B78E3F
-	SEC
-	ADC.w $005E,y
-	BCC.b CODE_B78E57
-	CMP.w #$00E8
-	BCC.b CODE_B78E37
-	ROR.b $3E
-	LDA.w #$00E8
+	PLX					;$B78DFC
+	LDA.w $005E,y				;$B78DFD
+	CLC					;$B78E00
+	ADC.w #$0008				;$B78E01
+	SEC					;$B78E04
+	SBC.w $0060,y				;$B78E05
+	STA.b $3E				;$B78E08
+	LDA.w $0012,y				;$B78E0A
+	SEC					;$B78E0D
+	SBC.w $196D				;$B78E0E
+	STA.b $88				;$B78E11
+	CLC					;$B78E13
+	ADC.w #$0010				;$B78E14
+	CMP.w #$0120				;$B78E17
+	BCS.b CODE_B78E57			;$B78E1A
+	LDA.w $0016,y				;$B78E1C
+	SEC					;$B78E1F
+	SBC.w $1973				;$B78E20
+	STA.b $8A				;$B78E23
+	BCS.b CODE_B78E3F			;$B78E25
+	SEC					;$B78E27
+	ADC.w $005E,y				;$B78E28
+	BCC.b CODE_B78E57			;$B78E2B
+	CMP.w #$00E8				;$B78E2D
+	BCC.b CODE_B78E37			;$B78E30
+	ROR.b $3E				;$B78E32
+	LDA.w #$00E8				;$B78E34
 CODE_B78E37:
-	STA.b $40
-	JSR.w CODE_B79B0E
-	JMP.w CODE_B79140
+	STA.b $40				;$B78E37
+	JSR.w CODE_B79B0E			;$B78E39
+	JMP.w CODE_B79140			;$B78E3C
 
 CODE_B78E3F:
-	CMP.w #$00E8
-	BCS.b CODE_B78E57
-	SEC
-	ADC.w $005E,y
-	CMP.w #$00E8
-	BCC.b CODE_B78E52
-	ROR.b $3E
-	LDA.w #$00E8
+	CMP.w #$00E8				;$B78E3F
+	BCS.b CODE_B78E57			;$B78E42
+	SEC					;$B78E44
+	ADC.w $005E,y				;$B78E45
+	CMP.w #$00E8				;$B78E48
+	BCC.b CODE_B78E52			;$B78E4B
+	ROR.b $3E				;$B78E4D
+	LDA.w #$00E8				;$B78E4F
 CODE_B78E52:
-	STA.b $40
-	JSR.w CODE_B79B0E
+	STA.b $40				;$B78E52
+	JSR.w CODE_B79B0E			;$B78E54
 CODE_B78E57:
-	JMP.w CODE_B79140
+	JMP.w CODE_B79140			;$B78E57
 
 CODE_B78E5A:
-	PLX
-	LDA.w $0016,y
-	SEC
-	SBC.w #$0080
-	SEC
-	SBC.w $1973
-	STA.b $8A
-	ADC.w #$0090
-	CMP.w #$0130
-	BCC.b CODE_B78E73
-	JMP.w CODE_B78882
+	PLX					;$B78E5A
+	LDA.w $0016,y				;$B78E5B
+	SEC					;$B78E5E
+	SBC.w #$0080				;$B78E5F
+	SEC					;$B78E62
+	SBC.w $1973				;$B78E63
+	STA.b $8A				;$B78E66
+	ADC.w #$0090				;$B78E68
+	CMP.w #$0130				;$B78E6B
+	BCC.b CODE_B78E73			;$B78E6E
+	JMP.w CODE_B78882			;$B78E70
 
 CODE_B78E73:
-	LDA.w $0012,y
-	SBC.w $196D
-	STA.b $88
-	CLC
-	ADC.w #$0030
-	CMP.w #$0160
-	BCC.b CODE_B78E87
-	JMP.w CODE_B79140
+	LDA.w $0012,y				;$B78E73
+	SBC.w $196D				;$B78E76
+	STA.b $88				;$B78E79
+	CLC					;$B78E7B
+	ADC.w #$0030				;$B78E7C
+	CMP.w #$0160				;$B78E7F
+	BCC.b CODE_B78E87			;$B78E82
+	JMP.w CODE_B79140			;$B78E84
 
 CODE_B78E87:
-	LDA.w $001E,y
-	STA.b $1A
-	STA.b $1C
-	BIT.w #$8000
-	BNE.b CODE_B78EFA
-	BIT.w #$4000
-	BNE.b CODE_B78EC5
-	LDA.b $88
-	SEC
-	SBC.w #$0080
-	STA.b $88
-	LDA.b $8A
-	CLC
-	ADC.w #$0010
-	STA.b $8A
-	JSR.w CODE_B7926F
-	STY.b $84
-	LDY.b $6E
-	LDA.w sprite_render_table,y
-	TAY
-	LDA.w $0026,y
-	EOR.b $1A
-	AND.w #$3000
-	EOR.b $1A
-	STA.b $1A
-	JSR.w CODE_B7928A
-	JMP.w CODE_B790AA
+	LDA.w $001E,y				;$B78E87
+	STA.b $1A				;$B78E8A
+	STA.b $1C				;$B78E8C
+	BIT.w #$8000				;$B78E8E
+	BNE.b CODE_B78EFA			;$B78E91
+	BIT.w #$4000				;$B78E93
+	BNE.b CODE_B78EC5			;$B78E96
+	LDA.b $88				;$B78E98
+	SEC					;$B78E9A
+	SBC.w #$0080				;$B78E9B
+	STA.b $88				;$B78E9E
+	LDA.b $8A				;$B78EA0
+	CLC					;$B78EA2
+	ADC.w #$0010				;$B78EA3
+	STA.b $8A				;$B78EA6
+	JSR.w CODE_B7926F			;$B78EA8
+	STY.b $84				;$B78EAB
+	LDY.b $6E				;$B78EAD
+	LDA.w sprite_render_table,y		;$B78EAF
+	TAY					;$B78EB2
+	LDA.w $0026,y				;$B78EB3
+	EOR.b $1A				;$B78EB6
+	AND.w #$3000				;$B78EB8
+	EOR.b $1A				;$B78EBB
+	STA.b $1A				;$B78EBD
+	JSR.w CODE_B7928A			;$B78EBF
+	JMP.w CODE_B790AA			;$B78EC2
 
 CODE_B78EC5:
-	LDA.b $88
-	SEC
-	SBC.w #$008F
-	STA.b $88
-	LDA.b $8A
-	CLC
-	ADC.w #$0010
-	STA.b $8A
-	JSR.w CODE_B79449
-	LDA.b $88
-	SEC
-	SBC.w #$0008
-	STA.b $88
-	STY.b $84
-	LDY.b $6E
-	LDA.w sprite_render_table,y
-	TAY
-	LDA.w $0026,y
-	EOR.b $1A
-	AND.w #$0E00
-	EOR.b $1A
-	STA.b $1A
-	JSR.w CODE_B79464
-	JMP.w CODE_B790AA
+	LDA.b $88				;$B78EC5
+	SEC					;$B78EC7
+	SBC.w #$008F				;$B78EC8
+	STA.b $88				;$B78ECB
+	LDA.b $8A				;$B78ECD
+	CLC					;$B78ECF
+	ADC.w #$0010				;$B78ED0
+	STA.b $8A				;$B78ED3
+	JSR.w CODE_B79449			;$B78ED5
+	LDA.b $88				;$B78ED8
+	SEC					;$B78EDA
+	SBC.w #$0008				;$B78EDB
+	STA.b $88				;$B78EDE
+	STY.b $84				;$B78EE0
+	LDY.b $6E				;$B78EE2
+	LDA.w sprite_render_table,y		;$B78EE4
+	TAY					;$B78EE7
+	LDA.w $0026,y				;$B78EE8
+	EOR.b $1A				;$B78EEB
+	AND.w #$0E00				;$B78EED
+	EOR.b $1A				;$B78EF0
+	STA.b $1A				;$B78EF2
+	JSR.w CODE_B79464			;$B78EF4
+	JMP.w CODE_B790AA			;$B78EF7
 
 CODE_B78EFA:
-	BIT.w #$4000
-	BNE.b CODE_B78F2E
-	LDA.b $88
-	SEC
-	SBC.w #$0080
-	STA.b $88
-	INC.b $8A
-	JSR.w CODE_B79634
-	LDA.b $8A
-	SEC
-	SBC.w #$0008
-	STA.b $8A
-	STY.b $84
-	LDY.b $6E
-	LDA.w sprite_render_table,y
-	TAY
-	LDA.w $0026,y
-	EOR.b $1A
-	AND.w #$0E00
-	EOR.b $1A
-	STA.b $1A
-	JSR.w CODE_B7964F
-	JMP.w CODE_B790AA
+	BIT.w #$4000				;$B78EFA
+	BNE.b CODE_B78F2E			;$B78EFD
+	LDA.b $88				;$B78EFF
+	SEC					;$B78F01
+	SBC.w #$0080				;$B78F02
+	STA.b $88				;$B78F05
+	INC.b $8A				;$B78F07
+	JSR.w CODE_B79634			;$B78F09
+	LDA.b $8A				;$B78F0C
+	SEC					;$B78F0E
+	SBC.w #$0008				;$B78F0F
+	STA.b $8A				;$B78F12
+	STY.b $84				;$B78F14
+	LDY.b $6E				;$B78F16
+	LDA.w sprite_render_table,y		;$B78F18
+	TAY					;$B78F1B
+	LDA.w $0026,y				;$B78F1C
+	EOR.b $1A				;$B78F1F
+	AND.w #$0E00				;$B78F21
+	EOR.b $1A				;$B78F24
+	STA.b $1A				;$B78F26
+	JSR.w CODE_B7964F			;$B78F28
+	JMP.w CODE_B790AA			;$B78F2B
 
 CODE_B78F2E:
-	LDA.b $88
-	SEC
-	SBC.w #$008F
-	STA.b $88
-	INC.b $8A
-	JSR.w CODE_B7981C
-	LDA.b $88
-	SEC
-	SBC.w #$0008
-	STA.b $88
-	LDA.b $8A
-	SEC
-	SBC.w #$0008
-	STA.b $8A
-	STY.b $84
-	LDY.b $6E
-	LDA.w sprite_render_table,y
-	TAY
-	LDA.w $0026,y
-	EOR.b $1A
-	AND.w #$0E00
-	EOR.b $1A
-	STA.b $1A
-	JSR.w CODE_B79837
-	JMP.w CODE_B790AA
+	LDA.b $88				;$B78F2E
+	SEC					;$B78F30
+	SBC.w #$008F				;$B78F31
+	STA.b $88				;$B78F34
+	INC.b $8A				;$B78F36
+	JSR.w CODE_B7981C			;$B78F38
+	LDA.b $88				;$B78F3B
+	SEC					;$B78F3D
+	SBC.w #$0008				;$B78F3E
+	STA.b $88				;$B78F41
+	LDA.b $8A				;$B78F43
+	SEC					;$B78F45
+	SBC.w #$0008				;$B78F46
+	STA.b $8A				;$B78F49
+	STY.b $84				;$B78F4B
+	LDY.b $6E				;$B78F4D
+	LDA.w sprite_render_table,y		;$B78F4F
+	TAY					;$B78F52
+	LDA.w $0026,y				;$B78F53
+	EOR.b $1A				;$B78F56
+	AND.w #$0E00				;$B78F58
+	EOR.b $1A				;$B78F5B
+	STA.b $1A				;$B78F5D
+	JSR.w CODE_B79837			;$B78F5F
+	JMP.w CODE_B790AA			;$B78F62
 
 CODE_B78F65:
-	PLX
-	TYX
-	SEP.b #$20
-	LDA.b $16,x
-	XBA
-	LDA.b $12,x
-	REP.b #$20
-	STA.b $1A
-	LDY.b $68,x
-	STY.b $1E
-	LDA.w DATA_B78FA6,y
-	AND.w #$00FF
-	STA.b $1C
-	LDY.b next_oam_slot
+	PLX					;$B78F65
+	TYX					;$B78F66
+	SEP.b #$20				;$B78F67
+	LDA.b $16,x				;$B78F69
+	XBA					;$B78F6B
+	LDA.b $12,x				;$B78F6C
+	REP.b #$20				;$B78F6E
+	STA.b $1A				;$B78F70
+	LDY.b $68,x				;$B78F72
+	STY.b $1E				;$B78F74
+	LDA.w DATA_B78FA6,y			;$B78F76
+	AND.w #$00FF				;$B78F79
+	STA.b $1C				;$B78F7C
+	LDY.b next_oam_slot			;$B78F7E
 CODE_B78F80:
-	LDA.b $1C
-	ASL
-	CLC
-	ADC.b $1E
-	TAX
-	LDA.w DATA_B78FA6-$01,x
-	CLC
-	ADC.b $1A
-	STA.w $0000,y
-	LDA.w #$01EE
-	STA.w $0002,y
-	JSR.w CODE_B787E3
-	INY
-	INY
-	INY
-	INY
-	STY.b next_oam_slot
-	DEC.b $1C
-	BNE.b CODE_B78F80
-	JMP.w CODE_B790AA
+	LDA.b $1C				;$B78F80
+	ASL					;$B78F82
+	CLC					;$B78F83
+	ADC.b $1E				;$B78F84
+	TAX					;$B78F86
+	LDA.w DATA_B78FA6-$01,x			;$B78F87
+	CLC					;$B78F8A
+	ADC.b $1A				;$B78F8B
+	STA.w $0000,y				;$B78F8D
+	LDA.w #$01EE				;$B78F90
+	STA.w $0002,y				;$B78F93
+	JSR.w CODE_B787E3			;$B78F96
+	INY					;$B78F99
+	INY					;$B78F9A
+	INY					;$B78F9B
+	INY					;$B78F9C
+	STY.b next_oam_slot			;$B78F9D
+	DEC.b $1C				;$B78F9F
+	BNE.b CODE_B78F80			;$B78FA1
+	JMP.w CODE_B790AA			;$B78FA3
 
 DATA_B78FA6:
 	db $05,$00,$00,$10,$02,$20,$04,$30,$02,$40,$00,$06,$00,$00,$10,$02
 	db $20,$04,$30,$06,$40,$08,$50,$06
 
 CODE_B78FBE:
-	PLX
-	TYX
-	LDY.b next_oam_slot
-	SEP.b #$20
-	LDA.b $16,x
-	XBA
-	LDA.b $12,x
-	REP.b #$20
-	STA.b $1A
-	LDA.b $5C,x
-	STA.b $1E
-	LDA.b $1E,x
-	STA.b $1C
-	LDX.w #$001E
+	PLX					;$B78FBE
+	TYX					;$B78FBF
+	LDY.b next_oam_slot			;$B78FC0
+	SEP.b #$20				;$B78FC2
+	LDA.b $16,x				;$B78FC4
+	XBA					;$B78FC6
+	LDA.b $12,x				;$B78FC7
+	REP.b #$20				;$B78FC9
+	STA.b $1A				;$B78FCB
+	LDA.b $5C,x				;$B78FCD
+	STA.b $1E				;$B78FCF
+	LDA.b $1E,x				;$B78FD1
+	STA.b $1C				;$B78FD3
+	LDX.w #$001E				;$B78FD5
 CODE_B78FD8:
-	LSR.b $1E
-	BCC.b CODE_B78FFF
-	LDA.l DATA_B79006,x
-	CLC
-	ADC.b $1A
-	STA.w $0000,y
-	TXA
-	CMP.w #$0010
-	BCC.b CODE_B78FF0
-	CLC
-	ADC.w #$0010
+	LSR.b $1E				;$B78FD8
+	BCC.b CODE_B78FFF			;$B78FDA
+	LDA.l DATA_B79006,x			;$B78FDC
+	CLC					;$B78FE0
+	ADC.b $1A				;$B78FE1
+	STA.w $0000,y				;$B78FE3
+	TXA					;$B78FE6
+	CMP.w #$0010				;$B78FE7
+	BCC.b CODE_B78FF0			;$B78FEA
+	CLC					;$B78FEC
+	ADC.w #$0010				;$B78FED
 CODE_B78FF0:
-	CLC
-	ADC.b $1C
-	STA.w $0002,y
-	JSR.w CODE_B787E3
-	INY
-	INY
-	INY
-	INY
-	STY.b next_oam_slot
+	CLC					;$B78FF0
+	ADC.b $1C				;$B78FF1
+	STA.w $0002,y				;$B78FF3
+	JSR.w CODE_B787E3			;$B78FF6
+	INY					;$B78FF9
+	INY					;$B78FFA
+	INY					;$B78FFB
+	INY					;$B78FFC
+	STY.b next_oam_slot			;$B78FFD
 CODE_B78FFF:
-	DEX
-	DEX
-	BPL.b CODE_B78FD8
-	JMP.w CODE_B790AA
+	DEX					;$B78FFF
+	DEX					;$B79000
+	BPL.b CODE_B78FD8			;$B79001
+	JMP.w CODE_B790AA			;$B79003
 
 DATA_B79006:
 	dw $0F78,$1681,$1E86,$2B88,$3787,$4280,$4A78,$4D6D
 	dw $4C62,$475A,$3D53,$3250,$2553,$1859,$1062,$0B6E
 
 CODE_B79026:
-	PLX
-	LDA.w $0016,y
-	SEC
-	SBC.w #$0080
-	SEC
-	SBC.w $1973
-	STA.b $8A
-	ADC.w #$0090
-	CMP.w #$0130
-	BCS.b CODE_B790A7
-	LDA.w $0012,y
-	SBC.w $196D
-	STA.b $88
-	CLC
-	ADC.w #$0030
-	CMP.w #$0160
-	BCS.b CODE_B790A7
-	LDA.w $001E,y
-	STA.b $1A
-	STA.b $1C
-	LDA.b $8A
-	CLC
-	ADC.w #$0010
-	STA.b $8A
-	LDA.b $88
-	SEC
-	SBC.w #$0080
-	STA.b $88
-	JSR.w CODE_B792BC
-	LDX.b $6E
-	LDA.w sprite_render_table,x
-	TAX
-	LDA.b $58,x
-	STA.b $3E
-	LDA.b $68,x
-	STA.b $40
-	XBA
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	STA.b $1C
-	STZ.b $38
-	JSR.w CODE_B79A6F
-	LDX.b $6E
-	LDA.w sprite_render_table,x
-	TAX
-	LDA.b $6A,x
-	STA.b $3E
-	LDA.b $6C,x
-	STA.b $40
-	XBA
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	EOR.w #$4000
-	STA.b $1C
-	LDA.b $62,x
-	STA.b $38
-	JSR.w CODE_B79A6F
-	JMP.w CODE_B790AA
+	PLX					;$B79026
+	LDA.w $0016,y				;$B79027
+	SEC					;$B7902A
+	SBC.w #$0080				;$B7902B
+	SEC					;$B7902E
+	SBC.w $1973				;$B7902F
+	STA.b $8A				;$B79032
+	ADC.w #$0090				;$B79034
+	CMP.w #$0130				;$B79037
+	BCS.b CODE_B790A7			;$B7903A
+	LDA.w $0012,y				;$B7903C
+	SBC.w $196D				;$B7903F
+	STA.b $88				;$B79042
+	CLC					;$B79044
+	ADC.w #$0030				;$B79045
+	CMP.w #$0160				;$B79048
+	BCS.b CODE_B790A7			;$B7904B
+	LDA.w $001E,y				;$B7904D
+	STA.b $1A				;$B79050
+	STA.b $1C				;$B79052
+	LDA.b $8A				;$B79054
+	CLC					;$B79056
+	ADC.w #$0010				;$B79057
+	STA.b $8A				;$B7905A
+	LDA.b $88				;$B7905C
+	SEC					;$B7905E
+	SBC.w #$0080				;$B7905F
+	STA.b $88				;$B79062
+	JSR.w CODE_B792BC			;$B79064
+	LDX.b $6E				;$B79067
+	LDA.w sprite_render_table,x		;$B79069
+	TAX					;$B7906C
+	LDA.b $58,x				;$B7906D
+	STA.b $3E				;$B7906F
+	LDA.b $68,x				;$B79071
+	STA.b $40				;$B79073
+	XBA					;$B79075
+	AND.w #$00FF				;$B79076
+	CLC					;$B79079
+	ADC.b $1A				;$B7907A
+	STA.b $1C				;$B7907C
+	STZ.b $38				;$B7907E
+	JSR.w CODE_B79A6F			;$B79080
+	LDX.b $6E				;$B79083
+	LDA.w sprite_render_table,x		;$B79085
+	TAX					;$B79088
+	LDA.b $6A,x				;$B79089
+	STA.b $3E				;$B7908B
+	LDA.b $6C,x				;$B7908D
+	STA.b $40				;$B7908F
+	XBA					;$B79091
+	AND.w #$00FF				;$B79092
+	CLC					;$B79095
+	ADC.b $1A				;$B79096
+	EOR.w #$4000				;$B79098
+	STA.b $1C				;$B7909B
+	LDA.b $62,x				;$B7909D
+	STA.b $38				;$B7909F
+	JSR.w CODE_B79A6F			;$B790A1
+	JMP.w CODE_B790AA			;$B790A4
 
 CODE_B790A7:
-	JMP.w CODE_B7895F
+	JMP.w CODE_B7895F			;$B790A7
 
 CODE_B790AA:
-	LDX.b $6E
-	LDA.w sprite_render_table,x
-	TAX
-	LDA.b $22,x
-	CMP.b $20,x
-	BNE.b CODE_B790B9
-	JMP.w CODE_B79140
+	LDX.b $6E				;$B790AA
+	LDA.w sprite_render_table,x		;$B790AC
+	TAX					;$B790AF
+	LDA.b $22,x				;$B790B0
+	CMP.b $20,x				;$B790B2
+	BNE.b CODE_B790B9			;$B790B4
+	JMP.w CODE_B79140			;$B790B6
 
 CODE_B790B9:
-	STA.b $20,x
-	LDX.w $155E
-	TYA
-	CLC
-	ADC.b $28
-	TAY
-	STA.w $1566,x
-	LDA.b $23
-	AND.w #$00FF
-	XBA
-	LSR
-	LSR
-	LSR
-	STA.w $1562,x
-	STA.b $84
-	TYA
-	CLC
-	ADC.b $84
-	TAY
-	LDA.b $1A
-	AND.w #$01FF
-	ASL
-	ASL
-	ASL
-	ASL
-	STA.w $1564,x
-	LDA.b $2A
-	ORA.w #$FF00
-	STA.w $1568,x
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
-	STZ.w $1568,x
-	LDA.b $25
-	AND.w #$000F
-	BEQ.b CODE_B79130
-	XBA
-	LSR
-	LSR
-	LSR
-	STA.w $1562,x
-	LDA.b $24
-	AND.w #$00FF
-	ASL
-	ASL
-	ASL
-	ASL
-	STA.b $84
-	LDA.b $1A
-	AND.w #$01FF
-	ASL
-	ASL
-	ASL
-	ASL
-	CLC
-	ADC.b $84
-	STA.w $1564,x
-	TYA
-	STA.w $1566,x
-	LDA.b $2A
-	ORA.w #$FF00
-	STA.w $1568,x
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
+	STA.b $20,x				;$B790B9
+	LDX.w $155E				;$B790BB
+	TYA					;$B790BE
+	CLC					;$B790BF
+	ADC.b $28				;$B790C0
+	TAY					;$B790C2
+	STA.w $1566,x				;$B790C3
+	LDA.b $23				;$B790C6
+	AND.w #$00FF				;$B790C8
+	XBA					;$B790CB
+	LSR					;$B790CC
+	LSR					;$B790CD
+	LSR					;$B790CE
+	STA.w $1562,x				;$B790CF
+	STA.b $84				;$B790D2
+	TYA					;$B790D4
+	CLC					;$B790D5
+	ADC.b $84				;$B790D6
+	TAY					;$B790D8
+	LDA.b $1A				;$B790D9
+	AND.w #$01FF				;$B790DB
+	ASL					;$B790DE
+	ASL					;$B790DF
+	ASL					;$B790E0
+	ASL					;$B790E1
+	STA.w $1564,x				;$B790E2
+	LDA.b $2A				;$B790E5
+	ORA.w #$FF00				;$B790E7
+	STA.w $1568,x				;$B790EA
+	TXA					;$B790ED
+	CLC					;$B790EE
+	ADC.w #$0008				;$B790EF
+	TAX					;$B790F2
+	STZ.w $1568,x				;$B790F3
+	LDA.b $25				;$B790F6
+	AND.w #$000F				;$B790F8
+	BEQ.b CODE_B79130			;$B790FB
+	XBA					;$B790FD
+	LSR					;$B790FE
+	LSR					;$B790FF
+	LSR					;$B79100
+	STA.w $1562,x				;$B79101
+	LDA.b $24				;$B79104
+	AND.w #$00FF				;$B79106
+	ASL					;$B79109
+	ASL					;$B7910A
+	ASL					;$B7910B
+	ASL					;$B7910C
+	STA.b $84				;$B7910D
+	LDA.b $1A				;$B7910F
+	AND.w #$01FF				;$B79111
+	ASL					;$B79114
+	ASL					;$B79115
+	ASL					;$B79116
+	ASL					;$B79117
+	CLC					;$B79118
+	ADC.b $84				;$B79119
+	STA.w $1564,x				;$B7911B
+	TYA					;$B7911E
+	STA.w $1566,x				;$B7911F
+	LDA.b $2A				;$B79122
+	ORA.w #$FF00				;$B79124
+	STA.w $1568,x				;$B79127
+	TXA					;$B7912A
+	CLC					;$B7912B
+	ADC.w #$0008				;$B7912C
+	TAX					;$B7912F
 CODE_B79130:
-	STX.w $155E
-	STZ.w $1568,x
-	CPX.w #$0070
-	BCC.b CODE_B79140
-	LDA.b $80
-	STA.w $1560
+	STX.w $155E				;$B79130
+	STZ.w $1568,x				;$B79133
+	CPX.w #$0070				;$B79136
+	BCC.b CODE_B79140			;$B79139
+	LDA.b $80				;$B7913B
+	STA.w $1560				;$B7913D
 CODE_B79140:
-	INC.b $6E
-	INC.b $6E
-	LDA.b $6E
-	CMP.w #$003A
-	BEQ.b CODE_B7914E
-	JMP.w CODE_B78868
+	INC.b $6E				;$B79140
+	INC.b $6E				;$B79142
+	LDA.b $6E				;$B79144
+	CMP.w #$003A				;$B79146
+	BEQ.b CODE_B7914E			;$B79149
+	JMP.w CODE_B78868			;$B7914B
 
 CODE_B7914E:
-	PEA.w ((RESET_start&$FF0000)>>16)|((RESET_start&$FF0000)>>8)
-	PLB
-	PLB
-	RTL
+	PEA.w ((RESET_start&$FF0000)>>16)|((RESET_start&$FF0000)>>8)	;$B7914E
+	PLB					;$B79151
+	PLB					;$B79152
+	RTL					;$B79153
 
 DATA_B79154:
 	dw $0C03,$C030,$0C03,$C030,$0C03,$C030,$0C03,$C030
@@ -2389,1455 +2389,1455 @@ DATA_B791D4:
 	dw $0401,$4010,$0401,$4010,$0401,$4010,$0401,$4010
 
 CODE_B79254:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$0005
-	JMP.w CODE_B792DB
+	LDY.w #$0000				;$B79254
+	LDA.b [$28],y				;$B79257
+	STA.b $1E				;$B79259
+	LDY.w #$0002				;$B7925B
+	LDA.b [$28],y				;$B7925E
+	STA.b $20				;$B79260
+	LDY.w #$0004				;$B79262
+	LDA.b [$28],y				;$B79265
+	STA.b $22				;$B79267
+	LDY.w #$0005				;$B79269
+	JMP.w CODE_B792DB			;$B7926C
 
 CODE_B7926F:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$000E
-	JMP.w CODE_B792DB
+	LDY.w #$0000				;$B7926F
+	LDA.b [$28],y				;$B79272
+	STA.b $1E				;$B79274
+	LDY.w #$0002				;$B79276
+	LDA.b [$28],y				;$B79279
+	STA.b $20				;$B7927B
+	LDY.w #$0004				;$B7927D
+	LDA.b [$28],y				;$B79280
+	STA.b $22				;$B79282
+	LDY.w #$000E				;$B79284
+	JMP.w CODE_B792DB			;$B79287
 
 CODE_B7928A:
-	LDY.w #$0009
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	STA.b $1C
-	LDY.w #$000A
-	LDA.b [$28],y
-	STA.b $1F
-	LDY.w #$000C
-	LDA.b [$28],y
-	STA.b $21
-	LDY.w #$0006
-	LDA.b [$28],y
-	STA.b $24
-	SEP.b #$20
-	LDY.w #$0008
-	LDA.b [$28],y
-	STA.b $1E
-	REP.b #$20
-	LDY.b $84
-	JMP.w CODE_B792DB
+	LDY.w #$0009				;$B7928A
+	LDA.b [$28],y				;$B7928D
+	AND.w #$00FF				;$B7928F
+	CLC					;$B79292
+	ADC.b $1A				;$B79293
+	STA.b $1C				;$B79295
+	LDY.w #$000A				;$B79297
+	LDA.b [$28],y				;$B7929A
+	STA.b $1F				;$B7929C
+	LDY.w #$000C				;$B7929E
+	LDA.b [$28],y				;$B792A1
+	STA.b $21				;$B792A3
+	LDY.w #$0006				;$B792A5
+	LDA.b [$28],y				;$B792A8
+	STA.b $24				;$B792AA
+	SEP.b #$20				;$B792AC
+	LDY.w #$0008				;$B792AE
+	LDA.b [$28],y				;$B792B1
+	STA.b $1E				;$B792B3
+	REP.b #$20				;$B792B5
+	LDY.b $84				;$B792B7
+	JMP.w CODE_B792DB			;$B792B9
 
 CODE_B792BC:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$0006
-	LDA.b [$28],y
-	STA.b $24
-	LDY.w #$0008
+	LDY.w #$0000				;$B792BC
+	LDA.b [$28],y				;$B792BF
+	STA.b $1E				;$B792C1
+	LDY.w #$0002				;$B792C3
+	LDA.b [$28],y				;$B792C6
+	STA.b $20				;$B792C8
+	LDY.w #$0004				;$B792CA
+	LDA.b [$28],y				;$B792CD
+	STA.b $22				;$B792CF
+	LDY.w #$0006				;$B792D1
+	LDA.b [$28],y				;$B792D4
+	STA.b $24				;$B792D6
+	LDY.w #$0008				;$B792D8
 CODE_B792DB:
-	LDA.b next_oam_slot
-	LSR
-	LSR
-	SEP.b #$20
-	TAX
-	ADC.b $1E
-	CLC
-	ADC.b $1F
-	CLC
-	ADC.b $21
-	BMI.b CODE_B792F2
-	REP.b #$20
-	PLA
-	JMP.w CODE_B7914E
+	LDA.b next_oam_slot			;$B792DB
+	LSR					;$B792DD
+	LSR					;$B792DE
+	SEP.b #$20				;$B792DF
+	TAX					;$B792E1
+	ADC.b $1E				;$B792E2
+	CLC					;$B792E4
+	ADC.b $1F				;$B792E5
+	CLC					;$B792E7
+	ADC.b $21				;$B792E8
+	BMI.b CODE_B792F2			;$B792EA
+	REP.b #$20				;$B792EC
+	PLA					;$B792EE
+	JMP.w CODE_B7914E			;$B792EF
 
 CODE_B792F2:
-	TXA
-	LSR
-	LSR
-	AND.b #$1F
-	STA.b $86
-	TXA
-	AND.b #$03
-	TAX
-	LDA.w DATA_B79154,x
-	STA.b $26
-	LDX.b next_oam_slot
-	CLC
+	TXA					;$B792F2
+	LSR					;$B792F3
+	LSR					;$B792F4
+	AND.b #$1F				;$B792F5
+	STA.b $86				;$B792F7
+	TXA					;$B792F9
+	AND.b #$03				;$B792FA
+	TAX					;$B792FC
+	LDA.w DATA_B79154,x			;$B792FD
+	STA.b $26				;$B79300
+	LDX.b next_oam_slot			;$B79302
+	CLC					;$B79304
 CODE_B79305:
-	DEC.b $1E
-	BMI.b CODE_B79363
-	LDA.b [$2C],y
-	REP.b #$20
-	AND.w #$00FF
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B7934E
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	CMP.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	LDA.b $26
-	BCS.b CODE_B79331
-	AND.b #$AA
+	DEC.b $1E				;$B79305
+	BMI.b CODE_B79363			;$B79307
+	LDA.b [$2C],y				;$B79309
+	REP.b #$20				;$B7930B
+	AND.w #$00FF				;$B7930D
+	ADC.b $8A				;$B79310
+	CMP.w #$00F0				;$B79312
+	BCS.b CODE_B7934E			;$B79315
+	SBC.w #$000F				;$B79317
+	STA.b $01,x				;$B7931A
+	LDA.b [$28],y				;$B7931C
+	AND.w #$00FF				;$B7931E
+	CLC					;$B79321
+	ADC.b $88				;$B79322
+	CMP.w #$0100				;$B79324
+	SEP.b #$20				;$B79327
+	STA.b $00,x				;$B79329
+	LDA.b $26				;$B7932B
+	BCS.b CODE_B79331			;$B7932D
+	AND.b #$AA				;$B7932F
 CODE_B79331:
-	ORA.b ($86)
-	STA.b ($86)
-	LDA.b $26
-	BPL.b CODE_B79340
-	INC.b $86
-	LDA.b #$03
-	CLC
-	BRA.b CODE_B79342
+	ORA.b ($86)				;$B79331
+	STA.b ($86)				;$B79333
+	LDA.b $26				;$B79335
+	BPL.b CODE_B79340			;$B79337
+	INC.b $86				;$B79339
+	LDA.b #$03				;$B7933B
+	CLC					;$B7933D
+	BRA.b CODE_B79342			;$B7933E
 
 CODE_B79340:
-	ASL
-	ASL
+	ASL					;$B79340
+	ASL					;$B79341
 CODE_B79342:
-	STA.b $26
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	STA.b $26				;$B79342
+	REP.b #$20				;$B79344
+	LDA.b $1C				;$B79346
+	STA.b $02,x				;$B79348
+	INX					;$B7934A
+	INX					;$B7934B
+	INX					;$B7934C
+	INX					;$B7934D
 CODE_B7934E:
-	CLC
-	LDA.b $1C
-	INC
-	INC
-	BIT.w #$0010
-	BEQ.b CODE_B7935B
-	ADC.w #$0010
+	CLC					;$B7934E
+	LDA.b $1C				;$B7934F
+	INC					;$B79351
+	INC					;$B79352
+	BIT.w #$0010				;$B79353
+	BEQ.b CODE_B7935B			;$B79356
+	ADC.w #$0010				;$B79358
 CODE_B7935B:
-	STA.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B79305
+	STA.b $1C				;$B7935B
+	SEP.b #$20				;$B7935D
+	INY					;$B7935F
+	INY					;$B79360
+	BRA.b CODE_B79305			;$B79361
 
 CODE_B79363:
-	LDA.b $20
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	STA.b $1C
-	SEP.b #$20
+	LDA.b $20				;$B79363
+	REP.b #$20				;$B79365
+	AND.w #$00FF				;$B79367
+	CLC					;$B7936A
+	ADC.b $1A				;$B7936B
+	STA.b $1C				;$B7936D
+	SEP.b #$20				;$B7936F
 CODE_B79371:
-	DEC.b $1F
-	BMI.b CODE_B793C6
-	LDA.b [$2C],y
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B793BE
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	BIT.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	BEQ.b CODE_B793B4
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	DEC.b $1F				;$B79371
+	BMI.b CODE_B793C6			;$B79373
+	LDA.b [$2C],y				;$B79375
+	REP.b #$20				;$B79377
+	AND.w #$00FF				;$B79379
+	CLC					;$B7937C
+	ADC.b $8A				;$B7937D
+	CMP.w #$00F0				;$B7937F
+	BCS.b CODE_B793BE			;$B79382
+	SBC.w #$000F				;$B79384
+	STA.b $01,x				;$B79387
+	LDA.b [$28],y				;$B79389
+	AND.w #$00FF				;$B7938B
+	CLC					;$B7938E
+	ADC.b $88				;$B7938F
+	BIT.w #$0100				;$B79391
+	SEP.b #$20				;$B79394
+	STA.b $00,x				;$B79396
+	BEQ.b CODE_B793B4			;$B79398
+	STX.b $84				;$B7939A
+	REP.b #$20				;$B7939C
+	TXA					;$B7939E
+	AND.w #$01FC				;$B7939F
+	LSR					;$B793A2
+	LSR					;$B793A3
+	TAX					;$B793A4
+	LSR					;$B793A5
+	LSR					;$B793A6
+	SEP.b #$20				;$B793A7
+	STA.b $86				;$B793A9
+	LDA.w DATA_B791D4,x			;$B793AB
+	ORA.b ($86)				;$B793AE
+	STA.b ($86)				;$B793B0
+	LDX.b $84				;$B793B2
 CODE_B793B4:
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	REP.b #$20				;$B793B4
+	LDA.b $1C				;$B793B6
+	STA.b $02,x				;$B793B8
+	INX					;$B793BA
+	INX					;$B793BB
+	INX					;$B793BC
+	INX					;$B793BD
 CODE_B793BE:
-	INC.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B79371
+	INC.b $1C				;$B793BE
+	SEP.b #$20				;$B793C0
+	INY					;$B793C2
+	INY					;$B793C3
+	BRA.b CODE_B79371			;$B793C4
 
 CODE_B793C6:
-	LDA.b $22
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	STA.b $1C
-	SEP.b #$20
+	LDA.b $22				;$B793C6
+	REP.b #$20				;$B793C8
+	AND.w #$00FF				;$B793CA
+	CLC					;$B793CD
+	ADC.b $1A				;$B793CE
+	STA.b $1C				;$B793D0
+	SEP.b #$20				;$B793D2
 CODE_B793D4:
-	DEC.b $21
-	BMI.b CODE_B79429
-	LDA.b [$2C],y
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B79421
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	BIT.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	BEQ.b CODE_B79417
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	DEC.b $21				;$B793D4
+	BMI.b CODE_B79429			;$B793D6
+	LDA.b [$2C],y				;$B793D8
+	REP.b #$20				;$B793DA
+	AND.w #$00FF				;$B793DC
+	CLC					;$B793DF
+	ADC.b $8A				;$B793E0
+	CMP.w #$00F0				;$B793E2
+	BCS.b CODE_B79421			;$B793E5
+	SBC.w #$000F				;$B793E7
+	STA.b $01,x				;$B793EA
+	LDA.b [$28],y				;$B793EC
+	AND.w #$00FF				;$B793EE
+	CLC					;$B793F1
+	ADC.b $88				;$B793F2
+	BIT.w #$0100				;$B793F4
+	SEP.b #$20				;$B793F7
+	STA.b $00,x				;$B793F9
+	BEQ.b CODE_B79417			;$B793FB
+	STX.b $84				;$B793FD
+	REP.b #$20				;$B793FF
+	TXA					;$B79401
+	AND.w #$01FC				;$B79402
+	LSR					;$B79405
+	LSR					;$B79406
+	TAX					;$B79407
+	LSR					;$B79408
+	LSR					;$B79409
+	SEP.b #$20				;$B7940A
+	STA.b $86				;$B7940C
+	LDA.w DATA_B791D4,x			;$B7940E
+	ORA.b ($86)				;$B79411
+	STA.b ($86)				;$B79413
+	LDX.b $84				;$B79415
 CODE_B79417:
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	REP.b #$20				;$B79417
+	LDA.b $1C				;$B79419
+	STA.b $02,x				;$B7941B
+	INX					;$B7941D
+	INX					;$B7941E
+	INX					;$B7941F
+	INX					;$B79420
 CODE_B79421:
-	INC.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B793D4
+	INC.b $1C				;$B79421
+	SEP.b #$20				;$B79423
+	INY					;$B79425
+	INY					;$B79426
+	BRA.b CODE_B793D4			;$B79427
 
 CODE_B79429:
-	REP.b #$20
-	STX.b next_oam_slot
-	RTS
+	REP.b #$20				;$B79429
+	STX.b next_oam_slot			;$B7942B
+	RTS					;$B7942D
 
 CODE_B7942E:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$0005
-	JMP.w CODE_B794B5
+	LDY.w #$0000				;$B7942E
+	LDA.b [$28],y				;$B79431
+	STA.b $1E				;$B79433
+	LDY.w #$0002				;$B79435
+	LDA.b [$28],y				;$B79438
+	STA.b $20				;$B7943A
+	LDY.w #$0004				;$B7943C
+	LDA.b [$28],y				;$B7943F
+	STA.b $22				;$B79441
+	LDY.w #$0005				;$B79443
+	JMP.w CODE_B794B5			;$B79446
 
 CODE_B79449:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$000E
-	JMP.w CODE_B794B5
+	LDY.w #$0000				;$B79449
+	LDA.b [$28],y				;$B7944C
+	STA.b $1E				;$B7944E
+	LDY.w #$0002				;$B79450
+	LDA.b [$28],y				;$B79453
+	STA.b $20				;$B79455
+	LDY.w #$0004				;$B79457
+	LDA.b [$28],y				;$B7945A
+	STA.b $22				;$B7945C
+	LDY.w #$000E				;$B7945E
+	JMP.w CODE_B794B5			;$B79461
 
 CODE_B79464:
-	LDY.w #$0009
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	STA.b $1C
-	LDY.w #$000A
-	LDA.b [$28],y
-	STA.b $1F
-	LDY.w #$000C
-	LDA.b [$28],y
-	STA.b $21
-	LDY.w #$0006
-	LDA.b [$28],y
-	STA.b $24
-	SEP.b #$20
-	LDY.w #$0008
-	LDA.b [$28],y
-	STA.b $1E
-	REP.b #$20
-	LDY.b $84
-	JMP.w CODE_B794B5
+	LDY.w #$0009				;$B79464
+	LDA.b [$28],y				;$B79467
+	AND.w #$00FF				;$B79469
+	CLC					;$B7946C
+	ADC.b $1A				;$B7946D
+	STA.b $1C				;$B7946F
+	LDY.w #$000A				;$B79471
+	LDA.b [$28],y				;$B79474
+	STA.b $1F				;$B79476
+	LDY.w #$000C				;$B79478
+	LDA.b [$28],y				;$B7947B
+	STA.b $21				;$B7947D
+	LDY.w #$0006				;$B7947F
+	LDA.b [$28],y				;$B79482
+	STA.b $24				;$B79484
+	SEP.b #$20				;$B79486
+	LDY.w #$0008				;$B79488
+	LDA.b [$28],y				;$B7948B
+	STA.b $1E				;$B7948D
+	REP.b #$20				;$B7948F
+	LDY.b $84				;$B79491
+	JMP.w CODE_B794B5			;$B79493
 
 CODE_B79496:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$0006
-	LDA.b [$28],y
-	STA.b $24
-	LDY.w #$0008
+	LDY.w #$0000				;$B79496
+	LDA.b [$28],y				;$B79499
+	STA.b $1E				;$B7949B
+	LDY.w #$0002				;$B7949D
+	LDA.b [$28],y				;$B794A0
+	STA.b $20				;$B794A2
+	LDY.w #$0004				;$B794A4
+	LDA.b [$28],y				;$B794A7
+	STA.b $22				;$B794A9
+	LDY.w #$0006				;$B794AB
+	LDA.b [$28],y				;$B794AE
+	STA.b $24				;$B794B0
+	LDY.w #$0008				;$B794B2
 CODE_B794B5:
-	LDA.b next_oam_slot
-	LSR
-	LSR
-	SEP.b #$20
-	TAX
-	ADC.b $1E
-	CLC
-	ADC.b $1F
-	CLC
-	ADC.b $21
-	BMI.b CODE_B794CC
-	REP.b #$20
-	PLA
-	JMP.w CODE_B7914E
+	LDA.b next_oam_slot			;$B794B5
+	LSR					;$B794B7
+	LSR					;$B794B8
+	SEP.b #$20				;$B794B9
+	TAX					;$B794BB
+	ADC.b $1E				;$B794BC
+	CLC					;$B794BE
+	ADC.b $1F				;$B794BF
+	CLC					;$B794C1
+	ADC.b $21				;$B794C2
+	BMI.b CODE_B794CC			;$B794C4
+	REP.b #$20				;$B794C6
+	PLA					;$B794C8
+	JMP.w CODE_B7914E			;$B794C9
 
 CODE_B794CC:
-	TXA
-	LSR
-	LSR
-	AND.b #$1F
-	STA.b $86
-	TXA
-	AND.b #$03
-	TAX
-	LDA.w DATA_B79154,x
-	STA.b $26
-	LDX.b next_oam_slot
-	CLC
+	TXA					;$B794CC
+	LSR					;$B794CD
+	LSR					;$B794CE
+	AND.b #$1F				;$B794CF
+	STA.b $86				;$B794D1
+	TXA					;$B794D3
+	AND.b #$03				;$B794D4
+	TAX					;$B794D6
+	LDA.w DATA_B79154,x			;$B794D7
+	STA.b $26				;$B794DA
+	LDX.b next_oam_slot			;$B794DC
+	CLC					;$B794DE
 CODE_B794DF:
-	DEC.b $1E
-	BMI.b CODE_B79540
-	LDA.b [$2C],y
-	REP.b #$20
-	AND.w #$00FF
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B7952B
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	EOR.w #$00FF
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	CMP.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	LDA.b $26
-	BCS.b CODE_B7950E
-	AND.b #$AA
+	DEC.b $1E				;$B794DF
+	BMI.b CODE_B79540			;$B794E1
+	LDA.b [$2C],y				;$B794E3
+	REP.b #$20				;$B794E5
+	AND.w #$00FF				;$B794E7
+	ADC.b $8A				;$B794EA
+	CMP.w #$00F0				;$B794EC
+	BCS.b CODE_B7952B			;$B794EF
+	SBC.w #$000F				;$B794F1
+	STA.b $01,x				;$B794F4
+	LDA.b [$28],y				;$B794F6
+	EOR.w #$00FF				;$B794F8
+	AND.w #$00FF				;$B794FB
+	CLC					;$B794FE
+	ADC.b $88				;$B794FF
+	CMP.w #$0100				;$B79501
+	SEP.b #$20				;$B79504
+	STA.b $00,x				;$B79506
+	LDA.b $26				;$B79508
+	BCS.b CODE_B7950E			;$B7950A
+	AND.b #$AA				;$B7950C
 CODE_B7950E:
-	ORA.b ($86)
-	STA.b ($86)
-	LDA.b $26
-	BPL.b CODE_B7951D
-	INC.b $86
-	LDA.b #$03
-	CLC
-	BRA.b CODE_B7951F
+	ORA.b ($86)				;$B7950E
+	STA.b ($86)				;$B79510
+	LDA.b $26				;$B79512
+	BPL.b CODE_B7951D			;$B79514
+	INC.b $86				;$B79516
+	LDA.b #$03				;$B79518
+	CLC					;$B7951A
+	BRA.b CODE_B7951F			;$B7951B
 
 CODE_B7951D:
-	ASL
-	ASL
+	ASL					;$B7951D
+	ASL					;$B7951E
 CODE_B7951F:
-	STA.b $26
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	STA.b $26				;$B7951F
+	REP.b #$20				;$B79521
+	LDA.b $1C				;$B79523
+	STA.b $02,x				;$B79525
+	INX					;$B79527
+	INX					;$B79528
+	INX					;$B79529
+	INX					;$B7952A
 CODE_B7952B:
-	CLC
-	LDA.b $1C
-	INC
-	INC
-	BIT.w #$0010
-	BEQ.b CODE_B79538
-	ADC.w #$0010
+	CLC					;$B7952B
+	LDA.b $1C				;$B7952C
+	INC					;$B7952E
+	INC					;$B7952F
+	BIT.w #$0010				;$B79530
+	BEQ.b CODE_B79538			;$B79533
+	ADC.w #$0010				;$B79535
 CODE_B79538:
-	STA.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B794DF
+	STA.b $1C				;$B79538
+	SEP.b #$20				;$B7953A
+	INY					;$B7953C
+	INY					;$B7953D
+	BRA.b CODE_B794DF			;$B7953E
 
 CODE_B79540:
-	LDA.b $20
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	STA.b $1C
-	LDA.b $88
-	CLC
-	ADC.w #$0008
-	STA.b $88
-	SEP.b #$20
+	LDA.b $20				;$B79540
+	REP.b #$20				;$B79542
+	AND.w #$00FF				;$B79544
+	CLC					;$B79547
+	ADC.b $1A				;$B79548
+	STA.b $1C				;$B7954A
+	LDA.b $88				;$B7954C
+	CLC					;$B7954E
+	ADC.w #$0008				;$B7954F
+	STA.b $88				;$B79552
+	SEP.b #$20				;$B79554
 CODE_B79556:
-	DEC.b $1F
-	BMI.b CODE_B795AE
-	LDA.b [$2C],y
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B795A6
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	EOR.w #$00FF
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	BIT.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	BEQ.b CODE_B7959C
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	DEC.b $1F				;$B79556
+	BMI.b CODE_B795AE			;$B79558
+	LDA.b [$2C],y				;$B7955A
+	REP.b #$20				;$B7955C
+	AND.w #$00FF				;$B7955E
+	CLC					;$B79561
+	ADC.b $8A				;$B79562
+	CMP.w #$00F0				;$B79564
+	BCS.b CODE_B795A6			;$B79567
+	SBC.w #$000F				;$B79569
+	STA.b $01,x				;$B7956C
+	LDA.b [$28],y				;$B7956E
+	EOR.w #$00FF				;$B79570
+	AND.w #$00FF				;$B79573
+	CLC					;$B79576
+	ADC.b $88				;$B79577
+	BIT.w #$0100				;$B79579
+	SEP.b #$20				;$B7957C
+	STA.b $00,x				;$B7957E
+	BEQ.b CODE_B7959C			;$B79580
+	STX.b $84				;$B79582
+	REP.b #$20				;$B79584
+	TXA					;$B79586
+	AND.w #$01FC				;$B79587
+	LSR					;$B7958A
+	LSR					;$B7958B
+	TAX					;$B7958C
+	LSR					;$B7958D
+	LSR					;$B7958E
+	SEP.b #$20				;$B7958F
+	STA.b $86				;$B79591
+	LDA.w DATA_B791D4,x			;$B79593
+	ORA.b ($86)				;$B79596
+	STA.b ($86)				;$B79598
+	LDX.b $84				;$B7959A
 CODE_B7959C:
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	REP.b #$20				;$B7959C
+	LDA.b $1C				;$B7959E
+	STA.b $02,x				;$B795A0
+	INX					;$B795A2
+	INX					;$B795A3
+	INX					;$B795A4
+	INX					;$B795A5
 CODE_B795A6:
-	INC.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B79556
+	INC.b $1C				;$B795A6
+	SEP.b #$20				;$B795A8
+	INY					;$B795AA
+	INY					;$B795AB
+	BRA.b CODE_B79556			;$B795AC
 
 CODE_B795AE:
-	LDA.b $22
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	STA.b $1C
-	SEP.b #$20
+	LDA.b $22				;$B795AE
+	REP.b #$20				;$B795B0
+	AND.w #$00FF				;$B795B2
+	CLC					;$B795B5
+	ADC.b $1A				;$B795B6
+	STA.b $1C				;$B795B8
+	SEP.b #$20				;$B795BA
 CODE_B795BC:
-	DEC.b $21
-	BMI.b CODE_B79614
-	LDA.b [$2C],y
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B7960C
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	EOR.w #$00FF
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	BIT.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	BEQ.b CODE_B79602
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	DEC.b $21				;$B795BC
+	BMI.b CODE_B79614			;$B795BE
+	LDA.b [$2C],y				;$B795C0
+	REP.b #$20				;$B795C2
+	AND.w #$00FF				;$B795C4
+	CLC					;$B795C7
+	ADC.b $8A				;$B795C8
+	CMP.w #$00F0				;$B795CA
+	BCS.b CODE_B7960C			;$B795CD
+	SBC.w #$000F				;$B795CF
+	STA.b $01,x				;$B795D2
+	LDA.b [$28],y				;$B795D4
+	EOR.w #$00FF				;$B795D6
+	AND.w #$00FF				;$B795D9
+	CLC					;$B795DC
+	ADC.b $88				;$B795DD
+	BIT.w #$0100				;$B795DF
+	SEP.b #$20				;$B795E2
+	STA.b $00,x				;$B795E4
+	BEQ.b CODE_B79602			;$B795E6
+	STX.b $84				;$B795E8
+	REP.b #$20				;$B795EA
+	TXA					;$B795EC
+	AND.w #$01FC				;$B795ED
+	LSR					;$B795F0
+	LSR					;$B795F1
+	TAX					;$B795F2
+	LSR					;$B795F3
+	LSR					;$B795F4
+	SEP.b #$20				;$B795F5
+	STA.b $86				;$B795F7
+	LDA.w DATA_B791D4,x			;$B795F9
+	ORA.b ($86)				;$B795FC
+	STA.b ($86)				;$B795FE
+	LDX.b $84				;$B79600
 CODE_B79602:
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	REP.b #$20				;$B79602
+	LDA.b $1C				;$B79604
+	STA.b $02,x				;$B79606
+	INX					;$B79608
+	INX					;$B79609
+	INX					;$B7960A
+	INX					;$B7960B
 CODE_B7960C:
-	INC.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B795BC
+	INC.b $1C				;$B7960C
+	SEP.b #$20				;$B7960E
+	INY					;$B79610
+	INY					;$B79611
+	BRA.b CODE_B795BC			;$B79612
 
 CODE_B79614:
-	REP.b #$20
-	STX.b next_oam_slot
-	RTS
+	REP.b #$20				;$B79614
+	STX.b next_oam_slot			;$B79616
+	RTS					;$B79618
 
 CODE_B79619:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$0005
-	JMP.w CODE_B796A0
+	LDY.w #$0000				;$B79619
+	LDA.b [$28],y				;$B7961C
+	STA.b $1E				;$B7961E
+	LDY.w #$0002				;$B79620
+	LDA.b [$28],y				;$B79623
+	STA.b $20				;$B79625
+	LDY.w #$0004				;$B79627
+	LDA.b [$28],y				;$B7962A
+	STA.b $22				;$B7962C
+	LDY.w #$0005				;$B7962E
+	JMP.w CODE_B796A0			;$B79631
 
 CODE_B79634:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$000E
-	JMP.w CODE_B796A0
+	LDY.w #$0000				;$B79634
+	LDA.b [$28],y				;$B79637
+	STA.b $1E				;$B79639
+	LDY.w #$0002				;$B7963B
+	LDA.b [$28],y				;$B7963E
+	STA.b $20				;$B79640
+	LDY.w #$0004				;$B79642
+	LDA.b [$28],y				;$B79645
+	STA.b $22				;$B79647
+	LDY.w #$000E				;$B79649
+	JMP.w CODE_B796A0			;$B7964C
 
 CODE_B7964F:
-	LDY.w #$0009
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	STA.b $1C
-	LDY.w #$000A
-	LDA.b [$28],y
-	STA.b $1F
-	LDY.w #$000C
-	LDA.b [$28],y
-	STA.b $21
-	LDY.w #$0006
-	LDA.b [$28],y
-	STA.b $24
-	SEP.b #$20
-	LDY.w #$0008
-	LDA.b [$28],y
-	STA.b $1E
-	REP.b #$20
-	LDY.b $84
-	JMP.w CODE_B796A0
+	LDY.w #$0009				;$B7964F
+	LDA.b [$28],y				;$B79652
+	AND.w #$00FF				;$B79654
+	CLC					;$B79657
+	ADC.b $1A				;$B79658
+	STA.b $1C				;$B7965A
+	LDY.w #$000A				;$B7965C
+	LDA.b [$28],y				;$B7965F
+	STA.b $1F				;$B79661
+	LDY.w #$000C				;$B79663
+	LDA.b [$28],y				;$B79666
+	STA.b $21				;$B79668
+	LDY.w #$0006				;$B7966A
+	LDA.b [$28],y				;$B7966D
+	STA.b $24				;$B7966F
+	SEP.b #$20				;$B79671
+	LDY.w #$0008				;$B79673
+	LDA.b [$28],y				;$B79676
+	STA.b $1E				;$B79678
+	REP.b #$20				;$B7967A
+	LDY.b $84				;$B7967C
+	JMP.w CODE_B796A0			;$B7967E
 
 CODE_B79681:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$0006
-	LDA.b [$28],y
-	STA.b $24
-	LDY.w #$0008
+	LDY.w #$0000				;$B79681
+	LDA.b [$28],y				;$B79684
+	STA.b $1E				;$B79686
+	LDY.w #$0002				;$B79688
+	LDA.b [$28],y				;$B7968B
+	STA.b $20				;$B7968D
+	LDY.w #$0004				;$B7968F
+	LDA.b [$28],y				;$B79692
+	STA.b $22				;$B79694
+	LDY.w #$0006				;$B79696
+	LDA.b [$28],y				;$B79699
+	STA.b $24				;$B7969B
+	LDY.w #$0008				;$B7969D
 CODE_B796A0:
-	LDA.b next_oam_slot
-	LSR
-	LSR
-	SEP.b #$20
-	TAX
-	ADC.b $1E
-	CLC
-	ADC.b $1F
-	CLC
-	ADC.b $21
-	BMI.b CODE_B796B7
-	REP.b #$20
-	PLA
-	JMP.w CODE_B7914E
+	LDA.b next_oam_slot			;$B796A0
+	LSR					;$B796A2
+	LSR					;$B796A3
+	SEP.b #$20				;$B796A4
+	TAX					;$B796A6
+	ADC.b $1E				;$B796A7
+	CLC					;$B796A9
+	ADC.b $1F				;$B796AA
+	CLC					;$B796AC
+	ADC.b $21				;$B796AD
+	BMI.b CODE_B796B7			;$B796AF
+	REP.b #$20				;$B796B1
+	PLA					;$B796B3
+	JMP.w CODE_B7914E			;$B796B4
 
 CODE_B796B7:
-	TXA
-	LSR
-	LSR
-	AND.b #$1F
-	STA.b $86
-	TXA
-	AND.b #$03
-	TAX
-	LDA.w DATA_B79154,x
-	STA.b $26
-	LDX.b next_oam_slot
-	CLC
+	TXA					;$B796B7
+	LSR					;$B796B8
+	LSR					;$B796B9
+	AND.b #$1F				;$B796BA
+	STA.b $86				;$B796BC
+	TXA					;$B796BE
+	AND.b #$03				;$B796BF
+	TAX					;$B796C1
+	LDA.w DATA_B79154,x			;$B796C2
+	STA.b $26				;$B796C5
+	LDX.b next_oam_slot			;$B796C7
+	CLC					;$B796C9
 CODE_B796CA:
-	DEC.b $1E
-	BMI.b CODE_B7972A
-	LDA.b [$2C],y
-	EOR.b #$FF
-	REP.b #$20
-	AND.w #$00FF
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B79715
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	CMP.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	LDA.b $26
-	BCS.b CODE_B796F8
-	AND.b #$AA
+	DEC.b $1E				;$B796CA
+	BMI.b CODE_B7972A			;$B796CC
+	LDA.b [$2C],y				;$B796CE
+	EOR.b #$FF				;$B796D0
+	REP.b #$20				;$B796D2
+	AND.w #$00FF				;$B796D4
+	ADC.b $8A				;$B796D7
+	CMP.w #$00F0				;$B796D9
+	BCS.b CODE_B79715			;$B796DC
+	SBC.w #$000F				;$B796DE
+	STA.b $01,x				;$B796E1
+	LDA.b [$28],y				;$B796E3
+	AND.w #$00FF				;$B796E5
+	CLC					;$B796E8
+	ADC.b $88				;$B796E9
+	CMP.w #$0100				;$B796EB
+	SEP.b #$20				;$B796EE
+	STA.b $00,x				;$B796F0
+	LDA.b $26				;$B796F2
+	BCS.b CODE_B796F8			;$B796F4
+	AND.b #$AA				;$B796F6
 CODE_B796F8:
-	ORA.b ($86)
-	STA.b ($86)
-	LDA.b $26
-	BPL.b CODE_B79707
-	INC.b $86
-	LDA.b #$03
-	CLC
-	BRA.b CODE_B79709
+	ORA.b ($86)				;$B796F8
+	STA.b ($86)				;$B796FA
+	LDA.b $26				;$B796FC
+	BPL.b CODE_B79707			;$B796FE
+	INC.b $86				;$B79700
+	LDA.b #$03				;$B79702
+	CLC					;$B79704
+	BRA.b CODE_B79709			;$B79705
 
 CODE_B79707:
-	ASL
-	ASL
+	ASL					;$B79707
+	ASL					;$B79708
 CODE_B79709:
-	STA.b $26
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	STA.b $26				;$B79709
+	REP.b #$20				;$B7970B
+	LDA.b $1C				;$B7970D
+	STA.b $02,x				;$B7970F
+	INX					;$B79711
+	INX					;$B79712
+	INX					;$B79713
+	INX					;$B79714
 CODE_B79715:
-	CLC
-	LDA.b $1C
-	INC
-	INC
-	BIT.w #$0010
-	BEQ.b CODE_B79722
-	ADC.w #$0010
+	CLC					;$B79715
+	LDA.b $1C				;$B79716
+	INC					;$B79718
+	INC					;$B79719
+	BIT.w #$0010				;$B7971A
+	BEQ.b CODE_B79722			;$B7971D
+	ADC.w #$0010				;$B7971F
 CODE_B79722:
-	STA.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B796CA
+	STA.b $1C				;$B79722
+	SEP.b #$20				;$B79724
+	INY					;$B79726
+	INY					;$B79727
+	BRA.b CODE_B796CA			;$B79728
 
 CODE_B7972A:
-	LDA.b $20
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	STA.b $1C
-	LDA.b $8A
-	CLC
-	ADC.w #$0008
-	STA.b $8A
-	SEP.b #$20
+	LDA.b $20				;$B7972A
+	REP.b #$20				;$B7972C
+	AND.w #$00FF				;$B7972E
+	CLC					;$B79731
+	ADC.b $1A				;$B79732
+	STA.b $1C				;$B79734
+	LDA.b $8A				;$B79736
+	CLC					;$B79738
+	ADC.w #$0008				;$B79739
+	STA.b $8A				;$B7973C
+	SEP.b #$20				;$B7973E
 CODE_B79740:
-	DEC.b $1F
-	BMI.b CODE_B79797
-	LDA.b [$2C],y
-	EOR.b #$FF
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B7978F
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	BIT.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	BEQ.b CODE_B79785
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	DEC.b $1F				;$B79740
+	BMI.b CODE_B79797			;$B79742
+	LDA.b [$2C],y				;$B79744
+	EOR.b #$FF				;$B79746
+	REP.b #$20				;$B79748
+	AND.w #$00FF				;$B7974A
+	CLC					;$B7974D
+	ADC.b $8A				;$B7974E
+	CMP.w #$00F0				;$B79750
+	BCS.b CODE_B7978F			;$B79753
+	SBC.w #$000F				;$B79755
+	STA.b $01,x				;$B79758
+	LDA.b [$28],y				;$B7975A
+	AND.w #$00FF				;$B7975C
+	CLC					;$B7975F
+	ADC.b $88				;$B79760
+	BIT.w #$0100				;$B79762
+	SEP.b #$20				;$B79765
+	STA.b $00,x				;$B79767
+	BEQ.b CODE_B79785			;$B79769
+	STX.b $84				;$B7976B
+	REP.b #$20				;$B7976D
+	TXA					;$B7976F
+	AND.w #$01FC				;$B79770
+	LSR					;$B79773
+	LSR					;$B79774
+	TAX					;$B79775
+	LSR					;$B79776
+	LSR					;$B79777
+	SEP.b #$20				;$B79778
+	STA.b $86				;$B7977A
+	LDA.w DATA_B791D4,x			;$B7977C
+	ORA.b ($86)				;$B7977F
+	STA.b ($86)				;$B79781
+	LDX.b $84				;$B79783
 CODE_B79785:
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	REP.b #$20				;$B79785
+	LDA.b $1C				;$B79787
+	STA.b $02,x				;$B79789
+	INX					;$B7978B
+	INX					;$B7978C
+	INX					;$B7978D
+	INX					;$B7978E
 CODE_B7978F:
-	INC.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B79740
+	INC.b $1C				;$B7978F
+	SEP.b #$20				;$B79791
+	INY					;$B79793
+	INY					;$B79794
+	BRA.b CODE_B79740			;$B79795
 
 CODE_B79797:
-	LDA.b $22
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	STA.b $1C
-	SEP.b #$20
+	LDA.b $22				;$B79797
+	REP.b #$20				;$B79799
+	AND.w #$00FF				;$B7979B
+	CLC					;$B7979E
+	ADC.b $1A				;$B7979F
+	STA.b $1C				;$B797A1
+	SEP.b #$20				;$B797A3
 CODE_B797A5:
-	DEC.b $21
-	BMI.b CODE_B797FC
-	LDA.b [$2C],y
-	EOR.b #$FF
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B797F4
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	BIT.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	BEQ.b CODE_B797EA
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	DEC.b $21				;$B797A5
+	BMI.b CODE_B797FC			;$B797A7
+	LDA.b [$2C],y				;$B797A9
+	EOR.b #$FF				;$B797AB
+	REP.b #$20				;$B797AD
+	AND.w #$00FF				;$B797AF
+	CLC					;$B797B2
+	ADC.b $8A				;$B797B3
+	CMP.w #$00F0				;$B797B5
+	BCS.b CODE_B797F4			;$B797B8
+	SBC.w #$000F				;$B797BA
+	STA.b $01,x				;$B797BD
+	LDA.b [$28],y				;$B797BF
+	AND.w #$00FF				;$B797C1
+	CLC					;$B797C4
+	ADC.b $88				;$B797C5
+	BIT.w #$0100				;$B797C7
+	SEP.b #$20				;$B797CA
+	STA.b $00,x				;$B797CC
+	BEQ.b CODE_B797EA			;$B797CE
+	STX.b $84				;$B797D0
+	REP.b #$20				;$B797D2
+	TXA					;$B797D4
+	AND.w #$01FC				;$B797D5
+	LSR					;$B797D8
+	LSR					;$B797D9
+	TAX					;$B797DA
+	LSR					;$B797DB
+	LSR					;$B797DC
+	SEP.b #$20				;$B797DD
+	STA.b $86				;$B797DF
+	LDA.w DATA_B791D4,x			;$B797E1
+	ORA.b ($86)				;$B797E4
+	STA.b ($86)				;$B797E6
+	LDX.b $84				;$B797E8
 CODE_B797EA:
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	REP.b #$20				;$B797EA
+	LDA.b $1C				;$B797EC
+	STA.b $02,x				;$B797EE
+	INX					;$B797F0
+	INX					;$B797F1
+	INX					;$B797F2
+	INX					;$B797F3
 CODE_B797F4:
-	INC.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B797A5
+	INC.b $1C				;$B797F4
+	SEP.b #$20				;$B797F6
+	INY					;$B797F8
+	INY					;$B797F9
+	BRA.b CODE_B797A5			;$B797FA
 
 CODE_B797FC:
-	REP.b #$20
-	STX.b next_oam_slot
-	RTS
+	REP.b #$20				;$B797FC
+	STX.b next_oam_slot			;$B797FE
+	RTS					;$B79800
 
 CODE_B79801:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$0005
-	JMP.w CODE_B79888
+	LDY.w #$0000				;$B79801
+	LDA.b [$28],y				;$B79804
+	STA.b $1E				;$B79806
+	LDY.w #$0002				;$B79808
+	LDA.b [$28],y				;$B7980B
+	STA.b $20				;$B7980D
+	LDY.w #$0004				;$B7980F
+	LDA.b [$28],y				;$B79812
+	STA.b $22				;$B79814
+	LDY.w #$0005				;$B79816
+	JMP.w CODE_B79888			;$B79819
 
 CODE_B7981C:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$000E
-	JMP.w CODE_B79888
+	LDY.w #$0000				;$B7981C
+	LDA.b [$28],y				;$B7981F
+	STA.b $1E				;$B79821
+	LDY.w #$0002				;$B79823
+	LDA.b [$28],y				;$B79826
+	STA.b $20				;$B79828
+	LDY.w #$0004				;$B7982A
+	LDA.b [$28],y				;$B7982D
+	STA.b $22				;$B7982F
+	LDY.w #$000E				;$B79831
+	JMP.w CODE_B79888			;$B79834
 
 CODE_B79837:
-	LDY.w #$0009
-	LDA.b [$28],y
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	STA.b $1C
-	LDY.w #$000A
-	LDA.b [$28],y
-	STA.b $1F
-	LDY.w #$000C
-	LDA.b [$28],y
-	STA.b $21
-	LDY.w #$0006
-	LDA.b [$28],y
-	STA.b $24
-	SEP.b #$20
-	LDY.w #$0008
-	LDA.b [$28],y
-	STA.b $1E
-	REP.b #$20
-	LDY.b $84
-	JMP.w CODE_B79888
+	LDY.w #$0009				;$B79837
+	LDA.b [$28],y				;$B7983A
+	AND.w #$00FF				;$B7983C
+	CLC					;$B7983F
+	ADC.b $1A				;$B79840
+	STA.b $1C				;$B79842
+	LDY.w #$000A				;$B79844
+	LDA.b [$28],y				;$B79847
+	STA.b $1F				;$B79849
+	LDY.w #$000C				;$B7984B
+	LDA.b [$28],y				;$B7984E
+	STA.b $21				;$B79850
+	LDY.w #$0006				;$B79852
+	LDA.b [$28],y				;$B79855
+	STA.b $24				;$B79857
+	SEP.b #$20				;$B79859
+	LDY.w #$0008				;$B7985B
+	LDA.b [$28],y				;$B7985E
+	STA.b $1E				;$B79860
+	REP.b #$20				;$B79862
+	LDY.b $84				;$B79864
+	JMP.w CODE_B79888			;$B79866
 
 CODE_B79869:
-	LDY.w #$0000
-	LDA.b [$28],y
-	STA.b $1E
-	LDY.w #$0002
-	LDA.b [$28],y
-	STA.b $20
-	LDY.w #$0004
-	LDA.b [$28],y
-	STA.b $22
-	LDY.w #$0006
-	LDA.b [$28],y
-	STA.b $24
-	LDY.w #$0008
+	LDY.w #$0000				;$B79869
+	LDA.b [$28],y				;$B7986C
+	STA.b $1E				;$B7986E
+	LDY.w #$0002				;$B79870
+	LDA.b [$28],y				;$B79873
+	STA.b $20				;$B79875
+	LDY.w #$0004				;$B79877
+	LDA.b [$28],y				;$B7987A
+	STA.b $22				;$B7987C
+	LDY.w #$0006				;$B7987E
+	LDA.b [$28],y				;$B79881
+	STA.b $24				;$B79883
+	LDY.w #$0008				;$B79885
 CODE_B79888:
-	LDA.b next_oam_slot
-	LSR
-	LSR
-	SEP.b #$20
-	TAX
-	ADC.b $1E
-	CLC
-	ADC.b $1F
-	CLC
-	ADC.b $21
-	BMI.b CODE_B7989F
-	REP.b #$20
-	PLA
-	JMP.w CODE_B7914E
+	LDA.b next_oam_slot			;$B79888
+	LSR					;$B7988A
+	LSR					;$B7988B
+	SEP.b #$20				;$B7988C
+	TAX					;$B7988E
+	ADC.b $1E				;$B7988F
+	CLC					;$B79891
+	ADC.b $1F				;$B79892
+	CLC					;$B79894
+	ADC.b $21				;$B79895
+	BMI.b CODE_B7989F			;$B79897
+	REP.b #$20				;$B79899
+	PLA					;$B7989B
+	JMP.w CODE_B7914E			;$B7989C
 
 CODE_B7989F:
-	TXA
-	LSR
-	LSR
-	AND.b #$1F
-	STA.b $86
-	TXA
-	AND.b #$03
-	TAX
-	LDA.w DATA_B79154,x
-	STA.b $26
-	LDX.b next_oam_slot
-	CLC
+	TXA					;$B7989F
+	LSR					;$B798A0
+	LSR					;$B798A1
+	AND.b #$1F				;$B798A2
+	STA.b $86				;$B798A4
+	TXA					;$B798A6
+	AND.b #$03				;$B798A7
+	TAX					;$B798A9
+	LDA.w DATA_B79154,x			;$B798AA
+	STA.b $26				;$B798AD
+	LDX.b next_oam_slot			;$B798AF
+	CLC					;$B798B1
 CODE_B798B2:
-	DEC.b $1E
-	BMI.b CODE_B79915
-	LDA.b [$2C],y
-	EOR.b #$FF
-	REP.b #$20
-	AND.w #$00FF
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B79900
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	EOR.w #$00FF
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	CMP.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	LDA.b $26
-	BCS.b CODE_B798E3
-	AND.b #$AA
+	DEC.b $1E				;$B798B2
+	BMI.b CODE_B79915			;$B798B4
+	LDA.b [$2C],y				;$B798B6
+	EOR.b #$FF				;$B798B8
+	REP.b #$20				;$B798BA
+	AND.w #$00FF				;$B798BC
+	ADC.b $8A				;$B798BF
+	CMP.w #$00F0				;$B798C1
+	BCS.b CODE_B79900			;$B798C4
+	SBC.w #$000F				;$B798C6
+	STA.b $01,x				;$B798C9
+	LDA.b [$28],y				;$B798CB
+	EOR.w #$00FF				;$B798CD
+	AND.w #$00FF				;$B798D0
+	CLC					;$B798D3
+	ADC.b $88				;$B798D4
+	CMP.w #$0100				;$B798D6
+	SEP.b #$20				;$B798D9
+	STA.b $00,x				;$B798DB
+	LDA.b $26				;$B798DD
+	BCS.b CODE_B798E3			;$B798DF
+	AND.b #$AA				;$B798E1
 CODE_B798E3:
-	ORA.b ($86)
-	STA.b ($86)
-	LDA.b $26
-	BPL.b CODE_B798F2
-	INC.b $86
-	LDA.b #$03
-	CLC
-	BRA.b CODE_B798F4
+	ORA.b ($86)				;$B798E3
+	STA.b ($86)				;$B798E5
+	LDA.b $26				;$B798E7
+	BPL.b CODE_B798F2			;$B798E9
+	INC.b $86				;$B798EB
+	LDA.b #$03				;$B798ED
+	CLC					;$B798EF
+	BRA.b CODE_B798F4			;$B798F0
 
 CODE_B798F2:
-	ASL
-	ASL
+	ASL					;$B798F2
+	ASL					;$B798F3
 CODE_B798F4:
-	STA.b $26
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	STA.b $26				;$B798F4
+	REP.b #$20				;$B798F6
+	LDA.b $1C				;$B798F8
+	STA.b $02,x				;$B798FA
+	INX					;$B798FC
+	INX					;$B798FD
+	INX					;$B798FE
+	INX					;$B798FF
 CODE_B79900:
-	CLC
-	LDA.b $1C
-	INC
-	INC
-	BIT.w #$0010
-	BEQ.b CODE_B7990D
-	ADC.w #$0010
+	CLC					;$B79900
+	LDA.b $1C				;$B79901
+	INC					;$B79903
+	INC					;$B79904
+	BIT.w #$0010				;$B79905
+	BEQ.b CODE_B7990D			;$B79908
+	ADC.w #$0010				;$B7990A
 CODE_B7990D:
-	STA.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B798B2
+	STA.b $1C				;$B7990D
+	SEP.b #$20				;$B7990F
+	INY					;$B79911
+	INY					;$B79912
+	BRA.b CODE_B798B2			;$B79913
 
 CODE_B79915:
-	LDA.b $20
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	STA.b $1C
-	LDA.b $88
-	CLC
-	ADC.w #$0008
-	STA.b $88
-	LDA.b $8A
-	CLC
-	ADC.w #$0008
-	STA.b $8A
-	SEP.b #$20
+	LDA.b $20				;$B79915
+	REP.b #$20				;$B79917
+	AND.w #$00FF				;$B79919
+	CLC					;$B7991C
+	ADC.b $1A				;$B7991D
+	STA.b $1C				;$B7991F
+	LDA.b $88				;$B79921
+	CLC					;$B79923
+	ADC.w #$0008				;$B79924
+	STA.b $88				;$B79927
+	LDA.b $8A				;$B79929
+	CLC					;$B7992B
+	ADC.w #$0008				;$B7992C
+	STA.b $8A				;$B7992F
+	SEP.b #$20				;$B79931
 CODE_B79933:
-	DEC.b $1F
-	BMI.b CODE_B7998D
-	LDA.b [$2C],y
-	EOR.b #$FF
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B79985
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	EOR.w #$00FF
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	BIT.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	BEQ.b CODE_B7997B
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	DEC.b $1F				;$B79933
+	BMI.b CODE_B7998D			;$B79935
+	LDA.b [$2C],y				;$B79937
+	EOR.b #$FF				;$B79939
+	REP.b #$20				;$B7993B
+	AND.w #$00FF				;$B7993D
+	CLC					;$B79940
+	ADC.b $8A				;$B79941
+	CMP.w #$00F0				;$B79943
+	BCS.b CODE_B79985			;$B79946
+	SBC.w #$000F				;$B79948
+	STA.b $01,x				;$B7994B
+	LDA.b [$28],y				;$B7994D
+	EOR.w #$00FF				;$B7994F
+	AND.w #$00FF				;$B79952
+	CLC					;$B79955
+	ADC.b $88				;$B79956
+	BIT.w #$0100				;$B79958
+	SEP.b #$20				;$B7995B
+	STA.b $00,x				;$B7995D
+	BEQ.b CODE_B7997B			;$B7995F
+	STX.b $84				;$B79961
+	REP.b #$20				;$B79963
+	TXA					;$B79965
+	AND.w #$01FC				;$B79966
+	LSR					;$B79969
+	LSR					;$B7996A
+	TAX					;$B7996B
+	LSR					;$B7996C
+	LSR					;$B7996D
+	SEP.b #$20				;$B7996E
+	STA.b $86				;$B79970
+	LDA.w DATA_B791D4,x			;$B79972
+	ORA.b ($86)				;$B79975
+	STA.b ($86)				;$B79977
+	LDX.b $84				;$B79979
 CODE_B7997B:
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	REP.b #$20				;$B7997B
+	LDA.b $1C				;$B7997D
+	STA.b $02,x				;$B7997F
+	INX					;$B79981
+	INX					;$B79982
+	INX					;$B79983
+	INX					;$B79984
 CODE_B79985:
-	INC.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B79933
+	INC.b $1C				;$B79985
+	SEP.b #$20				;$B79987
+	INY					;$B79989
+	INY					;$B7998A
+	BRA.b CODE_B79933			;$B7998B
 
 CODE_B7998D:
-	LDA.b $22
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $1A
-	STA.b $1C
-	SEP.b #$20
+	LDA.b $22				;$B7998D
+	REP.b #$20				;$B7998F
+	AND.w #$00FF				;$B79991
+	CLC					;$B79994
+	ADC.b $1A				;$B79995
+	STA.b $1C				;$B79997
+	SEP.b #$20				;$B79999
 CODE_B7999B:
-	DEC.b $21
-	BMI.b CODE_B799F5
-	LDA.b [$2C],y
-	EOR.b #$FF
-	REP.b #$20
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	CMP.w #$00F0
-	BCS.b CODE_B799ED
-	SBC.w #$000F
-	STA.b $01,x
-	LDA.b [$28],y
-	EOR.w #$00FF
-	AND.w #$00FF
-	CLC
-	ADC.b $88
-	BIT.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	BEQ.b CODE_B799E3
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	DEC.b $21				;$B7999B
+	BMI.b CODE_B799F5			;$B7999D
+	LDA.b [$2C],y				;$B7999F
+	EOR.b #$FF				;$B799A1
+	REP.b #$20				;$B799A3
+	AND.w #$00FF				;$B799A5
+	CLC					;$B799A8
+	ADC.b $8A				;$B799A9
+	CMP.w #$00F0				;$B799AB
+	BCS.b CODE_B799ED			;$B799AE
+	SBC.w #$000F				;$B799B0
+	STA.b $01,x				;$B799B3
+	LDA.b [$28],y				;$B799B5
+	EOR.w #$00FF				;$B799B7
+	AND.w #$00FF				;$B799BA
+	CLC					;$B799BD
+	ADC.b $88				;$B799BE
+	BIT.w #$0100				;$B799C0
+	SEP.b #$20				;$B799C3
+	STA.b $00,x				;$B799C5
+	BEQ.b CODE_B799E3			;$B799C7
+	STX.b $84				;$B799C9
+	REP.b #$20				;$B799CB
+	TXA					;$B799CD
+	AND.w #$01FC				;$B799CE
+	LSR					;$B799D1
+	LSR					;$B799D2
+	TAX					;$B799D3
+	LSR					;$B799D4
+	LSR					;$B799D5
+	SEP.b #$20				;$B799D6
+	STA.b $86				;$B799D8
+	LDA.w DATA_B791D4,x			;$B799DA
+	ORA.b ($86)				;$B799DD
+	STA.b ($86)				;$B799DF
+	LDX.b $84				;$B799E1
 CODE_B799E3:
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
+	REP.b #$20				;$B799E3
+	LDA.b $1C				;$B799E5
+	STA.b $02,x				;$B799E7
+	INX					;$B799E9
+	INX					;$B799EA
+	INX					;$B799EB
+	INX					;$B799EC
 CODE_B799ED:
-	INC.b $1C
-	SEP.b #$20
-	INY
-	INY
-	BRA.b CODE_B7999B
+	INC.b $1C				;$B799ED
+	SEP.b #$20				;$B799EF
+	INY					;$B799F1
+	INY					;$B799F2
+	BRA.b CODE_B7999B			;$B799F3
 
 CODE_B799F5:
-	REP.b #$20
-	STX.b next_oam_slot
-	RTS
+	REP.b #$20				;$B799F5
+	STX.b next_oam_slot			;$B799F7
+	RTS					;$B799F9
 
 CODE_B799FA:
-	LDA.b $3F
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	BMI.b CODE_B79A6E
-	BEQ.b CODE_B79A6E
-	CLC
-	ADC.w #$0007
-	LSR
-	LSR
-	LSR
-	SEP.b #$20
-	CMP.b $40
-	BCS.b CODE_B79A15
-	STA.b $40
+	LDA.b $3F				;$B799FA
+	AND.w #$00FF				;$B799FC
+	CLC					;$B799FF
+	ADC.b $8A				;$B79A00
+	BMI.b CODE_B79A6E			;$B79A02
+	BEQ.b CODE_B79A6E			;$B79A04
+	CLC					;$B79A06
+	ADC.w #$0007				;$B79A07
+	LSR					;$B79A0A
+	LSR					;$B79A0B
+	LSR					;$B79A0C
+	SEP.b #$20				;$B79A0D
+	CMP.b $40				;$B79A0F
+	BCS.b CODE_B79A15			;$B79A11
+	STA.b $40				;$B79A13
 CODE_B79A15:
-	LDX.b next_oam_slot
+	LDX.b next_oam_slot			;$B79A15
 CODE_B79A17:
-	CPX.w #$0400
-	BCS.b CODE_B79A6A
-	LDA.b $3F
-	SBC.b #$07
-	STA.b $3F
-	CLC
-	ADC.b $8A
-	BCC.b CODE_B79A2B
-	BIT.b $8B
-	BPL.b CODE_B79A66
+	CPX.w #$0400				;$B79A17
+	BCS.b CODE_B79A6A			;$B79A1A
+	LDA.b $3F				;$B79A1C
+	SBC.b #$07				;$B79A1E
+	STA.b $3F				;$B79A20
+	CLC					;$B79A22
+	ADC.b $8A				;$B79A23
+	BCC.b CODE_B79A2B			;$B79A25
+	BIT.b $8B				;$B79A27
+	BPL.b CODE_B79A66			;$B79A29
 CODE_B79A2B:
-	CMP.b #$F0
-	BCS.b CODE_B79A66
-	SBC.b #$0F
-	STA.b $01,x
-	LDA.b $3E
-	CLC
-	ADC.b $88
-	STA.b $00,x
-	LDA.b #$00
-	ADC.b $89
-	BEQ.b CODE_B79A5A
-	STX.b $84
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
+	CMP.b #$F0				;$B79A2B
+	BCS.b CODE_B79A66			;$B79A2D
+	SBC.b #$0F				;$B79A2F
+	STA.b $01,x				;$B79A31
+	LDA.b $3E				;$B79A33
+	CLC					;$B79A35
+	ADC.b $88				;$B79A36
+	STA.b $00,x				;$B79A38
+	LDA.b #$00				;$B79A3A
+	ADC.b $89				;$B79A3C
+	BEQ.b CODE_B79A5A			;$B79A3E
+	STX.b $84				;$B79A40
+	REP.b #$20				;$B79A42
+	TXA					;$B79A44
+	AND.w #$01FC				;$B79A45
+	LSR					;$B79A48
+	LSR					;$B79A49
+	TAX					;$B79A4A
+	LSR					;$B79A4B
+	LSR					;$B79A4C
+	SEP.b #$20				;$B79A4D
+	STA.b $86				;$B79A4F
+	LDA.w DATA_B791D4,x			;$B79A51
+	ORA.b ($86)				;$B79A54
+	STA.b ($86)				;$B79A56
+	LDX.b $84				;$B79A58
 CODE_B79A5A:
-	LDA.b $1C
-	STA.b $02,x
-	LDA.b $1D
-	STA.b $03,x
-	INX
-	INX
-	INX
-	INX
+	LDA.b $1C				;$B79A5A
+	STA.b $02,x				;$B79A5C
+	LDA.b $1D				;$B79A5E
+	STA.b $03,x				;$B79A60
+	INX					;$B79A62
+	INX					;$B79A63
+	INX					;$B79A64
+	INX					;$B79A65
 CODE_B79A66:
-	DEC.b $40
-	BNE.b CODE_B79A17
+	DEC.b $40				;$B79A66
+	BNE.b CODE_B79A17			;$B79A68
 CODE_B79A6A:
-	REP.b #$20
-	STX.b next_oam_slot
+	REP.b #$20				;$B79A6A
+	STX.b next_oam_slot			;$B79A6C
 CODE_B79A6E:
-	RTS
+	RTS					;$B79A6E
 
 CODE_B79A6F:
-	LDA.b $3F
-	AND.w #$00FF
-	CLC
-	ADC.b $8A
-	BMI.b CODE_B79A7B
-	BNE.b CODE_B79A7E
+	LDA.b $3F				;$B79A6F
+	AND.w #$00FF				;$B79A71
+	CLC					;$B79A74
+	ADC.b $8A				;$B79A75
+	BMI.b CODE_B79A7B			;$B79A77
+	BNE.b CODE_B79A7E			;$B79A79
 CODE_B79A7B:
-	JMP.w CODE_B79B0D
+	JMP.w CODE_B79B0D			;$B79A7B
 
 CODE_B79A7E:
-	CLC
-	ADC.w #$000F
-	LSR
-	LSR
-	LSR
-	LSR
-	SEP.b #$20
-	CMP.b $40
-	BCS.b CODE_B79A8E
-	STA.b $40
+	CLC					;$B79A7E
+	ADC.w #$000F				;$B79A7F
+	LSR					;$B79A82
+	LSR					;$B79A83
+	LSR					;$B79A84
+	LSR					;$B79A85
+	SEP.b #$20				;$B79A86
+	CMP.b $40				;$B79A88
+	BCS.b CODE_B79A8E			;$B79A8A
+	STA.b $40				;$B79A8C
 CODE_B79A8E:
-	LDX.b next_oam_slot
+	LDX.b next_oam_slot			;$B79A8E
 CODE_B79A90:
-	CPX.w #$0400
-	BCS.b CODE_B79B09
-	LDA.b $3F
-	SBC.b #$0F
-	STA.b $3F
-	CLC
-	ADC.b $8A
-	BCC.b CODE_B79AA4
-	BIT.b $8B
-	BPL.b CODE_B79B05
+	CPX.w #$0400				;$B79A90
+	BCS.b CODE_B79B09			;$B79A93
+	LDA.b $3F				;$B79A95
+	SBC.b #$0F				;$B79A97
+	STA.b $3F				;$B79A99
+	CLC					;$B79A9B
+	ADC.b $8A				;$B79A9C
+	BCC.b CODE_B79AA4			;$B79A9E
+	BIT.b $8B				;$B79AA0
+	BPL.b CODE_B79B05			;$B79AA2
 CODE_B79AA4:
-	CMP.b #$F0
-	BCS.b CODE_B79B05
-	SBC.b #$0F
-	STA.b $84
-	LDA.b $40
-	CMP.b #$01
-	BNE.b CODE_B79AB9
-	LDA.b $84
-	CLC
-	ADC.b $38
-	BRA.b CODE_B79ABB
+	CMP.b #$F0				;$B79AA4
+	BCS.b CODE_B79B05			;$B79AA6
+	SBC.b #$0F				;$B79AA8
+	STA.b $84				;$B79AAA
+	LDA.b $40				;$B79AAC
+	CMP.b #$01				;$B79AAE
+	BNE.b CODE_B79AB9			;$B79AB0
+	LDA.b $84				;$B79AB2
+	CLC					;$B79AB4
+	ADC.b $38				;$B79AB5
+	BRA.b CODE_B79ABB			;$B79AB7
 
 CODE_B79AB9:
-	LDA.b $84
+	LDA.b $84				;$B79AB9
 CODE_B79ABB:
-	STA.b $01,x
-	STX.b $84
-	LDA.b $3E
-	CLC
-	ADC.b $88
-	STA.b $00,x
-	LDA.b #$00
-	ADC.b $89
-	BEQ.b CODE_B79AE0
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B79154,x
-	BRA.b CODE_B79AF3
+	STA.b $01,x				;$B79ABB
+	STX.b $84				;$B79ABD
+	LDA.b $3E				;$B79ABF
+	CLC					;$B79AC1
+	ADC.b $88				;$B79AC2
+	STA.b $00,x				;$B79AC4
+	LDA.b #$00				;$B79AC6
+	ADC.b $89				;$B79AC8
+	BEQ.b CODE_B79AE0			;$B79ACA
+	REP.b #$20				;$B79ACC
+	TXA					;$B79ACE
+	AND.w #$01FC				;$B79ACF
+	LSR					;$B79AD2
+	LSR					;$B79AD3
+	TAX					;$B79AD4
+	LSR					;$B79AD5
+	LSR					;$B79AD6
+	SEP.b #$20				;$B79AD7
+	STA.b $86				;$B79AD9
+	LDA.w DATA_B79154,x			;$B79ADB
+	BRA.b CODE_B79AF3			;$B79ADE
 
 CODE_B79AE0:
-	REP.b #$20
-	TXA
-	AND.w #$01FC
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	SEP.b #$20
-	STA.b $86
-	LDA.w DATA_B791D4,x
-	ASL
+	REP.b #$20				;$B79AE0
+	TXA					;$B79AE2
+	AND.w #$01FC				;$B79AE3
+	LSR					;$B79AE6
+	LSR					;$B79AE7
+	TAX					;$B79AE8
+	LSR					;$B79AE9
+	LSR					;$B79AEA
+	SEP.b #$20				;$B79AEB
+	STA.b $86				;$B79AED
+	LDA.w DATA_B791D4,x			;$B79AEF
+	ASL					;$B79AF2
 CODE_B79AF3:
-	ORA.b ($86)
-	STA.b ($86)
-	LDX.b $84
-	LDA.b $1C
-	STA.b $02,x
-	LDA.b $1D
-	STA.b $03,x
-	INX
-	INX
-	INX
-	INX
+	ORA.b ($86)				;$B79AF3
+	STA.b ($86)				;$B79AF5
+	LDX.b $84				;$B79AF7
+	LDA.b $1C				;$B79AF9
+	STA.b $02,x				;$B79AFB
+	LDA.b $1D				;$B79AFD
+	STA.b $03,x				;$B79AFF
+	INX					;$B79B01
+	INX					;$B79B02
+	INX					;$B79B03
+	INX					;$B79B04
 CODE_B79B05:
-	DEC.b $40
-	BNE.b CODE_B79A90
+	DEC.b $40				;$B79B05
+	BNE.b CODE_B79A90			;$B79B07
 CODE_B79B09:
-	REP.b #$20
-	STX.b next_oam_slot
+	REP.b #$20				;$B79B09
+	STX.b next_oam_slot			;$B79B0B
 CODE_B79B0D:
-	RTS
+	RTS					;$B79B0D
 
 CODE_B79B0E:
-	LDA.w $001E,y
-	STA.b $1A
-	INC
-	INC
-	STA.b $1C
-	LDA.b next_oam_slot
-	LSR
-	LSR
-	TAX
-	LSR
-	LSR
-	AND.w #$001F
-	SEP.b #$20
-	STA.b $86
-	TXA
-	AND.b #$03
-	TAX
-	LDA.w DATA_B79154,x
-	STA.b $26
-	REP.b #$20
-	LDX.b next_oam_slot
-	LDA.b $8A
-	STA.b $01,x
-	CLC
-	ADC.w #$0010
-	BMI.b CODE_B79B71
-	STA.b $8A
-	LDA.b $88
-	SEC
-	SBC.w #$0008
-	CMP.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	LDA.b $26
-	BCS.b CODE_B79B51
-	AND.b #$AA
+	LDA.w $001E,y				;$B79B0E
+	STA.b $1A				;$B79B11
+	INC					;$B79B13
+	INC					;$B79B14
+	STA.b $1C				;$B79B15
+	LDA.b next_oam_slot			;$B79B17
+	LSR					;$B79B19
+	LSR					;$B79B1A
+	TAX					;$B79B1B
+	LSR					;$B79B1C
+	LSR					;$B79B1D
+	AND.w #$001F				;$B79B1E
+	SEP.b #$20				;$B79B21
+	STA.b $86				;$B79B23
+	TXA					;$B79B25
+	AND.b #$03				;$B79B26
+	TAX					;$B79B28
+	LDA.w DATA_B79154,x			;$B79B29
+	STA.b $26				;$B79B2C
+	REP.b #$20				;$B79B2E
+	LDX.b next_oam_slot			;$B79B30
+	LDA.b $8A				;$B79B32
+	STA.b $01,x				;$B79B34
+	CLC					;$B79B36
+	ADC.w #$0010				;$B79B37
+	BMI.b CODE_B79B71			;$B79B3A
+	STA.b $8A				;$B79B3C
+	LDA.b $88				;$B79B3E
+	SEC					;$B79B40
+	SBC.w #$0008				;$B79B41
+	CMP.w #$0100				;$B79B44
+	SEP.b #$20				;$B79B47
+	STA.b $00,x				;$B79B49
+	LDA.b $26				;$B79B4B
+	BCS.b CODE_B79B51			;$B79B4D
+	AND.b #$AA				;$B79B4F
 CODE_B79B51:
-	ORA.b ($86)
-	STA.b ($86)
-	LDA.b $26
-	BPL.b CODE_B79B5F
-	INC.b $86
-	LDA.b #$03
-	BRA.b CODE_B79B61
+	ORA.b ($86)				;$B79B51
+	STA.b ($86)				;$B79B53
+	LDA.b $26				;$B79B55
+	BPL.b CODE_B79B5F			;$B79B57
+	INC.b $86				;$B79B59
+	LDA.b #$03				;$B79B5B
+	BRA.b CODE_B79B61			;$B79B5D
 
 CODE_B79B5F:
-	ASL
-	ASL
+	ASL					;$B79B5F
+	ASL					;$B79B60
 CODE_B79B61:
-	STA.b $26
-	REP.b #$20
-	LDA.b $1A
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
-	LDA.b $8A
-	BRA.b CODE_B79B74
+	STA.b $26				;$B79B61
+	REP.b #$20				;$B79B63
+	LDA.b $1A				;$B79B65
+	STA.b $02,x				;$B79B67
+	INX					;$B79B69
+	INX					;$B79B6A
+	INX					;$B79B6B
+	INX					;$B79B6C
+	LDA.b $8A				;$B79B6D
+	BRA.b CODE_B79B74			;$B79B6F
 
 CODE_B79B71:
-	ORA.w #$FFF0
+	ORA.w #$FFF0				;$B79B71
 CODE_B79B74:
-	STA.b $01,x
-	CLC
-	ADC.w #$0010
-	STA.b $8A
-	CMP.b $40
-	BCC.b CODE_B79B9A
-	SBC.w #$0008
-	CMP.b $40
-	BCS.b CODE_B79BC9
-	STA.b $8A
-	LDA.w #$00AA
-	TRB.b $26
-	LDA.b $3E
-	BMI.b CODE_B79B9A
-	INC.b $1C
-	INC.b $1C
-	DEC.b $88
-	DEC.b $88
+	STA.b $01,x				;$B79B74
+	CLC					;$B79B76
+	ADC.w #$0010				;$B79B77
+	STA.b $8A				;$B79B7A
+	CMP.b $40				;$B79B7C
+	BCC.b CODE_B79B9A			;$B79B7E
+	SBC.w #$0008				;$B79B80
+	CMP.b $40				;$B79B83
+	BCS.b CODE_B79BC9			;$B79B85
+	STA.b $8A				;$B79B87
+	LDA.w #$00AA				;$B79B89
+	TRB.b $26				;$B79B8C
+	LDA.b $3E				;$B79B8E
+	BMI.b CODE_B79B9A			;$B79B90
+	INC.b $1C				;$B79B92
+	INC.b $1C				;$B79B94
+	DEC.b $88				;$B79B96
+	DEC.b $88				;$B79B98
 CODE_B79B9A:
-	LDA.b $88
-	CMP.w #$0100
-	SEP.b #$20
-	STA.b $00,x
-	LDA.b $26
-	BCS.b CODE_B79BA9
-	AND.b #$AA
+	LDA.b $88				;$B79B9A
+	CMP.w #$0100				;$B79B9C
+	SEP.b #$20				;$B79B9F
+	STA.b $00,x				;$B79BA1
+	LDA.b $26				;$B79BA3
+	BCS.b CODE_B79BA9			;$B79BA5
+	AND.b #$AA				;$B79BA7
 CODE_B79BA9:
-	ORA.b ($86)
-	STA.b ($86)
-	LDA.b $26
-	BPL.b CODE_B79BB7
-	INC.b $86
-	LDA.b #$03
-	BRA.b CODE_B79BB9
+	ORA.b ($86)				;$B79BA9
+	STA.b ($86)				;$B79BAB
+	LDA.b $26				;$B79BAD
+	BPL.b CODE_B79BB7			;$B79BAF
+	INC.b $86				;$B79BB1
+	LDA.b #$03				;$B79BB3
+	BRA.b CODE_B79BB9			;$B79BB5
 
 CODE_B79BB7:
-	ASL
-	ASL
+	ASL					;$B79BB7
+	ASL					;$B79BB8
 CODE_B79BB9:
-	STA.b $26
-	REP.b #$20
-	LDA.b $1C
-	STA.b $02,x
-	INX
-	INX
-	INX
-	INX
-	LDA.b $8A
-	BRA.b CODE_B79B74
+	STA.b $26				;$B79BB9
+	REP.b #$20				;$B79BBB
+	LDA.b $1C				;$B79BBD
+	STA.b $02,x				;$B79BBF
+	INX					;$B79BC1
+	INX					;$B79BC2
+	INX					;$B79BC3
+	INX					;$B79BC4
+	LDA.b $8A				;$B79BC5
+	BRA.b CODE_B79B74			;$B79BC7
 
 CODE_B79BC9:
-	STX.b next_oam_slot
-	RTS
+	STX.b next_oam_slot			;$B79BC9
+	RTS					;$B79BCB
 
 CODE_B79BCC:
-	LDA.w sprite_render_table
-	TAY
-	LDA.w $000E,y
-	STA.b $84
-	LDX.w #$1522
+	LDA.w sprite_render_table		;$B79BCC
+	TAY					;$B79BCF
+	LDA.w $000E,y				;$B79BD0
+	STA.b $84				;$B79BD3
+	LDX.w #$1522				;$B79BD5
 CODE_B79BD8:
-	LDY.b $04,x
-	LDA.w $000E,y
-	CMP.b $84
-	STA.b $84
-	BCC.b CODE_B79BEB
-	BEQ.b CODE_B79BEB
-	LDA.b $02,x
-	STA.b $04,x
-	STY.b $02,x
+	LDY.b $04,x				;$B79BD8
+	LDA.w $000E,y				;$B79BDA
+	CMP.b $84				;$B79BDD
+	STA.b $84				;$B79BDF
+	BCC.b CODE_B79BEB			;$B79BE1
+	BEQ.b CODE_B79BEB			;$B79BE3
+	LDA.b $02,x				;$B79BE5
+	STA.b $04,x				;$B79BE7
+	STY.b $02,x				;$B79BE9
 CODE_B79BEB:
-	INX
-	INX
-	CPX.w #$155A
-	BNE.b CODE_B79BD8
+	INX					;$B79BEB
+	INX					;$B79BEC
+	CPX.w #$155A				;$B79BED
+	BNE.b CODE_B79BD8			;$B79BF0
 CODE_B79BF2:
-	LDY.b $00,x
-	LDA.w $000E,y
-	CMP.b $84
-	STA.b $84
-	BCS.b CODE_B79C03
-	LDA.b $02,x
-	STA.b $00,x
-	STY.b $02,x
+	LDY.b $00,x				;$B79BF2
+	LDA.w $000E,y				;$B79BF4
+	CMP.b $84				;$B79BF7
+	STA.b $84				;$B79BF9
+	BCS.b CODE_B79C03			;$B79BFB
+	LDA.b $02,x				;$B79BFD
+	STA.b $00,x				;$B79BFF
+	STY.b $02,x				;$B79C01
 CODE_B79C03:
-	DEX
-	DEX
-	CPX.w #$1522
-	BNE.b CODE_B79BF2
-	RTL
+	DEX					;$B79C03
+	DEX					;$B79C04
+	CPX.w #$1522				;$B79C05
+	BNE.b CODE_B79BF2			;$B79C08
+	RTL					;$B79C0A
 
 DATA_B79C0B:
 	dw DATA_B79C47,DATA_B79C4E,DATA_B79C55,DATA_B79C5C
@@ -3927,113 +3927,113 @@ DATA_B79D21:
 	db $03,$7E,$6A,$66,$7E,$72,$67,$81,$6B,$68
 
 CODE_B79D2B:
-	INC.b $20
-	LDA.w #$000F
-	JSL.l CODE_B79D35
-	RTL
+	INC.b $20				;$B79D2B
+	LDA.w #$000F				;$B79D2D
+	JSL.l CODE_B79D35			;$B79D30
+	RTL					;$B79D34
 
 CODE_B79D35:										; Note: Routine that decompressed text.
-	PHB
-	PHK
-	PLB
-	DEC
-	ASL
-	ASL
-	STA.b $24
-	LDX.w language_select
-	LDA.w DATA_B79DF2,x
-	AND.w #$00FF
-	CLC
-	ADC.b $24
-	TAX
-	LDA.w DATA_B79DF5,x
-	STA.b $24
-	LDA.w DATA_B79DF5+$02,x
-	STA.b $42
-	LDA.w #DATA_FA0000>>16
-	STA.b $44
-	LDA.w language_select
-	ASL
-	TAX
-	LDA.w DATA_B79DE6,x
-	STA.b $46
-	LDA.w DATA_B79DEC,x
-	CLC
-	ADC.b $42
-	STA.b $42
-	STZ.b $22
-	LDX.b $46
-	LDA.w DATA_B79EE5,x
-	STA.b $1A
+	PHB					;$B79D35
+	PHK					;$B79D36
+	PLB					;$B79D37
+	DEC					;$B79D38
+	ASL					;$B79D39
+	ASL					;$B79D3A
+	STA.b $24				;$B79D3B
+	LDX.w language_select			;$B79D3D
+	LDA.w DATA_B79DF2,x			;$B79D40
+	AND.w #$00FF				;$B79D43
+	CLC					;$B79D46
+	ADC.b $24				;$B79D47
+	TAX					;$B79D49
+	LDA.w DATA_B79DF5,x			;$B79D4A
+	STA.b $24				;$B79D4D
+	LDA.w DATA_B79DF5+$02,x			;$B79D4F
+	STA.b $42				;$B79D52
+	LDA.w #DATA_FA0000>>16			;$B79D54
+	STA.b $44				;$B79D57
+	LDA.w language_select			;$B79D59
+	ASL					;$B79D5C
+	TAX					;$B79D5D
+	LDA.w DATA_B79DE6,x			;$B79D5E
+	STA.b $46				;$B79D61
+	LDA.w DATA_B79DEC,x			;$B79D63
+	CLC					;$B79D66
+	ADC.b $42				;$B79D67
+	STA.b $42				;$B79D69
+	STZ.b $22				;$B79D6B
+	LDX.b $46				;$B79D6D
+	LDA.w DATA_B79EE5,x			;$B79D6F
+	STA.b $1A				;$B79D72
 CODE_B79D74:
-	LDA.b [$42]
-	STA.b $1C
-	LDY.w #$000F
+	LDA.b [$42]				;$B79D74
+	STA.b $1C				;$B79D76
+	LDY.w #$000F				;$B79D78
 CODE_B79D7B:
-	ASL.b $1C
-	PHP
-	LDA.b $1A
-	BCS.b CODE_B79D85
-	ADC.w #$0002
+	ASL.b $1C				;$B79D7B
+	PHP					;$B79D7D
+	LDA.b $1A				;$B79D7E
+	BCS.b CODE_B79D85			;$B79D80
+	ADC.w #$0002				;$B79D82
 CODE_B79D85:
-	CLC
-	ADC.b $46
-	TAX
-	LDA.w DATA_B79EE5+$02,x
-	BEQ.b CODE_B79D9A
-	PLP
-	STA.b $1A
-	DEY
-	BPL.b CODE_B79D7B
-	INC.b $42
-	INC.b $42
-	BRA.b CODE_B79D74
+	CLC					;$B79D85
+	ADC.b $46				;$B79D86
+	TAX					;$B79D88
+	LDA.w DATA_B79EE5+$02,x			;$B79D89
+	BEQ.b CODE_B79D9A			;$B79D8C
+	PLP					;$B79D8E
+	STA.b $1A				;$B79D8F
+	DEY					;$B79D91
+	BPL.b CODE_B79D7B			;$B79D92
+	INC.b $42				;$B79D94
+	INC.b $42				;$B79D96
+	BRA.b CODE_B79D74			;$B79D98
 
 CODE_B79D9A:
-	LDA.b $1A
-	CLC
-	ADC.b $46
-	DEC
-	TAX
-	LDA.w DATA_B79EE5+$02,x
-	SEP.b #$20
-	LDX.b $20
-	STA.l $7EA9DE,x
-	LDX.b $22
-	BNE.b CODE_B79DB8
-	CMP.b #$05
-	BCC.b CODE_B79DB6
-	LDA.b #$01
+	LDA.b $1A				;$B79D9A
+	CLC					;$B79D9C
+	ADC.b $46				;$B79D9D
+	DEC					;$B79D9F
+	TAX					;$B79DA0
+	LDA.w DATA_B79EE5+$02,x			;$B79DA1
+	SEP.b #$20				;$B79DA4
+	LDX.b $20				;$B79DA6
+	STA.l $7EA9DE,x				;$B79DA8
+	LDX.b $22				;$B79DAC
+	BNE.b CODE_B79DB8			;$B79DAE
+	CMP.b #$05				;$B79DB0
+	BCC.b CODE_B79DB6			;$B79DB2
+	LDA.b #$01				;$B79DB4
 CODE_B79DB6:
-	STA.b $22
+	STA.b $22				;$B79DB6
 CODE_B79DB8:
-	CMP.b #$00
-	BNE.b CODE_B79DCF
-	DEC.b $22
-	BNE.b CODE_B79DCF
-	LDX.b $1E
-	REP.b #$20
-	LDA.b $20
-	INC
-	STA.l $7EA7BC,x
-	INC.b $1E
-	INC.b $1E
+	CMP.b #$00				;$B79DB8
+	BNE.b CODE_B79DCF			;$B79DBA
+	DEC.b $22				;$B79DBC
+	BNE.b CODE_B79DCF			;$B79DBE
+	LDX.b $1E				;$B79DC0
+	REP.b #$20				;$B79DC2
+	LDA.b $20				;$B79DC4
+	INC					;$B79DC6
+	STA.l $7EA7BC,x				;$B79DC7
+	INC.b $1E				;$B79DCB
+	INC.b $1E				;$B79DCD
 CODE_B79DCF:
-	REP.b #$20
-	LDX.b $46
-	LDA.w DATA_B79EE5,x
-	STA.b $1A
-	DEC.b $24
-	BEQ.b CODE_B79DE3
-	INC.b $20
-	PLP
-	ROR.b $1C
-	BRA.b CODE_B79D7B
+	REP.b #$20				;$B79DCF
+	LDX.b $46				;$B79DD1
+	LDA.w DATA_B79EE5,x			;$B79DD3
+	STA.b $1A				;$B79DD6
+	DEC.b $24				;$B79DD8
+	BEQ.b CODE_B79DE3			;$B79DDA
+	INC.b $20				;$B79DDC
+	PLP					;$B79DDE
+	ROR.b $1C				;$B79DDF
+	BRA.b CODE_B79D7B			;$B79DE1
 
 CODE_B79DE3:
-	PLP
-	PLB
-	RTL
+	PLP					;$B79DE3
+	PLB					;$B79DE4
+	RTL					;$B79DE5
 
 DATA_B79DE6:
 	dw $0000,$0300,$068C
@@ -4272,92 +4272,92 @@ DATA_B79EE5:
 	dw $0308,$0303,$1200,$0D03,$1303
 
 CODE_B7A88F:
-	LDY.w $1C87
-	LDA.w $005C,y
-	LDX.b next_oam_slot
-	STA.b $02,x
-	LDA.w $0016,y
-	SEC
-	SBC.w #$0080
-	SEC
-	SBC.w $1973
-	STA.b $1A
-	ADC.w #$0090
-	CMP.w #$0130
-	BCS.b CODE_B7A8E8
-	LDA.b $1A
-	CLC
-	ADC.w #$008F
-	CMP.w #$00F0
-	BCS.b CODE_B7A8E8
-	SBC.w #$000F
-	STA.b $1A
-	LDA.w $0012,y
-	SEC
-	SBC.w $196D
-	STA.b $1D
-	CLC
-	ADC.w #$0030
-	CMP.w #$0160
-	BCS.b CODE_B7A8E8
-	LDA.b $1D
-	SEC
-	SBC.w #$0004
-	SEP.b #$20
-	STA.b $1B
-	XBA
-	REP.b #$20
-	LDA.b $1A
-	XBA
-	STA.b $00,x
-	INX
-	INX
-	INX
-	INX
-	STX.b next_oam_slot
+	LDY.w $1C87				;$B7A88F
+	LDA.w $005C,y				;$B7A892
+	LDX.b next_oam_slot			;$B7A895
+	STA.b $02,x				;$B7A897
+	LDA.w $0016,y				;$B7A899
+	SEC					;$B7A89C
+	SBC.w #$0080				;$B7A89D
+	SEC					;$B7A8A0
+	SBC.w $1973				;$B7A8A1
+	STA.b $1A				;$B7A8A4
+	ADC.w #$0090				;$B7A8A6
+	CMP.w #$0130				;$B7A8A9
+	BCS.b CODE_B7A8E8			;$B7A8AC
+	LDA.b $1A				;$B7A8AE
+	CLC					;$B7A8B0
+	ADC.w #$008F				;$B7A8B1
+	CMP.w #$00F0				;$B7A8B4
+	BCS.b CODE_B7A8E8			;$B7A8B7
+	SBC.w #$000F				;$B7A8B9
+	STA.b $1A				;$B7A8BC
+	LDA.w $0012,y				;$B7A8BE
+	SEC					;$B7A8C1
+	SBC.w $196D				;$B7A8C2
+	STA.b $1D				;$B7A8C5
+	CLC					;$B7A8C7
+	ADC.w #$0030				;$B7A8C8
+	CMP.w #$0160				;$B7A8CB
+	BCS.b CODE_B7A8E8			;$B7A8CE
+	LDA.b $1D				;$B7A8D0
+	SEC					;$B7A8D2
+	SBC.w #$0004				;$B7A8D3
+	SEP.b #$20				;$B7A8D6
+	STA.b $1B				;$B7A8D8
+	XBA					;$B7A8DA
+	REP.b #$20				;$B7A8DB
+	LDA.b $1A				;$B7A8DD
+	XBA					;$B7A8DF
+	STA.b $00,x				;$B7A8E0
+	INX					;$B7A8E2
+	INX					;$B7A8E3
+	INX					;$B7A8E4
+	INX					;$B7A8E5
+	STX.b next_oam_slot			;$B7A8E6
 CODE_B7A8E8:
-	RTL
+	RTL					;$B7A8E8
 
 CODE_B7A8E9:
-	LDA.w $075C
-	BIT.w #$0002
-	RTL
+	LDA.w $075C				;$B7A8E9
+	BIT.w #$0002				;$B7A8EC
+	RTL					;$B7A8EF
 
 CODE_B7A8F0:
-	LDA.w $0777
-	BIT.w #$1000
-	RTL
+	LDA.w $0777				;$B7A8F0
+	BIT.w #$1000				;$B7A8F3
+	RTL					;$B7A8F6
 
 CODE_B7A8F7:
-	CMP.w #$0160
-	BCS.b CODE_B7A914
-	LDA.b $1D
-	SEC
-	SBC.w #$0004
-	SEP.b #$20
-	STA.b $1B
-	XBA
-	REP.b #$20
-	LDA.b $1A
-	XBA
-	STA.b $00,x
-	INX
-	INX
-	INX
-	INX
-	STX.b next_oam_slot
+	CMP.w #$0160				;$B7A8F7
+	BCS.b CODE_B7A914			;$B7A8FA
+	LDA.b $1D				;$B7A8FC
+	SEC					;$B7A8FE
+	SBC.w #$0004				;$B7A8FF
+	SEP.b #$20				;$B7A902
+	STA.b $1B				;$B7A904
+	XBA					;$B7A906
+	REP.b #$20				;$B7A907
+	LDA.b $1A				;$B7A909
+	XBA					;$B7A90B
+	STA.b $00,x				;$B7A90C
+	INX					;$B7A90E
+	INX					;$B7A90F
+	INX					;$B7A910
+	INX					;$B7A911
+	STX.b next_oam_slot			;$B7A912
 CODE_B7A914:
-	RTL
+	RTL					;$B7A914
 
 CODE_B7A915:
-	LDA.w $075C
-	BIT.w #$0002
-	RTL
+	LDA.w $075C				;$B7A915
+	BIT.w #$0002				;$B7A918
+	RTL					;$B7A91B
 
 CODE_B7A91C:
-	LDA.w $0777
-	BIT.w #$1000
-	RTL
+	LDA.w $0777				;$B7A91C
+	BIT.w #$1000				;$B7A91F
+	RTL					;$B7A922
 
 if !include_garbage_data == 1
 	incsrc "data/garbage_data/DKC2_DATA_B7A923.asm"
@@ -4366,31 +4366,31 @@ else
 endif
 
 CODE_B7B000:
-	JMP.w CODE_B7F28D
+	JMP.w CODE_B7F28D			;$B7B000
 
 CODE_B7B003:
-	JMP.w CODE_B7F328
+	JMP.w CODE_B7F328			;$B7B003
 
 CODE_B7B006:
-	JMP.w CODE_B7D4B1
+	JMP.w CODE_B7D4B1			;$B7B006
 
 CODE_B7B009:
-	JMP.w CODE_B7D8DE
+	JMP.w CODE_B7D8DE			;$B7B009
 
 CODE_B7B00C:
-	JMP.w CODE_B7C731
+	JMP.w CODE_B7C731			;$B7B00C
 
 CODE_B7B00F:
-	JMP.w CODE_B7B86D
+	JMP.w CODE_B7B86D			;$B7B00F
 
 CODE_B7B012:
-	JMP.w CODE_B7BB06
+	JMP.w CODE_B7BB06			;$B7B012
 
 CODE_B7B015:
-	JMP.w CODE_B7B618
+	JMP.w CODE_B7B618			;$B7B015
 
 CODE_B7B018:
-	JMP.w CODE_B7BBF2
+	JMP.w CODE_B7BBF2			;$B7B018
 
 DATA_B7B01B:
 	dw DATA_B7B084
@@ -4594,3571 +4594,3571 @@ DATA_B7B5BD:
 	dw $0C20,$16C0,$0007,$FFFF
 
 CODE_B7B618:
-	LDA.w $196D
-	AND.w #$FFF8
-	CMP.w $197D
-	BNE.b CODE_B7B624
-	RTL
+	LDA.w $196D				;$B7B618
+	AND.w #$FFF8				;$B7B61B
+	CMP.w $197D				;$B7B61E
+	BNE.b CODE_B7B624			;$B7B621
+	RTL					;$B7B623
 
 CODE_B7B624:
-	LDA.w $1560
-	CLC
-	ADC.w #$009C
-	STA.w $1560
-	LDA.w $196D
-	LDX.w $1989
-	BPL.b CODE_B7B63D
-	LDA.w $196D
-	SEC
-	SBC.w #$0100
+	LDA.w $1560				;$B7B624
+	CLC					;$B7B627
+	ADC.w #$009C				;$B7B628
+	STA.w $1560				;$B7B62B
+	LDA.w $196D				;$B7B62E
+	LDX.w $1989				;$B7B631
+	BPL.b CODE_B7B63D			;$B7B634
+	LDA.w $196D				;$B7B636
+	SEC					;$B7B639
+	SBC.w #$0100				;$B7B63A
 CODE_B7B63D:
-	TAY
-	AND.w #$FFE0
-	CLC
-	ADC.b $8C
-	STA.b $1A
-	LDA.w $1973
-	SEC
-	SBC.w #$0100
-	AND.w #$01E0
-	LSR
-	LSR
-	LSR
-	LSR
-	CLC
-	ADC.b $1A
-	STA.b $1A
-	TYA
-	AND.w #$0018
-	LSR
-	LSR
-	ADC.w $1967
-	STA.b $1C
-	TYA
-	AND.w #$0018
-	EOR.w #$0018
-	LSR
-	LSR
-	ADC.w $1967
-	STA.b $1E
-	LDA.b $8E
-	PHA
-	PLB
-	LDX.w #$1B0D
+	TAY					;$B7B63D
+	AND.w #$FFE0				;$B7B63E
+	CLC					;$B7B641
+	ADC.b $8C				;$B7B642
+	STA.b $1A				;$B7B644
+	LDA.w $1973				;$B7B646
+	SEC					;$B7B649
+	SBC.w #$0100				;$B7B64A
+	AND.w #$01E0				;$B7B64D
+	LSR					;$B7B650
+	LSR					;$B7B651
+	LSR					;$B7B652
+	LSR					;$B7B653
+	CLC					;$B7B654
+	ADC.b $1A				;$B7B655
+	STA.b $1A				;$B7B657
+	TYA					;$B7B659
+	AND.w #$0018				;$B7B65A
+	LSR					;$B7B65D
+	LSR					;$B7B65E
+	ADC.w $1967				;$B7B65F
+	STA.b $1C				;$B7B662
+	TYA					;$B7B664
+	AND.w #$0018				;$B7B665
+	EOR.w #$0018				;$B7B668
+	LSR					;$B7B66B
+	LSR					;$B7B66C
+	ADC.w $1967				;$B7B66D
+	STA.b $1E				;$B7B670
+	LDA.b $8E				;$B7B672
+	PHA					;$B7B674
+	PLB					;$B7B675
+	LDX.w #$1B0D				;$B7B676
 CODE_B7B679:
-	LDA.b ($1A)
-	BMI.b CODE_B7B6D9
-	BIT.w #$4000
-	BNE.b CODE_B7B6B1
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0000,y
-	STA.b $00,x
-	LDA.w $0008,y
-	STA.b $02,x
-	LDA.w $0010,y
-	STA.b $04,x
-	LDA.w $0018,y
+	LDA.b ($1A)				;$B7B679
+	BMI.b CODE_B7B6D9			;$B7B67B
+	BIT.w #$4000				;$B7B67D
+	BNE.b CODE_B7B6B1			;$B7B680
+	ASL					;$B7B682
+	ASL					;$B7B683
+	ASL					;$B7B684
+	ASL					;$B7B685
+	ASL					;$B7B686
+	ADC.b $1C				;$B7B687
+	TAY					;$B7B689
+	LDA.w $0000,y				;$B7B68A
+	STA.b $00,x				;$B7B68D
+	LDA.w $0008,y				;$B7B68F
+	STA.b $02,x				;$B7B692
+	LDA.w $0010,y				;$B7B694
+	STA.b $04,x				;$B7B697
+	LDA.w $0018,y				;$B7B699
 CODE_B7B69C:
-	STA.b $06,x
-	INC.b $1A
-	INC.b $1A
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
-	CMP.w #$1B55
-	BNE.b CODE_B7B679
-	PLB
-	JMP.w CODE_B7B72F
+	STA.b $06,x				;$B7B69C
+	INC.b $1A				;$B7B69E
+	INC.b $1A				;$B7B6A0
+	TXA					;$B7B6A2
+	CLC					;$B7B6A3
+	ADC.w #$0008				;$B7B6A4
+	TAX					;$B7B6A7
+	CMP.w #$1B55				;$B7B6A8
+	BNE.b CODE_B7B679			;$B7B6AB
+	PLB					;$B7B6AD
+	JMP.w CODE_B7B72F			;$B7B6AE
 
 CODE_B7B6B1:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0000,y
-	EOR.w #$4000
-	STA.b $00,x
-	LDA.w $0008,y
-	EOR.w #$4000
-	STA.b $02,x
-	LDA.w $0010,y
-	EOR.w #$4000
-	STA.b $04,x
-	LDA.w $0018,y
-	EOR.w #$4000
-	BRA.b CODE_B7B69C
+	ASL					;$B7B6B1
+	ASL					;$B7B6B2
+	ASL					;$B7B6B3
+	ASL					;$B7B6B4
+	ASL					;$B7B6B5
+	ADC.b $1E				;$B7B6B6
+	TAY					;$B7B6B8
+	LDA.w $0000,y				;$B7B6B9
+	EOR.w #$4000				;$B7B6BC
+	STA.b $00,x				;$B7B6BF
+	LDA.w $0008,y				;$B7B6C1
+	EOR.w #$4000				;$B7B6C4
+	STA.b $02,x				;$B7B6C7
+	LDA.w $0010,y				;$B7B6C9
+	EOR.w #$4000				;$B7B6CC
+	STA.b $04,x				;$B7B6CF
+	LDA.w $0018,y				;$B7B6D1
+	EOR.w #$4000				;$B7B6D4
+	BRA.b CODE_B7B69C			;$B7B6D7
 
 CODE_B7B6D9:
-	BIT.w #$4000
-	BNE.b CODE_B7B706
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0018,y
-	EOR.w #$8000
-	STA.b $00,x
-	LDA.w $0010,y
-	EOR.w #$8000
-	STA.b $02,x
-	LDA.w $0008,y
-	EOR.w #$8000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$8000
-	BRA.b CODE_B7B69C
+	BIT.w #$4000				;$B7B6D9
+	BNE.b CODE_B7B706			;$B7B6DC
+	ASL					;$B7B6DE
+	ASL					;$B7B6DF
+	ASL					;$B7B6E0
+	ASL					;$B7B6E1
+	ASL					;$B7B6E2
+	ADC.b $1C				;$B7B6E3
+	TAY					;$B7B6E5
+	LDA.w $0018,y				;$B7B6E6
+	EOR.w #$8000				;$B7B6E9
+	STA.b $00,x				;$B7B6EC
+	LDA.w $0010,y				;$B7B6EE
+	EOR.w #$8000				;$B7B6F1
+	STA.b $02,x				;$B7B6F4
+	LDA.w $0008,y				;$B7B6F6
+	EOR.w #$8000				;$B7B6F9
+	STA.b $04,x				;$B7B6FC
+	LDA.w $0000,y				;$B7B6FE
+	EOR.w #$8000				;$B7B701
+	BRA.b CODE_B7B69C			;$B7B704
 
 CODE_B7B706:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0018,y
-	EOR.w #$C000
-	STA.b $00,x
-	LDA.w $0010,y
-	EOR.w #$C000
-	STA.b $02,x
-	LDA.w $0008,y
-	EOR.w #$C000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$C000
-	JMP.w CODE_B7B69C
+	ASL					;$B7B706
+	ASL					;$B7B707
+	ASL					;$B7B708
+	ASL					;$B7B709
+	ASL					;$B7B70A
+	ADC.b $1E				;$B7B70B
+	TAY					;$B7B70D
+	LDA.w $0018,y				;$B7B70E
+	EOR.w #$C000				;$B7B711
+	STA.b $00,x				;$B7B714
+	LDA.w $0010,y				;$B7B716
+	EOR.w #$C000				;$B7B719
+	STA.b $02,x				;$B7B71C
+	LDA.w $0008,y				;$B7B71E
+	EOR.w #$C000				;$B7B721
+	STA.b $04,x				;$B7B724
+	LDA.w $0000,y				;$B7B726
+	EOR.w #$C000				;$B7B729
+	JMP.w CODE_B7B69C			;$B7B72C
 
 CODE_B7B72F:
-	LDA.w $1973
-	AND.w #$00F8
-	LSR
-	LSR
-	ORA.w $197B
-	TAY
-	AND.w #$0006
-	TAX
-	CLC
-	ADC.w #$0040
-	STA.b $1C
+	LDA.w $1973				;$B7B72F
+	AND.w #$00F8				;$B7B732
+	LSR					;$B7B735
+	LSR					;$B7B736
+	ORA.w $197B				;$B7B737
+	TAY					;$B7B73A
+	AND.w #$0006				;$B7B73B
+	TAX					;$B7B73E
+	CLC					;$B7B73F
+	ADC.w #$0040				;$B7B740
+	STA.b $1C				;$B7B743
 CODE_B7B745:
-	LDA.w $1B0D,x
-	STA.w $1A0D,y
-	TYA
-	CLC
-	ADC.w #$0002
-	AND.w #$003E
-	ORA.w $197B
-	TAY
-	INX
-	INX
-	CPX.b $1C
-	BNE.b CODE_B7B745
-	RTL
+	LDA.w $1B0D,x				;$B7B745
+	STA.w $1A0D,y				;$B7B748
+	TYA					;$B7B74B
+	CLC					;$B7B74C
+	ADC.w #$0002				;$B7B74D
+	AND.w #$003E				;$B7B750
+	ORA.w $197B				;$B7B753
+	TAY					;$B7B756
+	INX					;$B7B757
+	INX					;$B7B758
+	CPX.b $1C				;$B7B759
+	BNE.b CODE_B7B745			;$B7B75B
+	RTL					;$B7B75D
 
 CODE_B7B75E:
-	LDA.w $196D
-	AND.w #$FFF8
-	CMP.w $197D
-	BNE.b CODE_B7B76A
-	RTL
+	LDA.w $196D				;$B7B75E
+	AND.w #$FFF8				;$B7B761
+	CMP.w $197D				;$B7B764
+	BNE.b CODE_B7B76A			;$B7B767
+	RTL					;$B7B769
 
 CODE_B7B76A:
-	LDA.w $1560
-	CLC
-	ADC.w #$0068
-	STA.w $1560
-	LDA.w $196D
-	LDX.w $1989
-	BPL.b CODE_B7B783
-	LDA.w $196D
-	SEC
-	SBC.w #$0100
+	LDA.w $1560				;$B7B76A
+	CLC					;$B7B76D
+	ADC.w #$0068				;$B7B76E
+	STA.w $1560				;$B7B771
+	LDA.w $196D				;$B7B774
+	LDX.w $1989				;$B7B777
+	BPL.b CODE_B7B783			;$B7B77A
+	LDA.w $196D				;$B7B77C
+	SEC					;$B7B77F
+	SBC.w #$0100				;$B7B780
 CODE_B7B783:
-	TAY
-	AND.w #$FFE0
-	CLC
-	ADC.b $8C
-	STA.b $1A
-	TYA
-	AND.w #$0018
-	LSR
-	LSR
-	ADC.w $1967
-	STA.b $1C
-	TYA
-	AND.w #$0018
-	EOR.w #$0018
-	LSR
-	LSR
-	ADC.w $1967
-	STA.b $1E
-	LDA.b $8E
-	PHA
-	PLB
-	LDX.w #$1B0D
+	TAY					;$B7B783
+	AND.w #$FFE0				;$B7B784
+	CLC					;$B7B787
+	ADC.b $8C				;$B7B788
+	STA.b $1A				;$B7B78A
+	TYA					;$B7B78C
+	AND.w #$0018				;$B7B78D
+	LSR					;$B7B790
+	LSR					;$B7B791
+	ADC.w $1967				;$B7B792
+	STA.b $1C				;$B7B795
+	TYA					;$B7B797
+	AND.w #$0018				;$B7B798
+	EOR.w #$0018				;$B7B79B
+	LSR					;$B7B79E
+	LSR					;$B7B79F
+	ADC.w $1967				;$B7B7A0
+	STA.b $1E				;$B7B7A3
+	LDA.b $8E				;$B7B7A5
+	PHA					;$B7B7A7
+	PLB					;$B7B7A8
+	LDX.w #$1B0D				;$B7B7A9
 CODE_B7B7AC:
-	LDA.b ($1A)
-	BMI.b CODE_B7B817
-	BIT.w #$4000
-	BNE.b CODE_B7B7EF
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0000,y
-	STA.b $00,x
-	LDA.w $0008,y
-	STA.b $02,x
-	LDA.w $0010,y
-	STA.b $04,x
-	LDA.w $0018,y
+	LDA.b ($1A)				;$B7B7AC
+	BMI.b CODE_B7B817			;$B7B7AE
+	BIT.w #$4000				;$B7B7B0
+	BNE.b CODE_B7B7EF			;$B7B7B3
+	ASL					;$B7B7B5
+	ASL					;$B7B7B6
+	ASL					;$B7B7B7
+	ASL					;$B7B7B8
+	ASL					;$B7B7B9
+	ADC.b $1C				;$B7B7BA
+	TAY					;$B7B7BC
+	LDA.w $0000,y				;$B7B7BD
+	STA.b $00,x				;$B7B7C0
+	LDA.w $0008,y				;$B7B7C2
+	STA.b $02,x				;$B7B7C5
+	LDA.w $0010,y				;$B7B7C7
+	STA.b $04,x				;$B7B7CA
+	LDA.w $0018,y				;$B7B7CC
 CODE_B7B7CF:
-	STA.b $06,x
-	INC.b $1A
-	INC.b $1A
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
-	CMP.w #$1B1D
-	BNE.b CODE_B7B7AC
-	PLB
-	LDX.w #$000A
+	STA.b $06,x				;$B7B7CF
+	INC.b $1A				;$B7B7D1
+	INC.b $1A				;$B7B7D3
+	TXA					;$B7B7D5
+	CLC					;$B7B7D6
+	ADC.w #$0008				;$B7B7D7
+	TAX					;$B7B7DA
+	CMP.w #$1B1D				;$B7B7DB
+	BNE.b CODE_B7B7AC			;$B7B7DE
+	PLB					;$B7B7E0
+	LDX.w #$000A				;$B7B7E1
 CODE_B7B7E4:
-	LDA.w $1B11,x
-	STA.w $1A4D,x
-	DEX
-	DEX
-	BPL.b CODE_B7B7E4
-	RTL
+	LDA.w $1B11,x				;$B7B7E4
+	STA.w $1A4D,x				;$B7B7E7
+	DEX					;$B7B7EA
+	DEX					;$B7B7EB
+	BPL.b CODE_B7B7E4			;$B7B7EC
+	RTL					;$B7B7EE
 
 CODE_B7B7EF:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0000,y
-	EOR.w #$4000
-	STA.b $00,x
-	LDA.w $0008,y
-	EOR.w #$4000
-	STA.b $02,x
-	LDA.w $0010,y
-	EOR.w #$4000
-	STA.b $04,x
-	LDA.w $0018,y
-	EOR.w #$4000
-	BRA.b CODE_B7B7CF
+	ASL					;$B7B7EF
+	ASL					;$B7B7F0
+	ASL					;$B7B7F1
+	ASL					;$B7B7F2
+	ASL					;$B7B7F3
+	ADC.b $1E				;$B7B7F4
+	TAY					;$B7B7F6
+	LDA.w $0000,y				;$B7B7F7
+	EOR.w #$4000				;$B7B7FA
+	STA.b $00,x				;$B7B7FD
+	LDA.w $0008,y				;$B7B7FF
+	EOR.w #$4000				;$B7B802
+	STA.b $02,x				;$B7B805
+	LDA.w $0010,y				;$B7B807
+	EOR.w #$4000				;$B7B80A
+	STA.b $04,x				;$B7B80D
+	LDA.w $0018,y				;$B7B80F
+	EOR.w #$4000				;$B7B812
+	BRA.b CODE_B7B7CF			;$B7B815
 
 CODE_B7B817:
-	BIT.w #$4000
-	BNE.b CODE_B7B844
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0018,y
-	EOR.w #$8000
-	STA.b $00,x
-	LDA.w $0010,y
-	EOR.w #$8000
-	STA.b $02,x
-	LDA.w $0008,y
-	EOR.w #$8000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$8000
-	BRA.b CODE_B7B7CF
+	BIT.w #$4000				;$B7B817
+	BNE.b CODE_B7B844			;$B7B81A
+	ASL					;$B7B81C
+	ASL					;$B7B81D
+	ASL					;$B7B81E
+	ASL					;$B7B81F
+	ASL					;$B7B820
+	ADC.b $1C				;$B7B821
+	TAY					;$B7B823
+	LDA.w $0018,y				;$B7B824
+	EOR.w #$8000				;$B7B827
+	STA.b $00,x				;$B7B82A
+	LDA.w $0010,y				;$B7B82C
+	EOR.w #$8000				;$B7B82F
+	STA.b $02,x				;$B7B832
+	LDA.w $0008,y				;$B7B834
+	EOR.w #$8000				;$B7B837
+	STA.b $04,x				;$B7B83A
+	LDA.w $0000,y				;$B7B83C
+	EOR.w #$8000				;$B7B83F
+	BRA.b CODE_B7B7CF			;$B7B842
 
 CODE_B7B844:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0018,y
-	EOR.w #$C000
-	STA.b $00,x
-	LDA.w $0010,y
-	EOR.w #$C000
-	STA.b $02,x
-	LDA.w $0008,y
-	EOR.w #$C000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$C000
-	JMP.w CODE_B7B7CF
+	ASL					;$B7B844
+	ASL					;$B7B845
+	ASL					;$B7B846
+	ASL					;$B7B847
+	ASL					;$B7B848
+	ADC.b $1E				;$B7B849
+	TAY					;$B7B84B
+	LDA.w $0018,y				;$B7B84C
+	EOR.w #$C000				;$B7B84F
+	STA.b $00,x				;$B7B852
+	LDA.w $0010,y				;$B7B854
+	EOR.w #$C000				;$B7B857
+	STA.b $02,x				;$B7B85A
+	LDA.w $0008,y				;$B7B85C
+	EOR.w #$C000				;$B7B85F
+	STA.b $04,x				;$B7B862
+	LDA.w $0000,y				;$B7B864
+	EOR.w #$C000				;$B7B867
+	JMP.w CODE_B7B7CF			;$B7B86A
 
 CODE_B7B86D:
-	LDA.w $196D
-	AND.w #$FFF8
-	CMP.w $197D
-	BNE.b CODE_B7B879
-	RTL
+	LDA.w $196D				;$B7B86D
+	AND.w #$FFF8				;$B7B870
+	CMP.w $197D				;$B7B873
+	BNE.b CODE_B7B879			;$B7B876
+	RTL					;$B7B878
 
 CODE_B7B879:
-	STA.w $197D
-	SEP.b #$20
-	LDA.b #$81
-	STA.w !REGISTER_VRAMAddressIncrementValue
-	REP.b #$20
-	LDA.w $196D
-	LDX.w $1989
-	BMI.b CODE_B7B891
-	CLC
-	ADC.w #$0100
+	STA.w $197D				;$B7B879
+	SEP.b #$20				;$B7B87C
+	LDA.b #$81				;$B7B87E
+	STA.w !REGISTER_VRAMAddressIncrementValue	;$B7B880
+	REP.b #$20				;$B7B883
+	LDA.w $196D				;$B7B885
+	LDX.w $1989				;$B7B888
+	BMI.b CODE_B7B891			;$B7B88B
+	CLC					;$B7B88D
+	ADC.w #$0100				;$B7B88E
 CODE_B7B891:
-	LSR
-	LSR
-	LSR
-	AND.w #$003F
-	BIT.w #$0020
-	CLC
-	BEQ.b CODE_B7B8A0
-	ADC.w #$03E0
+	LSR					;$B7B891
+	LSR					;$B7B892
+	LSR					;$B7B893
+	AND.w #$003F				;$B7B894
+	BIT.w #$0020				;$B7B897
+	CLC					;$B7B89A
+	BEQ.b CODE_B7B8A0			;$B7B89B
+	ADC.w #$03E0				;$B7B89D
 CODE_B7B8A0:
-	ADC.w $1969
-	STA.w !REGISTER_VRAMAddressLo
-	LDA.w #$001A0D
-	STA.w DMA[$00].SourceLo
-	STA.w DMA[$00].Unused2
-	LDA.w #$0040
-	STA.w DMA[$00].SizeLo
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01
-	STA.w DMA[$00].Parameters
-	SEP.b #$20
-	STZ.w DMA[$00].SourceBank
-	LDA.b #$01
-	STA.w !REGISTER_DMAEnable
-	REP.b #$20
-	SEP.b #$20
-	LDA.b #$80
-	STA.w !REGISTER_VRAMAddressIncrementValue
-	REP.b #$20
-	RTL
+	ADC.w $1969				;$B7B8A0
+	STA.w !REGISTER_VRAMAddressLo		;$B7B8A3
+	LDA.w #$001A0D				;$B7B8A6
+	STA.w DMA[$00].SourceLo			;$B7B8A9
+	STA.w DMA[$00].Unused2			;$B7B8AC
+	LDA.w #$0040				;$B7B8AF
+	STA.w DMA[$00].SizeLo			;$B7B8B2
+	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B7B8B5
+	STA.w DMA[$00].Parameters		;$B7B8B8
+	SEP.b #$20				;$B7B8BB
+	STZ.w DMA[$00].SourceBank		;$B7B8BD
+	LDA.b #$01				;$B7B8C0
+	STA.w !REGISTER_DMAEnable		;$B7B8C2
+	REP.b #$20				;$B7B8C5
+	SEP.b #$20				;$B7B8C7
+	LDA.b #$80				;$B7B8C9
+	STA.w !REGISTER_VRAMAddressIncrementValue	;$B7B8CB
+	REP.b #$20				;$B7B8CE
+	RTL					;$B7B8D0
 
 CODE_B7B8D1:
-	LDA.w $196D
-	AND.w #$FFF8
-	CMP.w $197D
-	BNE.b CODE_B7B8DD
-	RTL
+	LDA.w $196D				;$B7B8D1
+	AND.w #$FFF8				;$B7B8D4
+	CMP.w $197D				;$B7B8D7
+	BNE.b CODE_B7B8DD			;$B7B8DA
+	RTL					;$B7B8DC
 
 CODE_B7B8DD:
-	SEP.b #$20
-	LDA.b #$81
-	STA.w !REGISTER_VRAMAddressIncrementValue
-	REP.b #$20
-	LDA.w $196D
-	LDX.w $1989
-	BMI.b CODE_B7B8F2
-	CLC
-	ADC.w #$0100
+	SEP.b #$20				;$B7B8DD
+	LDA.b #$81				;$B7B8DF
+	STA.w !REGISTER_VRAMAddressIncrementValue	;$B7B8E1
+	REP.b #$20				;$B7B8E4
+	LDA.w $196D				;$B7B8E6
+	LDX.w $1989				;$B7B8E9
+	BMI.b CODE_B7B8F2			;$B7B8EC
+	CLC					;$B7B8EE
+	ADC.w #$0100				;$B7B8EF
 CODE_B7B8F2:
-	LSR
-	LSR
-	LSR
-	AND.w #$003F
-	BIT.w #$0020
-	CLC
-	BEQ.b CODE_B7B901
-	ADC.w #$03E0
+	LSR					;$B7B8F2
+	LSR					;$B7B8F3
+	LSR					;$B7B8F4
+	AND.w #$003F				;$B7B8F5
+	BIT.w #$0020				;$B7B8F8
+	CLC					;$B7B8FB
+	BEQ.b CODE_B7B901			;$B7B8FC
+	ADC.w #$03E0				;$B7B8FE
 CODE_B7B901:
-	ADC.w #$70C0
-	STA.w !REGISTER_VRAMAddressLo
-	LDA.w #$001A4D
-	STA.w DMA[$00].SourceLo
-	STA.w DMA[$00].Unused2
-	LDA.w #$000C
-	STA.w DMA[$00].SizeLo
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01
-	STA.w DMA[$00].Parameters
-	SEP.b #$20
-	STZ.w DMA[$00].SourceBank
-	LDA.b #$01
-	STA.w !REGISTER_DMAEnable
-	REP.b #$20
-	SEP.b #$20
-	LDA.b #$80
-	STA.w !REGISTER_VRAMAddressIncrementValue
-	REP.b #$20
-	RTL
+	ADC.w #$70C0				;$B7B901
+	STA.w !REGISTER_VRAMAddressLo		;$B7B904
+	LDA.w #$001A4D				;$B7B907
+	STA.w DMA[$00].SourceLo			;$B7B90A
+	STA.w DMA[$00].Unused2			;$B7B90D
+	LDA.w #$000C				;$B7B910
+	STA.w DMA[$00].SizeLo			;$B7B913
+	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B7B916
+	STA.w DMA[$00].Parameters		;$B7B919
+	SEP.b #$20				;$B7B91C
+	STZ.w DMA[$00].SourceBank		;$B7B91E
+	LDA.b #$01				;$B7B921
+	STA.w !REGISTER_DMAEnable		;$B7B923
+	REP.b #$20				;$B7B926
+	SEP.b #$20				;$B7B928
+	LDA.b #$80				;$B7B92A
+	STA.w !REGISTER_VRAMAddressIncrementValue	;$B7B92C
+	REP.b #$20				;$B7B92F
+	RTL					;$B7B931
 
 CODE_B7B932:
-	LDA.w $196D
-	AND.w #$FFF8
-	CMP.w $197D
-	BNE.b CODE_B7B93E
-	RTL
+	LDA.w $196D				;$B7B932
+	AND.w #$FFF8				;$B7B935
+	CMP.w $197D				;$B7B938
+	BNE.b CODE_B7B93E			;$B7B93B
+	RTL					;$B7B93D
 
 CODE_B7B93E:
-	SEP.b #$20
-	LDA.b #$81
-	STA.w !REGISTER_VRAMAddressIncrementValue
-	REP.b #$20
-	LDA.w $1989
-	BPL.b CODE_B7B951
-	LDA.w $196D
-	BRA.b CODE_B7B958
+	SEP.b #$20				;$B7B93E
+	LDA.b #$81				;$B7B940
+	STA.w !REGISTER_VRAMAddressIncrementValue	;$B7B942
+	REP.b #$20				;$B7B945
+	LDA.w $1989				;$B7B947
+	BPL.b CODE_B7B951			;$B7B94A
+	LDA.w $196D				;$B7B94C
+	BRA.b CODE_B7B958			;$B7B94F
 
 CODE_B7B951:
-	LDA.w $196D
-	CLC
-	ADC.w #$0100
+	LDA.w $196D				;$B7B951
+	CLC					;$B7B954
+	ADC.w #$0100				;$B7B955
 CODE_B7B958:
-	LSR
-	LSR
-	LSR
-	AND.w #$003F
-	BIT.w #$0020
-	CLC
-	BEQ.b CODE_B7B967
-	ADC.w #$03E0
+	LSR					;$B7B958
+	LSR					;$B7B959
+	LSR					;$B7B95A
+	AND.w #$003F				;$B7B95B
+	BIT.w #$0020				;$B7B95E
+	CLC					;$B7B961
+	BEQ.b CODE_B7B967			;$B7B962
+	ADC.w #$03E0				;$B7B964
 CODE_B7B967:
-	ADC.w #$7800
-	STA.w !REGISTER_VRAMAddressLo
-	LDA.w #$001ACD
-	STA.w DMA[$00].SourceLo
-	STA.w DMA[$00].Unused2
-	LDA.w #$0040
-	STA.w DMA[$00].SizeLo
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01
-	STA.w DMA[$00].Parameters
-	SEP.b #$20
-	STZ.w DMA[$00].SourceBank
-	LDA.b #$01
-	STA.w !REGISTER_DMAEnable
-	REP.b #$20
-	SEP.b #$20
-	LDA.b #$80
-	STA.w !REGISTER_VRAMAddressIncrementValue
-	REP.b #$20
-	RTL
+	ADC.w #$7800				;$B7B967
+	STA.w !REGISTER_VRAMAddressLo		;$B7B96A
+	LDA.w #$001ACD				;$B7B96D
+	STA.w DMA[$00].SourceLo			;$B7B970
+	STA.w DMA[$00].Unused2			;$B7B973
+	LDA.w #$0040				;$B7B976
+	STA.w DMA[$00].SizeLo			;$B7B979
+	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B7B97C
+	STA.w DMA[$00].Parameters		;$B7B97F
+	SEP.b #$20				;$B7B982
+	STZ.w DMA[$00].SourceBank		;$B7B984
+	LDA.b #$01				;$B7B987
+	STA.w !REGISTER_DMAEnable		;$B7B989
+	REP.b #$20				;$B7B98C
+	SEP.b #$20				;$B7B98E
+	LDA.b #$80				;$B7B990
+	STA.w !REGISTER_VRAMAddressIncrementValue	;$B7B992
+	REP.b #$20				;$B7B995
+	RTL					;$B7B997
 
 CODE_B7B998:
-	LDA.w $1973
-	AND.w #$00F8
-	CMP.w $1981
-	BNE.b CODE_B7B9A4
-	RTL
+	LDA.w $1973				;$B7B998
+	AND.w #$00F8				;$B7B99B
+	CMP.w $1981				;$B7B99E
+	BNE.b CODE_B7B9A4			;$B7B9A1
+	RTL					;$B7B9A3
 
 CODE_B7B9A4:
-	LDA.w $1560
-	CLC
-	ADC.w #$00F0
-	STA.w $1560
-	LDA.w $196D
-	SEC
-	SBC.w #$0100
-	AND.w #$FFE0
-	CLC
-	ADC.b $8C
-	STA.b $1A
-	LDA.w $1973
-	SEC
-	SBC.w #$0020
-	LDX.w $1985
-	BPL.b CODE_B7B9CD
-	SEC
-	SBC.w #$00E0
+	LDA.w $1560				;$B7B9A4
+	CLC					;$B7B9A7
+	ADC.w #$00F0				;$B7B9A8
+	STA.w $1560				;$B7B9AB
+	LDA.w $196D				;$B7B9AE
+	SEC					;$B7B9B1
+	SBC.w #$0100				;$B7B9B2
+	AND.w #$FFE0				;$B7B9B5
+	CLC					;$B7B9B8
+	ADC.b $8C				;$B7B9B9
+	STA.b $1A				;$B7B9BB
+	LDA.w $1973				;$B7B9BD
+	SEC					;$B7B9C0
+	SBC.w #$0020				;$B7B9C1
+	LDX.w $1985				;$B7B9C4
+	BPL.b CODE_B7B9CD			;$B7B9C7
+	SEC					;$B7B9C9
+	SBC.w #$00E0				;$B7B9CA
 CODE_B7B9CD:
-	TAY
-	AND.w #$01E0
-	LSR
-	LSR
-	LSR
-	LSR
-	ADC.b $1A
-	STA.b $1A
-	TYA
-	AND.w #$0018
-	ADC.w $1967
-	STA.b $1C
-	TYA
-	AND.w #$0018
-	EOR.w #$0018
-	ADC.w $1967
-	STA.b $1E
-	LDA.b $8E
-	PHA
-	PLB
-	LDX.w #$1B0D
+	TAY					;$B7B9CD
+	AND.w #$01E0				;$B7B9CE
+	LSR					;$B7B9D1
+	LSR					;$B7B9D2
+	LSR					;$B7B9D3
+	LSR					;$B7B9D4
+	ADC.b $1A				;$B7B9D5
+	STA.b $1A				;$B7B9D7
+	TYA					;$B7B9D9
+	AND.w #$0018				;$B7B9DA
+	ADC.w $1967				;$B7B9DD
+	STA.b $1C				;$B7B9E0
+	TYA					;$B7B9E2
+	AND.w #$0018				;$B7B9E3
+	EOR.w #$0018				;$B7B9E6
+	ADC.w $1967				;$B7B9E9
+	STA.b $1E				;$B7B9EC
+	LDA.b $8E				;$B7B9EE
+	PHA					;$B7B9F0
+	PLB					;$B7B9F1
+	LDX.w #$1B0D				;$B7B9F2
 CODE_B7B9F5:
-	LDA.b ($1A)
-	BMI.b CODE_B7BA59
-	BIT.w #$4000
-	BNE.b CODE_B7BA31
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0000,y
-	STA.b $00,x
-	LDA.w $0002,y
-	STA.b $02,x
-	LDA.w $0004,y
-	STA.b $04,x
-	LDA.w $0006,y
+	LDA.b ($1A)				;$B7B9F5
+	BMI.b CODE_B7BA59			;$B7B9F7
+	BIT.w #$4000				;$B7B9F9
+	BNE.b CODE_B7BA31			;$B7B9FC
+	ASL					;$B7B9FE
+	ASL					;$B7B9FF
+	ASL					;$B7BA00
+	ASL					;$B7BA01
+	ASL					;$B7BA02
+	ADC.b $1C				;$B7BA03
+	TAY					;$B7BA05
+	LDA.w $0000,y				;$B7BA06
+	STA.b $00,x				;$B7BA09
+	LDA.w $0002,y				;$B7BA0B
+	STA.b $02,x				;$B7BA0E
+	LDA.w $0004,y				;$B7BA10
+	STA.b $04,x				;$B7BA13
+	LDA.w $0006,y				;$B7BA15
 CODE_B7BA18:
-	STA.b $06,x
-	LDA.b $1A
-	CLC
-	ADC.w #$0020
-	STA.b $1A
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
-	CMP.w #$1B55
-	BNE.b CODE_B7B9F5
-	PLB
-	JMP.w CODE_B7BAAF
+	STA.b $06,x				;$B7BA18
+	LDA.b $1A				;$B7BA1A
+	CLC					;$B7BA1C
+	ADC.w #$0020				;$B7BA1D
+	STA.b $1A				;$B7BA20
+	TXA					;$B7BA22
+	CLC					;$B7BA23
+	ADC.w #$0008				;$B7BA24
+	TAX					;$B7BA27
+	CMP.w #$1B55				;$B7BA28
+	BNE.b CODE_B7B9F5			;$B7BA2B
+	PLB					;$B7BA2D
+	JMP.w CODE_B7BAAF			;$B7BA2E
 
 CODE_B7BA31:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0006,y
-	EOR.w #$4000
-	STA.b $00,x
-	LDA.w $0004,y
-	EOR.w #$4000
-	STA.b $02,x
-	LDA.w $0002,y
-	EOR.w #$4000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$4000
-	BRA.b CODE_B7BA18
+	ASL					;$B7BA31
+	ASL					;$B7BA32
+	ASL					;$B7BA33
+	ASL					;$B7BA34
+	ASL					;$B7BA35
+	ADC.b $1C				;$B7BA36
+	TAY					;$B7BA38
+	LDA.w $0006,y				;$B7BA39
+	EOR.w #$4000				;$B7BA3C
+	STA.b $00,x				;$B7BA3F
+	LDA.w $0004,y				;$B7BA41
+	EOR.w #$4000				;$B7BA44
+	STA.b $02,x				;$B7BA47
+	LDA.w $0002,y				;$B7BA49
+	EOR.w #$4000				;$B7BA4C
+	STA.b $04,x				;$B7BA4F
+	LDA.w $0000,y				;$B7BA51
+	EOR.w #$4000				;$B7BA54
+	BRA.b CODE_B7BA18			;$B7BA57
 
 CODE_B7BA59:
-	BIT.w #$4000
-	BNE.b CODE_B7BA86
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0000,y
-	EOR.w #$8000
-	STA.b $00,x
-	LDA.w $0002,y
-	EOR.w #$8000
-	STA.b $02,x
-	LDA.w $0004,y
-	EOR.w #$8000
-	STA.b $04,x
-	LDA.w $0006,y
-	EOR.w #$8000
-	BRA.b CODE_B7BA18
+	BIT.w #$4000				;$B7BA59
+	BNE.b CODE_B7BA86			;$B7BA5C
+	ASL					;$B7BA5E
+	ASL					;$B7BA5F
+	ASL					;$B7BA60
+	ASL					;$B7BA61
+	ASL					;$B7BA62
+	ADC.b $1E				;$B7BA63
+	TAY					;$B7BA65
+	LDA.w $0000,y				;$B7BA66
+	EOR.w #$8000				;$B7BA69
+	STA.b $00,x				;$B7BA6C
+	LDA.w $0002,y				;$B7BA6E
+	EOR.w #$8000				;$B7BA71
+	STA.b $02,x				;$B7BA74
+	LDA.w $0004,y				;$B7BA76
+	EOR.w #$8000				;$B7BA79
+	STA.b $04,x				;$B7BA7C
+	LDA.w $0006,y				;$B7BA7E
+	EOR.w #$8000				;$B7BA81
+	BRA.b CODE_B7BA18			;$B7BA84
 
 CODE_B7BA86:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0006,y
-	EOR.w #$C000
-	STA.b $00,x
-	LDA.w $0004,y
-	EOR.w #$C000
-	STA.b $02,x
-	LDA.w $0002,y
-	EOR.w #$C000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$C000
-	JMP.w CODE_B7BA18
+	ASL					;$B7BA86
+	ASL					;$B7BA87
+	ASL					;$B7BA88
+	ASL					;$B7BA89
+	ASL					;$B7BA8A
+	ADC.b $1E				;$B7BA8B
+	TAY					;$B7BA8D
+	LDA.w $0006,y				;$B7BA8E
+	EOR.w #$C000				;$B7BA91
+	STA.b $00,x				;$B7BA94
+	LDA.w $0004,y				;$B7BA96
+	EOR.w #$C000				;$B7BA99
+	STA.b $02,x				;$B7BA9C
+	LDA.w $0002,y				;$B7BA9E
+	EOR.w #$C000				;$B7BAA1
+	STA.b $04,x				;$B7BAA4
+	LDA.w $0000,y				;$B7BAA6
+	EOR.w #$C000				;$B7BAA9
+	JMP.w CODE_B7BA18			;$B7BAAC
 
 CODE_B7BAAF:
-	LDA.w $197B
-	BNE.b CODE_B7BADD
-	LDA.w $196D
-	AND.w #$01F8
-	LSR
-	LSR
-	TAY
-	AND.w #$0006
-	TAX
-	CLC
-	ADC.w #$0042
-	STA.b $1C
+	LDA.w $197B				;$B7BAAF
+	BNE.b CODE_B7BADD			;$B7BAB2
+	LDA.w $196D				;$B7BAB4
+	AND.w #$01F8				;$B7BAB7
+	LSR					;$B7BABA
+	LSR					;$B7BABB
+	TAY					;$B7BABC
+	AND.w #$0006				;$B7BABD
+	TAX					;$B7BAC0
+	CLC					;$B7BAC1
+	ADC.w #$0042				;$B7BAC2
+	STA.b $1C				;$B7BAC5
 CODE_B7BAC7:
-	LDA.w $1B0D,x
-	STA.w $198D,y
-	TYA
-	CLC
-	ADC.w #$0002
-	AND.w #$007E
-	TAY
-	INX
-	INX
-	CPX.b $1C
-	BNE.b CODE_B7BAC7
-	RTL
+	LDA.w $1B0D,x				;$B7BAC7
+	STA.w $198D,y				;$B7BACA
+	TYA					;$B7BACD
+	CLC					;$B7BACE
+	ADC.w #$0002				;$B7BACF
+	AND.w #$007E				;$B7BAD2
+	TAY					;$B7BAD5
+	INX					;$B7BAD6
+	INX					;$B7BAD7
+	CPX.b $1C				;$B7BAD8
+	BNE.b CODE_B7BAC7			;$B7BADA
+	RTL					;$B7BADC
 
 CODE_B7BADD:
-	LDA.w $196D
-	AND.w #$01F8
-	LSR
-	LSR
-	TAY
-	AND.w #$0006
-	TAX
-	CLC
-	ADC.w #$0042
-	STA.b $1C
+	LDA.w $196D				;$B7BADD
+	AND.w #$01F8				;$B7BAE0
+	LSR					;$B7BAE3
+	LSR					;$B7BAE4
+	TAY					;$B7BAE5
+	AND.w #$0006				;$B7BAE6
+	TAX					;$B7BAE9
+	CLC					;$B7BAEA
+	ADC.w #$0042				;$B7BAEB
+	STA.b $1C				;$B7BAEE
 CODE_B7BAF0:
-	LDA.w $1B0D,x
-	STA.w $1A4D,y
-	TYA
-	CLC
-	ADC.w #$0002
-	AND.w #$007E
-	TAY
-	INX
-	INX
-	CPX.b $1C
-	BNE.b CODE_B7BAF0
-	RTL
+	LDA.w $1B0D,x				;$B7BAF0
+	STA.w $1A4D,y				;$B7BAF3
+	TYA					;$B7BAF6
+	CLC					;$B7BAF7
+	ADC.w #$0002				;$B7BAF8
+	AND.w #$007E				;$B7BAFB
+	TAY					;$B7BAFE
+	INX					;$B7BAFF
+	INX					;$B7BB00
+	CPX.b $1C				;$B7BB01
+	BNE.b CODE_B7BAF0			;$B7BB03
+	RTL					;$B7BB05
 
 CODE_B7BB06:
-	LDA.w $1973
-	AND.w #$00F8
-	CMP.w $1981
-	BNE.b CODE_B7BB12
-	RTL
+	LDA.w $1973				;$B7BB06
+	AND.w #$00F8				;$B7BB09
+	CMP.w $1981				;$B7BB0C
+	BNE.b CODE_B7BB12			;$B7BB0F
+	RTL					;$B7BB11
 
 CODE_B7BB12:
-	STA.w $1981
-	LDA.w $1973
-	LDX.w $1985
-	BMI.b CODE_B7BB21
-	CLC
-	ADC.w #$00E0
+	STA.w $1981				;$B7BB12
+	LDA.w $1973				;$B7BB15
+	LDX.w $1985				;$B7BB18
+	BMI.b CODE_B7BB21			;$B7BB1B
+	CLC					;$B7BB1D
+	ADC.w #$00E0				;$B7BB1E
 CODE_B7BB21:
-	ASL
-	ASL
-	AND.w #$03E0
-	CLC
-	ADC.w $1969
-	STA.b $1A
-	STA.w !REGISTER_VRAMAddressLo
-	LDA.w #$00198D
-	STA.w DMA[$00].SourceLo
-	STA.w DMA[$00].Unused2
-	LDA.w #$0040
-	STA.w DMA[$00].SizeLo
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01
-	STA.w DMA[$00].Parameters
-	SEP.b #$20
-	STZ.w DMA[$00].SourceBank
-	LDA.b #$01
-	STA.w !REGISTER_DMAEnable
-	REP.b #$20
-	LDA.b $1A
-	CLC
-	ADC.w #$0400
-	STA.w !REGISTER_VRAMAddressLo
-	LDA.w #$0019CD
-	STA.w DMA[$00].SourceLo
-	STA.w DMA[$00].Unused2
-	LDA.w #$0040
-	STA.w DMA[$00].SizeLo
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01
-	STA.w DMA[$00].Parameters
-	SEP.b #$20
-	STZ.w DMA[$00].SourceBank
-	LDA.b #$01
-	STA.w !REGISTER_DMAEnable
-	REP.b #$20
-	RTL
+	ASL					;$B7BB21
+	ASL					;$B7BB22
+	AND.w #$03E0				;$B7BB23
+	CLC					;$B7BB26
+	ADC.w $1969				;$B7BB27
+	STA.b $1A				;$B7BB2A
+	STA.w !REGISTER_VRAMAddressLo		;$B7BB2C
+	LDA.w #$00198D				;$B7BB2F
+	STA.w DMA[$00].SourceLo			;$B7BB32
+	STA.w DMA[$00].Unused2			;$B7BB35
+	LDA.w #$0040				;$B7BB38
+	STA.w DMA[$00].SizeLo			;$B7BB3B
+	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B7BB3E
+	STA.w DMA[$00].Parameters		;$B7BB41
+	SEP.b #$20				;$B7BB44
+	STZ.w DMA[$00].SourceBank		;$B7BB46
+	LDA.b #$01				;$B7BB49
+	STA.w !REGISTER_DMAEnable		;$B7BB4B
+	REP.b #$20				;$B7BB4E
+	LDA.b $1A				;$B7BB50
+	CLC					;$B7BB52
+	ADC.w #$0400				;$B7BB53
+	STA.w !REGISTER_VRAMAddressLo		;$B7BB56
+	LDA.w #$0019CD				;$B7BB59
+	STA.w DMA[$00].SourceLo			;$B7BB5C
+	STA.w DMA[$00].Unused2			;$B7BB5F
+	LDA.w #$0040				;$B7BB62
+	STA.w DMA[$00].SizeLo			;$B7BB65
+	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B7BB68
+	STA.w DMA[$00].Parameters		;$B7BB6B
+	SEP.b #$20				;$B7BB6E
+	STZ.w DMA[$00].SourceBank		;$B7BB70
+	LDA.b #$01				;$B7BB73
+	STA.w !REGISTER_DMAEnable		;$B7BB75
+	REP.b #$20				;$B7BB78
+	RTL					;$B7BB7A
 
 CODE_B7BB7B:
-	LDA.w $1973
-	AND.w #$FFF8
-	CMP.w $1981
-	BNE.b CODE_B7BB87
-	RTL
+	LDA.w $1973				;$B7BB7B
+	AND.w #$FFF8				;$B7BB7E
+	CMP.w $1981				;$B7BB81
+	BNE.b CODE_B7BB87			;$B7BB84
+	RTL					;$B7BB86
 
 CODE_B7BB87:
-	LDA.w $1985
-	BPL.b CODE_B7BB91
-	LDA.w $1973
-	BRA.b CODE_B7BB98
+	LDA.w $1985				;$B7BB87
+	BPL.b CODE_B7BB91			;$B7BB8A
+	LDA.w $1973				;$B7BB8C
+	BRA.b CODE_B7BB98			;$B7BB8F
 
 CODE_B7BB91:
-	LDA.w $1973
-	CLC
-	ADC.w #$00E0
+	LDA.w $1973				;$B7BB91
+	CLC					;$B7BB94
+	ADC.w #$00E0				;$B7BB95
 CODE_B7BB98:
-	ASL
-	ASL
-	AND.w #$03E0
-	CLC
-	ADC.w #$7800
-	STA.b $1A
-	STA.w !REGISTER_VRAMAddressLo
-	LDA.w #$001A4D
-	STA.w DMA[$00].SourceLo
-	STA.w DMA[$00].Unused2
-	LDA.w #$0040
-	STA.w DMA[$00].SizeLo
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01
-	STA.w DMA[$00].Parameters
-	SEP.b #$20
-	STZ.w DMA[$00].SourceBank
-	LDA.b #$01
-	STA.w !REGISTER_DMAEnable
-	REP.b #$20
-	LDA.b $1A
-	CLC
-	ADC.w #$0400
-	STA.w !REGISTER_VRAMAddressLo
-	LDA.w #$001A8D
-	STA.w DMA[$00].SourceLo
-	STA.w DMA[$00].Unused2
-	LDA.w #$0040
-	STA.w DMA[$00].SizeLo
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01
-	STA.w DMA[$00].Parameters
-	SEP.b #$20
-	STZ.w DMA[$00].SourceBank
-	LDA.b #$01
-	STA.w !REGISTER_DMAEnable
-	REP.b #$20
-	RTL
+	ASL					;$B7BB98
+	ASL					;$B7BB99
+	AND.w #$03E0				;$B7BB9A
+	CLC					;$B7BB9D
+	ADC.w #$7800				;$B7BB9E
+	STA.b $1A				;$B7BBA1
+	STA.w !REGISTER_VRAMAddressLo		;$B7BBA3
+	LDA.w #$001A4D				;$B7BBA6
+	STA.w DMA[$00].SourceLo			;$B7BBA9
+	STA.w DMA[$00].Unused2			;$B7BBAC
+	LDA.w #$0040				;$B7BBAF
+	STA.w DMA[$00].SizeLo			;$B7BBB2
+	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B7BBB5
+	STA.w DMA[$00].Parameters		;$B7BBB8
+	SEP.b #$20				;$B7BBBB
+	STZ.w DMA[$00].SourceBank		;$B7BBBD
+	LDA.b #$01				;$B7BBC0
+	STA.w !REGISTER_DMAEnable		;$B7BBC2
+	REP.b #$20				;$B7BBC5
+	LDA.b $1A				;$B7BBC7
+	CLC					;$B7BBC9
+	ADC.w #$0400				;$B7BBCA
+	STA.w !REGISTER_VRAMAddressLo		;$B7BBCD
+	LDA.w #$001A8D				;$B7BBD0
+	STA.w DMA[$00].SourceLo			;$B7BBD3
+	STA.w DMA[$00].Unused2			;$B7BBD6
+	LDA.w #$0040				;$B7BBD9
+	STA.w DMA[$00].SizeLo			;$B7BBDC
+	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B7BBDF
+	STA.w DMA[$00].Parameters		;$B7BBE2
+	SEP.b #$20				;$B7BBE5
+	STZ.w DMA[$00].SourceBank		;$B7BBE7
+	LDA.b #$01				;$B7BBEA
+	STA.w !REGISTER_DMAEnable		;$B7BBEC
+	REP.b #$20				;$B7BBEF
+	RTL					;$B7BBF1
 
 CODE_B7BBF2:
-	LDA.w $196D
-	AND.w #$FFF8
-	CMP.w $197D
-	BNE.b CODE_B7BBFE
-	RTL
+	LDA.w $196D				;$B7BBF2
+	AND.w #$FFF8				;$B7BBF5
+	CMP.w $197D				;$B7BBF8
+	BNE.b CODE_B7BBFE			;$B7BBFB
+	RTL					;$B7BBFD
 
 CODE_B7BBFE:
-	LDA.w $1560
-	CLC
-	ADC.w #$009C
-	STA.w $1560
-	LDA.w $196D
-	LDX.w $1989
-	BPL.b CODE_B7BC17
-	LDA.w $196D
-	SEC
-	SBC.w #$0100
+	LDA.w $1560				;$B7BBFE
+	CLC					;$B7BC01
+	ADC.w #$009C				;$B7BC02
+	STA.w $1560				;$B7BC05
+	LDA.w $196D				;$B7BC08
+	LDX.w $1989				;$B7BC0B
+	BPL.b CODE_B7BC17			;$B7BC0E
+	LDA.w $196D				;$B7BC10
+	SEC					;$B7BC13
+	SBC.w #$0100				;$B7BC14
 CODE_B7BC17:
-	TAY
-	AND.w #$FFE0
-	LSR
-	LSR
-	LSR
-	LSR
-	CLC
-	ADC.b $8C
-	STA.b $1A
-	LDA.w $1973
-	SEC
-	SBC.w #$0100
-	AND.w #$FFE0
-	CLC
-	ADC.b $1A
-	STA.b $1A
-	TYA
-	AND.w #$0018
-	LSR
-	LSR
-	ADC.w $1967
-	STA.b $1C
-	TYA
-	AND.w #$0018
-	EOR.w #$0018
-	LSR
-	LSR
-	ADC.w $1967
-	STA.b $1E
-	LDA.b $8E
-	PHA
-	PLB
-	LDX.w #$1B0D
+	TAY					;$B7BC17
+	AND.w #$FFE0				;$B7BC18
+	LSR					;$B7BC1B
+	LSR					;$B7BC1C
+	LSR					;$B7BC1D
+	LSR					;$B7BC1E
+	CLC					;$B7BC1F
+	ADC.b $8C				;$B7BC20
+	STA.b $1A				;$B7BC22
+	LDA.w $1973				;$B7BC24
+	SEC					;$B7BC27
+	SBC.w #$0100				;$B7BC28
+	AND.w #$FFE0				;$B7BC2B
+	CLC					;$B7BC2E
+	ADC.b $1A				;$B7BC2F
+	STA.b $1A				;$B7BC31
+	TYA					;$B7BC33
+	AND.w #$0018				;$B7BC34
+	LSR					;$B7BC37
+	LSR					;$B7BC38
+	ADC.w $1967				;$B7BC39
+	STA.b $1C				;$B7BC3C
+	TYA					;$B7BC3E
+	AND.w #$0018				;$B7BC3F
+	EOR.w #$0018				;$B7BC42
+	LSR					;$B7BC45
+	LSR					;$B7BC46
+	ADC.w $1967				;$B7BC47
+	STA.b $1E				;$B7BC4A
+	LDA.b $8E				;$B7BC4C
+	PHA					;$B7BC4E
+	PLB					;$B7BC4F
+	LDX.w #$1B0D				;$B7BC50
 CODE_B7BC53:
-	LDA.b ($1A)
-	BMI.b CODE_B7BCB7
-	BIT.w #$4000
-	BNE.b CODE_B7BC8F
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0000,y
-	STA.b $00,x
-	LDA.w $0008,y
-	STA.b $02,x
-	LDA.w $0010,y
-	STA.b $04,x
-	LDA.w $0018,y
+	LDA.b ($1A)				;$B7BC53
+	BMI.b CODE_B7BCB7			;$B7BC55
+	BIT.w #$4000				;$B7BC57
+	BNE.b CODE_B7BC8F			;$B7BC5A
+	ASL					;$B7BC5C
+	ASL					;$B7BC5D
+	ASL					;$B7BC5E
+	ASL					;$B7BC5F
+	ASL					;$B7BC60
+	ADC.b $1C				;$B7BC61
+	TAY					;$B7BC63
+	LDA.w $0000,y				;$B7BC64
+	STA.b $00,x				;$B7BC67
+	LDA.w $0008,y				;$B7BC69
+	STA.b $02,x				;$B7BC6C
+	LDA.w $0010,y				;$B7BC6E
+	STA.b $04,x				;$B7BC71
+	LDA.w $0018,y				;$B7BC73
 CODE_B7BC76:
-	STA.b $06,x
-	LDA.b $1A
-	CLC
-	ADC.w #$0020
-	STA.b $1A
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
-	CMP.w #$1B55
-	BNE.b CODE_B7BC53
-	PLB
-	JMP.w CODE_B7B72F
+	STA.b $06,x				;$B7BC76
+	LDA.b $1A				;$B7BC78
+	CLC					;$B7BC7A
+	ADC.w #$0020				;$B7BC7B
+	STA.b $1A				;$B7BC7E
+	TXA					;$B7BC80
+	CLC					;$B7BC81
+	ADC.w #$0008				;$B7BC82
+	TAX					;$B7BC85
+	CMP.w #$1B55				;$B7BC86
+	BNE.b CODE_B7BC53			;$B7BC89
+	PLB					;$B7BC8B
+	JMP.w CODE_B7B72F			;$B7BC8C
 
 CODE_B7BC8F:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0000,y
-	EOR.w #$4000
-	STA.b $00,x
-	LDA.w $0008,y
-	EOR.w #$4000
-	STA.b $02,x
-	LDA.w $0010,y
-	EOR.w #$4000
-	STA.b $04,x
-	LDA.w $0018,y
-	EOR.w #$4000
-	BRA.b CODE_B7BC76
+	ASL					;$B7BC8F
+	ASL					;$B7BC90
+	ASL					;$B7BC91
+	ASL					;$B7BC92
+	ASL					;$B7BC93
+	ADC.b $1E				;$B7BC94
+	TAY					;$B7BC96
+	LDA.w $0000,y				;$B7BC97
+	EOR.w #$4000				;$B7BC9A
+	STA.b $00,x				;$B7BC9D
+	LDA.w $0008,y				;$B7BC9F
+	EOR.w #$4000				;$B7BCA2
+	STA.b $02,x				;$B7BCA5
+	LDA.w $0010,y				;$B7BCA7
+	EOR.w #$4000				;$B7BCAA
+	STA.b $04,x				;$B7BCAD
+	LDA.w $0018,y				;$B7BCAF
+	EOR.w #$4000				;$B7BCB2
+	BRA.b CODE_B7BC76			;$B7BCB5
 
 CODE_B7BCB7:
-	BIT.w #$4000
-	BNE.b CODE_B7BCE4
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0018,y
-	EOR.w #$8000
-	STA.b $00,x
-	LDA.w $0010,y
-	EOR.w #$8000
-	STA.b $02,x
-	LDA.w $0008,y
-	EOR.w #$8000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$8000
-	BRA.b CODE_B7BC76
+	BIT.w #$4000				;$B7BCB7
+	BNE.b CODE_B7BCE4			;$B7BCBA
+	ASL					;$B7BCBC
+	ASL					;$B7BCBD
+	ASL					;$B7BCBE
+	ASL					;$B7BCBF
+	ASL					;$B7BCC0
+	ADC.b $1C				;$B7BCC1
+	TAY					;$B7BCC3
+	LDA.w $0018,y				;$B7BCC4
+	EOR.w #$8000				;$B7BCC7
+	STA.b $00,x				;$B7BCCA
+	LDA.w $0010,y				;$B7BCCC
+	EOR.w #$8000				;$B7BCCF
+	STA.b $02,x				;$B7BCD2
+	LDA.w $0008,y				;$B7BCD4
+	EOR.w #$8000				;$B7BCD7
+	STA.b $04,x				;$B7BCDA
+	LDA.w $0000,y				;$B7BCDC
+	EOR.w #$8000				;$B7BCDF
+	BRA.b CODE_B7BC76			;$B7BCE2
 
 CODE_B7BCE4:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0018,y
-	EOR.w #$C000
-	STA.b $00,x
-	LDA.w $0010,y
-	EOR.w #$C000
-	STA.b $02,x
-	LDA.w $0008,y
-	EOR.w #$C000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$C000
-	JMP.w CODE_B7BC76
+	ASL					;$B7BCE4
+	ASL					;$B7BCE5
+	ASL					;$B7BCE6
+	ASL					;$B7BCE7
+	ASL					;$B7BCE8
+	ADC.b $1E				;$B7BCE9
+	TAY					;$B7BCEB
+	LDA.w $0018,y				;$B7BCEC
+	EOR.w #$C000				;$B7BCEF
+	STA.b $00,x				;$B7BCF2
+	LDA.w $0010,y				;$B7BCF4
+	EOR.w #$C000				;$B7BCF7
+	STA.b $02,x				;$B7BCFA
+	LDA.w $0008,y				;$B7BCFC
+	EOR.w #$C000				;$B7BCFF
+	STA.b $04,x				;$B7BD02
+	LDA.w $0000,y				;$B7BD04
+	EOR.w #$C000				;$B7BD07
+	JMP.w CODE_B7BC76			;$B7BD0A
 
 CODE_B7BD0D:
-	LDA.w $1973
-	AND.w #$00F8
-	CMP.w $1981
-	BNE.b CODE_B7BD19
-	RTL
+	LDA.w $1973				;$B7BD0D
+	AND.w #$00F8				;$B7BD10
+	CMP.w $1981				;$B7BD13
+	BNE.b CODE_B7BD19			;$B7BD16
+	RTL					;$B7BD18
 
 CODE_B7BD19:
-	LDA.w $1560
-	CLC
-	ADC.w #$00F0
-	STA.w $1560
-	LDA.w $196D
-	SEC
-	SBC.w #$0100
-	AND.w #$FFE0
-	LSR
-	LSR
-	LSR
-	LSR
-	CLC
-	ADC.b $8C
-	STA.b $1A
-	LDA.w $1973
-	SEC
-	SBC.w #$0020
-	LDX.w $1985
-	BPL.b CODE_B7BD46
-	SEC
-	SBC.w #$00E0
+	LDA.w $1560				;$B7BD19
+	CLC					;$B7BD1C
+	ADC.w #$00F0				;$B7BD1D
+	STA.w $1560				;$B7BD20
+	LDA.w $196D				;$B7BD23
+	SEC					;$B7BD26
+	SBC.w #$0100				;$B7BD27
+	AND.w #$FFE0				;$B7BD2A
+	LSR					;$B7BD2D
+	LSR					;$B7BD2E
+	LSR					;$B7BD2F
+	LSR					;$B7BD30
+	CLC					;$B7BD31
+	ADC.b $8C				;$B7BD32
+	STA.b $1A				;$B7BD34
+	LDA.w $1973				;$B7BD36
+	SEC					;$B7BD39
+	SBC.w #$0020				;$B7BD3A
+	LDX.w $1985				;$B7BD3D
+	BPL.b CODE_B7BD46			;$B7BD40
+	SEC					;$B7BD42
+	SBC.w #$00E0				;$B7BD43
 CODE_B7BD46:
-	TAY
-	AND.w #$FFE0
-	CLC
-	ADC.b $1A
-	STA.b $1A
-	TYA
-	AND.w #$0018
-	ADC.w $1967
-	STA.b $1C
-	TYA
-	AND.w #$0018
-	EOR.w #$0018
-	ADC.w $1967
-	STA.b $1E
-	LDA.b $8E
-	PHA
-	PLB
-	LDX.w #$1B0D
+	TAY					;$B7BD46
+	AND.w #$FFE0				;$B7BD47
+	CLC					;$B7BD4A
+	ADC.b $1A				;$B7BD4B
+	STA.b $1A				;$B7BD4D
+	TYA					;$B7BD4F
+	AND.w #$0018				;$B7BD50
+	ADC.w $1967				;$B7BD53
+	STA.b $1C				;$B7BD56
+	TYA					;$B7BD58
+	AND.w #$0018				;$B7BD59
+	EOR.w #$0018				;$B7BD5C
+	ADC.w $1967				;$B7BD5F
+	STA.b $1E				;$B7BD62
+	LDA.b $8E				;$B7BD64
+	PHA					;$B7BD66
+	PLB					;$B7BD67
+	LDX.w #$1B0D				;$B7BD68
 CODE_B7BD6B:
-	LDA.b ($1A)
-	BMI.b CODE_B7BDCB
-	BIT.w #$4000
-	BNE.b CODE_B7BDA3
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0000,y
-	STA.b $00,x
-	LDA.w $0002,y
-	STA.b $02,x
-	LDA.w $0004,y
-	STA.b $04,x
-	LDA.w $0006,y
+	LDA.b ($1A)				;$B7BD6B
+	BMI.b CODE_B7BDCB			;$B7BD6D
+	BIT.w #$4000				;$B7BD6F
+	BNE.b CODE_B7BDA3			;$B7BD72
+	ASL					;$B7BD74
+	ASL					;$B7BD75
+	ASL					;$B7BD76
+	ASL					;$B7BD77
+	ASL					;$B7BD78
+	ADC.b $1C				;$B7BD79
+	TAY					;$B7BD7B
+	LDA.w $0000,y				;$B7BD7C
+	STA.b $00,x				;$B7BD7F
+	LDA.w $0002,y				;$B7BD81
+	STA.b $02,x				;$B7BD84
+	LDA.w $0004,y				;$B7BD86
+	STA.b $04,x				;$B7BD89
+	LDA.w $0006,y				;$B7BD8B
 CODE_B7BD8E:
-	STA.b $06,x
-	INC.b $1A
-	INC.b $1A
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
-	CMP.w #$1B55
-	BNE.b CODE_B7BD6B
-	PLB
-	JMP.w CODE_B7BAAF
+	STA.b $06,x				;$B7BD8E
+	INC.b $1A				;$B7BD90
+	INC.b $1A				;$B7BD92
+	TXA					;$B7BD94
+	CLC					;$B7BD95
+	ADC.w #$0008				;$B7BD96
+	TAX					;$B7BD99
+	CMP.w #$1B55				;$B7BD9A
+	BNE.b CODE_B7BD6B			;$B7BD9D
+	PLB					;$B7BD9F
+	JMP.w CODE_B7BAAF			;$B7BDA0
 
 CODE_B7BDA3:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0006,y
-	EOR.w #$4000
-	STA.b $00,x
-	LDA.w $0004,y
-	EOR.w #$4000
-	STA.b $02,x
-	LDA.w $0002,y
-	EOR.w #$4000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$4000
-	BRA.b CODE_B7BD8E
+	ASL					;$B7BDA3
+	ASL					;$B7BDA4
+	ASL					;$B7BDA5
+	ASL					;$B7BDA6
+	ASL					;$B7BDA7
+	ADC.b $1C				;$B7BDA8
+	TAY					;$B7BDAA
+	LDA.w $0006,y				;$B7BDAB
+	EOR.w #$4000				;$B7BDAE
+	STA.b $00,x				;$B7BDB1
+	LDA.w $0004,y				;$B7BDB3
+	EOR.w #$4000				;$B7BDB6
+	STA.b $02,x				;$B7BDB9
+	LDA.w $0002,y				;$B7BDBB
+	EOR.w #$4000				;$B7BDBE
+	STA.b $04,x				;$B7BDC1
+	LDA.w $0000,y				;$B7BDC3
+	EOR.w #$4000				;$B7BDC6
+	BRA.b CODE_B7BD8E			;$B7BDC9
 
 CODE_B7BDCB:
-	BIT.w #$4000
-	BNE.b CODE_B7BDF8
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0000,y
-	EOR.w #$8000
-	STA.b $00,x
-	LDA.w $0002,y
-	EOR.w #$8000
-	STA.b $02,x
-	LDA.w $0004,y
-	EOR.w #$8000
-	STA.b $04,x
-	LDA.w $0006,y
-	EOR.w #$8000
-	BRA.b CODE_B7BD8E
+	BIT.w #$4000				;$B7BDCB
+	BNE.b CODE_B7BDF8			;$B7BDCE
+	ASL					;$B7BDD0
+	ASL					;$B7BDD1
+	ASL					;$B7BDD2
+	ASL					;$B7BDD3
+	ASL					;$B7BDD4
+	ADC.b $1E				;$B7BDD5
+	TAY					;$B7BDD7
+	LDA.w $0000,y				;$B7BDD8
+	EOR.w #$8000				;$B7BDDB
+	STA.b $00,x				;$B7BDDE
+	LDA.w $0002,y				;$B7BDE0
+	EOR.w #$8000				;$B7BDE3
+	STA.b $02,x				;$B7BDE6
+	LDA.w $0004,y				;$B7BDE8
+	EOR.w #$8000				;$B7BDEB
+	STA.b $04,x				;$B7BDEE
+	LDA.w $0006,y				;$B7BDF0
+	EOR.w #$8000				;$B7BDF3
+	BRA.b CODE_B7BD8E			;$B7BDF6
 
 CODE_B7BDF8:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0006,y
-	EOR.w #$C000
-	STA.b $00,x
-	LDA.w $0004,y
-	EOR.w #$C000
-	STA.b $02,x
-	LDA.w $0002,y
-	EOR.w #$C000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$C000
-	JMP.w CODE_B7BD8E
+	ASL					;$B7BDF8
+	ASL					;$B7BDF9
+	ASL					;$B7BDFA
+	ASL					;$B7BDFB
+	ASL					;$B7BDFC
+	ADC.b $1E				;$B7BDFD
+	TAY					;$B7BDFF
+	LDA.w $0006,y				;$B7BE00
+	EOR.w #$C000				;$B7BE03
+	STA.b $00,x				;$B7BE06
+	LDA.w $0004,y				;$B7BE08
+	EOR.w #$C000				;$B7BE0B
+	STA.b $02,x				;$B7BE0E
+	LDA.w $0002,y				;$B7BE10
+	EOR.w #$C000				;$B7BE13
+	STA.b $04,x				;$B7BE16
+	LDA.w $0000,y				;$B7BE18
+	EOR.w #$C000				;$B7BE1B
+	JMP.w CODE_B7BD8E			;$B7BE1E
 
 CODE_B7BE21:
-	STZ.w $197B
-	JSL.l CODE_B7BBF2
-	JML.l CODE_B7BD0D
+	STZ.w $197B				;$B7BE21
+	JSL.l CODE_B7BBF2			;$B7BE24
+	JML.l CODE_B7BD0D			;$B7BE28
 
 CODE_B7BE2C:
-	STZ.w $197B
-	JSL.l CODE_B7BE37
-	JML.l CODE_B7BF4F
+	STZ.w $197B				;$B7BE2C
+	JSL.l CODE_B7BE37			;$B7BE2F
+	JML.l CODE_B7BF4F			;$B7BE33
 
 CODE_B7BE37:
-	LDA.w $196D
-	AND.w #$FFF8
-	CMP.w $197D
-	BNE.b CODE_B7BE43
-	RTL
+	LDA.w $196D				;$B7BE37
+	AND.w #$FFF8				;$B7BE3A
+	CMP.w $197D				;$B7BE3D
+	BNE.b CODE_B7BE43			;$B7BE40
+	RTL					;$B7BE42
 
 CODE_B7BE43:
-	LDA.w $1560
-	CLC
-	ADC.w #$009C
-	STA.w $1560
-	LDA.w $196D
-	LDX.w $1989
-	BPL.b CODE_B7BE5C
-	LDA.w $196D
-	SEC
-	SBC.w #$0100
+	LDA.w $1560				;$B7BE43
+	CLC					;$B7BE46
+	ADC.w #$009C				;$B7BE47
+	STA.w $1560				;$B7BE4A
+	LDA.w $196D				;$B7BE4D
+	LDX.w $1989				;$B7BE50
+	BPL.b CODE_B7BE5C			;$B7BE53
+	LDA.w $196D				;$B7BE55
+	SEC					;$B7BE58
+	SBC.w #$0100				;$B7BE59
 CODE_B7BE5C:
-	TAY
-	AND.w #$FFE0
-	ASL
-	CLC
-	ADC.b $8C
-	STA.b $1A
-	LDA.w $1973
-	SEC
-	SBC.w #$0100
-	AND.w #$03E0
-	LSR
-	LSR
-	LSR
-	LSR
-	CLC
-	ADC.b $1A
-	STA.b $1A
-	TYA
-	AND.w #$0018
-	LSR
-	LSR
-	ADC.w $1967
-	STA.b $1C
-	TYA
-	AND.w #$0018
-	EOR.w #$0018
-	LSR
-	LSR
-	ADC.w $1967
-	STA.b $1E
-	LDA.b $8E
-	PHA
-	PLB
-	LDX.w #$1B0D
+	TAY					;$B7BE5C
+	AND.w #$FFE0				;$B7BE5D
+	ASL					;$B7BE60
+	CLC					;$B7BE61
+	ADC.b $8C				;$B7BE62
+	STA.b $1A				;$B7BE64
+	LDA.w $1973				;$B7BE66
+	SEC					;$B7BE69
+	SBC.w #$0100				;$B7BE6A
+	AND.w #$03E0				;$B7BE6D
+	LSR					;$B7BE70
+	LSR					;$B7BE71
+	LSR					;$B7BE72
+	LSR					;$B7BE73
+	CLC					;$B7BE74
+	ADC.b $1A				;$B7BE75
+	STA.b $1A				;$B7BE77
+	TYA					;$B7BE79
+	AND.w #$0018				;$B7BE7A
+	LSR					;$B7BE7D
+	LSR					;$B7BE7E
+	ADC.w $1967				;$B7BE7F
+	STA.b $1C				;$B7BE82
+	TYA					;$B7BE84
+	AND.w #$0018				;$B7BE85
+	EOR.w #$0018				;$B7BE88
+	LSR					;$B7BE8B
+	LSR					;$B7BE8C
+	ADC.w $1967				;$B7BE8D
+	STA.b $1E				;$B7BE90
+	LDA.b $8E				;$B7BE92
+	PHA					;$B7BE94
+	PLB					;$B7BE95
+	LDX.w #$1B0D				;$B7BE96
 CODE_B7BE99:
-	LDA.b ($1A)
-	BMI.b CODE_B7BEF9
-	BIT.w #$4000
-	BNE.b CODE_B7BED1
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0000,y
-	STA.b $00,x
-	LDA.w $0008,y
-	STA.b $02,x
-	LDA.w $0010,y
-	STA.b $04,x
-	LDA.w $0018,y
+	LDA.b ($1A)				;$B7BE99
+	BMI.b CODE_B7BEF9			;$B7BE9B
+	BIT.w #$4000				;$B7BE9D
+	BNE.b CODE_B7BED1			;$B7BEA0
+	ASL					;$B7BEA2
+	ASL					;$B7BEA3
+	ASL					;$B7BEA4
+	ASL					;$B7BEA5
+	ASL					;$B7BEA6
+	ADC.b $1C				;$B7BEA7
+	TAY					;$B7BEA9
+	LDA.w $0000,y				;$B7BEAA
+	STA.b $00,x				;$B7BEAD
+	LDA.w $0008,y				;$B7BEAF
+	STA.b $02,x				;$B7BEB2
+	LDA.w $0010,y				;$B7BEB4
+	STA.b $04,x				;$B7BEB7
+	LDA.w $0018,y				;$B7BEB9
 CODE_B7BEBC:
-	STA.b $06,x
-	INC.b $1A
-	INC.b $1A
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
-	CMP.w #$1B55
-	BNE.b CODE_B7BE99
-	PLB
-	JMP.w CODE_B7B72F
+	STA.b $06,x				;$B7BEBC
+	INC.b $1A				;$B7BEBE
+	INC.b $1A				;$B7BEC0
+	TXA					;$B7BEC2
+	CLC					;$B7BEC3
+	ADC.w #$0008				;$B7BEC4
+	TAX					;$B7BEC7
+	CMP.w #$1B55				;$B7BEC8
+	BNE.b CODE_B7BE99			;$B7BECB
+	PLB					;$B7BECD
+	JMP.w CODE_B7B72F			;$B7BECE
 
 CODE_B7BED1:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0000,y
-	EOR.w #$4000
-	STA.b $00,x
-	LDA.w $0008,y
-	EOR.w #$4000
-	STA.b $02,x
-	LDA.w $0010,y
-	EOR.w #$4000
-	STA.b $04,x
-	LDA.w $0018,y
-	EOR.w #$4000
-	BRA.b CODE_B7BEBC
+	ASL					;$B7BED1
+	ASL					;$B7BED2
+	ASL					;$B7BED3
+	ASL					;$B7BED4
+	ASL					;$B7BED5
+	ADC.b $1E				;$B7BED6
+	TAY					;$B7BED8
+	LDA.w $0000,y				;$B7BED9
+	EOR.w #$4000				;$B7BEDC
+	STA.b $00,x				;$B7BEDF
+	LDA.w $0008,y				;$B7BEE1
+	EOR.w #$4000				;$B7BEE4
+	STA.b $02,x				;$B7BEE7
+	LDA.w $0010,y				;$B7BEE9
+	EOR.w #$4000				;$B7BEEC
+	STA.b $04,x				;$B7BEEF
+	LDA.w $0018,y				;$B7BEF1
+	EOR.w #$4000				;$B7BEF4
+	BRA.b CODE_B7BEBC			;$B7BEF7
 
 CODE_B7BEF9:
-	BIT.w #$4000
-	BNE.b CODE_B7BF26
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0018,y
-	EOR.w #$8000
-	STA.b $00,x
-	LDA.w $0010,y
-	EOR.w #$8000
-	STA.b $02,x
-	LDA.w $0008,y
-	EOR.w #$8000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$8000
-	BRA.b CODE_B7BEBC
+	BIT.w #$4000				;$B7BEF9
+	BNE.b CODE_B7BF26			;$B7BEFC
+	ASL					;$B7BEFE
+	ASL					;$B7BEFF
+	ASL					;$B7BF00
+	ASL					;$B7BF01
+	ASL					;$B7BF02
+	ADC.b $1C				;$B7BF03
+	TAY					;$B7BF05
+	LDA.w $0018,y				;$B7BF06
+	EOR.w #$8000				;$B7BF09
+	STA.b $00,x				;$B7BF0C
+	LDA.w $0010,y				;$B7BF0E
+	EOR.w #$8000				;$B7BF11
+	STA.b $02,x				;$B7BF14
+	LDA.w $0008,y				;$B7BF16
+	EOR.w #$8000				;$B7BF19
+	STA.b $04,x				;$B7BF1C
+	LDA.w $0000,y				;$B7BF1E
+	EOR.w #$8000				;$B7BF21
+	BRA.b CODE_B7BEBC			;$B7BF24
 
 CODE_B7BF26:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0018,y
-	EOR.w #$C000
-	STA.b $00,x
-	LDA.w $0010,y
-	EOR.w #$C000
-	STA.b $02,x
-	LDA.w $0008,y
-	EOR.w #$C000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$C000
-	JMP.w CODE_B7BEBC
+	ASL					;$B7BF26
+	ASL					;$B7BF27
+	ASL					;$B7BF28
+	ASL					;$B7BF29
+	ASL					;$B7BF2A
+	ADC.b $1E				;$B7BF2B
+	TAY					;$B7BF2D
+	LDA.w $0018,y				;$B7BF2E
+	EOR.w #$C000				;$B7BF31
+	STA.b $00,x				;$B7BF34
+	LDA.w $0010,y				;$B7BF36
+	EOR.w #$C000				;$B7BF39
+	STA.b $02,x				;$B7BF3C
+	LDA.w $0008,y				;$B7BF3E
+	EOR.w #$C000				;$B7BF41
+	STA.b $04,x				;$B7BF44
+	LDA.w $0000,y				;$B7BF46
+	EOR.w #$C000				;$B7BF49
+	JMP.w CODE_B7BEBC			;$B7BF4C
 
 CODE_B7BF4F:
-	LDA.w $1973
-	AND.w #$00F8
-	CMP.w $1981
-	BNE.b CODE_B7BF5B
-	RTL
+	LDA.w $1973				;$B7BF4F
+	AND.w #$00F8				;$B7BF52
+	CMP.w $1981				;$B7BF55
+	BNE.b CODE_B7BF5B			;$B7BF58
+	RTL					;$B7BF5A
 
 CODE_B7BF5B:
-	LDA.w $1560
-	CLC
-	ADC.w #$00F0
-	STA.w $1560
-	LDA.w $196D
-	SEC
-	SBC.w #$0100
-	AND.w #$FFE0
-	ASL
-	CLC
-	ADC.b $8C
-	STA.b $1A
-	LDA.w $1973
-	SEC
-	SBC.w #$0020
-	LDX.w $1985
-	BPL.b CODE_B7BF85
-	SEC
-	SBC.w #$00E0
+	LDA.w $1560				;$B7BF5B
+	CLC					;$B7BF5E
+	ADC.w #$00F0				;$B7BF5F
+	STA.w $1560				;$B7BF62
+	LDA.w $196D				;$B7BF65
+	SEC					;$B7BF68
+	SBC.w #$0100				;$B7BF69
+	AND.w #$FFE0				;$B7BF6C
+	ASL					;$B7BF6F
+	CLC					;$B7BF70
+	ADC.b $8C				;$B7BF71
+	STA.b $1A				;$B7BF73
+	LDA.w $1973				;$B7BF75
+	SEC					;$B7BF78
+	SBC.w #$0020				;$B7BF79
+	LDX.w $1985				;$B7BF7C
+	BPL.b CODE_B7BF85			;$B7BF7F
+	SEC					;$B7BF81
+	SBC.w #$00E0				;$B7BF82
 CODE_B7BF85:
-	TAY
-	AND.w #$03E0
-	LSR
-	LSR
-	LSR
-	LSR
-	ADC.b $1A
-	STA.b $1A
-	TYA
-	AND.w #$0018
-	ADC.w $1967
-	STA.b $1C
-	TYA
-	AND.w #$0018
-	EOR.w #$0018
-	ADC.w $1967
-	STA.b $1E
-	LDA.b $8E
-	PHA
-	PLB
-	LDX.w #$1B0D
+	TAY					;$B7BF85
+	AND.w #$03E0				;$B7BF86
+	LSR					;$B7BF89
+	LSR					;$B7BF8A
+	LSR					;$B7BF8B
+	LSR					;$B7BF8C
+	ADC.b $1A				;$B7BF8D
+	STA.b $1A				;$B7BF8F
+	TYA					;$B7BF91
+	AND.w #$0018				;$B7BF92
+	ADC.w $1967				;$B7BF95
+	STA.b $1C				;$B7BF98
+	TYA					;$B7BF9A
+	AND.w #$0018				;$B7BF9B
+	EOR.w #$0018				;$B7BF9E
+	ADC.w $1967				;$B7BFA1
+	STA.b $1E				;$B7BFA4
+	LDA.b $8E				;$B7BFA6
+	PHA					;$B7BFA8
+	PLB					;$B7BFA9
+	LDX.w #$1B0D				;$B7BFAA
 CODE_B7BFAD:
-	LDA.b ($1A)
-	BMI.b CODE_B7C011
-	BIT.w #$4000
-	BNE.b CODE_B7BFE9
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0000,y
-	STA.b $00,x
-	LDA.w $0002,y
-	STA.b $02,x
-	LDA.w $0004,y
-	STA.b $04,x
-	LDA.w $0006,y
+	LDA.b ($1A)				;$B7BFAD
+	BMI.b CODE_B7C011			;$B7BFAF
+	BIT.w #$4000				;$B7BFB1
+	BNE.b CODE_B7BFE9			;$B7BFB4
+	ASL					;$B7BFB6
+	ASL					;$B7BFB7
+	ASL					;$B7BFB8
+	ASL					;$B7BFB9
+	ASL					;$B7BFBA
+	ADC.b $1C				;$B7BFBB
+	TAY					;$B7BFBD
+	LDA.w $0000,y				;$B7BFBE
+	STA.b $00,x				;$B7BFC1
+	LDA.w $0002,y				;$B7BFC3
+	STA.b $02,x				;$B7BFC6
+	LDA.w $0004,y				;$B7BFC8
+	STA.b $04,x				;$B7BFCB
+	LDA.w $0006,y				;$B7BFCD
 CODE_B7BFD0:
-	STA.b $06,x
-	LDA.b $1A
-	CLC
-	ADC.w #$0040
-	STA.b $1A
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
-	CMP.w #$1B55
-	BNE.b CODE_B7BFAD
-	PLB
-	JMP.w CODE_B7BAAF
+	STA.b $06,x				;$B7BFD0
+	LDA.b $1A				;$B7BFD2
+	CLC					;$B7BFD4
+	ADC.w #$0040				;$B7BFD5
+	STA.b $1A				;$B7BFD8
+	TXA					;$B7BFDA
+	CLC					;$B7BFDB
+	ADC.w #$0008				;$B7BFDC
+	TAX					;$B7BFDF
+	CMP.w #$1B55				;$B7BFE0
+	BNE.b CODE_B7BFAD			;$B7BFE3
+	PLB					;$B7BFE5
+	JMP.w CODE_B7BAAF			;$B7BFE6
 
 CODE_B7BFE9:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0006,y
-	EOR.w #$4000
-	STA.b $00,x
-	LDA.w $0004,y
-	EOR.w #$4000
-	STA.b $02,x
-	LDA.w $0002,y
-	EOR.w #$4000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$4000
-	BRA.b CODE_B7BFD0
+	ASL					;$B7BFE9
+	ASL					;$B7BFEA
+	ASL					;$B7BFEB
+	ASL					;$B7BFEC
+	ASL					;$B7BFED
+	ADC.b $1C				;$B7BFEE
+	TAY					;$B7BFF0
+	LDA.w $0006,y				;$B7BFF1
+	EOR.w #$4000				;$B7BFF4
+	STA.b $00,x				;$B7BFF7
+	LDA.w $0004,y				;$B7BFF9
+	EOR.w #$4000				;$B7BFFC
+	STA.b $02,x				;$B7BFFF
+	LDA.w $0002,y				;$B7C001
+	EOR.w #$4000				;$B7C004
+	STA.b $04,x				;$B7C007
+	LDA.w $0000,y				;$B7C009
+	EOR.w #$4000				;$B7C00C
+	BRA.b CODE_B7BFD0			;$B7C00F
 
 CODE_B7C011:
-	BIT.w #$4000
-	BNE.b CODE_B7C03E
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0000,y
-	EOR.w #$8000
-	STA.b $00,x
-	LDA.w $0002,y
-	EOR.w #$8000
-	STA.b $02,x
-	LDA.w $0004,y
-	EOR.w #$8000
-	STA.b $04,x
-	LDA.w $0006,y
-	EOR.w #$8000
-	BRA.b CODE_B7BFD0
+	BIT.w #$4000				;$B7C011
+	BNE.b CODE_B7C03E			;$B7C014
+	ASL					;$B7C016
+	ASL					;$B7C017
+	ASL					;$B7C018
+	ASL					;$B7C019
+	ASL					;$B7C01A
+	ADC.b $1E				;$B7C01B
+	TAY					;$B7C01D
+	LDA.w $0000,y				;$B7C01E
+	EOR.w #$8000				;$B7C021
+	STA.b $00,x				;$B7C024
+	LDA.w $0002,y				;$B7C026
+	EOR.w #$8000				;$B7C029
+	STA.b $02,x				;$B7C02C
+	LDA.w $0004,y				;$B7C02E
+	EOR.w #$8000				;$B7C031
+	STA.b $04,x				;$B7C034
+	LDA.w $0006,y				;$B7C036
+	EOR.w #$8000				;$B7C039
+	BRA.b CODE_B7BFD0			;$B7C03C
 
 CODE_B7C03E:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0006,y
-	EOR.w #$C000
-	STA.b $00,x
-	LDA.w $0004,y
-	EOR.w #$C000
-	STA.b $02,x
-	LDA.w $0002,y
-	EOR.w #$C000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$C000
-	JMP.w CODE_B7BFD0
+	ASL					;$B7C03E
+	ASL					;$B7C03F
+	ASL					;$B7C040
+	ASL					;$B7C041
+	ASL					;$B7C042
+	ADC.b $1E				;$B7C043
+	TAY					;$B7C045
+	LDA.w $0006,y				;$B7C046
+	EOR.w #$C000				;$B7C049
+	STA.b $00,x				;$B7C04C
+	LDA.w $0004,y				;$B7C04E
+	EOR.w #$C000				;$B7C051
+	STA.b $02,x				;$B7C054
+	LDA.w $0002,y				;$B7C056
+	EOR.w #$C000				;$B7C059
+	STA.b $04,x				;$B7C05C
+	LDA.w $0000,y				;$B7C05E
+	EOR.w #$C000				;$B7C061
+	JMP.w CODE_B7BFD0			;$B7C064
 
 CODE_B7C067:
-	LDA.w $196D
-	AND.w #$FFF8
-	CMP.w $197D
-	BNE.b CODE_B7C073
-	RTL
+	LDA.w $196D				;$B7C067
+	AND.w #$FFF8				;$B7C06A
+	CMP.w $197D				;$B7C06D
+	BNE.b CODE_B7C073			;$B7C070
+	RTL					;$B7C072
 
 CODE_B7C073:
-	LDA.w $1560
-	CLC
-	ADC.w #$009C
-	STA.w $1560
-	LDA.w $196D
-	LDX.w $1989
-	BPL.b CODE_B7C08C
-	LDA.w $196D
-	SEC
-	SBC.w #$0100
+	LDA.w $1560				;$B7C073
+	CLC					;$B7C076
+	ADC.w #$009C				;$B7C077
+	STA.w $1560				;$B7C07A
+	LDA.w $196D				;$B7C07D
+	LDX.w $1989				;$B7C080
+	BPL.b CODE_B7C08C			;$B7C083
+	LDA.w $196D				;$B7C085
+	SEC					;$B7C088
+	SBC.w #$0100				;$B7C089
 CODE_B7C08C:
-	TAY
-	AND.w #$FFE0
-	LSR
-	LSR
-	LSR
-	LSR
-	CLC
-	ADC.b $8C
-	STA.b $1A
-	LDA.w $1973
-	SEC
-	SBC.w #$0100
-	AND.w #$FFE0
-	STA.b $1C
-	ASL
-	ASL
-	CLC
-	ADC.b $1C
-	CLC
-	ADC.b $1A
-	STA.b $1A
-	TYA
-	AND.w #$0018
-	LSR
-	LSR
-	ADC.w $1967
-	STA.b $1C
-	TYA
-	AND.w #$0018
-	EOR.w #$0018
-	LSR
-	LSR
-	ADC.w $1967
-	STA.b $1E
-	LDA.b $8E
-	PHA
-	PLB
-	LDX.w #$1B0D
+	TAY					;$B7C08C
+	AND.w #$FFE0				;$B7C08D
+	LSR					;$B7C090
+	LSR					;$B7C091
+	LSR					;$B7C092
+	LSR					;$B7C093
+	CLC					;$B7C094
+	ADC.b $8C				;$B7C095
+	STA.b $1A				;$B7C097
+	LDA.w $1973				;$B7C099
+	SEC					;$B7C09C
+	SBC.w #$0100				;$B7C09D
+	AND.w #$FFE0				;$B7C0A0
+	STA.b $1C				;$B7C0A3
+	ASL					;$B7C0A5
+	ASL					;$B7C0A6
+	CLC					;$B7C0A7
+	ADC.b $1C				;$B7C0A8
+	CLC					;$B7C0AA
+	ADC.b $1A				;$B7C0AB
+	STA.b $1A				;$B7C0AD
+	TYA					;$B7C0AF
+	AND.w #$0018				;$B7C0B0
+	LSR					;$B7C0B3
+	LSR					;$B7C0B4
+	ADC.w $1967				;$B7C0B5
+	STA.b $1C				;$B7C0B8
+	TYA					;$B7C0BA
+	AND.w #$0018				;$B7C0BB
+	EOR.w #$0018				;$B7C0BE
+	LSR					;$B7C0C1
+	LSR					;$B7C0C2
+	ADC.w $1967				;$B7C0C3
+	STA.b $1E				;$B7C0C6
+	LDA.b $8E				;$B7C0C8
+	PHA					;$B7C0CA
+	PLB					;$B7C0CB
+	LDX.w #$1B0D				;$B7C0CC
 CODE_B7C0CF:
-	LDA.b ($1A)
-	BMI.b CODE_B7C133
-	BIT.w #$4000
-	BNE.b CODE_B7C10B
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0000,y
-	STA.b $00,x
-	LDA.w $0008,y
-	STA.b $02,x
-	LDA.w $0010,y
-	STA.b $04,x
-	LDA.w $0018,y
+	LDA.b ($1A)				;$B7C0CF
+	BMI.b CODE_B7C133			;$B7C0D1
+	BIT.w #$4000				;$B7C0D3
+	BNE.b CODE_B7C10B			;$B7C0D6
+	ASL					;$B7C0D8
+	ASL					;$B7C0D9
+	ASL					;$B7C0DA
+	ASL					;$B7C0DB
+	ASL					;$B7C0DC
+	ADC.b $1C				;$B7C0DD
+	TAY					;$B7C0DF
+	LDA.w $0000,y				;$B7C0E0
+	STA.b $00,x				;$B7C0E3
+	LDA.w $0008,y				;$B7C0E5
+	STA.b $02,x				;$B7C0E8
+	LDA.w $0010,y				;$B7C0EA
+	STA.b $04,x				;$B7C0ED
+	LDA.w $0018,y				;$B7C0EF
 CODE_B7C0F2:
-	STA.b $06,x
-	LDA.b $1A
-	CLC
-	ADC.w #$00A0
-	STA.b $1A
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
-	CMP.w #$1B55
-	BNE.b CODE_B7C0CF
-	PLB
-	JMP.w CODE_B7B72F
+	STA.b $06,x				;$B7C0F2
+	LDA.b $1A				;$B7C0F4
+	CLC					;$B7C0F6
+	ADC.w #$00A0				;$B7C0F7
+	STA.b $1A				;$B7C0FA
+	TXA					;$B7C0FC
+	CLC					;$B7C0FD
+	ADC.w #$0008				;$B7C0FE
+	TAX					;$B7C101
+	CMP.w #$1B55				;$B7C102
+	BNE.b CODE_B7C0CF			;$B7C105
+	PLB					;$B7C107
+	JMP.w CODE_B7B72F			;$B7C108
 
 CODE_B7C10B:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0000,y
-	EOR.w #$4000
-	STA.b $00,x
-	LDA.w $0008,y
-	EOR.w #$4000
-	STA.b $02,x
-	LDA.w $0010,y
-	EOR.w #$4000
-	STA.b $04,x
-	LDA.w $0018,y
-	EOR.w #$4000
-	BRA.b CODE_B7C0F2
+	ASL					;$B7C10B
+	ASL					;$B7C10C
+	ASL					;$B7C10D
+	ASL					;$B7C10E
+	ASL					;$B7C10F
+	ADC.b $1E				;$B7C110
+	TAY					;$B7C112
+	LDA.w $0000,y				;$B7C113
+	EOR.w #$4000				;$B7C116
+	STA.b $00,x				;$B7C119
+	LDA.w $0008,y				;$B7C11B
+	EOR.w #$4000				;$B7C11E
+	STA.b $02,x				;$B7C121
+	LDA.w $0010,y				;$B7C123
+	EOR.w #$4000				;$B7C126
+	STA.b $04,x				;$B7C129
+	LDA.w $0018,y				;$B7C12B
+	EOR.w #$4000				;$B7C12E
+	BRA.b CODE_B7C0F2			;$B7C131
 
 CODE_B7C133:
-	BIT.w #$4000
-	BNE.b CODE_B7C160
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0018,y
-	EOR.w #$8000
-	STA.b $00,x
-	LDA.w $0010,y
-	EOR.w #$8000
-	STA.b $02,x
-	LDA.w $0008,y
-	EOR.w #$8000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$8000
-	BRA.b CODE_B7C0F2
+	BIT.w #$4000				;$B7C133
+	BNE.b CODE_B7C160			;$B7C136
+	ASL					;$B7C138
+	ASL					;$B7C139
+	ASL					;$B7C13A
+	ASL					;$B7C13B
+	ASL					;$B7C13C
+	ADC.b $1C				;$B7C13D
+	TAY					;$B7C13F
+	LDA.w $0018,y				;$B7C140
+	EOR.w #$8000				;$B7C143
+	STA.b $00,x				;$B7C146
+	LDA.w $0010,y				;$B7C148
+	EOR.w #$8000				;$B7C14B
+	STA.b $02,x				;$B7C14E
+	LDA.w $0008,y				;$B7C150
+	EOR.w #$8000				;$B7C153
+	STA.b $04,x				;$B7C156
+	LDA.w $0000,y				;$B7C158
+	EOR.w #$8000				;$B7C15B
+	BRA.b CODE_B7C0F2			;$B7C15E
 
 CODE_B7C160:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0018,y
-	EOR.w #$C000
-	STA.b $00,x
-	LDA.w $0010,y
-	EOR.w #$C000
-	STA.b $02,x
-	LDA.w $0008,y
-	EOR.w #$C000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$C000
-	JMP.w CODE_B7C0F2
+	ASL					;$B7C160
+	ASL					;$B7C161
+	ASL					;$B7C162
+	ASL					;$B7C163
+	ASL					;$B7C164
+	ADC.b $1E				;$B7C165
+	TAY					;$B7C167
+	LDA.w $0018,y				;$B7C168
+	EOR.w #$C000				;$B7C16B
+	STA.b $00,x				;$B7C16E
+	LDA.w $0010,y				;$B7C170
+	EOR.w #$C000				;$B7C173
+	STA.b $02,x				;$B7C176
+	LDA.w $0008,y				;$B7C178
+	EOR.w #$C000				;$B7C17B
+	STA.b $04,x				;$B7C17E
+	LDA.w $0000,y				;$B7C180
+	EOR.w #$C000				;$B7C183
+	JMP.w CODE_B7C0F2			;$B7C186
 
 CODE_B7C189:
-	LDA.w $1973
-	AND.w #$00F8
-	CMP.w $1981
-	BNE.b CODE_B7C195
-	RTL
+	LDA.w $1973				;$B7C189
+	AND.w #$00F8				;$B7C18C
+	CMP.w $1981				;$B7C18F
+	BNE.b CODE_B7C195			;$B7C192
+	RTL					;$B7C194
 
 CODE_B7C195:
-	LDA.w $1560
-	CLC
-	ADC.w #$00F0
-	STA.w $1560
-	LDA.w $196D
-	SEC
-	SBC.w #$0100
-	AND.w #$FFE0
-	LSR
-	LSR
-	LSR
-	LSR
-	CLC
-	ADC.b $8C
-	STA.b $1A
-	LDA.w $1973
-	SEC
-	SBC.w #$0020
-	LDX.w $1985
-	BPL.b CODE_B7C1C2
-	SEC
-	SBC.w #$00E0
+	LDA.w $1560				;$B7C195
+	CLC					;$B7C198
+	ADC.w #$00F0				;$B7C199
+	STA.w $1560				;$B7C19C
+	LDA.w $196D				;$B7C19F
+	SEC					;$B7C1A2
+	SBC.w #$0100				;$B7C1A3
+	AND.w #$FFE0				;$B7C1A6
+	LSR					;$B7C1A9
+	LSR					;$B7C1AA
+	LSR					;$B7C1AB
+	LSR					;$B7C1AC
+	CLC					;$B7C1AD
+	ADC.b $8C				;$B7C1AE
+	STA.b $1A				;$B7C1B0
+	LDA.w $1973				;$B7C1B2
+	SEC					;$B7C1B5
+	SBC.w #$0020				;$B7C1B6
+	LDX.w $1985				;$B7C1B9
+	BPL.b CODE_B7C1C2			;$B7C1BC
+	SEC					;$B7C1BE
+	SBC.w #$00E0				;$B7C1BF
 CODE_B7C1C2:
-	TAY
-	AND.w #$FFE0
-	STA.b $1C
-	ASL
-	ASL
-	CLC
-	ADC.b $1C
-	ADC.b $1A
-	STA.b $1A
-	TYA
-	AND.w #$0018
-	ADC.w $1967
-	STA.b $1C
-	TYA
-	AND.w #$0018
-	EOR.w #$0018
-	ADC.w $1967
-	STA.b $1E
-	LDA.b $8E
-	PHA
-	PLB
-	LDX.w #$1B0D
+	TAY					;$B7C1C2
+	AND.w #$FFE0				;$B7C1C3
+	STA.b $1C				;$B7C1C6
+	ASL					;$B7C1C8
+	ASL					;$B7C1C9
+	CLC					;$B7C1CA
+	ADC.b $1C				;$B7C1CB
+	ADC.b $1A				;$B7C1CD
+	STA.b $1A				;$B7C1CF
+	TYA					;$B7C1D1
+	AND.w #$0018				;$B7C1D2
+	ADC.w $1967				;$B7C1D5
+	STA.b $1C				;$B7C1D8
+	TYA					;$B7C1DA
+	AND.w #$0018				;$B7C1DB
+	EOR.w #$0018				;$B7C1DE
+	ADC.w $1967				;$B7C1E1
+	STA.b $1E				;$B7C1E4
+	LDA.b $8E				;$B7C1E6
+	PHA					;$B7C1E8
+	PLB					;$B7C1E9
+	LDX.w #$1B0D				;$B7C1EA
 CODE_B7C1ED:
-	LDA.b ($1A)
-	BMI.b CODE_B7C24D
-	BIT.w #$4000
-	BNE.b CODE_B7C225
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0000,y
-	STA.b $00,x
-	LDA.w $0002,y
-	STA.b $02,x
-	LDA.w $0004,y
-	STA.b $04,x
-	LDA.w $0006,y
+	LDA.b ($1A)				;$B7C1ED
+	BMI.b CODE_B7C24D			;$B7C1EF
+	BIT.w #$4000				;$B7C1F1
+	BNE.b CODE_B7C225			;$B7C1F4
+	ASL					;$B7C1F6
+	ASL					;$B7C1F7
+	ASL					;$B7C1F8
+	ASL					;$B7C1F9
+	ASL					;$B7C1FA
+	ADC.b $1C				;$B7C1FB
+	TAY					;$B7C1FD
+	LDA.w $0000,y				;$B7C1FE
+	STA.b $00,x				;$B7C201
+	LDA.w $0002,y				;$B7C203
+	STA.b $02,x				;$B7C206
+	LDA.w $0004,y				;$B7C208
+	STA.b $04,x				;$B7C20B
+	LDA.w $0006,y				;$B7C20D
 CODE_B7C210:
-	STA.b $06,x
-	INC.b $1A
-	INC.b $1A
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
-	CMP.w #$1B55
-	BNE.b CODE_B7C1ED
-	PLB
-	JMP.w CODE_B7BAAF
+	STA.b $06,x				;$B7C210
+	INC.b $1A				;$B7C212
+	INC.b $1A				;$B7C214
+	TXA					;$B7C216
+	CLC					;$B7C217
+	ADC.w #$0008				;$B7C218
+	TAX					;$B7C21B
+	CMP.w #$1B55				;$B7C21C
+	BNE.b CODE_B7C1ED			;$B7C21F
+	PLB					;$B7C221
+	JMP.w CODE_B7BAAF			;$B7C222
 
 CODE_B7C225:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0006,y
-	EOR.w #$4000
-	STA.b $00,x
-	LDA.w $0004,y
-	EOR.w #$4000
-	STA.b $02,x
-	LDA.w $0002,y
-	EOR.w #$4000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$4000
-	BRA.b CODE_B7C210
+	ASL					;$B7C225
+	ASL					;$B7C226
+	ASL					;$B7C227
+	ASL					;$B7C228
+	ASL					;$B7C229
+	ADC.b $1C				;$B7C22A
+	TAY					;$B7C22C
+	LDA.w $0006,y				;$B7C22D
+	EOR.w #$4000				;$B7C230
+	STA.b $00,x				;$B7C233
+	LDA.w $0004,y				;$B7C235
+	EOR.w #$4000				;$B7C238
+	STA.b $02,x				;$B7C23B
+	LDA.w $0002,y				;$B7C23D
+	EOR.w #$4000				;$B7C240
+	STA.b $04,x				;$B7C243
+	LDA.w $0000,y				;$B7C245
+	EOR.w #$4000				;$B7C248
+	BRA.b CODE_B7C210			;$B7C24B
 
 CODE_B7C24D:
-	BIT.w #$4000
-	BNE.b CODE_B7C27A
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0000,y
-	EOR.w #$8000
-	STA.b $00,x
-	LDA.w $0002,y
-	EOR.w #$8000
-	STA.b $02,x
-	LDA.w $0004,y
-	EOR.w #$8000
-	STA.b $04,x
-	LDA.w $0006,y
-	EOR.w #$8000
-	BRA.b CODE_B7C210
+	BIT.w #$4000				;$B7C24D
+	BNE.b CODE_B7C27A			;$B7C250
+	ASL					;$B7C252
+	ASL					;$B7C253
+	ASL					;$B7C254
+	ASL					;$B7C255
+	ASL					;$B7C256
+	ADC.b $1E				;$B7C257
+	TAY					;$B7C259
+	LDA.w $0000,y				;$B7C25A
+	EOR.w #$8000				;$B7C25D
+	STA.b $00,x				;$B7C260
+	LDA.w $0002,y				;$B7C262
+	EOR.w #$8000				;$B7C265
+	STA.b $02,x				;$B7C268
+	LDA.w $0004,y				;$B7C26A
+	EOR.w #$8000				;$B7C26D
+	STA.b $04,x				;$B7C270
+	LDA.w $0006,y				;$B7C272
+	EOR.w #$8000				;$B7C275
+	BRA.b CODE_B7C210			;$B7C278
 
 CODE_B7C27A:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0006,y
-	EOR.w #$C000
-	STA.b $00,x
-	LDA.w $0004,y
-	EOR.w #$C000
-	STA.b $02,x
-	LDA.w $0002,y
-	EOR.w #$C000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$C000
-	JMP.w CODE_B7C210
+	ASL					;$B7C27A
+	ASL					;$B7C27B
+	ASL					;$B7C27C
+	ASL					;$B7C27D
+	ASL					;$B7C27E
+	ADC.b $1E				;$B7C27F
+	TAY					;$B7C281
+	LDA.w $0006,y				;$B7C282
+	EOR.w #$C000				;$B7C285
+	STA.b $00,x				;$B7C288
+	LDA.w $0004,y				;$B7C28A
+	EOR.w #$C000				;$B7C28D
+	STA.b $02,x				;$B7C290
+	LDA.w $0002,y				;$B7C292
+	EOR.w #$C000				;$B7C295
+	STA.b $04,x				;$B7C298
+	LDA.w $0000,y				;$B7C29A
+	EOR.w #$C000				;$B7C29D
+	JMP.w CODE_B7C210			;$B7C2A0
 
 CODE_B7C2A3:
-	STZ.w $197B
-	JSL.l CODE_B7C067
-	JML.l CODE_B7C189
+	STZ.w $197B				;$B7C2A3
+	JSL.l CODE_B7C067			;$B7C2A6
+	JML.l CODE_B7C189			;$B7C2AA
 
 CODE_B7C2AE:
-	LDA.w $196D
-	AND.w #$FFF8
-	CMP.w $197D
-	BNE.b CODE_B7C2BA
-	RTL
+	LDA.w $196D				;$B7C2AE
+	AND.w #$FFF8				;$B7C2B1
+	CMP.w $197D				;$B7C2B4
+	BNE.b CODE_B7C2BA			;$B7C2B7
+	RTL					;$B7C2B9
 
 CODE_B7C2BA:
-	LDA.w $1560
-	CLC
-	ADC.w #$009C
-	STA.w $1560
-	LDA.w $196D
-	LDX.w $1989
-	BPL.b CODE_B7C2D3
-	LDA.w $196D
-	SEC
-	SBC.w #$0100
+	LDA.w $1560				;$B7C2BA
+	CLC					;$B7C2BD
+	ADC.w #$009C				;$B7C2BE
+	STA.w $1560				;$B7C2C1
+	LDA.w $196D				;$B7C2C4
+	LDX.w $1989				;$B7C2C7
+	BPL.b CODE_B7C2D3			;$B7C2CA
+	LDA.w $196D				;$B7C2CC
+	SEC					;$B7C2CF
+	SBC.w #$0100				;$B7C2D0
 CODE_B7C2D3:
-	TAY
-	AND.w #$FFE0
-	LSR
-	LSR
-	LSR
-	LSR
-	CLC
-	ADC.b $8C
-	STA.b $1A
-	LDA.w $1973
-	SEC
-	SBC.w #$0100
-	AND.w #$FFE0
-	ASL
-	STA.b $1C
-	ASL
-	CLC
-	ADC.b $1C
-	CLC
-	ADC.b $1A
-	STA.b $1A
-	TYA
-	AND.w #$0018
-	LSR
-	LSR
-	ADC.w $1967
-	STA.b $1C
-	TYA
-	AND.w #$0018
-	EOR.w #$0018
-	LSR
-	LSR
-	ADC.w $1967
-	STA.b $1E
-	LDA.b $8E
-	PHA
-	PLB
-	LDX.w #$1B0D
+	TAY					;$B7C2D3
+	AND.w #$FFE0				;$B7C2D4
+	LSR					;$B7C2D7
+	LSR					;$B7C2D8
+	LSR					;$B7C2D9
+	LSR					;$B7C2DA
+	CLC					;$B7C2DB
+	ADC.b $8C				;$B7C2DC
+	STA.b $1A				;$B7C2DE
+	LDA.w $1973				;$B7C2E0
+	SEC					;$B7C2E3
+	SBC.w #$0100				;$B7C2E4
+	AND.w #$FFE0				;$B7C2E7
+	ASL					;$B7C2EA
+	STA.b $1C				;$B7C2EB
+	ASL					;$B7C2ED
+	CLC					;$B7C2EE
+	ADC.b $1C				;$B7C2EF
+	CLC					;$B7C2F1
+	ADC.b $1A				;$B7C2F2
+	STA.b $1A				;$B7C2F4
+	TYA					;$B7C2F6
+	AND.w #$0018				;$B7C2F7
+	LSR					;$B7C2FA
+	LSR					;$B7C2FB
+	ADC.w $1967				;$B7C2FC
+	STA.b $1C				;$B7C2FF
+	TYA					;$B7C301
+	AND.w #$0018				;$B7C302
+	EOR.w #$0018				;$B7C305
+	LSR					;$B7C308
+	LSR					;$B7C309
+	ADC.w $1967				;$B7C30A
+	STA.b $1E				;$B7C30D
+	LDA.b $8E				;$B7C30F
+	PHA					;$B7C311
+	PLB					;$B7C312
+	LDX.w #$1B0D				;$B7C313
 CODE_B7C316:
-	LDA.b ($1A)
-	BMI.b CODE_B7C37A
-	BIT.w #$4000
-	BNE.b CODE_B7C352
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0000,y
-	STA.b $00,x
-	LDA.w $0008,y
-	STA.b $02,x
-	LDA.w $0010,y
-	STA.b $04,x
-	LDA.w $0018,y
+	LDA.b ($1A)				;$B7C316
+	BMI.b CODE_B7C37A			;$B7C318
+	BIT.w #$4000				;$B7C31A
+	BNE.b CODE_B7C352			;$B7C31D
+	ASL					;$B7C31F
+	ASL					;$B7C320
+	ASL					;$B7C321
+	ASL					;$B7C322
+	ASL					;$B7C323
+	ADC.b $1C				;$B7C324
+	TAY					;$B7C326
+	LDA.w $0000,y				;$B7C327
+	STA.b $00,x				;$B7C32A
+	LDA.w $0008,y				;$B7C32C
+	STA.b $02,x				;$B7C32F
+	LDA.w $0010,y				;$B7C331
+	STA.b $04,x				;$B7C334
+	LDA.w $0018,y				;$B7C336
 CODE_B7C339:
-	STA.b $06,x
-	LDA.b $1A
-	CLC
-	ADC.w #$00C0
-	STA.b $1A
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
-	CMP.w #$1B55
-	BNE.b CODE_B7C316
-	PLB
-	JMP.w CODE_B7B72F
+	STA.b $06,x				;$B7C339
+	LDA.b $1A				;$B7C33B
+	CLC					;$B7C33D
+	ADC.w #$00C0				;$B7C33E
+	STA.b $1A				;$B7C341
+	TXA					;$B7C343
+	CLC					;$B7C344
+	ADC.w #$0008				;$B7C345
+	TAX					;$B7C348
+	CMP.w #$1B55				;$B7C349
+	BNE.b CODE_B7C316			;$B7C34C
+	PLB					;$B7C34E
+	JMP.w CODE_B7B72F			;$B7C34F
 
 CODE_B7C352:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0000,y
-	EOR.w #$4000
-	STA.b $00,x
-	LDA.w $0008,y
-	EOR.w #$4000
-	STA.b $02,x
-	LDA.w $0010,y
-	EOR.w #$4000
-	STA.b $04,x
-	LDA.w $0018,y
-	EOR.w #$4000
-	BRA.b CODE_B7C339
+	ASL					;$B7C352
+	ASL					;$B7C353
+	ASL					;$B7C354
+	ASL					;$B7C355
+	ASL					;$B7C356
+	ADC.b $1E				;$B7C357
+	TAY					;$B7C359
+	LDA.w $0000,y				;$B7C35A
+	EOR.w #$4000				;$B7C35D
+	STA.b $00,x				;$B7C360
+	LDA.w $0008,y				;$B7C362
+	EOR.w #$4000				;$B7C365
+	STA.b $02,x				;$B7C368
+	LDA.w $0010,y				;$B7C36A
+	EOR.w #$4000				;$B7C36D
+	STA.b $04,x				;$B7C370
+	LDA.w $0018,y				;$B7C372
+	EOR.w #$4000				;$B7C375
+	BRA.b CODE_B7C339			;$B7C378
 
 CODE_B7C37A:
-	BIT.w #$4000
-	BNE.b CODE_B7C3A7
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0018,y
-	EOR.w #$8000
-	STA.b $00,x
-	LDA.w $0010,y
-	EOR.w #$8000
-	STA.b $02,x
-	LDA.w $0008,y
-	EOR.w #$8000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$8000
-	BRA.b CODE_B7C339
+	BIT.w #$4000				;$B7C37A
+	BNE.b CODE_B7C3A7			;$B7C37D
+	ASL					;$B7C37F
+	ASL					;$B7C380
+	ASL					;$B7C381
+	ASL					;$B7C382
+	ASL					;$B7C383
+	ADC.b $1C				;$B7C384
+	TAY					;$B7C386
+	LDA.w $0018,y				;$B7C387
+	EOR.w #$8000				;$B7C38A
+	STA.b $00,x				;$B7C38D
+	LDA.w $0010,y				;$B7C38F
+	EOR.w #$8000				;$B7C392
+	STA.b $02,x				;$B7C395
+	LDA.w $0008,y				;$B7C397
+	EOR.w #$8000				;$B7C39A
+	STA.b $04,x				;$B7C39D
+	LDA.w $0000,y				;$B7C39F
+	EOR.w #$8000				;$B7C3A2
+	BRA.b CODE_B7C339			;$B7C3A5
 
 CODE_B7C3A7:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0018,y
-	EOR.w #$C000
-	STA.b $00,x
-	LDA.w $0010,y
-	EOR.w #$C000
-	STA.b $02,x
-	LDA.w $0008,y
-	EOR.w #$C000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$C000
-	JMP.w CODE_B7C339
+	ASL					;$B7C3A7
+	ASL					;$B7C3A8
+	ASL					;$B7C3A9
+	ASL					;$B7C3AA
+	ASL					;$B7C3AB
+	ADC.b $1E				;$B7C3AC
+	TAY					;$B7C3AE
+	LDA.w $0018,y				;$B7C3AF
+	EOR.w #$C000				;$B7C3B2
+	STA.b $00,x				;$B7C3B5
+	LDA.w $0010,y				;$B7C3B7
+	EOR.w #$C000				;$B7C3BA
+	STA.b $02,x				;$B7C3BD
+	LDA.w $0008,y				;$B7C3BF
+	EOR.w #$C000				;$B7C3C2
+	STA.b $04,x				;$B7C3C5
+	LDA.w $0000,y				;$B7C3C7
+	EOR.w #$C000				;$B7C3CA
+	JMP.w CODE_B7C339			;$B7C3CD
 
 CODE_B7C3D0:
-	LDA.w $1973
-	AND.w #$00F8
-	CMP.w $1981
-	BNE.b CODE_B7C3DC
-	RTL
+	LDA.w $1973				;$B7C3D0
+	AND.w #$00F8				;$B7C3D3
+	CMP.w $1981				;$B7C3D6
+	BNE.b CODE_B7C3DC			;$B7C3D9
+	RTL					;$B7C3DB
 
 CODE_B7C3DC:
-	LDA.w $1560
-	CLC
-	ADC.w #$00F0
-	STA.w $1560
-	LDA.w $196D
-	SEC
-	SBC.w #$0100
-	AND.w #$FFE0
-	LSR
-	LSR
-	LSR
-	LSR
-	CLC
-	ADC.b $8C
-	STA.b $1A
-	LDA.w $1973
-	SEC
-	SBC.w #$0020
-	LDX.w $1985
-	BPL.b CODE_B7C409
-	SEC
-	SBC.w #$00E0
+	LDA.w $1560				;$B7C3DC
+	CLC					;$B7C3DF
+	ADC.w #$00F0				;$B7C3E0
+	STA.w $1560				;$B7C3E3
+	LDA.w $196D				;$B7C3E6
+	SEC					;$B7C3E9
+	SBC.w #$0100				;$B7C3EA
+	AND.w #$FFE0				;$B7C3ED
+	LSR					;$B7C3F0
+	LSR					;$B7C3F1
+	LSR					;$B7C3F2
+	LSR					;$B7C3F3
+	CLC					;$B7C3F4
+	ADC.b $8C				;$B7C3F5
+	STA.b $1A				;$B7C3F7
+	LDA.w $1973				;$B7C3F9
+	SEC					;$B7C3FC
+	SBC.w #$0020				;$B7C3FD
+	LDX.w $1985				;$B7C400
+	BPL.b CODE_B7C409			;$B7C403
+	SEC					;$B7C405
+	SBC.w #$00E0				;$B7C406
 CODE_B7C409:
-	TAY
-	AND.w #$FFE0
-	ASL
-	STA.b $1C
-	ASL
-	CLC
-	ADC.b $1C
-	ADC.b $1A
-	STA.b $1A
-	TYA
-	AND.w #$0018
-	ADC.w $1967
-	STA.b $1C
-	TYA
-	AND.w #$0018
-	EOR.w #$0018
-	ADC.w $1967
-	STA.b $1E
-	LDA.b $8E
-	PHA
-	PLB
-	LDX.w #$1B0D
+	TAY					;$B7C409
+	AND.w #$FFE0				;$B7C40A
+	ASL					;$B7C40D
+	STA.b $1C				;$B7C40E
+	ASL					;$B7C410
+	CLC					;$B7C411
+	ADC.b $1C				;$B7C412
+	ADC.b $1A				;$B7C414
+	STA.b $1A				;$B7C416
+	TYA					;$B7C418
+	AND.w #$0018				;$B7C419
+	ADC.w $1967				;$B7C41C
+	STA.b $1C				;$B7C41F
+	TYA					;$B7C421
+	AND.w #$0018				;$B7C422
+	EOR.w #$0018				;$B7C425
+	ADC.w $1967				;$B7C428
+	STA.b $1E				;$B7C42B
+	LDA.b $8E				;$B7C42D
+	PHA					;$B7C42F
+	PLB					;$B7C430
+	LDX.w #$1B0D				;$B7C431
 CODE_B7C434:
-	LDA.b ($1A)
-	BMI.b CODE_B7C494
-	BIT.w #$4000
-	BNE.b CODE_B7C46C
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0000,y
-	STA.b $00,x
-	LDA.w $0002,y
-	STA.b $02,x
-	LDA.w $0004,y
-	STA.b $04,x
-	LDA.w $0006,y
+	LDA.b ($1A)				;$B7C434
+	BMI.b CODE_B7C494			;$B7C436
+	BIT.w #$4000				;$B7C438
+	BNE.b CODE_B7C46C			;$B7C43B
+	ASL					;$B7C43D
+	ASL					;$B7C43E
+	ASL					;$B7C43F
+	ASL					;$B7C440
+	ASL					;$B7C441
+	ADC.b $1C				;$B7C442
+	TAY					;$B7C444
+	LDA.w $0000,y				;$B7C445
+	STA.b $00,x				;$B7C448
+	LDA.w $0002,y				;$B7C44A
+	STA.b $02,x				;$B7C44D
+	LDA.w $0004,y				;$B7C44F
+	STA.b $04,x				;$B7C452
+	LDA.w $0006,y				;$B7C454
 CODE_B7C457:
-	STA.b $06,x
-	INC.b $1A
-	INC.b $1A
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
-	CMP.w #$1B55
-	BNE.b CODE_B7C434
-	PLB
-	JMP.w CODE_B7BAAF
+	STA.b $06,x				;$B7C457
+	INC.b $1A				;$B7C459
+	INC.b $1A				;$B7C45B
+	TXA					;$B7C45D
+	CLC					;$B7C45E
+	ADC.w #$0008				;$B7C45F
+	TAX					;$B7C462
+	CMP.w #$1B55				;$B7C463
+	BNE.b CODE_B7C434			;$B7C466
+	PLB					;$B7C468
+	JMP.w CODE_B7BAAF			;$B7C469
 
 CODE_B7C46C:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0006,y
-	EOR.w #$4000
-	STA.b $00,x
-	LDA.w $0004,y
-	EOR.w #$4000
-	STA.b $02,x
-	LDA.w $0002,y
-	EOR.w #$4000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$4000
-	BRA.b CODE_B7C457
+	ASL					;$B7C46C
+	ASL					;$B7C46D
+	ASL					;$B7C46E
+	ASL					;$B7C46F
+	ASL					;$B7C470
+	ADC.b $1C				;$B7C471
+	TAY					;$B7C473
+	LDA.w $0006,y				;$B7C474
+	EOR.w #$4000				;$B7C477
+	STA.b $00,x				;$B7C47A
+	LDA.w $0004,y				;$B7C47C
+	EOR.w #$4000				;$B7C47F
+	STA.b $02,x				;$B7C482
+	LDA.w $0002,y				;$B7C484
+	EOR.w #$4000				;$B7C487
+	STA.b $04,x				;$B7C48A
+	LDA.w $0000,y				;$B7C48C
+	EOR.w #$4000				;$B7C48F
+	BRA.b CODE_B7C457			;$B7C492
 
 CODE_B7C494:
-	BIT.w #$4000
-	BNE.b CODE_B7C4C1
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0000,y
-	EOR.w #$8000
-	STA.b $00,x
-	LDA.w $0002,y
-	EOR.w #$8000
-	STA.b $02,x
-	LDA.w $0004,y
-	EOR.w #$8000
-	STA.b $04,x
-	LDA.w $0006,y
-	EOR.w #$8000
-	BRA.b CODE_B7C457
+	BIT.w #$4000				;$B7C494
+	BNE.b CODE_B7C4C1			;$B7C497
+	ASL					;$B7C499
+	ASL					;$B7C49A
+	ASL					;$B7C49B
+	ASL					;$B7C49C
+	ASL					;$B7C49D
+	ADC.b $1E				;$B7C49E
+	TAY					;$B7C4A0
+	LDA.w $0000,y				;$B7C4A1
+	EOR.w #$8000				;$B7C4A4
+	STA.b $00,x				;$B7C4A7
+	LDA.w $0002,y				;$B7C4A9
+	EOR.w #$8000				;$B7C4AC
+	STA.b $02,x				;$B7C4AF
+	LDA.w $0004,y				;$B7C4B1
+	EOR.w #$8000				;$B7C4B4
+	STA.b $04,x				;$B7C4B7
+	LDA.w $0006,y				;$B7C4B9
+	EOR.w #$8000				;$B7C4BC
+	BRA.b CODE_B7C457			;$B7C4BF
 
 CODE_B7C4C1:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0006,y
-	EOR.w #$C000
-	STA.b $00,x
-	LDA.w $0004,y
-	EOR.w #$C000
-	STA.b $02,x
-	LDA.w $0002,y
-	EOR.w #$C000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$C000
-	JMP.w CODE_B7C457
+	ASL					;$B7C4C1
+	ASL					;$B7C4C2
+	ASL					;$B7C4C3
+	ASL					;$B7C4C4
+	ASL					;$B7C4C5
+	ADC.b $1E				;$B7C4C6
+	TAY					;$B7C4C8
+	LDA.w $0006,y				;$B7C4C9
+	EOR.w #$C000				;$B7C4CC
+	STA.b $00,x				;$B7C4CF
+	LDA.w $0004,y				;$B7C4D1
+	EOR.w #$C000				;$B7C4D4
+	STA.b $02,x				;$B7C4D7
+	LDA.w $0002,y				;$B7C4D9
+	EOR.w #$C000				;$B7C4DC
+	STA.b $04,x				;$B7C4DF
+	LDA.w $0000,y				;$B7C4E1
+	EOR.w #$C000				;$B7C4E4
+	JMP.w CODE_B7C457			;$B7C4E7
 
 CODE_B7C4EA:
-	STZ.w $197B
-	JSL.l CODE_B7C2AE
-	JML.l CODE_B7C3D0
+	STZ.w $197B				;$B7C4EA
+	JSL.l CODE_B7C2AE			;$B7C4ED
+	JML.l CODE_B7C3D0			;$B7C4F1
 
 CODE_B7C4F5:
-	LDA.w $196D
-	AND.w #$FFF8
-	CMP.w $197D
-	BNE.b CODE_B7C501
-	RTL
+	LDA.w $196D				;$B7C4F5
+	AND.w #$FFF8				;$B7C4F8
+	CMP.w $197D				;$B7C4FB
+	BNE.b CODE_B7C501			;$B7C4FE
+	RTL					;$B7C500
 
 CODE_B7C501:
-	LDA.w $1560
-	CLC
-	ADC.w #$009C
-	STA.w $1560
-	LDA.w $196D
-	LDX.w $1989
-	BPL.b CODE_B7C51A
-	LDA.w $196D
-	SEC
-	SBC.w #$0100
+	LDA.w $1560				;$B7C501
+	CLC					;$B7C504
+	ADC.w #$009C				;$B7C505
+	STA.w $1560				;$B7C508
+	LDA.w $196D				;$B7C50B
+	LDX.w $1989				;$B7C50E
+	BPL.b CODE_B7C51A			;$B7C511
+	LDA.w $196D				;$B7C513
+	SEC					;$B7C516
+	SBC.w #$0100				;$B7C517
 CODE_B7C51A:
-	TAY
-	AND.w #$FFE0
-	LSR
-	LSR
-	LSR
-	LSR
-	CLC
-	ADC.b $8C
-	STA.b $1A
-	LDA.w $1973
-	SEC
-	SBC.w #$0100
-	AND.w #$FFE0
-	ASL
-	CLC
-	ADC.b $1A
-	STA.b $1A
-	TYA
-	AND.w #$0018
-	LSR
-	LSR
-	ADC.w $1967
-	STA.b $1C
-	TYA
-	AND.w #$0018
-	EOR.w #$0018
-	LSR
-	LSR
-	ADC.w $1967
-	STA.b $1E
-	LDA.b $8E
-	PHA
-	PLB
-	LDX.w #$1B0D
+	TAY					;$B7C51A
+	AND.w #$FFE0				;$B7C51B
+	LSR					;$B7C51E
+	LSR					;$B7C51F
+	LSR					;$B7C520
+	LSR					;$B7C521
+	CLC					;$B7C522
+	ADC.b $8C				;$B7C523
+	STA.b $1A				;$B7C525
+	LDA.w $1973				;$B7C527
+	SEC					;$B7C52A
+	SBC.w #$0100				;$B7C52B
+	AND.w #$FFE0				;$B7C52E
+	ASL					;$B7C531
+	CLC					;$B7C532
+	ADC.b $1A				;$B7C533
+	STA.b $1A				;$B7C535
+	TYA					;$B7C537
+	AND.w #$0018				;$B7C538
+	LSR					;$B7C53B
+	LSR					;$B7C53C
+	ADC.w $1967				;$B7C53D
+	STA.b $1C				;$B7C540
+	TYA					;$B7C542
+	AND.w #$0018				;$B7C543
+	EOR.w #$0018				;$B7C546
+	LSR					;$B7C549
+	LSR					;$B7C54A
+	ADC.w $1967				;$B7C54B
+	STA.b $1E				;$B7C54E
+	LDA.b $8E				;$B7C550
+	PHA					;$B7C552
+	PLB					;$B7C553
+	LDX.w #$1B0D				;$B7C554
 CODE_B7C557:
-	LDA.b ($1A)
-	BMI.b CODE_B7C5BB
-	BIT.w #$4000
-	BNE.b CODE_B7C593
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0000,y
-	STA.b $00,x
-	LDA.w $0008,y
-	STA.b $02,x
-	LDA.w $0010,y
-	STA.b $04,x
-	LDA.w $0018,y
+	LDA.b ($1A)				;$B7C557
+	BMI.b CODE_B7C5BB			;$B7C559
+	BIT.w #$4000				;$B7C55B
+	BNE.b CODE_B7C593			;$B7C55E
+	ASL					;$B7C560
+	ASL					;$B7C561
+	ASL					;$B7C562
+	ASL					;$B7C563
+	ASL					;$B7C564
+	ADC.b $1C				;$B7C565
+	TAY					;$B7C567
+	LDA.w $0000,y				;$B7C568
+	STA.b $00,x				;$B7C56B
+	LDA.w $0008,y				;$B7C56D
+	STA.b $02,x				;$B7C570
+	LDA.w $0010,y				;$B7C572
+	STA.b $04,x				;$B7C575
+	LDA.w $0018,y				;$B7C577
 CODE_B7C57A:
-	STA.b $06,x
-	LDA.b $1A
-	CLC
-	ADC.w #$0040
-	STA.b $1A
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
-	CMP.w #$1B55
-	BNE.b CODE_B7C557
-	PLB
-	JMP.w CODE_B7B72F
+	STA.b $06,x				;$B7C57A
+	LDA.b $1A				;$B7C57C
+	CLC					;$B7C57E
+	ADC.w #$0040				;$B7C57F
+	STA.b $1A				;$B7C582
+	TXA					;$B7C584
+	CLC					;$B7C585
+	ADC.w #$0008				;$B7C586
+	TAX					;$B7C589
+	CMP.w #$1B55				;$B7C58A
+	BNE.b CODE_B7C557			;$B7C58D
+	PLB					;$B7C58F
+	JMP.w CODE_B7B72F			;$B7C590
 
 CODE_B7C593:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0000,y
-	EOR.w #$4000
-	STA.b $00,x
-	LDA.w $0008,y
-	EOR.w #$4000
-	STA.b $02,x
-	LDA.w $0010,y
-	EOR.w #$4000
-	STA.b $04,x
-	LDA.w $0018,y
-	EOR.w #$4000
-	BRA.b CODE_B7C57A
+	ASL					;$B7C593
+	ASL					;$B7C594
+	ASL					;$B7C595
+	ASL					;$B7C596
+	ASL					;$B7C597
+	ADC.b $1E				;$B7C598
+	TAY					;$B7C59A
+	LDA.w $0000,y				;$B7C59B
+	EOR.w #$4000				;$B7C59E
+	STA.b $00,x				;$B7C5A1
+	LDA.w $0008,y				;$B7C5A3
+	EOR.w #$4000				;$B7C5A6
+	STA.b $02,x				;$B7C5A9
+	LDA.w $0010,y				;$B7C5AB
+	EOR.w #$4000				;$B7C5AE
+	STA.b $04,x				;$B7C5B1
+	LDA.w $0018,y				;$B7C5B3
+	EOR.w #$4000				;$B7C5B6
+	BRA.b CODE_B7C57A			;$B7C5B9
 
 CODE_B7C5BB:
-	BIT.w #$4000
-	BNE.b CODE_B7C5E8
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0018,y
-	EOR.w #$8000
-	STA.b $00,x
-	LDA.w $0010,y
-	EOR.w #$8000
-	STA.b $02,x
-	LDA.w $0008,y
-	EOR.w #$8000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$8000
-	BRA.b CODE_B7C57A
+	BIT.w #$4000				;$B7C5BB
+	BNE.b CODE_B7C5E8			;$B7C5BE
+	ASL					;$B7C5C0
+	ASL					;$B7C5C1
+	ASL					;$B7C5C2
+	ASL					;$B7C5C3
+	ASL					;$B7C5C4
+	ADC.b $1C				;$B7C5C5
+	TAY					;$B7C5C7
+	LDA.w $0018,y				;$B7C5C8
+	EOR.w #$8000				;$B7C5CB
+	STA.b $00,x				;$B7C5CE
+	LDA.w $0010,y				;$B7C5D0
+	EOR.w #$8000				;$B7C5D3
+	STA.b $02,x				;$B7C5D6
+	LDA.w $0008,y				;$B7C5D8
+	EOR.w #$8000				;$B7C5DB
+	STA.b $04,x				;$B7C5DE
+	LDA.w $0000,y				;$B7C5E0
+	EOR.w #$8000				;$B7C5E3
+	BRA.b CODE_B7C57A			;$B7C5E6
 
 CODE_B7C5E8:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0018,y
-	EOR.w #$C000
-	STA.b $00,x
-	LDA.w $0010,y
-	EOR.w #$C000
-	STA.b $02,x
-	LDA.w $0008,y
-	EOR.w #$C000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$C000
-	JMP.w CODE_B7C57A
+	ASL					;$B7C5E8
+	ASL					;$B7C5E9
+	ASL					;$B7C5EA
+	ASL					;$B7C5EB
+	ASL					;$B7C5EC
+	ADC.b $1E				;$B7C5ED
+	TAY					;$B7C5EF
+	LDA.w $0018,y				;$B7C5F0
+	EOR.w #$C000				;$B7C5F3
+	STA.b $00,x				;$B7C5F6
+	LDA.w $0010,y				;$B7C5F8
+	EOR.w #$C000				;$B7C5FB
+	STA.b $02,x				;$B7C5FE
+	LDA.w $0008,y				;$B7C600
+	EOR.w #$C000				;$B7C603
+	STA.b $04,x				;$B7C606
+	LDA.w $0000,y				;$B7C608
+	EOR.w #$C000				;$B7C60B
+	JMP.w CODE_B7C57A			;$B7C60E
 
 CODE_B7C611:
-	LDA.w $1973
-	AND.w #$00F8
-	CMP.w $1981
-	BNE.b CODE_B7C61D
-	RTL
+	LDA.w $1973				;$B7C611
+	AND.w #$00F8				;$B7C614
+	CMP.w $1981				;$B7C617
+	BNE.b CODE_B7C61D			;$B7C61A
+	RTL					;$B7C61C
 
 CODE_B7C61D:
-	LDA.w $1560
-	CLC
-	ADC.w #$00F0
-	STA.w $1560
-	LDA.w $196D
-	SEC
-	SBC.w #$0100
-	AND.w #$FFE0
-	LSR
-	LSR
-	LSR
-	LSR
-	CLC
-	ADC.b $8C
-	STA.b $1A
-	LDA.w $1973
-	SEC
-	SBC.w #$0020
-	LDX.w $1985
-	BPL.b CODE_B7C64A
-	SEC
-	SBC.w #$00E0
+	LDA.w $1560				;$B7C61D
+	CLC					;$B7C620
+	ADC.w #$00F0				;$B7C621
+	STA.w $1560				;$B7C624
+	LDA.w $196D				;$B7C627
+	SEC					;$B7C62A
+	SBC.w #$0100				;$B7C62B
+	AND.w #$FFE0				;$B7C62E
+	LSR					;$B7C631
+	LSR					;$B7C632
+	LSR					;$B7C633
+	LSR					;$B7C634
+	CLC					;$B7C635
+	ADC.b $8C				;$B7C636
+	STA.b $1A				;$B7C638
+	LDA.w $1973				;$B7C63A
+	SEC					;$B7C63D
+	SBC.w #$0020				;$B7C63E
+	LDX.w $1985				;$B7C641
+	BPL.b CODE_B7C64A			;$B7C644
+	SEC					;$B7C646
+	SBC.w #$00E0				;$B7C647
 CODE_B7C64A:
-	TAY
-	AND.w #$FFE0
-	ASL
-	CLC
-	ADC.b $1A
-	STA.b $1A
-	TYA
-	AND.w #$0018
-	ADC.w $1967
-	STA.b $1C
-	TYA
-	AND.w #$0018
-	EOR.w #$0018
-	ADC.w $1967
-	STA.b $1E
-	LDA.b $8E
-	PHA
-	PLB
-	LDX.w #$1B0D
+	TAY					;$B7C64A
+	AND.w #$FFE0				;$B7C64B
+	ASL					;$B7C64E
+	CLC					;$B7C64F
+	ADC.b $1A				;$B7C650
+	STA.b $1A				;$B7C652
+	TYA					;$B7C654
+	AND.w #$0018				;$B7C655
+	ADC.w $1967				;$B7C658
+	STA.b $1C				;$B7C65B
+	TYA					;$B7C65D
+	AND.w #$0018				;$B7C65E
+	EOR.w #$0018				;$B7C661
+	ADC.w $1967				;$B7C664
+	STA.b $1E				;$B7C667
+	LDA.b $8E				;$B7C669
+	PHA					;$B7C66B
+	PLB					;$B7C66C
+	LDX.w #$1B0D				;$B7C66D
 CODE_B7C670:
-	LDA.b ($1A)
-	BMI.b CODE_B7C6D0
-	BIT.w #$4000
-	BNE.b CODE_B7C6A8
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0000,y
-	STA.b $00,x
-	LDA.w $0002,y
-	STA.b $02,x
-	LDA.w $0004,y
-	STA.b $04,x
-	LDA.w $0006,y
+	LDA.b ($1A)				;$B7C670
+	BMI.b CODE_B7C6D0			;$B7C672
+	BIT.w #$4000				;$B7C674
+	BNE.b CODE_B7C6A8			;$B7C677
+	ASL					;$B7C679
+	ASL					;$B7C67A
+	ASL					;$B7C67B
+	ASL					;$B7C67C
+	ASL					;$B7C67D
+	ADC.b $1C				;$B7C67E
+	TAY					;$B7C680
+	LDA.w $0000,y				;$B7C681
+	STA.b $00,x				;$B7C684
+	LDA.w $0002,y				;$B7C686
+	STA.b $02,x				;$B7C689
+	LDA.w $0004,y				;$B7C68B
+	STA.b $04,x				;$B7C68E
+	LDA.w $0006,y				;$B7C690
 CODE_B7C693:
-	STA.b $06,x
-	INC.b $1A
-	INC.b $1A
-	TXA
-	CLC
-	ADC.w #$0008
-	TAX
-	CMP.w #$1B55
-	BNE.b CODE_B7C670
-	PLB
-	JMP.w CODE_B7BAAF
+	STA.b $06,x				;$B7C693
+	INC.b $1A				;$B7C695
+	INC.b $1A				;$B7C697
+	TXA					;$B7C699
+	CLC					;$B7C69A
+	ADC.w #$0008				;$B7C69B
+	TAX					;$B7C69E
+	CMP.w #$1B55				;$B7C69F
+	BNE.b CODE_B7C670			;$B7C6A2
+	PLB					;$B7C6A4
+	JMP.w CODE_B7BAAF			;$B7C6A5
 
 CODE_B7C6A8:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1C
-	TAY
-	LDA.w $0006,y
-	EOR.w #$4000
-	STA.b $00,x
-	LDA.w $0004,y
-	EOR.w #$4000
-	STA.b $02,x
-	LDA.w $0002,y
-	EOR.w #$4000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$4000
-	BRA.b CODE_B7C693
+	ASL					;$B7C6A8
+	ASL					;$B7C6A9
+	ASL					;$B7C6AA
+	ASL					;$B7C6AB
+	ASL					;$B7C6AC
+	ADC.b $1C				;$B7C6AD
+	TAY					;$B7C6AF
+	LDA.w $0006,y				;$B7C6B0
+	EOR.w #$4000				;$B7C6B3
+	STA.b $00,x				;$B7C6B6
+	LDA.w $0004,y				;$B7C6B8
+	EOR.w #$4000				;$B7C6BB
+	STA.b $02,x				;$B7C6BE
+	LDA.w $0002,y				;$B7C6C0
+	EOR.w #$4000				;$B7C6C3
+	STA.b $04,x				;$B7C6C6
+	LDA.w $0000,y				;$B7C6C8
+	EOR.w #$4000				;$B7C6CB
+	BRA.b CODE_B7C693			;$B7C6CE
 
 CODE_B7C6D0:
-	BIT.w #$4000
-	BNE.b CODE_B7C6FD
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0000,y
-	EOR.w #$8000
-	STA.b $00,x
-	LDA.w $0002,y
-	EOR.w #$8000
-	STA.b $02,x
-	LDA.w $0004,y
-	EOR.w #$8000
-	STA.b $04,x
-	LDA.w $0006,y
-	EOR.w #$8000
-	BRA.b CODE_B7C693
+	BIT.w #$4000				;$B7C6D0
+	BNE.b CODE_B7C6FD			;$B7C6D3
+	ASL					;$B7C6D5
+	ASL					;$B7C6D6
+	ASL					;$B7C6D7
+	ASL					;$B7C6D8
+	ASL					;$B7C6D9
+	ADC.b $1E				;$B7C6DA
+	TAY					;$B7C6DC
+	LDA.w $0000,y				;$B7C6DD
+	EOR.w #$8000				;$B7C6E0
+	STA.b $00,x				;$B7C6E3
+	LDA.w $0002,y				;$B7C6E5
+	EOR.w #$8000				;$B7C6E8
+	STA.b $02,x				;$B7C6EB
+	LDA.w $0004,y				;$B7C6ED
+	EOR.w #$8000				;$B7C6F0
+	STA.b $04,x				;$B7C6F3
+	LDA.w $0006,y				;$B7C6F5
+	EOR.w #$8000				;$B7C6F8
+	BRA.b CODE_B7C693			;$B7C6FB
 
 CODE_B7C6FD:
-	ASL
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.b $1E
-	TAY
-	LDA.w $0006,y
-	EOR.w #$C000
-	STA.b $00,x
-	LDA.w $0004,y
-	EOR.w #$C000
-	STA.b $02,x
-	LDA.w $0002,y
-	EOR.w #$C000
-	STA.b $04,x
-	LDA.w $0000,y
-	EOR.w #$C000
-	JMP.w CODE_B7C693
+	ASL					;$B7C6FD
+	ASL					;$B7C6FE
+	ASL					;$B7C6FF
+	ASL					;$B7C700
+	ASL					;$B7C701
+	ADC.b $1E				;$B7C702
+	TAY					;$B7C704
+	LDA.w $0006,y				;$B7C705
+	EOR.w #$C000				;$B7C708
+	STA.b $00,x				;$B7C70B
+	LDA.w $0004,y				;$B7C70D
+	EOR.w #$C000				;$B7C710
+	STA.b $02,x				;$B7C713
+	LDA.w $0002,y				;$B7C715
+	EOR.w #$C000				;$B7C718
+	STA.b $04,x				;$B7C71B
+	LDA.w $0000,y				;$B7C71D
+	EOR.w #$C000				;$B7C720
+	JMP.w CODE_B7C693			;$B7C723
 
 CODE_B7C726:
-	STZ.w $197B
-	JSL.l CODE_B7C4F5
-	JML.l CODE_B7C611
+	STZ.w $197B				;$B7C726
+	JSL.l CODE_B7C4F5			;$B7C729
+	JML.l CODE_B7C611			;$B7C72D
 
 CODE_B7C731:
-	STZ.w $197B
-	JSL.l CODE_B7B618
-	JML.l CODE_B7B998
+	STZ.w $197B				;$B7C731
+	JSL.l CODE_B7B618			;$B7C734
+	JML.l CODE_B7B998			;$B7C738
 
 CODE_B7C73C:
-	RTL
+	RTL					;$B7C73C
 
 CODE_B7C73D:
-	LDA.w #$00C0
-	STA.w $197B
-	LDA.b $8C
-	CLC
-	ADC.w #$4B00
-	STA.b $8C
-	JSL.l CODE_B7B618
-	JSL.l CODE_B7B998
-	LDA.b $8C
-	SEC
-	SBC.w #$4B00
-	STA.b $8C
-	STZ.w $197B
-	JSL.l CODE_B7B618
-	JML.l CODE_B7B998
+	LDA.w #$00C0				;$B7C73D
+	STA.w $197B				;$B7C740
+	LDA.b $8C				;$B7C743
+	CLC					;$B7C745
+	ADC.w #$4B00				;$B7C746
+	STA.b $8C				;$B7C749
+	JSL.l CODE_B7B618			;$B7C74B
+	JSL.l CODE_B7B998			;$B7C74F
+	LDA.b $8C				;$B7C753
+	SEC					;$B7C755
+	SBC.w #$4B00				;$B7C756
+	STA.b $8C				;$B7C759
+	STZ.w $197B				;$B7C75B
+	JSL.l CODE_B7B618			;$B7C75E
+	JML.l CODE_B7B998			;$B7C762
 
 CODE_B7C766:
-	PHK
-	PLB
-	STX.b $6E
-	JMP.w ($1963)
+	PHK					;$B7C766
+	PLB					;$B7C767
+	STX.b $6E				;$B7C768
+	JMP.w ($1963)				;$B7C76A
 
 CODE_B7C76D:
-	LDX.b $CC
-	BEQ.b CODE_B7C7A4
-	LDA.b $1A
-	CLC
-	ADC.w #$0100
-	CMP.b $4C,x
-	BCC.b CODE_B7C7A4
-	CMP.b $4E,x
-	BCS.b CODE_B7C7A4
-	LDA.b $1C
-	CMP.b $52,x
-	BCS.b CODE_B7C7A4
-	ADC.w #$004F
-	CMP.b $50,x
-	BCC.b CODE_B7C7A4
-	LDA.b $3A,x
-	AND.w #$1000
-	BNE.b CODE_B7C7E0
-	LDA.b $6E
-	CMP.w active_kong_sprite
-	BEQ.b CODE_B7C7E0
-	CMP.w follower_kong_sprite
-	BEQ.b CODE_B7C7E0
-	CMP.w $1B63
-	BEQ.b CODE_B7C7E0
+	LDX.b $CC				;$B7C76D
+	BEQ.b CODE_B7C7A4			;$B7C76F
+	LDA.b $1A				;$B7C771
+	CLC					;$B7C773
+	ADC.w #$0100				;$B7C774
+	CMP.b $4C,x				;$B7C777
+	BCC.b CODE_B7C7A4			;$B7C779
+	CMP.b $4E,x				;$B7C77B
+	BCS.b CODE_B7C7A4			;$B7C77D
+	LDA.b $1C				;$B7C77F
+	CMP.b $52,x				;$B7C781
+	BCS.b CODE_B7C7A4			;$B7C783
+	ADC.w #$004F				;$B7C785
+	CMP.b $50,x				;$B7C788
+	BCC.b CODE_B7C7A4			;$B7C78A
+	LDA.b $3A,x				;$B7C78C
+	AND.w #$1000				;$B7C78E
+	BNE.b CODE_B7C7E0			;$B7C791
+	LDA.b $6E				;$B7C793
+	CMP.w active_kong_sprite		;$B7C795
+	BEQ.b CODE_B7C7E0			;$B7C798
+	CMP.w follower_kong_sprite		;$B7C79A
+	BEQ.b CODE_B7C7E0			;$B7C79D
+	CMP.w $1B63				;$B7C79F
+	BEQ.b CODE_B7C7E0			;$B7C7A2
 CODE_B7C7A4:
-	LDX.b $CE
-	BEQ.b CODE_B7C7DB
-	LDA.b $1A
-	CLC
-	ADC.w #$0100
-	CMP.b $4C,x
-	BCC.b CODE_B7C7DB
-	CMP.b $4E,x
-	BCS.b CODE_B7C7DB
-	LDA.b $1C
-	CMP.b $52,x
-	BCS.b CODE_B7C7DB
-	ADC.w #$004F
-	CMP.b $50,x
-	BCC.b CODE_B7C7DB
-	LDA.b $3A,x
-	AND.w #$1000
-	BNE.b CODE_B7C7E0
-	LDA.b $6E
-	CMP.w active_kong_sprite
-	BEQ.b CODE_B7C7E0
-	CMP.w follower_kong_sprite
-	BEQ.b CODE_B7C7E0
-	CMP.w $1B63
-	BEQ.b CODE_B7C7E0
+	LDX.b $CE				;$B7C7A4
+	BEQ.b CODE_B7C7DB			;$B7C7A6
+	LDA.b $1A				;$B7C7A8
+	CLC					;$B7C7AA
+	ADC.w #$0100				;$B7C7AB
+	CMP.b $4C,x				;$B7C7AE
+	BCC.b CODE_B7C7DB			;$B7C7B0
+	CMP.b $4E,x				;$B7C7B2
+	BCS.b CODE_B7C7DB			;$B7C7B4
+	LDA.b $1C				;$B7C7B6
+	CMP.b $52,x				;$B7C7B8
+	BCS.b CODE_B7C7DB			;$B7C7BA
+	ADC.w #$004F				;$B7C7BC
+	CMP.b $50,x				;$B7C7BF
+	BCC.b CODE_B7C7DB			;$B7C7C1
+	LDA.b $3A,x				;$B7C7C3
+	AND.w #$1000				;$B7C7C5
+	BNE.b CODE_B7C7E0			;$B7C7C8
+	LDA.b $6E				;$B7C7CA
+	CMP.w active_kong_sprite		;$B7C7CC
+	BEQ.b CODE_B7C7E0			;$B7C7CF
+	CMP.w follower_kong_sprite		;$B7C7D1
+	BEQ.b CODE_B7C7E0			;$B7C7D4
+	CMP.w $1B63				;$B7C7D6
+	BEQ.b CODE_B7C7E0			;$B7C7D9
 CODE_B7C7DB:
-	LDX.b $6E
-	JMP.w ($1965)
+	LDX.b $6E				;$B7C7DB
+	JMP.w ($1965)				;$B7C7DD
 
 CODE_B7C7E0:
-	LDY.b $1C
-	PHX
-	PHY
-	JSL.l CODE_B7C7DB
-	PLY
-	PLX
-	CMP.w #$0000
-	BMI.b CODE_B7C801
-	EOR.w #$FFFF
-	SEC
-	ADC.w #$6300
-	CMP.b $50,x
-	BCC.b CODE_B7C811
-	ADC.w #$000F
-	CMP.b $52,x
-	BCS.b CODE_B7C80A
+	LDY.b $1C				;$B7C7E0
+	PHX					;$B7C7E2
+	PHY					;$B7C7E3
+	JSL.l CODE_B7C7DB			;$B7C7E4
+	PLY					;$B7C7E8
+	PLX					;$B7C7E9
+	CMP.w #$0000				;$B7C7EA
+	BMI.b CODE_B7C801			;$B7C7ED
+	EOR.w #$FFFF				;$B7C7EF
+	SEC					;$B7C7F2
+	ADC.w #$6300				;$B7C7F3
+	CMP.b $50,x				;$B7C7F6
+	BCC.b CODE_B7C811			;$B7C7F8
+	ADC.w #$000F				;$B7C7FA
+	CMP.b $52,x				;$B7C7FD
+	BCS.b CODE_B7C80A			;$B7C7FF
 CODE_B7C801:
-	TYA
-	CMP.b $50,x
-	BCC.b CODE_B7C80A
-	LDA.b $52,x
-	STA.b $A4
+	TYA					;$B7C801
+	CMP.b $50,x				;$B7C802
+	BCC.b CODE_B7C80A			;$B7C804
+	LDA.b $52,x				;$B7C806
+	STA.b $A4				;$B7C808
 CODE_B7C80A:
-	STZ.b $A0
-	STZ.b $A2
-	LDA.b $50,x
-	SEC
+	STZ.b $A0				;$B7C80A
+	STZ.b $A2				;$B7C80C
+	LDA.b $50,x				;$B7C80E
+	SEC					;$B7C810
 CODE_B7C811:
-	SBC.w #$6300
-	EOR.w #$FFFF
-	INC
-	LDX.b $6E
-	RTL
+	SBC.w #$6300				;$B7C811
+	EOR.w #$FFFF				;$B7C814
+	INC					;$B7C817
+	LDX.b $6E				;$B7C818
+	RTL					;$B7C81A
 
 CODE_B7C81B:
-	LDA.b $1C
-	CMP.w #$0148
-	BCC.b CODE_B7C825
-	JMP.w CODE_B7C942
+	LDA.b $1C				;$B7C81B
+	CMP.w #$0148				;$B7C81D
+	BCC.b CODE_B7C825			;$B7C820
+	JMP.w CODE_B7C942			;$B7C822
 
 CODE_B7C825:
-	STZ.b $A0
-	STZ.b $A2
-	LDA.b $1A
-	CMP.w #$0010
-	BCC.b CODE_B7C839
-	CMP.w #$00F0
-	BCS.b CODE_B7C839
-	LDA.w #$FFC0
-	RTL
+	STZ.b $A0				;$B7C825
+	STZ.b $A2				;$B7C827
+	LDA.b $1A				;$B7C829
+	CMP.w #$0010				;$B7C82B
+	BCC.b CODE_B7C839			;$B7C82E
+	CMP.w #$00F0				;$B7C830
+	BCS.b CODE_B7C839			;$B7C833
+	LDA.w #$FFC0				;$B7C835
+	RTL					;$B7C838
 
 CODE_B7C839:
-	LDA.w #$6301
-	RTL
+	LDA.w #$6301				;$B7C839
+	RTL					;$B7C83C
 
 CODE_B7C83D:
-	JMP.w ($1965)
+	JMP.w ($1965)				;$B7C83D
 
 CODE_B7C840:
-	LDA.b $1A
-	PHA
-	JSL.l CODE_B7C83D
-	PLY
-	CMP.w #$0000
-	BPL.b CODE_B7C84E
-	RTL
+	LDA.b $1A				;$B7C840
+	PHA					;$B7C842
+	JSL.l CODE_B7C83D			;$B7C843
+	PLY					;$B7C847
+	CMP.w #$0000				;$B7C848
+	BPL.b CODE_B7C84E			;$B7C84B
+	RTL					;$B7C84D
 
 CODE_B7C84E:
-	PHA
-	LDA.w #$4000
-	TSB.b $A2
-	AND.b $A0
-	TSB.b $A0
-	ASL
-	ASL
-	LDA.b $1E,x
-	AND.w #$3000
-	BCC.b CODE_B7C868
-	CMP.w #$3000
-	BNE.b CODE_B7C874
-	PLA
-	RTL
+	PHA					;$B7C84E
+	LDA.w #$4000				;$B7C84F
+	TSB.b $A2				;$B7C852
+	AND.b $A0				;$B7C854
+	TSB.b $A0				;$B7C856
+	ASL					;$B7C858
+	ASL					;$B7C859
+	LDA.b $1E,x				;$B7C85A
+	AND.w #$3000				;$B7C85C
+	BCC.b CODE_B7C868			;$B7C85F
+	CMP.w #$3000				;$B7C861
+	BNE.b CODE_B7C874			;$B7C864
+	PLA					;$B7C866
+	RTL					;$B7C867
 
 CODE_B7C868:
-	CMP.w #$2000
-	BNE.b CODE_B7C86F
-	PLA
-	RTL
+	CMP.w #$2000				;$B7C868
+	BNE.b CODE_B7C86F			;$B7C86B
+	PLA					;$B7C86D
+	RTL					;$B7C86E
 
 CODE_B7C86F:
-	PLA
-	LDA.w #$FFC0
-	RTL
+	PLA					;$B7C86F
+	LDA.w #$FFC0				;$B7C870
+	RTL					;$B7C873
 
 CODE_B7C874:
-	TYA
-	CLC
-	ADC.w #$0100
-	CMP.w $18B7
-	BCC.b CODE_B7C8A0
-	CMP.w $18B9
-	BCC.b CODE_B7C8A2
-	CMP.w $18BB
-	BCC.b CODE_B7C89B
-	CMP.w $18BD
-	BCC.b CODE_B7C894
-	CMP.w $18C7
-	BCS.b CODE_B7C8A0
-	BRA.b CODE_B7C8A7
+	TYA					;$B7C874
+	CLC					;$B7C875
+	ADC.w #$0100				;$B7C876
+	CMP.w $18B7				;$B7C879
+	BCC.b CODE_B7C8A0			;$B7C87C
+	CMP.w $18B9				;$B7C87E
+	BCC.b CODE_B7C8A2			;$B7C881
+	CMP.w $18BB				;$B7C883
+	BCC.b CODE_B7C89B			;$B7C886
+	CMP.w $18BD				;$B7C888
+	BCC.b CODE_B7C894			;$B7C88B
+	CMP.w $18C7				;$B7C88D
+	BCS.b CODE_B7C8A0			;$B7C890
+	BRA.b CODE_B7C8A7			;$B7C892
 
 CODE_B7C894:
-	CMP.w $18C5
-	BCS.b CODE_B7C8A0
-	BRA.b CODE_B7C8A7
+	CMP.w $18C5				;$B7C894
+	BCS.b CODE_B7C8A0			;$B7C897
+	BRA.b CODE_B7C8A7			;$B7C899
 
 CODE_B7C89B:
-	CMP.w $18C3
-	BCC.b CODE_B7C8A7
+	CMP.w $18C3				;$B7C89B
+	BCC.b CODE_B7C8A7			;$B7C89E
 CODE_B7C8A0:
-	PLA
-	RTL
+	PLA					;$B7C8A0
+	RTL					;$B7C8A1
 
 CODE_B7C8A2:
-	CMP.w $18C1
-	BCS.b CODE_B7C8A0
+	CMP.w $18C1				;$B7C8A2
+	BCS.b CODE_B7C8A0			;$B7C8A5
 CODE_B7C8A7:
-	PLA
-	LDA.w #$FFC0
-	RTL
+	PLA					;$B7C8A7
+	LDA.w #$FFC0				;$B7C8A8
+	RTL					;$B7C8AB
 
 CODE_B7C8AC:
-	STZ.b $A0
-	STZ.b $A2
-	LDA.b $1A
-	CMP.w #$0046
-	BCC.b CODE_B7C8C0
-	CMP.w #$01BC
-	BCS.b CODE_B7C8C0
-	LDA.w #$612E
-	RTL
+	STZ.b $A0				;$B7C8AC
+	STZ.b $A2				;$B7C8AE
+	LDA.b $1A				;$B7C8B0
+	CMP.w #$0046				;$B7C8B2
+	BCC.b CODE_B7C8C0			;$B7C8B5
+	CMP.w #$01BC				;$B7C8B7
+	BCS.b CODE_B7C8C0			;$B7C8BA
+	LDA.w #$612E				;$B7C8BC
+	RTL					;$B7C8BF
 
 CODE_B7C8C0:
-	CMP.w #$0028
-	BCC.b CODE_B7C8CE
-	CMP.w #$01D4
-	BCS.b CODE_B7C8CE
-	LDA.w #$6152
-	RTL
+	CMP.w #$0028				;$B7C8C0
+	BCC.b CODE_B7C8CE			;$B7C8C3
+	CMP.w #$01D4				;$B7C8C5
+	BCS.b CODE_B7C8CE			;$B7C8C8
+	LDA.w #$6152				;$B7C8CA
+	RTL					;$B7C8CD
 
 CODE_B7C8CE:
-	LDA.w #$6328
-	RTL
+	LDA.w #$6328				;$B7C8CE
+	RTL					;$B7C8D1
 
 CODE_B7C8D2:
-	STZ.b $A0
-	STZ.b $A2
-	STZ.b $A6
-	LDA.b $1A
-	CMP.w #$00A0
-	BCC.b CODE_B7C8EE
-	CMP.w #$00E0
-	BCC.b CODE_B7C8FC
-	CMP.w #$0120
-	BCC.b CODE_B7C90B
-	CMP.w #$0160
-	BCC.b CODE_B7C8F3
+	STZ.b $A0				;$B7C8D2
+	STZ.b $A2				;$B7C8D4
+	STZ.b $A6				;$B7C8D6
+	LDA.b $1A				;$B7C8D8
+	CMP.w #$00A0				;$B7C8DA
+	BCC.b CODE_B7C8EE			;$B7C8DD
+	CMP.w #$00E0				;$B7C8DF
+	BCC.b CODE_B7C8FC			;$B7C8E2
+	CMP.w #$0120				;$B7C8E4
+	BCC.b CODE_B7C90B			;$B7C8E7
+	CMP.w #$0160				;$B7C8E9
+	BCC.b CODE_B7C8F3			;$B7C8EC
 CODE_B7C8EE:
-	LDA.w #$0120
-	BRA.b CODE_B7C90E
+	LDA.w #$0120				;$B7C8EE
+	BRA.b CODE_B7C90E			;$B7C8F1
 
 CODE_B7C8F3:
-	LDY.w #$0002
-	EOR.w #$FFFF
-	INC
-	BRA.b CODE_B7C8FF
+	LDY.w #$0002				;$B7C8F3
+	EOR.w #$FFFF				;$B7C8F6
+	INC					;$B7C8F9
+	BRA.b CODE_B7C8FF			;$B7C8FA
 
 CODE_B7C8FC:
-	LDY.w #$8002
+	LDY.w #$8002				;$B7C8FC
 CODE_B7C8FF:
-	AND.w #$003E
-	LSR
-	LSR
-	ADC.w #$0120
-	STY.b $A6
-	BRA.b CODE_B7C90E
+	AND.w #$003E				;$B7C8FF
+	LSR					;$B7C902
+	LSR					;$B7C903
+	ADC.w #$0120				;$B7C904
+	STY.b $A6				;$B7C907
+	BRA.b CODE_B7C90E			;$B7C909
 
 CODE_B7C90B:
-	LDA.w #$0000
+	LDA.w #$0000				;$B7C90B
 CODE_B7C90E:
-	CMP.b $1C
-	BCC.b CODE_B7C91E
-	INC
-	STA.b $A4
-	LDA.w #$0001
-	STA.b $A2
-	LDA.w #$6228
-	RTL
+	CMP.b $1C				;$B7C90E
+	BCC.b CODE_B7C91E			;$B7C910
+	INC					;$B7C912
+	STA.b $A4				;$B7C913
+	LDA.w #$0001				;$B7C915
+	STA.b $A2				;$B7C918
+	LDA.w #$6228				;$B7C91A
+	RTL					;$B7C91D
 
 CODE_B7C91E:
-	STZ.b $A4
-	LDA.b $1A
-	CMP.w #$0038
-	BCC.b CODE_B7C930
-	CMP.w #$01C8
-	BCS.b CODE_B7C930
-	LDA.w #$6140
-	RTL
+	STZ.b $A4				;$B7C91E
+	LDA.b $1A				;$B7C920
+	CMP.w #$0038				;$B7C922
+	BCC.b CODE_B7C930			;$B7C925
+	CMP.w #$01C8				;$B7C927
+	BCS.b CODE_B7C930			;$B7C92A
+	LDA.w #$6140				;$B7C92C
+	RTL					;$B7C92F
 
 CODE_B7C930:
-	CMP.w #$0028
-	BCC.b CODE_B7C93E
-	CMP.w #$01D8
-	BCS.b CODE_B7C93E
-	LDA.w #$6194
-	RTL
+	CMP.w #$0028				;$B7C930
+	BCC.b CODE_B7C93E			;$B7C933
+	CMP.w #$01D8				;$B7C935
+	BCS.b CODE_B7C93E			;$B7C938
+	LDA.w #$6194				;$B7C93A
+	RTL					;$B7C93D
 
 CODE_B7C93E:
-	LDA.w #$62FF
-	RTL
+	LDA.w #$62FF				;$B7C93E
+	RTL					;$B7C941
 
 CODE_B7C942:
-	LDA.b $1A
-	AND.w #$001F
-	STA.b $9A
-	STZ.b $A0
-	LDA.b $1C
-	SEC
-	SBC.w #$0100
-	EOR.w #$FFFF
-	INC
-	AND.w #$FFE0
-	STA.b $98
-	LDA.b $1A
-	AND.w #$FFE0
-	LSR
-	LSR
-	LSR
-	LSR
-	STA.b $1A
-	LDA.b $98
-	EOR.w #$FFE0
-	ASL
-	CLC
-	ADC.b $1A
-	TAY
-	JSR.w CODE_B7CF68
-	PHA
-	LDA.b $A0
-	STA.b $A2
-	PLA
-	BMI.b CODE_B7C987
-	CMP.w #$001F
-	BNE.b CODE_B7C982
-	JMP.w CODE_B7CA0F
+	LDA.b $1A				;$B7C942
+	AND.w #$001F				;$B7C944
+	STA.b $9A				;$B7C947
+	STZ.b $A0				;$B7C949
+	LDA.b $1C				;$B7C94B
+	SEC					;$B7C94D
+	SBC.w #$0100				;$B7C94E
+	EOR.w #$FFFF				;$B7C951
+	INC					;$B7C954
+	AND.w #$FFE0				;$B7C955
+	STA.b $98				;$B7C958
+	LDA.b $1A				;$B7C95A
+	AND.w #$FFE0				;$B7C95C
+	LSR					;$B7C95F
+	LSR					;$B7C960
+	LSR					;$B7C961
+	LSR					;$B7C962
+	STA.b $1A				;$B7C963
+	LDA.b $98				;$B7C965
+	EOR.w #$FFE0				;$B7C967
+	ASL					;$B7C96A
+	CLC					;$B7C96B
+	ADC.b $1A				;$B7C96C
+	TAY					;$B7C96E
+	JSR.w CODE_B7CF68			;$B7C96F
+	PHA					;$B7C972
+	LDA.b $A0				;$B7C973
+	STA.b $A2				;$B7C975
+	PLA					;$B7C977
+	BMI.b CODE_B7C987			;$B7C978
+	CMP.w #$001F				;$B7C97A
+	BNE.b CODE_B7C982			;$B7C97D
+	JMP.w CODE_B7CA0F			;$B7C97F
 
 CODE_B7C982:
-	TAY
-	ORA.b $98
-	BRA.b CODE_B7C9BB
+	TAY					;$B7C982
+	ORA.b $98				;$B7C983
+	BRA.b CODE_B7C9BB			;$B7C985
 
 CODE_B7C987:
-	TYA
-	CLC
-	ADC.w #$0040
-	TAY
-	LDA.w #$0001
-	STA.b $1C
-	LDA.b $98
-	SEC
-	SBC.w #$0020
-	STA.b $98
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BPL.b CODE_B7C9B8
-	TYA
-	CLC
-	ADC.w #$0040
-	TAY
-	LDA.b $98
-	SEC
-	SBC.w #$0020
-	STA.b $98
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BMI.b CODE_B7CA07
+	TYA					;$B7C987
+	CLC					;$B7C988
+	ADC.w #$0040				;$B7C989
+	TAY					;$B7C98C
+	LDA.w #$0001				;$B7C98D
+	STA.b $1C				;$B7C990
+	LDA.b $98				;$B7C992
+	SEC					;$B7C994
+	SBC.w #$0020				;$B7C995
+	STA.b $98				;$B7C998
+	JSR.w CODE_B7CF68			;$B7C99A
+	CMP.w #$0000				;$B7C99D
+	BPL.b CODE_B7C9B8			;$B7C9A0
+	TYA					;$B7C9A2
+	CLC					;$B7C9A3
+	ADC.w #$0040				;$B7C9A4
+	TAY					;$B7C9A7
+	LDA.b $98				;$B7C9A8
+	SEC					;$B7C9AA
+	SBC.w #$0020				;$B7C9AB
+	STA.b $98				;$B7C9AE
+	JSR.w CODE_B7CF68			;$B7C9B0
+	CMP.w #$0000				;$B7C9B3
+	BMI.b CODE_B7CA07			;$B7C9B6
 CODE_B7C9B8:
-	TAY
-	ORA.b $98
+	TAY					;$B7C9B8
+	ORA.b $98				;$B7C9B9
 CODE_B7C9BB:
-	PHA
-	LDA.b $A0
-	AND.w #$7FFF
-	SEC
-	SBC.w #$4000
-	CMP.w #$0009
-	BCS.b CODE_B7C9CF
-	LDA.w #$2000
-	TSB.b $A0
+	PHA					;$B7C9BB
+	LDA.b $A0				;$B7C9BC
+	AND.w #$7FFF				;$B7C9BE
+	SEC					;$B7C9C1
+	SBC.w #$4000				;$B7C9C2
+	CMP.w #$0009				;$B7C9C5
+	BCS.b CODE_B7C9CF			;$B7C9C8
+	LDA.w #$2000				;$B7C9CA
+	TSB.b $A0				;$B7C9CD
 CODE_B7C9CF:
-	LDA.b $A0
-	STA.b $1A
-	AND.w #$007F
-	TRB.b $A0
-	ASL
-	TAX
-	LDA.w DATA_B7CFD0,x
-	AND.w #$801F
-	BPL.b CODE_B7C9EA
-	CPY.w #$000F
-	BEQ.b CODE_B7C9EC
-	AND.w #$001F
+	LDA.b $A0				;$B7C9CF
+	STA.b $1A				;$B7C9D1
+	AND.w #$007F				;$B7C9D3
+	TRB.b $A0				;$B7C9D6
+	ASL					;$B7C9D8
+	TAX					;$B7C9D9
+	LDA.w DATA_B7CFD0,x			;$B7C9DA
+	AND.w #$801F				;$B7C9DD
+	BPL.b CODE_B7C9EA			;$B7C9E0
+	CPY.w #$000F				;$B7C9E2
+	BEQ.b CODE_B7C9EC			;$B7C9E5
+	AND.w #$001F				;$B7C9E7
 CODE_B7C9EA:
-	TSB.b $A0
+	TSB.b $A0				;$B7C9EA
 CODE_B7C9EC:
-	LDA.b $A2
-	AND.w #$7FFF
-	SEC
-	SBC.w #$4000
-	CMP.w #$0009
-	BCS.b CODE_B7C9FF
-	LDA.w #$2000
-	TSB.b $A2
+	LDA.b $A2				;$B7C9EC
+	AND.w #$7FFF				;$B7C9EE
+	SEC					;$B7C9F1
+	SBC.w #$4000				;$B7C9F2
+	CMP.w #$0009				;$B7C9F5
+	BCS.b CODE_B7C9FF			;$B7C9F8
+	LDA.w #$2000				;$B7C9FA
+	TSB.b $A2				;$B7C9FD
 CODE_B7C9FF:
-	PLA
-	LDX.b $6E
-	CLC
-	ADC.w #$6200
-	RTL
+	PLA					;$B7C9FF
+	LDX.b $6E				;$B7CA00
+	CLC					;$B7CA02
+	ADC.w #$6200				;$B7CA03
+	RTL					;$B7CA06
 
 CODE_B7CA07:
-	LDA.w #$FFC0
-	STZ.b $A0
-	LDX.b $6E
-	RTL
+	LDA.w #$FFC0				;$B7CA07
+	STZ.b $A0				;$B7CA0A
+	LDX.b $6E				;$B7CA0C
+	RTL					;$B7CA0E
 
 CODE_B7CA0F:
-	TYA
-	SEC
-	SBC.w #$0040
-	TAY
-	LDA.b $A0
-	STA.b $1A
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BMI.b CODE_B7CA2A
-	TAY
-	ORA.w #$0020
-	CLC
-	ADC.b $98
-	BRA.b CODE_B7C9BB
+	TYA					;$B7CA0F
+	SEC					;$B7CA10
+	SBC.w #$0040				;$B7CA11
+	TAY					;$B7CA14
+	LDA.b $A0				;$B7CA15
+	STA.b $1A				;$B7CA17
+	JSR.w CODE_B7CF68			;$B7CA19
+	CMP.w #$0000				;$B7CA1C
+	BMI.b CODE_B7CA2A			;$B7CA1F
+	TAY					;$B7CA21
+	ORA.w #$0020				;$B7CA22
+	CLC					;$B7CA25
+	ADC.b $98				;$B7CA26
+	BRA.b CODE_B7C9BB			;$B7CA28
 
 CODE_B7CA2A:
-	LDA.b $1A
-	STA.b $A0
-	LDA.w #$001F
-	TAY
-	ORA.b $98
-	JMP.w CODE_B7C9BB
+	LDA.b $1A				;$B7CA2A
+	STA.b $A0				;$B7CA2C
+	LDA.w #$001F				;$B7CA2E
+	TAY					;$B7CA31
+	ORA.b $98				;$B7CA32
+	JMP.w CODE_B7C9BB			;$B7CA34
 
 CODE_B7CA37:
-	LDA.b $1A
-	AND.w #$001F
-	STA.b $9A
-	STZ.b $A0
-	LDA.b $1C
-	SEC
-	SBC.w #$0100
-	EOR.w #$FFFF
-	INC
-	AND.w #$FFE0
-	STA.b $98
-	LDA.b $1A
-	AND.w #$FFE0
-	LSR
-	LSR
-	LSR
-	LSR
-	STA.b $1A
-	LDA.b $98
-	EOR.w #$FFE0
-	CLC
-	ADC.b $1A
-	TAY
-	JSR.w CODE_B7CF68
-	PHA
-	LDA.b $A0
-	STA.b $A2
-	PLA
-	BMI.b CODE_B7CA7B
-	CMP.w #$001F
-	BNE.b CODE_B7CA76
-	JMP.w CODE_B7CB03
+	LDA.b $1A				;$B7CA37
+	AND.w #$001F				;$B7CA39
+	STA.b $9A				;$B7CA3C
+	STZ.b $A0				;$B7CA3E
+	LDA.b $1C				;$B7CA40
+	SEC					;$B7CA42
+	SBC.w #$0100				;$B7CA43
+	EOR.w #$FFFF				;$B7CA46
+	INC					;$B7CA49
+	AND.w #$FFE0				;$B7CA4A
+	STA.b $98				;$B7CA4D
+	LDA.b $1A				;$B7CA4F
+	AND.w #$FFE0				;$B7CA51
+	LSR					;$B7CA54
+	LSR					;$B7CA55
+	LSR					;$B7CA56
+	LSR					;$B7CA57
+	STA.b $1A				;$B7CA58
+	LDA.b $98				;$B7CA5A
+	EOR.w #$FFE0				;$B7CA5C
+	CLC					;$B7CA5F
+	ADC.b $1A				;$B7CA60
+	TAY					;$B7CA62
+	JSR.w CODE_B7CF68			;$B7CA63
+	PHA					;$B7CA66
+	LDA.b $A0				;$B7CA67
+	STA.b $A2				;$B7CA69
+	PLA					;$B7CA6B
+	BMI.b CODE_B7CA7B			;$B7CA6C
+	CMP.w #$001F				;$B7CA6E
+	BNE.b CODE_B7CA76			;$B7CA71
+	JMP.w CODE_B7CB03			;$B7CA73
 
 CODE_B7CA76:
-	TAY
-	ORA.b $98
-	BRA.b CODE_B7CAAF
+	TAY					;$B7CA76
+	ORA.b $98				;$B7CA77
+	BRA.b CODE_B7CAAF			;$B7CA79
 
 CODE_B7CA7B:
-	TYA
-	CLC
-	ADC.w #$0020
-	TAY
-	LDA.w #$0001
-	STA.b $1C
-	LDA.b $98
-	SEC
-	SBC.w #$0020
-	STA.b $98
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BPL.b CODE_B7CAAC
-	TYA
-	CLC
-	ADC.w #$0020
-	TAY
-	LDA.b $98
-	SEC
-	SBC.w #$0020
-	STA.b $98
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BMI.b CODE_B7CAFB
+	TYA					;$B7CA7B
+	CLC					;$B7CA7C
+	ADC.w #$0020				;$B7CA7D
+	TAY					;$B7CA80
+	LDA.w #$0001				;$B7CA81
+	STA.b $1C				;$B7CA84
+	LDA.b $98				;$B7CA86
+	SEC					;$B7CA88
+	SBC.w #$0020				;$B7CA89
+	STA.b $98				;$B7CA8C
+	JSR.w CODE_B7CF68			;$B7CA8E
+	CMP.w #$0000				;$B7CA91
+	BPL.b CODE_B7CAAC			;$B7CA94
+	TYA					;$B7CA96
+	CLC					;$B7CA97
+	ADC.w #$0020				;$B7CA98
+	TAY					;$B7CA9B
+	LDA.b $98				;$B7CA9C
+	SEC					;$B7CA9E
+	SBC.w #$0020				;$B7CA9F
+	STA.b $98				;$B7CAA2
+	JSR.w CODE_B7CF68			;$B7CAA4
+	CMP.w #$0000				;$B7CAA7
+	BMI.b CODE_B7CAFB			;$B7CAAA
 CODE_B7CAAC:
-	TAY
-	ORA.b $98
+	TAY					;$B7CAAC
+	ORA.b $98				;$B7CAAD
 CODE_B7CAAF:
-	PHA
-	LDA.b $A0
-	AND.w #$7FFF
-	SEC
-	SBC.w #$4000
-	CMP.w #$0009
-	BCS.b CODE_B7CAC3
-	LDA.w #$2000
-	TSB.b $A0
+	PHA					;$B7CAAF
+	LDA.b $A0				;$B7CAB0
+	AND.w #$7FFF				;$B7CAB2
+	SEC					;$B7CAB5
+	SBC.w #$4000				;$B7CAB6
+	CMP.w #$0009				;$B7CAB9
+	BCS.b CODE_B7CAC3			;$B7CABC
+	LDA.w #$2000				;$B7CABE
+	TSB.b $A0				;$B7CAC1
 CODE_B7CAC3:
-	LDA.b $A0
-	STA.b $1A
-	AND.w #$007F
-	TRB.b $A0
-	ASL
-	TAX
-	LDA.w DATA_B7CFD0,x
-	AND.w #$801F
-	BPL.b CODE_B7CADE
-	CPY.w #$000F
-	BEQ.b CODE_B7CAE0
-	AND.w #$001F
+	LDA.b $A0				;$B7CAC3
+	STA.b $1A				;$B7CAC5
+	AND.w #$007F				;$B7CAC7
+	TRB.b $A0				;$B7CACA
+	ASL					;$B7CACC
+	TAX					;$B7CACD
+	LDA.w DATA_B7CFD0,x			;$B7CACE
+	AND.w #$801F				;$B7CAD1
+	BPL.b CODE_B7CADE			;$B7CAD4
+	CPY.w #$000F				;$B7CAD6
+	BEQ.b CODE_B7CAE0			;$B7CAD9
+	AND.w #$001F				;$B7CADB
 CODE_B7CADE:
-	TSB.b $A0
+	TSB.b $A0				;$B7CADE
 CODE_B7CAE0:
-	LDA.b $A2
-	AND.w #$7FFF
-	SEC
-	SBC.w #$4000
-	CMP.w #$0009
-	BCS.b CODE_B7CAF3
-	LDA.w #$2000
-	TSB.b $A2
+	LDA.b $A2				;$B7CAE0
+	AND.w #$7FFF				;$B7CAE2
+	SEC					;$B7CAE5
+	SBC.w #$4000				;$B7CAE6
+	CMP.w #$0009				;$B7CAE9
+	BCS.b CODE_B7CAF3			;$B7CAEC
+	LDA.w #$2000				;$B7CAEE
+	TSB.b $A2				;$B7CAF1
 CODE_B7CAF3:
-	PLA
-	LDX.b $6E
-	CLC
-	ADC.w #$6200
-	RTL
+	PLA					;$B7CAF3
+	LDX.b $6E				;$B7CAF4
+	CLC					;$B7CAF6
+	ADC.w #$6200				;$B7CAF7
+	RTL					;$B7CAFA
 
 CODE_B7CAFB:
-	LDA.w #$FFC0
-	STZ.b $A0
-	LDX.b $6E
-	RTL
+	LDA.w #$FFC0				;$B7CAFB
+	STZ.b $A0				;$B7CAFE
+	LDX.b $6E				;$B7CB00
+	RTL					;$B7CB02
 
 CODE_B7CB03:
-	TYA
-	SEC
-	SBC.w #$0020
-	TAY
-	LDA.b $A0
-	STA.b $1A
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BMI.b CODE_B7CB1E
-	TAY
-	ORA.w #$0020
-	CLC
-	ADC.b $98
-	BRA.b CODE_B7CAAF
+	TYA					;$B7CB03
+	SEC					;$B7CB04
+	SBC.w #$0020				;$B7CB05
+	TAY					;$B7CB08
+	LDA.b $A0				;$B7CB09
+	STA.b $1A				;$B7CB0B
+	JSR.w CODE_B7CF68			;$B7CB0D
+	CMP.w #$0000				;$B7CB10
+	BMI.b CODE_B7CB1E			;$B7CB13
+	TAY					;$B7CB15
+	ORA.w #$0020				;$B7CB16
+	CLC					;$B7CB19
+	ADC.b $98				;$B7CB1A
+	BRA.b CODE_B7CAAF			;$B7CB1C
 
 CODE_B7CB1E:
-	LDA.b $1A
-	STA.b $A0
-	LDA.w #$001F
-	TAY
-	ORA.b $98
-	JMP.w CODE_B7CAAF
+	LDA.b $1A				;$B7CB1E
+	STA.b $A0				;$B7CB20
+	LDA.w #$001F				;$B7CB22
+	TAY					;$B7CB25
+	ORA.b $98				;$B7CB26
+	JMP.w CODE_B7CAAF			;$B7CB28
 
 CODE_B7CB2B:
-	LDA.b $1A
-	AND.w #$001F
-	STA.b $9A
-	STZ.b $A0
-	LDA.b $1C
-	SEC
-	SBC.w #$0100
-	EOR.w #$FFFF
-	INC
-	AND.w #$FFE0
-	STA.b $98
-	LDA.b $1A
-	AND.w #$FFE0
-	LSR
-	LSR
-	LSR
-	LSR
-	STA.b $1A
-	LDA.b $98
-	EOR.w #$FFE0
-	STA.b $1E
-	ASL
-	ASL
-	CLC
-	ADC.b $1E
-	ADC.b $1A
-	TAY
-	JSR.w CODE_B7CF68
-	PHA
-	LDA.b $A0
-	STA.b $A2
-	PLA
-	BMI.b CODE_B7CB75
-	CMP.w #$001F
-	BNE.b CODE_B7CB70
-	JMP.w CODE_B7CBFD
+	LDA.b $1A				;$B7CB2B
+	AND.w #$001F				;$B7CB2D
+	STA.b $9A				;$B7CB30
+	STZ.b $A0				;$B7CB32
+	LDA.b $1C				;$B7CB34
+	SEC					;$B7CB36
+	SBC.w #$0100				;$B7CB37
+	EOR.w #$FFFF				;$B7CB3A
+	INC					;$B7CB3D
+	AND.w #$FFE0				;$B7CB3E
+	STA.b $98				;$B7CB41
+	LDA.b $1A				;$B7CB43
+	AND.w #$FFE0				;$B7CB45
+	LSR					;$B7CB48
+	LSR					;$B7CB49
+	LSR					;$B7CB4A
+	LSR					;$B7CB4B
+	STA.b $1A				;$B7CB4C
+	LDA.b $98				;$B7CB4E
+	EOR.w #$FFE0				;$B7CB50
+	STA.b $1E				;$B7CB53
+	ASL					;$B7CB55
+	ASL					;$B7CB56
+	CLC					;$B7CB57
+	ADC.b $1E				;$B7CB58
+	ADC.b $1A				;$B7CB5A
+	TAY					;$B7CB5C
+	JSR.w CODE_B7CF68			;$B7CB5D
+	PHA					;$B7CB60
+	LDA.b $A0				;$B7CB61
+	STA.b $A2				;$B7CB63
+	PLA					;$B7CB65
+	BMI.b CODE_B7CB75			;$B7CB66
+	CMP.w #$001F				;$B7CB68
+	BNE.b CODE_B7CB70			;$B7CB6B
+	JMP.w CODE_B7CBFD			;$B7CB6D
 
 CODE_B7CB70:
-	TAY
-	ORA.b $98
-	BRA.b CODE_B7CBA9
+	TAY					;$B7CB70
+	ORA.b $98				;$B7CB71
+	BRA.b CODE_B7CBA9			;$B7CB73
 
 CODE_B7CB75:
-	TYA
-	CLC
-	ADC.w #$00A0
-	TAY
-	LDA.w #$0001
-	STA.b $1C
-	LDA.b $98
-	SEC
-	SBC.w #$0020
-	STA.b $98
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BPL.b CODE_B7CBA6
-	TYA
-	CLC
-	ADC.w #$00A0
-	TAY
-	LDA.b $98
-	SEC
-	SBC.w #$0020
-	STA.b $98
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BMI.b CODE_B7CBF5
+	TYA					;$B7CB75
+	CLC					;$B7CB76
+	ADC.w #$00A0				;$B7CB77
+	TAY					;$B7CB7A
+	LDA.w #$0001				;$B7CB7B
+	STA.b $1C				;$B7CB7E
+	LDA.b $98				;$B7CB80
+	SEC					;$B7CB82
+	SBC.w #$0020				;$B7CB83
+	STA.b $98				;$B7CB86
+	JSR.w CODE_B7CF68			;$B7CB88
+	CMP.w #$0000				;$B7CB8B
+	BPL.b CODE_B7CBA6			;$B7CB8E
+	TYA					;$B7CB90
+	CLC					;$B7CB91
+	ADC.w #$00A0				;$B7CB92
+	TAY					;$B7CB95
+	LDA.b $98				;$B7CB96
+	SEC					;$B7CB98
+	SBC.w #$0020				;$B7CB99
+	STA.b $98				;$B7CB9C
+	JSR.w CODE_B7CF68			;$B7CB9E
+	CMP.w #$0000				;$B7CBA1
+	BMI.b CODE_B7CBF5			;$B7CBA4
 CODE_B7CBA6:
-	TAY
-	ORA.b $98
+	TAY					;$B7CBA6
+	ORA.b $98				;$B7CBA7
 CODE_B7CBA9:
-	PHA
-	LDA.b $A0
-	AND.w #$7FFF
-	SEC
-	SBC.w #$4000
-	CMP.w #$0009
-	BCS.b CODE_B7CBBD
-	LDA.w #$2000
-	TSB.b $A0
+	PHA					;$B7CBA9
+	LDA.b $A0				;$B7CBAA
+	AND.w #$7FFF				;$B7CBAC
+	SEC					;$B7CBAF
+	SBC.w #$4000				;$B7CBB0
+	CMP.w #$0009				;$B7CBB3
+	BCS.b CODE_B7CBBD			;$B7CBB6
+	LDA.w #$2000				;$B7CBB8
+	TSB.b $A0				;$B7CBBB
 CODE_B7CBBD:
-	LDA.b $A0
-	STA.b $1A
-	AND.w #$007F
-	TRB.b $A0
-	ASL
-	TAX
-	LDA.w DATA_B7CFD0,x
-	AND.w #$801F
-	BPL.b CODE_B7CBD8
-	CPY.w #$000F
-	BEQ.b CODE_B7CBDA
-	AND.w #$001F
+	LDA.b $A0				;$B7CBBD
+	STA.b $1A				;$B7CBBF
+	AND.w #$007F				;$B7CBC1
+	TRB.b $A0				;$B7CBC4
+	ASL					;$B7CBC6
+	TAX					;$B7CBC7
+	LDA.w DATA_B7CFD0,x			;$B7CBC8
+	AND.w #$801F				;$B7CBCB
+	BPL.b CODE_B7CBD8			;$B7CBCE
+	CPY.w #$000F				;$B7CBD0
+	BEQ.b CODE_B7CBDA			;$B7CBD3
+	AND.w #$001F				;$B7CBD5
 CODE_B7CBD8:
-	TSB.b $A0
+	TSB.b $A0				;$B7CBD8
 CODE_B7CBDA:
-	LDA.b $A2
-	AND.w #$7FFF
-	SEC
-	SBC.w #$4000
-	CMP.w #$0009
-	BCS.b CODE_B7CBED
-	LDA.w #$2000
-	TSB.b $A2
+	LDA.b $A2				;$B7CBDA
+	AND.w #$7FFF				;$B7CBDC
+	SEC					;$B7CBDF
+	SBC.w #$4000				;$B7CBE0
+	CMP.w #$0009				;$B7CBE3
+	BCS.b CODE_B7CBED			;$B7CBE6
+	LDA.w #$2000				;$B7CBE8
+	TSB.b $A2				;$B7CBEB
 CODE_B7CBED:
-	PLA
-	LDX.b $6E
-	CLC
-	ADC.w #$6200
-	RTL
+	PLA					;$B7CBED
+	LDX.b $6E				;$B7CBEE
+	CLC					;$B7CBF0
+	ADC.w #$6200				;$B7CBF1
+	RTL					;$B7CBF4
 
 CODE_B7CBF5:
-	LDA.w #$FFC0
-	STZ.b $A0
-	LDX.b $6E
-	RTL
+	LDA.w #$FFC0				;$B7CBF5
+	STZ.b $A0				;$B7CBF8
+	LDX.b $6E				;$B7CBFA
+	RTL					;$B7CBFC
 
 CODE_B7CBFD:
-	TYA
-	SEC
-	SBC.w #$00A0
-	TAY
-	LDA.b $A0
-	STA.b $1A
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BMI.b CODE_B7CC18
-	TAY
-	ORA.w #$0020
-	CLC
-	ADC.b $98
-	BRA.b CODE_B7CBA9
+	TYA					;$B7CBFD
+	SEC					;$B7CBFE
+	SBC.w #$00A0				;$B7CBFF
+	TAY					;$B7CC02
+	LDA.b $A0				;$B7CC03
+	STA.b $1A				;$B7CC05
+	JSR.w CODE_B7CF68			;$B7CC07
+	CMP.w #$0000				;$B7CC0A
+	BMI.b CODE_B7CC18			;$B7CC0D
+	TAY					;$B7CC0F
+	ORA.w #$0020				;$B7CC10
+	CLC					;$B7CC13
+	ADC.b $98				;$B7CC14
+	BRA.b CODE_B7CBA9			;$B7CC16
 
 CODE_B7CC18:
-	LDA.b $1A
-	STA.b $A0
-	LDA.w #$001F
-	TAY
-	ORA.b $98
-	JMP.w CODE_B7CBA9
+	LDA.b $1A				;$B7CC18
+	STA.b $A0				;$B7CC1A
+	LDA.w #$001F				;$B7CC1C
+	TAY					;$B7CC1F
+	ORA.b $98				;$B7CC20
+	JMP.w CODE_B7CBA9			;$B7CC22
 
 CODE_B7CC25:
-	LDA.b $1A
-	AND.w #$001F
-	STA.b $9A
-	STZ.b $A0
-	LDA.b $1C
-	SEC
-	SBC.w #$0100
-	EOR.w #$FFFF
-	INC
-	AND.w #$FFE0
-	STA.b $98
-	LDA.b $1A
-	AND.w #$FFE0
-	LSR
-	LSR
-	LSR
-	LSR
-	STA.b $1A
-	LDA.b $98
-	EOR.w #$FFE0
-	ASL
-	STA.b $1E
-	ASL
-	CLC
-	ADC.b $1E
-	ADC.b $1A
-	TAY
-	JSR.w CODE_B7CF68
-	PHA
-	LDA.b $A0
-	STA.b $A2
-	PLA
-	BMI.b CODE_B7CC6F
-	CMP.w #$001F
-	BNE.b CODE_B7CC6A
-	JMP.w CODE_B7CCF7
+	LDA.b $1A				;$B7CC25
+	AND.w #$001F				;$B7CC27
+	STA.b $9A				;$B7CC2A
+	STZ.b $A0				;$B7CC2C
+	LDA.b $1C				;$B7CC2E
+	SEC					;$B7CC30
+	SBC.w #$0100				;$B7CC31
+	EOR.w #$FFFF				;$B7CC34
+	INC					;$B7CC37
+	AND.w #$FFE0				;$B7CC38
+	STA.b $98				;$B7CC3B
+	LDA.b $1A				;$B7CC3D
+	AND.w #$FFE0				;$B7CC3F
+	LSR					;$B7CC42
+	LSR					;$B7CC43
+	LSR					;$B7CC44
+	LSR					;$B7CC45
+	STA.b $1A				;$B7CC46
+	LDA.b $98				;$B7CC48
+	EOR.w #$FFE0				;$B7CC4A
+	ASL					;$B7CC4D
+	STA.b $1E				;$B7CC4E
+	ASL					;$B7CC50
+	CLC					;$B7CC51
+	ADC.b $1E				;$B7CC52
+	ADC.b $1A				;$B7CC54
+	TAY					;$B7CC56
+	JSR.w CODE_B7CF68			;$B7CC57
+	PHA					;$B7CC5A
+	LDA.b $A0				;$B7CC5B
+	STA.b $A2				;$B7CC5D
+	PLA					;$B7CC5F
+	BMI.b CODE_B7CC6F			;$B7CC60
+	CMP.w #$001F				;$B7CC62
+	BNE.b CODE_B7CC6A			;$B7CC65
+	JMP.w CODE_B7CCF7			;$B7CC67
 
 CODE_B7CC6A:
-	TAY
-	ORA.b $98
-	BRA.b CODE_B7CCA3
+	TAY					;$B7CC6A
+	ORA.b $98				;$B7CC6B
+	BRA.b CODE_B7CCA3			;$B7CC6D
 
 CODE_B7CC6F:
-	TYA
-	CLC
-	ADC.w #$00C0
-	TAY
-	LDA.w #$0001
-	STA.b $1C
-	LDA.b $98
-	SEC
-	SBC.w #$0020
-	STA.b $98
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BPL.b CODE_B7CCA0
-	TYA
-	CLC
-	ADC.w #$00C0
-	TAY
-	LDA.b $98
-	SEC
-	SBC.w #$0020
-	STA.b $98
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BMI.b CODE_B7CCEF
+	TYA					;$B7CC6F
+	CLC					;$B7CC70
+	ADC.w #$00C0				;$B7CC71
+	TAY					;$B7CC74
+	LDA.w #$0001				;$B7CC75
+	STA.b $1C				;$B7CC78
+	LDA.b $98				;$B7CC7A
+	SEC					;$B7CC7C
+	SBC.w #$0020				;$B7CC7D
+	STA.b $98				;$B7CC80
+	JSR.w CODE_B7CF68			;$B7CC82
+	CMP.w #$0000				;$B7CC85
+	BPL.b CODE_B7CCA0			;$B7CC88
+	TYA					;$B7CC8A
+	CLC					;$B7CC8B
+	ADC.w #$00C0				;$B7CC8C
+	TAY					;$B7CC8F
+	LDA.b $98				;$B7CC90
+	SEC					;$B7CC92
+	SBC.w #$0020				;$B7CC93
+	STA.b $98				;$B7CC96
+	JSR.w CODE_B7CF68			;$B7CC98
+	CMP.w #$0000				;$B7CC9B
+	BMI.b CODE_B7CCEF			;$B7CC9E
 CODE_B7CCA0:
-	TAY
-	ORA.b $98
+	TAY					;$B7CCA0
+	ORA.b $98				;$B7CCA1
 CODE_B7CCA3:
-	PHA
-	LDA.b $A0
-	AND.w #$7FFF
-	SEC
-	SBC.w #$4000
-	CMP.w #$0009
-	BCS.b CODE_B7CCB7
-	LDA.w #$2000
-	TSB.b $A0
+	PHA					;$B7CCA3
+	LDA.b $A0				;$B7CCA4
+	AND.w #$7FFF				;$B7CCA6
+	SEC					;$B7CCA9
+	SBC.w #$4000				;$B7CCAA
+	CMP.w #$0009				;$B7CCAD
+	BCS.b CODE_B7CCB7			;$B7CCB0
+	LDA.w #$2000				;$B7CCB2
+	TSB.b $A0				;$B7CCB5
 CODE_B7CCB7:
-	LDA.b $A0
-	STA.b $1A
-	AND.w #$007F
-	TRB.b $A0
-	ASL
-	TAX
-	LDA.w DATA_B7CFD0,x
-	AND.w #$801F
-	BPL.b CODE_B7CCD2
-	CPY.w #$000F
-	BEQ.b CODE_B7CCD4
-	AND.w #$001F
+	LDA.b $A0				;$B7CCB7
+	STA.b $1A				;$B7CCB9
+	AND.w #$007F				;$B7CCBB
+	TRB.b $A0				;$B7CCBE
+	ASL					;$B7CCC0
+	TAX					;$B7CCC1
+	LDA.w DATA_B7CFD0,x			;$B7CCC2
+	AND.w #$801F				;$B7CCC5
+	BPL.b CODE_B7CCD2			;$B7CCC8
+	CPY.w #$000F				;$B7CCCA
+	BEQ.b CODE_B7CCD4			;$B7CCCD
+	AND.w #$001F				;$B7CCCF
 CODE_B7CCD2:
-	TSB.b $A0
+	TSB.b $A0				;$B7CCD2
 CODE_B7CCD4:
-	LDA.b $A2
-	AND.w #$7FFF
-	SEC
-	SBC.w #$4000
-	CMP.w #$0009
-	BCS.b CODE_B7CCE7
-	LDA.w #$2000
-	TSB.b $A2
+	LDA.b $A2				;$B7CCD4
+	AND.w #$7FFF				;$B7CCD6
+	SEC					;$B7CCD9
+	SBC.w #$4000				;$B7CCDA
+	CMP.w #$0009				;$B7CCDD
+	BCS.b CODE_B7CCE7			;$B7CCE0
+	LDA.w #$2000				;$B7CCE2
+	TSB.b $A2				;$B7CCE5
 CODE_B7CCE7:
-	PLA
-	LDX.b $6E
-	CLC
-	ADC.w #$6200
-	RTL
+	PLA					;$B7CCE7
+	LDX.b $6E				;$B7CCE8
+	CLC					;$B7CCEA
+	ADC.w #$6200				;$B7CCEB
+	RTL					;$B7CCEE
 
 CODE_B7CCEF:
-	LDA.w #$FFC0
-	STZ.b $A0
-	LDX.b $6E
-	RTL
+	LDA.w #$FFC0				;$B7CCEF
+	STZ.b $A0				;$B7CCF2
+	LDX.b $6E				;$B7CCF4
+	RTL					;$B7CCF6
 
 CODE_B7CCF7:
-	TYA
-	SEC
-	SBC.w #$00C0
-	TAY
-	LDA.b $A0
-	STA.b $1A
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BMI.b CODE_B7CD12
-	TAY
-	ORA.w #$0020
-	CLC
-	ADC.b $98
-	BRA.b CODE_B7CCA3
+	TYA					;$B7CCF7
+	SEC					;$B7CCF8
+	SBC.w #$00C0				;$B7CCF9
+	TAY					;$B7CCFC
+	LDA.b $A0				;$B7CCFD
+	STA.b $1A				;$B7CCFF
+	JSR.w CODE_B7CF68			;$B7CD01
+	CMP.w #$0000				;$B7CD04
+	BMI.b CODE_B7CD12			;$B7CD07
+	TAY					;$B7CD09
+	ORA.w #$0020				;$B7CD0A
+	CLC					;$B7CD0D
+	ADC.b $98				;$B7CD0E
+	BRA.b CODE_B7CCA3			;$B7CD10
 
 CODE_B7CD12:
-	LDA.b $1A
-	STA.b $A0
-	LDA.w #$001F
-	TAY
-	ORA.b $98
-	JMP.w CODE_B7CCA3
+	LDA.b $1A				;$B7CD12
+	STA.b $A0				;$B7CD14
+	LDA.w #$001F				;$B7CD16
+	TAY					;$B7CD19
+	ORA.b $98				;$B7CD1A
+	JMP.w CODE_B7CCA3			;$B7CD1C
 
 CODE_B7CD1F:
-	LDA.b $1A
-	AND.w #$001F
-	STA.b $9A
-	STZ.b $A0
-	LDA.b $1C
-	SEC
-	SBC.w #$0100
-	BPL.b CODE_B7CD33
-	LDA.w #$0000
+	LDA.b $1A				;$B7CD1F
+	AND.w #$001F				;$B7CD21
+	STA.b $9A				;$B7CD24
+	STZ.b $A0				;$B7CD26
+	LDA.b $1C				;$B7CD28
+	SEC					;$B7CD2A
+	SBC.w #$0100				;$B7CD2B
+	BPL.b CODE_B7CD33			;$B7CD2E
+	LDA.w #$0000				;$B7CD30
 CODE_B7CD33:
-	CMP.w #$01FF
-	BCC.b CODE_B7CD3B
-	LDA.w #$01FF
+	CMP.w #$01FF				;$B7CD33
+	BCC.b CODE_B7CD3B			;$B7CD36
+	LDA.w #$01FF				;$B7CD38
 CODE_B7CD3B:
-	EOR.w #$FFFF
-	INC
-	AND.w #$01E0
-	STA.b $98
-	LDA.b $1A
-	AND.w #$FFE0
-	STA.b $1A
-	LDA.b $98
-	EOR.w #$01E0
-	LSR
-	LSR
-	LSR
-	LSR
-	CLC
-	ADC.b $1A
-	TAY
-	JSR.w CODE_B7CF68
-	PHA
-	LDA.b $A0
-	STA.b $A2
-	PLA
-	BMI.b CODE_B7CD70
-	CMP.w #$001F
-	BNE.b CODE_B7CD6B
-	JMP.w CODE_B7CE11
+	EOR.w #$FFFF				;$B7CD3B
+	INC					;$B7CD3E
+	AND.w #$01E0				;$B7CD3F
+	STA.b $98				;$B7CD42
+	LDA.b $1A				;$B7CD44
+	AND.w #$FFE0				;$B7CD46
+	STA.b $1A				;$B7CD49
+	LDA.b $98				;$B7CD4B
+	EOR.w #$01E0				;$B7CD4D
+	LSR					;$B7CD50
+	LSR					;$B7CD51
+	LSR					;$B7CD52
+	LSR					;$B7CD53
+	CLC					;$B7CD54
+	ADC.b $1A				;$B7CD55
+	TAY					;$B7CD57
+	JSR.w CODE_B7CF68			;$B7CD58
+	PHA					;$B7CD5B
+	LDA.b $A0				;$B7CD5C
+	STA.b $A2				;$B7CD5E
+	PLA					;$B7CD60
+	BMI.b CODE_B7CD70			;$B7CD61
+	CMP.w #$001F				;$B7CD63
+	BNE.b CODE_B7CD6B			;$B7CD66
+	JMP.w CODE_B7CE11			;$B7CD68
 
 CODE_B7CD6B:
-	TAY
-	ORA.b $98
-	BRA.b CODE_B7CDAB
+	TAY					;$B7CD6B
+	ORA.b $98				;$B7CD6C
+	BRA.b CODE_B7CDAB			;$B7CD6E
 
 CODE_B7CD70:
-	INY
-	INY
-	LDA.w #$0001
-	STA.b $1C
-	TYA
-	BIT.w #$001E
-	BNE.b CODE_B7CD80
-	JMP.w CODE_B7CE09
+	INY					;$B7CD70
+	INY					;$B7CD71
+	LDA.w #$0001				;$B7CD72
+	STA.b $1C				;$B7CD75
+	TYA					;$B7CD77
+	BIT.w #$001E				;$B7CD78
+	BNE.b CODE_B7CD80			;$B7CD7B
+	JMP.w CODE_B7CE09			;$B7CD7D
 
 CODE_B7CD80:
-	LDA.b $98
-	SEC
-	SBC.w #$0020
-	STA.b $98
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BPL.b CODE_B7CDA8
-	INY
-	INY
-	TYA
-	BIT.w #$001E
-	BEQ.b CODE_B7CE09
-	LDA.b $98
-	SEC
-	SBC.w #$0020
-	STA.b $98
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BMI.b CODE_B7CE09
+	LDA.b $98				;$B7CD80
+	SEC					;$B7CD82
+	SBC.w #$0020				;$B7CD83
+	STA.b $98				;$B7CD86
+	JSR.w CODE_B7CF68			;$B7CD88
+	CMP.w #$0000				;$B7CD8B
+	BPL.b CODE_B7CDA8			;$B7CD8E
+	INY					;$B7CD90
+	INY					;$B7CD91
+	TYA					;$B7CD92
+	BIT.w #$001E				;$B7CD93
+	BEQ.b CODE_B7CE09			;$B7CD96
+	LDA.b $98				;$B7CD98
+	SEC					;$B7CD9A
+	SBC.w #$0020				;$B7CD9B
+	STA.b $98				;$B7CD9E
+	JSR.w CODE_B7CF68			;$B7CDA0
+	CMP.w #$0000				;$B7CDA3
+	BMI.b CODE_B7CE09			;$B7CDA6
 CODE_B7CDA8:
-	TAY
-	ORA.b $98
+	TAY					;$B7CDA8
+	ORA.b $98				;$B7CDA9
 CODE_B7CDAB:
-	PHA
-	LDA.b $A0
-	AND.w #$7FFF
-	SEC
-	SBC.w #$4000
-	CMP.w #$0009
-	BCS.b CODE_B7CDBF
-	LDA.w #$2000
-	TSB.b $A0
+	PHA					;$B7CDAB
+	LDA.b $A0				;$B7CDAC
+	AND.w #$7FFF				;$B7CDAE
+	SEC					;$B7CDB1
+	SBC.w #$4000				;$B7CDB2
+	CMP.w #$0009				;$B7CDB5
+	BCS.b CODE_B7CDBF			;$B7CDB8
+	LDA.w #$2000				;$B7CDBA
+	TSB.b $A0				;$B7CDBD
 CODE_B7CDBF:
-	LDA.b $A0
-	STA.b $1A
-	AND.w #$007F
-	TRB.b $A0
-	ASL
-	TAX
-	LDA.w DATA_B7CFD0,x
-	AND.w #$801F
-	BPL.b CODE_B7CDDA
-	CPY.w #$000F
-	BEQ.b CODE_B7CDDC
-	AND.w #$001F
+	LDA.b $A0				;$B7CDBF
+	STA.b $1A				;$B7CDC1
+	AND.w #$007F				;$B7CDC3
+	TRB.b $A0				;$B7CDC6
+	ASL					;$B7CDC8
+	TAX					;$B7CDC9
+	LDA.w DATA_B7CFD0,x			;$B7CDCA
+	AND.w #$801F				;$B7CDCD
+	BPL.b CODE_B7CDDA			;$B7CDD0
+	CPY.w #$000F				;$B7CDD2
+	BEQ.b CODE_B7CDDC			;$B7CDD5
+	AND.w #$001F				;$B7CDD7
 CODE_B7CDDA:
-	TSB.b $A0
+	TSB.b $A0				;$B7CDDA
 CODE_B7CDDC:
-	LDA.b $A2
-	AND.w #$7FFF
-	SEC
-	SBC.w #$4000
-	CMP.w #$0009
-	BCS.b CODE_B7CDEF
-	LDA.w #$2000
-	TSB.b $A2
+	LDA.b $A2				;$B7CDDC
+	AND.w #$7FFF				;$B7CDDE
+	SEC					;$B7CDE1
+	SBC.w #$4000				;$B7CDE2
+	CMP.w #$0009				;$B7CDE5
+	BCS.b CODE_B7CDEF			;$B7CDE8
+	LDA.w #$2000				;$B7CDEA
+	TSB.b $A2				;$B7CDED
 CODE_B7CDEF:
-	LDA.b $A4
-	BEQ.b CODE_B7CDF9
-	CLC
-	ADC.w #$0200
-	STA.b $A4
+	LDA.b $A4				;$B7CDEF
+	BEQ.b CODE_B7CDF9			;$B7CDF1
+	CLC					;$B7CDF3
+	ADC.w #$0200				;$B7CDF4
+	STA.b $A4				;$B7CDF7
 CODE_B7CDF9:
-	PLA
-	LDX.b $6E
-	CMP.w #$01FF
-	BNE.b CODE_B7CE04
-	LDA.w #$0800
+	PLA					;$B7CDF9
+	LDX.b $6E				;$B7CDFA
+	CMP.w #$01FF				;$B7CDFC
+	BNE.b CODE_B7CE04			;$B7CDFF
+	LDA.w #$0800				;$B7CE01
 CODE_B7CE04:
-	CLC
-	ADC.w #$6000
-	RTL
+	CLC					;$B7CE04
+	ADC.w #$6000				;$B7CE05
+	RTL					;$B7CE08
 
 CODE_B7CE09:
-	LDA.w #$FFC0
-	STZ.b $A0
-	LDX.b $6E
-	RTL
+	LDA.w #$FFC0				;$B7CE09
+	STZ.b $A0				;$B7CE0C
+	LDX.b $6E				;$B7CE0E
+	RTL					;$B7CE10
 
 CODE_B7CE11:
-	TYA
-	AND.w #$001E
-	BEQ.b CODE_B7CE2F
-	DEY
-	DEY
-	LDA.b $A0
-	STA.b $1A
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BMI.b CODE_B7CE37
-	TAY
-	ORA.w #$0020
-	CLC
-	ADC.b $98
+	TYA					;$B7CE11
+	AND.w #$001E				;$B7CE12
+	BEQ.b CODE_B7CE2F			;$B7CE15
+	DEY					;$B7CE17
+	DEY					;$B7CE18
+	LDA.b $A0				;$B7CE19
+	STA.b $1A				;$B7CE1B
+	JSR.w CODE_B7CF68			;$B7CE1D
+	CMP.w #$0000				;$B7CE20
+	BMI.b CODE_B7CE37			;$B7CE23
+	TAY					;$B7CE25
+	ORA.w #$0020				;$B7CE26
+	CLC					;$B7CE29
+	ADC.b $98				;$B7CE2A
 CODE_B7CE2C:
-	JMP.w CODE_B7CDAB
+	JMP.w CODE_B7CDAB			;$B7CE2C
 
 CODE_B7CE2F:
-	LDY.w #$001F
-	LDA.w #$01FF
-	BRA.b CODE_B7CE2C
+	LDY.w #$001F				;$B7CE2F
+	LDA.w #$01FF				;$B7CE32
+	BRA.b CODE_B7CE2C			;$B7CE35
 
 CODE_B7CE37:
-	LDA.b $1A
-	STA.b $A0
-	LDA.w #$001F
-	TAY
-	ORA.b $98
-	BRA.b CODE_B7CE2C
+	LDA.b $1A				;$B7CE37
+	STA.b $A0				;$B7CE39
+	LDA.w #$001F				;$B7CE3B
+	TAY					;$B7CE3E
+	ORA.b $98				;$B7CE3F
+	BRA.b CODE_B7CE2C			;$B7CE41
 
 CODE_B7CE43:
-	LDA.b $1A
-	AND.w #$001F
-	STA.b $9A
-	STZ.b $A0
-	LDA.b $1C
-	SEC
-	SBC.w #$0100
-	BPL.b CODE_B7CE57
-	LDA.w #$0000
+	LDA.b $1A				;$B7CE43
+	AND.w #$001F				;$B7CE45
+	STA.b $9A				;$B7CE48
+	STZ.b $A0				;$B7CE4A
+	LDA.b $1C				;$B7CE4C
+	SEC					;$B7CE4E
+	SBC.w #$0100				;$B7CE4F
+	BPL.b CODE_B7CE57			;$B7CE52
+	LDA.w #$0000				;$B7CE54
 CODE_B7CE57:
-	CMP.w #$03FF
-	BCC.b CODE_B7CE5F
-	LDA.w #$03FF
+	CMP.w #$03FF				;$B7CE57
+	BCC.b CODE_B7CE5F			;$B7CE5A
+	LDA.w #$03FF				;$B7CE5C
 CODE_B7CE5F:
-	EOR.w #$FFFF
-	INC
-	AND.w #$03E0
-	STA.b $98
-	LDA.b $1A
-	AND.w #$FFE0
-	ASL
-	STA.b $1A
-	LDA.b $98
-	EOR.w #$03E0
-	LSR
-	LSR
-	LSR
-	LSR
-	CLC
-	ADC.b $1A
-	TAY
-	JSR.w CODE_B7CF68
-	PHA
-	LDA.b $A0
-	STA.b $A2
-	PLA
-	BMI.b CODE_B7CE95
-	CMP.w #$001F
-	BNE.b CODE_B7CE90
-	JMP.w CODE_B7CF36
+	EOR.w #$FFFF				;$B7CE5F
+	INC					;$B7CE62
+	AND.w #$03E0				;$B7CE63
+	STA.b $98				;$B7CE66
+	LDA.b $1A				;$B7CE68
+	AND.w #$FFE0				;$B7CE6A
+	ASL					;$B7CE6D
+	STA.b $1A				;$B7CE6E
+	LDA.b $98				;$B7CE70
+	EOR.w #$03E0				;$B7CE72
+	LSR					;$B7CE75
+	LSR					;$B7CE76
+	LSR					;$B7CE77
+	LSR					;$B7CE78
+	CLC					;$B7CE79
+	ADC.b $1A				;$B7CE7A
+	TAY					;$B7CE7C
+	JSR.w CODE_B7CF68			;$B7CE7D
+	PHA					;$B7CE80
+	LDA.b $A0				;$B7CE81
+	STA.b $A2				;$B7CE83
+	PLA					;$B7CE85
+	BMI.b CODE_B7CE95			;$B7CE86
+	CMP.w #$001F				;$B7CE88
+	BNE.b CODE_B7CE90			;$B7CE8B
+	JMP.w CODE_B7CF36			;$B7CE8D
 
 CODE_B7CE90:
-	TAY
-	ORA.b $98
-	BRA.b CODE_B7CED0
+	TAY					;$B7CE90
+	ORA.b $98				;$B7CE91
+	BRA.b CODE_B7CED0			;$B7CE93
 
 CODE_B7CE95:
-	INY
-	INY
-	LDA.w #$0001
-	STA.b $1C
-	TYA
-	BIT.w #$001E
-	BNE.b CODE_B7CEA5
-	JMP.w CODE_B7CF2E
+	INY					;$B7CE95
+	INY					;$B7CE96
+	LDA.w #$0001				;$B7CE97
+	STA.b $1C				;$B7CE9A
+	TYA					;$B7CE9C
+	BIT.w #$001E				;$B7CE9D
+	BNE.b CODE_B7CEA5			;$B7CEA0
+	JMP.w CODE_B7CF2E			;$B7CEA2
 
 CODE_B7CEA5:
-	LDA.b $98
-	SEC
-	SBC.w #$0020
-	STA.b $98
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BPL.b CODE_B7CECD
-	INY
-	INY
-	TYA
-	BIT.w #$001E
-	BEQ.b CODE_B7CF2E
-	LDA.b $98
-	SEC
-	SBC.w #$0020
-	STA.b $98
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BMI.b CODE_B7CF2E
+	LDA.b $98				;$B7CEA5
+	SEC					;$B7CEA7
+	SBC.w #$0020				;$B7CEA8
+	STA.b $98				;$B7CEAB
+	JSR.w CODE_B7CF68			;$B7CEAD
+	CMP.w #$0000				;$B7CEB0
+	BPL.b CODE_B7CECD			;$B7CEB3
+	INY					;$B7CEB5
+	INY					;$B7CEB6
+	TYA					;$B7CEB7
+	BIT.w #$001E				;$B7CEB8
+	BEQ.b CODE_B7CF2E			;$B7CEBB
+	LDA.b $98				;$B7CEBD
+	SEC					;$B7CEBF
+	SBC.w #$0020				;$B7CEC0
+	STA.b $98				;$B7CEC3
+	JSR.w CODE_B7CF68			;$B7CEC5
+	CMP.w #$0000				;$B7CEC8
+	BMI.b CODE_B7CF2E			;$B7CECB
 CODE_B7CECD:
-	TAY
-	ORA.b $98
+	TAY					;$B7CECD
+	ORA.b $98				;$B7CECE
 CODE_B7CED0:
-	PHA
-	LDA.b $A0
-	AND.w #$7FFF
-	SEC
-	SBC.w #$4000
-	CMP.w #$0009
-	BCS.b CODE_B7CEE4
-	LDA.w #$2000
-	TSB.b $A0
+	PHA					;$B7CED0
+	LDA.b $A0				;$B7CED1
+	AND.w #$7FFF				;$B7CED3
+	SEC					;$B7CED6
+	SBC.w #$4000				;$B7CED7
+	CMP.w #$0009				;$B7CEDA
+	BCS.b CODE_B7CEE4			;$B7CEDD
+	LDA.w #$2000				;$B7CEDF
+	TSB.b $A0				;$B7CEE2
 CODE_B7CEE4:
-	LDA.b $A0
-	STA.b $1A
-	AND.w #$007F
-	TRB.b $A0
-	ASL
-	TAX
-	LDA.w DATA_B7CFD0,x
-	AND.w #$801F
-	BPL.b CODE_B7CEFF
-	CPY.w #$000F
-	BEQ.b CODE_B7CF01
-	AND.w #$001F
+	LDA.b $A0				;$B7CEE4
+	STA.b $1A				;$B7CEE6
+	AND.w #$007F				;$B7CEE8
+	TRB.b $A0				;$B7CEEB
+	ASL					;$B7CEED
+	TAX					;$B7CEEE
+	LDA.w DATA_B7CFD0,x			;$B7CEEF
+	AND.w #$801F				;$B7CEF2
+	BPL.b CODE_B7CEFF			;$B7CEF5
+	CPY.w #$000F				;$B7CEF7
+	BEQ.b CODE_B7CF01			;$B7CEFA
+	AND.w #$001F				;$B7CEFC
 CODE_B7CEFF:
-	TSB.b $A0
+	TSB.b $A0				;$B7CEFF
 CODE_B7CF01:
-	LDA.b $A2
-	AND.w #$7FFF
-	SEC
-	SBC.w #$4000
-	CMP.w #$0009
-	BCS.b CODE_B7CF14
-	LDA.w #$2000
-	TSB.b $A2
+	LDA.b $A2				;$B7CF01
+	AND.w #$7FFF				;$B7CF03
+	SEC					;$B7CF06
+	SBC.w #$4000				;$B7CF07
+	CMP.w #$0009				;$B7CF0A
+	BCS.b CODE_B7CF14			;$B7CF0D
+	LDA.w #$2000				;$B7CF0F
+	TSB.b $A2				;$B7CF12
 CODE_B7CF14:
-	LDA.b $A4
-	BEQ.b CODE_B7CF1E
-	CLC
-	ADC.w #$0400
-	STA.b $A4
+	LDA.b $A4				;$B7CF14
+	BEQ.b CODE_B7CF1E			;$B7CF16
+	CLC					;$B7CF18
+	ADC.w #$0400				;$B7CF19
+	STA.b $A4				;$B7CF1C
 CODE_B7CF1E:
-	PLA
-	LDX.b $6E
-	CMP.w #$01FF
-	BNE.b CODE_B7CF29
-	LDA.w #$0800
+	PLA					;$B7CF1E
+	LDX.b $6E				;$B7CF1F
+	CMP.w #$01FF				;$B7CF21
+	BNE.b CODE_B7CF29			;$B7CF24
+	LDA.w #$0800				;$B7CF26
 CODE_B7CF29:
-	CLC
-	ADC.w #$5E00
-	RTL
+	CLC					;$B7CF29
+	ADC.w #$5E00				;$B7CF2A
+	RTL					;$B7CF2D
 
 CODE_B7CF2E:
-	LDA.w #$FFC0
-	STZ.b $A0
-	LDX.b $6E
-	RTL
+	LDA.w #$FFC0				;$B7CF2E
+	STZ.b $A0				;$B7CF31
+	LDX.b $6E				;$B7CF33
+	RTL					;$B7CF35
 
 CODE_B7CF36:
-	TYA
-	AND.w #$001E
-	BEQ.b CODE_B7CF54
-	DEY
-	DEY
-	LDA.b $A0
-	STA.b $1A
-	JSR.w CODE_B7CF68
-	CMP.w #$0000
-	BMI.b CODE_B7CF5C
-	TAY
-	ORA.w #$0020
-	CLC
-	ADC.b $98
+	TYA					;$B7CF36
+	AND.w #$001E				;$B7CF37
+	BEQ.b CODE_B7CF54			;$B7CF3A
+	DEY					;$B7CF3C
+	DEY					;$B7CF3D
+	LDA.b $A0				;$B7CF3E
+	STA.b $1A				;$B7CF40
+	JSR.w CODE_B7CF68			;$B7CF42
+	CMP.w #$0000				;$B7CF45
+	BMI.b CODE_B7CF5C			;$B7CF48
+	TAY					;$B7CF4A
+	ORA.w #$0020				;$B7CF4B
+	CLC					;$B7CF4E
+	ADC.b $98				;$B7CF4F
 CODE_B7CF51:
-	JMP.w CODE_B7CED0
+	JMP.w CODE_B7CED0			;$B7CF51
 
 CODE_B7CF54:
-	LDY.w #$001F
-	LDA.w #$01FF
-	BRA.b CODE_B7CF51
+	LDY.w #$001F				;$B7CF54
+	LDA.w #$01FF				;$B7CF57
+	BRA.b CODE_B7CF51			;$B7CF5A
 
 CODE_B7CF5C:
-	LDA.b $1A
-	STA.b $A0
-	LDA.w #$001F
-	TAY
-	ORA.b $98
-	BRA.b CODE_B7CF51
+	LDA.b $1A				;$B7CF5C
+	STA.b $A0				;$B7CF5E
+	LDA.w #$001F				;$B7CF60
+	TAY					;$B7CF63
+	ORA.b $98				;$B7CF64
+	BRA.b CODE_B7CF51			;$B7CF66
 
 CODE_B7CF68:						; Note: Related to level collision.
-	LDA.b $9A
-	STA.b $96
-	LDA.b [$8C],y
-	TYX
-	STA.b $9C
-	BEQ.b CODE_B7CFCC
-	BIT.w #$4000
-	BEQ.b CODE_B7CF81
-	LDA.b $9A
-	EOR.w #$001F
-	STA.b $96
-	LDA.b $9C
+	LDA.b $9A				;$B7CF68
+	STA.b $96				;$B7CF6A
+	LDA.b [$8C],y				;$B7CF6C
+	TYX					;$B7CF6E
+	STA.b $9C				;$B7CF6F
+	BEQ.b CODE_B7CFCC			;$B7CF71
+	BIT.w #$4000				;$B7CF73
+	BEQ.b CODE_B7CF81			;$B7CF76
+	LDA.b $9A				;$B7CF78
+	EOR.w #$001F				;$B7CF7A
+	STA.b $96				;$B7CF7D
+	LDA.b $9C				;$B7CF7F
 CODE_B7CF81:
-	AND.w #$3FFF
-	CMP.b $94
-	BCS.b CODE_B7CFCC
-	ASL
-	ASL
-	TAY
-	LDA.b $96
-	AND.w #$0010
-	BEQ.b CODE_B7CF94
-	INY
-	INY
+	AND.w #$3FFF				;$B7CF81
+	CMP.b $94				;$B7CF84
+	BCS.b CODE_B7CFCC			;$B7CF86
+	ASL					;$B7CF88
+	ASL					;$B7CF89
+	TAY					;$B7CF8A
+	LDA.b $96				;$B7CF8B
+	AND.w #$0010				;$B7CF8D
+	BEQ.b CODE_B7CF94			;$B7CF90
+	INY					;$B7CF92
+	INY					;$B7CF93
 CODE_B7CF94:
-	LDA.b [$90],y
-	BIT.w #$8000
-	BEQ.b CODE_B7CFA4
-	LDA.b $96
-	EOR.w #$000F
-	STA.b $96
-	LDA.b [$90],y
+	LDA.b [$90],y				;$B7CF94
+	BIT.w #$8000				;$B7CF96
+	BEQ.b CODE_B7CFA4			;$B7CF99
+	LDA.b $96				;$B7CF9B
+	EOR.w #$000F				;$B7CF9D
+	STA.b $96				;$B7CFA0
+	LDA.b [$90],y				;$B7CFA2
 CODE_B7CFA4:
-	TXY
-	BIT.b $9C
-	BVC.b CODE_B7CFAC
-	EOR.w #$8000
+	TXY					;$B7CFA4
+	BIT.b $9C				;$B7CFA5
+	BVC.b CODE_B7CFAC			;$B7CFA7
+	EOR.w #$8000				;$B7CFA9
 CODE_B7CFAC:
-	STA.b $A0
-	AND.w #$00FF
-	BEQ.b CODE_B7CFCC
-	ASL
-	TAX
-	LDA.l DATA_B7D07B,x
-	STA.b $9E
-	LDA.b $96
-	AND.w #$000F
-	JSR.w CODE_B7D078
-	CMP.w #$001F
-	BMI.b CODE_B7CFCB
-	LDA.w #$001F
+	STA.b $A0				;$B7CFAC
+	AND.w #$00FF				;$B7CFAE
+	BEQ.b CODE_B7CFCC			;$B7CFB1
+	ASL					;$B7CFB3
+	TAX					;$B7CFB4
+	LDA.l DATA_B7D07B,x			;$B7CFB5
+	STA.b $9E				;$B7CFB9
+	LDA.b $96				;$B7CFBB
+	AND.w #$000F				;$B7CFBD
+	JSR.w CODE_B7D078			;$B7CFC0
+	CMP.w #$001F				;$B7CFC3
+	BMI.b CODE_B7CFCB			;$B7CFC6
+	LDA.w #$001F				;$B7CFC8
 CODE_B7CFCB:
-	RTS
+	RTS					;$B7CFCB
 
 CODE_B7CFCC:
-	LDA.w #$FFFF
-	RTS
+	LDA.w #$FFFF				;$B7CFCC
+	RTS					;$B7CFCF
 
 DATA_B7CFD0:
 	dw $0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000
@@ -8174,7 +8174,7 @@ DATA_B7CFD0:
 	dw $0000,$0000,$0000,$0000
 
 CODE_B7D078:
-	JMP.w ($009E)
+	JMP.w ($009E)				;$B7D078
 
 DATA_B7D07B:
 	dw CODE_B7D2DE
@@ -8263,654 +8263,654 @@ DATA_B7D07B:
 	dw CODE_B7D2D5
 
 CODE_B7D123:
-	STA.b $1E
-	LDA.b $1C
-	DEC
-	AND.w #$001F
-	EOR.w #$001F
-	CMP.b $1E
-	BCS.b CODE_B7D136
-	LDA.w #$FFFF
-	RTS
+	STA.b $1E				;$B7D123
+	LDA.b $1C				;$B7D125
+	DEC					;$B7D127
+	AND.w #$001F				;$B7D128
+	EOR.w #$001F				;$B7D12B
+	CMP.b $1E				;$B7D12E
+	BCS.b CODE_B7D136			;$B7D130
+	LDA.w #$FFFF				;$B7D132
+	RTS					;$B7D135
 
 CODE_B7D136:
-	LDA.b $1E
-	ORA.b $98
-	EOR.w #$FFFF
-	CLC
-	ADC.w #$0102
-	STA.b $A4
-	LDA.b $A0
-	AND.w #$8000
-	ORA.w #$0003
-	STA.b $A6
-	LDA.w #$001F
-	RTS
+	LDA.b $1E				;$B7D136
+	ORA.b $98				;$B7D138
+	EOR.w #$FFFF				;$B7D13A
+	CLC					;$B7D13D
+	ADC.w #$0102				;$B7D13E
+	STA.b $A4				;$B7D141
+	LDA.b $A0				;$B7D143
+	AND.w #$8000				;$B7D145
+	ORA.w #$0003				;$B7D148
+	STA.b $A6				;$B7D14B
+	LDA.w #$001F				;$B7D14D
+	RTS					;$B7D150
 
 CODE_B7D151:
-	CLC
-	ADC.w #$0010
-	STA.b $1E
-	LDA.b $1C
-	DEC
-	AND.w #$001F
-	EOR.w #$001F
-	CMP.b $1E
-	BCS.b CODE_B7D168
-	LDA.w #$FFFF
-	RTS
+	CLC					;$B7D151
+	ADC.w #$0010				;$B7D152
+	STA.b $1E				;$B7D155
+	LDA.b $1C				;$B7D157
+	DEC					;$B7D159
+	AND.w #$001F				;$B7D15A
+	EOR.w #$001F				;$B7D15D
+	CMP.b $1E				;$B7D160
+	BCS.b CODE_B7D168			;$B7D162
+	LDA.w #$FFFF				;$B7D164
+	RTS					;$B7D167
 
 CODE_B7D168:
-	LDA.b $1E
-	ORA.b $98
-	EOR.w #$FFFF
-	CLC
-	ADC.w #$0102
-	STA.b $A4
-	LDA.b $A0
-	AND.w #$8000
-	ORA.w #$0003
-	STA.b $A6
-	LDA.w #$001F
-	RTS
+	LDA.b $1E				;$B7D168
+	ORA.b $98				;$B7D16A
+	EOR.w #$FFFF				;$B7D16C
+	CLC					;$B7D16F
+	ADC.w #$0102				;$B7D170
+	STA.b $A4				;$B7D173
+	LDA.b $A0				;$B7D175
+	AND.w #$8000				;$B7D177
+	ORA.w #$0003				;$B7D17A
+	STA.b $A6				;$B7D17D
+	LDA.w #$001F				;$B7D17F
+	RTS					;$B7D182
 
 CODE_B7D183:
-	LDA.b $1C
-	DEC
-	AND.w #$001F
-	CMP.w #$0010
-	BCC.b CODE_B7D192
-	LDA.w #$FFFF
-	RTS
+	LDA.b $1C				;$B7D183
+	DEC					;$B7D185
+	AND.w #$001F				;$B7D186
+	CMP.w #$0010				;$B7D189
+	BCC.b CODE_B7D192			;$B7D18C
+	LDA.w #$FFFF				;$B7D18E
+	RTS					;$B7D191
 
 CODE_B7D192:
-	LDA.w #$0010
-	ORA.b $98
-	EOR.w #$FFFF
-	CLC
-	ADC.w #$0102
-	STA.b $A4
-	STZ.b $A6
-	LDA.w #$001F
-	RTS
+	LDA.w #$0010				;$B7D192
+	ORA.b $98				;$B7D195
+	EOR.w #$FFFF				;$B7D197
+	CLC					;$B7D19A
+	ADC.w #$0102				;$B7D19B
+	STA.b $A4				;$B7D19E
+	STZ.b $A6				;$B7D1A0
+	LDA.w #$001F				;$B7D1A2
+	RTS					;$B7D1A5
 
 CODE_B7D1A6:
-	ASL
-	ASL
-	STA.b $1E
-	LDA.b $1C
-	DEC
-	AND.w #$001F
-	EOR.w #$001F
-	CMP.b $1E
-	BCS.b CODE_B7D1BB
-	LDA.w #$FFFF
-	RTS
+	ASL					;$B7D1A6
+	ASL					;$B7D1A7
+	STA.b $1E				;$B7D1A8
+	LDA.b $1C				;$B7D1AA
+	DEC					;$B7D1AC
+	AND.w #$001F				;$B7D1AD
+	EOR.w #$001F				;$B7D1B0
+	CMP.b $1E				;$B7D1B3
+	BCS.b CODE_B7D1BB			;$B7D1B5
+	LDA.w #$FFFF				;$B7D1B7
+	RTS					;$B7D1BA
 
 CODE_B7D1BB:
-	LDA.b $1E
-	ORA.b $98
-	EOR.w #$FFFF
-	CLC
-	ADC.w #$0102
-	STA.b $A4
-	LDA.b $A0
-	AND.w #$8000
-	ORA.w #$0006
-	STA.b $A6
-	LDA.w #$001F
-	RTS
+	LDA.b $1E				;$B7D1BB
+	ORA.b $98				;$B7D1BD
+	EOR.w #$FFFF				;$B7D1BF
+	CLC					;$B7D1C2
+	ADC.w #$0102				;$B7D1C3
+	STA.b $A4				;$B7D1C6
+	LDA.b $A0				;$B7D1C8
+	AND.w #$8000				;$B7D1CA
+	ORA.w #$0006				;$B7D1CD
+	STA.b $A6				;$B7D1D0
+	LDA.w #$001F				;$B7D1D2
+	RTS					;$B7D1D5
 
 CODE_B7D1D6:
-	CMP.w #$0008
-	BCC.b CODE_B7D1DF
-	LDA.w #$FFFF
-	RTS
+	CMP.w #$0008				;$B7D1D6
+	BCC.b CODE_B7D1DF			;$B7D1D9
+	LDA.w #$FFFF				;$B7D1DB
+	RTS					;$B7D1DE
 
 CODE_B7D1DF:
-	LDA.w #$001F
-	RTS
+	LDA.w #$001F				;$B7D1DF
+	RTS					;$B7D1E2
 
 CODE_B7D1E3:
-	CMP.w #$0002
-	BCC.b CODE_B7D1EC
-	LDA.w #$FFFF
-	RTS
+	CMP.w #$0002				;$B7D1E3
+	BCC.b CODE_B7D1EC			;$B7D1E6
+	LDA.w #$FFFF				;$B7D1E8
+	RTS					;$B7D1EB
 
 CODE_B7D1EC:
-	LDA.w #$001F
-	RTS
+	LDA.w #$001F				;$B7D1EC
+	RTS					;$B7D1EF
 
 CODE_B7D1F0:
-	LDA.b $98
-	EOR.w #$FFFF
-	CLC
-	ADC.w #$0102
-	STA.b $A4
-	LDA.b $A0
-	AND.w #$8000
-	STA.b $A6
-	LDA.w #$001F
-	RTS
+	LDA.b $98				;$B7D1F0
+	EOR.w #$FFFF				;$B7D1F2
+	CLC					;$B7D1F5
+	ADC.w #$0102				;$B7D1F6
+	STA.b $A4				;$B7D1F9
+	LDA.b $A0				;$B7D1FB
+	AND.w #$8000				;$B7D1FD
+	STA.b $A6				;$B7D200
+	LDA.w #$001F				;$B7D202
+	RTS					;$B7D205
 
 CODE_B7D206:
-	LDA.w #$0200
-	TSB.b $A0
-	LDA.w #$001F
-	RTS
+	LDA.w #$0200				;$B7D206
+	TSB.b $A0				;$B7D209
+	LDA.w #$001F				;$B7D20B
+	RTS					;$B7D20E
 
 CODE_B7D20F:
-	LDA.w #$0200
-	TSB.b $A0
-	LDA.w #$000F
-	RTS
+	LDA.w #$0200				;$B7D20F
+	TSB.b $A0				;$B7D212
+	LDA.w #$000F				;$B7D214
+	RTS					;$B7D217
 
 CODE_B7D218:
-	CMP.w #$0004
-	BCS.b CODE_B7D228
-	LDA.b $1C
-	DEC
-	AND.w #$001F
-	CMP.w #$0018
-	BCC.b CODE_B7D254
+	CMP.w #$0004				;$B7D218
+	BCS.b CODE_B7D228			;$B7D21B
+	LDA.b $1C				;$B7D21D
+	DEC					;$B7D21F
+	AND.w #$001F				;$B7D220
+	CMP.w #$0018				;$B7D223
+	BCC.b CODE_B7D254			;$B7D226
 CODE_B7D228:
-	LDA.w #$FFFF
-	RTS
+	LDA.w #$FFFF				;$B7D228
+	RTS					;$B7D22B
 
 CODE_B7D22C:
-	CMP.w #$0004
-	BCS.b CODE_B7D23C
-	LDA.b $1C
-	DEC
-	AND.w #$001F
-	CMP.w #$0010
-	BCC.b CODE_B7D254
+	CMP.w #$0004				;$B7D22C
+	BCS.b CODE_B7D23C			;$B7D22F
+	LDA.b $1C				;$B7D231
+	DEC					;$B7D233
+	AND.w #$001F				;$B7D234
+	CMP.w #$0010				;$B7D237
+	BCC.b CODE_B7D254			;$B7D23A
 CODE_B7D23C:
-	LDA.w #$FFFF
-	RTS
+	LDA.w #$FFFF				;$B7D23C
+	RTS					;$B7D23F
 
 CODE_B7D240:
-	CMP.w #$0004
-	BCS.b CODE_B7D250
-	LDA.b $1C
-	DEC
-	AND.w #$001F
-	CMP.w #$0008
-	BCC.b CODE_B7D254
+	CMP.w #$0004				;$B7D240
+	BCS.b CODE_B7D250			;$B7D243
+	LDA.b $1C				;$B7D245
+	DEC					;$B7D247
+	AND.w #$001F				;$B7D248
+	CMP.w #$0008				;$B7D24B
+	BCC.b CODE_B7D254			;$B7D24E
 CODE_B7D250:
-	LDA.w #$FFFF
-	RTS
+	LDA.w #$FFFF				;$B7D250
+	RTS					;$B7D253
 
 CODE_B7D254:
-	LDA.w #$1000
-	TSB.b $A0
-	LDA.w #$001F
-	RTS
+	LDA.w #$1000				;$B7D254
+	TSB.b $A0				;$B7D257
+	LDA.w #$001F				;$B7D259
+	RTS					;$B7D25C
 
 CODE_B7D25D:
-	CMP.w #$0004
-	BCS.b CODE_B7D26B
-	LDA.w #$1000
-	TSB.b $A0
-	LDA.w #$001F
-	RTS
+	CMP.w #$0004				;$B7D25D
+	BCS.b CODE_B7D26B			;$B7D260
+	LDA.w #$1000				;$B7D262
+	TSB.b $A0				;$B7D265
+	LDA.w #$001F				;$B7D267
+	RTS					;$B7D26A
 
 CODE_B7D26B:
-	LDA.w #$0013
-	RTS
+	LDA.w #$0013				;$B7D26B
+	RTS					;$B7D26E
 
 CODE_B7D26F:
-	CMP.w #$0004
-	BCS.b CODE_B7D279
-	LDA.w #$1400
-	TSB.b $A0
+	CMP.w #$0004				;$B7D26F
+	BCS.b CODE_B7D279			;$B7D272
+	LDA.w #$1400				;$B7D274
+	TSB.b $A0				;$B7D277
 CODE_B7D279:
-	LDA.w #$0013
-	RTS
+	LDA.w #$0013				;$B7D279
+	RTS					;$B7D27C
 
 CODE_B7D27D:
-	LDA.w #$0800
-	TSB.b $A0
-	LDA.w #$000F
-	RTS
+	LDA.w #$0800				;$B7D27D
+	TSB.b $A0				;$B7D280
+	LDA.w #$000F				;$B7D282
+	RTS					;$B7D285
 
 CODE_B7D286:
-	CMP.w #$0004
-	BCS.b CODE_B7D294
-	LDA.w #$1000
-	TSB.b $A0
-	LDA.w #$001F
-	RTS
+	CMP.w #$0004				;$B7D286
+	BCS.b CODE_B7D294			;$B7D289
+	LDA.w #$1000				;$B7D28B
+	TSB.b $A0				;$B7D28E
+	LDA.w #$001F				;$B7D290
+	RTS					;$B7D293
 
 CODE_B7D294:
-	LDA.w #$FFFF
-	RTS
+	LDA.w #$FFFF				;$B7D294
+	RTS					;$B7D297
 
 CODE_B7D298:
-	CMP.w #$0004
-	BCS.b CODE_B7D2BA
-	LDA.w #$1000
-	TSB.b $A0
-	LDA.b $1C
-	DEC
-	AND.w #$001F
-	SEC
-	SBC.w #$000C
-	CMP.w #$0004
-	BCS.b CODE_B7D2B6
-	LDA.w #$0800
-	TSB.b $A0
+	CMP.w #$0004				;$B7D298
+	BCS.b CODE_B7D2BA			;$B7D29B
+	LDA.w #$1000				;$B7D29D
+	TSB.b $A0				;$B7D2A0
+	LDA.b $1C				;$B7D2A2
+	DEC					;$B7D2A4
+	AND.w #$001F				;$B7D2A5
+	SEC					;$B7D2A8
+	SBC.w #$000C				;$B7D2A9
+	CMP.w #$0004				;$B7D2AC
+	BCS.b CODE_B7D2B6			;$B7D2AF
+	LDA.w #$0800				;$B7D2B1
+	TSB.b $A0				;$B7D2B4
 CODE_B7D2B6:
-	LDA.w #$001F
-	RTS
+	LDA.w #$001F				;$B7D2B6
+	RTS					;$B7D2B9
 
 CODE_B7D2BA:
-	LDA.w #$0800
-	TSB.b $A0
-	LDA.w #$000F
-	RTS
+	LDA.w #$0800				;$B7D2BA
+	TSB.b $A0				;$B7D2BD
+	LDA.w #$000F				;$B7D2BF
+	RTS					;$B7D2C2
 
 CODE_B7D2C3:
-	CMP.w #$0004
-	BCS.b CODE_B7D2D1
-	LDA.w #$1000
-	TSB.b $A0
-	LDA.w #$000F
-	RTS
+	CMP.w #$0004				;$B7D2C3
+	BCS.b CODE_B7D2D1			;$B7D2C6
+	LDA.w #$1000				;$B7D2C8
+	TSB.b $A0				;$B7D2CB
+	LDA.w #$000F				;$B7D2CD
+	RTS					;$B7D2D0
 
 CODE_B7D2D1:
-	LDA.w #$FFFF
-	RTS
+	LDA.w #$FFFF				;$B7D2D1
+	RTS					;$B7D2D4
 
 CODE_B7D2D5:
-	LDA.w #$0800
-	TSB.b $A0
-	LDA.w #$001F
-	RTS
+	LDA.w #$0800				;$B7D2D5
+	TSB.b $A0				;$B7D2D8
+	LDA.w #$001F				;$B7D2DA
+	RTS					;$B7D2DD
 
 CODE_B7D2DE:
-	LDA.w #$FFFF
-	RTS
+	LDA.w #$FFFF				;$B7D2DE
+	RTS					;$B7D2E1
 
 CODE_B7D2E2:
-	LDA.w #$001F
-	RTS
+	LDA.w #$001F				;$B7D2E2
+	RTS					;$B7D2E5
 
 CODE_B7D2E6:
-	LDA.w #$001B
-	RTS
+	LDA.w #$001B				;$B7D2E6
+	RTS					;$B7D2E9
 
 CODE_B7D2EA:
-	LDA.w #$0017
-	RTS
+	LDA.w #$0017				;$B7D2EA
+	RTS					;$B7D2ED
 
 CODE_B7D2EE:
-	LDA.w #$0013
-	RTS
+	LDA.w #$0013				;$B7D2EE
+	RTS					;$B7D2F1
 
 CODE_B7D2F2:
-	LDA.w #$000F
-	RTS
+	LDA.w #$000F				;$B7D2F2
+	RTS					;$B7D2F5
 
 CODE_B7D2F6:
-	LDA.w #$000B
-	RTS
+	LDA.w #$000B				;$B7D2F6
+	RTS					;$B7D2F9
 
 CODE_B7D2FA:
-	LDA.w #$0007
-	RTS
+	LDA.w #$0007				;$B7D2FA
+	RTS					;$B7D2FD
 
 CODE_B7D2FE:
-	LDA.w #$0003
-	RTS
+	LDA.w #$0003				;$B7D2FE
+	RTS					;$B7D301
 
 CODE_B7D302:
-	ASL
-	ASL
-	CLC
-	ADC.w #$0010
-	RTS
+	ASL					;$B7D302
+	ASL					;$B7D303
+	CLC					;$B7D304
+	ADC.w #$0010				;$B7D305
+	RTS					;$B7D308
 
 CODE_B7D309:
-	ASL
-	ASL
-	RTS
+	ASL					;$B7D309
+	ASL					;$B7D30A
+	RTS					;$B7D30B
 
 CODE_B7D30C:
-	ASL
-	ASL
-	SEC
-	SBC.w #$0010
-	RTS
+	ASL					;$B7D30C
+	ASL					;$B7D30D
+	SEC					;$B7D30E
+	SBC.w #$0010				;$B7D30F
+	RTS					;$B7D312
 
 CODE_B7D313:
-	ASL
-	ASL
-	SEC
-	SBC.w #$0020
-	RTS
+	ASL					;$B7D313
+	ASL					;$B7D314
+	SEC					;$B7D315
+	SBC.w #$0020				;$B7D316
+	RTS					;$B7D319
 
 CODE_B7D31A:
-	ASL
-	ASL
-	SEC
-	SBC.w #$0030
-	RTS
+	ASL					;$B7D31A
+	ASL					;$B7D31B
+	SEC					;$B7D31C
+	SBC.w #$0030				;$B7D31D
+	RTS					;$B7D320
 
 CODE_B7D321:
-	ASL
-	ASL
-	SEC
-	SBC.w #$0010
-	CMP.w #$000F
-	BMI.b CODE_B7D32F
-	LDA.w #$000F
+	ASL					;$B7D321
+	ASL					;$B7D322
+	SEC					;$B7D323
+	SBC.w #$0010				;$B7D324
+	CMP.w #$000F				;$B7D327
+	BMI.b CODE_B7D32F			;$B7D32A
+	LDA.w #$000F				;$B7D32C
 CODE_B7D32F:
-	RTS
+	RTS					;$B7D32F
 
 CODE_B7D330:
-	ASL
-	ASL
-	SEC
-	SBC.w #$0010
-	CMP.w #$000F
-	BPL.b CODE_B7D33E
-	LDA.w #$000F
+	ASL					;$B7D330
+	ASL					;$B7D331
+	SEC					;$B7D332
+	SBC.w #$0010				;$B7D333
+	CMP.w #$000F				;$B7D336
+	BPL.b CODE_B7D33E			;$B7D339
+	LDA.w #$000F				;$B7D33B
 CODE_B7D33E:
-	RTS
+	RTS					;$B7D33E
 
 CODE_B7D33F:
-	ASL
-	CMP.w #$000F
-	BMI.b CODE_B7D348
-	LDA.w #$000F
+	ASL					;$B7D33F
+	CMP.w #$000F				;$B7D340
+	BMI.b CODE_B7D348			;$B7D343
+	LDA.w #$000F				;$B7D345
 CODE_B7D348:
-	RTS
+	RTS					;$B7D348
 
 CODE_B7D349:
-	ASL
-	CMP.w #$000F
-	BPL.b CODE_B7D352
-	LDA.w #$000F
+	ASL					;$B7D349
+	CMP.w #$000F				;$B7D34A
+	BPL.b CODE_B7D352			;$B7D34D
+	LDA.w #$000F				;$B7D34F
 CODE_B7D352:
-	RTS
+	RTS					;$B7D352
 
 CODE_B7D353:
-	ASL
-	CLC
-	ADC.w #$0018
-	RTS
+	ASL					;$B7D353
+	CLC					;$B7D354
+	ADC.w #$0018				;$B7D355
+	RTS					;$B7D358
 
 CODE_B7D359:
-	ASL
-	CLC
-	ADC.w #$0010
-	RTS
+	ASL					;$B7D359
+	CLC					;$B7D35A
+	ADC.w #$0010				;$B7D35B
+	RTS					;$B7D35E
 
 CODE_B7D35F:
-	ASL
-	CLC
-	ADC.w #$0008
-	RTS
+	ASL					;$B7D35F
+	CLC					;$B7D360
+	ADC.w #$0008				;$B7D361
+	RTS					;$B7D364
 
 CODE_B7D365:
-	ASL
-	RTS
+	ASL					;$B7D365
+	RTS					;$B7D366
 
 CODE_B7D367:
-	ASL
-	SEC
-	SBC.w #$0008
-	RTS
+	ASL					;$B7D367
+	SEC					;$B7D368
+	SBC.w #$0008				;$B7D369
+	RTS					;$B7D36C
 
 CODE_B7D36D:
-	ASL
-	SEC
-	SBC.w #$0010
-	RTS
+	ASL					;$B7D36D
+	SEC					;$B7D36E
+	SBC.w #$0010				;$B7D36F
+	RTS					;$B7D372
 
 CODE_B7D373:
-	ASL
-	SEC
-	SBC.w #$0018
-	RTS
+	ASL					;$B7D373
+	SEC					;$B7D374
+	SBC.w #$0018				;$B7D375
+	RTS					;$B7D378
 
 CODE_B7D379:
-	SEC
-	SBC.w #$000C
-	RTS
+	SEC					;$B7D379
+	SBC.w #$000C				;$B7D37A
+	RTS					;$B7D37D
 
 CODE_B7D37E:
-	SEC
-	SBC.w #$0008
-	RTS
+	SEC					;$B7D37E
+	SBC.w #$0008				;$B7D37F
+	RTS					;$B7D382
 
 CODE_B7D383:
-	SEC
-	SBC.w #$0004
-	RTS
+	SEC					;$B7D383
+	SBC.w #$0004				;$B7D384
+	RTS					;$B7D387
 
 CODE_B7D388:
-	RTS
+	RTS					;$B7D388
 
 CODE_B7D389:
-	CLC
-	ADC.w #$0004
-	RTS
+	CLC					;$B7D389
+	ADC.w #$0004				;$B7D38A
+	RTS					;$B7D38D
 
 CODE_B7D38E:
-	CLC
-	ADC.w #$0008
-	RTS
+	CLC					;$B7D38E
+	ADC.w #$0008				;$B7D38F
+	RTS					;$B7D392
 
 CODE_B7D393:
-	CLC
-	ADC.w #$000C
-	RTS
+	CLC					;$B7D393
+	ADC.w #$000C				;$B7D394
+	RTS					;$B7D397
 
 CODE_B7D398:
-	CLC
-	ADC.w #$0010
-	RTS
+	CLC					;$B7D398
+	ADC.w #$0010				;$B7D399
+	RTS					;$B7D39C
 
 CODE_B7D39D:
-	CLC
-	ADC.w #$0014
-	RTS
+	CLC					;$B7D39D
+	ADC.w #$0014				;$B7D39E
+	RTS					;$B7D3A1
 
 CODE_B7D3A2:
-	CLC
-	ADC.w #$0018
-	RTS
+	CLC					;$B7D3A2
+	ADC.w #$0018				;$B7D3A3
+	RTS					;$B7D3A6
 
 CODE_B7D3A7:
-	CLC
-	ADC.w #$001C
-	RTS
+	CLC					;$B7D3A7
+	ADC.w #$001C				;$B7D3A8
+	RTS					;$B7D3AB
 
 CODE_B7D3AC:
-	TAX
-	LDA.l DATA_B7D490,x
-	AND.w #$00FF
-	CLC
-	ADC.w #$001C
-	RTS
+	TAX					;$B7D3AC
+	LDA.l DATA_B7D490,x			;$B7D3AD
+	AND.w #$00FF				;$B7D3B1
+	CLC					;$B7D3B4
+	ADC.w #$001C				;$B7D3B5
+	RTS					;$B7D3B8
 
 CODE_B7D3B9:
-	TAX
-	LDA.l DATA_B7D490,x
-	AND.w #$00FF
-	CLC
-	ADC.w #$0018
-	RTS
+	TAX					;$B7D3B9
+	LDA.l DATA_B7D490,x			;$B7D3BA
+	AND.w #$00FF				;$B7D3BE
+	CLC					;$B7D3C1
+	ADC.w #$0018				;$B7D3C2
+	RTS					;$B7D3C5
 
 CODE_B7D3C6:
-	TAX
-	LDA.l DATA_B7D490,x
-	AND.w #$00FF
-	CLC
-	ADC.w #$0014
-	RTS
+	TAX					;$B7D3C6
+	LDA.l DATA_B7D490,x			;$B7D3C7
+	AND.w #$00FF				;$B7D3CB
+	CLC					;$B7D3CE
+	ADC.w #$0014				;$B7D3CF
+	RTS					;$B7D3D2
 
 CODE_B7D3D3:
-	TAX
-	LDA.l DATA_B7D490,x
-	AND.w #$00FF
-	CLC
-	ADC.w #$0010
-	RTS
+	TAX					;$B7D3D3
+	LDA.l DATA_B7D490,x			;$B7D3D4
+	AND.w #$00FF				;$B7D3D8
+	CLC					;$B7D3DB
+	ADC.w #$0010				;$B7D3DC
+	RTS					;$B7D3DF
 
 CODE_B7D3E0:
-	TAX
-	LDA.l DATA_B7D490,x
-	AND.w #$00FF
-	CLC
-	ADC.w #$000C
-	RTS
+	TAX					;$B7D3E0
+	LDA.l DATA_B7D490,x			;$B7D3E1
+	AND.w #$00FF				;$B7D3E5
+	CLC					;$B7D3E8
+	ADC.w #$000C				;$B7D3E9
+	RTS					;$B7D3EC
 
 CODE_B7D3ED:
-	TAX
-	LDA.l DATA_B7D490,x
-	AND.w #$00FF
-	CLC
-	ADC.w #$0008
-	RTS
+	TAX					;$B7D3ED
+	LDA.l DATA_B7D490,x			;$B7D3EE
+	AND.w #$00FF				;$B7D3F2
+	CLC					;$B7D3F5
+	ADC.w #$0008				;$B7D3F6
+	RTS					;$B7D3F9
 
 CODE_B7D3FA:
-	TAX
-	LDA.l DATA_B7D490,x
-	AND.w #$00FF
-	CLC
-	ADC.w #$0004
-	RTS
+	TAX					;$B7D3FA
+	LDA.l DATA_B7D490,x			;$B7D3FB
+	AND.w #$00FF				;$B7D3FF
+	CLC					;$B7D402
+	ADC.w #$0004				;$B7D403
+	RTS					;$B7D406
 
 CODE_B7D407:
-	TAX
-	LDA.l DATA_B7D490,x
-	AND.w #$00FF
-	RTS
+	TAX					;$B7D407
+	LDA.l DATA_B7D490,x			;$B7D408
+	AND.w #$00FF				;$B7D40C
+	RTS					;$B7D40F
 
 CODE_B7D410:
-	TAX
-	LDA.l DATA_B7D490,x
-	AND.w #$00FF
-	SEC
-	SBC.w #$0004
-	RTS
+	TAX					;$B7D410
+	LDA.l DATA_B7D490,x			;$B7D411
+	AND.w #$00FF				;$B7D415
+	SEC					;$B7D418
+	SBC.w #$0004				;$B7D419
+	RTS					;$B7D41C
 
 CODE_B7D41D:
-	TAX
-	LDA.l DATA_B7D490,x
-	AND.w #$00FF
-	SEC
-	SBC.w #$0008
-	RTS
+	TAX					;$B7D41D
+	LDA.l DATA_B7D490,x			;$B7D41E
+	AND.w #$00FF				;$B7D422
+	SEC					;$B7D425
+	SBC.w #$0008				;$B7D426
+	RTS					;$B7D429
 
 CODE_B7D42A:
-	LSR
-	LSR
-	CLC
-	ADC.w #$001C
-	RTS
+	LSR					;$B7D42A
+	LSR					;$B7D42B
+	CLC					;$B7D42C
+	ADC.w #$001C				;$B7D42D
+	RTS					;$B7D430
 
 CODE_B7D431:
-	LSR
-	LSR
-	CLC
-	ADC.w #$0018
-	RTS
+	LSR					;$B7D431
+	LSR					;$B7D432
+	CLC					;$B7D433
+	ADC.w #$0018				;$B7D434
+	RTS					;$B7D437
 
 CODE_B7D438:
-	LSR
-	LSR
-	CLC
-	ADC.w #$0014
-	RTS
+	LSR					;$B7D438
+	LSR					;$B7D439
+	CLC					;$B7D43A
+	ADC.w #$0014				;$B7D43B
+	RTS					;$B7D43E
 
 CODE_B7D43F:
-	LSR
-	LSR
-	CLC
-	ADC.w #$0010
-	RTS
+	LSR					;$B7D43F
+	LSR					;$B7D440
+	CLC					;$B7D441
+	ADC.w #$0010				;$B7D442
+	RTS					;$B7D445
 
 CODE_B7D446:
-	LSR
-	LSR
-	CLC
-	ADC.w #$000C
-	RTS
+	LSR					;$B7D446
+	LSR					;$B7D447
+	CLC					;$B7D448
+	ADC.w #$000C				;$B7D449
+	RTS					;$B7D44C
 
 CODE_B7D44D:
-	LSR
-	LSR
-	CLC
-	ADC.w #$0008
-	RTS
+	LSR					;$B7D44D
+	LSR					;$B7D44E
+	CLC					;$B7D44F
+	ADC.w #$0008				;$B7D450
+	RTS					;$B7D453
 
 CODE_B7D454:
-	LSR
-	LSR
-	CLC
-	ADC.w #$0004
-	RTS
+	LSR					;$B7D454
+	LSR					;$B7D455
+	CLC					;$B7D456
+	ADC.w #$0004				;$B7D457
+	RTS					;$B7D45A
 
 CODE_B7D45B:
-	LSR
-	LSR
-	RTS
+	LSR					;$B7D45B
+	LSR					;$B7D45C
+	RTS					;$B7D45D
 
 CODE_B7D45E:
-	LSR
-	SEC
-	SBC.w #$0004
-	RTS
+	LSR					;$B7D45E
+	SEC					;$B7D45F
+	SBC.w #$0004				;$B7D460
+	RTS					;$B7D463
 
 CODE_B7D464:
-	LSR
-	RTS
+	LSR					;$B7D464
+	RTS					;$B7D465
 
 CODE_B7D466:
-	LSR
-	CLC
-	ADC.w #$0004
-	RTS
+	LSR					;$B7D466
+	CLC					;$B7D467
+	ADC.w #$0004				;$B7D468
+	RTS					;$B7D46B
 
 CODE_B7D46C:
-	LSR
-	CLC
-	ADC.w #$0008
-	RTS
+	LSR					;$B7D46C
+	CLC					;$B7D46D
+	ADC.w #$0008				;$B7D46E
+	RTS					;$B7D471
 
 CODE_B7D472:
-	LSR
-	CLC
-	ADC.w #$000C
-	RTS
+	LSR					;$B7D472
+	CLC					;$B7D473
+	ADC.w #$000C				;$B7D474
+	RTS					;$B7D477
 
 CODE_B7D478:
-	LSR
-	CLC
-	ADC.w #$0010
-	RTS
+	LSR					;$B7D478
+	CLC					;$B7D479
+	ADC.w #$0010				;$B7D47A
+	RTS					;$B7D47D
 
 CODE_B7D47E:
-	LSR
-	CLC
-	ADC.w #$0014
-	RTS
+	LSR					;$B7D47E
+	CLC					;$B7D47F
+	ADC.w #$0014				;$B7D480
+	RTS					;$B7D483
 
 CODE_B7D484:
-	LSR
-	CLC
-	ADC.w #$0018
-	RTS
+	LSR					;$B7D484
+	CLC					;$B7D485
+	ADC.w #$0018				;$B7D486
+	RTS					;$B7D489
 
 CODE_B7D48A:
-	LSR
-	CLC
-	ADC.w #$001C
-	RTS
+	LSR					;$B7D48A
+	CLC					;$B7D48B
+	ADC.w #$001C				;$B7D48C
+	RTS					;$B7D48F
 
 DATA_B7D490:
 	db $01,$02,$02,$03,$04,$04,$05,$06,$06,$07,$08,$08,$09,$0A,$0A,$0B
@@ -8918,305 +8918,305 @@ DATA_B7D490:
 	db $00
 
 CODE_B7D4B1:
-	PHB
-	PEA.w (($7E995A&$FF0000)>>16)|((CODE_B7D4B1&$FF0000)>>8)
-	PLB
-	LDX.w #$07FE
-	LDA.w #$0000
+	PHB					;$B7D4B1
+	PEA.w (($7E995A&$FF0000)>>16)|((CODE_B7D4B1&$FF0000)>>8)	;$B7D4B2
+	PLB					;$B7D4B5
+	LDX.w #$07FE				;$B7D4B6
+	LDA.w #$0000				;$B7D4B9
 CODE_B7D4BC:
-	STA.w $7E995A,x
-	DEX
-	DEX
-	BPL.b CODE_B7D4BC
-	PLB
-	LDA.w #$0100
-	STA.w $04B8
-	STA.w $04BA
-	STZ.w $04BC
-	STZ.w $04BE
-	LDA.b level_number
-	ASL
-	TAX
-	LDA.l DATA_FDC259+$02,x
-	STA.b $1E
-	LDA.l DATA_FDC259,x
-	TAX
-	LDA.w $0470
-	AND.w #$000F
-	ASL
-	ASL
-	ASL
-	TAY
-	PHK
-	PLB
-	LDA.w DATA_B7D73E,y
-	STA.l $7E9A5A
-	LDA.w DATA_B7D73E+$02,y
-	STA.l $7E9C5A
-	LDA.w #$0100
-	STA.l $7E995A
-	STA.l $7E9B5A
-	LDA.w DATA_B7D73E+$04,y
-	STA.b $1A
-	LDA.w DATA_B7D73E+$06,y
-	STA.b $1C
-	PEA.w DATA_FDC259>>8
-	PLB
-	PLB
-	TXA
-	LDX.w #$0000
-	CMP.b $1E
-	BCC.b CODE_B7D531
-	LDA.l $7E9A5A
-	STA.l $0004BC
-	LDA.l $7E9C5A
-	STA.l $0004BE
-	BRL.w CODE_B7D6A1
+	STA.w $7E995A,x				;$B7D4BC
+	DEX					;$B7D4BF
+	DEX					;$B7D4C0
+	BPL.b CODE_B7D4BC			;$B7D4C1
+	PLB					;$B7D4C3
+	LDA.w #$0100				;$B7D4C4
+	STA.w $04B8				;$B7D4C7
+	STA.w $04BA				;$B7D4CA
+	STZ.w $04BC				;$B7D4CD
+	STZ.w $04BE				;$B7D4D0
+	LDA.b level_number			;$B7D4D3
+	ASL					;$B7D4D5
+	TAX					;$B7D4D6
+	LDA.l DATA_FDC259+$02,x			;$B7D4D7
+	STA.b $1E				;$B7D4DB
+	LDA.l DATA_FDC259,x			;$B7D4DD
+	TAX					;$B7D4E1
+	LDA.w $0470				;$B7D4E2
+	AND.w #$000F				;$B7D4E5
+	ASL					;$B7D4E8
+	ASL					;$B7D4E9
+	ASL					;$B7D4EA
+	TAY					;$B7D4EB
+	PHK					;$B7D4EC
+	PLB					;$B7D4ED
+	LDA.w DATA_B7D73E,y			;$B7D4EE
+	STA.l $7E9A5A				;$B7D4F1
+	LDA.w DATA_B7D73E+$02,y			;$B7D4F5
+	STA.l $7E9C5A				;$B7D4F8
+	LDA.w #$0100				;$B7D4FC
+	STA.l $7E995A				;$B7D4FF
+	STA.l $7E9B5A				;$B7D503
+	LDA.w DATA_B7D73E+$04,y			;$B7D507
+	STA.b $1A				;$B7D50A
+	LDA.w DATA_B7D73E+$06,y			;$B7D50C
+	STA.b $1C				;$B7D50F
+	PEA.w DATA_FDC259>>8			;$B7D511
+	PLB					;$B7D514
+	PLB					;$B7D515
+	TXA					;$B7D516
+	LDX.w #$0000				;$B7D517
+	CMP.b $1E				;$B7D51A
+	BCC.b CODE_B7D531			;$B7D51C
+	LDA.l $7E9A5A				;$B7D51E
+	STA.l $0004BC				;$B7D522
+	LDA.l $7E9C5A				;$B7D526
+	STA.l $0004BE				;$B7D52A
+	BRL.w CODE_B7D6A1			;$B7D52E
 
 CODE_B7D531:
-	LDY.b $1A
-	BEQ.b CODE_B7D538
-	BRL.w CODE_B7D62C
+	LDY.b $1A				;$B7D531
+	BEQ.b CODE_B7D538			;$B7D533
+	BRL.w CODE_B7D62C			;$B7D535
 
 CODE_B7D538:
-	LDY.b $1C
-	BNE.b CODE_B7D5B7
+	LDY.b $1C				;$B7D538
+	BNE.b CODE_B7D5B7			;$B7D53A
 CODE_B7D53C:
-	TAY
-	INX
-	INX
-	LDA.w DATA_FDC259,y
-	AND.w #$000F
-	EOR.w DATA_FDC259+$02,y
-	AND.w #$FF3F
-	EOR.w DATA_FDC259+$02,y
-	STA.l $7E9D5A,x
-	LDA.w DATA_FDC259,y
-	AND.w #$1FF0
-	LSR
-	ADC.w #$0100
-	STA.l $7E995A,x
-	LDA.w DATA_FDC259+$01,y
-	LSR
-	AND.w #$1FF0
-	LSR
-	ADC.w #$0100
-	STA.l $7E9B5A,x
-	LDA.w DATA_FDC259+$03,y
-	AND.w #$00FF
-	ASL
-	ADC.w #$0020
-	ASL
-	ASL
-	ADC.l $7E995A,x
-	STA.l $7E9A5A,x
-	CMP.l $0004BC
-	BCC.b CODE_B7D58D
-	STA.l $0004BC
+	TAY					;$B7D53C
+	INX					;$B7D53D
+	INX					;$B7D53E
+	LDA.w DATA_FDC259,y			;$B7D53F
+	AND.w #$000F				;$B7D542
+	EOR.w DATA_FDC259+$02,y			;$B7D545
+	AND.w #$FF3F				;$B7D548
+	EOR.w DATA_FDC259+$02,y			;$B7D54B
+	STA.l $7E9D5A,x				;$B7D54E
+	LDA.w DATA_FDC259,y			;$B7D552
+	AND.w #$1FF0				;$B7D555
+	LSR					;$B7D558
+	ADC.w #$0100				;$B7D559
+	STA.l $7E995A,x				;$B7D55C
+	LDA.w DATA_FDC259+$01,y			;$B7D560
+	LSR					;$B7D563
+	AND.w #$1FF0				;$B7D564
+	LSR					;$B7D567
+	ADC.w #$0100				;$B7D568
+	STA.l $7E9B5A,x				;$B7D56B
+	LDA.w DATA_FDC259+$03,y			;$B7D56F
+	AND.w #$00FF				;$B7D572
+	ASL					;$B7D575
+	ADC.w #$0020				;$B7D576
+	ASL					;$B7D579
+	ASL					;$B7D57A
+	ADC.l $7E995A,x				;$B7D57B
+	STA.l $7E9A5A,x				;$B7D57F
+	CMP.l $0004BC				;$B7D583
+	BCC.b CODE_B7D58D			;$B7D587
+	STA.l $0004BC				;$B7D589
 CODE_B7D58D:
-	LDA.w DATA_FDC259+$04,y
-	AND.w #$00FF
-	ASL
-	ADC.w #$001C
-	ASL
-	ASL
-	ADC.l $7E9B5A,x
-	STA.l $7E9C5A,x
-	CMP.l $0004BE
-	BCC.b CODE_B7D5AB
-	STA.l $0004BE
+	LDA.w DATA_FDC259+$04,y			;$B7D58D
+	AND.w #$00FF				;$B7D590
+	ASL					;$B7D593
+	ADC.w #$001C				;$B7D594
+	ASL					;$B7D597
+	ASL					;$B7D598
+	ADC.l $7E9B5A,x				;$B7D599
+	STA.l $7E9C5A,x				;$B7D59D
+	CMP.l $0004BE				;$B7D5A1
+	BCC.b CODE_B7D5AB			;$B7D5A5
+	STA.l $0004BE				;$B7D5A7
 CODE_B7D5AB:
-	TYA
-	CLC
-	ADC.w #$0005
-	CMP.b $1E
-	BCC.b CODE_B7D53C
-	BRL.w CODE_B7D6A1
+	TYA					;$B7D5AB
+	CLC					;$B7D5AC
+	ADC.w #$0005				;$B7D5AD
+	CMP.b $1E				;$B7D5B0
+	BCC.b CODE_B7D53C			;$B7D5B2
+	BRL.w CODE_B7D6A1			;$B7D5B4
 
 CODE_B7D5B7:
-	TAY
-	INX
-	INX
-	LDA.w DATA_FDC259,y
-	AND.w #$000F
-	EOR.w DATA_FDC259+$02,y
-	AND.w #$FF3F
-	EOR.w DATA_FDC259+$02,y
-	STA.l $7E9D5A,x
-	LDA.w DATA_FDC259,y
-	AND.w #$FFF0
-	LSR
-	ADC.w #$0100
-	STA.l $7E995A,x
-	LDA.w DATA_FDC259+$02,y
-	AND.w #$003F
-	ASL
-	ASL
-	ASL
-	ADC.w #$0100
-	STA.l $7E9B5A,x
-	LDA.w DATA_FDC259+$03,y
-	AND.w #$03FF
-	ASL
-	ADC.w #$0020
-	ASL
-	ASL
-	ADC.l $7E995A,x
-	STA.l $7E9A5A,x
-	CMP.l $0004BC
-	BCC.b CODE_B7D609
-	STA.l $0004BC
+	TAY					;$B7D5B7
+	INX					;$B7D5B8
+	INX					;$B7D5B9
+	LDA.w DATA_FDC259,y			;$B7D5BA
+	AND.w #$000F				;$B7D5BD
+	EOR.w DATA_FDC259+$02,y			;$B7D5C0
+	AND.w #$FF3F				;$B7D5C3
+	EOR.w DATA_FDC259+$02,y			;$B7D5C6
+	STA.l $7E9D5A,x				;$B7D5C9
+	LDA.w DATA_FDC259,y			;$B7D5CD
+	AND.w #$FFF0				;$B7D5D0
+	LSR					;$B7D5D3
+	ADC.w #$0100				;$B7D5D4
+	STA.l $7E995A,x				;$B7D5D7
+	LDA.w DATA_FDC259+$02,y			;$B7D5DB
+	AND.w #$003F				;$B7D5DE
+	ASL					;$B7D5E1
+	ASL					;$B7D5E2
+	ASL					;$B7D5E3
+	ADC.w #$0100				;$B7D5E4
+	STA.l $7E9B5A,x				;$B7D5E7
+	LDA.w DATA_FDC259+$03,y			;$B7D5EB
+	AND.w #$03FF				;$B7D5EE
+	ASL					;$B7D5F1
+	ADC.w #$0020				;$B7D5F2
+	ASL					;$B7D5F5
+	ASL					;$B7D5F6
+	ADC.l $7E995A,x				;$B7D5F7
+	STA.l $7E9A5A,x				;$B7D5FB
+	CMP.l $0004BC				;$B7D5FF
+	BCC.b CODE_B7D609			;$B7D603
+	STA.l $0004BC				;$B7D605
 CODE_B7D609:
-	LDA.w DATA_FDC259+$04,y
-	AND.w #$00FC
-	ASL
-	ADC.w #$0108
-	STA.l $7E9C5A,x
-	CMP.l $0004BE
-	BCC.b CODE_B7D621
-	STA.l $0004BE
+	LDA.w DATA_FDC259+$04,y			;$B7D609
+	AND.w #$00FC				;$B7D60C
+	ASL					;$B7D60F
+	ADC.w #$0108				;$B7D610
+	STA.l $7E9C5A,x				;$B7D613
+	CMP.l $0004BE				;$B7D617
+	BCC.b CODE_B7D621			;$B7D61B
+	STA.l $0004BE				;$B7D61D
 CODE_B7D621:
-	TYA
-	CLC
-	ADC.w #$0005
-	CMP.b $1E
-	BCC.b CODE_B7D5B7
-	BRA.b CODE_B7D6A1
+	TYA					;$B7D621
+	CLC					;$B7D622
+	ADC.w #$0005				;$B7D623
+	CMP.b $1E				;$B7D626
+	BCC.b CODE_B7D5B7			;$B7D628
+	BRA.b CODE_B7D6A1			;$B7D62A
 
 CODE_B7D62C:
-	TAY
-	INX
-	INX
-	LDA.w DATA_FDC259,y
-	AND.w #$000F
-	EOR.w DATA_FDC259+$04,y
-	AND.w #$FF3F
-	EOR.w DATA_FDC259+$04,y
-	STA.l $7E9D5A,x
-	LDA.w DATA_FDC259,y
-	AND.b $1A
-	LSR
-	ADC.w #$0100
-	STA.l $7E995A,x
-	LDA.w DATA_FDC259+$02,y
-	LSR
-	AND.b $1A
-	LSR
-	ADC.w #$0108
-	STA.l $7E9A5A,x
-	CMP.l $0004BC
-	BCC.b CODE_B7D667
-	STA.l $0004BC
+	TAY					;$B7D62C
+	INX					;$B7D62D
+	INX					;$B7D62E
+	LDA.w DATA_FDC259,y			;$B7D62F
+	AND.w #$000F				;$B7D632
+	EOR.w DATA_FDC259+$04,y			;$B7D635
+	AND.w #$FF3F				;$B7D638
+	EOR.w DATA_FDC259+$04,y			;$B7D63B
+	STA.l $7E9D5A,x				;$B7D63E
+	LDA.w DATA_FDC259,y			;$B7D642
+	AND.b $1A				;$B7D645
+	LSR					;$B7D647
+	ADC.w #$0100				;$B7D648
+	STA.l $7E995A,x				;$B7D64B
+	LDA.w DATA_FDC259+$02,y			;$B7D64F
+	LSR					;$B7D652
+	AND.b $1A				;$B7D653
+	LSR					;$B7D655
+	ADC.w #$0108				;$B7D656
+	STA.l $7E9A5A,x				;$B7D659
+	CMP.l $0004BC				;$B7D65D
+	BCC.b CODE_B7D667			;$B7D661
+	STA.l $0004BC				;$B7D663
 CODE_B7D667:
-	LDA.w DATA_FDC259+$01,y
-	AND.w #$1FFC
-	PEA.w CODE_B7D673-$01
-	JMP.w ($001C)
+	LDA.w DATA_FDC259+$01,y			;$B7D667
+	AND.w #$1FFC				;$B7D66A
+	PEA.w CODE_B7D673-$01			;$B7D66D
+	JMP.w ($001C)				;$B7D670
 CODE_B7D673:
-	ADC.w #$0100
-	STA.l $7E9B5A,x
-	LDA.w DATA_FDC259+$03,y
-	LSR
-	AND.w #$1FFC
-	PEA.w CODE_B7D687-$01
-	JMP.w ($001C)
+	ADC.w #$0100				;$B7D673
+	STA.l $7E9B5A,x				;$B7D676
+	LDA.w DATA_FDC259+$03,y			;$B7D67A
+	LSR					;$B7D67D
+	AND.w #$1FFC				;$B7D67E
+	PEA.w CODE_B7D687-$01			;$B7D681
+	JMP.w ($001C)				;$B7D684
 CODE_B7D687:
-	ADC.w #$0108
-	STA.l $7E9C5A,x
-	CMP.l $0004BE
-	BCC.b CODE_B7D698
-	STA.l $0004BE
+	ADC.w #$0108				;$B7D687
+	STA.l $7E9C5A,x				;$B7D68A
+	CMP.l $0004BE				;$B7D68E
+	BCC.b CODE_B7D698			;$B7D692
+	STA.l $0004BE				;$B7D694
 CODE_B7D698:
-	TYA
-	CLC
-	ADC.w #$0005
-	CMP.b $1E
-	BCC.b CODE_B7D62C
+	TYA					;$B7D698
+	CLC					;$B7D699
+	ADC.w #$0005				;$B7D69A
+	CMP.b $1E				;$B7D69D
+	BCC.b CODE_B7D62C			;$B7D69F
 CODE_B7D6A1:
-	PEA.w $7E995A>>8
-	PLB
-	PLB
-	STX.w $0476
-	LDX.w #$0000
+	PEA.w $7E995A>>8			;$B7D6A1
+	PLB					;$B7D6A4
+	PLB					;$B7D6A5
+	STX.w $0476				;$B7D6A6
+	LDX.w #$0000				;$B7D6A9
 CODE_B7D6AC:
-	CPX.w $0476
-	BCS.b CODE_B7D70C
-	INX
-	INX
+	CPX.w $0476				;$B7D6AC
+	BCS.b CODE_B7D70C			;$B7D6AF
+	INX					;$B7D6B1
+	INX					;$B7D6B2
 CODE_B7D6B3:
-	TXY
-	LDA.w $7E9D5A,x
-	AND.w #$000F
-	BEQ.b CODE_B7D6AC
-	AND.w #$000C
-	BEQ.b CODE_B7D6E4
-	CMP.w #$0004
-	BEQ.b CODE_B7D6DF
-	JSR.w CODE_B7D798
-	LDA.w $7E9E5C,y
-	BNE.b CODE_B7D6D5
-	TXA
-	LSR
-	STA.w $7E9E5C,y
-	BRA.b CODE_B7D6F1
+	TXY					;$B7D6B3
+	LDA.w $7E9D5A,x				;$B7D6B4
+	AND.w #$000F				;$B7D6B7
+	BEQ.b CODE_B7D6AC			;$B7D6BA
+	AND.w #$000C				;$B7D6BC
+	BEQ.b CODE_B7D6E4			;$B7D6BF
+	CMP.w #$0004				;$B7D6C1
+	BEQ.b CODE_B7D6DF			;$B7D6C4
+	JSR.w CODE_B7D798			;$B7D6C6
+	LDA.w $7E9E5C,y				;$B7D6C9
+	BNE.b CODE_B7D6D5			;$B7D6CC
+	TXA					;$B7D6CE
+	LSR					;$B7D6CF
+	STA.w $7E9E5C,y				;$B7D6D0
+	BRA.b CODE_B7D6F1			;$B7D6D3
 
 CODE_B7D6D5:
-	TXA
-	LSR
-	ORA.w $7E9E5D,y
-	STA.w $7E9E5D,y
-	BRA.b CODE_B7D6F1
+	TXA					;$B7D6D5
+	LSR					;$B7D6D6
+	ORA.w $7E9E5D,y				;$B7D6D7
+	STA.w $7E9E5D,y				;$B7D6DA
+	BRA.b CODE_B7D6F1			;$B7D6DD
 
 CODE_B7D6DF:
-	JSR.w CODE_B7D798
-	BRA.b CODE_B7D6F1
+	JSR.w CODE_B7D798			;$B7D6DF
+	BRA.b CODE_B7D6F1			;$B7D6E2
 
 CODE_B7D6E4:
-	LDA.w $7E9A5A,x
-	DEC
+	LDA.w $7E9A5A,x				;$B7D6E4
+	DEC					;$B7D6E7
 CODE_B7D6E8:
-	INY
-	INY
-	CMP.w $7E995A,y
-	BCS.b CODE_B7D6E8
-	BRA.b CODE_B7D6F1
+	INY					;$B7D6E8
+	INY					;$B7D6E9
+	CMP.w $7E995A,y				;$B7D6EA
+	BCS.b CODE_B7D6E8			;$B7D6ED
+	BRA.b CODE_B7D6F1			;$B7D6EF
 
 CODE_B7D6F1:
-	LDA.w $7E9D5A,x
-	AND.w #$0003
-	BEQ.b CODE_B7D702
-	DEC
-	BEQ.b CODE_B7D6FF
-	JSR.w CODE_B7D7CE
+	LDA.w $7E9D5A,x				;$B7D6F1
+	AND.w #$0003				;$B7D6F4
+	BEQ.b CODE_B7D702			;$B7D6F7
+	DEC					;$B7D6F9
+	BEQ.b CODE_B7D6FF			;$B7D6FA
+	JSR.w CODE_B7D7CE			;$B7D6FC
 CODE_B7D6FF:
-	JSR.w CODE_B7D7CE
+	JSR.w CODE_B7D7CE			;$B7D6FF
 CODE_B7D702:
-	INX
-	INX
-	TXY
-	CPX.w $0476
-	BCC.b CODE_B7D6B3
-	BEQ.b CODE_B7D6F1
+	INX					;$B7D702
+	INX					;$B7D703
+	TXY					;$B7D704
+	CPX.w $0476				;$B7D705
+	BCC.b CODE_B7D6B3			;$B7D708
+	BEQ.b CODE_B7D6F1			;$B7D70A
 CODE_B7D70C:
-	STZ.w $0478
-	STZ.w $04A4
-	STZ.w $04AA
-	STZ.w $04AE
-	LDA.w $0790
-	STA.w $0472
-	LDA.w $04BC
-	SEC
-	SBC.w #$0100
-	STA.w $04BC
-	LDA.w $04BE
-	SEC
-	SBC.w #$00E0
-	STA.w $04BE
-	STA.w $04C0
-	JSL.l CODE_B7D7FB
-	JSR.w CODE_B7D87B
-	PLB
-	RTL
+	STZ.w $0478				;$B7D70C
+	STZ.w $04A4				;$B7D70F
+	STZ.w $04AA				;$B7D712
+	STZ.w $04AE				;$B7D715
+	LDA.w $0790				;$B7D718
+	STA.w $0472				;$B7D71B
+	LDA.w $04BC				;$B7D71E
+	SEC					;$B7D721
+	SBC.w #$0100				;$B7D722
+	STA.w $04BC				;$B7D725
+	LDA.w $04BE				;$B7D728
+	SEC					;$B7D72B
+	SBC.w #$00E0				;$B7D72C
+	STA.w $04BE				;$B7D72F
+	STA.w $04C0				;$B7D732
+	JSL.l CODE_B7D7FB			;$B7D735
+	JSR.w CODE_B7D87B			;$B7D739
+	PLB					;$B7D73C
+	RTL					;$B7D73D
 
 DATA_B7D73E:
 	dw $4100,$02FF,$7FF0,CODE_B7D78E
@@ -9231,254 +9231,254 @@ DATA_B7D73E:
 	dw $0D00,$10FF,$0000,$0000
 
 CODE_B7D78E:
-	LSR
+	LSR					;$B7D78E
 CODE_B7D78F:
-	LSR
+	LSR					;$B7D78F
 CODE_B7D790:
-	LSR
+	LSR					;$B7D790
 CODE_B7D791:
-	LSR
+	LSR					;$B7D791
 CODE_B7D792:
-	LSR
+	LSR					;$B7D792
 CODE_B7D793:
-	AND.w #$1FFC
-	ASL
-	RTS
+	AND.w #$1FFC				;$B7D793
+	ASL					;$B7D796
+	RTS					;$B7D797
 
 CODE_B7D798:
-	LDA.w $7E9A5A,x
+	LDA.w $7E9A5A,x				;$B7D798
 CODE_B7D79B:
-	INY
-	INY
-	CMP.w $7E995A,y
-	BNE.b CODE_B7D79B
-	LDA.w $7E9B5A,x
-	CMP.w $7E9C5A,y
-	BCS.b CODE_B7D798
-	LDA.w $7E9B5A,y
-	CMP.w $7E9C5A,x
-	BCS.b CODE_B7D798
-	TYA
-	LSR
-	ORA.w $7E9D5B,x
-	STA.w $7E9D5B,x
-	LDA.w $7E9E5A,y
-	BNE.b CODE_B7D7C5
-	TXA
-	LSR
-	STA.w $7E9E5A,y
-	RTS
+	INY					;$B7D79B
+	INY					;$B7D79C
+	CMP.w $7E995A,y				;$B7D79D
+	BNE.b CODE_B7D79B			;$B7D7A0
+	LDA.w $7E9B5A,x				;$B7D7A2
+	CMP.w $7E9C5A,y				;$B7D7A5
+	BCS.b CODE_B7D798			;$B7D7A8
+	LDA.w $7E9B5A,y				;$B7D7AA
+	CMP.w $7E9C5A,x				;$B7D7AD
+	BCS.b CODE_B7D798			;$B7D7B0
+	TYA					;$B7D7B2
+	LSR					;$B7D7B3
+	ORA.w $7E9D5B,x				;$B7D7B4
+	STA.w $7E9D5B,x				;$B7D7B7
+	LDA.w $7E9E5A,y				;$B7D7BA
+	BNE.b CODE_B7D7C5			;$B7D7BD
+	TXA					;$B7D7BF
+	LSR					;$B7D7C0
+	STA.w $7E9E5A,y				;$B7D7C1
+	RTS					;$B7D7C4
 
 CODE_B7D7C5:
-	TXA
-	LSR
-	ORA.w $7E9E5B,y
-	STA.w $7E9E5B,y
-	RTS
+	TXA					;$B7D7C5
+	LSR					;$B7D7C6
+	ORA.w $7E9E5B,y				;$B7D7C7
+	STA.w $7E9E5B,y				;$B7D7CA
+	RTS					;$B7D7CD
 
 CODE_B7D7CE:
-	LDA.w $7E9C5A,x
+	LDA.w $7E9C5A,x				;$B7D7CE
 CODE_B7D7D1:
-	DEY
-	DEY
-	CMP.w $7E9B5A,y
-	BNE.b CODE_B7D7D1
-	LDA.w $7EA05A,x
-	BEQ.b CODE_B7D7E1
-	XBA
-	STA.w $7EA05A,x
+	DEY					;$B7D7D1
+	DEY					;$B7D7D2
+	CMP.w $7E9B5A,y				;$B7D7D3
+	BNE.b CODE_B7D7D1			;$B7D7D6
+	LDA.w $7EA05A,x				;$B7D7D8
+	BEQ.b CODE_B7D7E1			;$B7D7DB
+	XBA					;$B7D7DD
+	STA.w $7EA05A,x				;$B7D7DE
 CODE_B7D7E1:
-	TYA
-	LSR
-	ORA.w $7EA05A,x
-	STA.w $7EA05A,x
-	LDA.w $7E9F5A,y
-	BEQ.b CODE_B7D7F2
-	XBA
-	STA.w $7E9F5A,y
+	TYA					;$B7D7E1
+	LSR					;$B7D7E2
+	ORA.w $7EA05A,x				;$B7D7E3
+	STA.w $7EA05A,x				;$B7D7E6
+	LDA.w $7E9F5A,y				;$B7D7E9
+	BEQ.b CODE_B7D7F2			;$B7D7EC
+	XBA					;$B7D7EE
+	STA.w $7E9F5A,y				;$B7D7EF
 CODE_B7D7F2:
-	TXA
-	LSR
-	ORA.w $7E9F5A,y
-	STA.w $7E9F5A,y
-	RTS
+	TXA					;$B7D7F2
+	LSR					;$B7D7F3
+	ORA.w $7E9F5A,y				;$B7D7F4
+	STA.w $7E9F5A,y				;$B7D7F7
+	RTS					;$B7D7FA
 
 CODE_B7D7FB:
-	LDA.b $7E
-	BEQ.b CODE_B7D813
-	SEC
-	SBC.w #$0234
-	LSR
-	LSR
-	CLC
-	ADC.w $0473
-	AND.w #$00FF
-	TAX
-	LDA.l DATA_FD18DB,x
-	BRA.b CODE_B7D816
+	LDA.b $7E				;$B7D7FB
+	BEQ.b CODE_B7D813			;$B7D7FD
+	SEC					;$B7D7FF
+	SBC.w #$0234				;$B7D800
+	LSR					;$B7D803
+	LSR					;$B7D804
+	CLC					;$B7D805
+	ADC.w $0473				;$B7D806
+	AND.w #$00FF				;$B7D809
+	TAX					;$B7D80C
+	LDA.l DATA_FD18DB,x			;$B7D80D
+	BRA.b CODE_B7D816			;$B7D811
 
 CODE_B7D813:
-	LDA.w $0472
+	LDA.w $0472				;$B7D813
 CODE_B7D816:
-	AND.w #$00FF
-	ASL
-	ASL
-	ASL
-	TAX
-	LDA.l DATA_FD17DB-$01,x
-	AND.w #$FF00
-	STA.w $04A6
-	LDA.l DATA_FD17DB,x
-	AND.w #$FF00
-	STA.w $04A8
-	LDA.l DATA_FD17DB+$01,x
-	AND.w #$FF00
-	STA.w $04AC
-	LDA.l DATA_FD17DB+$02,x
-	AND.w #$FF00
-	STA.w $04B0
-	LDA.l DATA_FD17DB+$04,x
-	AND.w #$0F0F
-	STA.w $0484
-	EOR.l DATA_FD17DB+$04,x
-	LSR
-	LSR
-	LSR
-	LSR
-	STA.w $0488
-	LDA.l DATA_FD17DB+$06,x
-	AND.w #$00FF
-	ASL
-	ASL
-	ASL
-	STA.w $0482
-	LDA.l DATA_FD17DB+$07,x
-	AND.w #$00FF
-	ASL
-	ASL
-	ASL
-	STA.w $0486
-	STZ.w $04AA
-	STZ.w $04AE
-	RTL
+	AND.w #$00FF				;$B7D816
+	ASL					;$B7D819
+	ASL					;$B7D81A
+	ASL					;$B7D81B
+	TAX					;$B7D81C
+	LDA.l DATA_FD17DB-$01,x			;$B7D81D
+	AND.w #$FF00				;$B7D821
+	STA.w $04A6				;$B7D824
+	LDA.l DATA_FD17DB,x			;$B7D827
+	AND.w #$FF00				;$B7D82B
+	STA.w $04A8				;$B7D82E
+	LDA.l DATA_FD17DB+$01,x			;$B7D831
+	AND.w #$FF00				;$B7D835
+	STA.w $04AC				;$B7D838
+	LDA.l DATA_FD17DB+$02,x			;$B7D83B
+	AND.w #$FF00				;$B7D83F
+	STA.w $04B0				;$B7D842
+	LDA.l DATA_FD17DB+$04,x			;$B7D845
+	AND.w #$0F0F				;$B7D849
+	STA.w $0484				;$B7D84C
+	EOR.l DATA_FD17DB+$04,x			;$B7D84F
+	LSR					;$B7D853
+	LSR					;$B7D854
+	LSR					;$B7D855
+	LSR					;$B7D856
+	STA.w $0488				;$B7D857
+	LDA.l DATA_FD17DB+$06,x			;$B7D85A
+	AND.w #$00FF				;$B7D85E
+	ASL					;$B7D861
+	ASL					;$B7D862
+	ASL					;$B7D863
+	STA.w $0482				;$B7D864
+	LDA.l DATA_FD17DB+$07,x			;$B7D867
+	AND.w #$00FF				;$B7D86B
+	ASL					;$B7D86E
+	ASL					;$B7D86F
+	ASL					;$B7D870
+	STA.w $0486				;$B7D871
+	STZ.w $04AA				;$B7D874
+	STZ.w $04AE				;$B7D877
+	RTL					;$B7D87A
 
 CODE_B7D87B:
-	LDX.w active_kong_sprite
-	LDY.w #$0000
-	LDA.w $0792
-	BIT.w #$0030
-	BEQ.b CODE_B7D894
-	LDY.w #$0080
-	BIT.w #$0010
-	BNE.b CODE_B7D894
-	LDY.w #$FF80
+	LDX.w active_kong_sprite		;$B7D87B
+	LDY.w #$0000				;$B7D87E
+	LDA.w $0792				;$B7D881
+	BIT.w #$0030				;$B7D884
+	BEQ.b CODE_B7D894			;$B7D887
+	LDY.w #$0080				;$B7D889
+	BIT.w #$0010				;$B7D88C
+	BNE.b CODE_B7D894			;$B7D88F
+	LDY.w #$FF80				;$B7D891
 CODE_B7D894:
-	LDA.w #$0000
-	STA.w $081A
-	TYA
-	CLC
-	ADC.b $12,x
-	STA.w $081C
-	LDY.w #$0000
-	LDA.w $0792
-	BIT.w #$00C0
-	BEQ.b CODE_B7D8B7
-	LDY.w #$0080
-	BIT.w #$0040
-	BNE.b CODE_B7D8B7
-	LDY.w #$FF80
+	LDA.w #$0000				;$B7D894
+	STA.w $081A				;$B7D897
+	TYA					;$B7D89A
+	CLC					;$B7D89B
+	ADC.b $12,x				;$B7D89C
+	STA.w $081C				;$B7D89E
+	LDY.w #$0000				;$B7D8A1
+	LDA.w $0792				;$B7D8A4
+	BIT.w #$00C0				;$B7D8A7
+	BEQ.b CODE_B7D8B7			;$B7D8AA
+	LDY.w #$0080				;$B7D8AC
+	BIT.w #$0040				;$B7D8AF
+	BNE.b CODE_B7D8B7			;$B7D8B2
+	LDY.w #$FF80				;$B7D8B4
 CODE_B7D8B7:
-	LDA.w #$0000
-	STA.w $081E
-	TYA
-	CLC
-	ADC.b $16,x
-	STA.w $0820
-	LDY.w #aux_sprite_table
-	JSR.w CODE_B7D931
-	PHD
-	LDA.w #$0400
-	TCD
-	PHB
-	PEA.w $7E995A>>8
-	PLB
-	PLB
-	JSR.w CODE_B7E109
-	PLB
-	PLD
-	STX.w $0478
-	RTS
+	LDA.w #$0000				;$B7D8B7
+	STA.w $081E				;$B7D8BA
+	TYA					;$B7D8BD
+	CLC					;$B7D8BE
+	ADC.b $16,x				;$B7D8BF
+	STA.w $0820				;$B7D8C1
+	LDY.w #aux_sprite_table			;$B7D8C4
+	JSR.w CODE_B7D931			;$B7D8C7
+	PHD					;$B7D8CA
+	LDA.w #$0400				;$B7D8CB
+	TCD					;$B7D8CE
+	PHB					;$B7D8CF
+	PEA.w $7E995A>>8			;$B7D8D0
+	PLB					;$B7D8D3
+	PLB					;$B7D8D4
+	JSR.w CODE_B7E109			;$B7D8D5
+	PLB					;$B7D8D8
+	PLD					;$B7D8D9
+	STX.w $0478				;$B7D8DA
+	RTS					;$B7D8DD
 
 CODE_B7D8DE:
-	LDA.w $047F
-	STA.w $045C
-	LDA.w $049A
-	STA.w $045E
-	LDA.w $049C
-	STA.w $0460
-	LDA.w $049E
-	STA.w $0462
-	LDA.w $04A0
-	STA.w $0464
-	LDY.w $04A4
-	BNE.b CODE_B7D904
-	LDY.w active_kong_sprite
+	LDA.w $047F				;$B7D8DE
+	STA.w $045C				;$B7D8E1
+	LDA.w $049A				;$B7D8E4
+	STA.w $045E				;$B7D8E7
+	LDA.w $049C				;$B7D8EA
+	STA.w $0460				;$B7D8ED
+	LDA.w $049E				;$B7D8F0
+	STA.w $0462				;$B7D8F3
+	LDA.w $04A0				;$B7D8F6
+	STA.w $0464				;$B7D8F9
+	LDY.w $04A4				;$B7D8FC
+	BNE.b CODE_B7D904			;$B7D8FF
+	LDY.w active_kong_sprite		;$B7D901
 CODE_B7D904:
-	JSR.w CODE_B7D931
-	PHD
-	LDA.w #$0400
-	TCD
-	PHB
-	PEA.w $7E995A>>8
-	PLB
-	PLB
-	LDA.w $078F
-	AND.w #$000F
-	ASL
-	TAX
-	JSR.w (DATA_B7D97F,x)
-	LDA.w $078F
-	AND.w #$000F
-	ASL
-	TAX
-	JSR.w (DATA_B7D98D,x)
-	JSR.w CODE_B7DB6C
-	JSR.w CODE_B7E13F
-	PLB
-	PLD
-	RTL
+	JSR.w CODE_B7D931			;$B7D904
+	PHD					;$B7D907
+	LDA.w #$0400				;$B7D908
+	TCD					;$B7D90B
+	PHB					;$B7D90C
+	PEA.w $7E995A>>8			;$B7D90D
+	PLB					;$B7D910
+	PLB					;$B7D911
+	LDA.w $078F				;$B7D912
+	AND.w #$000F				;$B7D915
+	ASL					;$B7D918
+	TAX					;$B7D919
+	JSR.w (DATA_B7D97F,x)			;$B7D91A
+	LDA.w $078F				;$B7D91D
+	AND.w #$000F				;$B7D920
+	ASL					;$B7D923
+	TAX					;$B7D924
+	JSR.w (DATA_B7D98D,x)			;$B7D925
+	JSR.w CODE_B7DB6C			;$B7D928
+	JSR.w CODE_B7E13F			;$B7D92B
+	PLB					;$B7D92E
+	PLD					;$B7D92F
+	RTL					;$B7D930
 
 CODE_B7D931:
-	STY.w $0456
-	STZ.w $047A
-	STZ.w $047C
-	LDA.l $7E995A
-	CMP.w $0012,y
-	BCS.b CODE_B7D956
-	LDA.l $7E9A5A
-	DEC
-	CMP.w $0012,y
-	BCC.b CODE_B7D956
-	LDA.w $0011,y
-	STA.w $047A
-	LDA.w $0012,y
+	STY.w $0456				;$B7D931
+	STZ.w $047A				;$B7D934
+	STZ.w $047C				;$B7D937
+	LDA.l $7E995A				;$B7D93A
+	CMP.w $0012,y				;$B7D93E
+	BCS.b CODE_B7D956			;$B7D941
+	LDA.l $7E9A5A				;$B7D943
+	DEC					;$B7D947
+	CMP.w $0012,y				;$B7D948
+	BCC.b CODE_B7D956			;$B7D94B
+	LDA.w $0011,y				;$B7D94D
+	STA.w $047A				;$B7D950
+	LDA.w $0012,y				;$B7D953
 CODE_B7D956:
-	STA.w $047B
-	STZ.w $047E
-	STZ.w $0480
-	LDA.l $7E9B5A
-	CMP.w $0016,y
-	BCS.b CODE_B7D97B
-	LDA.l $7E9C5A
-	DEC
-	CMP.w $0016,y
-	BCC.b CODE_B7D97B
-	LDA.w $0015,y
-	STA.w $047E
-	LDA.w $0016,y
+	STA.w $047B				;$B7D956
+	STZ.w $047E				;$B7D959
+	STZ.w $0480				;$B7D95C
+	LDA.l $7E9B5A				;$B7D95F
+	CMP.w $0016,y				;$B7D963
+	BCS.b CODE_B7D97B			;$B7D966
+	LDA.l $7E9C5A				;$B7D968
+	DEC					;$B7D96C
+	CMP.w $0016,y				;$B7D96D
+	BCC.b CODE_B7D97B			;$B7D970
+	LDA.w $0015,y				;$B7D972
+	STA.w $047E				;$B7D975
+	LDA.w $0016,y				;$B7D978
 CODE_B7D97B:
-	STA.w $047F
-	RTS
+	STA.w $047F				;$B7D97B
+	RTS					;$B7D97E
 
 DATA_B7D97F:
 	dw CODE_B7D99B
@@ -9499,1970 +9499,1970 @@ DATA_B7D98D:
 	dw CODE_B7D9E6
 
 CODE_B7D99B:
-	LDA.b $74
-	BMI.b CODE_B7D9A2
-	LDA.w $001E,y
+	LDA.b $74				;$B7D99B
+	BMI.b CODE_B7D9A2			;$B7D99D
+	LDA.w $001E,y				;$B7D99F
 CODE_B7D9A2:
-	ASL
-	ASL
-	LDA.w #$8000
-	TRB.b $74
-	LDA.b $A8
-	BCC.b CODE_B7D9AF
-	LDA.b $A6
+	ASL					;$B7D9A2
+	ASL					;$B7D9A3
+	LDA.w #$8000				;$B7D9A4
+	TRB.b $74				;$B7D9A7
+	LDA.b $A8				;$B7D9A9
+	BCC.b CODE_B7D9AF			;$B7D9AB
+	LDA.b $A6				;$B7D9AD
 CODE_B7D9AF:
-	STA.b $50
-	STZ.b $52
-	LDA.b $AA
-	ASL
-	BCC.b CODE_B7D9BB
-	DEC.b $52
-	CLC
+	STA.b $50				;$B7D9AF
+	STZ.b $52				;$B7D9B1
+	LDA.b $AA				;$B7D9B3
+	ASL					;$B7D9B5
+	BCC.b CODE_B7D9BB			;$B7D9B6
+	DEC.b $52				;$B7D9B8
+	CLC					;$B7D9BA
 CODE_B7D9BB:
-	ADC.b $50
-	STA.b $50
-	LDA.w #$0000
-	ADC.b $52
-	STA.b $52
-	LDA.b $7A
-	SEC
-	SBC.b $50
-	STA.b $9A
-	LDA.b current_mount
-	SBC.b $52
-	BMI.b CODE_B7D9D6
-	STA.b $9C
-	RTS
+	ADC.b $50				;$B7D9BB
+	STA.b $50				;$B7D9BD
+	LDA.w #$0000				;$B7D9BF
+	ADC.b $52				;$B7D9C2
+	STA.b $52				;$B7D9C4
+	LDA.b $7A				;$B7D9C6
+	SEC					;$B7D9C8
+	SBC.b $50				;$B7D9C9
+	STA.b $9A				;$B7D9CB
+	LDA.b current_mount			;$B7D9CD
+	SBC.b $52				;$B7D9CF
+	BMI.b CODE_B7D9D6			;$B7D9D1
+	STA.b $9C				;$B7D9D3
+	RTS					;$B7D9D5
 
 CODE_B7D9D6:
-	STZ.b $9A
-	STZ.b $9C
-	RTS
+	STZ.b $9A				;$B7D9D6
+	STZ.b $9C				;$B7D9D8
+	RTS					;$B7D9DA
 
 CODE_B7D9DB:
-	LDA.w #$8000
-	STA.b $9A
-	LDA.w #$0001
-	STA.b $9C
-	RTS
+	LDA.w #$8000				;$B7D9DB
+	STA.b $9A				;$B7D9DE
+	LDA.w #$0001				;$B7D9E0
+	STA.b $9C				;$B7D9E3
+	RTS					;$B7D9E5
 
 CODE_B7D9E6:
-	LDA.w $001A,y
-	BNE.b CODE_B7D9F2
-	LDA.w #$2000
-	TRB.b $74
-	BRA.b CODE_B7D9FC
+	LDA.w $001A,y				;$B7D9E6
+	BNE.b CODE_B7D9F2			;$B7D9E9
+	LDA.w #$2000				;$B7D9EB
+	TRB.b $74				;$B7D9EE
+	BRA.b CODE_B7D9FC			;$B7D9F0
 
 CODE_B7D9F2:
-	LDA.b $74
-	BIT.w #$2000
-	BEQ.b CODE_B7D9FC
-	JMP.w CODE_B7DAB9
+	LDA.b $74				;$B7D9F2
+	BIT.w #$2000				;$B7D9F4
+	BEQ.b CODE_B7D9FC			;$B7D9F7
+	JMP.w CODE_B7DAB9			;$B7D9F9
 
 CODE_B7D9FC:
-	STZ.b $50
-	STZ.b $52
-	LDA.w $001A,y
-	BMI.b CODE_B7DA0C
-	STA.b $51
-	JSR.w CODE_B7DA9F
-	BRA.b CODE_B7DA60
+	STZ.b $50				;$B7D9FC
+	STZ.b $52				;$B7D9FE
+	LDA.w $001A,y				;$B7DA00
+	BMI.b CODE_B7DA0C			;$B7DA03
+	STA.b $51				;$B7DA05
+	JSR.w CODE_B7DA9F			;$B7DA07
+	BRA.b CODE_B7DA60			;$B7DA0A
 
 CODE_B7DA0C:
-	LDA.w #$0050
-	STA.b $51
-	JSR.w CODE_B7DA9F
-	LDA.b $7E
-	SEC
-	SBC.w #$3800
-	STA.b $50
-	LDA.b $80
-	SBC.w #$0000
-	BCC.b CODE_B7DA5B
-	STA.b $52
-	LDA.b $50
-	SEC
-	SBC.b $B0
-	STA.b $50
-	LDA.b $52
-	SBC.w #$0000
-	BCC.b CODE_B7DA5B
-	STA.b $52
-	LDA.b $51
-	CMP.b $A2
-	BCC.b CODE_B7DA52
-	LDA.b $7E
-	SEC
-	SBC.w #$C800
-	STA.b $50
-	LDA.b $80
-	SBC.w #$0000
-	BCC.b CODE_B7DA5B
-	STA.b $52
-	LDA.b $51
-	CMP.b $A2
-	BCC.b CODE_B7DA5F
+	LDA.w #$0050				;$B7DA0C
+	STA.b $51				;$B7DA0F
+	JSR.w CODE_B7DA9F			;$B7DA11
+	LDA.b $7E				;$B7DA14
+	SEC					;$B7DA16
+	SBC.w #$3800				;$B7DA17
+	STA.b $50				;$B7DA1A
+	LDA.b $80				;$B7DA1C
+	SBC.w #$0000				;$B7DA1E
+	BCC.b CODE_B7DA5B			;$B7DA21
+	STA.b $52				;$B7DA23
+	LDA.b $50				;$B7DA25
+	SEC					;$B7DA27
+	SBC.b $B0				;$B7DA28
+	STA.b $50				;$B7DA2A
+	LDA.b $52				;$B7DA2C
+	SBC.w #$0000				;$B7DA2E
+	BCC.b CODE_B7DA5B			;$B7DA31
+	STA.b $52				;$B7DA33
+	LDA.b $51				;$B7DA35
+	CMP.b $A2				;$B7DA37
+	BCC.b CODE_B7DA52			;$B7DA39
+	LDA.b $7E				;$B7DA3B
+	SEC					;$B7DA3D
+	SBC.w #$C800				;$B7DA3E
+	STA.b $50				;$B7DA41
+	LDA.b $80				;$B7DA43
+	SBC.w #$0000				;$B7DA45
+	BCC.b CODE_B7DA5B			;$B7DA48
+	STA.b $52				;$B7DA4A
+	LDA.b $51				;$B7DA4C
+	CMP.b $A2				;$B7DA4E
+	BCC.b CODE_B7DA5F			;$B7DA50
 CODE_B7DA52:
-	LDA.b $50
-	STA.b $9E
-	LDA.b $52
-	STA.b $A0
-	RTS
+	LDA.b $50				;$B7DA52
+	STA.b $9E				;$B7DA54
+	LDA.b $52				;$B7DA56
+	STA.b $A0				;$B7DA58
+	RTS					;$B7DA5A
 
 CODE_B7DA5B:
-	STZ.b $9E
-	STZ.b $A0
+	STZ.b $9E				;$B7DA5B
+	STZ.b $A0				;$B7DA5D
 CODE_B7DA5F:
-	RTS
+	RTS					;$B7DA5F
 
 CODE_B7DA60:
-	LDA.b $7E
-	SEC
-	SBC.b $50
-	STA.b $9E
-	LDA.b $80
-	SBC.b $52
-	STA.b $A0
-	JSR.w CODE_B7DA75
-	LDA.b $9F
-	STA.b $A2
-	RTS
+	LDA.b $7E				;$B7DA60
+	SEC					;$B7DA62
+	SBC.b $50				;$B7DA63
+	STA.b $9E				;$B7DA65
+	LDA.b $80				;$B7DA67
+	SBC.b $52				;$B7DA69
+	STA.b $A0				;$B7DA6B
+	JSR.w CODE_B7DA75			;$B7DA6D
+	LDA.b $9F				;$B7DA70
+	STA.b $A2				;$B7DA72
+	RTS					;$B7DA74
 
 CODE_B7DA75:
-	STZ.b $52
-	LDA.b $AE
-	ASL
-	BCC.b CODE_B7DA7F
-	DEC.b $52
-	CLC
+	STZ.b $52				;$B7DA75
+	LDA.b $AE				;$B7DA77
+	ASL					;$B7DA79
+	BCC.b CODE_B7DA7F			;$B7DA7A
+	DEC.b $52				;$B7DA7C
+	CLC					;$B7DA7E
 CODE_B7DA7F:
-	ADC.b $AC
-	STA.b $50
-	LDA.w #$0000
-	ADC.b $52
-	STA.b $52
-	LDA.b $9E
-	SEC
-	SBC.b $50
-	STA.b $9E
-	LDA.b $A0
-	SBC.b $52
-	BMI.b CODE_B7DA9A
-	STA.b $A0
-	RTS
+	ADC.b $AC				;$B7DA7F
+	STA.b $50				;$B7DA81
+	LDA.w #$0000				;$B7DA83
+	ADC.b $52				;$B7DA86
+	STA.b $52				;$B7DA88
+	LDA.b $9E				;$B7DA8A
+	SEC					;$B7DA8C
+	SBC.b $50				;$B7DA8D
+	STA.b $9E				;$B7DA8F
+	LDA.b $A0				;$B7DA91
+	SBC.b $52				;$B7DA93
+	BMI.b CODE_B7DA9A			;$B7DA95
+	STA.b $A0				;$B7DA97
+	RTS					;$B7DA99
 
 CODE_B7DA9A:
-	STZ.b $9E
-	STZ.b $A0
-	RTS
+	STZ.b $9E				;$B7DA9A
+	STZ.b $A0				;$B7DA9C
+	RTS					;$B7DA9E
 
 CODE_B7DA9F:
-	LDA.b $52
-	EOR.w #$FFFF
-	STA.b $52
-	LDA.b $50
-	EOR.w #$FFFF
-	CLC
-	ADC.w #$0001
-	STA.b $50
-	LDA.w #$0000
-	ADC.b $52
-	STA.b $52
-	RTS
+	LDA.b $52				;$B7DA9F
+	EOR.w #$FFFF				;$B7DAA1
+	STA.b $52				;$B7DAA4
+	LDA.b $50				;$B7DAA6
+	EOR.w #$FFFF				;$B7DAA8
+	CLC					;$B7DAAB
+	ADC.w #$0001				;$B7DAAC
+	STA.b $50				;$B7DAAF
+	LDA.w #$0000				;$B7DAB1
+	ADC.b $52				;$B7DAB4
+	STA.b $52				;$B7DAB6
+	RTS					;$B7DAB8
 
 CODE_B7DAB9:
-	LDA.b $7E
-	STA.b $9E
-	LDA.b $80
-	STA.b $A0
-	JSR.w CODE_B7DA75
-	RTS
+	LDA.b $7E				;$B7DAB9
+	STA.b $9E				;$B7DABB
+	LDA.b $80				;$B7DABD
+	STA.b $A0				;$B7DABF
+	JSR.w CODE_B7DA75			;$B7DAC1
+	RTS					;$B7DAC4
 
 CODE_B7DAC5:
-	LDA.b $7F
-	CMP.w $050F
-	BCS.b CODE_B7DAB9
-	JMP.w CODE_B7D9E6
+	LDA.b $7F				;$B7DAC5
+	CMP.w $050F				;$B7DAC7
+	BCS.b CODE_B7DAB9			;$B7DACA
+	JMP.w CODE_B7D9E6			;$B7DACC
 
 CODE_B7DACF:
-	NOP #3
-	LDA.w $001C,y
-	AND.w #$0800
-	BNE.b CODE_B7DADD
-	JMP.w CODE_B7D9E6
+	NOP #3					;$B7DACF
+	LDA.w $001C,y				;$B7DAD2
+	AND.w #$0800				;$B7DAD5
+	BNE.b CODE_B7DADD			;$B7DAD8
+	JMP.w CODE_B7D9E6			;$B7DADA
 
 CODE_B7DADD:
-	LDA.b $7E
-	SEC
-	SBC.w #$4000
-	STA.b $9E
-	LDA.b $80
-	SBC.w #$0000
-	STA.b $A0
-	JSR.w CODE_B7DA75
-	LDA.b $9F
-	STA.b $A2
-	RTS
+	LDA.b $7E				;$B7DADD
+	SEC					;$B7DADF
+	SBC.w #$4000				;$B7DAE0
+	STA.b $9E				;$B7DAE3
+	LDA.b $80				;$B7DAE5
+	SBC.w #$0000				;$B7DAE7
+	STA.b $A0				;$B7DAEA
+	JSR.w CODE_B7DA75			;$B7DAEC
+	LDA.b $9F				;$B7DAEF
+	STA.b $A2				;$B7DAF1
+	RTS					;$B7DAF3
 
 CODE_B7DAF4:
-	LDA.w $189F
-	STA.b $BE
-	STZ.b $9E
-	STZ.b $A0
-	DEC.b $9F
-	RTS
+	LDA.w $189F				;$B7DAF4
+	STA.b $BE				;$B7DAF7
+	STZ.b $9E				;$B7DAF9
+	STZ.b $A0				;$B7DAFB
+	DEC.b $9F				;$B7DAFD
+	RTS					;$B7DAFF
 
 CODE_B7DB00:
-	LDA.l $000000
-	LSR
-	LSR
-	LSR
-	AND.w #$001F
-	CMP.w #$0010
-	BCC.b CODE_B7DB15
-	EOR.w #$FFFF
-	ADC.w #$001F
+	LDA.l $000000				;$B7DB00
+	LSR					;$B7DB04
+	LSR					;$B7DB05
+	LSR					;$B7DB06
+	AND.w #$001F				;$B7DB07
+	CMP.w #$0010				;$B7DB0A
+	BCC.b CODE_B7DB15			;$B7DB0D
+	EOR.w #$FFFF				;$B7DB0F
+	ADC.w #$001F				;$B7DB12
 CODE_B7DB15:
-	CLC
-	ADC.w #$0100
-	STA.l $7E995C
-	CLC
-	ADC.w #$01F0
-	STA.l $7E9A5C
-	AND.w #$000F
-	CLC
-	ADC.b $7B
-	STA.b $7B
-	JSR.w CODE_B7D99B
-	RTS
+	CLC					;$B7DB15
+	ADC.w #$0100				;$B7DB16
+	STA.l $7E995C				;$B7DB19
+	CLC					;$B7DB1D
+	ADC.w #$01F0				;$B7DB1E
+	STA.l $7E9A5C				;$B7DB21
+	AND.w #$000F				;$B7DB25
+	CLC					;$B7DB28
+	ADC.b $7B				;$B7DB29
+	STA.b $7B				;$B7DB2B
+	JSR.w CODE_B7D99B			;$B7DB2D
+	RTS					;$B7DB30
 
 CODE_B7DB31:
-	LDA.l $000000
-	CLC
-	ADC.w #$0010
-	LSR
-	LSR
-	AND.w #$001F
-	CMP.w #$0010
-	BIT.w #$0008
-	BEQ.b CODE_B7DB4A
-	AND.w #$0010
-	DEC
+	LDA.l $000000				;$B7DB31
+	CLC					;$B7DB35
+	ADC.w #$0010				;$B7DB36
+	LSR					;$B7DB39
+	LSR					;$B7DB3A
+	AND.w #$001F				;$B7DB3B
+	CMP.w #$0010				;$B7DB3E
+	BIT.w #$0008				;$B7DB41
+	BEQ.b CODE_B7DB4A			;$B7DB44
+	AND.w #$0010				;$B7DB46
+	DEC					;$B7DB49
 CODE_B7DB4A:
-	BCC.b CODE_B7DB52
-	EOR.w #$FFFF
-	ADC.w #$0017
+	BCC.b CODE_B7DB52			;$B7DB4A
+	EOR.w #$FFFF				;$B7DB4C
+	ADC.w #$0017				;$B7DB4F
 CODE_B7DB52:
-	AND.w #$0007
-	CLC
-	ADC.w #$0100
-	STA.l $7E9B5C
-	STA.b $7F
-	STZ.b $9E
-	STA.b $9F
-	CLC
-	ADC.w #$00E0
-	STA.l $7E9C5C
-	RTS
+	AND.w #$0007				;$B7DB52
+	CLC					;$B7DB55
+	ADC.w #$0100				;$B7DB56
+	STA.l $7E9B5C				;$B7DB59
+	STA.b $7F				;$B7DB5D
+	STZ.b $9E				;$B7DB5F
+	STA.b $9F				;$B7DB61
+	CLC					;$B7DB63
+	ADC.w #$00E0				;$B7DB64
+	STA.l $7E9C5C				;$B7DB67
+	RTS					;$B7DB6B
 
 CODE_B7DB6C:
-	LDA.l $7E995A
-	CMP.b $9B
-	BCS.b CODE_B7DB7A
-	LDA.b $BC
-	CMP.b $9B
-	BCS.b CODE_B7DB7E
+	LDA.l $7E995A				;$B7DB6C
+	CMP.b $9B				;$B7DB70
+	BCS.b CODE_B7DB7A			;$B7DB72
+	LDA.b $BC				;$B7DB74
+	CMP.b $9B				;$B7DB76
+	BCS.b CODE_B7DB7E			;$B7DB78
 CODE_B7DB7A:
-	STZ.b $9A
-	STA.b $9B
+	STZ.b $9A				;$B7DB7A
+	STA.b $9B				;$B7DB7C
 CODE_B7DB7E:
-	LDA.l $7E9B5A
-	CMP.b $9F
-	BCS.b CODE_B7DB8C
-	LDA.b $BE
-	CMP.b $9F
-	BCS.b CODE_B7DB90
+	LDA.l $7E9B5A				;$B7DB7E
+	CMP.b $9F				;$B7DB82
+	BCS.b CODE_B7DB8C			;$B7DB84
+	LDA.b $BE				;$B7DB86
+	CMP.b $9F				;$B7DB88
+	BCS.b CODE_B7DB90			;$B7DB8A
 CODE_B7DB8C:
-	STZ.b $9E
-	STA.b $9F
+	STZ.b $9E				;$B7DB8C
+	STA.b $9F				;$B7DB8E
 CODE_B7DB90:
-	LDX.b $78
-	BEQ.b CODE_B7DBBE
-	STZ.b $50
-	LDA.b $7B
-	CMP.w $7E995A,x
-	ROL.b $50
-	CMP.w $7E9A5A,x
-	ROL.b $50
-	LDA.b $7F
-	CMP.w $7E9B5A,x
-	ROL.b $50
-	CMP.w $7E9C5A,x
-	ROL.b $50
-	LDA.b $50
-	CMP.w #$000A
-	BEQ.b CODE_B7DBC5
-	JSR.w CODE_B7E032
-	BCS.b CODE_B7DBC5
-	LDX.b $78
-	BRA.b CODE_B7DBC5
+	LDX.b $78				;$B7DB90
+	BEQ.b CODE_B7DBBE			;$B7DB92
+	STZ.b $50				;$B7DB94
+	LDA.b $7B				;$B7DB96
+	CMP.w $7E995A,x				;$B7DB98
+	ROL.b $50				;$B7DB9B
+	CMP.w $7E9A5A,x				;$B7DB9D
+	ROL.b $50				;$B7DBA0
+	LDA.b $7F				;$B7DBA2
+	CMP.w $7E9B5A,x				;$B7DBA4
+	ROL.b $50				;$B7DBA7
+	CMP.w $7E9C5A,x				;$B7DBA9
+	ROL.b $50				;$B7DBAC
+	LDA.b $50				;$B7DBAE
+	CMP.w #$000A				;$B7DBB0
+	BEQ.b CODE_B7DBC5			;$B7DBB3
+	JSR.w CODE_B7E032			;$B7DBB5
+	BCS.b CODE_B7DBC5			;$B7DBB8
+	LDX.b $78				;$B7DBBA
+	BRA.b CODE_B7DBC5			;$B7DBBC
 
 CODE_B7DBBE:
-	LDA.b alternate_sprite
-	BEQ.b CODE_B7DBC5
-	JSR.w CODE_B7E109
+	LDA.b alternate_sprite			;$B7DBBE
+	BEQ.b CODE_B7DBC5			;$B7DBC0
+	JSR.w CODE_B7E109			;$B7DBC2
 CODE_B7DBC5:
-	STX.b $78
-	STX.b $50
-	TXY
-	BEQ.b CODE_B7DBF8
-	LDA.w $7E9E5A,x
-	JSR.w CODE_B7DCC3
-	BCS.b CODE_B7DBDC
-	LDA.w $7E9E5B,x
-	JSR.w CODE_B7DCC3
-	BCC.b CODE_B7DBF6
+	STX.b $78				;$B7DBC5
+	STX.b $50				;$B7DBC7
+	TXY					;$B7DBC9
+	BEQ.b CODE_B7DBF8			;$B7DBCA
+	LDA.w $7E9E5A,x				;$B7DBCC
+	JSR.w CODE_B7DCC3			;$B7DBCF
+	BCS.b CODE_B7DBDC			;$B7DBD2
+	LDA.w $7E9E5B,x				;$B7DBD4
+	JSR.w CODE_B7DCC3			;$B7DBD7
+	BCC.b CODE_B7DBF6			;$B7DBDA
 CODE_B7DBDC:
-	LDA.b $9B
-	CMP.w $7E995A,y
-	BCS.b CODE_B7DBF8
-	TYX
-	STX.b $50
-	LDA.w $7E9E5A,x
-	JSR.w CODE_B7DCC3
-	BCS.b CODE_B7DBF8
-	LDA.w $7E9E5B,x
-	JSR.w CODE_B7DCC3
-	BCS.b CODE_B7DBF8
+	LDA.b $9B				;$B7DBDC
+	CMP.w $7E995A,y				;$B7DBDE
+	BCS.b CODE_B7DBF8			;$B7DBE1
+	TYX					;$B7DBE3
+	STX.b $50				;$B7DBE4
+	LDA.w $7E9E5A,x				;$B7DBE6
+	JSR.w CODE_B7DCC3			;$B7DBE9
+	BCS.b CODE_B7DBF8			;$B7DBEC
+	LDA.w $7E9E5B,x				;$B7DBEE
+	JSR.w CODE_B7DCC3			;$B7DBF1
+	BCS.b CODE_B7DBF8			;$B7DBF4
 CODE_B7DBF6:
-	LDY.b $50
+	LDY.b $50				;$B7DBF6
 CODE_B7DBF8:
-	LDA.w $7E995A,y
-	STA.b $66
-	LDX.b $78
-	STX.b $50
-	TXY
-	BEQ.b CODE_B7DC37
-	LDA.w $7E9D5B,x
-	JSR.w CODE_B7DD07
-	BCS.b CODE_B7DC16
-	JSR.w CODE_B7E0ED
-	BNE.b CODE_B7DC35
-	JSR.w CODE_B7DD0E
-	BCC.b CODE_B7DC35
+	LDA.w $7E995A,y				;$B7DBF8
+	STA.b $66				;$B7DBFB
+	LDX.b $78				;$B7DBFD
+	STX.b $50				;$B7DBFF
+	TXY					;$B7DC01
+	BEQ.b CODE_B7DC37			;$B7DC02
+	LDA.w $7E9D5B,x				;$B7DC04
+	JSR.w CODE_B7DD07			;$B7DC07
+	BCS.b CODE_B7DC16			;$B7DC0A
+	JSR.w CODE_B7E0ED			;$B7DC0C
+	BNE.b CODE_B7DC35			;$B7DC0F
+	JSR.w CODE_B7DD0E			;$B7DC11
+	BCC.b CODE_B7DC35			;$B7DC14
 CODE_B7DC16:
-	LDA.w $7E9A5A,y
-	SBC.w #$0100
-	CMP.b $9B
-	BCS.b CODE_B7DC37
-	TYX
-	STX.b $50
-	LDA.w $7E9D5B,x
-	JSR.w CODE_B7DD07
-	BCS.b CODE_B7DC37
-	JSR.w CODE_B7E0ED
-	BNE.b CODE_B7DC35
-	JSR.w CODE_B7DD0E
-	BCS.b CODE_B7DC37
+	LDA.w $7E9A5A,y				;$B7DC16
+	SBC.w #$0100				;$B7DC19
+	CMP.b $9B				;$B7DC1C
+	BCS.b CODE_B7DC37			;$B7DC1E
+	TYX					;$B7DC20
+	STX.b $50				;$B7DC21
+	LDA.w $7E9D5B,x				;$B7DC23
+	JSR.w CODE_B7DD07			;$B7DC26
+	BCS.b CODE_B7DC37			;$B7DC29
+	JSR.w CODE_B7E0ED			;$B7DC2B
+	BNE.b CODE_B7DC35			;$B7DC2E
+	JSR.w CODE_B7DD0E			;$B7DC30
+	BCS.b CODE_B7DC37			;$B7DC33
 CODE_B7DC35:
-	LDY.b $50
+	LDY.b $50				;$B7DC35
 CODE_B7DC37:
-	LDA.w $7E9A5A,y
-	STA.b $68
-	LDX.b $78
-	STX.b $50
-	TXY
-	BEQ.b CODE_B7DC6F
-	LDA.w $7E9F5A,x
-	JSR.w CODE_B7DD4D
-	BCS.b CODE_B7DC53
-	LDA.w $7E9F5B,x
-	JSR.w CODE_B7DD4D
-	BCC.b CODE_B7DC6D
+	LDA.w $7E9A5A,y				;$B7DC37
+	STA.b $68				;$B7DC3A
+	LDX.b $78				;$B7DC3C
+	STX.b $50				;$B7DC3E
+	TXY					;$B7DC40
+	BEQ.b CODE_B7DC6F			;$B7DC41
+	LDA.w $7E9F5A,x				;$B7DC43
+	JSR.w CODE_B7DD4D			;$B7DC46
+	BCS.b CODE_B7DC53			;$B7DC49
+	LDA.w $7E9F5B,x				;$B7DC4B
+	JSR.w CODE_B7DD4D			;$B7DC4E
+	BCC.b CODE_B7DC6D			;$B7DC51
 CODE_B7DC53:
-	LDA.b $9F
-	CMP.w $7E9B5A,y
-	BCS.b CODE_B7DC6F
-	TYX
-	STX.b $50
-	LDA.w $7E9F5A,x
-	JSR.w CODE_B7DD4D
-	BCS.b CODE_B7DC6F
-	LDA.w $7E9F5B,x
-	JSR.w CODE_B7DD4D
-	BCS.b CODE_B7DC6F
+	LDA.b $9F				;$B7DC53
+	CMP.w $7E9B5A,y				;$B7DC55
+	BCS.b CODE_B7DC6F			;$B7DC58
+	TYX					;$B7DC5A
+	STX.b $50				;$B7DC5B
+	LDA.w $7E9F5A,x				;$B7DC5D
+	JSR.w CODE_B7DD4D			;$B7DC60
+	BCS.b CODE_B7DC6F			;$B7DC63
+	LDA.w $7E9F5B,x				;$B7DC65
+	JSR.w CODE_B7DD4D			;$B7DC68
+	BCS.b CODE_B7DC6F			;$B7DC6B
 CODE_B7DC6D:
-	LDY.b $50
+	LDY.b $50				;$B7DC6D
 CODE_B7DC6F:
-	LDA.w $7E9B5A,y
-	STA.b $6A
-	LDX.b $78
-	STX.b $50
-	TXY
-	BEQ.b CODE_B7DCAA
-	LDA.w $7EA05A,x
-	JSR.w CODE_B7DD7F
-	BCS.b CODE_B7DC8B
-	LDA.w $7EA05B,x
-	JSR.w CODE_B7DD7F
-	BCC.b CODE_B7DCA8
+	LDA.w $7E9B5A,y				;$B7DC6F
+	STA.b $6A				;$B7DC72
+	LDX.b $78				;$B7DC74
+	STX.b $50				;$B7DC76
+	TXY					;$B7DC78
+	BEQ.b CODE_B7DCAA			;$B7DC79
+	LDA.w $7EA05A,x				;$B7DC7B
+	JSR.w CODE_B7DD7F			;$B7DC7E
+	BCS.b CODE_B7DC8B			;$B7DC81
+	LDA.w $7EA05B,x				;$B7DC83
+	JSR.w CODE_B7DD7F			;$B7DC86
+	BCC.b CODE_B7DCA8			;$B7DC89
 CODE_B7DC8B:
-	LDA.w $7E9C5A,y
-	SBC.w #$00E0
-	CMP.b $9F
-	BCS.b CODE_B7DCAA
-	TYX
-	STX.b $50
-	LDA.w $7EA05A,x
-	JSR.w CODE_B7DD7F
-	BCS.b CODE_B7DCAA
-	LDA.w $7EA05B,x
-	JSR.w CODE_B7DD7F
-	BCS.b CODE_B7DCAA
+	LDA.w $7E9C5A,y				;$B7DC8B
+	SBC.w #$00E0				;$B7DC8E
+	CMP.b $9F				;$B7DC91
+	BCS.b CODE_B7DCAA			;$B7DC93
+	TYX					;$B7DC95
+	STX.b $50				;$B7DC96
+	LDA.w $7EA05A,x				;$B7DC98
+	JSR.w CODE_B7DD7F			;$B7DC9B
+	BCS.b CODE_B7DCAA			;$B7DC9E
+	LDA.w $7EA05B,x				;$B7DCA0
+	JSR.w CODE_B7DD7F			;$B7DCA3
+	BCS.b CODE_B7DCAA			;$B7DCA6
 CODE_B7DCA8:
-	LDY.b $50
+	LDY.b $50				;$B7DCA8
 CODE_B7DCAA:
-	LDA.w $7E9C5A,y
-	STA.b $6C
-	LDX.b $78
-	LDA.w $7E9D5A,x
-	LDX.w #$0000
-	AND.w #$0040
-	BEQ.b CODE_B7DCBF
-	LDX.w #$0002
+	LDA.w $7E9C5A,y				;$B7DCAA
+	STA.b $6C				;$B7DCAD
+	LDX.b $78				;$B7DCAF
+	LDA.w $7E9D5A,x				;$B7DCB1
+	LDX.w #$0000				;$B7DCB4
+	AND.w #$0040				;$B7DCB7
+	BEQ.b CODE_B7DCBF			;$B7DCBA
+	LDX.w #$0002				;$B7DCBC
 CODE_B7DCBF:
-	JSR.w (DATA_B7DDB5,x)
-	RTS
+	JSR.w (DATA_B7DDB5,x)			;$B7DCBF
+	RTS					;$B7DCC2
 
 CODE_B7DCC3:
-	AND.w #$00FF
-	BEQ.b CODE_B7DD05
-	ASL
-	TAY
-	LDA.w $7E9D5A,y
-	AND.w #$00A0
-	BEQ.b CODE_B7DCE2
-	BIT.w #$0020
-	BNE.b CODE_B7DD05
-	LDA.b $7B
-	SEC
-	SBC.w #$0014
-	CMP.w $7E9A5A,y
-	BCS.b CODE_B7DD05
+	AND.w #$00FF				;$B7DCC3
+	BEQ.b CODE_B7DD05			;$B7DCC6
+	ASL					;$B7DCC8
+	TAY					;$B7DCC9
+	LDA.w $7E9D5A,y				;$B7DCCA
+	AND.w #$00A0				;$B7DCCD
+	BEQ.b CODE_B7DCE2			;$B7DCD0
+	BIT.w #$0020				;$B7DCD2
+	BNE.b CODE_B7DD05			;$B7DCD5
+	LDA.b $7B				;$B7DCD7
+	SEC					;$B7DCD9
+	SBC.w #$0014				;$B7DCDA
+	CMP.w $7E9A5A,y				;$B7DCDD
+	BCS.b CODE_B7DD05			;$B7DCE0
 CODE_B7DCE2:
-	LDA.w $7E9A5A,y
-	CMP.b $9B
-	BCC.b CODE_B7DD04
-	LDA.b $9F
-	CLC
-	ADC.w #$00E0
-	CMP.w $7E9C5A,y
-	BCS.b CODE_B7DCFA
-	SEC
-	SBC.w $7E9B5A,y
-	BRA.b CODE_B7DCFF
+	LDA.w $7E9A5A,y				;$B7DCE2
+	CMP.b $9B				;$B7DCE5
+	BCC.b CODE_B7DD04			;$B7DCE7
+	LDA.b $9F				;$B7DCE9
+	CLC					;$B7DCEB
+	ADC.w #$00E0				;$B7DCEC
+	CMP.w $7E9C5A,y				;$B7DCEF
+	BCS.b CODE_B7DCFA			;$B7DCF2
+	SEC					;$B7DCF4
+	SBC.w $7E9B5A,y				;$B7DCF5
+	BRA.b CODE_B7DCFF			;$B7DCF8
 
 CODE_B7DCFA:
-	LDA.w $7E9C5A,y
-	SBC.b $9F
+	LDA.w $7E9C5A,y				;$B7DCFA
+	SBC.b $9F				;$B7DCFD
 CODE_B7DCFF:
-	BCC.b CODE_B7DD04
-	CMP.w #$0038
+	BCC.b CODE_B7DD04			;$B7DCFF
+	CMP.w #$0038				;$B7DD01
 CODE_B7DD04:
-	RTS
+	RTS					;$B7DD04
 
 CODE_B7DD05:
-	CLC
-	RTS
+	CLC					;$B7DD05
+	RTS					;$B7DD06
 
 CODE_B7DD07:
-	AND.w #$00FF
-	BEQ.b CODE_B7DD05
-	ASL
-	TAY
+	AND.w #$00FF				;$B7DD07
+	BEQ.b CODE_B7DD05			;$B7DD0A
+	ASL					;$B7DD0C
+	TAY					;$B7DD0D
 CODE_B7DD0E:
-	LDA.w $7E9D5A,y
-	AND.w #$00A0
-	BEQ.b CODE_B7DD26
-	BIT.w #$0020
-	BNE.b CODE_B7DD05
-	LDA.b $7B
-	CLC
-	ADC.w #$0014
-	CMP.w $7E995A,y
-	BCC.b CODE_B7DD05
+	LDA.w $7E9D5A,y				;$B7DD0E
+	AND.w #$00A0				;$B7DD11
+	BEQ.b CODE_B7DD26			;$B7DD14
+	BIT.w #$0020				;$B7DD16
+	BNE.b CODE_B7DD05			;$B7DD19
+	LDA.b $7B				;$B7DD1B
+	CLC					;$B7DD1D
+	ADC.w #$0014				;$B7DD1E
+	CMP.w $7E995A,y				;$B7DD21
+	BCC.b CODE_B7DD05			;$B7DD24
 CODE_B7DD26:
-	LDA.b $9B
-	CLC
-	ADC.w #$0100
-	CMP.w $7E995A,y
-	BCC.b CODE_B7DD4C
-	LDA.b $9F
-	CLC
-	ADC.w #$00E0
-	CMP.w $7E9C5A,y
-	BCS.b CODE_B7DD42
-	SEC
-	SBC.w $7E9B5A,y
-	BRA.b CODE_B7DD47
+	LDA.b $9B				;$B7DD26
+	CLC					;$B7DD28
+	ADC.w #$0100				;$B7DD29
+	CMP.w $7E995A,y				;$B7DD2C
+	BCC.b CODE_B7DD4C			;$B7DD2F
+	LDA.b $9F				;$B7DD31
+	CLC					;$B7DD33
+	ADC.w #$00E0				;$B7DD34
+	CMP.w $7E9C5A,y				;$B7DD37
+	BCS.b CODE_B7DD42			;$B7DD3A
+	SEC					;$B7DD3C
+	SBC.w $7E9B5A,y				;$B7DD3D
+	BRA.b CODE_B7DD47			;$B7DD40
 
 CODE_B7DD42:
-	LDA.w $7E9C5A,y
-	SBC.b $9F
+	LDA.w $7E9C5A,y				;$B7DD42
+	SBC.b $9F				;$B7DD45
 CODE_B7DD47:
-	BCC.b CODE_B7DD4C
-	CMP.w #$0038
+	BCC.b CODE_B7DD4C			;$B7DD47
+	CMP.w #$0038				;$B7DD49
 CODE_B7DD4C:
-	RTS
+	RTS					;$B7DD4C
 
 CODE_B7DD4D:
-	AND.w #$00FF
-	BEQ.b CODE_B7DD05
-	ASL
-	TAY
-	LDA.w $7E9D5A,y
-	AND.w #$00A0
-	BNE.b CODE_B7DD7E
-	LDA.w $7E9C5A,y
-	CMP.b $9F
-	BCC.b CODE_B7DD7E
-	LDA.b $9B
-	CLC
-	ADC.w #$0100
-	CMP.w $7E9A5A,y
-	BCS.b CODE_B7DD74
-	SEC
-	SBC.w $7E995A,y
-	BRA.b CODE_B7DD79
+	AND.w #$00FF				;$B7DD4D
+	BEQ.b CODE_B7DD05			;$B7DD50
+	ASL					;$B7DD52
+	TAY					;$B7DD53
+	LDA.w $7E9D5A,y				;$B7DD54
+	AND.w #$00A0				;$B7DD57
+	BNE.b CODE_B7DD7E			;$B7DD5A
+	LDA.w $7E9C5A,y				;$B7DD5C
+	CMP.b $9F				;$B7DD5F
+	BCC.b CODE_B7DD7E			;$B7DD61
+	LDA.b $9B				;$B7DD63
+	CLC					;$B7DD65
+	ADC.w #$0100				;$B7DD66
+	CMP.w $7E9A5A,y				;$B7DD69
+	BCS.b CODE_B7DD74			;$B7DD6C
+	SEC					;$B7DD6E
+	SBC.w $7E995A,y				;$B7DD6F
+	BRA.b CODE_B7DD79			;$B7DD72
 
 CODE_B7DD74:
-	LDA.w $7E9A5A,y
-	SBC.b $9B
+	LDA.w $7E9A5A,y				;$B7DD74
+	SBC.b $9B				;$B7DD77
 CODE_B7DD79:
-	BCC.b CODE_B7DD7E
-	CMP.w #$0040
+	BCC.b CODE_B7DD7E			;$B7DD79
+	CMP.w #$0040				;$B7DD7B
 CODE_B7DD7E:
-	RTS
+	RTS					;$B7DD7E
 
 CODE_B7DD7F:
-	AND.w #$00FF
-	BEQ.b CODE_B7DD05
-	ASL
-	TAY
-	LDA.w $7E9D5A,y
-	AND.w #$00A0
-	BNE.b CODE_B7DDB4
-	LDA.b $9F
-	CLC
-	ADC.w #$00E0
-	CMP.w $7E9B5A,y
-	BCC.b CODE_B7DDB4
-	LDA.b $9B
-	CLC
-	ADC.w #$0100
-	CMP.w $7E9A5A,y
-	BCS.b CODE_B7DDAA
-	SEC
-	SBC.w $7E995A,y
-	BRA.b CODE_B7DDAF
+	AND.w #$00FF				;$B7DD7F
+	BEQ.b CODE_B7DD05			;$B7DD82
+	ASL					;$B7DD84
+	TAY					;$B7DD85
+	LDA.w $7E9D5A,y				;$B7DD86
+	AND.w #$00A0				;$B7DD89
+	BNE.b CODE_B7DDB4			;$B7DD8C
+	LDA.b $9F				;$B7DD8E
+	CLC					;$B7DD90
+	ADC.w #$00E0				;$B7DD91
+	CMP.w $7E9B5A,y				;$B7DD94
+	BCC.b CODE_B7DDB4			;$B7DD97
+	LDA.b $9B				;$B7DD99
+	CLC					;$B7DD9B
+	ADC.w #$0100				;$B7DD9C
+	CMP.w $7E9A5A,y				;$B7DD9F
+	BCS.b CODE_B7DDAA			;$B7DDA2
+	SEC					;$B7DDA4
+	SBC.w $7E995A,y				;$B7DDA5
+	BRA.b CODE_B7DDAF			;$B7DDA8
 
 CODE_B7DDAA:
-	LDA.w $7E9A5A,y
-	SBC.b $9B
+	LDA.w $7E9A5A,y				;$B7DDAA
+	SBC.b $9B				;$B7DDAD
 CODE_B7DDAF:
-	BCC.b CODE_B7DDB4
-	CMP.w #$0040
+	BCC.b CODE_B7DDB4			;$B7DDAF
+	CMP.w #$0040				;$B7DDB1
 CODE_B7DDB4:
-	RTS
+	RTS					;$B7DDB4
 
 DATA_B7DDB5:
 	dw CODE_B7DDB9
 	dw CODE_B7DE0B
 
 CODE_B7DDB9:
-	LDA.b $68
-	SEC
-	SBC.w #$0100
-	CMP.b $66
-	BCC.b CODE_B7DDCF
-	CMP.b $9B
-	BCC.b CODE_B7DDE0
-	LDA.b $66
-	CMP.b $9B
-	BCS.b CODE_B7DDE0
-	BRA.b CODE_B7DDE2
+	LDA.b $68				;$B7DDB9
+	SEC					;$B7DDBB
+	SBC.w #$0100				;$B7DDBC
+	CMP.b $66				;$B7DDBF
+	BCC.b CODE_B7DDCF			;$B7DDC1
+	CMP.b $9B				;$B7DDC3
+	BCC.b CODE_B7DDE0			;$B7DDC5
+	LDA.b $66				;$B7DDC7
+	CMP.b $9B				;$B7DDC9
+	BCS.b CODE_B7DDE0			;$B7DDCB
+	BRA.b CODE_B7DDE2			;$B7DDCD
 
 CODE_B7DDCF:
-	ADC.b $66
-	LSR
-	CMP.b $B8
-	BCC.b CODE_B7DDDE
-	CMP.b $BC
-	BCC.b CODE_B7DDE0
-	LDA.b $BC
-	BRA.b CODE_B7DDE0
+	ADC.b $66				;$B7DDCF
+	LSR					;$B7DDD1
+	CMP.b $B8				;$B7DDD2
+	BCC.b CODE_B7DDDE			;$B7DDD4
+	CMP.b $BC				;$B7DDD6
+	BCC.b CODE_B7DDE0			;$B7DDD8
+	LDA.b $BC				;$B7DDDA
+	BRA.b CODE_B7DDE0			;$B7DDDC
 
 CODE_B7DDDE:
-	LDA.b $B8
+	LDA.b $B8				;$B7DDDE
 CODE_B7DDE0:
-	STA.b $9B
+	STA.b $9B				;$B7DDE0
 CODE_B7DDE2:
-	LDA.b $6C
-	SEC
-	SBC.w #$00E0
-	CMP.b $6A
-	BCC.b CODE_B7DDF7
-	CMP.b $9F
-	BCC.b CODE_B7DE08
-	LDA.b $6A
-	CMP.b $9F
-	BCS.b CODE_B7DE08
-	RTS
+	LDA.b $6C				;$B7DDE2
+	SEC					;$B7DDE4
+	SBC.w #$00E0				;$B7DDE5
+	CMP.b $6A				;$B7DDE8
+	BCC.b CODE_B7DDF7			;$B7DDEA
+	CMP.b $9F				;$B7DDEC
+	BCC.b CODE_B7DE08			;$B7DDEE
+	LDA.b $6A				;$B7DDF0
+	CMP.b $9F				;$B7DDF2
+	BCS.b CODE_B7DE08			;$B7DDF4
+	RTS					;$B7DDF6
 
 CODE_B7DDF7:
-	ADC.b $6A
-	LSR
-	CMP.b $BA
-	BCC.b CODE_B7DE06
-	CMP.b $BE
-	BCC.b CODE_B7DE08
-	LDA.b $BE
-	BRA.b CODE_B7DE08
+	ADC.b $6A				;$B7DDF7
+	LSR					;$B7DDF9
+	CMP.b $BA				;$B7DDFA
+	BCC.b CODE_B7DE06			;$B7DDFC
+	CMP.b $BE				;$B7DDFE
+	BCC.b CODE_B7DE08			;$B7DE00
+	LDA.b $BE				;$B7DE02
+	BRA.b CODE_B7DE08			;$B7DE04
 
 CODE_B7DE06:
-	LDA.b $BA
+	LDA.b $BA				;$B7DE06
 CODE_B7DE08:
-	STA.b $9F
-	RTS
+	STA.b $9F				;$B7DE08
+	RTS					;$B7DE0A
 
 CODE_B7DE0B:
-	LDY.w $0478
-	LDA.w $7E9E5A,y
-	BEQ.b CODE_B7DE22
-	AND.w #$00FF
-	ASL
-	TAX
-	LDA.w $7E9C5A,x
-	CMP.w $7E9C5A,y
-	BEQ.b CODE_B7DE35
-	BRA.b CODE_B7DE74
+	LDY.w $0478				;$B7DE0B
+	LDA.w $7E9E5A,y				;$B7DE0E
+	BEQ.b CODE_B7DE22			;$B7DE11
+	AND.w #$00FF				;$B7DE13
+	ASL					;$B7DE16
+	TAX					;$B7DE17
+	LDA.w $7E9C5A,x				;$B7DE18
+	CMP.w $7E9C5A,y				;$B7DE1B
+	BEQ.b CODE_B7DE35			;$B7DE1E
+	BRA.b CODE_B7DE74			;$B7DE20
 
 CODE_B7DE22:
-	LDA.w $7E9F5A,y
-	AND.w #$00FF
-	ASL
-	TAX
-	LDA.w $7E9A5A,x
-	CMP.w $7E9A5A,y
-	BEQ.b CODE_B7DEAD
-	BRL.w CODE_B7DEEC
+	LDA.w $7E9F5A,y				;$B7DE22
+	AND.w #$00FF				;$B7DE25
+	ASL					;$B7DE28
+	TAX					;$B7DE29
+	LDA.w $7E9A5A,x				;$B7DE2A
+	CMP.w $7E9A5A,y				;$B7DE2D
+	BEQ.b CODE_B7DEAD			;$B7DE30
+	BRL.w CODE_B7DEEC			;$B7DE32
 
 CODE_B7DE35:
-	LDA.w $7E9E5A,y
-	AND.w #$00FF
-	ASL
-	TAX
-	LDA.w $7E9D5B,y
-	AND.w #$00FF
-	ASL
-	TAY
-	LDA.w $7E9B5A,x
-	SEC
-	SBC.w $7E9B5A,y
-	STA.w $1B5D
-	JSR.w CODE_B7DF8A
-	EOR.w #$FFFF
-	SEC
-	ADC.w $7E9B5A,x
-	STA.b $6A
-	LDA.w $7E9C5A,x
-	SEC
-	SBC.w $7E9C5A,y
-	STA.w $1B5D
-	JSR.w CODE_B7DF8A
-	EOR.w #$FFFF
-	SEC
-	ADC.w $7E9C5A,x
-	STA.b $6C
-	JMP.w CODE_B7DF47
+	LDA.w $7E9E5A,y				;$B7DE35
+	AND.w #$00FF				;$B7DE38
+	ASL					;$B7DE3B
+	TAX					;$B7DE3C
+	LDA.w $7E9D5B,y				;$B7DE3D
+	AND.w #$00FF				;$B7DE40
+	ASL					;$B7DE43
+	TAY					;$B7DE44
+	LDA.w $7E9B5A,x				;$B7DE45
+	SEC					;$B7DE48
+	SBC.w $7E9B5A,y				;$B7DE49
+	STA.w $1B5D				;$B7DE4C
+	JSR.w CODE_B7DF8A			;$B7DE4F
+	EOR.w #$FFFF				;$B7DE52
+	SEC					;$B7DE55
+	ADC.w $7E9B5A,x				;$B7DE56
+	STA.b $6A				;$B7DE59
+	LDA.w $7E9C5A,x				;$B7DE5B
+	SEC					;$B7DE5E
+	SBC.w $7E9C5A,y				;$B7DE5F
+	STA.w $1B5D				;$B7DE62
+	JSR.w CODE_B7DF8A			;$B7DE65
+	EOR.w #$FFFF				;$B7DE68
+	SEC					;$B7DE6B
+	ADC.w $7E9C5A,x				;$B7DE6C
+	STA.b $6C				;$B7DE6F
+	JMP.w CODE_B7DF47			;$B7DE71
 
 CODE_B7DE74:
-	LDA.w $7E9E5A,y
-	AND.w #$00FF
-	ASL
-	TAX
-	LDA.w $7E9D5B,y
-	AND.w #$00FF
-	ASL
-	TAY
-	LDA.w $7E9B5A,y
-	SEC
-	SBC.w $7E9B5A,x
-	STA.w $1B5D
-	JSR.w CODE_B7DF8A
-	CLC
-	ADC.w $7E9B5A,x
-	STA.b $6A
-	LDA.w $7E9C5A,y
-	SEC
-	SBC.w $7E9C5A,x
-	STA.w $1B5D
-	JSR.w CODE_B7DF8A
-	CLC
-	ADC.w $7E9C5A,x
-	STA.b $6C
-	JMP.w CODE_B7DF47
+	LDA.w $7E9E5A,y				;$B7DE74
+	AND.w #$00FF				;$B7DE77
+	ASL					;$B7DE7A
+	TAX					;$B7DE7B
+	LDA.w $7E9D5B,y				;$B7DE7C
+	AND.w #$00FF				;$B7DE7F
+	ASL					;$B7DE82
+	TAY					;$B7DE83
+	LDA.w $7E9B5A,y				;$B7DE84
+	SEC					;$B7DE87
+	SBC.w $7E9B5A,x				;$B7DE88
+	STA.w $1B5D				;$B7DE8B
+	JSR.w CODE_B7DF8A			;$B7DE8E
+	CLC					;$B7DE91
+	ADC.w $7E9B5A,x				;$B7DE92
+	STA.b $6A				;$B7DE95
+	LDA.w $7E9C5A,y				;$B7DE97
+	SEC					;$B7DE9A
+	SBC.w $7E9C5A,x				;$B7DE9B
+	STA.w $1B5D				;$B7DE9E
+	JSR.w CODE_B7DF8A			;$B7DEA1
+	CLC					;$B7DEA4
+	ADC.w $7E9C5A,x				;$B7DEA5
+	STA.b $6C				;$B7DEA8
+	JMP.w CODE_B7DF47			;$B7DEAA
 
 CODE_B7DEAD:
-	LDA.w $7E9F5A,y
-	AND.w #$00FF
-	ASL
-	TAX
-	LDA.w $7EA05A,y
-	AND.w #$00FF
-	ASL
-	TAY
-	LDA.w $7E995A,x
-	SEC
-	SBC.w $7E995A,y
-	STA.w $1B5D
-	JSR.w CODE_B7DF69
-	EOR.w #$FFFF
-	SEC
-	ADC.w $7E995A,x
-	STA.b $66
-	LDA.w $7E9A5A,x
-	SEC
-	SBC.w $7E9A5A,y
-	STA.w $1B5D
-	JSR.w CODE_B7DF69
-	EOR.w #$FFFF
-	SEC
-	ADC.w $7E9A5A,x
-	STA.b $68
-	JMP.w CODE_B7DF25
+	LDA.w $7E9F5A,y				;$B7DEAD
+	AND.w #$00FF				;$B7DEB0
+	ASL					;$B7DEB3
+	TAX					;$B7DEB4
+	LDA.w $7EA05A,y				;$B7DEB5
+	AND.w #$00FF				;$B7DEB8
+	ASL					;$B7DEBB
+	TAY					;$B7DEBC
+	LDA.w $7E995A,x				;$B7DEBD
+	SEC					;$B7DEC0
+	SBC.w $7E995A,y				;$B7DEC1
+	STA.w $1B5D				;$B7DEC4
+	JSR.w CODE_B7DF69			;$B7DEC7
+	EOR.w #$FFFF				;$B7DECA
+	SEC					;$B7DECD
+	ADC.w $7E995A,x				;$B7DECE
+	STA.b $66				;$B7DED1
+	LDA.w $7E9A5A,x				;$B7DED3
+	SEC					;$B7DED6
+	SBC.w $7E9A5A,y				;$B7DED7
+	STA.w $1B5D				;$B7DEDA
+	JSR.w CODE_B7DF69			;$B7DEDD
+	EOR.w #$FFFF				;$B7DEE0
+	SEC					;$B7DEE3
+	ADC.w $7E9A5A,x				;$B7DEE4
+	STA.b $68				;$B7DEE7
+	JMP.w CODE_B7DF25			;$B7DEE9
 
 CODE_B7DEEC:
-	LDA.w $7E9F5A,y
-	AND.w #$00FF
-	ASL
-	TAX
-	LDA.w $7EA05A,y
-	AND.w #$00FF
-	ASL
-	TAY
-	LDA.w $7E995A,y
-	SEC
-	SBC.w $7E995A,x
-	STA.w $1B5D
-	JSR.w CODE_B7DF69
-	CLC
-	ADC.w $7E995A,x
-	STA.b $66
-	LDA.w $7E9A5A,y
-	SEC
-	SBC.w $7E9A5A,x
-	STA.w $1B5D
-	JSR.w CODE_B7DF69
-	CLC
-	ADC.w $7E9A5A,x
-	STA.b $68
-	JMP.w CODE_B7DF25
+	LDA.w $7E9F5A,y				;$B7DEEC
+	AND.w #$00FF				;$B7DEEF
+	ASL					;$B7DEF2
+	TAX					;$B7DEF3
+	LDA.w $7EA05A,y				;$B7DEF4
+	AND.w #$00FF				;$B7DEF7
+	ASL					;$B7DEFA
+	TAY					;$B7DEFB
+	LDA.w $7E995A,y				;$B7DEFC
+	SEC					;$B7DEFF
+	SBC.w $7E995A,x				;$B7DF00
+	STA.w $1B5D				;$B7DF03
+	JSR.w CODE_B7DF69			;$B7DF06
+	CLC					;$B7DF09
+	ADC.w $7E995A,x				;$B7DF0A
+	STA.b $66				;$B7DF0D
+	LDA.w $7E9A5A,y				;$B7DF0F
+	SEC					;$B7DF12
+	SBC.w $7E9A5A,x				;$B7DF13
+	STA.w $1B5D				;$B7DF16
+	JSR.w CODE_B7DF69			;$B7DF19
+	CLC					;$B7DF1C
+	ADC.w $7E9A5A,x				;$B7DF1D
+	STA.b $68				;$B7DF20
+	JMP.w CODE_B7DF25			;$B7DF22
 
 CODE_B7DF25:
-	LDA.b $68
-	SEC
-	SBC.w #$0100
-	BCC.b CODE_B7DF41
-	CMP.b $66
-	BCS.b CODE_B7DF36
-	ADC.b $66
-	LSR
-	BRA.b CODE_B7DF44
+	LDA.b $68				;$B7DF25
+	SEC					;$B7DF27
+	SBC.w #$0100				;$B7DF28
+	BCC.b CODE_B7DF41			;$B7DF2B
+	CMP.b $66				;$B7DF2D
+	BCS.b CODE_B7DF36			;$B7DF2F
+	ADC.b $66				;$B7DF31
+	LSR					;$B7DF33
+	BRA.b CODE_B7DF44			;$B7DF34
 
 CODE_B7DF36:
-	CMP.b $9B
-	BCC.b CODE_B7DF44
-	LDA.b $66
-	CMP.b $9B
-	BCS.b CODE_B7DF44
-	RTS
+	CMP.b $9B				;$B7DF36
+	BCC.b CODE_B7DF44			;$B7DF38
+	LDA.b $66				;$B7DF3A
+	CMP.b $9B				;$B7DF3C
+	BCS.b CODE_B7DF44			;$B7DF3E
+	RTS					;$B7DF40
 
 CODE_B7DF41:
-	LDA.w #$0000
+	LDA.w #$0000				;$B7DF41
 CODE_B7DF44:
-	STA.b $9B
-	RTS
+	STA.b $9B				;$B7DF44
+	RTS					;$B7DF46
 
 CODE_B7DF47:
-	LDA.b $6C
-	SEC
-	SBC.w #$00E0
-	BCC.b CODE_B7DF63
-	CMP.b $6A
-	BCS.b CODE_B7DF58
-	ADC.b $6A
-	LSR
-	BRA.b CODE_B7DF66
+	LDA.b $6C				;$B7DF47
+	SEC					;$B7DF49
+	SBC.w #$00E0				;$B7DF4A
+	BCC.b CODE_B7DF63			;$B7DF4D
+	CMP.b $6A				;$B7DF4F
+	BCS.b CODE_B7DF58			;$B7DF51
+	ADC.b $6A				;$B7DF53
+	LSR					;$B7DF55
+	BRA.b CODE_B7DF66			;$B7DF56
 
 CODE_B7DF58:
-	CMP.b $9F
-	BCC.b CODE_B7DF66
-	LDA.b $6A
-	CMP.b $9F
-	BCS.b CODE_B7DF66
-	RTS
+	CMP.b $9F				;$B7DF58
+	BCC.b CODE_B7DF66			;$B7DF5A
+	LDA.b $6A				;$B7DF5C
+	CMP.b $9F				;$B7DF5E
+	BCS.b CODE_B7DF66			;$B7DF60
+	RTS					;$B7DF62
 
 CODE_B7DF63:
-	LDA.w #$0000
+	LDA.w #$0000				;$B7DF63
 CODE_B7DF66:
-	STA.b $9F
-	RTS
+	STA.b $9F				;$B7DF66
+	RTS					;$B7DF68
 
 CODE_B7DF69:
-	LDA.w $7E9B5A,y
-	SEC
-	SBC.w $7E9C5A,x
-	SEC
-	SBC.w #$00E0
-	STA.w $1B61
-	LDA.b $9F
-	SEC
-	SBC.w $7E9C5A,x
-	BCC.b CODE_B7DFAB
-	CMP.w $1B61
-	BCS.b CODE_B7DFAF
-	STA.w $1B5F
-	JMP.w CODE_B7DFB3
+	LDA.w $7E9B5A,y				;$B7DF69
+	SEC					;$B7DF6C
+	SBC.w $7E9C5A,x				;$B7DF6D
+	SEC					;$B7DF70
+	SBC.w #$00E0				;$B7DF71
+	STA.w $1B61				;$B7DF74
+	LDA.b $9F				;$B7DF77
+	SEC					;$B7DF79
+	SBC.w $7E9C5A,x				;$B7DF7A
+	BCC.b CODE_B7DFAB			;$B7DF7D
+	CMP.w $1B61				;$B7DF7F
+	BCS.b CODE_B7DFAF			;$B7DF82
+	STA.w $1B5F				;$B7DF84
+	JMP.w CODE_B7DFB3			;$B7DF87
 
 CODE_B7DF8A:
-	LDA.w $7E995A,y
-	SEC
-	SBC.w $7E9A5A,x
-	SEC
-	SBC.w #$0100
-	STA.w $1B61
-	LDA.b $9B
-	SEC
-	SBC.w $7E9A5A,x
-	BCC.b CODE_B7DFAB
-	CMP.w $1B61
-	BCS.b CODE_B7DFAF
-	STA.w $1B5F
-	JMP.w CODE_B7DFB3
+	LDA.w $7E995A,y				;$B7DF8A
+	SEC					;$B7DF8D
+	SBC.w $7E9A5A,x				;$B7DF8E
+	SEC					;$B7DF91
+	SBC.w #$0100				;$B7DF92
+	STA.w $1B61				;$B7DF95
+	LDA.b $9B				;$B7DF98
+	SEC					;$B7DF9A
+	SBC.w $7E9A5A,x				;$B7DF9B
+	BCC.b CODE_B7DFAB			;$B7DF9E
+	CMP.w $1B61				;$B7DFA0
+	BCS.b CODE_B7DFAF			;$B7DFA3
+	STA.w $1B5F				;$B7DFA5
+	JMP.w CODE_B7DFB3			;$B7DFA8
 
 CODE_B7DFAB:
-	LDA.w #$0000
-	RTS
+	LDA.w #$0000				;$B7DFAB
+	RTS					;$B7DFAE
 
 CODE_B7DFAF:
-	LDA.w $1B5D
-	RTS
+	LDA.w $1B5D				;$B7DFAF
+	RTS					;$B7DFB2
 
 CODE_B7DFB3:
-	PHY
-	LDY.w #$0000
-	LDA.w $1B5D
-	BEQ.b CODE_B7E030
+	PHY					;$B7DFB3
+	LDY.w #$0000				;$B7DFB4
+	LDA.w $1B5D				;$B7DFB7
+	BEQ.b CODE_B7E030			;$B7DFBA
 CODE_B7DFBC:
-	CMP.w #$0100
-	BCC.b CODE_B7DFC5
-	LSR
-	INY
-	BRA.b CODE_B7DFBC
+	CMP.w #$0100				;$B7DFBC
+	BCC.b CODE_B7DFC5			;$B7DFBF
+	LSR					;$B7DFC1
+	INY					;$B7DFC2
+	BRA.b CODE_B7DFBC			;$B7DFC3
 
 CODE_B7DFC5:
-	SEP.b #$20
-	STA.l !REGISTER_Multiplicand
-	REP.b #$20
-	LDA.w $1B5F
-	BEQ.b CODE_B7E030
+	SEP.b #$20				;$B7DFC5
+	STA.l !REGISTER_Multiplicand		;$B7DFC7
+	REP.b #$20				;$B7DFCB
+	LDA.w $1B5F				;$B7DFCD
+	BEQ.b CODE_B7E030			;$B7DFD0
 CODE_B7DFD2:
-	CMP.w #$0100
-	BCC.b CODE_B7DFDB
-	LSR
-	INY
-	BRA.b CODE_B7DFD2
+	CMP.w #$0100				;$B7DFD2
+	BCC.b CODE_B7DFDB			;$B7DFD5
+	LSR					;$B7DFD7
+	INY					;$B7DFD8
+	BRA.b CODE_B7DFD2			;$B7DFD9
 
 CODE_B7DFDB:
-	SEP.b #$20
-	STA.l !REGISTER_Multiplier
-	REP.b #$20
-	NOP #3
-	LDA.l !REGISTER_ProductOrRemainderLo
-	BMI.b CODE_B7DFF5
+	SEP.b #$20				;$B7DFDB
+	STA.l !REGISTER_Multiplier		;$B7DFDD
+	REP.b #$20				;$B7DFE1
+	NOP #3					;$B7DFE3
+	LDA.l !REGISTER_ProductOrRemainderLo	;$B7DFE6
+	BMI.b CODE_B7DFF5			;$B7DFEA
 CODE_B7DFEC:
-	DEY
-	BMI.b CODE_B7DFF4
-	ASL
-	BPL.b CODE_B7DFEC
-	BRA.b CODE_B7DFF5
+	DEY					;$B7DFEC
+	BMI.b CODE_B7DFF4			;$B7DFED
+	ASL					;$B7DFEF
+	BPL.b CODE_B7DFEC			;$B7DFF0
+	BRA.b CODE_B7DFF5			;$B7DFF2
 
 CODE_B7DFF4:
-	INY
+	INY					;$B7DFF4
 CODE_B7DFF5:
-	STA.l !REGISTER_DividendLo
-	LDA.w $1B61
-	BEQ.b CODE_B7E030
+	STA.l !REGISTER_DividendLo		;$B7DFF5
+	LDA.w $1B61				;$B7DFF9
+	BEQ.b CODE_B7E030			;$B7DFFC
 CODE_B7DFFE:
-	CMP.w #$0100
-	BCC.b CODE_B7E007
-	LSR
-	DEY
-	BRA.b CODE_B7DFFE
+	CMP.w #$0100				;$B7DFFE
+	BCC.b CODE_B7E007			;$B7E001
+	LSR					;$B7E003
+	DEY					;$B7E004
+	BRA.b CODE_B7DFFE			;$B7E005
 
 CODE_B7E007:
-	SEP.b #$20
-	STA.l !REGISTER_Divisor
-	REP.b #$20
-	NOP #4
-	TYA
-	BEQ.b CODE_B7E022
-	BPL.b CODE_B7E028
-	LDA.l !REGISTER_QuotientLo
+	SEP.b #$20				;$B7E007
+	STA.l !REGISTER_Divisor			;$B7E009
+	REP.b #$20				;$B7E00D
+	NOP #4					;$B7E00F
+	TYA					;$B7E013
+	BEQ.b CODE_B7E022			;$B7E014
+	BPL.b CODE_B7E028			;$B7E016
+	LDA.l !REGISTER_QuotientLo		;$B7E018
 CODE_B7E01C:
-	LSR
-	INY
-	BMI.b CODE_B7E01C
-	PLY
-	RTS
+	LSR					;$B7E01C
+	INY					;$B7E01D
+	BMI.b CODE_B7E01C			;$B7E01E
+	PLY					;$B7E020
+	RTS					;$B7E021
 
 CODE_B7E022:
-	LDA.l !REGISTER_QuotientLo
-	PLY
-	RTS
+	LDA.l !REGISTER_QuotientLo		;$B7E022
+	PLY					;$B7E026
+	RTS					;$B7E027
 
 CODE_B7E028:
-	LDA.l !REGISTER_QuotientLo
+	LDA.l !REGISTER_QuotientLo		;$B7E028
 CODE_B7E02C:
-	ASL
-	DEY
-	BNE.b CODE_B7E02C
+	ASL					;$B7E02C
+	DEY					;$B7E02D
+	BNE.b CODE_B7E02C			;$B7E02E
 CODE_B7E030:
-	PLY
-	RTS
+	PLY					;$B7E030
+	RTS					;$B7E031
 
 CODE_B7E032:
-	AND.w #$0003
-	BEQ.b CODE_B7E057
-	CMP.w #$0003
-	BNE.b CODE_B7E072
-	LDA.w $7EA05A,x
-	JSR.w CODE_B7E0AD
-	BCS.b CODE_B7E053
-	LDA.w $7EA05B,x
-	JSR.w CODE_B7E0AD
-	BCS.b CODE_B7E053
-	LDA.w $7E9C5A,x
-	STA.b $7F
-	BRA.b CODE_B7E072
+	AND.w #$0003				;$B7E032
+	BEQ.b CODE_B7E057			;$B7E035
+	CMP.w #$0003				;$B7E037
+	BNE.b CODE_B7E072			;$B7E03A
+	LDA.w $7EA05A,x				;$B7E03C
+	JSR.w CODE_B7E0AD			;$B7E03F
+	BCS.b CODE_B7E053			;$B7E042
+	LDA.w $7EA05B,x				;$B7E044
+	JSR.w CODE_B7E0AD			;$B7E047
+	BCS.b CODE_B7E053			;$B7E04A
+	LDA.w $7E9C5A,x				;$B7E04C
+	STA.b $7F				;$B7E04F
+	BRA.b CODE_B7E072			;$B7E051
 
 CODE_B7E053:
-	LDA.w #$0004
-	RTS
+	LDA.w #$0004				;$B7E053
+	RTS					;$B7E056
 
 CODE_B7E057:
-	LDA.w $7E9F5A,x
-	JSR.w CODE_B7E0AD
-	BCS.b CODE_B7E06E
-	LDA.w $7E9F5B,x
-	JSR.w CODE_B7E0AD
-	BCS.b CODE_B7E06E
-	LDA.w $7E9B5A,x
-	STA.b $7F
-	BRA.b CODE_B7E072
+	LDA.w $7E9F5A,x				;$B7E057
+	JSR.w CODE_B7E0AD			;$B7E05A
+	BCS.b CODE_B7E06E			;$B7E05D
+	LDA.w $7E9F5B,x				;$B7E05F
+	JSR.w CODE_B7E0AD			;$B7E062
+	BCS.b CODE_B7E06E			;$B7E065
+	LDA.w $7E9B5A,x				;$B7E067
+	STA.b $7F				;$B7E06A
+	BRA.b CODE_B7E072			;$B7E06C
 
 CODE_B7E06E:
-	LDA.w #$0003
-	RTS
+	LDA.w #$0003				;$B7E06E
+	RTS					;$B7E071
 
 CODE_B7E072:
-	LDA.b $50
-	AND.w #$000C
-	BEQ.b CODE_B7E082
-	CMP.w #$000C
-	BEQ.b CODE_B7E096
+	LDA.b $50				;$B7E072
+	AND.w #$000C				;$B7E074
+	BEQ.b CODE_B7E082			;$B7E077
+	CMP.w #$000C				;$B7E079
+	BEQ.b CODE_B7E096			;$B7E07C
 CODE_B7E07E:
-	LDA.w #$0000
-	RTS
+	LDA.w #$0000				;$B7E07E
+	RTS					;$B7E081
 
 CODE_B7E082:
-	LDA.w $7E9E5A,x
-	JSR.w CODE_B7E0CC
-	BCS.b CODE_B7E092
-	LDA.w $7E9E5B,x
-	JSR.w CODE_B7E0CC
-	BCC.b CODE_B7E07E
+	LDA.w $7E9E5A,x				;$B7E082
+	JSR.w CODE_B7E0CC			;$B7E085
+	BCS.b CODE_B7E092			;$B7E088
+	LDA.w $7E9E5B,x				;$B7E08A
+	JSR.w CODE_B7E0CC			;$B7E08D
+	BCC.b CODE_B7E07E			;$B7E090
 CODE_B7E092:
-	LDA.w #$0001
-	RTS
+	LDA.w #$0001				;$B7E092
+	RTS					;$B7E095
 
 CODE_B7E096:
-	LDA.w $7E9D5B,x
-	JSR.w CODE_B7E0CC
-	BCS.b CODE_B7E0A9
-	JSR.w CODE_B7E0ED
-	CLC
-	BNE.b CODE_B7E07E
-	JSR.w CODE_B7E0D3
-	BCC.b CODE_B7E07E
+	LDA.w $7E9D5B,x				;$B7E096
+	JSR.w CODE_B7E0CC			;$B7E099
+	BCS.b CODE_B7E0A9			;$B7E09C
+	JSR.w CODE_B7E0ED			;$B7E09E
+	CLC					;$B7E0A1
+	BNE.b CODE_B7E07E			;$B7E0A2
+	JSR.w CODE_B7E0D3			;$B7E0A4
+	BCC.b CODE_B7E07E			;$B7E0A7
 CODE_B7E0A9:
-	LDA.w #$0002
-	RTS
+	LDA.w #$0002				;$B7E0A9
+	RTS					;$B7E0AC
 
 CODE_B7E0AD:
-	AND.w #$00FF
-	BEQ.b CODE_B7E0EB
-	ASL
-	TAY
-	LDA.w $7E9D5A,y
-	AND.w #$0020
-	BNE.b CODE_B7E0CB
-	LDA.b $7B
-	CMP.w $7E995A,y
-	BCC.b CODE_B7E0CB
-	LDA.w $7E9A5A,y
-	CMP.b $7B
-	BCC.b CODE_B7E0CB
-	TYX
+	AND.w #$00FF				;$B7E0AD
+	BEQ.b CODE_B7E0EB			;$B7E0B0
+	ASL					;$B7E0B2
+	TAY					;$B7E0B3
+	LDA.w $7E9D5A,y				;$B7E0B4
+	AND.w #$0020				;$B7E0B7
+	BNE.b CODE_B7E0CB			;$B7E0BA
+	LDA.b $7B				;$B7E0BC
+	CMP.w $7E995A,y				;$B7E0BE
+	BCC.b CODE_B7E0CB			;$B7E0C1
+	LDA.w $7E9A5A,y				;$B7E0C3
+	CMP.b $7B				;$B7E0C6
+	BCC.b CODE_B7E0CB			;$B7E0C8
+	TYX					;$B7E0CA
 CODE_B7E0CB:
-	RTS
+	RTS					;$B7E0CB
 
 CODE_B7E0CC:
-	AND.w #$00FF
-	BEQ.b CODE_B7E0EB
-	ASL
-	TAY
+	AND.w #$00FF				;$B7E0CC
+	BEQ.b CODE_B7E0EB			;$B7E0CF
+	ASL					;$B7E0D1
+	TAY					;$B7E0D2
 CODE_B7E0D3:
-	LDA.w $7E9D5A,y
-	AND.w #$0020
-	BNE.b CODE_B7E0EB
-	LDA.b $7F
-	CMP.w $7E9B5A,y
-	BCC.b CODE_B7E0EA
-	LDA.w $7E9C5A,y
-	CMP.b $7F
-	BCC.b CODE_B7E0EA
-	TYX
+	LDA.w $7E9D5A,y				;$B7E0D3
+	AND.w #$0020				;$B7E0D6
+	BNE.b CODE_B7E0EB			;$B7E0D9
+	LDA.b $7F				;$B7E0DB
+	CMP.w $7E9B5A,y				;$B7E0DD
+	BCC.b CODE_B7E0EA			;$B7E0E0
+	LDA.w $7E9C5A,y				;$B7E0E2
+	CMP.b $7F				;$B7E0E5
+	BCC.b CODE_B7E0EA			;$B7E0E7
+	TYX					;$B7E0E9
 CODE_B7E0EA:
-	RTS
+	RTS					;$B7E0EA
 
 CODE_B7E0EB:
-	CLC
-	RTS
+	CLC					;$B7E0EB
+	RTS					;$B7E0EC
 
 CODE_B7E0ED:
-	LDA.w $7E9D5B,x
-	AND.w #$00FF
-	BEQ.b CODE_B7E107
-	INC
-	ASL
-	TAY
-	SEP.b #$20
-	TXA
-	LSR
-	CMP.w $7E9E5A,y
-	BEQ.b CODE_B7E104
-	CMP.w $7E9E5B,y
+	LDA.w $7E9D5B,x				;$B7E0ED
+	AND.w #$00FF				;$B7E0F0
+	BEQ.b CODE_B7E107			;$B7E0F3
+	INC					;$B7E0F5
+	ASL					;$B7E0F6
+	TAY					;$B7E0F7
+	SEP.b #$20				;$B7E0F8
+	TXA					;$B7E0FA
+	LSR					;$B7E0FB
+	CMP.w $7E9E5A,y				;$B7E0FC
+	BEQ.b CODE_B7E104			;$B7E0FF
+	CMP.w $7E9E5B,y				;$B7E101
 CODE_B7E104:
-	REP.b #$20
-	RTS
+	REP.b #$20				;$B7E104
+	RTS					;$B7E106
 
 CODE_B7E107:
-	INC
-	RTS
+	INC					;$B7E107
+	RTS					;$B7E108
 
 CODE_B7E109:
-	LDX.b alternate_sprite
-	LDA.b $7B
-	INX
-	INX
+	LDX.b alternate_sprite			;$B7E109
+	LDA.b $7B				;$B7E10B
+	INX					;$B7E10D
+	INX					;$B7E10E
 CODE_B7E10F:
-	DEX
-	DEX
-	CMP.w $7E995A,x
-	BCC.b CODE_B7E10F
-	CMP.w $7E9A5A,x
-	BCC.b CODE_B7E122
+	DEX					;$B7E10F
+	DEX					;$B7E110
+	CMP.w $7E995A,x				;$B7E111
+	BCC.b CODE_B7E10F			;$B7E114
+	CMP.w $7E9A5A,x				;$B7E116
+	BCC.b CODE_B7E122			;$B7E119
 CODE_B7E11B:
-	DEX
-	DEX
-	CMP.w $7E9A5A,x
-	BCS.b CODE_B7E11B
+	DEX					;$B7E11B
+	DEX					;$B7E11C
+	CMP.w $7E9A5A,x				;$B7E11D
+	BCS.b CODE_B7E11B			;$B7E120
 CODE_B7E122:
-	LDA.b $7F
-	CMP.w $7E9B5A,x
-	BCS.b CODE_B7E130
+	LDA.b $7F				;$B7E122
+	CMP.w $7E9B5A,x				;$B7E124
+	BCS.b CODE_B7E130			;$B7E127
 CODE_B7E129:
-	DEX
-	DEX
-	CMP.w $7E9B5A,x
-	BCC.b CODE_B7E129
+	DEX					;$B7E129
+	DEX					;$B7E12A
+	CMP.w $7E9B5A,x				;$B7E12B
+	BCC.b CODE_B7E129			;$B7E12E
 CODE_B7E130:
-	CMP.w $7E9C5A,x
-	BCS.b CODE_B7E129
-	LDA.b $7B
-	CMP.w $7E9A5A,x
-	LDA.b $7F
-	BCS.b CODE_B7E129
-	RTS
+	CMP.w $7E9C5A,x				;$B7E130
+	BCS.b CODE_B7E129			;$B7E133
+	LDA.b $7B				;$B7E135
+	CMP.w $7E9A5A,x				;$B7E137
+	LDA.b $7F				;$B7E13A
+	BCS.b CODE_B7E129			;$B7E13C
+	RTS					;$B7E13E
 
 CODE_B7E13F:
-	JSR.w CODE_B7E218
-	LDA.w $194B
-	BIT.w #$0002
-	BNE.b CODE_B7E1A9
-	JSR.w CODE_B7E336
-	LDA.b $5A
-	CLC
-	ADC.b $8E
-	TAY
-	LDA.w #$0000
-	BIT.b $5A
-	BPL.b CODE_B7E15B
-	DEC
+	JSR.w CODE_B7E218			;$B7E13F
+	LDA.w $194B				;$B7E142
+	BIT.w #$0002				;$B7E145
+	BNE.b CODE_B7E1A9			;$B7E148
+	JSR.w CODE_B7E336			;$B7E14A
+	LDA.b $5A				;$B7E14D
+	CLC					;$B7E14F
+	ADC.b $8E				;$B7E150
+	TAY					;$B7E152
+	LDA.w #$0000				;$B7E153
+	BIT.b $5A				;$B7E156
+	BPL.b CODE_B7E15B			;$B7E158
+	DEC					;$B7E15A
 CODE_B7E15B:
-	ADC.b $90
-	TAX
-	BMI.b CODE_B7E16F
-	BNE.b CODE_B7E167
-	CPY.w #$0801
-	BCC.b CODE_B7E17D
+	ADC.b $90				;$B7E15B
+	TAX					;$B7E15D
+	BMI.b CODE_B7E16F			;$B7E15E
+	BNE.b CODE_B7E167			;$B7E160
+	CPY.w #$0801				;$B7E162
+	BCC.b CODE_B7E17D			;$B7E165
 CODE_B7E167:
-	LDX.w #$0000
-	LDY.w #$0800
-	BRA.b CODE_B7E17D
+	LDX.w #$0000				;$B7E167
+	LDY.w #$0800				;$B7E16A
+	BRA.b CODE_B7E17D			;$B7E16D
 
 CODE_B7E16F:
-	INC
-	BNE.b CODE_B7E177
-	CPY.w #$F800
-	BCS.b CODE_B7E17D
+	INC					;$B7E16F
+	BNE.b CODE_B7E177			;$B7E170
+	CPY.w #$F800				;$B7E172
+	BCS.b CODE_B7E17D			;$B7E175
 CODE_B7E177:
-	LDX.w #$FFFF
-	LDY.w #$F800
+	LDX.w #$FFFF				;$B7E177
+	LDY.w #$F800				;$B7E17A
 CODE_B7E17D:
-	TYA
-	CLC
-	ADC.b $96
-	STA.b $96
-	TXA
-	ADC.b $98
-	STA.b $98
-	LDA.w #$0100
-	CMP.b $97
-	BCS.b CODE_B7E195
-	LDA.b $BE
-	CMP.b $97
-	BCS.b CODE_B7E197
+	TYA					;$B7E17D
+	CLC					;$B7E17E
+	ADC.b $96				;$B7E17F
+	STA.b $96				;$B7E181
+	TXA					;$B7E183
+	ADC.b $98				;$B7E184
+	STA.b $98				;$B7E186
+	LDA.w #$0100				;$B7E188
+	CMP.b $97				;$B7E18B
+	BCS.b CODE_B7E195			;$B7E18D
+	LDA.b $BE				;$B7E18F
+	CMP.b $97				;$B7E191
+	BCS.b CODE_B7E197			;$B7E193
 CODE_B7E195:
-	STA.b $97
+	STA.b $97				;$B7E195
 CODE_B7E197:
-	LDA.b $97
-	SEC
-	SBC.w $1973
-	STA.w $1985
-	LDA.b $97
-	STA.w $1973
-	DEC
-	STA.w $1975
+	LDA.b $97				;$B7E197
+	SEC					;$B7E199
+	SBC.w $1973				;$B7E19A
+	STA.w $1985				;$B7E19D
+	LDA.b $97				;$B7E1A0
+	STA.w $1973				;$B7E1A2
+	DEC					;$B7E1A5
+	STA.w $1975				;$B7E1A6
 CODE_B7E1A9:
-	LDA.w $194B
-	BIT.w #$0001
-	BNE.b CODE_B7E217
-	JSR.w CODE_B7E25E
-	LDA.b $58
-	CLC
-	ADC.b $8A
-	TAY
-	LDA.w #$0000
-	BIT.b $58
-	BPL.b CODE_B7E1C2
-	DEC
+	LDA.w $194B				;$B7E1A9
+	BIT.w #$0001				;$B7E1AC
+	BNE.b CODE_B7E217			;$B7E1AF
+	JSR.w CODE_B7E25E			;$B7E1B1
+	LDA.b $58				;$B7E1B4
+	CLC					;$B7E1B6
+	ADC.b $8A				;$B7E1B7
+	TAY					;$B7E1B9
+	LDA.w #$0000				;$B7E1BA
+	BIT.b $58				;$B7E1BD
+	BPL.b CODE_B7E1C2			;$B7E1BF
+	DEC					;$B7E1C1
 CODE_B7E1C2:
-	ADC.b $8C
-	TAX
-	BMI.b CODE_B7E1D6
-	BNE.b CODE_B7E1CE
-	CPY.w #$0801
-	BCC.b CODE_B7E1E4
+	ADC.b $8C				;$B7E1C2
+	TAX					;$B7E1C4
+	BMI.b CODE_B7E1D6			;$B7E1C5
+	BNE.b CODE_B7E1CE			;$B7E1C7
+	CPY.w #$0801				;$B7E1C9
+	BCC.b CODE_B7E1E4			;$B7E1CC
 CODE_B7E1CE:
-	LDX.w #$0000
-	LDY.w #$0800
-	BRA.b CODE_B7E1E4
+	LDX.w #$0000				;$B7E1CE
+	LDY.w #$0800				;$B7E1D1
+	BRA.b CODE_B7E1E4			;$B7E1D4
 
 CODE_B7E1D6:
-	INC
-	BNE.b CODE_B7E1DE
-	CPY.w #$F800
-	BCS.b CODE_B7E1E4
+	INC					;$B7E1D6
+	BNE.b CODE_B7E1DE			;$B7E1D7
+	CPY.w #$F800				;$B7E1D9
+	BCS.b CODE_B7E1E4			;$B7E1DC
 CODE_B7E1DE:
-	LDX.w #$FFFF
-	LDY.w #$F800
+	LDX.w #$FFFF				;$B7E1DE
+	LDY.w #$F800				;$B7E1E1
 CODE_B7E1E4:
-	TYA
-	CLC
-	ADC.b $92
-	STA.b $92
-	TXA
-	ADC.b $94
-	STA.b $94
-	BPL.b CODE_B7E1F5
-	STZ.b $92
-	STZ.b $94
+	TYA					;$B7E1E4
+	CLC					;$B7E1E5
+	ADC.b $92				;$B7E1E6
+	STA.b $92				;$B7E1E8
+	TXA					;$B7E1EA
+	ADC.b $94				;$B7E1EB
+	STA.b $94				;$B7E1ED
+	BPL.b CODE_B7E1F5			;$B7E1EF
+	STZ.b $92				;$B7E1F1
+	STZ.b $94				;$B7E1F3
 CODE_B7E1F5:
-	LDA.w #$0100
-	CMP.b $93
-	BCS.b CODE_B7E202
-	LDA.b $BC
-	CMP.b $93
-	BCS.b CODE_B7E204
+	LDA.w #$0100				;$B7E1F5
+	CMP.b $93				;$B7E1F8
+	BCS.b CODE_B7E202			;$B7E1FA
+	LDA.b $BC				;$B7E1FC
+	CMP.b $93				;$B7E1FE
+	BCS.b CODE_B7E204			;$B7E200
 CODE_B7E202:
-	STA.b $93
+	STA.b $93				;$B7E202
 CODE_B7E204:
-	LDA.b $93
-	SEC
-	SBC.w $196D
-	STA.w $1989
-	LDA.b $93
-	STA.w $196D
-	LDA.b $92
-	STA.w $196C
+	LDA.b $93				;$B7E204
+	SEC					;$B7E206
+	SBC.w $196D				;$B7E207
+	STA.w $1989				;$B7E20A
+	LDA.b $93				;$B7E20D
+	STA.w $196D				;$B7E20F
+	LDA.b $92				;$B7E212
+	STA.w $196C				;$B7E214
 CODE_B7E217:
-	RTS
+	RTS					;$B7E217
 
 CODE_B7E218:
-	LDA.l $000000
-	AND.w #$0003
-	BNE.b CODE_B7E259
-	LDA.b $B2
-	LSR.b $B2
-	CMP.w #$0040
-	BCC.b CODE_B7E234
-	BIT.b $B6
-	BVC.b CODE_B7E237
-	EOR.w #$FFFF
-	INC
-	BRA.b CODE_B7E237
+	LDA.l $000000				;$B7E218
+	AND.w #$0003				;$B7E21C
+	BNE.b CODE_B7E259			;$B7E21F
+	LDA.b $B2				;$B7E221
+	LSR.b $B2				;$B7E223
+	CMP.w #$0040				;$B7E225
+	BCC.b CODE_B7E234			;$B7E228
+	BIT.b $B6				;$B7E22A
+	BVC.b CODE_B7E237			;$B7E22C
+	EOR.w #$FFFF				;$B7E22E
+	INC					;$B7E231
+	BRA.b CODE_B7E237			;$B7E232
 
 CODE_B7E234:
-	LDA.w #$0000
+	LDA.w #$0000				;$B7E234
 CODE_B7E237:
-	STA.b $58
-	LDA.b $B4
-	LSR.b $B4
-	CMP.w #$0040
-	BCC.b CODE_B7E24C
-	BIT.b $B6
-	BPL.b CODE_B7E24F
-	EOR.w #$FFFF
-	INC
-	BRA.b CODE_B7E24F
+	STA.b $58				;$B7E237
+	LDA.b $B4				;$B7E239
+	LSR.b $B4				;$B7E23B
+	CMP.w #$0040				;$B7E23D
+	BCC.b CODE_B7E24C			;$B7E240
+	BIT.b $B6				;$B7E242
+	BPL.b CODE_B7E24F			;$B7E244
+	EOR.w #$FFFF				;$B7E246
+	INC					;$B7E249
+	BRA.b CODE_B7E24F			;$B7E24A
 
 CODE_B7E24C:
-	LDA.w #$0000
+	LDA.w #$0000				;$B7E24C
 CODE_B7E24F:
-	STA.b $5A
-	LDA.b $B6
-	EOR.w #$C000
-	STA.b $B6
-	RTS
+	STA.b $5A				;$B7E24F
+	LDA.b $B6				;$B7E251
+	EOR.w #$C000				;$B7E253
+	STA.b $B6				;$B7E256
+	RTS					;$B7E258
 
 CODE_B7E259:
-	STZ.b $58
-	STZ.b $5A
-	RTS
+	STZ.b $58				;$B7E259
+	STZ.b $5A				;$B7E25B
+	RTS					;$B7E25D
 
 CODE_B7E25E:
-	SEP.b #$10
-	LDX.b $84
-	LDY.b $85
-	LDA.b $5E
-	SEC
-	SBC.b $92
-	STA.b $6A
-	LDA.b $60
-	SBC.b $94
-	STA.b $6C
-	LDA.b $9A
-	SEC
-	SBC.b $5E
-	STA.b $66
-	LDA.b $9C
-	SBC.b $60
-	STA.b $68
-	LDA.b $66
-	CLC
-	ADC.b $6A
-	STA.b $50
-	LDA.b $68
-	ADC.b $6C
-	DEX
-	BMI.b CODE_B7E295
+	SEP.b #$10				;$B7E25E
+	LDX.b $84				;$B7E260
+	LDY.b $85				;$B7E262
+	LDA.b $5E				;$B7E264
+	SEC					;$B7E266
+	SBC.b $92				;$B7E267
+	STA.b $6A				;$B7E269
+	LDA.b $60				;$B7E26B
+	SBC.b $94				;$B7E26D
+	STA.b $6C				;$B7E26F
+	LDA.b $9A				;$B7E271
+	SEC					;$B7E273
+	SBC.b $5E				;$B7E274
+	STA.b $66				;$B7E276
+	LDA.b $9C				;$B7E278
+	SBC.b $60				;$B7E27A
+	STA.b $68				;$B7E27C
+	LDA.b $66				;$B7E27E
+	CLC					;$B7E280
+	ADC.b $6A				;$B7E281
+	STA.b $50				;$B7E283
+	LDA.b $68				;$B7E285
+	ADC.b $6C				;$B7E287
+	DEX					;$B7E289
+	BMI.b CODE_B7E295			;$B7E28A
 CODE_B7E28C:
-	CMP.w #$8000
-	ROR
-	ROR.b $50
-	DEX
-	BPL.b CODE_B7E28C
+	CMP.w #$8000				;$B7E28C
+	ROR					;$B7E28F
+	ROR.b $50				;$B7E290
+	DEX					;$B7E292
+	BPL.b CODE_B7E28C			;$B7E293
 CODE_B7E295:
-	STA.b $52
-	TAX
-	BPL.b CODE_B7E2A8
-	LDA.w #$FFFF
-	STA.b $52
-	EOR.b next_oam_slot
-	INC
-	CMP.b $50
-	BCC.b CODE_B7E2B2
-	BCS.b CODE_B7E2B0
+	STA.b $52				;$B7E295
+	TAX					;$B7E297
+	BPL.b CODE_B7E2A8			;$B7E298
+	LDA.w #$FFFF				;$B7E29A
+	STA.b $52				;$B7E29D
+	EOR.b next_oam_slot			;$B7E29F
+	INC					;$B7E2A1
+	CMP.b $50				;$B7E2A2
+	BCC.b CODE_B7E2B2			;$B7E2A4
+	BCS.b CODE_B7E2B0			;$B7E2A6
 CODE_B7E2A8:
-	STZ.b $52
-	LDA.b next_oam_slot
-	CMP.b $50
-	BCS.b CODE_B7E2B2
+	STZ.b $52				;$B7E2A8
+	LDA.b next_oam_slot			;$B7E2AA
+	CMP.b $50				;$B7E2AC
+	BCS.b CODE_B7E2B2			;$B7E2AE
 CODE_B7E2B0:
-	STA.b $50
+	STA.b $50				;$B7E2B0
 CODE_B7E2B2:
-	DEY
-	BMI.b CODE_B7E2E6
-	LDA.b $6A
-	BIT.b $6C
-	BPL.b CODE_B7E2D1
-	CMP.w #$FFE0
-	BCS.b CODE_B7E2E4
+	DEY					;$B7E2B2
+	BMI.b CODE_B7E2E6			;$B7E2B3
+	LDA.b $6A				;$B7E2B5
+	BIT.b $6C				;$B7E2B7
+	BPL.b CODE_B7E2D1			;$B7E2B9
+	CMP.w #$FFE0				;$B7E2BB
+	BCS.b CODE_B7E2E4			;$B7E2BE
 CODE_B7E2C0:
-	SEC
-	ROR.b $6C
-	ROR
-	DEY
-	BPL.b CODE_B7E2C0
-	CMP.w #$FFF8
-	BCC.b CODE_B7E2E4
-	LDA.w #$FFF8
-	BRA.b CODE_B7E2E4
+	SEC					;$B7E2C0
+	ROR.b $6C				;$B7E2C1
+	ROR					;$B7E2C3
+	DEY					;$B7E2C4
+	BPL.b CODE_B7E2C0			;$B7E2C5
+	CMP.w #$FFF8				;$B7E2C7
+	BCC.b CODE_B7E2E4			;$B7E2CA
+	LDA.w #$FFF8				;$B7E2CC
+	BRA.b CODE_B7E2E4			;$B7E2CF
 
 CODE_B7E2D1:
-	CMP.w #$0020
-	BCC.b CODE_B7E2E4
+	CMP.w #$0020				;$B7E2D1
+	BCC.b CODE_B7E2E4			;$B7E2D4
 CODE_B7E2D6:
-	LSR.b $6C
-	ROR
-	DEY
-	BPL.b CODE_B7E2D6
-	CMP.w #$0008
-	BCS.b CODE_B7E2E4
-	LDA.w #$0008
+	LSR.b $6C				;$B7E2D6
+	ROR					;$B7E2D8
+	DEY					;$B7E2D9
+	BPL.b CODE_B7E2D6			;$B7E2DA
+	CMP.w #$0008				;$B7E2DC
+	BCS.b CODE_B7E2E4			;$B7E2DF
+	LDA.w #$0008				;$B7E2E1
 CODE_B7E2E4:
-	STA.b $6A
+	STA.b $6A				;$B7E2E4
 CODE_B7E2E6:
-	LDA.b $66
-	CLC
-	ADC.b $6A
-	STA.b $6A
-	LDA.b $68
-	ADC.b $6C
-	STA.b $6C
-	ORA.b $6A
-	BEQ.b CODE_B7E322
-	LDA.b $8A
-	CLC
-	ADC.b $50
-	STA.b $8A
-	LDA.b $8C
-	ADC.b $52
-	STA.b $8C
-	EOR.b $6C
-	BMI.b CODE_B7E32D
-	LDA.b $6C
-	BPL.b CODE_B7E318
-	CMP.b $8C
-	BNE.b CODE_B7E314
-	LDA.b $6A
-	CMP.b $8A
+	LDA.b $66				;$B7E2E6
+	CLC					;$B7E2E8
+	ADC.b $6A				;$B7E2E9
+	STA.b $6A				;$B7E2EB
+	LDA.b $68				;$B7E2ED
+	ADC.b $6C				;$B7E2EF
+	STA.b $6C				;$B7E2F1
+	ORA.b $6A				;$B7E2F3
+	BEQ.b CODE_B7E322			;$B7E2F5
+	LDA.b $8A				;$B7E2F7
+	CLC					;$B7E2F9
+	ADC.b $50				;$B7E2FA
+	STA.b $8A				;$B7E2FC
+	LDA.b $8C				;$B7E2FE
+	ADC.b $52				;$B7E300
+	STA.b $8C				;$B7E302
+	EOR.b $6C				;$B7E304
+	BMI.b CODE_B7E32D			;$B7E306
+	LDA.b $6C				;$B7E308
+	BPL.b CODE_B7E318			;$B7E30A
+	CMP.b $8C				;$B7E30C
+	BNE.b CODE_B7E314			;$B7E30E
+	LDA.b $6A				;$B7E310
+	CMP.b $8A				;$B7E312
 CODE_B7E314:
-	BCS.b CODE_B7E322
-	BCC.b CODE_B7E32A
+	BCS.b CODE_B7E322			;$B7E314
+	BCC.b CODE_B7E32A			;$B7E316
 CODE_B7E318:
-	CMP.b $8C
-	BNE.b CODE_B7E320
-	LDA.b $6A
-	CMP.b $8A
+	CMP.b $8C				;$B7E318
+	BNE.b CODE_B7E320			;$B7E31A
+	LDA.b $6A				;$B7E31C
+	CMP.b $8A				;$B7E31E
 CODE_B7E320:
-	BCS.b CODE_B7E32A
+	BCS.b CODE_B7E32A			;$B7E320
 CODE_B7E322:
-	LDA.b $6A
-	STA.b $8A
-	LDA.b $6C
-	STA.b $8C
+	LDA.b $6A				;$B7E322
+	STA.b $8A				;$B7E324
+	LDA.b $6C				;$B7E326
+	STA.b $8C				;$B7E328
 CODE_B7E32A:
-	REP.b #$10
-	RTS
+	REP.b #$10				;$B7E32A
+	RTS					;$B7E32C
 
 CODE_B7E32D:
-	LDA.b $8C
-	ASL
-	ROR.b $8C
-	ROR.b $8A
-	BRA.b CODE_B7E32A
+	LDA.b $8C				;$B7E32D
+	ASL					;$B7E32F
+	ROR.b $8C				;$B7E330
+	ROR.b $8A				;$B7E332
+	BRA.b CODE_B7E32A			;$B7E334
 
 CODE_B7E336:
-	SEP.b #$10
-	LDA.b $7F
-	SEC
-	SBC.b $5C
-	TAX
-	LDA.b $9F
-	CMP.b $63
-	BCS.b CODE_B7E368
-	CMP.b $97
-	BCS.b CODE_B7E368
-	LDA.b $7F
-	SEC
-	SBC.w #$0020
-	BPL.b CODE_B7E353
-	LDA.w #$0000
+	SEP.b #$10				;$B7E336
+	LDA.b $7F				;$B7E338
+	SEC					;$B7E33A
+	SBC.b $5C				;$B7E33B
+	TAX					;$B7E33D
+	LDA.b $9F				;$B7E33E
+	CMP.b $63				;$B7E340
+	BCS.b CODE_B7E368			;$B7E342
+	CMP.b $97				;$B7E344
+	BCS.b CODE_B7E368			;$B7E346
+	LDA.b $7F				;$B7E348
+	SEC					;$B7E34A
+	SBC.w #$0020				;$B7E34B
+	BPL.b CODE_B7E353			;$B7E34E
+	LDA.w #$0000				;$B7E350
 CODE_B7E353:
-	CMP.b $97
-	BCS.b CODE_B7E392
-	CPX.b #$FD
-	BCS.b CODE_B7E392
-	CPX.b #$FA
-	BCC.b CODE_B7E389
+	CMP.b $97				;$B7E353
+	BCS.b CODE_B7E392			;$B7E355
+	CPX.b #$FD				;$B7E357
+	BCS.b CODE_B7E392			;$B7E359
+	CPX.b #$FA				;$B7E35B
+	BCC.b CODE_B7E389			;$B7E35D
 CODE_B7E35F:
-	LDX.b #$03
-	LDY.b #$03
-	LDA.w #$00C0
-	BRA.b CODE_B7E398
+	LDX.b #$03				;$B7E35F
+	LDY.b #$03				;$B7E361
+	LDA.w #$00C0				;$B7E363
+	BRA.b CODE_B7E398			;$B7E366
 
 CODE_B7E368:
-	LDA.b $7F
-	SEC
-	SBC.w #$00C0
-	BPL.b CODE_B7E373
-	LDA.w #$0000
+	LDA.b $7F				;$B7E368
+	SEC					;$B7E36A
+	SBC.w #$00C0				;$B7E36B
+	BPL.b CODE_B7E373			;$B7E36E
+	LDA.w #$0000				;$B7E370
 CODE_B7E373:
-	SEC
-	SBC.b $97
-	BCC.b CODE_B7E392
-	CMP.w #$0018
-	BCS.b CODE_B7E389
-	CPX.b #$03
-	BCC.b CODE_B7E392
-	CPX.b #$08
-	BCC.b CODE_B7E35F
-	CPX.b #$80
-	BCS.b CODE_B7E392
+	SEC					;$B7E373
+	SBC.b $97				;$B7E374
+	BCC.b CODE_B7E392			;$B7E376
+	CMP.w #$0018				;$B7E378
+	BCS.b CODE_B7E389			;$B7E37B
+	CPX.b #$03				;$B7E37D
+	BCC.b CODE_B7E392			;$B7E37F
+	CPX.b #$08				;$B7E381
+	BCC.b CODE_B7E35F			;$B7E383
+	CPX.b #$80				;$B7E385
+	BCS.b CODE_B7E392			;$B7E387
 CODE_B7E389:
-	LDX.b #$02
-	LDY.b #$02
-	LDA.w #$0240
-	BRA.b CODE_B7E398
+	LDX.b #$02				;$B7E389
+	LDY.b #$02				;$B7E38B
+	LDA.w #$0240				;$B7E38D
+	BRA.b CODE_B7E398			;$B7E390
 
 CODE_B7E392:
-	LDX.b $88
-	LDY.b $89
-	LDA.b $86
+	LDX.b $88				;$B7E392
+	LDY.b $89				;$B7E394
+	LDA.b $86				;$B7E396
 CODE_B7E398:
-	STA.b $54
-	LDA.b $62
-	SEC
-	SBC.b $96
-	STA.b $6A
-	LDA.b $64
-	SBC.b $98
-	STA.b $6C
-	LDA.b $9E
-	SEC
-	SBC.b $62
-	STA.b $66
-	LDA.b $A0
-	SBC.b $64
-	STA.b $68
-	LDA.b $66
-	CLC
-	ADC.b $6A
-	STA.b $50
-	LDA.b $68
-	ADC.b $6C
-	DEX
-	BMI.b CODE_B7E3CB
+	STA.b $54				;$B7E398
+	LDA.b $62				;$B7E39A
+	SEC					;$B7E39C
+	SBC.b $96				;$B7E39D
+	STA.b $6A				;$B7E39F
+	LDA.b $64				;$B7E3A1
+	SBC.b $98				;$B7E3A3
+	STA.b $6C				;$B7E3A5
+	LDA.b $9E				;$B7E3A7
+	SEC					;$B7E3A9
+	SBC.b $62				;$B7E3AA
+	STA.b $66				;$B7E3AC
+	LDA.b $A0				;$B7E3AE
+	SBC.b $64				;$B7E3B0
+	STA.b $68				;$B7E3B2
+	LDA.b $66				;$B7E3B4
+	CLC					;$B7E3B6
+	ADC.b $6A				;$B7E3B7
+	STA.b $50				;$B7E3B9
+	LDA.b $68				;$B7E3BB
+	ADC.b $6C				;$B7E3BD
+	DEX					;$B7E3BF
+	BMI.b CODE_B7E3CB			;$B7E3C0
 CODE_B7E3C2:
-	CMP.w #$8000
-	ROR
-	ROR.b $50
-	DEX
-	BPL.b CODE_B7E3C2
+	CMP.w #$8000				;$B7E3C2
+	ROR					;$B7E3C5
+	ROR.b $50				;$B7E3C6
+	DEX					;$B7E3C8
+	BPL.b CODE_B7E3C2			;$B7E3C9
 CODE_B7E3CB:
-	STA.b $52
-	TAX
-	BPL.b CODE_B7E3DE
-	LDA.w #$FFFF
-	STA.b $52
-	EOR.b $54
-	INC
-	CMP.b $50
-	BCC.b CODE_B7E3E8
-	BCS.b CODE_B7E3E6
+	STA.b $52				;$B7E3CB
+	TAX					;$B7E3CD
+	BPL.b CODE_B7E3DE			;$B7E3CE
+	LDA.w #$FFFF				;$B7E3D0
+	STA.b $52				;$B7E3D3
+	EOR.b $54				;$B7E3D5
+	INC					;$B7E3D7
+	CMP.b $50				;$B7E3D8
+	BCC.b CODE_B7E3E8			;$B7E3DA
+	BCS.b CODE_B7E3E6			;$B7E3DC
 CODE_B7E3DE:
-	STZ.b $52
-	LDA.b $54
-	CMP.b $50
-	BCS.b CODE_B7E3E8
+	STZ.b $52				;$B7E3DE
+	LDA.b $54				;$B7E3E0
+	CMP.b $50				;$B7E3E2
+	BCS.b CODE_B7E3E8			;$B7E3E4
 CODE_B7E3E6:
-	STA.b $50
+	STA.b $50				;$B7E3E6
 CODE_B7E3E8:
-	DEY
-	BMI.b CODE_B7E41C
-	LDA.b $6A
-	BIT.b $6C
-	BPL.b CODE_B7E407
-	CMP.w #$FFE0
-	BCS.b CODE_B7E41A
+	DEY					;$B7E3E8
+	BMI.b CODE_B7E41C			;$B7E3E9
+	LDA.b $6A				;$B7E3EB
+	BIT.b $6C				;$B7E3ED
+	BPL.b CODE_B7E407			;$B7E3EF
+	CMP.w #$FFE0				;$B7E3F1
+	BCS.b CODE_B7E41A			;$B7E3F4
 CODE_B7E3F6:
-	SEC
-	ROR.b $6C
-	ROR
-	DEY
-	BPL.b CODE_B7E3F6
-	CMP.w #$FFF8
-	BCC.b CODE_B7E41A
-	LDA.w #$FFF8
-	BRA.b CODE_B7E41A
+	SEC					;$B7E3F6
+	ROR.b $6C				;$B7E3F7
+	ROR					;$B7E3F9
+	DEY					;$B7E3FA
+	BPL.b CODE_B7E3F6			;$B7E3FB
+	CMP.w #$FFF8				;$B7E3FD
+	BCC.b CODE_B7E41A			;$B7E400
+	LDA.w #$FFF8				;$B7E402
+	BRA.b CODE_B7E41A			;$B7E405
 
 CODE_B7E407:
-	CMP.w #$0020
-	BCC.b CODE_B7E41A
+	CMP.w #$0020				;$B7E407
+	BCC.b CODE_B7E41A			;$B7E40A
 CODE_B7E40C:
-	LSR.b $6C
-	ROR
-	DEY
-	BPL.b CODE_B7E40C
-	CMP.w #$0008
-	BCS.b CODE_B7E41A
-	LDA.w #$0008
+	LSR.b $6C				;$B7E40C
+	ROR					;$B7E40E
+	DEY					;$B7E40F
+	BPL.b CODE_B7E40C			;$B7E410
+	CMP.w #$0008				;$B7E412
+	BCS.b CODE_B7E41A			;$B7E415
+	LDA.w #$0008				;$B7E417
 CODE_B7E41A:
-	STA.b $6A
+	STA.b $6A				;$B7E41A
 CODE_B7E41C:
-	LDA.b $66
-	CLC
-	ADC.b $6A
-	STA.b $6A
-	LDA.b $68
-	ADC.b $6C
-	STA.b $6C
-	ORA.b $6A
-	BEQ.b CODE_B7E458
-	LDA.b $8E
-	CLC
-	ADC.b $50
-	STA.b $8E
-	LDA.b $90
-	ADC.b $52
-	STA.b $90
-	EOR.b $6C
-	BMI.b CODE_B7E463
-	LDA.b $6C
-	BPL.b CODE_B7E44E
-	CMP.b $90
-	BNE.b CODE_B7E44A
-	LDA.b $6A
-	CMP.b $8E
+	LDA.b $66				;$B7E41C
+	CLC					;$B7E41E
+	ADC.b $6A				;$B7E41F
+	STA.b $6A				;$B7E421
+	LDA.b $68				;$B7E423
+	ADC.b $6C				;$B7E425
+	STA.b $6C				;$B7E427
+	ORA.b $6A				;$B7E429
+	BEQ.b CODE_B7E458			;$B7E42B
+	LDA.b $8E				;$B7E42D
+	CLC					;$B7E42F
+	ADC.b $50				;$B7E430
+	STA.b $8E				;$B7E432
+	LDA.b $90				;$B7E434
+	ADC.b $52				;$B7E436
+	STA.b $90				;$B7E438
+	EOR.b $6C				;$B7E43A
+	BMI.b CODE_B7E463			;$B7E43C
+	LDA.b $6C				;$B7E43E
+	BPL.b CODE_B7E44E			;$B7E440
+	CMP.b $90				;$B7E442
+	BNE.b CODE_B7E44A			;$B7E444
+	LDA.b $6A				;$B7E446
+	CMP.b $8E				;$B7E448
 CODE_B7E44A:
-	BCS.b CODE_B7E458
-	BCC.b CODE_B7E460
+	BCS.b CODE_B7E458			;$B7E44A
+	BCC.b CODE_B7E460			;$B7E44C
 CODE_B7E44E:
-	CMP.b $90
-	BNE.b CODE_B7E456
-	LDA.b $6A
-	CMP.b $8E
+	CMP.b $90				;$B7E44E
+	BNE.b CODE_B7E456			;$B7E450
+	LDA.b $6A				;$B7E452
+	CMP.b $8E				;$B7E454
 CODE_B7E456:
-	BCS.b CODE_B7E460
+	BCS.b CODE_B7E460			;$B7E456
 CODE_B7E458:
-	LDA.b $6A
-	STA.b $8E
-	LDA.b $6C
-	STA.b $90
+	LDA.b $6A				;$B7E458
+	STA.b $8E				;$B7E45A
+	LDA.b $6C				;$B7E45C
+	STA.b $90				;$B7E45E
 CODE_B7E460:
-	REP.b #$10
-	RTS
+	REP.b #$10				;$B7E460
+	RTS					;$B7E462
 
 CODE_B7E463:
-	LDA.b $90
-	ASL
-	ROR.b $90
-	ROR.b $8E
-	BRA.b CODE_B7E460
+	LDA.b $90				;$B7E463
+	ASL					;$B7E465
+	ROR.b $90				;$B7E466
+	ROR.b $8E				;$B7E468
+	BRA.b CODE_B7E460			;$B7E46A
 
 CODE_B7E46C:
-	BPL.b CODE_B7E472
-	EOR.w #$FFFF
-	INC
+	BPL.b CODE_B7E472			;$B7E46C
+	EOR.w #$FFFF				;$B7E46E
+	INC					;$B7E471
 CODE_B7E472:
-	STA.w $04B2
-	LDA.w #$4000
-	TRB.w $04B6
-	RTL
+	STA.w $04B2				;$B7E472
+	LDA.w #$4000				;$B7E475
+	TRB.w $04B6				;$B7E478
+	RTL					;$B7E47B
 
 CODE_B7E47C:
-	BPL.b CODE_B7E482
-	EOR.w #$FFFF
-	INC
+	BPL.b CODE_B7E482			;$B7E47C
+	EOR.w #$FFFF				;$B7E47E
+	INC					;$B7E481
 CODE_B7E482:
-	STA.w $04B2
-	LDA.w #$4000
-	TSB.w $04B6
-	RTL
+	STA.w $04B2				;$B7E482
+	LDA.w #$4000				;$B7E485
+	TSB.w $04B6				;$B7E488
+	RTL					;$B7E48B
 
 CODE_B7E48C:
-	BPL.b CODE_B7E492
-	EOR.w #$FFFF
-	INC
+	BPL.b CODE_B7E492			;$B7E48C
+	EOR.w #$FFFF				;$B7E48E
+	INC					;$B7E491
 CODE_B7E492:
-	STA.w $04B4
-	LDA.w #$8000
-	TSB.w $04B6
-	RTL
+	STA.w $04B4				;$B7E492
+	LDA.w #$8000				;$B7E495
+	TSB.w $04B6				;$B7E498
+	RTL					;$B7E49B
 
 CODE_B7E49C:
-	JMP.w CODE_B7E4B7
+	JMP.w CODE_B7E4B7			;$B7E49C
 
 CODE_B7E49F:
-	JMP.w CODE_B7E4AB
+	JMP.w CODE_B7E4AB			;$B7E49F
 
 CODE_B7E4A2:
-	JMP.w CODE_B7ED26
+	JMP.w CODE_B7ED26			;$B7E4A2
 
 CODE_B7E4A5:
-	JMP.w CODE_B7E864
+	JMP.w CODE_B7E864			;$B7E4A5
 
 CODE_B7E4A8:
-	JMP.w CODE_B7EDCE
+	JMP.w CODE_B7EDCE			;$B7E4A8
 
 CODE_B7E4AB:
-	JSL.l CODE_B7E789
-	JSR.w CODE_B7EB08
-	JSL.l CODE_B7E864
-	RTL
+	JSL.l CODE_B7E789			;$B7E4AB
+	JSR.w CODE_B7EB08			;$B7E4AF
+	JSL.l CODE_B7E864			;$B7E4B2
+	RTL					;$B7E4B6
 
 CODE_B7E4B7:
-	PHB
-	PHK
-	PLB
-	LDA.w #$0000
-	STA.w $18EF
-	LDA.w $05D3
-	CMP.w #$0109
-	BCC.b CODE_B7E4CB
-	LDA.w #$0109
+	PHB					;$B7E4B7
+	PHK					;$B7E4B8
+	PLB					;$B7E4B9
+	LDA.w #$0000				;$B7E4BA
+	STA.w $18EF				;$B7E4BD
+	LDA.w $05D3				;$B7E4C0
+	CMP.w #$0109				;$B7E4C3
+	BCC.b CODE_B7E4CB			;$B7E4C6
+	LDA.w #$0109				;$B7E4C8
 CODE_B7E4CB:
-	STA.w $18CD
-	CMP.w #$0099
-	BCC.b CODE_B7E4D6
-	LDA.w #$0099
+	STA.w $18CD				;$B7E4CB
+	CMP.w #$0099				;$B7E4CE
+	BCC.b CODE_B7E4D6			;$B7E4D1
+	LDA.w #$0099				;$B7E4D3
 CODE_B7E4D6:
-	STA.w $18CB
-	LDA.w #$0010
-	STA.w $18F5
-	STZ.w $18F3
-	STZ.b $36
-	STZ.b $38
-	LDA.w #DATA_ECF236>>16
-	STA.b $2C
-	LDA.w $0470
-	ASL
-	ADC.w $0470
-	ASL
-	TAX
-	LDA.w DATA_B7E747,x
-	STA.b $24
-	LDA.w DATA_B7E747+$02,x
-	STA.b $26
-	LDA.w DATA_B7E747+$04,x
-	STA.b $1E
-	LDA.b level_number
-	ASL
-	TAX
-	LDA.l DATA_ECD002+$02,x
-	SEC
-	SBC.l DATA_ECD002,x
-	LSR
-	LSR
-	STA.b $1C
-	LDA.l DATA_ECD002,x
-	TAX
-	PEA.w $7E6780>>8
-	PLB
-	PLB
-	LDY.w #$0000
-	LDA.w #$7380
-	STA.b $21
+	STA.w $18CB				;$B7E4D6
+	LDA.w #$0010				;$B7E4D9
+	STA.w $18F5				;$B7E4DC
+	STZ.w $18F3				;$B7E4DF
+	STZ.b $36				;$B7E4E2
+	STZ.b $38				;$B7E4E4
+	LDA.w #DATA_ECF236>>16			;$B7E4E6
+	STA.b $2C				;$B7E4E9
+	LDA.w $0470				;$B7E4EB
+	ASL					;$B7E4EE
+	ADC.w $0470				;$B7E4EF
+	ASL					;$B7E4F2
+	TAX					;$B7E4F3
+	LDA.w DATA_B7E747,x			;$B7E4F4
+	STA.b $24				;$B7E4F7
+	LDA.w DATA_B7E747+$02,x			;$B7E4F9
+	STA.b $26				;$B7E4FC
+	LDA.w DATA_B7E747+$04,x			;$B7E4FE
+	STA.b $1E				;$B7E501
+	LDA.b level_number			;$B7E503
+	ASL					;$B7E505
+	TAX					;$B7E506
+	LDA.l DATA_ECD002+$02,x			;$B7E507
+	SEC					;$B7E50B
+	SBC.l DATA_ECD002,x			;$B7E50C
+	LSR					;$B7E510
+	LSR					;$B7E511
+	STA.b $1C				;$B7E512
+	LDA.l DATA_ECD002,x			;$B7E514
+	TAX					;$B7E518
+	PEA.w $7E6780>>8			;$B7E519
+	PLB					;$B7E51C
+	PLB					;$B7E51D
+	LDY.w #$0000				;$B7E51E
+	LDA.w #$7380				;$B7E521
+	STA.b $21				;$B7E524
 CODE_B7E526:
-	DEC.b $1C
-	BPL.b CODE_B7E52E
-	TYX
-	BRL.w CODE_B7E604
+	DEC.b $1C				;$B7E526
+	BPL.b CODE_B7E52E			;$B7E528
+	TYX					;$B7E52A
+	BRL.w CODE_B7E604			;$B7E52B
 
 CODE_B7E52E:
-	PHY
-	PHX
-	LDA.l DATA_ECD002+$02,x
-	STA.b $3C
-	LDA.l DATA_ECD002,x
-	STA.b $3A
-	AND.w #$0003
-	ASL
-	STA.b $3E
-	LDA.b $3A
-	AND.w #$000C
-	LSR
-	TAX
-	LDA.l DATA_B7E727+$08,x
-	TSB.b $3E
-	LDA.b $3B
-	AND.w #$C000
-	LSR
-	LSR
-	ORA.b $3E
-	STA.w $7E6788,y
-	LDA.b $3A
-	LSR
-	AND.b $24
-	CLC
-	ADC.w #$0100
-	STA.w $7E6780,y
-	LDA.b $3B
-	PEA.w CODE_B7E56F-$01
-	JMP.w ($001E)
+	PHY					;$B7E52E
+	PHX					;$B7E52F
+	LDA.l DATA_ECD002+$02,x			;$B7E530
+	STA.b $3C				;$B7E534
+	LDA.l DATA_ECD002,x			;$B7E536
+	STA.b $3A				;$B7E53A
+	AND.w #$0003				;$B7E53C
+	ASL					;$B7E53F
+	STA.b $3E				;$B7E540
+	LDA.b $3A				;$B7E542
+	AND.w #$000C				;$B7E544
+	LSR					;$B7E547
+	TAX					;$B7E548
+	LDA.l DATA_B7E727+$08,x			;$B7E549
+	TSB.b $3E				;$B7E54D
+	LDA.b $3B				;$B7E54F
+	AND.w #$C000				;$B7E551
+	LSR					;$B7E554
+	LSR					;$B7E555
+	ORA.b $3E				;$B7E556
+	STA.w $7E6788,y				;$B7E558
+	LDA.b $3A				;$B7E55B
+	LSR					;$B7E55D
+	AND.b $24				;$B7E55E
+	CLC					;$B7E560
+	ADC.w #$0100				;$B7E561
+	STA.w $7E6780,y				;$B7E564
+	LDA.b $3B				;$B7E567
+	PEA.w CODE_B7E56F-$01			;$B7E569
+	JMP.w ($001E)				;$B7E56C
 CODE_B7E56F:
-	AND.b $26
-	CLC
-	ADC.w #$0100
-	STA.w $7E6782,y
-	LDA.b $21
-	STA.w $7E678A,y
-	LDA.b $3D
-	AND.w #$00FF
-	ASL
-	ADC.l DATA_ECD000
-	STA.b $2A
-	LDA.b [$2A]
-	CLC
-	ADC.l DATA_ECD000
-	STA.b $2A
-	LDA.b [$2A]
-	AND.w #$00FF
-	STA.b $28
-	ASL
-	STA.w $7E6784,y
-	ASL
-	ASL
-	STA.w $7E6786,y
-	LDA.w $7E6782,y
-	CLC
-	SBC.b $38
-	BPL.b CODE_B7E5B8
-	LDA.b $36
-	STA.w $7E678C,y
-	TYX
-	TAY
-	TXA
-	STA.w $7E678E,y
-	STA.b $36
-	TAY
+	AND.b $26				;$B7E56F
+	CLC					;$B7E571
+	ADC.w #$0100				;$B7E572
+	STA.w $7E6782,y				;$B7E575
+	LDA.b $21				;$B7E578
+	STA.w $7E678A,y				;$B7E57A
+	LDA.b $3D				;$B7E57D
+	AND.w #$00FF				;$B7E57F
+	ASL					;$B7E582
+	ADC.l DATA_ECD000			;$B7E583
+	STA.b $2A				;$B7E587
+	LDA.b [$2A]				;$B7E589
+	CLC					;$B7E58B
+	ADC.l DATA_ECD000			;$B7E58C
+	STA.b $2A				;$B7E590
+	LDA.b [$2A]				;$B7E592
+	AND.w #$00FF				;$B7E594
+	STA.b $28				;$B7E597
+	ASL					;$B7E599
+	STA.w $7E6784,y				;$B7E59A
+	ASL					;$B7E59D
+	ASL					;$B7E59E
+	STA.w $7E6786,y				;$B7E59F
+	LDA.w $7E6782,y				;$B7E5A2
+	CLC					;$B7E5A5
+	SBC.b $38				;$B7E5A6
+	BPL.b CODE_B7E5B8			;$B7E5A8
+	LDA.b $36				;$B7E5AA
+	STA.w $7E678C,y				;$B7E5AC
+	TYX					;$B7E5AF
+	TAY					;$B7E5B0
+	TXA					;$B7E5B1
+	STA.w $7E678E,y				;$B7E5B2
+	STA.b $36				;$B7E5B5
+	TAY					;$B7E5B7
 CODE_B7E5B8:
-	LDA.w $7E6782,y
-	STA.b $38
-	LDY.w #$0001
-	LDA.b [$2A],y
-	ASL
-	AND.w #$007F
-	TAX
-	LDA.l DATA_B7E727-$02,x
-	STA.b $34
-	STA.b $32
-	LDX.b $21
-	INY
+	LDA.w $7E6782,y				;$B7E5B8
+	STA.b $38				;$B7E5BB
+	LDY.w #$0001				;$B7E5BD
+	LDA.b [$2A],y				;$B7E5C0
+	ASL					;$B7E5C2
+	AND.w #$007F				;$B7E5C3
+	TAX					;$B7E5C6
+	LDA.l DATA_B7E727-$02,x			;$B7E5C7
+	STA.b $34				;$B7E5CB
+	STA.b $32				;$B7E5CD
+	LDX.b $21				;$B7E5CF
+	INY					;$B7E5D1
 CODE_B7E5D2:
-	LDA.b [$2A],y
-	INY
-	INY
-	SEC
+	LDA.b [$2A],y				;$B7E5D2
+	INY					;$B7E5D4
+	INY					;$B7E5D5
+	SEC					;$B7E5D6
 CODE_B7E5D7:
-	ROR
-	BEQ.b CODE_B7E5D2
-	ROR.b $32
-	BCC.b CODE_B7E5D7
-	STA.b $1A
-	LDA.b $32
-	STA.l $7E0000,x
-	LDA.b $34
-	STA.b $32
-	LDA.b $1A
-	INX
-	INX
-	DEC.b $28
-	CLC
-	BNE.b CODE_B7E5D7
-	STX.b $21
-	PLA
-	CLC
-	ADC.w #$0004
-	TAX
-	PLA
-	CLC
-	ADC.w #$0010
-	TAY
-	BRL.w CODE_B7E526
+	ROR					;$B7E5D7
+	BEQ.b CODE_B7E5D2			;$B7E5D8
+	ROR.b $32				;$B7E5DA
+	BCC.b CODE_B7E5D7			;$B7E5DC
+	STA.b $1A				;$B7E5DE
+	LDA.b $32				;$B7E5E0
+	STA.l $7E0000,x				;$B7E5E2
+	LDA.b $34				;$B7E5E6
+	STA.b $32				;$B7E5E8
+	LDA.b $1A				;$B7E5EA
+	INX					;$B7E5EC
+	INX					;$B7E5ED
+	DEC.b $28				;$B7E5EE
+	CLC					;$B7E5F0
+	BNE.b CODE_B7E5D7			;$B7E5F1
+	STX.b $21				;$B7E5F3
+	PLA					;$B7E5F5
+	CLC					;$B7E5F6
+	ADC.w #$0004				;$B7E5F7
+	TAX					;$B7E5FA
+	PLA					;$B7E5FB
+	CLC					;$B7E5FC
+	ADC.w #$0010				;$B7E5FD
+	TAY					;$B7E600
+	BRL.w CODE_B7E526			;$B7E601
 
 CODE_B7E604:
-	STX.b $2C
-	LDA.w #$0000
-	STA.l $7E6782,x
-	STA.l $7E678A,x
-	STA.l $7E678E,x
-	DEC
-	STA.l $7E6780,x
-	LDA.b $36
-	STA.l $7E678C,x
-	TXA
-	LDX.b $36
-	STA.l $7E678E,x
-	LDX.b $2C
-	BNE.b CODE_B7E62E
-	BRL.w CODE_B7E71E
+	STX.b $2C				;$B7E604
+	LDA.w #$0000				;$B7E606
+	STA.l $7E6782,x				;$B7E609
+	STA.l $7E678A,x				;$B7E60D
+	STA.l $7E678E,x				;$B7E611
+	DEC					;$B7E615
+	STA.l $7E6780,x				;$B7E616
+	LDA.b $36				;$B7E61A
+	STA.l $7E678C,x				;$B7E61C
+	TXA					;$B7E620
+	LDX.b $36				;$B7E621
+	STA.l $7E678E,x				;$B7E623
+	LDX.b $2C				;$B7E627
+	BNE.b CODE_B7E62E			;$B7E629
+	BRL.w CODE_B7E71E			;$B7E62B
 
 CODE_B7E62E:
-	LDX.b $2C
-	TXA
-	SEC
-	SBC.w #$0010
-	STA.b $2A
-	LDA.l $7E678C,x
-	BEQ.b CODE_B7E69A
-	STA.b $2C
-	CMP.b $2A
-	BEQ.b CODE_B7E62E
-	TAX
-	SEC
-	SBC.w #$0010
-	STA.b $2E
-	LDA.l $7E678C,x
-	STA.b $30
-	LDX.b $2E
-	LDA.l $7E6782,x
-	STA.b $1E
-	LDX.b $2A
+	LDX.b $2C				;$B7E62E
+	TXA					;$B7E630
+	SEC					;$B7E631
+	SBC.w #$0010				;$B7E632
+	STA.b $2A				;$B7E635
+	LDA.l $7E678C,x				;$B7E637
+	BEQ.b CODE_B7E69A			;$B7E63B
+	STA.b $2C				;$B7E63D
+	CMP.b $2A				;$B7E63F
+	BEQ.b CODE_B7E62E			;$B7E641
+	TAX					;$B7E643
+	SEC					;$B7E644
+	SBC.w #$0010				;$B7E645
+	STA.b $2E				;$B7E648
+	LDA.l $7E678C,x				;$B7E64A
+	STA.b $30				;$B7E64E
+	LDX.b $2E				;$B7E650
+	LDA.l $7E6782,x				;$B7E652
+	STA.b $1E				;$B7E656
+	LDX.b $2A				;$B7E658
 CODE_B7E65A:
-	LDA.l $7E6782,x
-	CMP.b $1E
-	BCC.b CODE_B7E673
-	LDA.b $2E
-	STA.l $7E678C,x
-	TXA
-	SBC.w #$0010
-	TAX
-	CMP.b $2C
-	BNE.b CODE_B7E65A
-	BRA.b CODE_B7E62E
+	LDA.l $7E6782,x				;$B7E65A
+	CMP.b $1E				;$B7E65E
+	BCC.b CODE_B7E673			;$B7E660
+	LDA.b $2E				;$B7E662
+	STA.l $7E678C,x				;$B7E664
+	TXA					;$B7E668
+	SBC.w #$0010				;$B7E669
+	TAX					;$B7E66C
+	CMP.b $2C				;$B7E66D
+	BNE.b CODE_B7E65A			;$B7E66F
+	BRA.b CODE_B7E62E			;$B7E671
 
 CODE_B7E673:
-	LDA.b $2E
-	CMP.b $30
-	BEQ.b CODE_B7E689
-	SBC.w #$0010
-	STA.b $2E
-	TXY
-	TAX
-	LDA.l $7E6782,x
-	STA.b $1E
-	TYX
-	BRA.b CODE_B7E65A
+	LDA.b $2E				;$B7E673
+	CMP.b $30				;$B7E675
+	BEQ.b CODE_B7E689			;$B7E677
+	SBC.w #$0010				;$B7E679
+	STA.b $2E				;$B7E67C
+	TXY					;$B7E67E
+	TAX					;$B7E67F
+	LDA.l $7E6782,x				;$B7E680
+	STA.b $1E				;$B7E684
+	TYX					;$B7E686
+	BRA.b CODE_B7E65A			;$B7E687
 
 CODE_B7E689:
-	LDA.b $2E
-	STA.l $7E678C,x
-	TXA
-	CMP.b $2C
-	BEQ.b CODE_B7E62E
-	SBC.w #$0010
-	TAX
-	BRA.b CODE_B7E689
+	LDA.b $2E				;$B7E689
+	STA.l $7E678C,x				;$B7E68B
+	TXA					;$B7E68F
+	CMP.b $2C				;$B7E690
+	BEQ.b CODE_B7E62E			;$B7E692
+	SBC.w #$0010				;$B7E694
+	TAX					;$B7E697
+	BRA.b CODE_B7E689			;$B7E698
 
 CODE_B7E69A:
-	LDX.b $2A
+	LDX.b $2A				;$B7E69A
 CODE_B7E69C:
-	LDA.w #$FFFF
-	STA.l $7E678C,x
-	TXA
-	SBC.w #$0010
-	TAX
-	BCS.b CODE_B7E69C
-	STZ.b $2C
+	LDA.w #$FFFF				;$B7E69C
+	STA.l $7E678C,x				;$B7E69F
+	TXA					;$B7E6A3
+	SBC.w #$0010				;$B7E6A4
+	TAX					;$B7E6A7
+	BCS.b CODE_B7E69C			;$B7E6A8
+	STZ.b $2C				;$B7E6AA
 CODE_B7E6AC:
-	LDX.b $2C
-	TXA
-	CLC
-	ADC.w #$0010
-	STA.b $2A
-	LDA.l $7E678E,x
-	BEQ.b CODE_B7E71E
-	STA.b $2C
-	CMP.b $2A
-	BEQ.b CODE_B7E6AC
-	STA.b $2E
-	TAX
-	LDA.l $7E678E,x
-	STA.b $30
-	LDA.l $7E6782,x
-	CLC
-	ADC.w #$0167
-	STA.b $1E
-	LDX.b $2A
+	LDX.b $2C				;$B7E6AC
+	TXA					;$B7E6AE
+	CLC					;$B7E6AF
+	ADC.w #$0010				;$B7E6B0
+	STA.b $2A				;$B7E6B3
+	LDA.l $7E678E,x				;$B7E6B5
+	BEQ.b CODE_B7E71E			;$B7E6B9
+	STA.b $2C				;$B7E6BB
+	CMP.b $2A				;$B7E6BD
+	BEQ.b CODE_B7E6AC			;$B7E6BF
+	STA.b $2E				;$B7E6C1
+	TAX					;$B7E6C3
+	LDA.l $7E678E,x				;$B7E6C4
+	STA.b $30				;$B7E6C8
+	LDA.l $7E6782,x				;$B7E6CA
+	CLC					;$B7E6CE
+	ADC.w #$0167				;$B7E6CF
+	STA.b $1E				;$B7E6D2
+	LDX.b $2A				;$B7E6D4
 CODE_B7E6D6:
-	LDA.l $7E6772,x
-	CMP.b $1E
-	BCS.b CODE_B7E6EF
-	LDA.b $2E
-	STA.l $7E678E,x
-	TXA
-	ADC.w #$0010
-	TAX
-	CMP.b $2C
-	BCC.b CODE_B7E6D6
-	BCS.b CODE_B7E6AC
+	LDA.l $7E6772,x				;$B7E6D6
+	CMP.b $1E				;$B7E6DA
+	BCS.b CODE_B7E6EF			;$B7E6DC
+	LDA.b $2E				;$B7E6DE
+	STA.l $7E678E,x				;$B7E6E0
+	TXA					;$B7E6E4
+	ADC.w #$0010				;$B7E6E5
+	TAX					;$B7E6E8
+	CMP.b $2C				;$B7E6E9
+	BCC.b CODE_B7E6D6			;$B7E6EB
+	BCS.b CODE_B7E6AC			;$B7E6ED
 CODE_B7E6EF:
-	LDA.b $2E
-	ADC.w #$000F
-	CMP.b $30
-	BCS.b CODE_B7E70B
-	STA.b $2E
-	STX.b $2A
-	TAX
-	LDA.l $7E6782,x
-	CLC
-	ADC.w #$0167
-	STA.b $1E
-	LDX.b $2A
-	BRA.b CODE_B7E6D6
+	LDA.b $2E				;$B7E6EF
+	ADC.w #$000F				;$B7E6F1
+	CMP.b $30				;$B7E6F4
+	BCS.b CODE_B7E70B			;$B7E6F6
+	STA.b $2E				;$B7E6F8
+	STX.b $2A				;$B7E6FA
+	TAX					;$B7E6FC
+	LDA.l $7E6782,x				;$B7E6FD
+	CLC					;$B7E701
+	ADC.w #$0167				;$B7E702
+	STA.b $1E				;$B7E705
+	LDX.b $2A				;$B7E707
+	BRA.b CODE_B7E6D6			;$B7E709
 
 CODE_B7E70B:
-	CLC
+	CLC					;$B7E70B
 CODE_B7E70C:
-	LDA.b $2E
-	STA.l $7E678E,x
-	TXA
-	ADC.w #$0010
-	TAX
-	CMP.b $2C
-	BCC.b CODE_B7E70C
-	BRL.w CODE_B7E6AC
+	LDA.b $2E				;$B7E70C
+	STA.l $7E678E,x				;$B7E70E
+	TXA					;$B7E712
+	ADC.w #$0010				;$B7E713
+	TAX					;$B7E716
+	CMP.b $2C				;$B7E717
+	BCC.b CODE_B7E70C			;$B7E719
+	BRL.w CODE_B7E6AC			;$B7E71B
 
 CODE_B7E71E:
-	LDA.w #$FFFE
-	STA.l $7E9780
-	PLB
-	RTL
+	LDA.w #$FFFE				;$B7E71E
+	STA.l $7E9780				;$B7E721
+	PLB					;$B7E725
+	RTL					;$B7E726
 
 DATA_B7E727:
 	dw $0001
@@ -11496,191 +11496,191 @@ DATA_B7E747:
 	dw $0FF8,$0FF8,CODE_B7E786
 
 CODE_B7E783:
-	LSR
+	LSR					;$B7E783
 CODE_B7E784:
-	LSR
+	LSR					;$B7E784
 CODE_B7E785:
-	LSR
+	LSR					;$B7E785
 CODE_B7E786:
-	LSR
+	LSR					;$B7E786
 CODE_B7E787:
-	LSR
+	LSR					;$B7E787
 CODE_B7E788:
-	RTS
+	RTS					;$B7E788
 
 CODE_B7E789:
-	LDA.w $196D
-	SEC
-	SBC.w #$0107
-	BPL.b CODE_B7E795
-	LDA.w #$0000
+	LDA.w $196D				;$B7E789
+	SEC					;$B7E78C
+	SBC.w #$0107				;$B7E78D
+	BPL.b CODE_B7E795			;$B7E790
+	LDA.w #$0000				;$B7E792
 CODE_B7E795:
-	STA.b $2C
-	LDA.w $1975
-	SEC
-	SBC.w #$008F
-	BPL.b CODE_B7E7A3
-	LDA.w #$0000
+	STA.b $2C				;$B7E795
+	LDA.w $1975				;$B7E797
+	SEC					;$B7E79A
+	SBC.w #$008F				;$B7E79B
+	BPL.b CODE_B7E7A3			;$B7E79E
+	LDA.w #$0000				;$B7E7A0
 CODE_B7E7A3:
-	STA.b $2E
-	LDX.w $18F3
-	LDA.l $7E6780,x
-	CMP.b $2C
-	BCS.b CODE_B7E803
-	LDA.l $7E6782,x
-	CMP.b $2E
-	BCS.b CODE_B7E7DB
-	LDA.l $7E678E,x
-	TAX
-	LDA.l $7E6780,x
-	CMP.b $2C
-	BCC.b CODE_B7E7FF
-	LDA.w $18F3
-	ADC.w #$000F
-	TAX
-	LDA.l $7E6782,x
-	CMP.l $7E6772,x
-	BCC.b CODE_B7E802
-	CMP.b $2E
-	BCC.b CODE_B7E7FF
-	RTL
+	STA.b $2E				;$B7E7A3
+	LDX.w $18F3				;$B7E7A5
+	LDA.l $7E6780,x				;$B7E7A8
+	CMP.b $2C				;$B7E7AC
+	BCS.b CODE_B7E803			;$B7E7AE
+	LDA.l $7E6782,x				;$B7E7B0
+	CMP.b $2E				;$B7E7B4
+	BCS.b CODE_B7E7DB			;$B7E7B6
+	LDA.l $7E678E,x				;$B7E7B8
+	TAX					;$B7E7BC
+	LDA.l $7E6780,x				;$B7E7BD
+	CMP.b $2C				;$B7E7C1
+	BCC.b CODE_B7E7FF			;$B7E7C3
+	LDA.w $18F3				;$B7E7C5
+	ADC.w #$000F				;$B7E7C8
+	TAX					;$B7E7CB
+	LDA.l $7E6782,x				;$B7E7CC
+	CMP.l $7E6772,x				;$B7E7D0
+	BCC.b CODE_B7E802			;$B7E7D4
+	CMP.b $2E				;$B7E7D6
+	BCC.b CODE_B7E7FF			;$B7E7D8
+	RTL					;$B7E7DA
 
 CODE_B7E7DB:
-	LDA.l $7E678E,x
-	TAX
-	LDA.l $7E6780,x
-	CMP.b $2C
-	BCC.b CODE_B7E7FF
-	LDA.w $18F3
-	SBC.w #$0010
-	BMI.b CODE_B7E802
-	TAX
-	LDA.l $7E6782,x
-	CMP.l $7E6792,x
-	BCS.b CODE_B7E802
-	CMP.b $2E
-	BCC.b CODE_B7E802
+	LDA.l $7E678E,x				;$B7E7DB
+	TAX					;$B7E7DF
+	LDA.l $7E6780,x				;$B7E7E0
+	CMP.b $2C				;$B7E7E4
+	BCC.b CODE_B7E7FF			;$B7E7E6
+	LDA.w $18F3				;$B7E7E8
+	SBC.w #$0010				;$B7E7EB
+	BMI.b CODE_B7E802			;$B7E7EE
+	TAX					;$B7E7F0
+	LDA.l $7E6782,x				;$B7E7F1
+	CMP.l $7E6792,x				;$B7E7F5
+	BCS.b CODE_B7E802			;$B7E7F9
+	CMP.b $2E				;$B7E7FB
+	BCC.b CODE_B7E802			;$B7E7FD
 CODE_B7E7FF:
-	STX.w $18F3
+	STX.w $18F3				;$B7E7FF
 CODE_B7E802:
-	RTL
+	RTL					;$B7E802
 
 CODE_B7E803:
-	INC
-	BEQ.b CODE_B7E863
-	LDA.l $7E6782,x
-	CMP.b $2E
-	BCS.b CODE_B7E836
-	LDA.l $7E678C,x
-	BMI.b CODE_B7E820
-	TAX
-	LDA.l $7E6780,x
-	CMP.b $2C
-	BCS.b CODE_B7E860
-	STX.w $18F3
+	INC					;$B7E803
+	BEQ.b CODE_B7E863			;$B7E804
+	LDA.l $7E6782,x				;$B7E806
+	CMP.b $2E				;$B7E80A
+	BCS.b CODE_B7E836			;$B7E80C
+	LDA.l $7E678C,x				;$B7E80E
+	BMI.b CODE_B7E820			;$B7E812
+	TAX					;$B7E814
+	LDA.l $7E6780,x				;$B7E815
+	CMP.b $2C				;$B7E819
+	BCS.b CODE_B7E860			;$B7E81B
+	STX.w $18F3				;$B7E81D
 CODE_B7E820:
-	LDA.w $18F3
-	ADC.w #$0010
-	TAX
-	LDA.l $7E6782,x
-	CMP.l $7E6772,x
-	BCC.b CODE_B7E863
-	CMP.b $2E
-	BCC.b CODE_B7E860
-	RTL
+	LDA.w $18F3				;$B7E820
+	ADC.w #$0010				;$B7E823
+	TAX					;$B7E826
+	LDA.l $7E6782,x				;$B7E827
+	CMP.l $7E6772,x				;$B7E82B
+	BCC.b CODE_B7E863			;$B7E82F
+	CMP.b $2E				;$B7E831
+	BCC.b CODE_B7E860			;$B7E833
+	RTL					;$B7E835
 
 CODE_B7E836:
-	LDA.l $7E678C,x
-	BMI.b CODE_B7E849
-	TAX
-	LDA.l $7E6780,x
-	CMP.b $2C
-	BCS.b CODE_B7E860
-	STX.w $18F3
-	SEC
+	LDA.l $7E678C,x				;$B7E836
+	BMI.b CODE_B7E849			;$B7E83A
+	TAX					;$B7E83C
+	LDA.l $7E6780,x				;$B7E83D
+	CMP.b $2C				;$B7E841
+	BCS.b CODE_B7E860			;$B7E843
+	STX.w $18F3				;$B7E845
+	SEC					;$B7E848
 CODE_B7E849:
-	LDA.w $18F3
-	SBC.w #$0010
-	BMI.b CODE_B7E863
-	TAX
-	LDA.l $7E6782,x
-	CMP.l $7E6792,x
-	BCS.b CODE_B7E863
-	CMP.b $2E
-	BCC.b CODE_B7E863
+	LDA.w $18F3				;$B7E849
+	SBC.w #$0010				;$B7E84C
+	BMI.b CODE_B7E863			;$B7E84F
+	TAX					;$B7E851
+	LDA.l $7E6782,x				;$B7E852
+	CMP.l $7E6792,x				;$B7E856
+	BCS.b CODE_B7E863			;$B7E85A
+	CMP.b $2E				;$B7E85C
+	BCC.b CODE_B7E863			;$B7E85E
 CODE_B7E860:
-	STX.w $18F3
+	STX.w $18F3				;$B7E860
 CODE_B7E863:
-	RTL
+	RTL					;$B7E863
 
 CODE_B7E864:
-	PHB
-	PHK
-	PLB
-	LDA.b next_oam_slot
-	CMP.w #$0400
-	BCS.b CODE_B7E8D6
-	STA.w !REGISTER_WRAMAddressLo
-	STZ.w !REGISTER_WRAMAddressBank
-	SEC
-	SBC.w #$0200
-	LSR
-	LSR
-	SEP.b #$30
-	STA.b $1A
-	AND.b #$03
-	TAY
-	EOR.b $1A
-	LSR
-	LSR
-	ADC.b #$60
-	STA.b $20
-	TAX
-	LDA.w $03A0,x
-	AND.w DATA_B7E8D8,y
-	ORA.w DATA_B7E8DC,y
-	SEC
+	PHB					;$B7E864
+	PHK					;$B7E865
+	PLB					;$B7E866
+	LDA.b next_oam_slot			;$B7E867
+	CMP.w #$0400				;$B7E869
+	BCS.b CODE_B7E8D6			;$B7E86C
+	STA.w !REGISTER_WRAMAddressLo		;$B7E86E
+	STZ.w !REGISTER_WRAMAddressBank		;$B7E871
+	SEC					;$B7E874
+	SBC.w #$0200				;$B7E875
+	LSR					;$B7E878
+	LSR					;$B7E879
+	SEP.b #$30				;$B7E87A
+	STA.b $1A				;$B7E87C
+	AND.b #$03				;$B7E87E
+	TAY					;$B7E880
+	EOR.b $1A				;$B7E881
+	LSR					;$B7E883
+	LSR					;$B7E884
+	ADC.b #$60				;$B7E885
+	STA.b $20				;$B7E887
+	TAX					;$B7E889
+	LDA.w $03A0,x				;$B7E88A
+	AND.w DATA_B7E8D8,y			;$B7E88D
+	ORA.w DATA_B7E8DC,y			;$B7E890
+	SEC					;$B7E893
 CODE_B7E894:
-	ROL
-	ROL
-	BCC.b CODE_B7E894
-	STA.b $32
-	LDA.b #$7E
-	STA.b $23
-	REP.b #$30
-	JSR.w CODE_B7E8E0
-	JSR.w CODE_B7EDDA
-	LDA.b $20
-	BIT.w #$0080
-	BNE.b CODE_B7E8D6
-	SEC
-	SBC.w #$0060
-	AND.w #$001F
-	TAY
-	ASL
-	ASL
-	ASL
-	ASL
-	ADC.w #$0200
-	STA.b next_oam_slot
-	LDX.w #$0004
-	SEP.b #$20
-	LDA.b $32
+	ROL					;$B7E894
+	ROL					;$B7E895
+	BCC.b CODE_B7E894			;$B7E896
+	STA.b $32				;$B7E898
+	LDA.b #$7E				;$B7E89A
+	STA.b $23				;$B7E89C
+	REP.b #$30				;$B7E89E
+	JSR.w CODE_B7E8E0			;$B7E8A0
+	JSR.w CODE_B7EDDA			;$B7E8A3
+	LDA.b $20				;$B7E8A6
+	BIT.w #$0080				;$B7E8A8
+	BNE.b CODE_B7E8D6			;$B7E8AB
+	SEC					;$B7E8AD
+	SBC.w #$0060				;$B7E8AE
+	AND.w #$001F				;$B7E8B1
+	TAY					;$B7E8B4
+	ASL					;$B7E8B5
+	ASL					;$B7E8B6
+	ASL					;$B7E8B7
+	ASL					;$B7E8B8
+	ADC.w #$0200				;$B7E8B9
+	STA.b next_oam_slot			;$B7E8BC
+	LDX.w #$0004				;$B7E8BE
+	SEP.b #$20				;$B7E8C1
+	LDA.b $32				;$B7E8C3
 CODE_B7E8C5:
-	DEX
-	LSR
-	LSR
-	BCC.b CODE_B7E8C5
-	STA.w $0400,y
-	REP.b #$20
-	TXA
-	ASL
-	ASL
-	ADC.b next_oam_slot
-	STA.b next_oam_slot
+	DEX					;$B7E8C5
+	LSR					;$B7E8C6
+	LSR					;$B7E8C7
+	BCC.b CODE_B7E8C5			;$B7E8C8
+	STA.w $0400,y				;$B7E8CA
+	REP.b #$20				;$B7E8CD
+	TXA					;$B7E8CF
+	ASL					;$B7E8D0
+	ASL					;$B7E8D1
+	ADC.b next_oam_slot			;$B7E8D2
+	STA.b next_oam_slot			;$B7E8D4
 CODE_B7E8D6:
-	PLB
-	RTL
+	PLB					;$B7E8D6
+	RTL					;$B7E8D7
 
 DATA_B7E8D8:
 	db $00,$03,$0F,$3F
@@ -11689,814 +11689,814 @@ DATA_B7E8DC:
 	db $01,$04,$10,$40
 
 CODE_B7E8E0:
-	LDA.w $196D
-	CLC
-	ADC.w #$0100
-	STA.b $2C
-	LDA.w $1973
-	CLC
-	ADC.w #$00E0
-	STA.b $2E
-	SEC
-	SBC.w #$0167
-	BPL.b CODE_B7E8FB
-	LDA.w #$0000
+	LDA.w $196D				;$B7E8E0
+	CLC					;$B7E8E3
+	ADC.w #$0100				;$B7E8E4
+	STA.b $2C				;$B7E8E7
+	LDA.w $1973				;$B7E8E9
+	CLC					;$B7E8EC
+	ADC.w #$00E0				;$B7E8ED
+	STA.b $2E				;$B7E8F0
+	SEC					;$B7E8F2
+	SBC.w #$0167				;$B7E8F3
+	BPL.b CODE_B7E8FB			;$B7E8F6
+	LDA.w #$0000				;$B7E8F8
 CODE_B7E8FB:
-	STA.b $30
-	LDX.w $18F3
+	STA.b $30				;$B7E8FB
+	LDX.w $18F3				;$B7E8FD
 CODE_B7E900:
-	SEC
+	SEC					;$B7E900
 CODE_B7E901:
-	LDA.l $7E6780,x
-	SBC.b $2C
-	BCS.b CODE_B7E980
-	ADC.l $7E6786,x
-	ADC.w #$010F
-	BMI.b CODE_B7E93A
-	LDA.l $7E6782,x
-	CMP.b $2E
-	BCS.b CODE_B7E94F
-	CMP.b $30
-	BCS.b CODE_B7E956
+	LDA.l $7E6780,x				;$B7E901
+	SBC.b $2C				;$B7E905
+	BCS.b CODE_B7E980			;$B7E907
+	ADC.l $7E6786,x				;$B7E909
+	ADC.w #$010F				;$B7E90D
+	BMI.b CODE_B7E93A			;$B7E910
+	LDA.l $7E6782,x				;$B7E912
+	CMP.b $2E				;$B7E916
+	BCS.b CODE_B7E94F			;$B7E918
+	CMP.b $30				;$B7E91A
+	BCS.b CODE_B7E956			;$B7E91C
 CODE_B7E91E:
-	TXA
-	ADC.w #$0010
-	TAX
-	LDA.l $7E6782,x
-	CMP.l $7E6772,x
-	BCC.b CODE_B7E933
-	CMP.b $30
-	BCC.b CODE_B7E91E
-	BCS.b CODE_B7E901
+	TXA					;$B7E91E
+	ADC.w #$0010				;$B7E91F
+	TAX					;$B7E922
+	LDA.l $7E6782,x				;$B7E923
+	CMP.l $7E6772,x				;$B7E927
+	BCC.b CODE_B7E933			;$B7E92B
+	CMP.b $30				;$B7E92D
+	BCC.b CODE_B7E91E			;$B7E92F
+	BCS.b CODE_B7E901			;$B7E931
 CODE_B7E933:
-	LDA.l $7E677E,x
-	TAX
-	BRA.b CODE_B7E900
+	LDA.l $7E677E,x				;$B7E933
+	TAX					;$B7E937
+	BRA.b CODE_B7E900			;$B7E938
 
 CODE_B7E93A:
-	LDA.l $7E6782,x
-	CMP.l $7E6792,x
-	BCS.b CODE_B7E94F
-	CMP.b $2E
-	BCS.b CODE_B7E94F
-	TXA
-	ADC.w #$0010
-	TAX
-	BRA.b CODE_B7E900
+	LDA.l $7E6782,x				;$B7E93A
+	CMP.l $7E6792,x				;$B7E93E
+	BCS.b CODE_B7E94F			;$B7E942
+	CMP.b $2E				;$B7E944
+	BCS.b CODE_B7E94F			;$B7E946
+	TXA					;$B7E948
+	ADC.w #$0010				;$B7E949
+	TAX					;$B7E94C
+	BRA.b CODE_B7E900			;$B7E94D
 
 CODE_B7E94F:
-	LDA.l $7E678E,x
-	TAX
-	BCS.b CODE_B7E901
+	LDA.l $7E678E,x				;$B7E94F
+	TAX					;$B7E953
+	BCS.b CODE_B7E901			;$B7E954
 CODE_B7E956:
-	PHX
-	LDA.l $7E6788,x
-	BIT.w $18F5
-	BEQ.b CODE_B7E968
-	JSR.w CODE_B7E981
-	PLX
-	PHX
-	JSR.w CODE_B7EB69
+	PHX					;$B7E956
+	LDA.l $7E6788,x				;$B7E957
+	BIT.w $18F5				;$B7E95B
+	BEQ.b CODE_B7E968			;$B7E95E
+	JSR.w CODE_B7E981			;$B7E960
+	PLX					;$B7E963
+	PHX					;$B7E964
+	JSR.w CODE_B7EB69			;$B7E965
 CODE_B7E968:
-	PLA
-	CLC
-	ADC.w #$0010
-	TAX
-	LDA.l $7E6782,x
-	CMP.l $7E6772,x
-	BCS.b CODE_B7E901
-	LDA.l $7E677E,x
-	TAX
-	BRL.w CODE_B7E900
+	PLA					;$B7E968
+	CLC					;$B7E969
+	ADC.w #$0010				;$B7E96A
+	TAX					;$B7E96D
+	LDA.l $7E6782,x				;$B7E96E
+	CMP.l $7E6772,x				;$B7E972
+	BCS.b CODE_B7E901			;$B7E976
+	LDA.l $7E677E,x				;$B7E978
+	TAX					;$B7E97C
+	BRL.w CODE_B7E900			;$B7E97D
 
 CODE_B7E980:
-	RTS
+	RTS					;$B7E980
 
 CODE_B7E981:
-	AND.w #$0006
-	TAY
-	LDA.l $7E6788,x
-	AND.w #$3000
-	ORA.w $18F7,y
-	STA.b $2A
-	LDA.l $7E6782,x
-	SEC
-	SBC.w $1973
-	STA.b $26
-	BCS.b CODE_B7E9AA
-	ADC.w #$008F
-	LSR
-	LSR
-	LSR
-	ASL
-	TAY
-	LDA.w DATA_B7EE87,y
-	BRA.b CODE_B7E9BA
+	AND.w #$0006				;$B7E981
+	TAY					;$B7E984
+	LDA.l $7E6788,x				;$B7E985
+	AND.w #$3000				;$B7E989
+	ORA.w $18F7,y				;$B7E98C
+	STA.b $2A				;$B7E98F
+	LDA.l $7E6782,x				;$B7E991
+	SEC					;$B7E995
+	SBC.w $1973				;$B7E996
+	STA.b $26				;$B7E999
+	BCS.b CODE_B7E9AA			;$B7E99B
+	ADC.w #$008F				;$B7E99D
+	LSR					;$B7E9A0
+	LSR					;$B7E9A1
+	LSR					;$B7E9A2
+	ASL					;$B7E9A3
+	TAY					;$B7E9A4
+	LDA.w DATA_B7EE87,y			;$B7E9A5
+	BRA.b CODE_B7E9BA			;$B7E9A8
 
 CODE_B7E9AA:
-	LDY.w #$0000
-	SBC.w #$0060
-	BCC.b CODE_B7E9B7
-	LSR
-	LSR
-	LSR
-	ASL
-	TAY
+	LDY.w #$0000				;$B7E9AA
+	SBC.w #$0060				;$B7E9AD
+	BCC.b CODE_B7E9B7			;$B7E9B0
+	LSR					;$B7E9B2
+	LSR					;$B7E9B3
+	LSR					;$B7E9B4
+	ASL					;$B7E9B5
+	TAY					;$B7E9B6
 CODE_B7E9B7:
-	LDA.w DATA_B7EEA9,y
+	LDA.w DATA_B7EEA9,y			;$B7E9B7
 CODE_B7E9BA:
-	STA.b $28
-	LDA.l $7E6780,x
-	SEC
-	SBC.w $196D
-	STA.b $24
-	BCS.b CODE_B7E9EF
-	ADC.w #$000F
-	BCS.b CODE_B7E9EF
-	ADC.l $7E6786,x
-	LSR
-	LSR
-	LSR
-	ASL
-	STA.b $1A
-	LDA.l $7E6784,x
-	SEC
-	SBC.b $1A
-	TAY
-	CLC
-	ADC.l $7E678A,x
-	STA.b $21
-	TYA
-	ASL
-	ASL
-	ADC.b $24
-	STA.b $24
-	BRA.b CODE_B7EA0B
+	STA.b $28				;$B7E9BA
+	LDA.l $7E6780,x				;$B7E9BC
+	SEC					;$B7E9C0
+	SBC.w $196D				;$B7E9C1
+	STA.b $24				;$B7E9C4
+	BCS.b CODE_B7E9EF			;$B7E9C6
+	ADC.w #$000F				;$B7E9C8
+	BCS.b CODE_B7E9EF			;$B7E9CB
+	ADC.l $7E6786,x				;$B7E9CD
+	LSR					;$B7E9D1
+	LSR					;$B7E9D2
+	LSR					;$B7E9D3
+	ASL					;$B7E9D4
+	STA.b $1A				;$B7E9D5
+	LDA.l $7E6784,x				;$B7E9D7
+	SEC					;$B7E9DB
+	SBC.b $1A				;$B7E9DC
+	TAY					;$B7E9DE
+	CLC					;$B7E9DF
+	ADC.l $7E678A,x				;$B7E9E0
+	STA.b $21				;$B7E9E4
+	TYA					;$B7E9E6
+	ASL					;$B7E9E7
+	ASL					;$B7E9E8
+	ADC.b $24				;$B7E9E9
+	STA.b $24				;$B7E9EB
+	BRA.b CODE_B7EA0B			;$B7E9ED
 
 CODE_B7E9EF:
-	LDA.w #$0107
-	SEC
-	SBC.b $24
-	LSR
-	LSR
-	LSR
-	ASL
-	CMP.l $7E6784,x
-	BCC.b CODE_B7EA03
-	LDA.l $7E6784,x
+	LDA.w #$0107				;$B7E9EF
+	SEC					;$B7E9F2
+	SBC.b $24				;$B7E9F3
+	LSR					;$B7E9F5
+	LSR					;$B7E9F6
+	LSR					;$B7E9F7
+	ASL					;$B7E9F8
+	CMP.l $7E6784,x				;$B7E9F9
+	BCC.b CODE_B7EA03			;$B7E9FD
+	LDA.l $7E6784,x				;$B7E9FF
 CODE_B7EA03:
-	STA.b $1A
-	LDA.l $7E678A,x
-	STA.b $21
+	STA.b $1A				;$B7EA03
+	LDA.l $7E678A,x				;$B7EA05
+	STA.b $21				;$B7EA09
 CODE_B7EA0B:
-	LDA.b $00
-	ASL
-	ADC.l $7E6780,x
-	CLC
-	ADC.l $7E6782,x
-	LSR
-	LSR
-	CLC
-	ADC.b $21
-	SEC
-	SBC.l $7E678A,x
-	AND.w #$000E
-	TSB.b $2A
-	BRA.b CODE_B7EA2C
+	LDA.b $00				;$B7EA0B
+	ASL					;$B7EA0D
+	ADC.l $7E6780,x				;$B7EA0E
+	CLC					;$B7EA12
+	ADC.l $7E6782,x				;$B7EA13
+	LSR					;$B7EA17
+	LSR					;$B7EA18
+	CLC					;$B7EA19
+	ADC.b $21				;$B7EA1A
+	SEC					;$B7EA1C
+	SBC.l $7E678A,x				;$B7EA1D
+	AND.w #$000E				;$B7EA21
+	TSB.b $2A				;$B7EA24
+	BRA.b CODE_B7EA2C			;$B7EA26
 
 CODE_B7EA28:
-	REP.b #$10
-	SEC
-	RTS
+	REP.b #$10				;$B7EA28
+	SEC					;$B7EA2A
+	RTS					;$B7EA2B
 
 CODE_B7EA2C:
-	SEP.b #$10
-	LDY.b $1A
-	DEC.b $26
+	SEP.b #$10				;$B7EA2C
+	LDY.b $1A				;$B7EA2E
+	DEC.b $26				;$B7EA30
 CODE_B7EA32:
-	DEY
-	DEY
-	BMI.b CODE_B7EA28
-	LDA.b [$21],y
-	AND.b $28
-	BEQ.b CODE_B7EA32
-	XBA
-	PHA
-	PLX
-	BEQ.b CODE_B7EAA1
+	DEY					;$B7EA32
+	DEY					;$B7EA33
+	BMI.b CODE_B7EA28			;$B7EA34
+	LDA.b [$21],y				;$B7EA36
+	AND.b $28				;$B7EA38
+	BEQ.b CODE_B7EA32			;$B7EA3A
+	XBA					;$B7EA3C
+	PHA					;$B7EA3D
+	PLX					;$B7EA3E
+	BEQ.b CODE_B7EAA1			;$B7EA3F
 CODE_B7EA41:
-	LDA.b $24
-	CLC
-	ADC.w DATA_B7EF4B,y
-	SEP.b #$21
-	STA.w !REGISTER_ReadOrWriteToWRAMPort
-	LDA.b $26
-	ADC.w DATA_B7F08D,x
-	STA.w !REGISTER_ReadOrWriteToWRAMPort
-	LDA.w DATA_B7F08D,x
-	LSR
-	LSR
-	ADC.w DATA_B7EF0B,y
-	AND.b #$0E
-	ADC.b $2A
-	AND.b #$EE
-	STA.w !REGISTER_ReadOrWriteToWRAMPort
-	LDA.b $2B
-	STA.w !REGISTER_ReadOrWriteToWRAMPort
-	XBA
-	ASL
-	LDA.b $32
-	ROR
-	SEC
-	ROR
-	BCS.b CODE_B7EA89
-	STA.b $32
-	REP.b #$20
-	LDA.l DATA_B7EF8D,x
-	TAX
-	BNE.b CODE_B7EA41
-	BRA.b CODE_B7EAA1
+	LDA.b $24				;$B7EA41
+	CLC					;$B7EA43
+	ADC.w DATA_B7EF4B,y			;$B7EA44
+	SEP.b #$21				;$B7EA47
+	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EA49
+	LDA.b $26				;$B7EA4C
+	ADC.w DATA_B7F08D,x			;$B7EA4E
+	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EA51
+	LDA.w DATA_B7F08D,x			;$B7EA54
+	LSR					;$B7EA57
+	LSR					;$B7EA58
+	ADC.w DATA_B7EF0B,y			;$B7EA59
+	AND.b #$0E				;$B7EA5C
+	ADC.b $2A				;$B7EA5E
+	AND.b #$EE				;$B7EA60
+	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EA62
+	LDA.b $2B				;$B7EA65
+	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EA67
+	XBA					;$B7EA6A
+	ASL					;$B7EA6B
+	LDA.b $32				;$B7EA6C
+	ROR					;$B7EA6E
+	SEC					;$B7EA6F
+	ROR					;$B7EA70
+	BCS.b CODE_B7EA89			;$B7EA71
+	STA.b $32				;$B7EA73
+	REP.b #$20				;$B7EA75
+	LDA.l DATA_B7EF8D,x			;$B7EA77
+	TAX					;$B7EA7B
+	BNE.b CODE_B7EA41			;$B7EA7C
+	BRA.b CODE_B7EAA1			;$B7EA7E
 
 CODE_B7EA80:
-	REP.b #$30
-	PLA
-	LDA.w #$0400
-	STA.b next_oam_slot
-	RTS
+	REP.b #$30				;$B7EA80
+	PLA					;$B7EA82
+	LDA.w #$0400				;$B7EA83
+	STA.b next_oam_slot			;$B7EA86
+	RTS					;$B7EA88
 
 CODE_B7EA89:
-	PHX
-	LDX.b $20
-	STA.w $03A0,x
-	INC.b $20
-	BMI.b CODE_B7EA80
-	LDA.b #$80
-	STA.b $32
-	PLX
-	REP.b #$20
-	LDA.l DATA_B7EF8D,x
-	TAX
-	BNE.b CODE_B7EA41
+	PHX					;$B7EA89
+	LDX.b $20				;$B7EA8A
+	STA.w $03A0,x				;$B7EA8C
+	INC.b $20				;$B7EA8F
+	BMI.b CODE_B7EA80			;$B7EA91
+	LDA.b #$80				;$B7EA93
+	STA.b $32				;$B7EA95
+	PLX					;$B7EA97
+	REP.b #$20				;$B7EA98
+	LDA.l DATA_B7EF8D,x			;$B7EA9A
+	TAX					;$B7EA9E
+	BNE.b CODE_B7EA41			;$B7EA9F
 CODE_B7EAA1:
-	PLX
-	BEQ.b CODE_B7EA32
+	PLX					;$B7EAA1
+	BEQ.b CODE_B7EA32			;$B7EAA2
 CODE_B7EAA4:
-	LDA.b $24
-	CLC
-	ADC.w DATA_B7EF4B,y
-	SEP.b #$21
-	STA.w !REGISTER_ReadOrWriteToWRAMPort
-	LDA.b $26
-	ADC.w DATA_B7F18D,x
-	STA.w !REGISTER_ReadOrWriteToWRAMPort
-	LDA.w DATA_B7F18D,x
-	LSR
-	LSR
-	ADC.w DATA_B7EF0B,y
-	AND.b #$0E
-	ADC.b $2A
-	AND.b #$EE
-	STA.w !REGISTER_ReadOrWriteToWRAMPort
-	LDA.b $2B
-	STA.w !REGISTER_ReadOrWriteToWRAMPort
-	XBA
-	ASL
-	LDA.b $32
-	ROR
-	SEC
-	ROR
-	BCS.b CODE_B7EAED
-	STA.b $32
-	REP.b #$20
-	LDA.l DATA_B7EF8D,x
-	TAX
-	BNE.b CODE_B7EAA4
-	BRL.w CODE_B7EA32
+	LDA.b $24				;$B7EAA4
+	CLC					;$B7EAA6
+	ADC.w DATA_B7EF4B,y			;$B7EAA7
+	SEP.b #$21				;$B7EAAA
+	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EAAC
+	LDA.b $26				;$B7EAAF
+	ADC.w DATA_B7F18D,x			;$B7EAB1
+	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EAB4
+	LDA.w DATA_B7F18D,x			;$B7EAB7
+	LSR					;$B7EABA
+	LSR					;$B7EABB
+	ADC.w DATA_B7EF0B,y			;$B7EABC
+	AND.b #$0E				;$B7EABF
+	ADC.b $2A				;$B7EAC1
+	AND.b #$EE				;$B7EAC3
+	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EAC5
+	LDA.b $2B				;$B7EAC8
+	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EACA
+	XBA					;$B7EACD
+	ASL					;$B7EACE
+	LDA.b $32				;$B7EACF
+	ROR					;$B7EAD1
+	SEC					;$B7EAD2
+	ROR					;$B7EAD3
+	BCS.b CODE_B7EAED			;$B7EAD4
+	STA.b $32				;$B7EAD6
+	REP.b #$20				;$B7EAD8
+	LDA.l DATA_B7EF8D,x			;$B7EADA
+	TAX					;$B7EADE
+	BNE.b CODE_B7EAA4			;$B7EADF
+	BRL.w CODE_B7EA32			;$B7EAE1
 
 CODE_B7EAE4:
-	PLX
-	REP.b #$30
-	LDA.w #$0400
-	STA.b next_oam_slot
-	RTS
+	PLX					;$B7EAE4
+	REP.b #$30				;$B7EAE5
+	LDA.w #$0400				;$B7EAE7
+	STA.b next_oam_slot			;$B7EAEA
+	RTS					;$B7EAEC
 
 CODE_B7EAED:
-	PHX
-	LDX.b $20
-	STA.w $03A0,x
-	INC.b $20
-	BMI.b CODE_B7EAE4
-	LDA.b #$80
-	STA.b $32
-	PLX
-	REP.b #$20
-	LDA.l DATA_B7EF8D,x
-	TAX
-	BNE.b CODE_B7EAA4
-	BRL.w CODE_B7EA32
+	PHX					;$B7EAED
+	LDX.b $20				;$B7EAEE
+	STA.w $03A0,x				;$B7EAF0
+	INC.b $20				;$B7EAF3
+	BMI.b CODE_B7EAE4			;$B7EAF5
+	LDA.b #$80				;$B7EAF7
+	STA.b $32				;$B7EAF9
+	PLX					;$B7EAFB
+	REP.b #$20				;$B7EAFC
+	LDA.l DATA_B7EF8D,x			;$B7EAFE
+	TAX					;$B7EB02
+	BNE.b CODE_B7EAA4			;$B7EB03
+	BRL.w CODE_B7EA32			;$B7EB05
 
 CODE_B7EB08:
-	STZ.w $190B
-	STZ.w $190D
-	STZ.w $190F
-	LDY.w #$0000
-	LDX.w active_kong_sprite
-	LDA.b $4A,x
-	AND.w #$4000
-	BEQ.b CODE_B7EB35
-	LDX.w #$1800
-	JSR.w CODE_B7EB49
-	LDX.w #$1848
-	JSR.w CODE_B7EB49
-	CPY.w #$0006
-	BCS.b CODE_B7EB68
-	LDX.w #$1818
-	JMP.w CODE_B7EB49
+	STZ.w $190B				;$B7EB08
+	STZ.w $190D				;$B7EB0B
+	STZ.w $190F				;$B7EB0E
+	LDY.w #$0000				;$B7EB11
+	LDX.w active_kong_sprite		;$B7EB14
+	LDA.b $4A,x				;$B7EB17
+	AND.w #$4000				;$B7EB19
+	BEQ.b CODE_B7EB35			;$B7EB1C
+	LDX.w #$1800				;$B7EB1E
+	JSR.w CODE_B7EB49			;$B7EB21
+	LDX.w #$1848				;$B7EB24
+	JSR.w CODE_B7EB49			;$B7EB27
+	CPY.w #$0006				;$B7EB2A
+	BCS.b CODE_B7EB68			;$B7EB2D
+	LDX.w #$1818				;$B7EB2F
+	JMP.w CODE_B7EB49			;$B7EB32
 
 CODE_B7EB35:
-	LDX.w #$1810
-	JSR.w CODE_B7EB49
-	LDX.w #$1848
-	JSR.w CODE_B7EB49
-	CPY.w #$0006
-	BCS.b CODE_B7EB68
-	LDX.w #$1828
+	LDX.w #$1810				;$B7EB35
+	JSR.w CODE_B7EB49			;$B7EB38
+	LDX.w #$1848				;$B7EB3B
+	JSR.w CODE_B7EB49			;$B7EB3E
+	CPY.w #$0006				;$B7EB41
+	BCS.b CODE_B7EB68			;$B7EB44
+	LDX.w #$1828				;$B7EB46
 CODE_B7EB49:
-	LDA.b $04,x
-	BEQ.b CODE_B7EB68
-	SEC
-	SBC.b $00,x
-	STA.w $190B,y
-	LDA.b $00,x
-	STA.w $18FF,y
-	LDA.b $02,x
-	STA.w $1905,y
-	EOR.w #$FFFF
-	SEC
-	ADC.b $06,x
-	STA.w $1911,y
-	INY
-	INY
+	LDA.b $04,x				;$B7EB49
+	BEQ.b CODE_B7EB68			;$B7EB4B
+	SEC					;$B7EB4D
+	SBC.b $00,x				;$B7EB4E
+	STA.w $190B,y				;$B7EB50
+	LDA.b $00,x				;$B7EB53
+	STA.w $18FF,y				;$B7EB55
+	LDA.b $02,x				;$B7EB58
+	STA.w $1905,y				;$B7EB5A
+	EOR.w #$FFFF				;$B7EB5D
+	SEC					;$B7EB60
+	ADC.b $06,x				;$B7EB61
+	STA.w $1911,y				;$B7EB63
+	INY					;$B7EB66
+	INY					;$B7EB67
 CODE_B7EB68:
-	RTS
+	RTS					;$B7EB68
 
 CODE_B7EB69:
-	LDA.l $7E6782,x
-	STA.b $26
-	LDA.l $7E6784,x
-	DEC
-	DEC
-	STA.b $1A
-	LDY.w $190F
-	BEQ.b CODE_B7EB84
-	LDY.w #$0004
-	PHX
-	JSR.w CODE_B7EB9A
-	PLX
+	LDA.l $7E6782,x				;$B7EB69
+	STA.b $26				;$B7EB6D
+	LDA.l $7E6784,x				;$B7EB6F
+	DEC					;$B7EB73
+	DEC					;$B7EB74
+	STA.b $1A				;$B7EB75
+	LDY.w $190F				;$B7EB77
+	BEQ.b CODE_B7EB84			;$B7EB7A
+	LDY.w #$0004				;$B7EB7C
+	PHX					;$B7EB7F
+	JSR.w CODE_B7EB9A			;$B7EB80
+	PLX					;$B7EB83
 CODE_B7EB84:
-	LDY.w $190D
-	BEQ.b CODE_B7EB94
-	LDY.w #$0002
-	PHX
-	JSR.w CODE_B7EB9A
-	PLX
-	LDY.w #$0000
+	LDY.w $190D				;$B7EB84
+	BEQ.b CODE_B7EB94			;$B7EB87
+	LDY.w #$0002				;$B7EB89
+	PHX					;$B7EB8C
+	JSR.w CODE_B7EB9A			;$B7EB8D
+	PLX					;$B7EB90
+	LDY.w #$0000				;$B7EB91
 CODE_B7EB94:
-	LDA.w $190B
-	BNE.b CODE_B7EB9A
-	RTS
+	LDA.w $190B				;$B7EB94
+	BNE.b CODE_B7EB9A			;$B7EB97
+	RTS					;$B7EB99
 
 CODE_B7EB9A:
-	LDA.l $7E6780,x
-	STA.b $24
-	LDA.w $18FF,y
-	SEC
-	SBC.b $24
-	STA.b $1C
-	BCC.b CODE_B7EBB1
-	SBC.w #$0008
-	BCS.b CODE_B7EBCD
-	LDA.b $1C
+	LDA.l $7E6780,x				;$B7EB9A
+	STA.b $24				;$B7EB9E
+	LDA.w $18FF,y				;$B7EBA0
+	SEC					;$B7EBA3
+	SBC.b $24				;$B7EBA4
+	STA.b $1C				;$B7EBA6
+	BCC.b CODE_B7EBB1			;$B7EBA8
+	SBC.w #$0008				;$B7EBAA
+	BCS.b CODE_B7EBCD			;$B7EBAD
+	LDA.b $1C				;$B7EBAF
 CODE_B7EBB1:
-	DEC
-	ADC.w $190B,y
-	BMI.b CODE_B7EBCC
-	LSR
-	LSR
-	LSR
-	ASL
-	CMP.b $1A
-	BCC.b CODE_B7EBC3
-	BEQ.b CODE_B7EBC3
-	LDA.b $1A
+	DEC					;$B7EBB1
+	ADC.w $190B,y				;$B7EBB2
+	BMI.b CODE_B7EBCC			;$B7EBB5
+	LSR					;$B7EBB7
+	LSR					;$B7EBB8
+	LSR					;$B7EBB9
+	ASL					;$B7EBBA
+	CMP.b $1A				;$B7EBBB
+	BCC.b CODE_B7EBC3			;$B7EBBD
+	BEQ.b CODE_B7EBC3			;$B7EBBF
+	LDA.b $1A				;$B7EBC1
 CODE_B7EBC3:
-	PHA
-	LDA.l $7E678A,x
-	STA.b $21
-	BRA.b CODE_B7EC00
+	PHA					;$B7EBC3
+	LDA.l $7E678A,x				;$B7EBC4
+	STA.b $21				;$B7EBC8
+	BRA.b CODE_B7EC00			;$B7EBCA
 
 CODE_B7EBCC:
-	RTS
+	RTS					;$B7EBCC
 
 CODE_B7EBCD:
-	LSR
-	LSR
-	LSR
-	ASL
-	CMP.b $1A
-	BCC.b CODE_B7EBD7
-	BNE.b CODE_B7EBCC
+	LSR					;$B7EBCD
+	LSR					;$B7EBCE
+	LSR					;$B7EBCF
+	ASL					;$B7EBD0
+	CMP.b $1A				;$B7EBD1
+	BCC.b CODE_B7EBD7			;$B7EBD3
+	BNE.b CODE_B7EBCC			;$B7EBD5
 CODE_B7EBD7:
-	STA.b $21
-	ASL
-	ASL
-	ADC.b $24
-	STA.b $24
-	DEC.b $1C
-	LDA.b $1C
-	CLC
-	ADC.w $190B,y
-	LSR
-	LSR
-	LSR
-	ASL
-	CMP.b $1A
-	BCC.b CODE_B7EBF3
-	BEQ.b CODE_B7EBF3
-	LDA.b $1A
+	STA.b $21				;$B7EBD7
+	ASL					;$B7EBD9
+	ASL					;$B7EBDA
+	ADC.b $24				;$B7EBDB
+	STA.b $24				;$B7EBDD
+	DEC.b $1C				;$B7EBDF
+	LDA.b $1C				;$B7EBE1
+	CLC					;$B7EBE3
+	ADC.w $190B,y				;$B7EBE4
+	LSR					;$B7EBE7
+	LSR					;$B7EBE8
+	LSR					;$B7EBE9
+	ASL					;$B7EBEA
+	CMP.b $1A				;$B7EBEB
+	BCC.b CODE_B7EBF3			;$B7EBED
+	BEQ.b CODE_B7EBF3			;$B7EBEF
+	LDA.b $1A				;$B7EBF1
 CODE_B7EBF3:
-	SEC
-	SBC.b $21
-	PHA
-	LDA.b $21
-	CLC
-	ADC.l $7E678A,x
-	STA.b $21
+	SEC					;$B7EBF3
+	SBC.b $21				;$B7EBF4
+	PHA					;$B7EBF6
+	LDA.b $21				;$B7EBF7
+	CLC					;$B7EBF9
+	ADC.l $7E678A,x				;$B7EBFA
+	STA.b $21				;$B7EBFE
 CODE_B7EC00:
-	LDA.w $1905,y
-	SEC
-	SBC.b $26
-	STA.b $1E
-	BMI.b CODE_B7EC12
-	SEC
-	SBC.w #$0008
-	BCS.b CODE_B7EC27
-	LDA.b $1E
+	LDA.w $1905,y				;$B7EC00
+	SEC					;$B7EC03
+	SBC.b $26				;$B7EC04
+	STA.b $1E				;$B7EC06
+	BMI.b CODE_B7EC12			;$B7EC08
+	SEC					;$B7EC0A
+	SBC.w #$0008				;$B7EC0B
+	BCS.b CODE_B7EC27			;$B7EC0E
+	LDA.b $1E				;$B7EC10
 CODE_B7EC12:
-	DEC
-	CLC
-	ADC.w $1911,y
-	BMI.b CODE_B7EC25
-	LSR
-	LSR
-	LSR
-	ASL
-	TAX
-	LDA.w DATA_B7EEC9,x
-	STA.b $28
-	BRA.b CODE_B7EC48
+	DEC					;$B7EC12
+	CLC					;$B7EC13
+	ADC.w $1911,y				;$B7EC14
+	BMI.b CODE_B7EC25			;$B7EC17
+	LSR					;$B7EC19
+	LSR					;$B7EC1A
+	LSR					;$B7EC1B
+	ASL					;$B7EC1C
+	TAX					;$B7EC1D
+	LDA.w DATA_B7EEC9,x			;$B7EC1E
+	STA.b $28				;$B7EC21
+	BRA.b CODE_B7EC48			;$B7EC23
 
 CODE_B7EC25:
-	PLY
-	RTS
+	PLY					;$B7EC25
+	RTS					;$B7EC26
 
 CODE_B7EC27:
-	CMP.w #$0080
-	BCS.b CODE_B7EC25
-	LSR
-	LSR
-	LSR
-	ASL
-	TAX
-	LDA.w DATA_B7EEE9,x
-	STA.b $28
-	LDA.b $1E
-	DEC
-	ADC.w $1911,y
-	LSR
-	LSR
-	LSR
-	ASL
-	TAX
-	LDA.w DATA_B7EEC9,x
-	AND.b $28
-	STA.b $28
+	CMP.w #$0080				;$B7EC27
+	BCS.b CODE_B7EC25			;$B7EC2A
+	LSR					;$B7EC2C
+	LSR					;$B7EC2D
+	LSR					;$B7EC2E
+	ASL					;$B7EC2F
+	TAX					;$B7EC30
+	LDA.w DATA_B7EEE9,x			;$B7EC31
+	STA.b $28				;$B7EC34
+	LDA.b $1E				;$B7EC36
+	DEC					;$B7EC38
+	ADC.w $1911,y				;$B7EC39
+	LSR					;$B7EC3C
+	LSR					;$B7EC3D
+	LSR					;$B7EC3E
+	ASL					;$B7EC3F
+	TAX					;$B7EC40
+	LDA.w DATA_B7EEC9,x			;$B7EC41
+	AND.b $28				;$B7EC44
+	STA.b $28				;$B7EC46
 CODE_B7EC48:
-	PLY
+	PLY					;$B7EC48
 CODE_B7EC49:
-	LDA.b [$21],y
-	AND.b $28
-	BNE.b CODE_B7EC54
-	DEY
-	DEY
-	BPL.b CODE_B7EC49
-	RTS
+	LDA.b [$21],y				;$B7EC49
+	AND.b $28				;$B7EC4B
+	BNE.b CODE_B7EC54			;$B7EC4D
+	DEY					;$B7EC4F
+	DEY					;$B7EC50
+	BPL.b CODE_B7EC49			;$B7EC51
+	RTS					;$B7EC53
 
 CODE_B7EC54:
-	PHA
-	EOR.b [$21],y
-	STA.b [$21],y
-	SEP.b #$10
-	PLX
-	BEQ.b CODE_B7EC6A
+	PHA					;$B7EC54
+	EOR.b [$21],y				;$B7EC55
+	STA.b [$21],y				;$B7EC57
+	SEP.b #$10				;$B7EC59
+	PLX					;$B7EC5B
+	BEQ.b CODE_B7EC6A			;$B7EC5C
 CODE_B7EC5E:
-	LDA.w DATA_B7F18D,x
-	JSR.w CODE_B7EC80
-	LDA.w DATA_B7EF8D,x
-	TAX
-	BNE.b CODE_B7EC5E
+	LDA.w DATA_B7F18D,x			;$B7EC5E
+	JSR.w CODE_B7EC80			;$B7EC61
+	LDA.w DATA_B7EF8D,x			;$B7EC64
+	TAX					;$B7EC67
+	BNE.b CODE_B7EC5E			;$B7EC68
 CODE_B7EC6A:
-	PLX
-	BEQ.b CODE_B7EC79
+	PLX					;$B7EC6A
+	BEQ.b CODE_B7EC79			;$B7EC6B
 CODE_B7EC6D:
-	LDA.w DATA_B7F08D,x
-	JSR.w CODE_B7EC80
-	LDA.w DATA_B7EF8D,x
-	TAX
-	BNE.b CODE_B7EC6D
+	LDA.w DATA_B7F08D,x			;$B7EC6D
+	JSR.w CODE_B7EC80			;$B7EC70
+	LDA.w DATA_B7EF8D,x			;$B7EC73
+	TAX					;$B7EC76
+	BNE.b CODE_B7EC6D			;$B7EC77
 CODE_B7EC79:
-	REP.b #$10
-	DEY
-	DEY
-	BPL.b CODE_B7EC49
-	RTS
+	REP.b #$10				;$B7EC79
+	DEY					;$B7EC7B
+	DEY					;$B7EC7C
+	BPL.b CODE_B7EC49			;$B7EC7D
+	RTS					;$B7EC7F
 
 CODE_B7EC80:
-	PHX
-	PHA
-	REP.b #$10
-	LDA.w #$070A
-	JSL.l CODE_B28012
-	LDA.w $18EF
-	SEP.b #$09
-	ADC.w $05D3
-	BPL.b CODE_B7EC98
-	LDA.w #$0000
+	PHX					;$B7EC80
+	PHA					;$B7EC81
+	REP.b #$10				;$B7EC82
+	LDA.w #$070A				;$B7EC84
+	JSL.l CODE_B28012			;$B7EC87
+	LDA.w $18EF				;$B7EC8B
+	SEP.b #$09				;$B7EC8E
+	ADC.w $05D3				;$B7EC90
+	BPL.b CODE_B7EC98			;$B7EC93
+	LDA.w #$0000				;$B7EC95
 CODE_B7EC98:
-	STA.w $05D3
-	CLD
-	SEP.b #$10
-	LDA.w #$003C
-	STA.w $18CF
-	LDA.l $7E9780
-	INC
-	INC
-	CMP.w #$0040
-	BCS.b CODE_B7ED12
-	STA.l $7E9780
-	TAX
-	PLA
-	AND.w #$00FF
-	ADC.b $26
-	SEC
-	SBC.w $1973
-	BCC.b CODE_B7ECCA
-	CMP.w #$00E0
-	BCC.b CODE_B7ECCD
-	LDA.w #$00E0
-	BRA.b CODE_B7ECCD
+	STA.w $05D3				;$B7EC98
+	CLD					;$B7EC9B
+	SEP.b #$10				;$B7EC9C
+	LDA.w #$003C				;$B7EC9E
+	STA.w $18CF				;$B7ECA1
+	LDA.l $7E9780				;$B7ECA4
+	INC					;$B7ECA8
+	INC					;$B7ECA9
+	CMP.w #$0040				;$B7ECAA
+	BCS.b CODE_B7ED12			;$B7ECAD
+	STA.l $7E9780				;$B7ECAF
+	TAX					;$B7ECB3
+	PLA					;$B7ECB4
+	AND.w #$00FF				;$B7ECB5
+	ADC.b $26				;$B7ECB8
+	SEC					;$B7ECBA
+	SBC.w $1973				;$B7ECBB
+	BCC.b CODE_B7ECCA			;$B7ECBE
+	CMP.w #$00E0				;$B7ECC0
+	BCC.b CODE_B7ECCD			;$B7ECC3
+	LDA.w #$00E0				;$B7ECC5
+	BRA.b CODE_B7ECCD			;$B7ECC8
 
 CODE_B7ECCA:
-	LDA.w #$0000
+	LDA.w #$0000				;$B7ECCA
 CODE_B7ECCD:
-	XBA
-	STA.l $7E9802,x
-	LSR
-	LSR
-	LSR
-	LSR
-	LSR
-	EOR.w #$FFFF
-	SEC
-	ADC.w #$0040
-	STA.l $7E9842,x
-	LDA.w DATA_B7EF4B,y
-	CLC
-	ADC.b $24
-	SEC
-	SBC.w $196D
-	BCC.b CODE_B7ECF8
-	CMP.w #$00F0
-	BCC.b CODE_B7ECFB
-	LDA.w #$00F0
-	BRA.b CODE_B7ECFB
+	XBA					;$B7ECCD
+	STA.l $7E9802,x				;$B7ECCE
+	LSR					;$B7ECD2
+	LSR					;$B7ECD3
+	LSR					;$B7ECD4
+	LSR					;$B7ECD5
+	LSR					;$B7ECD6
+	EOR.w #$FFFF				;$B7ECD7
+	SEC					;$B7ECDA
+	ADC.w #$0040				;$B7ECDB
+	STA.l $7E9842,x				;$B7ECDE
+	LDA.w DATA_B7EF4B,y			;$B7ECE2
+	CLC					;$B7ECE5
+	ADC.b $24				;$B7ECE6
+	SEC					;$B7ECE8
+	SBC.w $196D				;$B7ECE9
+	BCC.b CODE_B7ECF8			;$B7ECEC
+	CMP.w #$00F0				;$B7ECEE
+	BCC.b CODE_B7ECFB			;$B7ECF1
+	LDA.w #$00F0				;$B7ECF3
+	BRA.b CODE_B7ECFB			;$B7ECF6
 
 CODE_B7ECF8:
-	LDA.w #$0000
+	LDA.w #$0000				;$B7ECF8
 CODE_B7ECFB:
-	XBA
-	STA.l $7E9782,x
-	LSR
-	LSR
-	LSR
-	LSR
-	LSR
-	EOR.w #$FFFF
-	SEC
-	ADC.w #$0040
-	STA.l $7E97C2,x
-	PLX
-	RTS
+	XBA					;$B7ECFB
+	STA.l $7E9782,x				;$B7ECFC
+	LSR					;$B7ED00
+	LSR					;$B7ED01
+	LSR					;$B7ED02
+	LSR					;$B7ED03
+	LSR					;$B7ED04
+	EOR.w #$FFFF				;$B7ED05
+	SEC					;$B7ED08
+	ADC.w #$0040				;$B7ED09
+	STA.l $7E97C2,x				;$B7ED0C
+	PLX					;$B7ED10
+	RTS					;$B7ED11
 
 CODE_B7ED12:
-	LDA.w $18EF
-	SEP.b #$09
-	ADC.w $18CD
-	BPL.b CODE_B7ED1F
-	LDA.w #$0000
+	LDA.w $18EF				;$B7ED12
+	SEP.b #$09				;$B7ED15
+	ADC.w $18CD				;$B7ED17
+	BPL.b CODE_B7ED1F			;$B7ED1A
+	LDA.w #$0000				;$B7ED1C
 CODE_B7ED1F:
-	STA.w $18CD
-	CLD
-	PLA
-	PLX
-	RTS
+	STA.w $18CD				;$B7ED1F
+	CLD					;$B7ED22
+	PLA					;$B7ED23
+	PLX					;$B7ED24
+	RTS					;$B7ED25
 
 CODE_B7ED26:
-	STX.b $1A
-	LDA.w #$070B
-	JSL.l CODE_B28012
-	LDA.w #$003C
-	STA.w $18CF
-	LDA.l $7E9780
-	INC
-	INC
-	CMP.w #$0040
-	BCS.b CODE_B7EDBC
-	STA.l $7E9780
-	TAX
-	LDY.b current_sprite
-	LDA.b $1A
-	BPL.b CODE_B7ED50
-	ORA.w #$00FF
-	BRA.b CODE_B7ED53
+	STX.b $1A				;$B7ED26
+	LDA.w #$070B				;$B7ED28
+	JSL.l CODE_B28012			;$B7ED2B
+	LDA.w #$003C				;$B7ED2F
+	STA.w $18CF				;$B7ED32
+	LDA.l $7E9780				;$B7ED35
+	INC					;$B7ED39
+	INC					;$B7ED3A
+	CMP.w #$0040				;$B7ED3B
+	BCS.b CODE_B7EDBC			;$B7ED3E
+	STA.l $7E9780				;$B7ED40
+	TAX					;$B7ED44
+	LDY.b current_sprite			;$B7ED45
+	LDA.b $1A				;$B7ED47
+	BPL.b CODE_B7ED50			;$B7ED49
+	ORA.w #$00FF				;$B7ED4B
+	BRA.b CODE_B7ED53			;$B7ED4E
 
 CODE_B7ED50:
-	AND.w #$FF00
+	AND.w #$FF00				;$B7ED50
 CODE_B7ED53:
-	XBA
-	CLC
-	ADC.w $0016,y
-	SEC
-	SBC.w $1973
-	BCC.b CODE_B7ED68
-	CMP.w #$00E0
-	BCC.b CODE_B7ED6B
-	LDA.w #$00E0
-	BRA.b CODE_B7ED6B
+	XBA					;$B7ED53
+	CLC					;$B7ED54
+	ADC.w $0016,y				;$B7ED55
+	SEC					;$B7ED58
+	SBC.w $1973				;$B7ED59
+	BCC.b CODE_B7ED68			;$B7ED5C
+	CMP.w #$00E0				;$B7ED5E
+	BCC.b CODE_B7ED6B			;$B7ED61
+	LDA.w #$00E0				;$B7ED63
+	BRA.b CODE_B7ED6B			;$B7ED66
 
 CODE_B7ED68:
-	LDA.w #$0000
+	LDA.w #$0000				;$B7ED68
 CODE_B7ED6B:
-	XBA
-	STA.l $7E9802,x
-	LSR
-	LSR
-	LSR
-	LSR
-	LSR
-	EOR.w #$FFFF
-	SEC
-	ADC.w #$0040
-	STA.l $7E9842,x
-	LDY.b current_sprite
-	LDA.b $19
-	BPL.b CODE_B7ED8B
-	ORA.w #$00FF
-	BRA.b CODE_B7ED8E
+	XBA					;$B7ED6B
+	STA.l $7E9802,x				;$B7ED6C
+	LSR					;$B7ED70
+	LSR					;$B7ED71
+	LSR					;$B7ED72
+	LSR					;$B7ED73
+	LSR					;$B7ED74
+	EOR.w #$FFFF				;$B7ED75
+	SEC					;$B7ED78
+	ADC.w #$0040				;$B7ED79
+	STA.l $7E9842,x				;$B7ED7C
+	LDY.b current_sprite			;$B7ED80
+	LDA.b $19				;$B7ED82
+	BPL.b CODE_B7ED8B			;$B7ED84
+	ORA.w #$00FF				;$B7ED86
+	BRA.b CODE_B7ED8E			;$B7ED89
 
 CODE_B7ED8B:
-	AND.w #$FF00
+	AND.w #$FF00				;$B7ED8B
 CODE_B7ED8E:
-	XBA
-	CLC
-	ADC.w $0012,y
-	SEC
-	SBC.w $196D
-	BCC.b CODE_B7EDA3
-	CMP.w #$00F0
-	BCC.b CODE_B7EDA6
-	LDA.w #$00F0
-	BRA.b CODE_B7EDA6
+	XBA					;$B7ED8E
+	CLC					;$B7ED8F
+	ADC.w $0012,y				;$B7ED90
+	SEC					;$B7ED93
+	SBC.w $196D				;$B7ED94
+	BCC.b CODE_B7EDA3			;$B7ED97
+	CMP.w #$00F0				;$B7ED99
+	BCC.b CODE_B7EDA6			;$B7ED9C
+	LDA.w #$00F0				;$B7ED9E
+	BRA.b CODE_B7EDA6			;$B7EDA1
 
 CODE_B7EDA3:
-	LDA.w #$0000
+	LDA.w #$0000				;$B7EDA3
 CODE_B7EDA6:
-	XBA
-	STA.l $7E9782,x
-	LSR
-	LSR
-	LSR
-	LSR
-	LSR
-	EOR.w #$FFFF
-	SEC
-	ADC.w #$0040
-	STA.l $7E97C2,x
-	RTL
+	XBA					;$B7EDA6
+	STA.l $7E9782,x				;$B7EDA7
+	LSR					;$B7EDAB
+	LSR					;$B7EDAC
+	LSR					;$B7EDAD
+	LSR					;$B7EDAE
+	LSR					;$B7EDAF
+	EOR.w #$FFFF				;$B7EDB0
+	SEC					;$B7EDB3
+	ADC.w #$0040				;$B7EDB4
+	STA.l $7E97C2,x				;$B7EDB7
+	RTL					;$B7EDBB
 
 CODE_B7EDBC:
-	LDA.w $18EF
-	SEP.b #$09
-	ADC.w $18CD
-	BPL.b CODE_B7EDC9
-	LDA.w #$0000
+	LDA.w $18EF				;$B7EDBC
+	SEP.b #$09				;$B7EDBF
+	ADC.w $18CD				;$B7EDC1
+	BPL.b CODE_B7EDC9			;$B7EDC4
+	LDA.w #$0000				;$B7EDC6
 CODE_B7EDC9:
-	STA.w $18CD
-	CLD
-	RTL
+	STA.w $18CD				;$B7EDC9
+	CLD					;$B7EDCC
+	RTL					;$B7EDCD
 
 CODE_B7EDCE:
-	LDA.w #$0078
-	CMP.w $18CF
-	BCC.b CODE_B7EDD9
-	STA.w $18CF
+	LDA.w #$0078				;$B7EDCE
+	CMP.w $18CF				;$B7EDD1
+	BCC.b CODE_B7EDD9			;$B7EDD4
+	STA.w $18CF				;$B7EDD6
 CODE_B7EDD9:
-	RTL
+	RTL					;$B7EDD9
 
 CODE_B7EDDA:
-	PHB
-	PEA.w $7E9780>>8
-	PLB
-	PLB
-	LDX.w $7E9780
-	BMI.b CODE_B7EE4F
+	PHB					;$B7EDDA
+	PEA.w $7E9780>>8			;$B7EDDB
+	PLB					;$B7EDDE
+	PLB					;$B7EDDF
+	LDX.w $7E9780				;$B7EDE0
+	BMI.b CODE_B7EE4F			;$B7EDE3
 CODE_B7EDE5:
-	LDA.w $7E9782,x
-	CLC
-	ADC.w $7E97C2,x
-	STA.w $7E9782,x
-	LDA.w $7E9802,x
-	CLC
-	ADC.w $7E9842,x
-	STA.w $7E9802,x
-	CMP.w #$0800
-	ROR
-	EOR.w $7E9842,x
-	BMI.b CODE_B7EE51
-	SEP.b #$30
-	LDA.w $7E9783,x
-	STA.l !REGISTER_ReadOrWriteToWRAMPort
-	LDA.w $7E9803,x
-	STA.l !REGISTER_ReadOrWriteToWRAMPort
-	LDA.b $00
-	AND.b #$0E
-	CLC
-	ADC.l $0018F7
-	STA.l !REGISTER_ReadOrWriteToWRAMPort
-	LDA.l $0018F8
-	ORA.b #$30
-	STA.l !REGISTER_ReadOrWriteToWRAMPort
-	LDA.b $32
-	LSR
-	SEC
-	ROR
-	BCS.b CODE_B7EE3A
+	LDA.w $7E9782,x				;$B7EDE5
+	CLC					;$B7EDE8
+	ADC.w $7E97C2,x				;$B7EDE9
+	STA.w $7E9782,x				;$B7EDEC
+	LDA.w $7E9802,x				;$B7EDEF
+	CLC					;$B7EDF2
+	ADC.w $7E9842,x				;$B7EDF3
+	STA.w $7E9802,x				;$B7EDF6
+	CMP.w #$0800				;$B7EDF9
+	ROR					;$B7EDFC
+	EOR.w $7E9842,x				;$B7EDFD
+	BMI.b CODE_B7EE51			;$B7EE00
+	SEP.b #$30				;$B7EE02
+	LDA.w $7E9783,x				;$B7EE04
+	STA.l !REGISTER_ReadOrWriteToWRAMPort	;$B7EE07
+	LDA.w $7E9803,x				;$B7EE0B
+	STA.l !REGISTER_ReadOrWriteToWRAMPort	;$B7EE0E
+	LDA.b $00				;$B7EE12
+	AND.b #$0E				;$B7EE14
+	CLC					;$B7EE16
+	ADC.l $0018F7				;$B7EE17
+	STA.l !REGISTER_ReadOrWriteToWRAMPort	;$B7EE1B
+	LDA.l $0018F8				;$B7EE1F
+	ORA.b #$30				;$B7EE23
+	STA.l !REGISTER_ReadOrWriteToWRAMPort	;$B7EE25
+	LDA.b $32				;$B7EE29
+	LSR					;$B7EE2B
+	SEC					;$B7EE2C
+	ROR					;$B7EE2D
+	BCS.b CODE_B7EE3A			;$B7EE2E
 CODE_B7EE30:
-	STA.b $32
-	REP.b #$30
+	STA.b $32				;$B7EE30
+	REP.b #$30				;$B7EE32
 CODE_B7EE34:
-	DEX
-	DEX
-	BPL.b CODE_B7EDE5
-	BRA.b CODE_B7EE4F
+	DEX					;$B7EE34
+	DEX					;$B7EE35
+	BPL.b CODE_B7EDE5			;$B7EE36
+	BRA.b CODE_B7EE4F			;$B7EE38
 
 CODE_B7EE3A:
-	PHX
-	LDX.b $20
-	STA.l $0003A0,x
-	PLX
-	LDA.b #$80
-	INC.b $20
-	BPL.b CODE_B7EE30
-	REP.b #$30
-	LDA.w #$0400
-	STA.b next_oam_slot
+	PHX					;$B7EE3A
+	LDX.b $20				;$B7EE3B
+	STA.l $0003A0,x				;$B7EE3D
+	PLX					;$B7EE41
+	LDA.b #$80				;$B7EE42
+	INC.b $20				;$B7EE44
+	BPL.b CODE_B7EE30			;$B7EE46
+	REP.b #$30				;$B7EE48
+	LDA.w #$0400				;$B7EE4A
+	STA.b next_oam_slot			;$B7EE4D
 CODE_B7EE4F:
-	PLB
-	RTS
+	PLB					;$B7EE4F
+	RTS					;$B7EE50
 
 CODE_B7EE51:
-	LDA.l $0018EF
-	SEP.b #$09
-	ADC.l $0018CD
-	BPL.b CODE_B7EE60
-	LDA.w #$0000
+	LDA.l $0018EF				;$B7EE51
+	SEP.b #$09				;$B7EE55
+	ADC.l $0018CD				;$B7EE57
+	BPL.b CODE_B7EE60			;$B7EE5B
+	LDA.w #$0000				;$B7EE5D
 CODE_B7EE60:
-	STA.l $0018CD
-	CLD
-	LDY.w $7E9780
-	LDA.w $7E9782,y
-	STA.w $7E9782,x
-	LDA.w $7E97C2,y
-	STA.w $7E97C2,x
-	LDA.w $7E9802,y
-	STA.w $7E9802,x
-	LDA.w $7E9842,y
-	STA.w $7E9842,x
-	DEY
-	DEY
-	STY.w $7E9780
-	BRA.b CODE_B7EE34
+	STA.l $0018CD				;$B7EE60
+	CLD					;$B7EE64
+	LDY.w $7E9780				;$B7EE65
+	LDA.w $7E9782,y				;$B7EE68
+	STA.w $7E9782,x				;$B7EE6B
+	LDA.w $7E97C2,y				;$B7EE6E
+	STA.w $7E97C2,x				;$B7EE71
+	LDA.w $7E9802,y				;$B7EE74
+	STA.w $7E9802,x				;$B7EE77
+	LDA.w $7E9842,y				;$B7EE7A
+	STA.w $7E9842,x				;$B7EE7D
+	DEY					;$B7EE80
+	DEY					;$B7EE81
+	STY.w $7E9780				;$B7EE82
+	BRA.b CODE_B7EE34			;$B7EE85
 
 DATA_B7EE87:
 	dw $0000,$0001,$0003,$0007,$000F,$001F,$003F,$007F
@@ -12584,204 +12584,204 @@ DATA_B7F18D:
 	db $40,$40,$40,$40,$40,$40,$40,$40,$40,$40,$40,$40,$40,$40,$40,$40
 
 CODE_B7F28D:
-	PHB
-	PHK
-	PLB
-	ASL
-	ASL
-	TAY
-	LDX.w DATA_B7B01B,y
-	LDA.w DATA_B7B01B+$02,y
-	STA.w $1963
-	STA.w $1965
-	LDA.w $0775
-	AND.w #$0200
-	BEQ.b CODE_B7F2AD
-	LDA.w #CODE_B7C840
-	STA.w $1963
+	PHB					;$B7F28D
+	PHK					;$B7F28E
+	PLB					;$B7F28F
+	ASL					;$B7F290
+	ASL					;$B7F291
+	TAY					;$B7F292
+	LDX.w DATA_B7B01B,y			;$B7F293
+	LDA.w DATA_B7B01B+$02,y			;$B7F296
+	STA.w $1963				;$B7F299
+	STA.w $1965				;$B7F29C
+	LDA.w $0775				;$B7F29F
+	AND.w #$0200				;$B7F2A2
+	BEQ.b CODE_B7F2AD			;$B7F2A5
+	LDA.w #CODE_B7C840			;$B7F2A7
+	STA.w $1963				;$B7F2AA
 CODE_B7F2AD:
-	LDA.w $0777
-	AND.w #$0040
-	BEQ.b CODE_B7F2BB
-	LDA.w #CODE_B7C76D
-	STA.w $1963
+	LDA.w $0777				;$B7F2AD
+	AND.w #$0040				;$B7F2B0
+	BEQ.b CODE_B7F2BB			;$B7F2B3
+	LDA.w #CODE_B7C76D			;$B7F2B5
+	STA.w $1963				;$B7F2B8
 CODE_B7F2BB:
-	LDA.w $0000,x
-	STA.b $1A
-	CLC
-	ADC.w #$0009
-	STA.b $8C
-	SEP.b #$20
-	LDA.w $0002,x
-	ADC.b #$00
-	STA.b $1C
-	STA.w $1B5B
-	ORA.b #$80
-	STA.b $8E
-	REP.b #$20
-	LDA.w $0003,x
-	STA.w $1969
-	TXA
-	CLC
-	ADC.w #$0005
-	STA.w $1B59
-	LDY.w #$0002
-	LDA.b [$1A]
-	STA.w $1967
-	SEP.b #$20
-	LDA.b [$1A],y
-	STA.w $1B5C
-	ORA.b #$80
-	STA.b $8F
-	REP.b #$20
-	INY
-	LDA.b [$1A],y
-	STA.b $90
-	INY
-	INY
-	LDA.b [$1A],y
-	AND.w #$00FF
-	ORA.w #$8080
-	STA.b $92
-	INY
-	LDA.b [$1A],y
-	SEC
-	SBC.b $90
-	STA.b $94
-	INY
-	INY
-	SEP.b #$20
-	LDA.b [$1A],y
-	ORA.b #$80
-	SBC.b $92
-	REP.b #$20
-	LSR
-	ROR.b $94
-	LSR
-	ROR.b $94
-	PLB
-	RTL
+	LDA.w $0000,x				;$B7F2BB
+	STA.b $1A				;$B7F2BE
+	CLC					;$B7F2C0
+	ADC.w #$0009				;$B7F2C1
+	STA.b $8C				;$B7F2C4
+	SEP.b #$20				;$B7F2C6
+	LDA.w $0002,x				;$B7F2C8
+	ADC.b #$00				;$B7F2CB
+	STA.b $1C				;$B7F2CD
+	STA.w $1B5B				;$B7F2CF
+	ORA.b #$80				;$B7F2D2
+	STA.b $8E				;$B7F2D4
+	REP.b #$20				;$B7F2D6
+	LDA.w $0003,x				;$B7F2D8
+	STA.w $1969				;$B7F2DB
+	TXA					;$B7F2DE
+	CLC					;$B7F2DF
+	ADC.w #$0005				;$B7F2E0
+	STA.w $1B59				;$B7F2E3
+	LDY.w #$0002				;$B7F2E6
+	LDA.b [$1A]				;$B7F2E9
+	STA.w $1967				;$B7F2EB
+	SEP.b #$20				;$B7F2EE
+	LDA.b [$1A],y				;$B7F2F0
+	STA.w $1B5C				;$B7F2F2
+	ORA.b #$80				;$B7F2F5
+	STA.b $8F				;$B7F2F7
+	REP.b #$20				;$B7F2F9
+	INY					;$B7F2FB
+	LDA.b [$1A],y				;$B7F2FC
+	STA.b $90				;$B7F2FE
+	INY					;$B7F300
+	INY					;$B7F301
+	LDA.b [$1A],y				;$B7F302
+	AND.w #$00FF				;$B7F304
+	ORA.w #$8080				;$B7F307
+	STA.b $92				;$B7F30A
+	INY					;$B7F30C
+	LDA.b [$1A],y				;$B7F30D
+	SEC					;$B7F30F
+	SBC.b $90				;$B7F310
+	STA.b $94				;$B7F312
+	INY					;$B7F314
+	INY					;$B7F315
+	SEP.b #$20				;$B7F316
+	LDA.b [$1A],y				;$B7F318
+	ORA.b #$80				;$B7F31A
+	SBC.b $92				;$B7F31C
+	REP.b #$20				;$B7F31E
+	LSR					;$B7F320
+	ROR.b $94				;$B7F321
+	LSR					;$B7F323
+	ROR.b $94				;$B7F324
+	PLB					;$B7F326
+	RTL					;$B7F327
 
 CODE_B7F328:
-	JSL.l CODE_B7D8DE
-	LDA.w $049E
-	STA.w $0496
-	LDA.w $04A0
-	STA.w $0498
-	LDA.w $049A
-	STA.w $0492
-	LDA.w $049C
-	STA.w $0494
-	LDA.w $049F
-	STA.w $1973
-	DEC
-	STA.w $1975
-	LDA.w $0775
-	AND.w #$0001
-	BNE.b CODE_B7F3AF
-	LDA.w $049B
-	SEC
-	SBC.w #$0100
-	STA.w $196D
-	STZ.w $048A
-	STZ.w $048C
-	STZ.w $048E
-	STZ.w $0490
-	LDA.w $1973
-	AND.w #$00F8
-	STA.w $1981
-	LDA.w $196D
-	CLC
-	ADC.w #$0008
-	AND.w #$00F8
-	STA.w $197D
-	STZ.w $1985
-	LDA.w #$0004
-	STA.w $1989
-	LDA.w #$0040
+	JSL.l CODE_B7D8DE			;$B7F328
+	LDA.w $049E				;$B7F32C
+	STA.w $0496				;$B7F32F
+	LDA.w $04A0				;$B7F332
+	STA.w $0498				;$B7F335
+	LDA.w $049A				;$B7F338
+	STA.w $0492				;$B7F33B
+	LDA.w $049C				;$B7F33E
+	STA.w $0494				;$B7F341
+	LDA.w $049F				;$B7F344
+	STA.w $1973				;$B7F347
+	DEC					;$B7F34A
+	STA.w $1975				;$B7F34B
+	LDA.w $0775				;$B7F34E
+	AND.w #$0001				;$B7F351
+	BNE.b CODE_B7F3AF			;$B7F354
+	LDA.w $049B				;$B7F356
+	SEC					;$B7F359
+	SBC.w #$0100				;$B7F35A
+	STA.w $196D				;$B7F35D
+	STZ.w $048A				;$B7F360
+	STZ.w $048C				;$B7F363
+	STZ.w $048E				;$B7F366
+	STZ.w $0490				;$B7F369
+	LDA.w $1973				;$B7F36C
+	AND.w #$00F8				;$B7F36F
+	STA.w $1981				;$B7F372
+	LDA.w $196D				;$B7F375
+	CLC					;$B7F378
+	ADC.w #$0008				;$B7F379
+	AND.w #$00F8				;$B7F37C
+	STA.w $197D				;$B7F37F
+	STZ.w $1985				;$B7F382
+	LDA.w #$0004				;$B7F385
+	STA.w $1989				;$B7F388
+	LDA.w #$0040				;$B7F38B
 CODE_B7F38E:
-	PHA
-	JSR.w CODE_B7F3C5
-	JSR.w CODE_B7F415
-	LDA.w #$0004
-	STA.w $1989
-	CLC
-	ADC.w $196D
-	STA.w $196D
-	PLA
-	DEC
-	BNE.b CODE_B7F38E
-	STZ.w $1985
-	STZ.w $1989
-	JSR.w CODE_B7F3C5
+	PHA					;$B7F38E
+	JSR.w CODE_B7F3C5			;$B7F38F
+	JSR.w CODE_B7F415			;$B7F392
+	LDA.w #$0004				;$B7F395
+	STA.w $1989				;$B7F398
+	CLC					;$B7F39B
+	ADC.w $196D				;$B7F39C
+	STA.w $196D				;$B7F39F
+	PLA					;$B7F3A2
+	DEC					;$B7F3A3
+	BNE.b CODE_B7F38E			;$B7F3A4
+	STZ.w $1985				;$B7F3A6
+	STZ.w $1989				;$B7F3A9
+	JSR.w CODE_B7F3C5			;$B7F3AC
 CODE_B7F3AF:
-	LDA.w $1973
-	AND.w #$00F8
-	STA.w $1981
-	STZ.w $048A
-	STZ.w $048C
-	STZ.w $048E
-	STZ.w $0490
-	RTL
+	LDA.w $1973				;$B7F3AF
+	AND.w #$00F8				;$B7F3B2
+	STA.w $1981				;$B7F3B5
+	STZ.w $048A				;$B7F3B8
+	STZ.w $048C				;$B7F3BB
+	STZ.w $048E				;$B7F3BE
+	STZ.w $0490				;$B7F3C1
+	RTL					;$B7F3C4
 
 CODE_B7F3C5:
-	LDA.w $0470
-	AND.w #$000F
-	BNE.b CODE_B7F3DE
+	LDA.w $0470				;$B7F3C5
+	AND.w #$000F				;$B7F3C8
+	BNE.b CODE_B7F3DE			;$B7F3CB
 CODE_B7F3CD:
-	JSL.l CODE_B7B618
-	LDA.w $0775
-	AND.w #$0080
-	BEQ.b CODE_B7F3DD
-	JSL.l CODE_B7B75E
+	JSL.l CODE_B7B618			;$B7F3CD
+	LDA.w $0775				;$B7F3D1
+	AND.w #$0080				;$B7F3D4
+	BEQ.b CODE_B7F3DD			;$B7F3D7
+	JSL.l CODE_B7B75E			;$B7F3D9
 CODE_B7F3DD:
-	RTS
+	RTS					;$B7F3DD
 
 CODE_B7F3DE:
-	CMP.w #$0008
-	BEQ.b CODE_B7F3CD
-	CMP.w #$0005
-	BEQ.b CODE_B7F40B
-	CMP.w #$0004
-	BEQ.b CODE_B7F406
-	CMP.w #$0006
-	BEQ.b CODE_B7F410
-	CMP.w #$0009
-	BEQ.b CODE_B7F410
-	CMP.w #$0001
-	BEQ.b CODE_B7F401
-	JSL.l CODE_B7C067
-	RTS
+	CMP.w #$0008				;$B7F3DE
+	BEQ.b CODE_B7F3CD			;$B7F3E1
+	CMP.w #$0005				;$B7F3E3
+	BEQ.b CODE_B7F40B			;$B7F3E6
+	CMP.w #$0004				;$B7F3E8
+	BEQ.b CODE_B7F406			;$B7F3EB
+	CMP.w #$0006				;$B7F3ED
+	BEQ.b CODE_B7F410			;$B7F3F0
+	CMP.w #$0009				;$B7F3F2
+	BEQ.b CODE_B7F410			;$B7F3F5
+	CMP.w #$0001				;$B7F3F7
+	BEQ.b CODE_B7F401			;$B7F3FA
+	JSL.l CODE_B7C067			;$B7F3FC
+	RTS					;$B7F400
 
 CODE_B7F401:
-	JSL.l CODE_B7BE37
-	RTS
+	JSL.l CODE_B7BE37			;$B7F401
+	RTS					;$B7F405
 
 CODE_B7F406:
-	JSL.l CODE_B7C4F5
-	RTS
+	JSL.l CODE_B7C4F5			;$B7F406
+	RTS					;$B7F40A
 
 CODE_B7F40B:
-	JSL.l CODE_B7BBF2
-	RTS
+	JSL.l CODE_B7BBF2			;$B7F40B
+	RTS					;$B7F40F
 
 CODE_B7F410:
-	JSL.l CODE_B7C2AE
-	RTS
+	JSL.l CODE_B7C2AE			;$B7F410
+	RTS					;$B7F414
 
 CODE_B7F415:
-	LDA.w $0775
-	AND.w #$0080
-	BEQ.b CODE_B7F421
-	JSL.l CODE_B7B8D1
+	LDA.w $0775				;$B7F415
+	AND.w #$0080				;$B7F418
+	BEQ.b CODE_B7F421			;$B7F41B
+	JSL.l CODE_B7B8D1			;$B7F41D
 CODE_B7F421:
-	LDA.w $0775
-	AND.w #$0200
-	BEQ.b CODE_B7F437
-	LDX.w $0793
-	LDA.l DATA_B3869B,x
-	STA.w $15E4
-	JSL.l CODE_B38609
+	LDA.w $0775				;$B7F421
+	AND.w #$0200				;$B7F424
+	BEQ.b CODE_B7F437			;$B7F427
+	LDX.w $0793				;$B7F429
+	LDA.l DATA_B3869B,x			;$B7F42C
+	STA.w $15E4				;$B7F430
+	JSL.l CODE_B38609			;$B7F433
 CODE_B7F437:
-	JSL.l CODE_B7B86D
-	RTS
+	JSL.l CODE_B7B86D			;$B7F437
+	RTS					;$B7F43B

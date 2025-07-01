@@ -1,3 +1,5 @@
+includeonce
+
 !null_pointer = $000000
 
 ;sprite init command constants
