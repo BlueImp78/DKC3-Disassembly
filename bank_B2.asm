@@ -1,116 +1,114 @@
-upload_spc_engine_wrapper:
-;$B28000
-	JMP.w upload_spc_engine			;$B28000
-
-CODE_B28003:
-	JMP.w CODE_B2804B			;$B28003
-
-CODE_B28006:
-	JMP.w CODE_B28064			;$B28006
-
-CODE_B28009:
-	JMP.w CODE_B2807D			;$B28009
-
-CODE_B2800C:
-	JMP.w CODE_B280AA			;$B2800C
-
-CODE_B2800F:
-	JMP.w CODE_B280E5			;$B2800F
-
-CODE_B28012:
-	JMP.w CODE_B28124			;$B28012
-
-CODE_B28015:
-	JMP.w CODE_B28196			;$B28015
-
-CODE_B28018:
-	JMP.w CODE_B28207			;$B28018
-
-CODE_B2801B:
-	JMP.w CODE_B28172			;$B2801B
-
-CODE_B2801E:
-	JMP.w CODE_B28249			;$B2801E
-
-CODE_B28021:
-	JMP.w CODE_B28235			;$B28021
-
-CODE_B28024:
-	JMP.w CODE_B2814E			;$B28024
-
-CODE_B28027:
-	JMP.w CODE_B281FB			;$B28027
-
-CODE_B2802A:
-	JMP.w CODE_B28104			;$B2802A
-
 upload_spc_engine:
-;$B2802D
+	JMP .upload_spc_engine_wrapper		;$B28000
+
+#CODE_B28003:
+	JMP .queue_song				;$B28003
+
+#CODE_B28006:
+	JMP .play_queued_song			;$B28006
+
+#CODE_B28009:
+	JMP .play_song				;$B28009
+
+#CODE_B2800C:
+	JMP .play_song_with_transition		;$B2800C
+
+#CODE_B2800F:
+	JMP .transition_song			;$B2800F
+
+#CODE_B28012:
+	JMP .queue_sound_effect			;$B28012
+
+#CODE_B28015:
+	JMP .play_queued_sound_effect		;$B28015
+
+#CODE_B28018:
+	JMP .play_high_priority_sound		;$B28018
+
+#CODE_B2801B:
+	JMP .CODE_B28172			;$B2801B
+
+#CODE_B2801E:
+	JMP .reset_var_pitch_loop_sound		;$B2801E
+
+#CODE_B28021:
+	JMP .set_var_pitch_loop_sound		;$B28021
+
+#CODE_B28024:
+	JMP .CODE_B2814E			;$B28024
+
+#CODE_B28027:
+	JMP .CODE_B281FB			;$B28027
+
+#CODE_B2802A:
+	JMP .clear_sound_buffers		;$B2802A
+
+.upload_spc_engine_wrapper:
 	PHB					;$B2802D
 	PHK					;$B2802E
 	PLB					;$B2802F
-	JSR.w CODE_B28273			;$B28030
-	JSR.w CODE_B282E5			;$B28033
-	JSR.w CODE_B282FD			;$B28036
-	LDA.w #DATA_F1B663			;$B28039
-	STA.b $1A				;$B2803C
+	JSR .upload_spc_base_engine		;$B28030
+	JSR .upload_spc_sound_engine		;$B28033
+	JSR .upload_global_samples		;$B28036
+	LDA #DATA_F1B663			;$B28039
+	STA $1A					;$B2803C
 	LDA.w #DATA_F1B663>>16			;$B2803E
-	STA.b $1C				;$B28041
-	JSR.w CODE_B2846C			;$B28043
-	JSR.w CODE_B2847E			;$B28046
+	STA $1C					;$B28041
+	JSR .upload_inline_spc_block		;$B28043
+	JSR .execute_spc_sound_engine		;$B28046
 	PLB					;$B28049
 	RTL					;$B2804A
 
-CODE_B2804B:
+.queue_song:
 	PHB					;$B2804B
 	PHK					;$B2804C
 	PLB					;$B2804D
-	STA.b $08				;$B2804E
-	LDX.w #$00FF				;$B28050
-	JSR.w CODE_B2825D			;$B28053
-	JSR.w CODE_B28325			;$B28056
-	JSR.w CODE_B282B5			;$B28059
-	JSR.w CODE_B282CD			;$B2805C
-	JSR.w CODE_B2847E			;$B2805F
+	STA $08					;$B2804E
+	LDX #$00FF				;$B28050
+	JSR .write_spc_command_x		;$B28053
+	JSR .upload_song_sample_set		;$B28056
+	JSR .upload_song_data			;$B28059
+	JSR .upload_song_sound_effects		;$B2805C
+	JSR .execute_spc_sound_engine		;$B2805F
 	PLB					;$B28062
 	RTL					;$B28063
 
-CODE_B28064:
+.play_queued_song:
 	PHB					;$B28064
 	PHK					;$B28065
 	PLB					;$B28066
-	JSL.l CODE_B28104			;$B28067
-	LDX.w #$00FE				;$B2806B
-	JSR.w CODE_B2825D			;$B2806E
-	LDA.w stereo_select			;$B28071
+	JSL .clear_sound_buffers		;$B28067
+	LDX #$00FE				;$B2806B
+	JSR .write_spc_command_x		;$B2806E
+	LDA stereo_select			;$B28071
 	XBA					;$B28074
-	ORA.w #$00FA				;$B28075
-	JSR.w CODE_B2825E			;$B28078
+	ORA #$00FA				;$B28075
+	JSR .write_spc_command_a		;$B28078
 	PLB					;$B2807B
 	RTL					;$B2807C
 
-CODE_B2807D:
+.play_song:
 	PHB					;$B2807D
 	PHK					;$B2807E
 	PLB					;$B2807F
-	STA.b $08				;$B28080
-	LDX.w #$00FF				;$B28082
-	JSR.w CODE_B2825D			;$B28085
-	JSR.w CODE_B28325			;$B28088
-	JSR.w CODE_B282B5			;$B2808B
-	JSR.w CODE_B282CD			;$B2808E
-	JSR.w CODE_B2847E			;$B28091
-	JSL.l CODE_B28104			;$B28094
-	LDX.w #$00FE				;$B28098
-	JSR.w CODE_B2825D			;$B2809B
-	LDA.w stereo_select			;$B2809E
+	STA $08					;$B28080
+	LDX #$00FF				;$B28082
+	JSR .write_spc_command_x		;$B28085
+	JSR .upload_song_sample_set		;$B28088
+	JSR .upload_song_data			;$B2808B
+	JSR .upload_song_sound_effects		;$B2808E
+	JSR .execute_spc_sound_engine		;$B28091
+	JSL .clear_sound_buffers		;$B28094
+	LDX #$00FE				;$B28098
+	JSR .write_spc_command_x		;$B2809B
+	LDA stereo_select			;$B2809E
 	XBA					;$B280A1
-	ORA.w #$00FA				;$B280A2
-	JSR.w CODE_B2825E			;$B280A5
+	ORA #$00FA				;$B280A2
+	JSR .write_spc_command_a		;$B280A5
 	PLB					;$B280A8
 	RTL					;$B280A9
 
-CODE_B280AA:
+.play_song_with_transition:
 	PHB					;$B280AA
 	PHK					;$B280AB
 	PLB					;$B280AC
@@ -118,147 +116,148 @@ CODE_B280AA:
 	AND.w #$00FF				;$B280AE
 	STA.b $08				;$B280B1
 	LDX.w #$00FF				;$B280B3
-	JSR.w CODE_B2825D			;$B280B6
-	JSR.w CODE_B28325			;$B280B9
-	JSR.w CODE_B282B5			;$B280BC
-	JSR.w CODE_B282CD			;$B280BF
-	JSR.w CODE_B2847E			;$B280C2
-	JSL.l CODE_B28104			;$B280C5
+	JSR.w .write_spc_command_x		;$B280B6
+	JSR.w .upload_song_sample_set		;$B280B9
+	JSR.w .upload_song_data			;$B280BC
+	JSR.w .upload_song_sound_effects	;$B280BF
+	JSR.w .execute_spc_sound_engine		;$B280C2
+	JSL.l .clear_sound_buffers		;$B280C5
 	PLA					;$B280C9
 	AND.w #$FF00				;$B280CA
 	ORA.w #$00FB				;$B280CD
-	JSR.w CODE_B2825E			;$B280D0
+	JSR.w .write_spc_command_a		;$B280D0
 	LDX.w #$00FE				;$B280D3
-	JSR.w CODE_B2825D			;$B280D6
+	JSR.w .write_spc_command_x		;$B280D6
 	LDA.w stereo_select			;$B280D9
 	XBA					;$B280DC
 	ORA.w #$00FA				;$B280DD
-	JSR.w CODE_B2825E			;$B280E0
+	JSR.w .write_spc_command_a		;$B280E0
 	PLB					;$B280E3
 	RTL					;$B280E4
 
-CODE_B280E5:
+.transition_song:
 	PHB					;$B280E5
 	PHK					;$B280E6
 	PLB					;$B280E7
 	XBA					;$B280E8
-	AND.w #$FF00				;$B280E9
-	ORA.w #$00FB				;$B280EC
-	JSR.w CODE_B2825E			;$B280EF
-	LDX.w #$00FE				;$B280F2
-	JSR.w CODE_B2825D			;$B280F5
-	LDA.w stereo_select			;$B280F8
+	AND #$FF00				;$B280E9
+	ORA #$00FB				;$B280EC
+	JSR .write_spc_command_a		;$B280EF
+	LDX #$00FE				;$B280F2
+	JSR .write_spc_command_x		;$B280F5
+	LDA stereo_select			;$B280F8
 	XBA					;$B280FB
-	ORA.w #$00FA				;$B280FC
-	JSR.w CODE_B2825E			;$B280FF
+	ORA #$00FA				;$B280FC
+	JSR .write_spc_command_a		;$B280FF
 	PLB					;$B28102
 	RTL					;$B28103
 
-CODE_B28104:
-	LDX.w #$0007				;$B28104
-CODE_B28107:
-	STZ.w $0439,x				;$B28107
-	STZ.w $0441,x				;$B2810A
-	STZ.w $0420,x				;$B2810D
+.clear_sound_buffers:
+	LDX #$0007				;$B28104
+.clear_buffer_entry:
+	STZ $0439,x				;$B28107
+	STZ $0441,x				;$B2810A
+	STZ $0420,x				;$B2810D
 	DEX					;$B28110
 	DEX					;$B28111
-	BPL.b CODE_B28107			;$B28112
-	STZ.w $0430				;$B28114
-	STZ.w $0436				;$B28117
-	STZ.w $0438				;$B2811A
-	LDA.w #$0002				;$B2811D
-	STA.w $0434				;$B28120
+	BPL .clear_buffer_entry			;$B28112
+	STZ $0430				;$B28114
+	STZ $0436				;$B28117
+	STZ $0438				;$B2811A
+	LDA #$0002				;$B2811D
+	STA $0434				;$B28120
 	RTL					;$B28123
 
-CODE_B28124:
+.queue_sound_effect:
 	PHB					;$B28124
 	PHX					;$B28125
 	PHY					;$B28126
 	PHK					;$B28127
 	PLB					;$B28128
-	BIT.w $044A				;$B28129
-	BMI.b CODE_B2814A			;$B2812C
-	LDX.w $0436				;$B2812E
-	CMP.w $043A,x				;$B28131
-	BEQ.b CODE_B2814A			;$B28134
+	BIT $044A				;$B28129
+	BMI ..return				;$B2812C
+	LDX $0436				;$B2812E
+	CMP $043A,x				;$B28131
+	BEQ ..return				;$B28134
 	TAY					;$B28136
 	INX					;$B28137
 	INX					;$B28138
 	TXA					;$B28139
-	AND.w #$000E				;$B2813A
+	AND #$000E				;$B2813A
 	TAX					;$B2813D
-	LDA.w $043A,x				;$B2813E
-	BNE.b CODE_B2814A			;$B28141
+	LDA $043A,x				;$B2813E
+	BNE ..return				;$B28141
 	TYA					;$B28143
-	STA.w $043A,x				;$B28144
-	STX.w $0436				;$B28147
-CODE_B2814A:
+	STA $043A,x				;$B28144
+	STX $0436				;$B28147
+..return:
 	PLY					;$B2814A
 	PLX					;$B2814B
 	PLB					;$B2814C
 	RTL					;$B2814D
 
-CODE_B2814E:
+.CODE_B2814E:
 	PHB					;$B2814E
 	PHK					;$B2814F
 	PLB					;$B28150
 	BIT.w $044A				;$B28151
-	BMI.b CODE_B28170			;$B28154
+	BMI ..return				;$B28154
 	PHX					;$B28156
 	PHY					;$B28157
-	SEP.b #$30				;$B28158
+	SEP #$30				;$B28158
 	XBA					;$B2815A
 	AND.b #$07				;$B2815B
 	TAX					;$B2815D
 	XBA					;$B2815E
 	LDY.w $0428,x				;$B2815F
-	BEQ.b CODE_B28169			;$B28162
+	BEQ ..CODE_B28169			;$B28162
 	CMP.w $0420,x				;$B28164
-	BNE.b CODE_B2816C			;$B28167
-CODE_B28169:
+	BNE ..CODE_B2816C			;$B28167
+..CODE_B28169:
 	STA.w $0428,x				;$B28169
-CODE_B2816C:
-	REP.b #$30				;$B2816C
+..CODE_B2816C:
+	REP #$30				;$B2816C
 	PLY					;$B2816E
 	PLX					;$B2816F
-CODE_B28170:
+..return:
 	PLB					;$B28170
 	RTL					;$B28171
 
-CODE_B28172:
-	SEP.b #$30				;$B28172
+;High priority mute others?
+.CODE_B28172:
+	SEP #$30				;$B28172
 	XBA					;$B28174
 	AND.b #$0F				;$B28175
 	TAX					;$B28177
 	XBA					;$B28178
 	STA.w $0420,x				;$B28179
-	BEQ.b CODE_B28186			;$B2817C
-	LDA.w DATA_B281F3,x			;$B2817E
+	BEQ.b .CODE_B28186			;$B2817C
+	LDA.w .index_to_bit,x			;$B2817E
 	TSB.w $0430				;$B28181
-	BRA.b CODE_B2818C			;$B28184
+	BRA.b .CODE_B2818C			;$B28184
 
-CODE_B28186:
-	LDA.w DATA_B281F3,x			;$B28186
+.CODE_B28186:
+	LDA.w .index_to_bit,x			;$B28186
 	TRB.w $0430				;$B28189
-CODE_B2818C:
+.CODE_B2818C:
 	LDA.w $0420,x				;$B2818C
-	REP.b #$30				;$B2818F
+	REP #$30				;$B2818F
 	TAX					;$B28191
-	JSR.w CODE_B2825D			;$B28192
+	JSR.w .write_spc_command_x		;$B28192
 	RTL					;$B28195
 
-CODE_B28196:
+.play_queued_sound_effect:
 	PHB					;$B28196
 	PHK					;$B28197
 	PLB					;$B28198
 	LDA.b $00				;$B28199
 	CMP.w $0438				;$B2819B
-	BEQ.b CODE_B281C1			;$B2819E
+	BEQ.b .CODE_B281C1			;$B2819E
 	LDX.w $0434				;$B281A0
 	LDA.w $043A,x				;$B281A3
-	BEQ.b CODE_B281C1			;$B281A6
+	BEQ.b .CODE_B281C1			;$B281A6
 	STZ.w $043A,x				;$B281A8
-	JSL.l CODE_B28207			;$B281AB
+	JSL.l .play_high_priority_sound		;$B281AB
 	LDA.w $0434				;$B281AF
 	INC					;$B281B2
 	INC					;$B281B3
@@ -269,171 +268,170 @@ CODE_B28196:
 	PLB					;$B281BF
 	RTL					;$B281C0
 
-
-;play high priority sound?
-CODE_B281C1:
-	SEP.b #$20				;$B281C1
-	LDX.w #$0007				;$B281C3
-CODE_B281C6:
-	LDA.w $0428,x				;$B281C6
-	CMP.w $0420,x				;$B281C9
-	BNE.b CODE_B281D5			;$B281CC
+.CODE_B281C1:
+	SEP #$20				;$B281C1
+	LDX #$0007				;$B281C3
+.next_slot:
+	LDA $0428,x				;$B281C6
+	CMP $0420,x				;$B281C9
+	BNE .CODE_B281D5			;$B281CC
 	DEX					;$B281CE
-	BPL.b CODE_B281C6			;$B281CF
-	REP.b #$20				;$B281D1
+	BPL .next_slot				;$B281CF
+	REP #$20				;$B281D1
 	PLB					;$B281D3
 	RTL					;$B281D4
 
-CODE_B281D5:
-	STA.w $0420,x				;$B281D5
+.CODE_B281D5:
+	STA $0420,x				;$B281D5
 	TAY					;$B281D8
-	BEQ.b CODE_B281E3			;$B281D9
-	LDA.w DATA_B281F3,x			;$B281DB
-	TSB.w $0430				;$B281DE
-	BRA.b CODE_B281E9			;$B281E1
+	BEQ .reset_channel			;$B281D9
+	LDA .index_to_bit,x			;$B281DB
+	TSB $0430				;$B281DE
+	BRA .write_sound			;$B281E1
 
-CODE_B281E3:
-	LDA.w DATA_B281F3,x			;$B281E3
+.reset_channel:
+	LDA.w .index_to_bit,x			;$B281E3
 	TRB.w $0430				;$B281E6
-CODE_B281E9:
+.write_sound:
 	TXA					;$B281E9
 	XBA					;$B281EA
 	TYA					;$B281EB
-	REP.b #$20				;$B281EC
-	JSR.w CODE_B2825E			;$B281EE
+	REP #$20				;$B281EC
+	JSR .write_spc_command_a		;$B281EE
 	PLB					;$B281F1
 	RTL					;$B281F2
 
-DATA_B281F3:
-	db $01,$02,$04,$08,$10,$20,$40,$80
+.index_to_bit:
+	db $01, $02, $04, $08, $10, $20, $40, $80
 
-CODE_B281FB:
+.CODE_B281FB:
 	PHB					;$B281FB
 	PHY					;$B281FC
 	PHX					;$B281FD
 	PHK					;$B281FE
 	PLB					;$B281FF
-	JSR.w CODE_B2825E			;$B28200
+	JSR .write_spc_command_a		;$B28200
 	PLX					;$B28203
 	PLY					;$B28204
 	PLB					;$B28205
 	RTL					;$B28206
 
-CODE_B28207:
+.play_high_priority_sound:
 	PHB					;$B28207
 	PHY					;$B28208
 	PHX					;$B28209
 	PHK					;$B2820A
 	PLB					;$B2820B
 	BIT.w $044A				;$B2820C
-	BMI.b CODE_B28231			;$B2820F
-	SEP.b #$30				;$B28211
+	BMI .CODE_B28231			;$B2820F
+	SEP #$30				;$B28211
 	XBA					;$B28213
 	TAX					;$B28214
 	LDA.w $0430				;$B28215
-	BIT.w DATA_B281F3,x			;$B28218
-	BNE.b CODE_B28228			;$B2821B
-CODE_B2821D:
+	BIT.w .index_to_bit,x			;$B28218
+	BNE .CODE_B28228			;$B2821B
+.CODE_B2821D:
 	TXA					;$B2821D
 	XBA					;$B2821E
-	REP.b #$30				;$B2821F
-	JSR.w CODE_B2825E			;$B28221
+	REP #$30				;$B2821F
+	JSR .write_spc_command_a		;$B28221
 	PLX					;$B28224
 	PLY					;$B28225
 	PLB					;$B28226
 	RTL					;$B28227
 
-CODE_B28228:
-	LDX.b #$04				;$B28228
-	BIT.w DATA_B281F3,x			;$B2822A
-	BEQ.b CODE_B2821D			;$B2822D
-	REP.b #$30				;$B2822F
-CODE_B28231:
+.CODE_B28228:
+	LDX #$04				;$B28228
+	BIT .index_to_bit,x			;$B2822A
+	BEQ .CODE_B2821D			;$B2822D
+	REP #$30				;$B2822F
+.CODE_B28231:
 	PLX					;$B28231
 	PLY					;$B28232
 	PLB					;$B28233
 	RTL					;$B28234
 
-CODE_B28235:
+.set_var_pitch_loop_sound:
 	PHB					;$B28235
 	PHK					;$B28236
 	PLB					;$B28237
-	BIT.w $044A				;$B28238
-	BMI.b CODE_B28247			;$B2823B
-	AND.w #$00FF				;$B2823D
+	BIT $044A				;$B28238
+	BMI ..return				;$B2823B
+	AND #$00FF				;$B2823D
 	XBA					;$B28240
-	ORA.w #$00FC				;$B28241
-	JSR.w CODE_B2825E			;$B28244
-CODE_B28247:
+	ORA #$00FC				;$B28241
+	JSR .write_spc_command_a		;$B28244
+..return:
 	PLB					;$B28247
 	RTL					;$B28248
 
-CODE_B28249:
+;Stop variable pitch loop sound effect
+.reset_var_pitch_loop_sound:
 	PHB					;$B28249
 	PHK					;$B2824A
 	PLB					;$B2824B
 	BIT.w $044A				;$B2824C
-	BMI.b CODE_B2825B			;$B2824F
+	BMI.b ..return				;$B2824F
 	AND.w #$00FF				;$B28251
 	XBA					;$B28254
 	ORA.w #$00FD				;$B28255
-	JSR.w CODE_B2825E			;$B28258
-CODE_B2825B:
+	JSR.w .write_spc_command_a		;$B28258
+..return:
 	PLB					;$B2825B
 	RTL					;$B2825C
 
-CODE_B2825D:
+.write_spc_command_x:
 	TXA					;$B2825D
-CODE_B2825E:
-	SEP.b #$10				;$B2825E
-	LDX.b $06				;$B28260
-CODE_B28262:
+.write_spc_command_a:
+	SEP #$10				;$B2825E
+	LDX $06					;$B28260
+..wait_for_echo:
 	CPX.w !REGISTER_APUPort0		;$B28262
-	BNE.b CODE_B28262			;$B28265
+	BNE ..wait_for_echo			;$B28265
 	STA.w !REGISTER_APUPort1		;$B28267
 	INX					;$B2826A
 	STX.w !REGISTER_APUPort0		;$B2826B
-	STX.b $06				;$B2826E
-	REP.b #$10				;$B28270
+	STX $06					;$B2826E
+	REP #$10				;$B28270
 	RTS					;$B28272
 
-CODE_B28273:
-	SEP.b #$10				;$B28273
+.upload_spc_base_engine:
+	SEP #$10				;$B28273
 	LDA.w #$BBAA				;$B28275
-CODE_B28278:
+-
 	CMP.w !REGISTER_APUPort0		;$B28278
-	BNE.b CODE_B28278			;$B2827B
+	BNE -					;$B2827B
 	LDA.w #$04D8				;$B2827D
 	STA.w !REGISTER_APUPort2		;$B28280
 	LDA.w #$01CC				;$B28283
 	STA.w !REGISTER_APUPort0		;$B28286
 	TAX					;$B28289
-CODE_B2828A:
+-
 	CPX.w !REGISTER_APUPort0		;$B2828A
-	BNE.b CODE_B2828A			;$B2828D
+	BNE -					;$B2828D
 	LDX.b #$00				;$B2828F
-CODE_B28291:
+.next_byte:
 	LDA.l DATA_ED0000,x			;$B28291
 	TAY					;$B28295
 	STY.w !REGISTER_APUPort1		;$B28296
 	STX.w !REGISTER_APUPort0		;$B28299
-CODE_B2829C:
+-
 	CPX.w !REGISTER_APUPort0		;$B2829C
-	BNE.b CODE_B2829C			;$B2829F
+	BNE -					;$B2829F
 	INX					;$B282A1
 	CPX.b #$88				;$B282A2
-	BNE.b CODE_B28291			;$B282A4
+	BNE.b .next_byte			;$B282A4
 	INX					;$B282A6
 	TXA					;$B282A7
 	STA.w !REGISTER_APUPort0		;$B282A8
-CODE_B282AB:
+-
 	CPX.w !REGISTER_APUPort0		;$B282AB
-	BNE.b CODE_B282AB			;$B282AE
-	STZ.b $06				;$B282B0
-	REP.b #$10				;$B282B2
+	BNE -					;$B282AE
+	STZ.b spc_transaction			;$B282B0
+	REP #$10				;$B282B2
 	RTS					;$B282B4
 
-CODE_B282B5:
+.upload_song_data:
 	LDA.b $08				;$B282B5
 	ASL					;$B282B7
 	ASL					;$B282B8
@@ -444,10 +442,10 @@ CODE_B282B5:
 	STA.b $1A				;$B282C1
 	LDA.l DATA_ED0D86+$02,x			;$B282C3
 	STA.b $1C				;$B282C7
-	JSR.w CODE_B2846C			;$B282C9
+	JSR.w .upload_inline_spc_block		;$B282C9
 	RTS					;$B282CC
 
-CODE_B282CD:
+.upload_song_sound_effects:
 	LDA.b $08				;$B282CD
 	ASL					;$B282CF
 	ASL					;$B282D0
@@ -458,10 +456,10 @@ CODE_B282CD:
 	STA.b $1A				;$B282D9
 	LDA.l DATA_ED0D86+$08,x			;$B282DB
 	STA.b $1C				;$B282DF
-	JSR.w CODE_B2846C			;$B282E1
+	JSR.w .upload_inline_spc_block		;$B282E1
 	RTS					;$B282E4
 
-CODE_B282E5:
+.upload_spc_sound_engine:
 	LDA.w #DATA_ED0088			;$B282E5
 	STA.b $1A				;$B282E8
 	LDA.w #DATA_ED0088>>16			;$B282EA
@@ -470,30 +468,30 @@ CODE_B282E5:
 	STA.b $1D				;$B282F2
 	LDA.w #$067F				;$B282F4
 	STA.b $1F				;$B282F7
-	JSR.w CODE_B28485			;$B282F9
+	JSR.w .upload_spc_block			;$B282F9
 	RTS					;$B282FC
 
-CODE_B282FD:
-	LDA.w #DATA_ED0F36			;$B282FD
-	STA.b $0A				;$B28300
+.upload_global_samples:
+	LDA #DATA_ED0F36			;$B282FD
+	STA $0A					;$B28300
 	LDA.w #DATA_ED0F36>>16			;$B28302
-	STA.b $0C				;$B28305
-	LDA.w #$3100				;$B28307
-	STA.b $12				;$B2830A
-	STZ.b $16				;$B2830C
-	LDA.w #$3400				;$B2830E
-	STA.b $0E				;$B28311
-	STZ.b $16				;$B28313
-	JSR.w CODE_B28349			;$B28315
-	LDA.b $12				;$B28318
-	STA.b $14				;$B2831A
-	LDA.b $0E				;$B2831C
-	STA.b $10				;$B2831E
-	LDA.b $16				;$B28320
-	STA.b $18				;$B28322
+	STA $0C					;$B28305
+	LDA #$3100				;$B28307
+	STA $12					;$B2830A
+	STZ $16					;$B2830C
+	LDA #$3400				;$B2830E
+	STA $0E					;$B28311
+	STZ $16					;$B28313
+	JSR .sample_uploader			;$B28315
+	LDA $12					;$B28318
+	STA $14					;$B2831A
+	LDA $0E					;$B2831C
+	STA $10					;$B2831E
+	LDA $16					;$B28320
+	STA $18					;$B28322
 	RTS					;$B28324
 
-CODE_B28325:
+.upload_song_sample_set:
 	LDA.b $08				;$B28325
 	ASL					;$B28327
 	ASL					;$B28328
@@ -510,28 +508,28 @@ CODE_B28325:
 	STA.b $0E				;$B2833F
 	LDA.b $18				;$B28341
 	STA.b $16				;$B28343
-	JSR.w CODE_B28349			;$B28345
+	JSR.w .sample_uploader			;$B28345
 	RTS					;$B28348
 
-CODE_B28349:
-	STZ.b $16				;$B28349
-	LDA.b $16				;$B2834B
-	STA.b $22				;$B2834D
-	LDA.b $0A				;$B2834F
-	STA.b $26				;$B28351
-	LDA.b $0C				;$B28353
-	STA.b $28				;$B28355
-	LDA.b $12				;$B28357
-	STA.b $2A				;$B28359
-	LDA.b $0E				;$B2835B
-	STA.b $2C				;$B2835D
-	LDX.w #$0000				;$B2835F
-	STZ.b $24				;$B28362
-CODE_B28364:
+.sample_uploader:
+	STZ $16					;$B28349
+	LDA $16					;$B2834B
+	STA $22					;$B2834D
+	LDA $0A					;$B2834F
+	STA $26					;$B28351
+	LDA $0C					;$B28353
+	STA $28					;$B28355
+	LDA $12					;$B28357
+	STA $2A					;$B28359
+	LDA $0E					;$B2835B
+	STA $2C					;$B2835D
+	LDX #$0000				;$B2835F
+	STZ $24					;$B28362
+.parse_next_sample:
 	LDY.b $24				;$B28364
 	LDA.b [$26],y				;$B28366
 	CMP.w #$FFFF				;$B28368
-	BEQ.b CODE_B283A0			;$B2836B
+	BEQ.b .upload_sample_directory		;$B2836B
 	ASL					;$B2836D
 	ADC.b [$26],y				;$B2836E
 	TXY					;$B28370
@@ -557,9 +555,9 @@ CODE_B28364:
 	INX					;$B28399
 	INC.b $24				;$B2839A
 	INC.b $24				;$B2839C
-	BRA.b CODE_B28364			;$B2839E
+	BRA .parse_next_sample			;$B2839E
 
-CODE_B283A0:
+.upload_sample_directory:
 	TXA					;$B283A0
 	CLC					;$B283A1
 	ADC.b $12				;$B283A2
@@ -577,21 +575,21 @@ CODE_B283A0:
 	INC					;$B283BB
 	LSR					;$B283BC
 	STA.b $1F				;$B283BD
-	JSR.w CODE_B28485			;$B283BF
+	JSR.w .upload_spc_block			;$B283BF
 	LDY.w #$0000				;$B283C2
 	LDA.w #DATA_ED0F36			;$B283C5
 	STA.b $26				;$B283C8
 	LDA.w #DATA_ED0F36>>16			;$B283CA
 	STA.b $28				;$B283CD
 	CMP.b $0C				;$B283CF
-	BNE.b CODE_B283DA			;$B283D1
+	BNE.b .CODE_B283DA			;$B283D1
 	LDA.w #$0F36				;$B283D3
 	CMP.b $0A				;$B283D6
-	BEQ.b CODE_B2842C			;$B283D8
-CODE_B283DA:
+	BEQ.b .upload_samples			;$B283D8
+.CODE_B283DA:
 	LDA.b [$26],y				;$B283DA
 	CMP.w #$FFFF				;$B283DC
-	BEQ.b CODE_B283F2			;$B283DF
+	BEQ.b .CODE_B283F2			;$B283DF
 	TAX					;$B283E1
 	SEP.b #$20				;$B283E2
 	LDA.b $16				;$B283E4
@@ -600,18 +598,18 @@ CODE_B283DA:
 	REP.b #$20				;$B283EC
 	INY					;$B283EE
 	INY					;$B283EF
-	BRA.b CODE_B283DA			;$B283F0
+	BRA.b .CODE_B283DA			;$B283F0
 
-CODE_B283F2:
+.CODE_B283F2:
 	LDY.w #$0000				;$B283F2
 	LDA.b $0A				;$B283F5
 	STA.b $26				;$B283F7
 	LDA.b $0C				;$B283F9
 	STA.b $28				;$B283FB
-CODE_B283FD:
+.CODE_B283FD:
 	LDA.b [$26],y				;$B283FD
 	CMP.w #$FFFF				;$B283FF
-	BEQ.b CODE_B28415			;$B28402
+	BEQ.b .CODE_B28415			;$B28402
 	TAX					;$B28404
 	SEP.b #$20				;$B28405
 	LDA.b $16				;$B28407
@@ -620,9 +618,9 @@ CODE_B283FD:
 	REP.b #$20				;$B2840F
 	INY					;$B28411
 	INY					;$B28412
-	BRA.b CODE_B283FD			;$B28413
+	BRA.b .CODE_B283FD			;$B28413
 
-CODE_B28415:
+.CODE_B28415:
 	LDA.w #$7E2000				;$B28415
 	STA.b $1A				;$B28418
 	LDA.w #$7E2000>>16			;$B2841A
@@ -631,16 +629,16 @@ CODE_B28415:
 	STA.b $1D				;$B28422
 	LDA.w #$0080				;$B28424
 	STA.b $1F				;$B28427
-	JSR.w CODE_B28485			;$B28429
-CODE_B2842C:
+	JSR.w .upload_spc_block			;$B28429
+.upload_samples:
 	LDA.b $2C				;$B2842C
 	STA.b $0E				;$B2842E
 	STZ.b $24				;$B28430
-CODE_B28432:
+.map_global_sample:
 	LDY.b $24				;$B28432
 	LDA.b [$0A],y				;$B28434
 	CMP.w #$FFFF				;$B28436
-	BEQ.b CODE_B2846B			;$B28439
+	BEQ.b ..return				;$B28439
 	ASL					;$B2843B
 	ADC.b [$0A],y				;$B2843C
 	TAX					;$B2843E
@@ -661,15 +659,15 @@ CODE_B28432:
 	LSR.b $1F				;$B2845C
 	INC.b $1A				;$B2845E
 	INC.b $1A				;$B28460
-	JSR.w CODE_B28485			;$B28462
+	JSR.w .upload_spc_block			;$B28462
 	INC.b $24				;$B28465
 	INC.b $24				;$B28467
-	BRA.b CODE_B28432			;$B28469
+	BRA.b .map_global_sample		;$B28469
 
-CODE_B2846B:
+..return:
 	RTS					;$B2846B
 
-CODE_B2846C:
+.upload_inline_spc_block:
 	LDA.b [$1A]				;$B2846C
 	STA.b $1D				;$B2846E
 	INC.b $1A				;$B28470
@@ -678,62 +676,62 @@ CODE_B2846C:
 	STA.b $1F				;$B28476
 	INC.b $1A				;$B28478
 	INC.b $1A				;$B2847A
-	BRA.b CODE_B28485			;$B2847C
+	BRA .upload_spc_block			;$B2847C
 
-CODE_B2847E:
+.execute_spc_sound_engine:
 	LDA.w #$0672				;$B2847E
 	STA.b $1D				;$B28481
 	STZ.b $1F				;$B28483
-CODE_B28485:
-	SEP.b #$10				;$B28485
+.upload_spc_block:
+	SEP #$10				;$B28485
 	LDX.b $06				;$B28487
-CODE_B28489:
+-
 	CPX.w !REGISTER_APUPort0		;$B28489
-	BNE.b CODE_B28489			;$B2848C
+	BNE -					;$B2848C
 	LDA.b $1D				;$B2848E
 	STA.w !REGISTER_APUPort1		;$B28490
 	INX					;$B28493
 	STX.w !REGISTER_APUPort0		;$B28494
 	LDA.b $1F				;$B28497
 	STA.b $21				;$B28499
-CODE_B2849B:
+-
 	CPX.w !REGISTER_APUPort0		;$B2849B
-	BNE.b CODE_B2849B			;$B2849E
+	BNE -					;$B2849E
 	STA.w !REGISTER_APUPort1		;$B284A0
 	INX					;$B284A3
 	STX.w !REGISTER_APUPort0		;$B284A4
 	LDA.b $1F				;$B284A7
-	BEQ.b CODE_B284C5			;$B284A9
+	BEQ.b .return				;$B284A9
 	LDY.b #$00				;$B284AB
-CODE_B284AD:
+..next_byte:
 	LDA.b [$1A],y				;$B284AD
 	INY					;$B284AF
 	INY					;$B284B0
-	BNE.b CODE_B284B5			;$B284B1
+	BNE ..wait_for_echo			;$B284B1
 	INC.b $1B				;$B284B3
-CODE_B284B5:
+..wait_for_echo:
 	CPX.w !REGISTER_APUPort0		;$B284B5
-	BNE.b CODE_B284B5			;$B284B8
+	BNE ..wait_for_echo			;$B284B8
 	INX					;$B284BA
 	STA.w !REGISTER_APUPort1		;$B284BB
 	STX.w !REGISTER_APUPort0		;$B284BE
 	DEC.b $1F				;$B284C1
-	BNE.b CODE_B284AD			;$B284C3
-CODE_B284C5:
+	BNE ..next_byte				;$B284C3
+.return:
 	STX.b $06				;$B284C5
-	REP.b #$10				;$B284C7
+	REP #$10				;$B284C7
 	LDA.b $21				;$B284C9
 	ASL					;$B284CB
 	RTS					;$B284CC
 
 CODE_B284CD:
-	JMP.w CODE_B29816			;$B284CD
+	JMP CODE_B29816				;$B284CD
 
 CODE_B284D0:
-	JMP.w CODE_B29952			;$B284D0
+	JMP CODE_B29952				;$B284D0
 
 CODE_B284D3:
-	JMP.w CODE_B29BCA			;$B284D3
+	JMP CODE_B29BCA				;$B284D3
 
 CODE_B284D6:
 	PHK					;$B284D6
@@ -1808,16 +1806,16 @@ CODE_B28FB9:
 	LDA.b $1A				;$B28FBE
 CODE_B28FC0:
 	STA.w $0016,y				;$B28FC0
-	JMP.w [$04F5]				;$B28FC3
+	JML [$04F5]				;$B28FC3
 
 Spr00DC_unknown_sprite_00DC_Main:
 ;$B28FC6
-	JMP.w [$04F5]				;$B28FC6
+	JML [$04F5]				;$B28FC6
 
 Spr0044_RotatingCylinderKey_Main:
 ;$B28FC9
 	JSL.l CODE_B9A006			;$B28FC9
-	JMP.w [$04F5]				;$B28FCD
+	JML [$04F5]				;$B28FCD
 
 Spr00F0_RareLogo_Main:
 ;$B28FD0
@@ -1868,7 +1866,7 @@ CODE_B2902C:
 	ADC.w #$0080				;$B2902F
 	STA.b $2E,x				;$B29032
 	JSL.l CODE_B9A006			;$B29034
-	JMP.w [$04F5]				;$B29038
+	JML [$04F5]				;$B29038
 
 CODE_B2903B:
 	LDA.b $29,x				;$B2903B
@@ -1928,7 +1926,7 @@ Spr0210_NintendoPresentsKong_Main:
 	STA.b $16,x				;$B290CE
 	LDA.w $0012,y				;$B290D0
 	STA.b $12,x				;$B290D3
-	JMP.w [$04F5]				;$B290D5
+	JML [$04F5]				;$B290D5
 
 CODE_B290D8:
 	LDA.w $0016,y				;$B290D8
@@ -1944,7 +1942,7 @@ CODE_B290D8:
 CODE_B290F0:
 	LDA.w $0012,y				;$B290F0
 	STA.b $12,x				;$B290F3
-	JMP.w [$04F5]				;$B290F5
+	JML [$04F5]				;$B290F5
 
 Spr0218_RareLogoKiddy_Main:
 ;$B290F8
@@ -1967,7 +1965,7 @@ Spr0218_RareLogoKiddy_Main:
 CODE_B29120:
 	JSR.w CODE_B2903B			;$B29120
 	JSR.w CODE_B29057			;$B29123
-	JMP.w [$04F5]				;$B29126
+	JML [$04F5]				;$B29126
 
 CODE_B29129:
 	LDA.l $7EA15C				;$B29129
@@ -1996,7 +1994,7 @@ CODE_B29129:
 	SBC.w #$006D				;$B2915D
 	LDX.b current_sprite			;$B29160
 	STA.b $16,x				;$B29162
-	JMP.w [$04F5]				;$B29164
+	JML [$04F5]				;$B29164
 
 Spr021C_RareLogoDixie_Main:
 ;$B29167
@@ -2019,7 +2017,7 @@ Spr021C_RareLogoDixie_Main:
 CODE_B2918F:
 	JSR.w CODE_B2903B			;$B2918F
 	JSR.w CODE_B29057			;$B29192
-	JMP.w [$04F5]				;$B29195
+	JML [$04F5]				;$B29195
 
 CODE_B29198:
 	LDA.l $7EA15C				;$B29198
@@ -2048,7 +2046,7 @@ CODE_B29198:
 	SBC.w #$006D				;$B291CC
 	LDX.b current_sprite			;$B291CF
 	STA.b $16,x				;$B291D1
-	JMP.w [$04F5]				;$B291D3
+	JML [$04F5]				;$B291D3
 
 CODE_B291D6:
 	PEA.w ((DATA_B9F278&$FF0000)>>16)|((CODE_B28B2C&$FF0000)>>8)	;$B291D6
@@ -2198,7 +2196,7 @@ CODE_B292E4:
 	BNE.b CODE_B292EB			;$B292E7
 	INC.b $38,x				;$B292E9
 CODE_B292EB:
-	JMP.w [$04F5]				;$B292EB
+	JML [$04F5]				;$B292EB
 
 CODE_B292EE:
 	TYX					;$B292EE
@@ -2210,10 +2208,10 @@ CODE_B292EE:
 	INC.b $38,x				;$B292F9
 CODE_B292FB:
 	JSL.l CODE_B9E000			;$B292FB
-	JMP.w [$04F5]				;$B292FF
+	JML [$04F5]				;$B292FF
 
 CODE_B29302:
-	JMP.w [$04F5]				;$B29302
+	JML [$04F5]				;$B29302
 
 Spr019C_unknown_sprite_019C_Main:
 ;$B29305
@@ -2260,7 +2258,7 @@ CODE_B2934E:
 	STA.b $4C,x				;$B29353
 CODE_B29355:
 	JSL.l CODE_B9E000			;$B29355
-	JMP.w [$04F5]				;$B29359
+	JML [$04F5]				;$B29359
 
 CODE_B2935C:
 	LDA.w #!Define_DKC3_MusicID_BonusTime	;$B2935C
@@ -4483,7 +4481,7 @@ CODE_B2B13E:
 	LDY.w #$0058				;$B2B13E
 	JSL.l CODE_BB8585			;$B2B141
 	BCC.b CODE_B2B14A			;$B2B145
-	JMP.w [$04F5]				;$B2B147
+	JML [$04F5]				;$B2B147
 
 CODE_B2B14A:
 	LDY.b alternate_sprite			;$B2B14A
@@ -4511,17 +4509,17 @@ CODE_B2B14A:
 	STA.b $6C,x				;$B2B17A
 	STZ.b $46,x				;$B2B17C
 	STZ.b $52,x				;$B2B17E
-	JMP.w [$04F5]				;$B2B180
+	JML [$04F5]				;$B2B180
 
 CODE_B2B183:
 	LDA.w $005C,y				;$B2B183
 	CMP.w $05B7				;$B2B186
 	BEQ.b CODE_B2B13E			;$B2B189
 	JSL.l CODE_BB8597			;$B2B18B
-	JMP.w [$04F5]				;$B2B18F
+	JML [$04F5]				;$B2B18F
 
 CODE_B2B192:
-	JMP.w [$04F5]				;$B2B192
+	JML [$04F5]				;$B2B192
 
 CODE_B2B195:
 	LDA.w $0046,y				;$B2B195
@@ -4581,7 +4579,7 @@ CODE_B2B1F3:
 	BCC.b CODE_B2B208			;$B2B1FF
 	INC					;$B2B201
 	JSR.w CODE_B2B933			;$B2B202
-	JMP.w [$04F5]				;$B2B205
+	JML [$04F5]				;$B2B205
 
 CODE_B2B208:
 	JSR.w CODE_B2BC5E			;$B2B208
@@ -4602,7 +4600,7 @@ CODE_B2B223:
 	BCC.b CODE_B2B238			;$B2B22F
 	INC					;$B2B231
 	JSR.w CODE_B2B933			;$B2B232
-	JMP.w [$04F5]				;$B2B235
+	JML [$04F5]				;$B2B235
 
 CODE_B2B238:
 	JSR.w CODE_B2BC39			;$B2B238
@@ -4647,7 +4645,7 @@ CODE_B2B25B:
 	LDY.w #$000A				;$B2B293
 	LDA.b [$6A],y				;$B2B296
 	STA.b $2E,x				;$B2B298
-	JMP.w [$04F5]				;$B2B29A
+	JML [$04F5]				;$B2B29A
 
 CODE_B2B29D:
 	LDA.w #$0300				;$B2B29D
@@ -4658,7 +4656,7 @@ CODE_B2B29D:
 	JSR.w CODE_B2B863			;$B2B2AA
 	LDA.w #$FC00				;$B2B2AD
 	STA.b $2E,x				;$B2B2B0
-	JMP.w [$04F5]				;$B2B2B2
+	JML [$04F5]				;$B2B2B2
 
 CODE_B2B2B5:
 	JSR.w CODE_B2B852			;$B2B2B5
@@ -4803,7 +4801,7 @@ CODE_B2B3D0:
 	BCC.b CODE_B2B3E5			;$B2B3DC
 	INC					;$B2B3DE
 	JSR.w CODE_B2B933			;$B2B3DF
-	JMP.w [$04F5]				;$B2B3E2
+	JML [$04F5]				;$B2B3E2
 
 CODE_B2B3E5:
 	JSR.w CODE_B2BC5E			;$B2B3E5
@@ -4825,7 +4823,7 @@ CODE_B2B403:
 	BCC.b CODE_B2B418			;$B2B40F
 	INC					;$B2B411
 	JSR.w CODE_B2B933			;$B2B412
-	JMP.w [$04F5]				;$B2B415
+	JML [$04F5]				;$B2B415
 
 CODE_B2B418:
 	JSR.w CODE_B2BC39			;$B2B418
@@ -4896,7 +4894,7 @@ CODE_B2B473:
 	LDY.w #$000A				;$B2B4B0
 	LDA.b [$6A],y				;$B2B4B3
 	STA.b $2E,x				;$B2B4B5
-	JMP.w [$04F5]				;$B2B4B7
+	JML [$04F5]				;$B2B4B7
 
 CODE_B2B4BA:
 	LDA.w #$0300				;$B2B4BA
@@ -4907,7 +4905,7 @@ CODE_B2B4BA:
 	JSR.w CODE_B2B863			;$B2B4C7
 	LDA.w #$FC00				;$B2B4CA
 	STA.b $2E,x				;$B2B4CD
-	JMP.w [$04F5]				;$B2B4CF
+	JML [$04F5]				;$B2B4CF
 
 CODE_B2B4D2:
 	PHX					;$B2B4D2
@@ -4927,7 +4925,7 @@ CODE_B2B4D2:
 	LDA.l $7E9DD4				;$B2B4F5
 	ORA.w #$0020				;$B2B4F9
 	STA.l $7E9DD4				;$B2B4FC
-	JMP.w [$04F5]				;$B2B500
+	JML [$04F5]				;$B2B500
 
 CODE_B2B503:
 	JSR.w CODE_B2B852			;$B2B503
@@ -5029,7 +5027,7 @@ CODE_B2B5CF:
 	BNE.b CODE_B2B5E6			;$B2B5DD
 	INC					;$B2B5DF
 	JSR.w CODE_B2B933			;$B2B5E0
-	JMP.w [$04F5]				;$B2B5E3
+	JML [$04F5]				;$B2B5E3
 
 CODE_B2B5E6:
 	JSR.w CODE_B2BC5E			;$B2B5E6
@@ -5091,7 +5089,7 @@ CODE_B2B659:
 	BCC.b CODE_B2B66E			;$B2B665
 	INC					;$B2B667
 	JSR.w CODE_B2B933			;$B2B668
-	JMP.w [$04F5]				;$B2B66B
+	JML [$04F5]				;$B2B66B
 
 CODE_B2B66E:
 	JSR.w CODE_B2BC39			;$B2B66E
@@ -5155,7 +5153,7 @@ CODE_B2B6EA:
 	RTS					;$B2B6EA
 
 CODE_B2B6EB:
-	JMP.w [$04F5]				;$B2B6EB
+	JML [$04F5]				;$B2B6EB
 
 CODE_B2B6EE:
 	LDY.b $5E,x				;$B2B6EE
@@ -5177,7 +5175,7 @@ CODE_B2B708:
 	PLY					;$B2B70F
 	STY.b current_sprite			;$B2B710
 CODE_B2B712:
-	JMP.w [$04F5]				;$B2B712
+	JML [$04F5]				;$B2B712
 
 CODE_B2B715:
 	LDA.w $194B				;$B2B715
@@ -6262,7 +6260,7 @@ Spr0224_TobogganSparks_Main:
 CODE_B2BEF2:
 	INC.w $051F				;$B2BEF2
 CODE_B2BEF5:
-	JMP.w [$04F5]				;$B2BEF5
+	JML [$04F5]				;$B2BEF5
 
 CODE_B2BEF8:
 	PHK					;$B2BEF8
@@ -6333,7 +6331,7 @@ CODE_B2BF6A:
 	STA.b $50,x				;$B2BF7E
 	LDA.l $001846				;$B2BF80
 	STA.b $52,x				;$B2BF84
-	JMP.w [$04F5]				;$B2BF86
+	JML [$04F5]				;$B2BF86
 
 CODE_B2BF89:
 	LDA.b current_sprite			;$B2BF89
@@ -6345,7 +6343,7 @@ CODE_B2BF91:
 	BNE.b CODE_B2BF97			;$B2BF93
 	STZ.b $CE				;$B2BF95
 CODE_B2BF97:
-	JMP.w [$04F5]				;$B2BF97
+	JML [$04F5]				;$B2BF97
 
 Spr0310_unknown_sprite_0310_Main:
 ;$B2BF9A
@@ -6359,7 +6357,7 @@ CODE_B2BFA5:
 	JSR.w CODE_B2BFC2			;$B2BFAA
 	JSL.l CODE_B9E000			;$B2BFAD
 	JSL.l CODE_B9A00C			;$B2BFB1
-	JMP.w [$04F5]				;$B2BFB5
+	JML [$04F5]				;$B2BFB5
 
 DATA_B2BFB8:
 	dw CODE_B2BFDF
@@ -6499,7 +6497,7 @@ CODE_B2C0A2:
 	JSL.l CODE_B9A00C			;$B2C0A2
 	LDA.w #DATA_FF206A>>16			;$B2C0A6
 	STA.b $6C				;$B2C0A9
-	JMP.w [$04F5]				;$B2C0AB
+	JML [$04F5]				;$B2C0AB
 
 DATA_B2C0AE:
 	dw CODE_B2C361
@@ -7686,7 +7684,7 @@ CODE_B2CB17:
 	STA.w $0016,y				;$B2CB2D
 	JSL.l CODE_B9A00C			;$B2CB30
 CODE_B2CB34:
-	JMP.w [$04F5]				;$B2CB34
+	JML [$04F5]				;$B2CB34
 
 Spr003C_unknown_sprite_003C_Main:
 ;$B2CB37
@@ -7720,12 +7718,12 @@ CODE_B2CB59:
 CODE_B2CB66:
 	STZ.w $1C8F				;$B2CB66
 	JSR.w CODE_B2E53B			;$B2CB69
-	JMP.w [$04F5]				;$B2CB6C
+	JML [$04F5]				;$B2CB6C
 
 CODE_B2CB6F:
 	JSR.w CODE_B2CB8D			;$B2CB6F
 	JSR.w CODE_B2CC0A			;$B2CB72
-	JMP.w [$04F5]				;$B2CB75
+	JML [$04F5]				;$B2CB75
 
 CODE_B2CB78:
 	LDX.w #$0010				;$B2CB78
@@ -7898,13 +7896,13 @@ CODE_B2CCCC:
 	BEQ.b CODE_B2CCDB			;$B2CCD6
 	JSR.w CODE_B2D284			;$B2CCD8
 CODE_B2CCDB:
-	JMP.w [$04F5]				;$B2CCDB
+	JML [$04F5]				;$B2CCDB
 
 CODE_B2CCDE:
 	LDA.w #$0010				;$B2CCDE
 	BIT.w $05FB				;$B2CCE1
 	BEQ.b CODE_B2CCE9			;$B2CCE4
-	JMP.w [$04F5]				;$B2CCE6
+	JML [$04F5]				;$B2CCE6
 
 CODE_B2CCE9:
 	JSR.w CODE_B2D09A			;$B2CCE9
@@ -8007,7 +8005,7 @@ CODE_B2CDB7:
 	JSR.w CODE_B2D1D4			;$B2CDCA
 CODE_B2CDCD:
 	JSR.w CODE_B2CE2E			;$B2CDCD
-	JMP.w [$04F5]				;$B2CDD0
+	JML [$04F5]				;$B2CDD0
 
 CODE_B2CDD3:
 	CMP.w #$0130				;$B2CDD3
@@ -8259,7 +8257,7 @@ Spr0344_GyrocopterBladesAndShadow_Main:
 	STA.w $0016,y				;$B2CFDC
 	JSL.l CODE_B9A00C			;$B2CFDF
 	JSR.w CODE_B2D00B			;$B2CFE3
-	JMP.w [$04F5]				;$B2CFE6
+	JML [$04F5]				;$B2CFE6
 
 CODE_B2CFE9:
 	LDA.w #$3000				;$B2CFE9
@@ -9089,7 +9087,7 @@ CODE_B2D5B4:
 	STA.b $2E,x				;$B2D5B7
 CODE_B2D5B9:
 	JSL.l CODE_B9E000			;$B2D5B9
-	JMP.w [$04F5]				;$B2D5BD
+	JML [$04F5]				;$B2D5BD
 
 CODE_B2D5C0:
 	TYX					;$B2D5C0
@@ -9117,7 +9115,7 @@ CODE_B2D5EA:
 Spr0308_StationaryDisplaySprite1_Main:
 ;$B2D5EC
 	JSL.l CODE_B9A00C			;$B2D5EC
-	JMP.w [$04F5]				;$B2D5F0
+	JML [$04F5]				;$B2D5F0
 
 Spr0314_EndingSwankyKong_Main:
 ;$B2D5F3
@@ -9136,7 +9134,7 @@ Spr0318_MovingDisplaySprite_Main:
 CODE_B2D604:
 	JSL.l CODE_B9E000			;$B2D604
 	JSL.l CODE_B9A00C			;$B2D608
-	JMP.w [$04F5]				;$B2D60C
+	JML [$04F5]				;$B2D60C
 
 Spr00F8_FunkyKong_Main:
 ;$B2D60F
@@ -9155,7 +9153,7 @@ DATA_B2D612:
 
 CODE_B2D624:
 	JSL.l CODE_B9A00C			;$B2D624
-	JMP.w [$04F5]				;$B2D628
+	JML [$04F5]				;$B2D628
 
 CODE_B2D62B:
 	TYX					;$B2D62B
@@ -9193,7 +9191,7 @@ CODE_B2D65E:
 	INC.b $38,x				;$B2D66C
 CODE_B2D66E:
 	JSL.l CODE_B9A00C			;$B2D66E
-	JMP.w [$04F5]				;$B2D672
+	JML [$04F5]				;$B2D672
 
 CODE_B2D675:
 	TYX					;$B2D675
@@ -9205,7 +9203,7 @@ CODE_B2D67C:
 	BEQ.b CODE_B2D685			;$B2D67E
 	DEC.b $64,x				;$B2D680
 CODE_B2D682:
-	JMP.w [$04F5]				;$B2D682
+	JML [$04F5]				;$B2D682
 
 CODE_B2D685:
 	INC.b $62,x				;$B2D685
@@ -9249,14 +9247,14 @@ CODE_B2D6DF:
 	STZ.b $38,x				;$B2D6EF
 CODE_B2D6F1:
 	JSL.l CODE_B9A00C			;$B2D6F1
-	JMP.w [$04F5]				;$B2D6F5
+	JML [$04F5]				;$B2D6F5
 
 CODE_B2D6F8:
 	JSL.l CODE_B9A00C			;$B2D6F8
 Spr01D4_KnautilusSpriteMask_Main:
 ;$B2D6FC
 	JSL.l CODE_B9E000			;$B2D6FC
-	JMP.w [$04F5]				;$B2D700
+	JML [$04F5]				;$B2D700
 
 
 Spr04D8_SwankyKong_Main:
@@ -9347,7 +9345,7 @@ CODE_B2D780:
 	TSB.w $061F				;$B2D7A7
 CODE_B2D7AA:
 	JSL.l CODE_B9A00C			;$B2D7AA
-	JMP.w [$04F5]				;$B2D7AE
+	JML [$04F5]				;$B2D7AE
 
 DATA_B2D7B1:
 	dw $0000
@@ -9469,7 +9467,7 @@ CODE_B2D898:
 	CLC					;$B2D89C
 	ADC.w $005E,y				;$B2D89D
 	STA.w $0024,y				;$B2D8A0
-	JMP.w [$04F5]				;$B2D8A3
+	JML [$04F5]				;$B2D8A3
 
 Spr032C_unknown_sprite_032C_Main:
 ;$B2D8A6
@@ -9494,7 +9492,7 @@ CODE_B2D8AF:
 	EOR.w $001E,y				;$B2D8C6
 	STA.w $001E,y				;$B2D8C9
 CODE_B2D8CC:
-	JMP.w [$04F5]				;$B2D8CC
+	JML [$04F5]				;$B2D8CC
 
 CODE_B2D8CF:
 	TYX					;$B2D8CF
@@ -9516,7 +9514,7 @@ CODE_B2D8E5:
 	STA.b $24,x				;$B2D8ED
 	DEC.b $38,x				;$B2D8EF
 CODE_B2D8F1:
-	JMP.w [$04F5]				;$B2D8F1
+	JML [$04F5]				;$B2D8F1
 
 Spr0328_MainMapWaterfall_Main:
 ;$B2D8F4
@@ -9533,7 +9531,7 @@ CODE_B2D8FB:
 	INC.b $38,x				;$B2D902
 	STX.w $1C5D				;$B2D904
 CODE_B2D907:
-	JMP.w [$04F5]				;$B2D907
+	JML [$04F5]				;$B2D907
 
 Spr034C_unknown_sprite_034C_Main:
 ;$B2D90A
@@ -9565,7 +9563,7 @@ CODE_B2D911:
 CODE_B2D938:
 	JSL.l CODE_B9E000			;$B2D938
 	JSL.l CODE_B9A00C			;$B2D93C
-	JMP.w [$04F5]				;$B2D940
+	JML [$04F5]				;$B2D940
 
 Spr0334_ChairliftPulley_Main:
 ;$B2D943
@@ -9623,7 +9621,7 @@ CODE_B2D9B1:
 	INC.b $5C,x				;$B2D9B1
 CODE_B2D9B3:
 	JSL.l CODE_B9A00C			;$B2D9B3
-	JMP.w [$04F5]				;$B2D9B7
+	JML [$04F5]				;$B2D9B7
 
 CODE_B2D9BA:
 	LDA.b $5C,x				;$B2D9BA
@@ -9780,7 +9778,7 @@ CODE_B2DAAE:
 	LDX.w #$7EA914				;$B2DAEE
 	JSR.w CODE_B2DB06			;$B2DAF1
 CODE_B2DAF4:
-	JMP.w [$04F5]				;$B2DAF4
+	JML [$04F5]				;$B2DAF4
 
 CODE_B2DAF7:
 	LDX.w #$0044				;$B2DAF7
@@ -9861,7 +9859,7 @@ CODE_B2DBA2:
 	STA.w $0038,y				;$B2DBB2
 	STZ.b $5C,x				;$B2DBB5
 CODE_B2DBB7:
-	JMP.w [$04F5]				;$B2DBB7
+	JML [$04F5]				;$B2DBB7
 
 Spr0340_BramblesVase_Main:
 ;$B2DBBA
@@ -9892,7 +9890,7 @@ CODE_B2DBE4:
 	LDA.w #$0088				;$B2DBE7
 	LDY.b current_sprite			;$B2DBEA
 	JSL.l CODE_B78018			;$B2DBEC
-	JMP.w [$04F5]				;$B2DBF0
+	JML [$04F5]				;$B2DBF0
 
 Spr00A8_RazorRidgePipe_Main:
 Spr00AC_unknown_sprite_00AC_Main:
@@ -9927,7 +9925,7 @@ CODE_B2DC1A:
 	JSL.l CODE_B9A006			;$B2DC1A
 Spr033C_StationaryDisplaySprite2_Main:
 CODE_B2DC1E:
-	JMP.w [$04F5]				;$B2DC1E
+	JML [$04F5]				;$B2DC1E
 
 CODE_B2DC21:
 	JSL.l CODE_BB8591			;$B2DC21
@@ -9977,7 +9975,7 @@ CODE_B2DC2E:
 CODE_B2DC85:
 	LDA.w $005C,y				;$B2DC85
 	STA.w $0024,y				;$B2DC88
-	JMP.w [$04F5]				;$B2DC8B
+	JML [$04F5]				;$B2DC8B
 
 Spr0348_unknown_sprite_0348_Main:
 ;$B2DC8E
@@ -10091,11 +10089,11 @@ CODE_B2DD65:
 	STA.w $0632,x				;$B2DD6B
 	LDA.w #$0800				;$B2DD6E
 	TSB.w $1C71				;$B2DD71
-	JMP.w [$04F5]				;$B2DD74
+	JML [$04F5]				;$B2DD74
 
 CODE_B2DD77:
 	JSL.l CODE_B9A006			;$B2DD77
-	JMP.w [$04F5]				;$B2DD7B
+	JML [$04F5]				;$B2DD7B
 
 CODE_B2DD7E:
 	LDA.w #$0004				;$B2DD7E
@@ -10180,7 +10178,7 @@ CODE_B2DE33:
 	SEP.b #$20				;$B2DE33
 	STZ.w !REGISTER_SubScreenLayers		;$B2DE35
 	REP.b #$20				;$B2DE38
-	JMP.w [$04F5]				;$B2DE3A
+	JML [$04F5]				;$B2DE3A
 
 DATA_B2DE3D:
 	db $55,$46,$37,$28,$19,$00
@@ -10212,7 +10210,7 @@ Spr0360_unknown_sprite_0360_Main:
 	JSL.l CODE_B28012			;$B2DE8D
 	JSL.l CODE_BB8591			;$B2DE91
 CODE_B2DE95:
-	JMP.w [$04F5]				;$B2DE95
+	JML [$04F5]				;$B2DE95
 
 Spr010C_BananaBirdCaveCrystal_Main:
 ;$B2DE98
@@ -10248,7 +10246,7 @@ CODE_B2DEC3:
 	LDA.w #$8000				;$B2DED9
 	TSB.w $1C71				;$B2DEDC
 CODE_B2DEDF:
-	JMP.w [$04F5]				;$B2DEDF
+	JML [$04F5]				;$B2DEDF
 
 CODE_B2DEE2:
 	JSR.w CODE_B2DF08			;$B2DEE2
@@ -10263,7 +10261,7 @@ CODE_B2DEE2:
 	LDA.w #$060E				;$B2DEFA
 	JSL.l CODE_B28012			;$B2DEFD
 	JSL.l CODE_BB8591			;$B2DF01
-	JMP.w [$04F5]				;$B2DF05
+	JML [$04F5]				;$B2DF05
 
 CODE_B2DF08:
 	JSR.w CODE_B2DF5D			;$B2DF08
@@ -10373,7 +10371,7 @@ CODE_B2DFB2:
 	LDX.b current_sprite			;$B2DFC7
 	INC.b $38,x				;$B2DFC9
 	STZ.b $5E,x				;$B2DFCB
-	JMP.w [$04F5]				;$B2DFCD
+	JML [$04F5]				;$B2DFCD
 
 DATA_B2DFD0:
 	db $01,$02,$04,$08
@@ -10402,7 +10400,7 @@ CODE_B2DFED:
 	LDA.b $62,x				;$B2E005
 	STA.b $5C,x				;$B2E007
 CODE_B2E009:
-	JMP.w [$04F5]				;$B2E009
+	JML [$04F5]				;$B2E009
 
 CODE_B2E00C:
 	BIT.w $1C71				;$B2E00C
@@ -10419,7 +10417,7 @@ CODE_B2E00C:
 	DEC.b $5C,x				;$B2E026
 	BMI.b CODE_B2E032			;$B2E028
 CODE_B2E02A:
-	JMP.w [$04F5]				;$B2E02A
+	JML [$04F5]				;$B2E02A
 
 CODE_B2E02D:
 	LDA.w #$0020				;$B2E02D
@@ -10465,7 +10463,7 @@ CODE_B2E073:
 
 CODE_B2E074:
 	JSL.l CODE_B9A006			;$B2E074
-	JMP.w [$04F5]				;$B2E078
+	JML [$04F5]				;$B2E078
 
 Spr00E0_InventoryItemHUDSquares_Main:
 ;$B2E07B
@@ -10517,7 +10515,7 @@ CODE_B2E08C:
 	STA.w $0052,y				;$B2E0E7
 	TYX					;$B2E0EA
 	INC.b $38,x				;$B2E0EB
-	JMP.w [$04F5]				;$B2E0ED
+	JML [$04F5]				;$B2E0ED
 
 CODE_B2E0F0:
 	TYX					;$B2E0F0
@@ -10528,7 +10526,7 @@ CODE_B2E0F0:
 	INC.b $38,x				;$B2E0F9
 CODE_B2E0FB:
 	STA.b $16,x				;$B2E0FB
-	JMP.w [$04F5]				;$B2E0FD
+	JML [$04F5]				;$B2E0FD
 
 CODE_B2E100:
 	TYX					;$B2E100
@@ -10548,7 +10546,7 @@ CODE_B2E10A:
 	STA.b $5C,x				;$B2E11F
 	JSR.w CODE_B2E1B9			;$B2E121
 CODE_B2E124:
-	JMP.w [$04F5]				;$B2E124
+	JML [$04F5]				;$B2E124
 
 CODE_B2E127:
 	LDA.w #$000C				;$B2E127
@@ -10719,7 +10717,7 @@ CODE_B2E240:
 	LDA.b $3E				;$B2E264
 	CMP.w #$0008				;$B2E266
 	BCC.b CODE_B2E211			;$B2E269
-	JMP.w [$04F5]				;$B2E26B
+	JML [$04F5]				;$B2E26B
 
 CODE_B2E26E:
 	PHX					;$B2E26E
@@ -10855,7 +10853,7 @@ CODE_B2E353:
 	JSR.w CODE_B2E3C6			;$B2E362
 	LDX.b current_sprite			;$B2E365
 	STA.b $62,x				;$B2E367
-	JMP.w [$04F5]				;$B2E369
+	JML [$04F5]				;$B2E369
 
 CODE_B2E36C:
 	JSR.w CODE_B2E3B3			;$B2E36C
@@ -10866,7 +10864,7 @@ CODE_B2E36C:
 CODE_B2E37B:
 	JSL.l CODE_BB8591			;$B2E37B
 CODE_B2E37F:
-	JMP.w [$04F5]				;$B2E37F
+	JML [$04F5]				;$B2E37F
 
 CODE_B2E382:
 	JSR.w CODE_B2E3B3			;$B2E382
@@ -10889,7 +10887,7 @@ CODE_B2E398:
 	BNE.b CODE_B2E37B			;$B2E3A9
 	BIT.w #$0020				;$B2E3AB
 	BNE.b CODE_B2E37B			;$B2E3AE
-	JMP.w [$04F5]				;$B2E3B0
+	JML [$04F5]				;$B2E3B0
 
 CODE_B2E3B3:
 	LDA.w $002E,y				;$B2E3B3
@@ -10973,7 +10971,7 @@ CODE_B2E421:
 	BIT.w #$0001				;$B2E426
 	BEQ.b CODE_B2E431			;$B2E429
 	JSR.w CODE_B2E53B			;$B2E42B
-	JMP.w [$04F5]				;$B2E42E
+	JML [$04F5]				;$B2E42E
 
 CODE_B2E431:
 	TYX					;$B2E431
@@ -10998,7 +10996,7 @@ CODE_B2E434:
 	STA.b $5C,x				;$B2E454
 	LDA.b $62,x				;$B2E456
 	STA.b $60,x				;$B2E458
-	JMP.w [$04F5]				;$B2E45A
+	JML [$04F5]				;$B2E45A
 
 CODE_B2E45D:
 	LDA.b $5C,x				;$B2E45D
@@ -11007,7 +11005,7 @@ CODE_B2E45D:
 	BPL.b CODE_B2E467			;$B2E463
 	STZ.b $5C,x				;$B2E465
 CODE_B2E467:
-	JMP.w [$04F5]				;$B2E467
+	JML [$04F5]				;$B2E467
 
 CODE_B2E46A:
 	TXY					;$B2E46A
@@ -11062,7 +11060,7 @@ CODE_B2E4CA:
 	AND.w #$0E00				;$B2E4D2
 	EOR.b $1E,x				;$B2E4D5
 	STA.b $1E,x				;$B2E4D7
-	JMP.w [$04F5]				;$B2E4D9
+	JML [$04F5]				;$B2E4D9
 
 CODE_B2E4DC:
 	JSR.w CODE_B2E50E			;$B2E4DC
@@ -11078,7 +11076,7 @@ CODE_B2E4DC:
 CODE_B2E4FA:
 	JSR.w CODE_B2E53B			;$B2E4FA
 CODE_B2E4FD:
-	JMP.w [$04F5]				;$B2E4FD
+	JML [$04F5]				;$B2E4FD
 
 CODE_B2E500:
 	LDX.w #$0000				;$B2E500
@@ -11175,7 +11173,7 @@ CODE_B2E56E:
 	STZ.b $20,x				;$B2E59F
 CODE_B2E5A1:
 	JSL.l CODE_B9E000			;$B2E5A1
-	JMP.w [$04F5]				;$B2E5A5
+	JML [$04F5]				;$B2E5A5
 
 Spr01C0_SpeedrunTimer_Main:
 ;$B2E5A8
@@ -11212,7 +11210,7 @@ CODE_B2E5C9:
 	LDA.w #$FFFF				;$B2E5E7
 	STA.w $18E5				;$B2E5EA
 CODE_B2E5ED:
-	JMP.w [$04F5]				;$B2E5ED
+	JML [$04F5]				;$B2E5ED
 
 CODE_B2E5F0:
 	LDA.w $0536				;$B2E5F0
@@ -11269,13 +11267,13 @@ CODE_B2E641:
 	STA.w $000E,y				;$B2E651
 CODE_B2E654:
 	JSR.w CODE_B2E695			;$B2E654
-	JMP.w [$04F5]				;$B2E657
+	JML [$04F5]				;$B2E657
 
 CODE_B2E65A:
 	JSR.w CODE_B2E6BD			;$B2E65A
 	JSR.w CODE_B2E695			;$B2E65D
 	JSR.w CODE_B2E6AC			;$B2E660
-	JMP.w [$04F5]				;$B2E663
+	JML [$04F5]				;$B2E663
 
 CODE_B2E666:
 	TYX					;$B2E666
@@ -11299,7 +11297,7 @@ CODE_B2E666:
 	STA.b $60,x				;$B2E68D
 CODE_B2E68F:
 	JSR.w CODE_B2E695			;$B2E68F
-	JMP.w [$04F5]				;$B2E692
+	JML [$04F5]				;$B2E692
 
 CODE_B2E695:
 	LDA.b $00				;$B2E695
@@ -11405,7 +11403,7 @@ CODE_B2E742:
 	BRA.b CODE_B2E73F			;$B2E74E
 
 CODE_B2E750:
-	JMP.w [$04F5]				;$B2E750
+	JML [$04F5]				;$B2E750
 
 Spr036C_WrinklysSaveCave_Main:
 ;$B2E753
@@ -11434,7 +11432,7 @@ CODE_B2E75A:
 	INC.b $38,x				;$B2E77B
 CODE_B2E77D:
 	JSL.l CODE_B9A00C			;$B2E77D
-	JMP.w [$04F5]				;$B2E781
+	JML [$04F5]				;$B2E781
 
 Spr0084_KremwoodForestLog_Main:
 ;$B2E784
@@ -11461,7 +11459,7 @@ CODE_B2E78F:
 	LDA.w #$0065				;$B2E7A7
 	STA.b $16,x				;$B2E7AA
 	STZ.b $0E,x				;$B2E7AC
-	JMP.w [$04F5]				;$B2E7AE
+	JML [$04F5]				;$B2E7AE
 
 CODE_B2E7B1:
 	LDA.w #$1000				;$B2E7B1
@@ -11470,7 +11468,7 @@ CODE_B2E7B1:
 	TYX					;$B2E7B9
 	INC.b $38,x				;$B2E7BA
 CODE_B2E7BC:
-	JMP.w [$04F5]				;$B2E7BC
+	JML [$04F5]				;$B2E7BC
 
 CODE_B2E7BF:
 	LDA.b $00				;$B2E7BF
@@ -11490,7 +11488,7 @@ CODE_B2E7BF:
 	LDA.w #$0400				;$B2E7E3
 	TSB.w $05FB				;$B2E7E6
 CODE_B2E7E9:
-	JMP.w [$04F5]				;$B2E7E9
+	JML [$04F5]				;$B2E7E9
 
 CODE_B2E7EC:
 	LDA.w $005A,y				;$B2E7EC
@@ -11500,7 +11498,7 @@ CODE_B2E7EC:
 CODE_B2E7F7:
 	JSL.l CODE_B9A006			;$B2E7F7
 	JSL.l CODE_B9E000			;$B2E7FB
-	JMP.w [$04F5]				;$B2E7FF
+	JML [$04F5]				;$B2E7FF
 
 Spr0088_MapCannon_Main:
 ;$B2E802
@@ -11544,7 +11542,7 @@ CODE_B2E826:
 	STA.b $4E,x				;$B2E84A
 CODE_B2E84C:
 	JSR.w CODE_B2E93B			;$B2E84C
-	JMP.w [$04F5]				;$B2E84F
+	JML [$04F5]				;$B2E84F
 
 CODE_B2E852:
 	LDX.w active_kong_sprite		;$B2E852
@@ -11578,7 +11576,7 @@ CODE_B2E882:
 	STA.b $2A,x				;$B2E88B
 CODE_B2E88D:
 	JSL.l CODE_B9E000			;$B2E88D
-	JMP.w [$04F5]				;$B2E891
+	JML [$04F5]				;$B2E891
 
 CODE_B2E894:
 	CLC					;$B2E894
@@ -11600,7 +11598,7 @@ CODE_B2E8A8:
 	TYX					;$B2E8B8
 	INC.b $38,x				;$B2E8B9
 CODE_B2E8BB:
-	JMP.w [$04F5]				;$B2E8BB
+	JML [$04F5]				;$B2E8BB
 
 CODE_B2E8BE:
 	LDA.b $00				;$B2E8BE
@@ -11619,7 +11617,7 @@ CODE_B2E8BE:
 	STA.w map_node_number			;$B2E8DC
 	LDA.w #$000A				;$B2E8DF
 	STA.b $4E,x				;$B2E8E2
-	JMP.w [$04F5]				;$B2E8E4
+	JML [$04F5]				;$B2E8E4
 
 CODE_B2E8E7:
 	TYX					;$B2E8E7
@@ -11630,7 +11628,7 @@ CODE_B2E8E7:
 	STA.b $2A,x				;$B2E8F0
 CODE_B2E8F2:
 	JSL.l CODE_B9E000			;$B2E8F2
-	JMP.w [$04F5]				;$B2E8F6
+	JML [$04F5]				;$B2E8F6
 
 CODE_B2E8F9:
 	LDX.w active_kong_sprite		;$B2E8F9
@@ -11720,11 +11718,11 @@ Spr0074_unknown_sprite_0074_Main:
 	BPL.b CODE_B2E9A5			;$B2E998
 	JSL.l CODE_B9A006			;$B2E99A
 	JSL.l CODE_B9E000			;$B2E99E
-	JMP.w [$04F5]				;$B2E9A2
+	JML [$04F5]				;$B2E9A2
 
 CODE_B2E9A5:
 	JSL.l CODE_BB8591			;$B2E9A5
-	JMP.w [$04F5]				;$B2E9A9
+	JML [$04F5]				;$B2E9A9
 
 Spr0070_BananaBirdCaveCover_Main:
 CODE_B2E9AC:
@@ -11762,11 +11760,11 @@ CODE_B2E9C1:
 	LDA.w #$0100				;$B2E9F0
 	TSB.w $05FB				;$B2E9F3
 CODE_B2E9F6:
-	JMP.w [$04F5]				;$B2E9F6
+	JML [$04F5]				;$B2E9F6
 
 CODE_B2E9F9:
 	JSL.l CODE_BB8591			;$B2E9F9
-	JMP.w [$04F5]				;$B2E9FD
+	JML [$04F5]				;$B2E9FD
 
 Spr01C4_unknown_sprite_01C4_Main:
 ;$B2EA00
@@ -11797,7 +11795,7 @@ CODE_B2EA22:
 	BPL.b CODE_B2EA22			;$B2EA26
 CODE_B2EA28:
 	JSL.l CODE_BB8591			;$B2EA28
-	JMP.w [$04F5]				;$B2EA2C
+	JML [$04F5]				;$B2EA2C
 
 CODE_B2EA2F:
 	LDA.w $005E,y				;$B2EA2F
@@ -11889,7 +11887,7 @@ CODE_B2EABA:
 	JSL.l CODE_B9A000			;$B2EABF
 CODE_B2EAC3:
 	JSL.l CODE_B9A006			;$B2EAC3
-	JMP.w [$04F5]				;$B2EAC7
+	JML [$04F5]				;$B2EAC7
 
 Spr0094_ChairliftChair_Main:
 ;$B2EACA
@@ -11928,7 +11926,7 @@ CODE_B2EAF9:
 CODE_B2EB07:
 	JSL.l CODE_B9E000			;$B2EB07
 	JSL.l CODE_B9A00C			;$B2EB0B
-	JMP.w [$04F5]				;$B2EB0F
+	JML [$04F5]				;$B2EB0F
 
 CODE_B2EB12:
 	TYX					;$B2EB12
@@ -11945,7 +11943,7 @@ CODE_B2EB12:
 	BEQ.b CODE_B2EB31			;$B2EB2C
 	JSR.w CODE_B2EBFD			;$B2EB2E
 CODE_B2EB31:
-	JMP.w [$04F5]				;$B2EB31
+	JML [$04F5]				;$B2EB31
 
 CODE_B2EB34:
 	TYX					;$B2EB34
@@ -11969,7 +11967,7 @@ CODE_B2EB5A:
 	STX.b $4C,y				;$B2EB5A
 	JSR.w CODE_B2EBBF			;$B2EB5C
 CODE_B2EB5F:
-	JMP.w [$04F5]				;$B2EB5F
+	JML [$04F5]				;$B2EB5F
 
 CODE_B2EB62:
 	LDA.w map_node_number			;$B2EB62
@@ -12011,7 +12009,7 @@ CODE_B2EB88:
 	BEQ.b CODE_B2EBA7			;$B2EBA2
 	JSR.w CODE_B2EBFD			;$B2EBA4
 CODE_B2EBA7:
-	JMP.w [$04F5]				;$B2EBA7
+	JML [$04F5]				;$B2EBA7
 
 CODE_B2EBAA:
 	TYX					;$B2EBAA
@@ -12107,7 +12105,7 @@ CODE_B2EC50:
 	LDA.w $051F				;$B2EC50
 	BNE.b CODE_B2EC5C			;$B2EC53
 	JSL.l CODE_BB8591			;$B2EC55
-	JMP.w [$04F5]				;$B2EC59
+	JML [$04F5]				;$B2EC59
 
 CODE_B2EC5C:
 	TYX					;$B2EC5C
@@ -12122,7 +12120,7 @@ CODE_B2EC68:
 	JSR.w CODE_B2ECAC			;$B2EC6F
 CODE_B2EC72:
 	JSL.l CODE_B9E000			;$B2EC72
-	JMP.w [$04F5]				;$B2EC76
+	JML [$04F5]				;$B2EC76
 
 CODE_B2EC79:
 	TYX					;$B2EC79
@@ -12145,7 +12143,7 @@ CODE_B2EC87:
 	LDA.w #$0500				;$B2EC99
 	JSL.l CODE_B28012			;$B2EC9C
 	JSL.l CODE_BB8591			;$B2ECA0
-	JMP.w [$04F5]				;$B2ECA4
+	JML [$04F5]				;$B2ECA4
 
 CODE_B2ECA7:
 	TYX					;$B2ECA7
@@ -12188,7 +12186,7 @@ CODE_B2ECD0:
 CODE_B2ECE4:
 	JSL.l CODE_B9A006			;$B2ECE4
 CODE_B2ECE8:
-	JMP.w [$04F5]				;$B2ECE8
+	JML [$04F5]				;$B2ECE8
 
 Spr01CC_unknown_sprite_01CC_Main:
 ;$B2ECEB
@@ -12206,7 +12204,7 @@ CODE_B2ECF4:
 CODE_B2ECFC:
 	STZ.w $1C97				;$B2ECFC
 	JSR.w CODE_B2E53B			;$B2ECFF
-	JMP.w [$04F5]				;$B2ED02
+	JML [$04F5]				;$B2ED02
 
 CODE_B2ED05:
 	TYX					;$B2ED05
@@ -12221,7 +12219,7 @@ CODE_B2ED0B:
 	LDA.w #$0662				;$B2ED16
 	JSL.l CODE_B28012			;$B2ED19
 CODE_B2ED1D:
-	JMP.w [$04F5]				;$B2ED1D
+	JML [$04F5]				;$B2ED1D
 
 CODE_B2ED20:
 	LDA.b $00				;$B2ED20
@@ -12287,7 +12285,7 @@ CODE_B2ED73:
 	DEC					;$B2ED89
 	BPL.b CODE_B2ED73			;$B2ED8A
 	JSL.l CODE_B9A006			;$B2ED8C
-	JMP.w [$04F5]				;$B2ED90
+	JML [$04F5]				;$B2ED90
 
 Spr0354_SkyHighSecretRock_Main:
 ;$B2ED93
@@ -12298,7 +12296,7 @@ Spr0354_SkyHighSecretRock_Main:
 CODE_B2ED9E:
 	JSR.w CODE_B2EDD9			;$B2ED9E
 	JSL.l CODE_B9E000			;$B2EDA1
-	JMP.w [$04F5]				;$B2EDA5
+	JML [$04F5]				;$B2EDA5
 
 CODE_B2EDA8:
 	STZ.b $1A				;$B2EDA8
@@ -12384,7 +12382,7 @@ CODE_B2EE29:
 	BEQ.b CODE_B2EE37			;$B2EE31
 	JSL.l CODE_BB8591			;$B2EE33
 CODE_B2EE37:
-	JMP.w [$04F5]				;$B2EE37
+	JML [$04F5]				;$B2EE37
 
 CODE_B2EE3A:
 	TYX					;$B2EE3A
@@ -12401,7 +12399,7 @@ CODE_B2EE3A:
 	JSL.l CODE_B28012			;$B2EE57
 	JSL.l CODE_BB8591			;$B2EE5B
 CODE_B2EE5F:
-	JMP.w [$04F5]				;$B2EE5F
+	JML [$04F5]				;$B2EE5F
 
 Spr00A4_unknown_sprite_00A4_Main:
 ;$B2EE62
@@ -12414,7 +12412,7 @@ Spr00A4_unknown_sprite_00A4_Main:
 	LDA.w #$C000				;$B2EE6D
 	STA.b $26,x				;$B2EE70
 CODE_B2EE72:
-	JMP.w [$04F5]				;$B2EE72
+	JML [$04F5]				;$B2EE72
 
 Spr0358_Krosshair_Main:
 ;$B2EE75
@@ -12430,7 +12428,7 @@ CODE_B2EE80:
 	LDA.w $15EC				;$B2EE80
 	BEQ.b CODE_B2EE8C			;$B2EE83
 	JSL.l CODE_BB8591			;$B2EE85
-	JMP.w [$04F5]				;$B2EE89
+	JML [$04F5]				;$B2EE89
 
 CODE_B2EE8C:
 	TYX					;$B2EE8C
@@ -12461,7 +12459,7 @@ CODE_B2EE8C:
 	LDA.w #$0566				;$B2EEC1
 	JSL.l CODE_B28012			;$B2EEC4
 CODE_B2EEC8:
-	JMP.w [$04F5]				;$B2EEC8
+	JML [$04F5]				;$B2EEC8
 
 CODE_B2EECB:
 	LDA.w $05AF				;$B2EECB
@@ -12543,7 +12541,7 @@ CODE_B2EF50:
 	JSR.w CODE_B2F013			;$B2EF58
 CODE_B2EF5B:
 	JSL.l CODE_B9E000			;$B2EF5B
-	JMP.w [$04F5]				;$B2EF5F
+	JML [$04F5]				;$B2EF5F
 
 CODE_B2EF62:
 	TYX					;$B2EF62
@@ -12558,14 +12556,14 @@ CODE_B2EF62:
 	DEC.b $38,x				;$B2EF76
 CODE_B2EF78:
 	JSL.l CODE_B9E000			;$B2EF78
-	JMP.w [$04F5]				;$B2EF7C
+	JML [$04F5]				;$B2EF7C
 
 CODE_B2EF7F:
 	LDA.w $15EC				;$B2EF7F
 	BEQ.b CODE_B2EF8B			;$B2EF82
 	JSL.l CODE_BB8591			;$B2EF84
 CODE_B2EF88:
-	JMP.w [$04F5]				;$B2EF88
+	JML [$04F5]				;$B2EF88
 
 CODE_B2EF8B:
 	TYX					;$B2EF8B
@@ -12792,7 +12790,7 @@ CODE_B2F129:
 	JSR.w CODE_B2F275			;$B2F12E
 CODE_B2F131:
 	JSL.l CODE_B9E000			;$B2F131
-	JMP.w [$04F5]				;$B2F135
+	JML [$04F5]				;$B2F135
 
 CODE_B2F138:
 	DEC.b $5C,x				;$B2F138
@@ -13079,7 +13077,7 @@ CODE_B2F332:
 	STZ.b $5B,x				;$B2F37D
 	LDY.w #$02EA				;$B2F37F
 	JSL.l CODE_BB85B8			;$B2F382
-	JMP.w [$04F5]				;$B2F386
+	JML [$04F5]				;$B2F386
 
 CODE_B2F389:
 	LDA.w #$0662				;$B2F389
@@ -13103,7 +13101,7 @@ CODE_B2F391:
 CODE_B2F3B3:
 	JSL.l CODE_B9E000			;$B2F3B3
 CODE_B2F3B7:
-	JMP.w [$04F5]				;$B2F3B7
+	JML [$04F5]				;$B2F3B7
 
 CODE_B2F3BA:
 	TYX					;$B2F3BA
@@ -13133,11 +13131,11 @@ CODE_B2F3DB:
 	STA.b $24,x				;$B2F3E3
 CODE_B2F3E5:
 	JSL.l CODE_B9E000			;$B2F3E5
-	JMP.w [$04F5]				;$B2F3E9
+	JML [$04F5]				;$B2F3E9
 
 CODE_B2F3EC:
 	JSR.w CODE_B2F881			;$B2F3EC
-	JMP.w [$04F5]				;$B2F3EF
+	JML [$04F5]				;$B2F3EF
 
 Spr00B4_KremtoaBridge_Main:
 ;$B2F3F2
@@ -13183,7 +13181,7 @@ CODE_B2F42F:
 	LDA.w #$0100				;$B2F446
 	TSB.w $05FD				;$B2F449
 CODE_B2F44C:
-	JMP.w [$04F5]				;$B2F44C
+	JML [$04F5]				;$B2F44C
 
 Spr01D8_PlayerKrosshairController_Main:
 ;$B2F44F
@@ -13199,7 +13197,7 @@ Spr01D8_PlayerKrosshairController_Main:
 	BEQ.b CODE_B2F46E			;$B2F46A
 	STZ.b $2E,x				;$B2F46C
 CODE_B2F46E:
-	JMP.w [$04F5]				;$B2F46E
+	JML [$04F5]				;$B2F46E
 
 CODE_B2F471:
 	TYX					;$B2F471
@@ -13323,7 +13321,7 @@ CODE_B2F544:
 	JSL.l CODE_BB8585			;$B2F547
 	JSL.l CODE_BB8591			;$B2F54B
 CODE_B2F54F:
-	JMP.w [$04F5]				;$B2F54F
+	JML [$04F5]				;$B2F54F
 
 CODE_B2F552:
 	LDA.w $005C,y				;$B2F552
@@ -13370,7 +13368,7 @@ CODE_B2F58D:
 	JSL.l CODE_BB85B8			;$B2F5A6
 	JSL.l CODE_808081			;$B2F5AA
 CODE_B2F5AE:
-	JMP.w [$04F5]				;$B2F5AE
+	JML [$04F5]				;$B2F5AE
 
 CODE_B2F5B1:
 	LDA.w $15E8				;$B2F5B1
@@ -13438,7 +13436,7 @@ CODE_B2F62B:
 	LDX.w $15EC				;$B2F644
 	JSL.l CODE_BB85E8			;$B2F647
 CODE_B2F64B:
-	JMP.w [$04F5]				;$B2F64B
+	JML [$04F5]				;$B2F64B
 
 Spr00BC_RedGemInBananaBirdQueenBarrier_Main:
 ;$B2F64E
@@ -13466,7 +13464,7 @@ CODE_B2F684:
 	AND.w #$0101				;$B2F689
 	STA.b $58,x				;$B2F68C
 CODE_B2F68E:
-	JMP.w [$04F5]				;$B2F68E
+	JML [$04F5]				;$B2F68E
 
 Spr0364_KRoolHead_Main:
 ;$B2F691
@@ -13509,14 +13507,14 @@ CODE_B2F6B3:
 	INC					;$B2F6D8
 	STA.w $1C4B				;$B2F6D9
 	JSL.l CODE_B9A006			;$B2F6DC
-	JMP.w [$04F5]				;$B2F6E0
+	JML [$04F5]				;$B2F6E0
 
 CODE_B2F6E3:
 	JSR.w CODE_B2F881			;$B2F6E3
 CODE_B2F6E6:
 	JSL.l CODE_B9A006			;$B2F6E6
 	JSL.l CODE_B9E000			;$B2F6EA
-	JMP.w [$04F5]				;$B2F6EE
+	JML [$04F5]				;$B2F6EE
 
 CODE_B2F6F1:
 	LDA.w $005A,y				;$B2F6F1
@@ -13668,7 +13666,7 @@ CODE_B2F7D4:
 	STA.w $005E,y				;$B2F801
 CODE_B2F804:
 	JSL.l CODE_B9E000			;$B2F804
-	JMP.w [$04F5]				;$B2F808
+	JML [$04F5]				;$B2F808
 
 CODE_B2F80B:
 	LDA.b $00				;$B2F80B
@@ -13677,7 +13675,7 @@ CODE_B2F80B:
 	LDA.w #$0648				;$B2F812
 	JSL.l CODE_B28027			;$B2F815
 CODE_B2F819:
-	JMP.w [$04F5]				;$B2F819
+	JML [$04F5]				;$B2F819
 
 CODE_B2F81C:
 	LDX.b $5C,y				;$B2F81C
@@ -13702,7 +13700,7 @@ CODE_B2F83A:
 	JSR.w CODE_B2F84B			;$B2F841
 CODE_B2F844:
 	JSL.l CODE_B9E000			;$B2F844
-	JMP.w [$04F5]				;$B2F848
+	JML [$04F5]				;$B2F848
 
 CODE_B2F84B:
 	LDA.w #$077B				;$B2F84B
@@ -13789,7 +13787,7 @@ CODE_B2F8EF:
 	JSL.l CODE_B9E000			;$B2F8F1
 	JSL.l CODE_B9A006			;$B2F8F5
 CODE_B2F8F9:
-	JMP.w [$04F5]				;$B2F8F9
+	JML [$04F5]				;$B2F8F9
 
 CODE_B2F8FC:
 	JSR.w CODE_B2F881			;$B2F8FC
@@ -13800,7 +13798,7 @@ CODE_B2F907:
 	EOR.w $001E,y				;$B2F907
 	STA.w $001E,y				;$B2F90A
 	JSL.l CODE_B9A006			;$B2F90D
-	JMP.w [$04F5]				;$B2F911
+	JML [$04F5]				;$B2F911
 
 CODE_B2F914:
 	JSR.w CODE_B2F881			;$B2F914
@@ -13866,7 +13864,7 @@ CODE_B2F962:
 	PLA					;$B2F998
 	STA.b $5C,x				;$B2F999
 	JSL.l CODE_BB8591			;$B2F99B
-	JMP.w [$04F5]				;$B2F99F
+	JML [$04F5]				;$B2F99F
 
 CODE_B2F9A2:
 	LDA.w #$FFC8				;$B2F9A2
@@ -13902,7 +13900,7 @@ CODE_B2F9CA:
 	JSL.l CODE_BB85B8			;$B2F9D0
 	DEC.b $60				;$B2F9D4
 	BNE.b CODE_B2F9CA			;$B2F9D6
-	JMP.w [$04F5]				;$B2F9D8
+	JML [$04F5]				;$B2F9D8
 
 CODE_B2F9DB:
 	JSR.w CODE_B2F9F1			;$B2F9DB
@@ -13912,7 +13910,7 @@ CODE_B2F9DB:
 CODE_B2F9E6:
 	JSL.l CODE_B9E000			;$B2F9E6
 	JSL.l CODE_B9A006			;$B2F9EA
-	JMP.w [$04F5]				;$B2F9EE
+	JML [$04F5]				;$B2F9EE
 
 CODE_B2F9F1:
 	LDX.w active_kong_sprite		;$B2F9F1
@@ -13967,7 +13965,7 @@ CODE_B2FA41:
 	LDX.b $62,y				;$B2FA50
 	JSR.w CODE_B2FA58			;$B2FA52
 CODE_B2FA55:
-	JMP.w [$04F5]				;$B2FA55
+	JML [$04F5]				;$B2FA55
 
 CODE_B2FA58:
 	LDA.w $0040,y				;$B2FA58
@@ -14072,11 +14070,11 @@ CODE_B2FB11:
 	LDA.b $56,x				;$B2FB11
 	STA.b $16,x				;$B2FB13
 CODE_B2FB15:
-	JMP.w [$04F5]				;$B2FB15
+	JML [$04F5]				;$B2FB15
 
 Spr01A0_unknown_sprite_01A0_Main:
 ;$B2FB18
-	JMP.w [$04F5]				;$B2FB18
+	JML [$04F5]				;$B2FB18
 
 CODE_B2FB1B:
 	LSR.w $0490,x				;$B2FB1B
@@ -14091,7 +14089,7 @@ CODE_B2FB2C:
 	LDA.b $56,x				;$B2FB2C
 	STA.b $16,x				;$B2FB2E
 CODE_B2FB30:
-	JMP.w [$04F5]				;$B2FB30
+	JML [$04F5]				;$B2FB30
 
 CODE_B2FB33:
 	JMP.w (DATA_B2FB36,x)			;$B2FB33
@@ -14116,7 +14114,7 @@ CODE_B2FB3A:
 	STA.w $04A6				;$B2FB58
 	STA.w $04A8				;$B2FB5B
 CODE_B2FB5E:
-	JMP.w [$04F5]				;$B2FB5E
+	JML [$04F5]				;$B2FB5E
 
 CODE_B2FB61:
 	LDX.w #$D113				;$B2FB61
@@ -14141,7 +14139,7 @@ CODE_B2FB7F:
 	STA.b $12,x				;$B2FB90
 	LDA.w $0016,y				;$B2FB92
 	STA.b $16,x				;$B2FB95
-	JMP.w [$04F5]				;$B2FB97
+	JML [$04F5]				;$B2FB97
 
 CODE_B2FB9A:
 	BIT.w #$0008				;$B2FB9A
