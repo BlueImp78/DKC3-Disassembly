@@ -1814,7 +1814,7 @@ Spr00DC_unknown_sprite_00DC_Main:
 
 Spr0044_RotatingCylinderKey_Main:
 ;$B28FC9
-	JSL.l CODE_B9A006			;$B28FC9
+	JSL.l process_sprite_animation		;$B28FC9
 	JML [$04F5]				;$B28FCD
 
 Spr00F0_RareLogo_Main:
@@ -1865,7 +1865,7 @@ CODE_B2902C:
 	CLC					;$B2902E
 	ADC.w #$0080				;$B2902F
 	STA.b $2E,x				;$B29032
-	JSL.l CODE_B9A006			;$B29034
+	JSL.l process_sprite_animation		;$B29034
 	JML [$04F5]				;$B29038
 
 CODE_B2903B:
@@ -1908,7 +1908,7 @@ DATA_B29073:
 
 Spr0210_NintendoPresentsKong_Main:
 ;$B290AC
-	JSL.l CODE_B9A006			;$B290AC
+	JSL.l process_sprite_animation		;$B290AC
 	JSR.w CODE_B29057			;$B290B0
 	LDX.b current_sprite			;$B290B3
 	LDA.b $10,x				;$B290B5
@@ -1946,7 +1946,7 @@ CODE_B290F0:
 
 Spr0218_RareLogoKiddy_Main:
 ;$B290F8
-	JSL.l CODE_B9A006			;$B290F8
+	JSL.l process_sprite_animation		;$B290F8
 	LDX.b current_sprite			;$B290FC
 	LDA.b $2E,x				;$B290FE
 	CLC					;$B29100
@@ -1998,7 +1998,7 @@ CODE_B29129:
 
 Spr021C_RareLogoDixie_Main:
 ;$B29167
-	JSL.l CODE_B9A006			;$B29167
+	JSL.l process_sprite_animation		;$B29167
 	LDX.b current_sprite			;$B2916B
 	LDA.b $2E,x				;$B2916D
 	CLC					;$B2916F
@@ -3586,7 +3586,7 @@ CODE_B29F44:
 	LDX.w $1C3F				;$B29F50
 	STX.b current_sprite			;$B29F53
 	LDA.w #$0346				;$B29F55
-	JSL.l CODE_B9A000			;$B29F58
+	JSL.l set_sprite_animation		;$B29F58
 	LDA.w #$0001				;$B29F5C
 	TSB.w $1C35				;$B29F5F
 	RTS					;$B29F62
@@ -6252,7 +6252,7 @@ CODE_B2BECE:
 
 Spr0224_TobogganSparks_Main:
 ;$B2BEE4
-	JSL.l CODE_B9A006			;$B2BEE4
+	JSL.l process_sprite_animation		;$B2BEE4
 	LDA.b $00,x				;$B2BEE8
 	BEQ.b CODE_B2BEF2			;$B2BEEA
 	JSL.l CODE_BBAB46			;$B2BEEC
@@ -6356,7 +6356,7 @@ CODE_B2BFA5:
 	JSR.w (DATA_B2BFB8,x)			;$B2BFA7
 	JSR.w CODE_B2BFC2			;$B2BFAA
 	JSL.l CODE_B9E000			;$B2BFAD
-	JSL.l CODE_B9A00C			;$B2BFB1
+	JSL.l process_anim_preserve_state	;$B2BFB1
 	JML [$04F5]				;$B2BFB5
 
 DATA_B2BFB8:
@@ -6427,7 +6427,7 @@ CODE_B2C025:
 
 CODE_B2C026:
 	LDA.w #$0085				;$B2C026
-	JSL.l CODE_B9A009			;$B2C029
+	JSL.l set_anim_handle_kiddy		;$B2C029
 	LDA.w #$0001				;$B2C02D
 	STA.b $38,x				;$B2C030
 	STZ.b $2E,x				;$B2C032
@@ -6459,7 +6459,7 @@ CODE_B2C05A:
 	BPL.b CODE_B2C084			;$B2C05C
 CODE_B2C05E:
 	LDA.w #$0084				;$B2C05E
-	JSL.l CODE_B9A009			;$B2C061
+	JSL.l set_anim_handle_kiddy		;$B2C061
 	LDA.b $2A,x				;$B2C065
 	CMP.w #$8000				;$B2C067
 	ROR					;$B2C06A
@@ -6494,7 +6494,7 @@ Spr0304_MapKong_Main:
 	JSR.w (DATA_B2C0AE,x)			;$B2C09B
 	JSL.l CODE_B9E000			;$B2C09E
 CODE_B2C0A2:
-	JSL.l CODE_B9A00C			;$B2C0A2
+	JSL.l process_anim_preserve_state	;$B2C0A2
 	LDA.w #DATA_FF206A>>16			;$B2C0A6
 	STA.b $6C				;$B2C0A9
 	JML [$04F5]				;$B2C0AB
@@ -6542,7 +6542,7 @@ CODE_B2C0F4:
 	AND.w #$EFFF				;$B2C0FD
 	STA.w $001E,y				;$B2C100
 	LDA.w #$0318				;$B2C103
-	JSL.l CODE_B9A000			;$B2C106
+	JSL.l set_sprite_animation		;$B2C106
 	STZ.w $1C41				;$B2C10A
 	STZ.w $1C57				;$B2C10D
 	LDY.w active_kong_sprite		;$B2C110
@@ -6562,7 +6562,7 @@ CODE_B2C12D:
 	LDA.w #$0001				;$B2C12D
 	STA.w $0038,y				;$B2C130
 	LDA.w #$0319				;$B2C133
-	JSL.l CODE_B9A000			;$B2C136
+	JSL.l set_sprite_animation		;$B2C136
 	RTS					;$B2C13A
 
 CODE_B2C13B:
@@ -6580,7 +6580,7 @@ CODE_B2C149:
 	LDA.w #$0040				;$B2C158
 	STA.w $005E,y				;$B2C15B
 	LDA.w #$0318				;$B2C15E
-	JSL.l CODE_B9A000			;$B2C161
+	JSL.l set_sprite_animation		;$B2C161
 	RTS					;$B2C165
 
 CODE_B2C166:
@@ -6616,7 +6616,7 @@ CODE_B2C1A1:
 	TYX					;$B2C1A1
 	INC.b $38,x				;$B2C1A2
 	LDA.w #$031A				;$B2C1A4
-	JSL.l CODE_B9A000			;$B2C1A7
+	JSL.l set_sprite_animation		;$B2C1A7
 CODE_B2C1AB:
 	RTS					;$B2C1AB
 
@@ -6659,7 +6659,7 @@ CODE_B2C1FA:
 	TYX					;$B2C1FA
 	INC.b $38,x				;$B2C1FB
 	LDA.w #$0319				;$B2C1FD
-	JSL.l CODE_B9A000			;$B2C200
+	JSL.l set_sprite_animation		;$B2C200
 	LDA.w #$060D				;$B2C204
 	JSL.l CODE_B28012			;$B2C207
 	LDA.w #$0080				;$B2C20B
@@ -6689,7 +6689,7 @@ CODE_B2C237:
 	LDA.w #$0004				;$B2C237
 	STA.b $38,x				;$B2C23A
 	LDA.w #$02E9				;$B2C23C
-	JSL.l CODE_B9A000			;$B2C23F
+	JSL.l set_sprite_animation		;$B2C23F
 	CPX.w follower_kong_sprite		;$B2C243
 	BNE.b CODE_B2C254			;$B2C246
 	LDA.b $4E,x				;$B2C248
@@ -6719,7 +6719,7 @@ CODE_B2C271:
 	STZ.b $2A,x				;$B2C274
 	STZ.b $2E,x				;$B2C276
 	LDA.w #$02ED				;$B2C278
-	JSL.l CODE_B9A000			;$B2C27B
+	JSL.l set_sprite_animation		;$B2C27B
 	LDY.w #$0000				;$B2C27F
 	CPX.w active_kong_sprite		;$B2C282
 	BNE.b CODE_B2C295			;$B2C285
@@ -6886,7 +6886,7 @@ CODE_B2C39D:
 CODE_B2C3C5:
 	LDA.w #$02EE				;$B2C3C5
 CODE_B2C3C8:
-	JSL.l CODE_B9A000			;$B2C3C8
+	JSL.l set_sprite_animation		;$B2C3C8
 	RTS					;$B2C3CC
 
 DATA_B2C3CD:
@@ -7042,7 +7042,7 @@ CODE_B2C4FA:
 	LDA.b $1A				;$B2C503
 	CLC					;$B2C505
 	ADC.w #$0313				;$B2C506
-	JSL.l CODE_B9A000			;$B2C509
+	JSL.l set_sprite_animation		;$B2C509
 	RTS					;$B2C50D
 
 CODE_B2C50E:
@@ -7050,7 +7050,7 @@ CODE_B2C50E:
 	ADC.b $40,x				;$B2C50F
 	SEC					;$B2C511
 	SBC.b $3C,x				;$B2C512
-	JSL.l CODE_B9A000			;$B2C514
+	JSL.l set_sprite_animation		;$B2C514
 	RTS					;$B2C518
 
 CODE_B2C519:
@@ -7682,7 +7682,7 @@ CODE_B2CB17:
 	STA.w $0012,y				;$B2CB28
 	LDA.b $1C				;$B2CB2B
 	STA.w $0016,y				;$B2CB2D
-	JSL.l CODE_B9A00C			;$B2CB30
+	JSL.l process_anim_preserve_state	;$B2CB30
 CODE_B2CB34:
 	JML [$04F5]				;$B2CB34
 
@@ -8255,7 +8255,7 @@ Spr0344_GyrocopterBladesAndShadow_Main:
 	STA.w $0012,y				;$B2CFD7
 	LDA.b $1C				;$B2CFDA
 	STA.w $0016,y				;$B2CFDC
-	JSL.l CODE_B9A00C			;$B2CFDF
+	JSL.l process_anim_preserve_state	;$B2CFDF
 	JSR.w CODE_B2D00B			;$B2CFE3
 	JML [$04F5]				;$B2CFE6
 
@@ -9114,7 +9114,7 @@ CODE_B2D5EA:
 
 Spr0308_StationaryDisplaySprite1_Main:
 ;$B2D5EC
-	JSL.l CODE_B9A00C			;$B2D5EC
+	JSL.l process_anim_preserve_state	;$B2D5EC
 	JML [$04F5]				;$B2D5F0
 
 Spr0314_EndingSwankyKong_Main:
@@ -9133,7 +9133,7 @@ CODE_B2D5FA:
 Spr0318_MovingDisplaySprite_Main:
 CODE_B2D604:
 	JSL.l CODE_B9E000			;$B2D604
-	JSL.l CODE_B9A00C			;$B2D608
+	JSL.l process_anim_preserve_state	;$B2D608
 	JML [$04F5]				;$B2D60C
 
 Spr00F8_FunkyKong_Main:
@@ -9152,7 +9152,7 @@ DATA_B2D612:
 	dw CODE_B2D6F8
 
 CODE_B2D624:
-	JSL.l CODE_B9A00C			;$B2D624
+	JSL.l process_anim_preserve_state	;$B2D624
 	JML [$04F5]				;$B2D628
 
 CODE_B2D62B:
@@ -9170,7 +9170,7 @@ CODE_B2D63A:
 
 CODE_B2D63C:
 	LDA.w #$02D9				;$B2D63C
-	JSL.l CODE_B9A000			;$B2D63F
+	JSL.l set_sprite_animation		;$B2D63F
 	LDA.w #$0120				;$B2D643
 	STA.b $5E,x				;$B2D646
 	LDA.w #$00A0				;$B2D648
@@ -9190,7 +9190,7 @@ CODE_B2D65E:
 	STA.b $60,x				;$B2D66A
 	INC.b $38,x				;$B2D66C
 CODE_B2D66E:
-	JSL.l CODE_B9A00C			;$B2D66E
+	JSL.l process_anim_preserve_state	;$B2D66E
 	JML [$04F5]				;$B2D672
 
 CODE_B2D675:
@@ -9231,7 +9231,7 @@ CODE_B2D6C2:
 	EOR.w #$4000				;$B2D6C5
 	STA.b $1E,x				;$B2D6C8
 	LDA.w #$02DA				;$B2D6CA
-	JSL.l CODE_B9A000			;$B2D6CD
+	JSL.l set_sprite_animation		;$B2D6CD
 	LDA.w #$00E2				;$B2D6D1
 	STA.b $5E,x				;$B2D6D4
 	LDA.w #$FF60				;$B2D6D6
@@ -9243,14 +9243,14 @@ CODE_B2D6DF:
 	JSL.l CODE_B9E003			;$B2D6E2
 	BCC.b CODE_B2D6F1			;$B2D6E6
 	LDA.w #$02DB				;$B2D6E8
-	JSL.l CODE_B9A000			;$B2D6EB
+	JSL.l set_sprite_animation		;$B2D6EB
 	STZ.b $38,x				;$B2D6EF
 CODE_B2D6F1:
-	JSL.l CODE_B9A00C			;$B2D6F1
+	JSL.l process_anim_preserve_state	;$B2D6F1
 	JML [$04F5]				;$B2D6F5
 
 CODE_B2D6F8:
-	JSL.l CODE_B9A00C			;$B2D6F8
+	JSL.l process_anim_preserve_state	;$B2D6F8
 Spr01D4_KnautilusSpriteMask_Main:
 ;$B2D6FC
 	JSL.l CODE_B9E000			;$B2D6FC
@@ -9280,7 +9280,7 @@ Spr04D8_SwankyKong_Main:
 	BEQ .dummy				;$B2D71E   | If not, return
 	INC $38,x				;$B2D720   | Set dummy state
 	LDA #$02E2				;$B2D722   |
-	JSL CODE_B9A000				;$B2D725   | Set give prize animation
+	JSL set_sprite_animation		;$B2D725   | Set give prize animation
 	LDA #$0010				;$B2D729   |
 	TSB $0613				;$B2D72C  / Set some flag
 .dummy:
@@ -9340,11 +9340,11 @@ CODE_B2D780:
 	LDA.w #$0023				;$B2D798
 	STA.b $5E,x				;$B2D79B
 	LDA.w #$0330				;$B2D79D
-	JSL.l CODE_B9A000			;$B2D7A0
+	JSL.l set_sprite_animation		;$B2D7A0
 	LDA.w #$1000				;$B2D7A4
 	TSB.w $061F				;$B2D7A7
 CODE_B2D7AA:
-	JSL.l CODE_B9A00C			;$B2D7AA
+	JSL.l process_anim_preserve_state	;$B2D7AA
 	JML [$04F5]				;$B2D7AE
 
 DATA_B2D7B1:
@@ -9562,7 +9562,7 @@ CODE_B2D911:
 	STA.b $30,x				;$B2D936
 CODE_B2D938:
 	JSL.l CODE_B9E000			;$B2D938
-	JSL.l CODE_B9A00C			;$B2D93C
+	JSL.l process_anim_preserve_state	;$B2D93C
 	JML [$04F5]				;$B2D940
 
 Spr0334_ChairliftPulley_Main:
@@ -9620,7 +9620,7 @@ CODE_B2D9A7:
 CODE_B2D9B1:
 	INC.b $5C,x				;$B2D9B1
 CODE_B2D9B3:
-	JSL.l CODE_B9A00C			;$B2D9B3
+	JSL.l process_anim_preserve_state	;$B2D9B3
 	JML [$04F5]				;$B2D9B7
 
 CODE_B2D9BA:
@@ -9922,7 +9922,7 @@ CODE_B2DC16:
 	REP.b #$20				;$B2DC16
 	DEC.b $5C,x				;$B2DC18
 CODE_B2DC1A:
-	JSL.l CODE_B9A006			;$B2DC1A
+	JSL.l process_sprite_animation		;$B2DC1A
 Spr033C_StationaryDisplaySprite2_Main:
 CODE_B2DC1E:
 	JML [$04F5]				;$B2DC1E
@@ -9998,7 +9998,7 @@ CODE_B2DC9D:
 	LDA.w #$0195				;$B2DCA9
 	CLC					;$B2DCAC
 	ADC.b $5C,x				;$B2DCAD
-	JSL.l CODE_B9A000			;$B2DCAF
+	JSL.l set_sprite_animation		;$B2DCAF
 CODE_B2DCB3:
 	JSL.l CODE_B9E000			;$B2DCB3
 	JSR.w CODE_B2DD30			;$B2DCB7
@@ -10031,7 +10031,7 @@ CODE_B2DCE5:
 	LDA.w #$0198				;$B2DCEC
 	CLC					;$B2DCEF
 	ADC.b $5C,x				;$B2DCF0
-	JSL.l CODE_B9A000			;$B2DCF2
+	JSL.l set_sprite_animation		;$B2DCF2
 	LDA.b $1E,x				;$B2DCF6
 	EOR.w #$4000				;$B2DCF8
 	STA.b $1E,x				;$B2DCFB
@@ -10092,7 +10092,7 @@ CODE_B2DD65:
 	JML [$04F5]				;$B2DD74
 
 CODE_B2DD77:
-	JSL.l CODE_B9A006			;$B2DD77
+	JSL.l process_sprite_animation		;$B2DD77
 	JML [$04F5]				;$B2DD7B
 
 CODE_B2DD7E:
@@ -10123,7 +10123,7 @@ CODE_B2DDAD:
 	LDA.w #$01CD				;$B2DDB2
 	CLC					;$B2DDB5
 	ADC.b $5C,x				;$B2DDB6
-	JSL.l CODE_B9A000			;$B2DDB8
+	JSL.l set_sprite_animation		;$B2DDB8
 	JMP.w CODE_B2DCFD			;$B2DDBC
 
 CODE_B2DDBF:
@@ -10142,7 +10142,7 @@ CODE_B2DDD4:
 	LDA.w #$0192				;$B2DDD4
 	CLC					;$B2DDD7
 	ADC.w $005C,y				;$B2DDD8
-	JSL.l CODE_B9A000			;$B2DDDB
+	JSL.l set_sprite_animation		;$B2DDDB
 	CPX.w follower_kong_sprite		;$B2DDDF
 	BEQ.b CODE_B2DDC8			;$B2DDE2
 	LDA.w #$0020				;$B2DDE4
@@ -10462,7 +10462,7 @@ CODE_B2E073:
 	RTS					;$B2E073
 
 CODE_B2E074:
-	JSL.l CODE_B9A006			;$B2E074
+	JSL.l process_sprite_animation		;$B2E074
 	JML [$04F5]				;$B2E078
 
 Spr00E0_InventoryItemHUDSquares_Main:
@@ -11431,7 +11431,7 @@ CODE_B2E75A:
 	TYX					;$B2E77A
 	INC.b $38,x				;$B2E77B
 CODE_B2E77D:
-	JSL.l CODE_B9A00C			;$B2E77D
+	JSL.l process_anim_preserve_state	;$B2E77D
 	JML [$04F5]				;$B2E781
 
 Spr0084_KremwoodForestLog_Main:
@@ -11484,7 +11484,7 @@ CODE_B2E7BF:
 	BNE.b CODE_B2E7E9			;$B2E7D8
 	INC.b $38,x				;$B2E7DA
 	LDA.w #$0331				;$B2E7DC
-	JSL.l CODE_B9A000			;$B2E7DF
+	JSL.l set_sprite_animation		;$B2E7DF
 	LDA.w #$0400				;$B2E7E3
 	TSB.w $05FB				;$B2E7E6
 CODE_B2E7E9:
@@ -11496,7 +11496,7 @@ CODE_B2E7EC:
 	LDA.w #$0100				;$B2E7F1
 	TRB.w $05FB				;$B2E7F4
 CODE_B2E7F7:
-	JSL.l CODE_B9A006			;$B2E7F7
+	JSL.l process_sprite_animation		;$B2E7F7
 	JSL.l CODE_B9E000			;$B2E7FB
 	JML [$04F5]				;$B2E7FF
 
@@ -11716,7 +11716,7 @@ Spr0074_unknown_sprite_0074_Main:
 	LDA.w $0016,y				;$B2E992
 	CMP.w #$00D0				;$B2E995
 	BPL.b CODE_B2E9A5			;$B2E998
-	JSL.l CODE_B9A006			;$B2E99A
+	JSL.l process_sprite_animation		;$B2E99A
 	JSL.l CODE_B9E000			;$B2E99E
 	JML [$04F5]				;$B2E9A2
 
@@ -11884,9 +11884,9 @@ CODE_B2EABA:
 	TYX					;$B2EABA
 	INC.b $38,x				;$B2EABB
 	LDA.b $5C,x				;$B2EABD
-	JSL.l CODE_B9A000			;$B2EABF
+	JSL.l set_sprite_animation		;$B2EABF
 CODE_B2EAC3:
-	JSL.l CODE_B9A006			;$B2EAC3
+	JSL.l process_sprite_animation		;$B2EAC3
 	JML [$04F5]				;$B2EAC7
 
 Spr0094_ChairliftChair_Main:
@@ -11925,14 +11925,14 @@ CODE_B2EAF9:
 	JSR.w CODE_B2EBBF			;$B2EB04
 CODE_B2EB07:
 	JSL.l CODE_B9E000			;$B2EB07
-	JSL.l CODE_B9A00C			;$B2EB0B
+	JSL.l process_anim_preserve_state	;$B2EB0B
 	JML [$04F5]				;$B2EB0F
 
 CODE_B2EB12:
 	TYX					;$B2EB12
 	STZ.b $38,x				;$B2EB13
 	LDA.w #$0321				;$B2EB15
-	JSL.l CODE_B9A000			;$B2EB18
+	JSL.l set_sprite_animation		;$B2EB18
 	TXY					;$B2EB1C
 	LDX.w active_kong_sprite		;$B2EB1D
 	LDA.b $38,x				;$B2EB20
@@ -12182,9 +12182,9 @@ CODE_B2ECD0:
 	LDA.w #$031E				;$B2ECD8
 	CMP.w $0040,y				;$B2ECDB
 	BEQ.b CODE_B2ECE4			;$B2ECDE
-	JSL.l CODE_B9A000			;$B2ECE0
+	JSL.l set_sprite_animation		;$B2ECE0
 CODE_B2ECE4:
-	JSL.l CODE_B9A006			;$B2ECE4
+	JSL.l process_sprite_animation		;$B2ECE4
 CODE_B2ECE8:
 	JML [$04F5]				;$B2ECE8
 
@@ -12284,7 +12284,7 @@ CODE_B2ED73:
 	PLA					;$B2ED88
 	DEC					;$B2ED89
 	BPL.b CODE_B2ED73			;$B2ED8A
-	JSL.l CODE_B9A006			;$B2ED8C
+	JSL.l process_sprite_animation		;$B2ED8C
 	JML [$04F5]				;$B2ED90
 
 Spr0354_SkyHighSecretRock_Main:
@@ -13506,13 +13506,13 @@ CODE_B2F6B3:
 	EOR.w #$FFFF				;$B2F6D5
 	INC					;$B2F6D8
 	STA.w $1C4B				;$B2F6D9
-	JSL.l CODE_B9A006			;$B2F6DC
+	JSL.l process_sprite_animation		;$B2F6DC
 	JML [$04F5]				;$B2F6E0
 
 CODE_B2F6E3:
 	JSR.w CODE_B2F881			;$B2F6E3
 CODE_B2F6E6:
-	JSL.l CODE_B9A006			;$B2F6E6
+	JSL.l process_sprite_animation		;$B2F6E6
 	JSL.l CODE_B9E000			;$B2F6EA
 	JML [$04F5]				;$B2F6EE
 
@@ -13536,7 +13536,7 @@ CODE_B2F703:
 	BMI.b CODE_B2F72B			;$B2F710
 	BNE.b CODE_B2F71E			;$B2F712
 	LDA.w #$0359				;$B2F714
-	JSL.l CODE_B9A000			;$B2F717
+	JSL.l set_sprite_animation		;$B2F717
 	LDY.b current_sprite			;$B2F71B
 	RTS					;$B2F71D
 
@@ -13556,7 +13556,7 @@ CODE_B2F72B:
 	LDA.w #$00F2				;$B2F735
 	JSL.l CODE_BB85A0			;$B2F738
 	LDA.w #$035A				;$B2F73C
-	JSL.l CODE_B9A000			;$B2F73F
+	JSL.l set_sprite_animation		;$B2F73F
 	TXY					;$B2F743
 	RTS					;$B2F744
 
@@ -13785,7 +13785,7 @@ CODE_B2F8EC:
 CODE_B2F8EF:
 	STA.b $1E,x				;$B2F8EF
 	JSL.l CODE_B9E000			;$B2F8F1
-	JSL.l CODE_B9A006			;$B2F8F5
+	JSL.l process_sprite_animation		;$B2F8F5
 CODE_B2F8F9:
 	JML [$04F5]				;$B2F8F9
 
@@ -13797,7 +13797,7 @@ CODE_B2F8FC:
 CODE_B2F907:
 	EOR.w $001E,y				;$B2F907
 	STA.w $001E,y				;$B2F90A
-	JSL.l CODE_B9A006			;$B2F90D
+	JSL.l process_sprite_animation		;$B2F90D
 	JML [$04F5]				;$B2F911
 
 CODE_B2F914:
@@ -13829,7 +13829,7 @@ CODE_B2F931:
 CODE_B2F94C:
 	CLC					;$B2F94C
 	ADC.w #$035F				;$B2F94D
-	JSL.l CODE_B9A000			;$B2F950
+	JSL.l set_sprite_animation		;$B2F950
 	RTS					;$B2F954
 
 CODE_B2F955:
@@ -13909,7 +13909,7 @@ CODE_B2F9DB:
 	JSR.w CODE_B2CDFC			;$B2F9E3
 CODE_B2F9E6:
 	JSL.l CODE_B9E000			;$B2F9E6
-	JSL.l CODE_B9A006			;$B2F9EA
+	JSL.l process_sprite_animation		;$B2F9EA
 	JML [$04F5]				;$B2F9EE
 
 CODE_B2F9F1:
@@ -13958,7 +13958,7 @@ CODE_B2FA0E:
 	STA.b $64,x				;$B2FA3F
 CODE_B2FA41:
 	JSL.l CODE_B9E000			;$B2FA41
-	JSL.l CODE_B9A00C			;$B2FA45
+	JSL.l process_anim_preserve_state	;$B2FA45
 	LDY.b current_sprite			;$B2FA49
 	LDX.b $60,y				;$B2FA4B
 	JSR.w CODE_B2FA58			;$B2FA4D

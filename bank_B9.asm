@@ -1,33 +1,32 @@
-;set_sprite_animation
-CODE_B9A000:
+
+set_sprite_animation:
 	JMP.w CODE_B9A0BA			;$B9A000
 
-CODE_B9A003:
+set_alt_sprite_animation:
 	JMP.w CODE_B9A078			;$B9A003
 
-;process_animation
-CODE_B9A006:
+process_sprite_animation:
 	JMP.w CODE_B9A101			;$B9A006
 
-CODE_B9A009:
-	JMP.w CODE_B9A0AC			;$B9A009
+set_anim_handle_kiddy:
+	JMP.w set_anim_handle_kiddy_direct	;$B9A009
 
-CODE_B9A00C:
+process_anim_preserve_state:
 	JMP.w CODE_B9A0E2			;$B9A00C
 
-CODE_B9A00F:
+set_anim_handle_animal:
 	JMP.w CODE_B9A01E			;$B9A00F
 
-CODE_B9A012:
+set_riding_kong_anim_handle_kiddy:
 	JMP.w CODE_B9A035			;$B9A012
 
-CODE_B9A015:
+set_anim_handle_animal_and_kiddy:
 	JMP.w CODE_B9A067			;$B9A015
 
-CODE_B9A018:
+set_anim_once_handle_kiddy:
 	JMP.w CODE_B9A089			;$B9A018
 
-CODE_B9A01B:
+set_inactive_kong_anim_handle_kiddy:
 	JMP.w CODE_B9A091			;$B9A01B
 
 CODE_B9A01E:
@@ -63,7 +62,7 @@ CODE_B9A035:
 	LDA.l DATA_B9B1B3,x			;$B9A052
 	CLC					;$B9A056
 	ADC.b $3E				;$B9A057
-	JSL.l CODE_B9A0AC			;$B9A059
+	JSL.l set_anim_handle_kiddy_direct	;$B9A059
 CODE_B9A05D:
 	PLA					;$B9A05D
 	STA.b current_sprite			;$B9A05E
@@ -83,7 +82,7 @@ CODE_B9A067:
 	TYA					;$B9A070
 	CLC					;$B9A071
 	ADC.l DATA_B9B1BB,x			;$B9A072
-	BRA.b CODE_B9A0AC			;$B9A076
+	BRA.b set_anim_handle_kiddy_direct	;$B9A076
 
 CODE_B9A078:
 	LDX.b current_sprite			;$B9A078
@@ -98,7 +97,7 @@ CODE_B9A078:
 CODE_B9A089:
 	LDY.b $72				;$B9A089
 	CMP.w $0000,y				;$B9A08B
-	BNE.b CODE_B9A0AC			;$B9A08E
+	BNE.b set_anim_handle_kiddy_direct	;$B9A08E
 	RTL					;$B9A090
 
 CODE_B9A091:
@@ -110,14 +109,14 @@ CODE_B9A091:
 	LDY.w $04FF				;$B9A09A
 	STX.b current_sprite			;$B9A09D
 	STY.b $72				;$B9A09F
-	JSL.l CODE_B9A0AC			;$B9A0A1
+	JSL.l set_anim_handle_kiddy_direct	;$B9A0A1
 	PLY					;$B9A0A5
 	PLX					;$B9A0A6
 	STX.b current_sprite			;$B9A0A7
 	STY.b $72				;$B9A0A9
 	RTL					;$B9A0AB
 
-CODE_B9A0AC:
+set_anim_handle_kiddy_direct:
 	LDY.b $72				;$B9A0AC
 	STA.w $0000,y				;$B9A0AE
 	CPY.w #$1480				;$B9A0B1
@@ -126,7 +125,7 @@ CODE_B9A0AC:
 	ADC.w #$0087				;$B9A0B7
 CODE_B9A0BA:
 	PHB					;$B9A0BA
-	PEA.w DATA_F90100>>8			;$B9A0BB
+	PEA.w animation_scripts_table>>8	;$B9A0BB
 	PLB					;$B9A0BE
 	PLB					;$B9A0BF
 	LDX.b current_sprite			;$B9A0C0
@@ -136,9 +135,9 @@ CODE_B9A0BA:
 	TAY					;$B9A0C6
 	LDA.b $4A,x				;$B9A0C7
 	AND.w #$8000				;$B9A0C9
-	ORA.w DATA_F90100+$02,y			;$B9A0CC
+	ORA.w animation_flags_table,y		;$B9A0CC
 	STA.b $4A,x				;$B9A0CF
-	LDA.w DATA_F90100,y			;$B9A0D1
+	LDA.w animation_scripts_table,y		;$B9A0D1
 	STA.b $46,x				;$B9A0D4
 	TAY					;$B9A0D6
 	LDA.w #$0100				;$B9A0D7
@@ -181,7 +180,7 @@ CODE_B9A101:
 	BPL.b CODE_B9A13B			;$B9A110
 CODE_B9A112:
 	PHB					;$B9A112
-	PEA.w DATA_F90100>>8			;$B9A113
+	PEA.w animation_scripts_table>>8	;$B9A113
 	PLB					;$B9A116
 	PLB					;$B9A117
 	LDY.b $46,x				;$B9A118
@@ -236,34 +235,34 @@ CODE_B9A14F:
 	TAX					;$B9A156
 	JMP.w (DATA_B9A15A,x)			;$B9A157
 
-DATA_B9A15A:						; Info: Animation script opcodes...
-	dw CODE_B9A1A0					; $80 - 
-	dw CODE_B9A1C0					; $81 - 
-	dw CODE_B9A1DE					; $82 - 
-	dw CODE_B9A1FD					; $83 - 
-	dw CODE_B9A1E7					; $84 - 
-	dw CODE_B9A226					; $85 - 
-	dw CODE_B9A232					; $86 - 
-	dw CODE_B9A247					; $87 - 
-	dw CODE_B9A232					; $88 - 
-	dw CODE_B9A247					; $89 - 
-	dw CODE_B9A257					; $8A - 
-	dw CODE_B9A286					; $8B - 
-	dw CODE_B9A2B6					; $8C - 
-	dw CODE_B9A2CE					; $8D - 
-	dw CODE_B9A2DF					; $8E - 
-	dw CODE_B9A2F3					; $8F - 
-	dw CODE_B9A319					; $90 - 
-	dw CODE_B9A33F					; $91 - 
-	dw CODE_B9A354					; $92 - 
-	dw CODE_B9A393					; $93 - 
-	dw CODE_B9A3F8					; $94 - 
-	dw CODE_B9A462					; $95 - 
-	dw CODE_B9A4A5					; $96 - 
-	dw CODE_B9A4E9					; $97 - 
-	dw CODE_B9A52F					; $98 - 
-	dw CODE_B9A589					; $99 - 
-	dw CODE_B9A190					; $9A - 
+DATA_B9A15A:					; Info: Animation script opcodes...
+	dw CODE_B9A1A0				; $80 - 
+	dw CODE_B9A1C0				; $81 - 
+	dw CODE_B9A1DE				; $82 - 
+	dw CODE_B9A1FD				; $83 - 
+	dw CODE_B9A1E7				; $84 - 
+	dw CODE_B9A226				; $85 - 
+	dw CODE_B9A232				; $86 - 
+	dw CODE_B9A247				; $87 - 
+	dw CODE_B9A232				; $88 - 
+	dw CODE_B9A247				; $89 - 
+	dw CODE_B9A257				; $8A - 
+	dw CODE_B9A286				; $8B - 
+	dw CODE_B9A2B6				; $8C - 
+	dw CODE_B9A2CE				; $8D - 
+	dw CODE_B9A2DF				; $8E - 
+	dw CODE_B9A2F3				; $8F - 
+	dw CODE_B9A319				; $90 - 
+	dw CODE_B9A33F				; $91 - 
+	dw CODE_B9A354				; $92 - 
+	dw CODE_B9A393				; $93 - 
+	dw CODE_B9A3F8				; $94 - 
+	dw CODE_B9A462				; $95 - 
+	dw CODE_B9A4A5				; $96 - 
+	dw CODE_B9A4E9				; $97 - 
+	dw CODE_B9A52F				; $98 - 
+	dw CODE_B9A589				; $99 - 
+	dw CODE_B9A190				; $9A - 
 
 CODE_B9A190:
 	LDX.b current_sprite			;$B9A190
@@ -271,7 +270,7 @@ CODE_B9A190:
 	ASL					;$B9A194
 	ASL					;$B9A195
 	TAY					;$B9A196
-	LDA.w DATA_F90100,y			;$B9A197
+	LDA.w animation_scripts_table,y		;$B9A197
 	STA.b $46,x				;$B9A19A
 	TAY					;$B9A19C
 	BRL.w CODE_B9A11A			;$B9A19D
@@ -405,7 +404,7 @@ CODE_B9A247:
 CODE_B9A250:
 	AND.w #$7FFF				;$B9A250
 	PLB					;$B9A253
-	JMP.w CODE_B9A0AC			;$B9A254
+	JMP.w set_anim_handle_kiddy_direct	;$B9A254
 
 CODE_B9A257:
 	LDX.b current_sprite			;$B9A257
@@ -957,7 +956,7 @@ CODE_B9A60E:
 	AND.w #$4000				;$B9A615
 	BEQ.b CODE_B9A61F			;$B9A618
 	TYA					;$B9A61A
-	JSL.l CODE_B9A0AC			;$B9A61B
+	JSL.l set_anim_handle_kiddy_direct	;$B9A61B
 CODE_B9A61F:
 	RTS					;$B9A61F
 
@@ -1118,7 +1117,7 @@ CODE_B9A6F2:
 	LDA.w #$0001				;$B9A6FD
 	STA.b $38,x				;$B9A700
 	LDA.w #$0001				;$B9A702
-	JSL.l CODE_B9A0AC			;$B9A705
+	JSL.l set_anim_handle_kiddy_direct	;$B9A705
 	RTS					;$B9A709
 
 CODE_B9A70A:
@@ -1127,14 +1126,14 @@ CODE_B9A70A:
 	LDA.w #$0010				;$B9A70F
 	STA.b $38,x				;$B9A712
 	LDA.w #$0011				;$B9A714
-	JSL.l CODE_B9A0AC			;$B9A717
+	JSL.l set_anim_handle_kiddy_direct	;$B9A717
 	RTS					;$B9A71B
 
 CODE_B9A71C:
 	LDA.w #$003F				;$B9A71C
 	STA.b $38,x				;$B9A71F
 	LDA.w #$002B				;$B9A721
-	JSL.l CODE_B9A0AC			;$B9A724
+	JSL.l set_anim_handle_kiddy_direct	;$B9A724
 	RTS					;$B9A728
 
 CODE_B9A729:
@@ -1170,7 +1169,7 @@ CODE_B9A763:
 	LDA.w #$0001				;$B9A76E
 	STA.b $38,x				;$B9A771
 	LDA.w #$0002				;$B9A773
-	JSL.l CODE_B9A0AC			;$B9A776
+	JSL.l set_anim_handle_kiddy_direct	;$B9A776
 	RTS					;$B9A77A
 
 CODE_B9A77B:
@@ -1179,14 +1178,14 @@ CODE_B9A77B:
 	LDA.w #$0010				;$B9A780
 	STA.b $38,x				;$B9A783
 	LDA.w #$0012				;$B9A785
-	JSL.l CODE_B9A0AC			;$B9A788
+	JSL.l set_anim_handle_kiddy_direct	;$B9A788
 	RTS					;$B9A78C
 
 CODE_B9A78D:
 	LDA.w #$003F				;$B9A78D
 	STA.b $38,x				;$B9A790
 	LDA.w #$002C				;$B9A792
-	JSL.l CODE_B9A0AC			;$B9A795
+	JSL.l set_anim_handle_kiddy_direct	;$B9A795
 	RTS					;$B9A799
 
 CODE_B9A79A:
@@ -1222,14 +1221,14 @@ CODE_B9A7D4:
 	LDA.w #$0001				;$B9A7DF
 	STA.b $38,x				;$B9A7E2
 	LDA.w #$0004				;$B9A7E4
-	JSL.l CODE_B9A0AC			;$B9A7E7
+	JSL.l set_anim_handle_kiddy_direct	;$B9A7E7
 	RTS					;$B9A7EB
 
 CODE_B9A7EC:
 	LDA.w #$0010				;$B9A7EC
 	STA.b $38,x				;$B9A7EF
 	LDA.w #$0012				;$B9A7F1
-	JSL.l CODE_B9A0AC			;$B9A7F4
+	JSL.l set_anim_handle_kiddy_direct	;$B9A7F4
 	RTS					;$B9A7F8
 
 CODE_B9A7F9:
@@ -1274,7 +1273,7 @@ CODE_B9A843:
 	LDA.w current_held_sprite		;$B9A847
 	BNE.b CODE_B9A855			;$B9A84A
 	LDA.w #$0003				;$B9A84C
-	JSL.l CODE_B9A0AC			;$B9A84F
+	JSL.l set_anim_handle_kiddy_direct	;$B9A84F
 	SEC					;$B9A853
 	RTS					;$B9A854
 
@@ -1282,13 +1281,13 @@ CODE_B9A855:
 	CMP.w follower_kong_sprite		;$B9A855
 	BEQ.b CODE_B9A863			;$B9A858
 	LDA.w #$0013				;$B9A85A
-	JSL.l CODE_B9A0AC			;$B9A85D
+	JSL.l set_anim_handle_kiddy_direct	;$B9A85D
 	SEC					;$B9A861
 	RTS					;$B9A862
 
 CODE_B9A863:
 	LDA.w #$002D				;$B9A863
-	JSL.l CODE_B9A0AC			;$B9A866
+	JSL.l set_anim_handle_kiddy_direct	;$B9A866
 	SEC					;$B9A86A
 	RTS					;$B9A86B
 
@@ -1367,7 +1366,7 @@ CODE_B9A8D9:
 	LDA.w #$0007				;$B9A8E9
 	STA.b $38,x				;$B9A8EC
 	LDA.w #$000C				;$B9A8EE
-	JSL.l CODE_B9A0AC			;$B9A8F1
+	JSL.l set_anim_handle_kiddy_direct	;$B9A8F1
 	RTS					;$B9A8F5
 
 CODE_B9A8F6:
@@ -1388,7 +1387,7 @@ CODE_B9A90F:
 	LDA.w #$0043				;$B9A911
 	STA.b $38,x				;$B9A914
 	LDA.w #$0031				;$B9A916
-	JSL.l CODE_B9A0AC			;$B9A919
+	JSL.l set_anim_handle_kiddy_direct	;$B9A919
 	RTS					;$B9A91D
 
 CODE_B9A91E:
@@ -1879,7 +1878,7 @@ CODE_B9AC04:
 	LDA.b $30,x				;$B9AC09
 	BEQ.b CODE_B9AC14			;$B9AC0B
 	LDA.w #$0018				;$B9AC0D
-	JSL.l CODE_B9A0AC			;$B9AC10
+	JSL.l set_anim_handle_kiddy_direct	;$B9AC10
 CODE_B9AC14:
 	RTS					;$B9AC14
 
@@ -1915,7 +1914,7 @@ CODE_B9AC31:
 	CMP.w #$0100				;$B9AC43
 	BCS.b CODE_B9AC4F			;$B9AC46
 	LDA.w #$0017				;$B9AC48
-	JSL.l CODE_B9A0AC			;$B9AC4B
+	JSL.l set_anim_handle_kiddy_direct	;$B9AC4B
 CODE_B9AC4F:
 	RTS					;$B9AC4F
 
@@ -1979,7 +1978,7 @@ CODE_B9ACA9:
 	LDA.b $34,x				;$B9ACAE
 	BEQ.b CODE_B9ACB9			;$B9ACB0
 	LDA.w #$001C				;$B9ACB2
-	JSL.l CODE_B9A0AC			;$B9ACB5
+	JSL.l set_anim_handle_kiddy_direct	;$B9ACB5
 CODE_B9ACB9:
 	JSR.w CODE_B9ACBD			;$B9ACB9
 CODE_B9ACBC:
@@ -1993,7 +1992,7 @@ CODE_B9ACBD:
 	AND.w #$4000				;$B9ACC4
 	BNE.b CODE_B9ACD0			;$B9ACC7
 	LDA.w #$001D				;$B9ACC9
-	JSL.l CODE_B9A0AC			;$B9ACCC
+	JSL.l set_anim_handle_kiddy_direct	;$B9ACCC
 CODE_B9ACD0:
 	RTS					;$B9ACD0
 
@@ -2041,7 +2040,7 @@ CODE_B9AD05:
 CODE_B9AD17:
 	BCS.b CODE_B9AD20			;$B9AD17
 	LDA.w #$001B				;$B9AD19
-	JSL.l CODE_B9A0AC			;$B9AD1C
+	JSL.l set_anim_handle_kiddy_direct	;$B9AD1C
 CODE_B9AD20:
 	RTS					;$B9AD20
 
@@ -2396,7 +2395,7 @@ CODE_B9AFB4:
 	STA.b $5E,x				;$B9AFC1
 	STZ.b $5C,x				;$B9AFC3
 	LDA.w #$007E				;$B9AFC5
-	JSL.l CODE_B9A0AC			;$B9AFC8
+	JSL.l set_anim_handle_kiddy_direct	;$B9AFC8
 	RTS					;$B9AFCC
 
 CODE_B9AFCD:
@@ -7817,38 +7816,70 @@ CODE_B9F26A:
 	RTL					;$B9F277
 
 DATA_B9F278:
-	dw $0000,$FFFA,$FFF3,$FFED,$FFE7,$FFE1,$FFDB,$FFD4
-	dw $FFCE,$FFC8,$FFC2,$FFBC,$FFB6,$FFB0,$FFAA,$FFA4
-	dw $FF9E,$FF99,$FF93,$FF8D,$FF88,$FF82,$FF7D,$FF78
-	dw $FF72,$FF6D,$FF68,$FF63,$FF5E,$FF59,$FF55,$FF50
-	dw $FF4C,$FF47,$FF43,$FF3F,$FF3B,$FF37,$FF33,$FF30
-	dw $FF2C,$FF29,$FF25,$FF22,$FF1F,$FF1C,$FF19,$FF17
-	dw $FF14,$FF12,$FF10,$FF0E,$FF0C,$FF0A,$FF09,$FF07
-	dw $FF06,$FF05,$FF04,$FF03,$FF02,$FF02,$FF01,$FF01
-	dw $FF01,$FF01,$FF01,$FF02,$FF02,$FF03,$FF04,$FF05
-	dw $FF06,$FF07,$FF09,$FF0A,$FF0C,$FF0E,$FF10,$FF12
-	dw $FF14,$FF17,$FF19,$FF1C,$FF1F,$FF22,$FF25,$FF29
-	dw $FF2C,$FF30,$FF33,$FF37,$FF3B,$FF3F,$FF43,$FF47
-	dw $FF4C,$FF50,$FF55,$FF59,$FF5E,$FF63,$FF68,$FF6D
-	dw $FF72,$FF78,$FF7D,$FF82,$FF88,$FF8D,$FF93,$FF99
-	dw $FF9E,$FFA4,$FFAA,$FFB0,$FFB6,$FFBC,$FFC2,$FFC8
-	dw $FFCE,$FFD4,$FFDB,$FFE1,$FFE7,$FFED,$FFF3,$FFFA
-	dw $0000,$0006,$000D,$0013,$0019,$001F,$0025,$002C
-	dw $0032,$0038,$003E,$0044,$004A,$0050,$0056,$005C
-	dw $0062,$0067,$006D,$0073,$0078,$007E,$0083,$0088
-	dw $008E,$0093,$0098,$009D,$00A2,$00A7,$00AB,$00B0
-	dw $00B4,$00B9,$00BD,$00C1,$00C5,$00C9,$00CD,$00D0
-	dw $00D4,$00D7,$00DB,$00DE,$00E1,$00E4,$00E7,$00E9
-	dw $00EC,$00EE,$00F0,$00F2,$00F4,$00F6,$00F7,$00F9
-	dw $00FA,$00FB,$00FC,$00FD,$00FE,$00FE,$00FF,$00FF
-	dw $00FF,$00FF,$00FF,$00FE,$00FE,$00FD,$00FC,$00FB
-	dw $00FA,$00F9,$00F7,$00F6,$00F4,$00F2,$00F0,$00EE
-	dw $00EC,$00E9,$00E7,$00E4,$00E1,$00DE,$00DB,$00D7
-	dw $00D4,$00D0,$00CD,$00C9,$00C5,$00C1,$00BD,$00B9
-	dw $00B4,$00B0,$00AB,$00A7,$00A2,$009D,$0098,$0093
-	dw $008E,$0088,$0083,$007E,$0078,$0073,$006D,$0067
-	dw $0062,$005C,$0056,$0050,$004A,$0044,$003E,$0038
-	dw $0032,$002C,$0025,$001F,$0019,$0013,$000D,$0006
+	dw $0000,$FFFA,$FFF3,$FFED
+	dw $FFE7,$FFE1,$FFDB,$FFD4
+	dw $FFCE,$FFC8,$FFC2,$FFBC
+	dw $FFB6,$FFB0,$FFAA,$FFA4
+	dw $FF9E,$FF99,$FF93,$FF8D
+	dw $FF88,$FF82,$FF7D,$FF78
+	dw $FF72,$FF6D,$FF68,$FF63
+	dw $FF5E,$FF59,$FF55,$FF50
+	dw $FF4C,$FF47,$FF43,$FF3F
+	dw $FF3B,$FF37,$FF33,$FF30
+	dw $FF2C,$FF29,$FF25,$FF22
+	dw $FF1F,$FF1C,$FF19,$FF17
+	dw $FF14,$FF12,$FF10,$FF0E
+	dw $FF0C,$FF0A,$FF09,$FF07
+	dw $FF06,$FF05,$FF04,$FF03
+	dw $FF02,$FF02,$FF01,$FF01
+	dw $FF01,$FF01,$FF01,$FF02
+	dw $FF02,$FF03,$FF04,$FF05
+	dw $FF06,$FF07,$FF09,$FF0A
+	dw $FF0C,$FF0E,$FF10,$FF12
+	dw $FF14,$FF17,$FF19,$FF1C
+	dw $FF1F,$FF22,$FF25,$FF29
+	dw $FF2C,$FF30,$FF33,$FF37
+	dw $FF3B,$FF3F,$FF43,$FF47
+	dw $FF4C,$FF50,$FF55,$FF59
+	dw $FF5E,$FF63,$FF68,$FF6D
+	dw $FF72,$FF78,$FF7D,$FF82
+	dw $FF88,$FF8D,$FF93,$FF99
+	dw $FF9E,$FFA4,$FFAA,$FFB0
+	dw $FFB6,$FFBC,$FFC2,$FFC8
+	dw $FFCE,$FFD4,$FFDB,$FFE1
+	dw $FFE7,$FFED,$FFF3,$FFFA
+	dw $0000,$0006,$000D,$0013
+	dw $0019,$001F,$0025,$002C
+	dw $0032,$0038,$003E,$0044
+	dw $004A,$0050,$0056,$005C
+	dw $0062,$0067,$006D,$0073
+	dw $0078,$007E,$0083,$0088
+	dw $008E,$0093,$0098,$009D
+	dw $00A2,$00A7,$00AB,$00B0
+	dw $00B4,$00B9,$00BD,$00C1
+	dw $00C5,$00C9,$00CD,$00D0
+	dw $00D4,$00D7,$00DB,$00DE
+	dw $00E1,$00E4,$00E7,$00E9
+	dw $00EC,$00EE,$00F0,$00F2
+	dw $00F4,$00F6,$00F7,$00F9
+	dw $00FA,$00FB,$00FC,$00FD
+	dw $00FE,$00FE,$00FF,$00FF
+	dw $00FF,$00FF,$00FF,$00FE
+	dw $00FE,$00FD,$00FC,$00FB
+	dw $00FA,$00F9,$00F7,$00F6
+	dw $00F4,$00F2,$00F0,$00EE
+	dw $00EC,$00E9,$00E7,$00E4
+	dw $00E1,$00DE,$00DB,$00D7
+	dw $00D4,$00D0,$00CD,$00C9
+	dw $00C5,$00C1,$00BD,$00B9
+	dw $00B4,$00B0,$00AB,$00A7
+	dw $00A2,$009D,$0098,$0093
+	dw $008E,$0088,$0083,$007E
+	dw $0078,$0073,$006D,$0067
+	dw $0062,$005C,$0056,$0050
+	dw $004A,$0044,$003E,$0038
+	dw $0032,$002C,$0025,$001F
+	dw $0019,$0013,$000D,$0006
 
 CODE_B9F478:
 	ASL					;$B9F478

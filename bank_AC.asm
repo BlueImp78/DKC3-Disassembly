@@ -197,12 +197,12 @@ CODE_ACB158:
 	BEQ.b CODE_ACB168			;$ACB15A
 	STA.b $24,x				;$ACB15C
 	STZ.b $5E,x				;$ACB15E
-	JSL.l CODE_B9A006			;$ACB160
+	JSL.l process_sprite_animation		;$ACB160
 	LDX.b current_sprite			;$ACB164
 	BRA.b CODE_ACB182			;$ACB166
 
 CODE_ACB168:
-	JSL.l CODE_B9A006			;$ACB168
+	JSL.l process_sprite_animation		;$ACB168
 	LDX.b current_sprite			;$ACB16C
 	LDA.b $24,x				;$ACB16E
 	CMP.b $20,x				;$ACB170
@@ -244,7 +244,7 @@ CODE_ACB1B0:
 	EOR.b $1E,x				;$ACB1B5
 	STA.b $1E,x				;$ACB1B7
 	LDA.b $62,x				;$ACB1B9
-	JSL.l CODE_B9A000			;$ACB1BB
+	JSL.l set_sprite_animation		;$ACB1BB
 	JML [$04F5]				;$ACB1BF
 
 CODE_ACB1C2:
@@ -353,7 +353,7 @@ CODE_ACB285:
 	JML [$04F5]				;$ACB289
 
 CODE_ACB28C:
-	JSL.l CODE_B9A006			;$ACB28C
+	JSL.l process_sprite_animation		;$ACB28C
 	JML [$04F5]				;$ACB290
 
 CODE_ACB293:

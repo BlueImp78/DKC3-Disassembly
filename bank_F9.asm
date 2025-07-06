@@ -1,3 +1,4 @@
+
 DATA_F90000:
 	db $68,$00,$01,$01,$02,$05,$02,$00,$03,$03,$04,$01,$04,$05,$03,$05
 	db $01,$01,$01,$01,$01,$01,$07,$07,$07,$03,$04,$06,$06,$06,$03,$01
@@ -16,7 +17,8 @@ endif
 
 
 ;Animation scripts
-DATA_F90100:
+animation_scripts_table:
+	%offset(animation_flags_table, 2)
 	dw !null_pointer, $0000
 	dw DATA_F90EB4, $0000
 	dw DATA_F90F4A, $0000

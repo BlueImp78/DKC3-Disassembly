@@ -1497,7 +1497,7 @@ CODE_B48CD9:
 	LDA.l DATA_B48CEC,x			;$B48CDE
 	LDX.w $1C3D				;$B48CE2
 	STX.b current_sprite			;$B48CE5
-	JSL.l CODE_B9A000			;$B48CE7
+	JSL.l set_sprite_animation		;$B48CE7
 	RTS					;$B48CEB
 
 DATA_B48CEC:
@@ -3883,7 +3883,7 @@ CODE_B4A076:
 	LDX.w $1C3D				;$B4A09F
 	STX.b current_sprite			;$B4A0A2
 	LDA.w $1C6B				;$B4A0A4
-	JSL.l CODE_B9A000			;$B4A0A7
+	JSL.l set_sprite_animation		;$B4A0A7
 CODE_B4A0AB:
 	RTS					;$B4A0AB
 
@@ -5219,7 +5219,7 @@ CODE_B4ABF1:
 	LDA.b $3E				;$B4ABF9
 	CLC					;$B4ABFB
 	ADC.w #$02E4				;$B4ABFC
-	JSL.l CODE_B9A000			;$B4ABFF
+	JSL.l set_sprite_animation		;$B4ABFF
 	LDA.b $3E				;$B4AC03
 	BEQ.b CODE_B4AC11			;$B4AC05
 	LDX.w $1C3D				;$B4AC07
@@ -5320,7 +5320,7 @@ CODE_B4AD01:
 	JSR.w CODE_B4AD34			;$B4AD01
 	STZ.w $1C49				;$B4AD04
 	LDA.w $0547				;$B4AD07
-	JSL.l CODE_B9A000			;$B4AD0A
+	JSL.l set_sprite_animation		;$B4AD0A
 	LDA.w #$0001				;$B4AD0E
 	STA.w $1C3B				;$B4AD11
 	LDA.w #$0150				;$B4AD14

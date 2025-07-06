@@ -254,7 +254,7 @@ CODE_B88180:
 	LDA.w #$0001				;$B88185
 	STA.b $38,x				;$B88188
 	LDA.w #$000B				;$B8818A
-	JSL.l CODE_B9A009 			;$B8818D / Set kong anim	
+	JSL.l set_anim_handle_kiddy 		;$B8818D / Set kong anim	
 	LDY.b $72				;$B88191
 	LDA.w $0006,y				;$B88193
 	AND.w #$0004				;$B88196
@@ -272,7 +272,7 @@ CODE_B881A6:
 	LDA.w #$0010				;$B881AB
 	STA.b $38,x				;$B881AE
 	LDA.w #$0026				;$B881B0
-	JSL.l CODE_B9A009			;$B881B3
+	JSL.l set_anim_handle_kiddy		;$B881B3
 	JSR.w CODE_B8E2DD			;$B881B7
 	RTL					;$B881BA
 
@@ -280,7 +280,7 @@ CODE_B881BB:
 	LDA.w #$003F				;$B881BB
 	STA.b $38,x				;$B881BE
 	LDA.w #$002B				;$B881C0
-	JSL.l CODE_B9A009			;$B881C3
+	JSL.l set_anim_handle_kiddy		;$B881C3
 	JSR.w CODE_B8E2DD			;$B881C7
 	RTL					;$B881CA
 
@@ -289,7 +289,7 @@ CODE_B881CB:
 	LDA.w #$0052				;$B881CF
 	STA.b $38,x				;$B881D2
 	LDA.w #$0036				;$B881D4
-	JSL.l CODE_B9A009			;$B881D7
+	JSL.l set_anim_handle_kiddy		;$B881D7
 	JSR.w CODE_B8E2DD			;$B881DB
 	RTL					;$B881DE
 
@@ -301,7 +301,7 @@ CODE_B881DF:
 	LDA.w #$0057				;$B881EB
 	STA.b $38,x				;$B881EE
 	LDA.w #$0006				;$B881F0
-	JSL.l CODE_B9A009			;$B881F3
+	JSL.l set_anim_handle_kiddy		;$B881F3
 	JSR.w CODE_B8E2DD			;$B881F7
 	RTL					;$B881FA
 
@@ -313,7 +313,7 @@ CODE_B881FB:
 	CMP.w #$8000				;$B88208
 	ROR.b $2E,x				;$B8820B
 	LDA.w #$0031				;$B8820D
-	JSL.l CODE_B9A009			;$B88210
+	JSL.l set_anim_handle_kiddy		;$B88210
 	LDA.w #$0044				;$B88214
 	STA.b $38,x				;$B88217
 	JSR.w CODE_B8E2DD			;$B88219
@@ -353,7 +353,7 @@ CODE_B88245:
 	JSL.l CODE_B8E179			;$B88261
 	JSL.l CODE_B8E198			;$B88265
 	LDA.w #$0005				;$B88269
-	JSL.l CODE_B9A015			;$B8826C
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8826C
 	LDY.b current_animal_type		;$B88270
 	LDA.w #$0024				;$B88272
 	CPY.w #$0234				;$B88275
@@ -375,7 +375,7 @@ CODE_B88280:
 CODE_B88295:
 	STA.b $38,x				;$B88295
 	LDA.w #$0007				;$B88297
-	JSL.l CODE_B9A015			;$B8829A
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8829A
 	RTL					;$B8829E
 
 CODE_B8829F:
@@ -569,7 +569,7 @@ CODE_B883E9:
 	LDA.w #$0054				;$B883EF
 	STA.b $38,x				;$B883F2
 	LDA.w #$0037				;$B883F4
-	JSL.l CODE_B9A009			;$B883F7
+	JSL.l set_anim_handle_kiddy		;$B883F7
 	STZ.w $1929				;$B883FB
 	LDA.w #$0020				;$B883FE
 	STA.w $192B				;$B88401
@@ -631,7 +631,7 @@ CODE_B8846C:
 	STA.b $38,x				;$B8847D
 	STZ.b $5A,x				;$B8847F
 	LDA.w #$0039				;$B88481
-	JSL.l CODE_B9A009			;$B88484
+	JSL.l set_anim_handle_kiddy		;$B88484
 	LDA.w #$001F				;$B88488
 	LDX.w #$0002				;$B8848B
 	LDY.w #$0000				;$B8848E
@@ -643,7 +643,7 @@ CODE_B88496:
 	STA.b $38,x				;$B88499
 	STZ.b $5A,x				;$B8849B
 	LDA.w #$003A				;$B8849D
-	JSL.l CODE_B9A009			;$B884A0
+	JSL.l set_anim_handle_kiddy		;$B884A0
 	RTS					;$B884A4
 
 CODE_B884A5:
@@ -657,7 +657,7 @@ CODE_B884B5:
 	STY.b $38,x				;$B884B5
 	STZ.b $5A,x				;$B884B7
 	LDA.w #$000A				;$B884B9
-	JSL.l CODE_B9A015			;$B884BC
+	JSL.l set_anim_handle_animal_and_kiddy	;$B884BC
 	RTS					;$B884C0
 
 CODE_B884C1:
@@ -722,7 +722,7 @@ CODE_B88533:
 	LDA.w #$0001				;$B88544
 	STA.b $38,x				;$B88547
 	LDA.w #$0000				;$B88549
-	JSL.l CODE_B9A012			;$B8854C
+	JSL.l set_riding_kong_anim_handle_kiddy	;$B8854C
 	LDA.w #$0708				;$B88550
 	JSL.l CODE_B28018			;$B88553
 CODE_B88557:
@@ -764,7 +764,7 @@ CODE_B8856B:
 	JSL.l CODE_B89C4C			;$B885A7
 	JSR.w CODE_B88643			;$B885AB
 	LDA.w #$0000				;$B885AE
-	JSL.l CODE_B9A015			;$B885B1
+	JSL.l set_anim_handle_animal_and_kiddy	;$B885B1
 	JSR.w CODE_B88721			;$B885B5
 	LDA.b current_animal_type		;$B885B8
 	SEC					;$B885BA
@@ -869,7 +869,7 @@ CODE_B88665:
 	PLX					;$B8866F
 	STX.b current_sprite			;$B88670
 	LDA.w #$011D				;$B88672
-	JSL.l CODE_B9A000			;$B88675
+	JSL.l set_sprite_animation		;$B88675
 	LDA.w #$0005				;$B88679
 	STA.b $38,x				;$B8867C
 	LDA.b $1E,x				;$B8867E
@@ -915,7 +915,7 @@ CODE_B886B0:
 	STA.b $38,x				;$B886D5
 	LDY.w #$0008				;$B886D7
 	JSR.w CODE_B89C2C			;$B886DA
-	JSL.l CODE_B9A000			;$B886DD
+	JSL.l set_sprite_animation		;$B886DD
 	STZ.b $30,x				;$B886E1
 	STZ.b $2A,x				;$B886E3
 	LDA.w #$004A				;$B886E5
@@ -933,7 +933,7 @@ CODE_B886B0:
 	LDA.b $00				;$B88707
 	STA.w $0012,y				;$B88709
 	LDA.w #$0009				;$B8870C
-	JSL.l CODE_B9A009			;$B8870F
+	JSL.l set_anim_handle_kiddy		;$B8870F
 	LDA.w #$0002				;$B88713
 	STA.b $38,x				;$B88716
 	STZ.b current_animal_type		;$B88718
@@ -1083,7 +1083,7 @@ CODE_B88860:
 	LDA.b $00				;$B88876
 	STA.w $0012,y				;$B88878
 	LDA.w #$0009				;$B8887B
-	JSL.l CODE_B9A009			;$B8887E
+	JSL.l set_anim_handle_kiddy		;$B8887E
 	LDA.w #$0002				;$B88882
 	STA.b $38,x				;$B88885
 	RTS					;$B88887
@@ -1101,7 +1101,7 @@ CODE_B88888:
 	JSL.l CODE_B8F028			;$B888A2
 	LDX.b current_sprite			;$B888A6
 	LDA.w #$0037				;$B888A8
-	JSL.l CODE_B9A009			;$B888AB
+	JSL.l set_anim_handle_kiddy		;$B888AB
 CODE_B888AF:
 	RTS					;$B888AF
 
@@ -1179,7 +1179,7 @@ CODE_B8893D:
 CODE_B88950:
 	LDX.b alternate_sprite			;$B88950
 	LDA.b $40,x				;$B88952
-	JSL.l CODE_B9A003			;$B88954
+	JSL.l set_alt_sprite_animation		;$B88954
 	LDX.b alternate_sprite			;$B88958
 	LDA.w $17CC				;$B8895A
 	STA.b $62,x				;$B8895D
@@ -1308,7 +1308,7 @@ CODE_B88A23:
 	LDA.w #$0100				;$B88A71
 	STA.b $3A,x				;$B88A74
 	LDA.w #$0037				;$B88A76
-	JSL.l CODE_B9A009			;$B88A79
+	JSL.l set_anim_handle_kiddy		;$B88A79
 	STZ.w $1929				;$B88A7D
 	LDA.w #$0010				;$B88A80
 	STA.w $192B				;$B88A83
@@ -1512,7 +1512,7 @@ CODE_B88C2D:
 	LDA.w #$00E4				;$B88C3D
 	JSR.w CODE_B8829F			;$B88C40
 	LDA.w #$0037				;$B88C43
-	JSL.l CODE_B9A009			;$B88C46
+	JSL.l set_anim_handle_kiddy		;$B88C46
 	BRA.b CODE_B88C76			;$B88C4A
 
 CODE_B88C4C:
@@ -1527,13 +1527,13 @@ CODE_B88C4C:
 CODE_B88C5E:
 	PHX					;$B88C5E
 	LDA.l DATA_B88CAD,x			;$B88C5F
-	JSL.l CODE_B9A015			;$B88C63
+	JSL.l set_anim_handle_animal_and_kiddy	;$B88C63
 	PLX					;$B88C67
 	LDA.b current_mount			;$B88C68
 	BEQ.b CODE_B88CAC			;$B88C6A
 	STA.b current_sprite			;$B88C6C
 	LDA.l DATA_B88CAD+$02,x			;$B88C6E
-	JSL.l CODE_B9A012			;$B88C72
+	JSL.l set_riding_kong_anim_handle_kiddy	;$B88C72
 CODE_B88C76:
 	LDA.w $05AF				;$B88C76
 	AND.w #$4000				;$B88C79
@@ -1553,7 +1553,7 @@ CODE_B88C76:
 	JSL.l CODE_B8F028			;$B88C9F
 	LDX.b current_sprite			;$B88CA3
 	LDA.w #$0037				;$B88CA5
-	JSL.l CODE_B9A009			;$B88CA8
+	JSL.l set_anim_handle_kiddy		;$B88CA8
 CODE_B88CAC:
 	RTS					;$B88CAC
 
@@ -1683,7 +1683,7 @@ CODE_B88DA7:
 	LDA.w $17CA				;$B88DB5
 	STA.b $12,x				;$B88DB8
 	LDA.w #$0016				;$B88DBA
-	JSL.l CODE_B9A009			;$B88DBD
+	JSL.l set_anim_handle_kiddy		;$B88DBD
 	STZ.b $2E,x				;$B88DC1
 	STZ.b $34,x				;$B88DC3
 	STZ.b $36,x				;$B88DC5
@@ -1713,7 +1713,7 @@ CODE_B88DDD:
 	STZ.b $2E,x				;$B88DFD
 	STZ.b $34,x				;$B88DFF
 	LDA.w #$0016				;$B88E01
-	JSL.l CODE_B9A009			;$B88E04
+	JSL.l set_anim_handle_kiddy		;$B88E04
 	JSR.w CODE_B8E2DD			;$B88E08
 	LDA.w #$0020				;$B88E0B
 	TSB.w $05AF				;$B88E0E
@@ -1748,7 +1748,7 @@ CODE_B88E40:
 	LDA.w $17CC				;$B88E4A
 	STA.b $16,x				;$B88E4D
 	LDA.w #$001B				;$B88E4F
-	JSL.l CODE_B9A009			;$B88E52
+	JSL.l set_anim_handle_kiddy		;$B88E52
 	STZ.b $2E,x				;$B88E56
 	STZ.b $34,x				;$B88E58
 	STZ.b $58,x				;$B88E5A
@@ -1820,7 +1820,7 @@ CODE_B88EDD:
 	STZ.b $2E,x				;$B88EE3
 	STZ.b $34,x				;$B88EE5
 	LDA.w #$001B				;$B88EE7
-	JSL.l CODE_B9A009			;$B88EEA
+	JSL.l set_anim_handle_kiddy		;$B88EEA
 	LDA.w #$0020				;$B88EEE
 	TSB.w $05AF				;$B88EF1
 	LDA.w #$2000				;$B88EF4
@@ -1840,7 +1840,7 @@ CODE_B88F10:
 	BEQ.b CODE_B88F2E			;$B88F16
 	JSL.l CODE_B89C4C			;$B88F18
 	LDA.w #$001A				;$B88F1C
-	JSL.l CODE_B9A009			;$B88F1F
+	JSL.l set_anim_handle_kiddy		;$B88F1F
 	JSR.w CODE_B8E2DD			;$B88F23
 	JSL.l CODE_B8E198			;$B88F26
 	JSL.l CODE_B8E15A			;$B88F2A
@@ -1883,7 +1883,7 @@ CODE_B88F44:
 	LDA.w #$0002				;$B88F78
 	STA.b $38,x				;$B88F7B
 	LDA.w #$0009				;$B88F7D
-	JML.l CODE_B9A009			;$B88F80
+	JML.l set_anim_handle_kiddy		;$B88F80
 
 CODE_B88F84:
 	CMP.w follower_kong_sprite		;$B88F84
@@ -1891,13 +1891,13 @@ CODE_B88F84:
 	LDA.w #$0011				;$B88F89
 	STA.b $38,x				;$B88F8C
 	LDA.w #$0025				;$B88F8E
-	JML.l CODE_B9A009			;$B88F91
+	JML.l set_anim_handle_kiddy		;$B88F91
 
 CODE_B88F95:
 	LDA.w #$0044				;$B88F95
 	STA.b $38,x				;$B88F98
 	LDA.w #$0030				;$B88F9A
-	JML.l CODE_B9A009			;$B88F9D
+	JML.l set_anim_handle_kiddy		;$B88F9D
 
 CODE_B88FA1:
 	LDA.w #$0068				;$B88FA1
@@ -1908,7 +1908,7 @@ CODE_B88FA1:
 CODE_B88FAE:
 	STA.b $38,x				;$B88FAE
 	LDA.w #$0005				;$B88FB0
-	JML.l CODE_B9A015			;$B88FB3
+	JML.l set_anim_handle_animal_and_kiddy	;$B88FB3
 
 CODE_B88FB7:
 	STZ.w $04AA				;$B88FB7
@@ -1926,7 +1926,7 @@ CODE_B88FB7:
 	BEQ.b CODE_B88FF4			;$B88FDE
 	JSL.l CODE_B89C01			;$B88FE0
 	LDA.w #$000D				;$B88FE4
-	JSL.l CODE_B9A009			;$B88FE7
+	JSL.l set_anim_handle_kiddy		;$B88FE7
 	LDA.w #$000F				;$B88FEB
 	STA.b $38,x				;$B88FEE
 	JSR.w CODE_B89243			;$B88FF0
@@ -1934,7 +1934,7 @@ CODE_B88FB7:
 
 CODE_B88FF4:
 	LDA.w #$0031				;$B88FF4
-	JSL.l CODE_B9A009			;$B88FF7
+	JSL.l set_anim_handle_kiddy		;$B88FF7
 	LDA.w #$0044				;$B88FFB
 	STA.b $38,x				;$B88FFE
 	RTL					;$B89000
@@ -1956,14 +1956,14 @@ CODE_B89001:
 	BNE.b CODE_B8904A			;$B8902A
 	JSL.l CODE_B89C01			;$B8902C
 	LDA.w #$000D				;$B89030
-	JSL.l CODE_B9A009			;$B89033
+	JSL.l set_anim_handle_kiddy		;$B89033
 	LDA.w #$000F				;$B89037
 	STA.b $38,x				;$B8903A
 	RTL					;$B8903C
 
 CODE_B8903D:
 	LDA.w #$0031				;$B8903D
-	JSL.l CODE_B9A009			;$B89040
+	JSL.l set_anim_handle_kiddy		;$B89040
 	LDA.w #$0044				;$B89044
 	STA.b $38,x				;$B89047
 	RTL					;$B89049
@@ -1974,7 +1974,7 @@ CODE_B8904A:
 	AND.w #$4000				;$B89051
 	BNE.b CODE_B8906C			;$B89054
 	LDA.w #$0005				;$B89056
-	JSL.l CODE_B9A015			;$B89059
+	JSL.l set_anim_handle_animal_and_kiddy	;$B89059
 	LDY.b current_animal_type		;$B8905D
 	LDA.w #$0024				;$B8905F
 	CPY.w #$0234				;$B89062
@@ -2139,7 +2139,7 @@ CODE_B8916A:
 	STA.b $1E,x				;$B891A1
 CODE_B891A3:
 	LDA.w #$000C				;$B891A3
-	JSL.l CODE_B9A009			;$B891A6
+	JSL.l set_anim_handle_kiddy		;$B891A6
 	LDA.w #$0021				;$B891AA
 	STA.b $38,x				;$B891AD
 	RTL					;$B891AF
@@ -2162,7 +2162,7 @@ CODE_B891B0:
 	STA.b $1E,x				;$B891D4
 CODE_B891D6:
 	LDA.w #$0031				;$B891D6
-	JSL.l CODE_B9A009			;$B891D9
+	JSL.l set_anim_handle_kiddy		;$B891D9
 	LDA.w #$0044				;$B891DD
 	STA.b $38,x				;$B891E0
 	RTL					;$B891E2
@@ -2203,7 +2203,7 @@ CODE_B89213:
 	LDA.w #$0031				;$B89228
 	STA.b $38,x				;$B8922B
 	LDA.w #$0007				;$B8922D
-	JSL.l CODE_B9A015			;$B89230
+	JSL.l set_anim_handle_animal_and_kiddy	;$B89230
 	RTL					;$B89234
 
 CODE_B89235:
@@ -2252,7 +2252,7 @@ CODE_B89279:
 	STA.b $38,x				;$B89289
 	JSR.w CODE_B89422			;$B8928B
 	LDA.w #$001F				;$B8928E
-	JSL.l CODE_B9A009			;$B89291
+	JSL.l set_anim_handle_kiddy		;$B89291
 	LDA.w $05AF				;$B89295
 	AND.w #$4000				;$B89298
 	BEQ.b CODE_B892D2			;$B8929B
@@ -2275,7 +2275,7 @@ CODE_B89279:
 	STA.b $38,x				;$B892C6
 	JSR.w CODE_B89422			;$B892C8
 	LDA.w #$001F				;$B892CB
-	JSL.l CODE_B9A009			;$B892CE
+	JSL.l set_anim_handle_kiddy		;$B892CE
 CODE_B892D2:
 	LDA.w #$0003				;$B892D2
 	LDY.w #$00F0				;$B892D5
@@ -2342,7 +2342,7 @@ CODE_B89342:
 	STA.b $38,x				;$B8934D
 	JSR.w CODE_B89422			;$B8934F
 	LDA.w #$001F				;$B89352
-	JSL.l CODE_B9A009			;$B89355
+	JSL.l set_anim_handle_kiddy		;$B89355
 	LDA.w #$0003				;$B89359
 	LDY.w #$01E0				;$B8935C
 	JSL.l CODE_BB85D0			;$B8935F
@@ -2374,7 +2374,7 @@ CODE_B89364:
 	LDA.w #$0036				;$B8939E
 	STA.b $38,x				;$B893A1
 	LDA.w #$0021				;$B893A3
-	JSL.l CODE_B9A009			;$B893A6
+	JSL.l set_anim_handle_kiddy		;$B893A6
 	JSL.l CODE_B89C3C			;$B893AA
 	JSR.w CODE_B8F285			;$B893AE
 	LDA.w #$0039				;$B893B1
@@ -2490,7 +2490,7 @@ CODE_B8946C:
 	LDA.w #$0036				;$B89494
 	STA.b $38,x				;$B89497
 	LDA.w #$0021				;$B89499
-	JSL.l CODE_B9A009			;$B8949C
+	JSL.l set_anim_handle_kiddy		;$B8949C
 	RTL					;$B894A0
 
 CODE_B894A1:
@@ -2523,7 +2523,7 @@ CODE_B894AB:
 	LDY.w #$0008				;$B894E2
 	JSR.w CODE_B89C2C			;$B894E5
 	INC					;$B894E8
-	JSL.l CODE_B9A000			;$B894E9
+	JSL.l set_sprite_animation		;$B894E9
 	STZ.b $34,x				;$B894ED
 	STZ.b $2E,x				;$B894EF
 	LDA.w #$004A				;$B894F1
@@ -2542,7 +2542,7 @@ CODE_B894AB:
 	LDA.b $00				;$B89514
 	STA.w $0012,y				;$B89516
 	LDA.w #$0009				;$B89519
-	JSL.l CODE_B9A009			;$B8951C
+	JSL.l set_anim_handle_kiddy		;$B8951C
 	LDA.w #$0002				;$B89520
 	STA.b $38,x				;$B89523
 	STZ.b current_animal_type		;$B89525
@@ -2568,7 +2568,7 @@ CODE_B8952E:
 	STA.b $38,x				;$B89557
 	LDY.w #$0008				;$B89559
 	JSR.w CODE_B89C2C			;$B8955C
-	JSL.l CODE_B9A000			;$B8955F
+	JSL.l set_sprite_animation		;$B8955F
 	STZ.b $30,x				;$B89563
 	STZ.b $2A,x				;$B89565
 	STZ.b $5A,x				;$B89567
@@ -2579,7 +2579,7 @@ CODE_B8952E:
 	STZ.b $30,x				;$B89574
 	JSR.w CODE_B895E0			;$B89576
 	LDA.w #$001F				;$B89579
-	JSL.l CODE_B9A009			;$B8957C
+	JSL.l set_anim_handle_kiddy		;$B8957C
 	STZ.b current_animal_type		;$B89580
 	STZ.b current_mount			;$B89582
 	RTL					;$B89584
@@ -2600,9 +2600,9 @@ CODE_B89585:
 	STZ.b $30,x				;$B895AC
 	JSR.w CODE_B895E0			;$B895AE
 	LDA.w #$0023				;$B895B1
-	JSL.l CODE_B9A009			;$B895B4
+	JSL.l set_anim_handle_kiddy		;$B895B4
 	LDA.w #$0000				;$B895B8
-	JSL.l CODE_B9A012			;$B895BB
+	JSL.l set_riding_kong_anim_handle_kiddy	;$B895BB
 	JSL.l CODE_B89C4C			;$B895BF
 	JSL.l CODE_B88557			;$B895C3
 	JSR.w CODE_B8C5A0			;$B895C7
@@ -2658,7 +2658,7 @@ CODE_B89617:
 	JSL.l CODE_B89C5C			;$B8962B
 	JSL.l CODE_B89C4C			;$B8962F
 	LDA.w #$0008				;$B89633
-	JSL.l CODE_B9A015			;$B89636
+	JSL.l set_anim_handle_animal_and_kiddy	;$B89636
 	JSR.w CODE_B8C5A0			;$B8963A
 	LDA.w #$0100				;$B8963D
 	STA.b $3A,x				;$B89640
@@ -2681,7 +2681,7 @@ CODE_B8965E:
 	LDA.w #$0032				;$B89662
 	STA.b $38,x				;$B89665
 	LDA.w #$0009				;$B89667
-	JSL.l CODE_B9A015			;$B8966A
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8966A
 	LDA.w #$0003				;$B8966E
 	LDY.w #$00F0				;$B89671
 	JSL.l CODE_BB85D0			;$B89674
@@ -2709,7 +2709,7 @@ CODE_B89695:
 	STA.b $38,x				;$B896A4
 	JSR.w CODE_B89422			;$B896A6
 	LDA.w #$001F				;$B896A9
-	JSL.l CODE_B9A009			;$B896AC
+	JSL.l set_anim_handle_kiddy		;$B896AC
 	STZ.w $1B63				;$B896B0
 	RTL					;$B896B3
 
@@ -2731,10 +2731,10 @@ CODE_B896B4:
 	LDA.w #$0036				;$B896DA
 	STA.b $38,x				;$B896DD
 	LDA.w #$0021				;$B896DF
-	JSL.l CODE_B9A009			;$B896E2
+	JSL.l set_anim_handle_kiddy		;$B896E2
 	JSL.l CODE_B89C4C			;$B896E6
 	LDA.w #$003B				;$B896EA
-	JSL.l CODE_B9A009			;$B896ED
+	JSL.l set_anim_handle_kiddy		;$B896ED
 	LDA.w #$0058				;$B896F1
 	LDY.w $04C4				;$B896F4
 	CPY.w #$0001				;$B896F7
@@ -2781,7 +2781,7 @@ CODE_B8972D:
 	AND.w #$FFFB				;$B8975E
 	STA.w $0006,y				;$B89761
 	LDA.w #$002A				;$B89764
-	JSL.l CODE_B9A009			;$B89767
+	JSL.l set_anim_handle_kiddy		;$B89767
 	JSL.l CODE_B89C3C			;$B8976B
 	LDA.w #$003E				;$B8976F
 	STA.b $38,x				;$B89772
@@ -2798,7 +2798,7 @@ CODE_B8977F:
 	LDX.b current_sprite			;$B89790
 	STZ.b $3A,x				;$B89792
 	LDA.w #$0037				;$B89794
-	JSL.l CODE_B9A009			;$B89797
+	JSL.l set_anim_handle_kiddy		;$B89797
 CODE_B8979B:
 	RTL					;$B8979B
 
@@ -2821,7 +2821,7 @@ CODE_B8979C:
 	AND.w #$FFFB				;$B897C7
 	STA.w $0006,y				;$B897CA
 	LDA.w #$0031				;$B897CD
-	JSL.l CODE_B9A009			;$B897D0
+	JSL.l set_anim_handle_kiddy		;$B897D0
 	JSL.l CODE_B8E198			;$B897D4
 	JSL.l CODE_B8E15A			;$B897D8
 	JSL.l CODE_B89C3C			;$B897DC
@@ -2867,7 +2867,7 @@ CODE_B89812:
 	AND.w #$FFFB				;$B8983D
 	STA.w $0006,y				;$B89840
 	LDA.w #$0031				;$B89843
-	JSL.l CODE_B9A009			;$B89846
+	JSL.l set_anim_handle_kiddy		;$B89846
 	JSL.l CODE_B89C3C			;$B8984A
 	STZ.b $3A,x				;$B8984E
 	LDA.w #$0040				;$B89850
@@ -2885,7 +2885,7 @@ CODE_B8985A:
 	LDA.w #$0041				;$B89869
 	STA.b $38,x				;$B8986C
 	LDA.w #$002E				;$B8986E
-	JSL.l CODE_B9A009			;$B89871
+	JSL.l set_anim_handle_kiddy		;$B89871
 	JSL.l CODE_B89C3C			;$B89875
 	JSL.l CODE_B8E1EF			;$B89879
 	JSL.l CODE_B8E1E4			;$B8987D
@@ -2905,7 +2905,7 @@ CODE_B89895:
 	LDA.w #$0042				;$B8989E
 	STA.b $38,x				;$B898A1
 	LDA.w #$0037				;$B898A3
-	JSL.l CODE_B9A009			;$B898A6
+	JSL.l set_anim_handle_kiddy		;$B898A6
 CODE_B898AA:
 	RTL					;$B898AA
 
@@ -2950,7 +2950,7 @@ CODE_B898ED:
 	LDA.w $17CA				;$B89903
 	STA.b $5C,x				;$B89906
 	LDA.w #$003B				;$B89908
-	JSL.l CODE_B9A009			;$B8990B
+	JSL.l set_anim_handle_kiddy		;$B8990B
 	LDX.b current_sprite			;$B8990F
 	CPX.w active_kong_sprite		;$B89911
 	BEQ.b CODE_B8993E			;$B89914
@@ -2964,7 +2964,7 @@ CODE_B898ED:
 	LDA.w #$004E				;$B89928
 	STA.b $38,x				;$B8992B
 	LDA.w #$0037				;$B8992D
-	JSL.l CODE_B9A009			;$B89930
+	JSL.l set_anim_handle_kiddy		;$B89930
 	STZ.w $1929				;$B89934
 	LDA.w #$0020				;$B89937
 	STA.w $192B				;$B8993A
@@ -2994,7 +2994,7 @@ CODE_B8995F:
 	LDA.w #$0060				;$B89969
 	STA.b $38,x				;$B8996C
 	LDA.w #$0055				;$B8996E
-	JSL.l CODE_B9A009			;$B89971
+	JSL.l set_anim_handle_kiddy		;$B89971
 	LDX.b current_sprite			;$B89975
 	LDY.w #$0288				;$B89977
 	LDA.b [$6A],y				;$B8997A
@@ -3013,7 +3013,7 @@ CODE_B8995F:
 CODE_B89995:
 	JSL.l CODE_B89C4C			;$B89995
 	LDA.w #$0056				;$B89999
-	JSL.l CODE_B9A009			;$B8999C
+	JSL.l set_anim_handle_kiddy		;$B8999C
 	LDA.w #$8000				;$B899A0
 	STA.w $04A6				;$B899A3
 	STA.w $04A8				;$B899A6
@@ -3042,14 +3042,14 @@ CODE_B899B3:
 	LDA.w #$006E				;$B899DF
 	STA.b $38,x				;$B899E2
 	LDA.w #$0028				;$B899E4
-	JSL.l CODE_B9A009			;$B899E7
+	JSL.l set_anim_handle_kiddy		;$B899E7
 	JSL.l CODE_B89C3C			;$B899EB
 	LDY.w active_kong_sprite		;$B899EF
 	JSR.w CODE_B89A13			;$B899F2
 	LDA.w #$006F				;$B899F5
 	STA.b $38,x				;$B899F8
 	LDA.w #$0028				;$B899FA
-	JSL.l CODE_B9A009			;$B899FD
+	JSL.l set_anim_handle_kiddy		;$B899FD
 	LDA.w #$0707				;$B89A01
 	JSL.l CODE_B28018			;$B89A04
 	LDA.w #$0007				;$B89A08
@@ -3210,7 +3210,7 @@ CODE_B89B3E:
 	STZ.b $30,x				;$B89B42
 	STZ.b $2E,x				;$B89B44
 	LDA.w #$003E				;$B89B46
-	JSL.l CODE_B9A009			;$B89B49
+	JSL.l set_anim_handle_kiddy		;$B89B49
 	JSL.l CODE_B89C4C			;$B89B4D
 	LDA.w #$0061				;$B89B51
 	STA.b $38,x				;$B89B54
@@ -3219,7 +3219,7 @@ CODE_B89B3E:
 	STZ.b $30,x				;$B89B5A
 	STZ.b $2E,x				;$B89B5C
 	LDA.w #$003C				;$B89B5E
-	JSL.l CODE_B9A009			;$B89B61
+	JSL.l set_anim_handle_kiddy		;$B89B61
 	JSL.l CODE_BB85FD			;$B89B65
 	LDA.w #$0707				;$B89B69
 	JSL.l CODE_B28018			;$B89B6C
@@ -3418,7 +3418,7 @@ CODE_B89CBD:
 	STX.w $0501				;$B89CDC
 	JSR.w CODE_B89E83			;$B89CDF
 	LDA.b $5C,x				;$B89CE2
-	JSL.l CODE_B9A009			;$B89CE4
+	JSL.l set_anim_handle_kiddy		;$B89CE4
 	LDA.l DATA_FF1840			;$B89CE8
 	STA.w $1488				;$B89CEC
 	LDA.l DATA_FF1840+$08			;$B89CEF
@@ -3448,7 +3448,7 @@ CODE_B89D01:
 	STX.w $0503				;$B89D25
 	JSR.w CODE_B89E83			;$B89D28
 	LDA.b $5C,x				;$B89D2B
-	JSL.l CODE_B9A009			;$B89D2D
+	JSL.l set_anim_handle_kiddy		;$B89D2D
 	LDA.l DATA_FF1840+$02			;$B89D31
 	STA.w $14DA				;$B89D35
 	LDA.l DATA_FF1840+$0A			;$B89D38
@@ -3538,7 +3538,7 @@ CODE_B89DCA:
 	LDA.w #$0001				;$B89DF2
 	STA.b $38,x				;$B89DF5
 	LDA.w #$0000				;$B89DF7
-	JSL.l CODE_B9A012			;$B89DFA
+	JSL.l set_riding_kong_anim_handle_kiddy	;$B89DFA
 	JSL.l CODE_B88557			;$B89DFE
 	BRL.w CODE_B89D7B			;$B89E02
 
@@ -3560,7 +3560,7 @@ CODE_B89E05:
 	LDY.b current_sprite			;$B89E25
 	STA.w $0038,y				;$B89E27
 	LDA.l DATA_B89E33+$02,x			;$B89E2A
-	JSL.l CODE_B9A015			;$B89E2E
+	JSL.l set_anim_handle_animal_and_kiddy	;$B89E2E
 	RTL					;$B89E32
 
 DATA_B89E33:
@@ -3729,7 +3729,7 @@ CODE_B89F50:
 CODE_B89F69:
 	JSR.w CODE_B8A0F7			;$B89F69
 	JSR.w CODE_B8E0FE			;$B89F6C
-	JSL.l CODE_B9A006			;$B89F6F
+	JSL.l process_sprite_animation		;$B89F6F
 	BRL.w CODE_B89FC6			;$B89F73
 
 CODE_B89F76:
@@ -3753,7 +3753,7 @@ CODE_B89F9B:
 CODE_B89FA1:
 	JSR.w CODE_B8A0F7			;$B89FA1
 	JSR.w CODE_B8E0FE			;$B89FA4
-	JSL.l CODE_B9A006			;$B89FA7
+	JSL.l process_sprite_animation		;$B89FA7
 	BRL.w CODE_B89FC6			;$B89FAB
 
 CODE_B89FAE:
@@ -3766,7 +3766,7 @@ CODE_B89FB4:
 CODE_B89FBC:
 	JSR.w CODE_B8E0FE			;$B89FBC
 	JSR.w CODE_B8C4F8			;$B89FBF
-	JSL.l CODE_B9A006			;$B89FC2
+	JSL.l process_sprite_animation		;$B89FC2
 CODE_B89FC6:
 	JSL.l CODE_BCE2D4			;$B89FC6
 	RTS					;$B89FCA
@@ -3784,7 +3784,7 @@ CODE_B89FCB:
 CODE_B89FE0:
 	JSL.l CODE_B9E006			;$B89FE0
 CODE_B89FE4:
-	JSL.l CODE_B9A006			;$B89FE4
+	JSL.l process_sprite_animation		;$B89FE4
 	JSL.l CODE_BCE2D4			;$B89FE8
 	RTS					;$B89FEC
 
@@ -3794,14 +3794,14 @@ CODE_B89FED:
 	JSL.l CODE_B9E018			;$B89FF3
 	JSL.l CODE_B9E006			;$B89FF7
 	JSR.w CODE_B8C5D9			;$B89FFB
-	JSL.l CODE_B9A006			;$B89FFE
+	JSL.l process_sprite_animation		;$B89FFE
 	RTS					;$B8A002
 
 CODE_B8A003:
 	JSR.w CODE_B8A04C			;$B8A003
 	JSR.w CODE_B8E1FB			;$B8A006
 	JSR.w CODE_B8C5D9			;$B8A009
-	JSL.l CODE_B9A006			;$B8A00C
+	JSL.l process_sprite_animation		;$B8A00C
 	RTS					;$B8A010
 
 CODE_B8A011:
@@ -3810,14 +3810,14 @@ CODE_B8A011:
 	JSL.l CODE_B9E018			;$B8A017
 	JSL.l CODE_B9E006			;$B8A01B
 	JSR.w CODE_B8C5D9			;$B8A01F
-	JSL.l CODE_B9A00C			;$B8A022
+	JSL.l process_anim_preserve_state	;$B8A022
 	RTS					;$B8A026
 
 CODE_B8A027:
 	JSR.w CODE_B8A04C			;$B8A027
 	JSR.w CODE_B8E1FB			;$B8A02A
 	JSR.w CODE_B8C5D9			;$B8A02D
-	JSL.l CODE_B9A00C			;$B8A030
+	JSL.l process_anim_preserve_state	;$B8A030
 	RTS					;$B8A034
 
 CODE_B8A035:
@@ -4273,7 +4273,7 @@ CODE_B8A452:
 	LDX.b current_sprite			;$B8A477
 	LDA.w #$0028				;$B8A479
 	STA.b $1A,x				;$B8A47C
-	JSL.l CODE_B9A006			;$B8A47E
+	JSL.l process_sprite_animation		;$B8A47E
 CODE_B8A482:
 	JSR.w CODE_B89FC6			;$B8A482
 	JMP.w CODE_B8A075			;$B8A485
@@ -4396,7 +4396,7 @@ CODE_B8A53B:
 	LDX.b current_sprite			;$B8A55F
 	LDA.w #$0028				;$B8A561
 	STA.b $1A,x				;$B8A564
-	JSL.l CODE_B9A006			;$B8A566
+	JSL.l process_sprite_animation		;$B8A566
 CODE_B8A56A:
 	JSR.w CODE_B89FC6			;$B8A56A
 	JMP.w CODE_B8A075			;$B8A56D
@@ -4407,7 +4407,7 @@ CODE_B8A570:
 CODE_B8A571:
 	LDA.w #$0008				;$B8A571
 	STA.b $38,x				;$B8A574
-	JSL.l CODE_B9A006			;$B8A576
+	JSL.l process_sprite_animation		;$B8A576
 	BRA.b CODE_B8A56A			;$B8A57A
 
 CODE_B8A57C:
@@ -4438,7 +4438,7 @@ CODE_B8A591:
 CODE_B8A5B8:
 	LDA.w #$0028				;$B8A5B8
 	STA.b $1A,x				;$B8A5BB
-	JSL.l CODE_B9A006			;$B8A5BD
+	JSL.l process_sprite_animation		;$B8A5BD
 CODE_B8A5C1:
 	JSR.w CODE_B89FC6			;$B8A5C1
 	JMP.w CODE_B8A075			;$B8A5C4
@@ -4502,7 +4502,7 @@ CODE_B8A613:
 	LDA.w #$000B				;$B8A633
 	STA.b $38,x				;$B8A636
 	LDA.w #$001C				;$B8A638
-	JSL.l CODE_B9A009			;$B8A63B
+	JSL.l set_anim_handle_kiddy		;$B8A63B
 CODE_B8A63F:
 	JSR.w CODE_B89FC6			;$B8A63F
 	JMP.w CODE_B8A075			;$B8A642
@@ -4510,7 +4510,7 @@ CODE_B8A63F:
 CODE_B8A645:
 	LDA.w #$000B				;$B8A645
 	JSL.l CODE_B9E012			;$B8A648
-	JSL.l CODE_B9A006			;$B8A64C
+	JSL.l process_sprite_animation		;$B8A64C
 	JSR.w CODE_B89FC6			;$B8A650
 	JMP.w CODE_B8A075			;$B8A653
 
@@ -4575,7 +4575,7 @@ CODE_B8A6C7:
 	LDA.b $28,x				;$B8A6D4
 	AND.w #$0010				;$B8A6D6
 	BNE.b CODE_B8A6E5			;$B8A6D9
-	JSL.l CODE_B9A006			;$B8A6DB
+	JSL.l process_sprite_animation		;$B8A6DB
 	JSR.w CODE_B89FC6			;$B8A6DF
 	JMP.w CODE_B8A075			;$B8A6E2
 
@@ -4603,7 +4603,7 @@ CODE_B8A6EB:
 	ADC.w #$002A				;$B8A713
 	STA.b $16,x				;$B8A716
 	STZ.b $1A,x				;$B8A718
-	JSL.l CODE_B9A006			;$B8A71A
+	JSL.l process_sprite_animation		;$B8A71A
 CODE_B8A71E:
 	JSR.w CODE_B89FC6			;$B8A71E
 	JMP.w CODE_B8A075			;$B8A721
@@ -4628,7 +4628,7 @@ CODE_B8A72D:
 CODE_B8A749:
 	LDA.w #$0028				;$B8A749
 	STA.b $1A,x				;$B8A74C
-	JSL.l CODE_B9A006			;$B8A74E
+	JSL.l process_sprite_animation		;$B8A74E
 CODE_B8A752:
 	JSR.w CODE_B89FC6			;$B8A752
 	JMP.w CODE_B8A075			;$B8A755
@@ -4745,7 +4745,7 @@ CODE_B8A805:
 	LDA.w #$0016				;$B8A829
 	STA.b $38,x				;$B8A82C
 	LDA.w #$001C				;$B8A82E
-	JSL.l CODE_B9A009			;$B8A831
+	JSL.l set_anim_handle_kiddy		;$B8A831
 CODE_B8A835:
 	JSR.w CODE_B89FC6			;$B8A835
 	JMP.w CODE_B8A075			;$B8A838
@@ -4753,7 +4753,7 @@ CODE_B8A835:
 CODE_B8A83B:
 	LDA.w #$000B				;$B8A83B
 	JSL.l CODE_B9E012			;$B8A83E
-	JSL.l CODE_B9A006			;$B8A842
+	JSL.l process_sprite_animation		;$B8A842
 	JSR.w CODE_B89FC6			;$B8A846
 	JMP.w CODE_B8A075			;$B8A849
 
@@ -4867,7 +4867,7 @@ CODE_B8A903:
 	LDA.b $60,x				;$B8A90E
 	BEQ.b CODE_B8A91B			;$B8A910
 	DEC.b $60,x				;$B8A912
-	JSL.l CODE_B9A00C			;$B8A914
+	JSL.l process_anim_preserve_state	;$B8A914
 	JMP.w CODE_B8A075			;$B8A918
 
 CODE_B8A91B:
@@ -4896,7 +4896,7 @@ CODE_B8A938:
 	STZ.b $2E,x				;$B8A946
 	JSR.w CODE_B8E1FB			;$B8A948
 	JSR.w CODE_B8C5D9			;$B8A94B
-	JSL.l CODE_B9A00C			;$B8A94E
+	JSL.l process_anim_preserve_state	;$B8A94E
 	JMP.w CODE_B8A075			;$B8A952
 
 CODE_B8A955:
@@ -4908,7 +4908,7 @@ CODE_B8A955:
 	LDA.b $60,x				;$B8A960
 	BEQ.b CODE_B8A96D			;$B8A962
 	DEC.b $60,x				;$B8A964
-	JSL.l CODE_B9A00C			;$B8A966
+	JSL.l process_anim_preserve_state	;$B8A966
 	JMP.w CODE_B8A075			;$B8A96A
 
 CODE_B8A96D:
@@ -5050,7 +5050,7 @@ CODE_B8AA5D:
 	JSL.l CODE_B88368			;$B8AA74
 CODE_B8AA78:
 	JSR.w CODE_B8E1FB			;$B8AA78
-	JSL.l CODE_B9A006			;$B8AA7B
+	JSL.l process_sprite_animation		;$B8AA7B
 	LDX.w active_kong_sprite		;$B8AA7F
 	STZ.b $3A,x				;$B8AA82
 	LDX.w follower_kong_sprite		;$B8AA84
@@ -5093,7 +5093,7 @@ CODE_B8AAB6:
 	LDA.b [$6A],y				;$B8AAD4
 CODE_B8AAD6:
 	JSL.l CODE_B9E00F			;$B8AAD6
-	JSL.l CODE_B9A006			;$B8AADA
+	JSL.l process_sprite_animation		;$B8AADA
 	LDA.b $64,x				;$B8AADE
 	AND.w #$0200				;$B8AAE0
 	BNE.b CODE_B8AB19			;$B8AAE3
@@ -5142,7 +5142,7 @@ CODE_B8AB41:
 	LDA.b [$6A],y				;$B8AB44
 CODE_B8AB46:
 	JSL.l CODE_B9E00F			;$B8AB46
-	JSL.l CODE_B9A006			;$B8AB4A
+	JSL.l process_sprite_animation		;$B8AB4A
 	LDA.b $64,x				;$B8AB4E
 	AND.w #$0200				;$B8AB50
 	BNE.b CODE_B8AB76			;$B8AB53
@@ -5237,7 +5237,7 @@ CODE_B8ABCF:
 	LDA.w #$005F				;$B8AC1A
 	STA.b $38,x				;$B8AC1D
 CODE_B8AC1F:
-	JSL.l CODE_B9A006			;$B8AC1F
+	JSL.l process_sprite_animation		;$B8AC1F
 	JSR.w CODE_B89FC6			;$B8AC23
 	JMP.w CODE_B8A075			;$B8AC26
 
@@ -5325,7 +5325,7 @@ CODE_B8ACD6:
 	LDA.b $28,x				;$B8ACDD
 	AND.w #$0010				;$B8ACDF
 	BNE.b CODE_B8ACF1			;$B8ACE2
-	JSL.l CODE_B9A006			;$B8ACE4
+	JSL.l process_sprite_animation		;$B8ACE4
 	JSR.w CODE_B89FC6			;$B8ACE8
 	JSR.w CODE_B8AD5C			;$B8ACEB
 	JMP.w CODE_B8A075			;$B8ACEE
@@ -5468,7 +5468,7 @@ CODE_B8ADF5:
 
 CODE_B8AE09:
 	LDA.w #$0004				;$B8AE09
-	JSL.l CODE_B9A015			;$B8AE0C
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8AE0C
 	LDX.b current_sprite			;$B8AE10
 	STZ.b $2E,x				;$B8AE12
 	JSR.w CODE_B8E0AE			;$B8AE14
@@ -5518,7 +5518,7 @@ CODE_B8AE4E:
 	LDA.w #$002D				;$B8AE72
 	STA.b $38,x				;$B8AE75
 	LDA.w #$0000				;$B8AE77
-	JSL.l CODE_B9A015			;$B8AE7A
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8AE7A
 CODE_B8AE7E:
 	JMP.w CODE_B8A075			;$B8AE7E
 
@@ -5539,7 +5539,7 @@ CODE_B8AE94:
 	JSR.w CODE_B8E1FB			;$B8AEA5
 	JSR.w CODE_B8E0FE			;$B8AEA8
 	JSR.w CODE_B8C4F8			;$B8AEAB
-	JSL.l CODE_B9A006			;$B8AEAE
+	JSL.l process_sprite_animation		;$B8AEAE
 	JMP.w CODE_B8A075			;$B8AEB2
 
 CODE_B8AEB5:
@@ -5555,13 +5555,13 @@ CODE_B8AEB5:
 CODE_B8AECE:
 	JSR.w CODE_B8F0E0			;$B8AECE
 	JSR.w CODE_B8F1A2			;$B8AED1
-	JSL.l CODE_B9A006			;$B8AED4
+	JSL.l process_sprite_animation		;$B8AED4
 	JMP.w CODE_B8A075			;$B8AED8
 
 CODE_B8AEDB:
 	JSR.w CODE_B8F0E0			;$B8AEDB
 	JSR.w CODE_B8F1A2			;$B8AEDE
-	JSL.l CODE_B9A006			;$B8AEE1
+	JSL.l process_sprite_animation		;$B8AEE1
 	LDA.w $1925				;$B8AEE5
 	INC					;$B8AEE8
 	INC					;$B8AEE9
@@ -5668,7 +5668,7 @@ CODE_B8AFAA:
 	LDA.w #$0038				;$B8AFB0
 	STA.b $38,x				;$B8AFB3
 	LDA.w #$0022				;$B8AFB5
-	JSL.l CODE_B9A009			;$B8AFB8
+	JSL.l set_anim_handle_kiddy		;$B8AFB8
 	JMP.w CODE_B8A09B			;$B8AFBC
 
 CODE_B8AFBF:
@@ -5676,7 +5676,7 @@ CODE_B8AFBF:
 	BCS.b CODE_B8AFD2			;$B8AFC3
 	JSR.w CODE_B8E1FB			;$B8AFC5
 	JSR.w CODE_B8C5D9			;$B8AFC8
-	JSL.l CODE_B9A006			;$B8AFCB
+	JSL.l process_sprite_animation		;$B8AFCB
 	JMP.w CODE_B8A09B			;$B8AFCF
 
 CODE_B8AFD2:
@@ -5691,7 +5691,7 @@ CODE_B8AFD8:
 	STA.b $38,x				;$B8AFE0
 	JSR.w CODE_B8C5A0			;$B8AFE2
 	LDA.w #$007E				;$B8AFE5
-	JSL.l CODE_B9A009			;$B8AFE8
+	JSL.l set_anim_handle_kiddy		;$B8AFE8
 CODE_B8AFEC:
 	JML [$04F5]				;$B8AFEC
 
@@ -5702,7 +5702,7 @@ CODE_B8AFEF:
 	BMI.b CODE_B8B004			;$B8AFF5
 	JSR.w CODE_B8E0CA			;$B8AFF7
 	JSR.w CODE_B8E0E4			;$B8AFFA
-	JSL.l CODE_B9A006			;$B8AFFD
+	JSL.l process_sprite_animation		;$B8AFFD
 	JML [$04F5]				;$B8B001
 
 CODE_B8B004:
@@ -5729,7 +5729,7 @@ CODE_B8B004:
 	LDA.b $00				;$B8B03B
 	STA.w $0012,y				;$B8B03D
 	LDA.w #$0008				;$B8B040
-	JSL.l CODE_B9A009			;$B8B043
+	JSL.l set_anim_handle_kiddy		;$B8B043
 	LDX.b current_sprite			;$B8B047
 	LDA.w #$0002				;$B8B049
 	STA.b $38,x				;$B8B04C
@@ -5815,7 +5815,7 @@ CODE_B8B0D1:
 CODE_B8B0D3:
 	JSR.w CODE_B8F0E0			;$B8B0D3
 	JSR.w CODE_B8F1A2			;$B8B0D6
-	JSL.l CODE_B9A006			;$B8B0D9
+	JSL.l process_sprite_animation		;$B8B0D9
 	LDX.b current_sprite			;$B8B0DD
 	DEC.b $5C,x				;$B8B0DF
 	BEQ.b CODE_B8B100			;$B8B0E1
@@ -6519,7 +6519,7 @@ CODE_B8B5F0:
 	LDA.w #$0040				;$B8B608
 	STA.b $38,x				;$B8B60B
 CODE_B8B60D:
-	JSL.l CODE_B9A006			;$B8B60D
+	JSL.l process_sprite_animation		;$B8B60D
 	JMP.w CODE_B8A075			;$B8B611
 
 CODE_B8B614:
@@ -6550,7 +6550,7 @@ CODE_B8B630:
 	BCS.b CODE_B8B654			;$B8B648
 CODE_B8B64A:
 	JSR.w CODE_B8C5D9			;$B8B64A
-	JSL.l CODE_B9A00C			;$B8B64D
+	JSL.l process_anim_preserve_state	;$B8B64D
 	JMP.w CODE_B8A075			;$B8B651
 
 CODE_B8B654:
@@ -6608,7 +6608,7 @@ CODE_B8B6CC:
 	LDA.w #$0003				;$B8B6D7
 	JSL.l CODE_B9E00F			;$B8B6DA
 	JSL.l CODE_B9E006			;$B8B6DE
-	JSL.l CODE_B9A006			;$B8B6E2
+	JSL.l process_sprite_animation		;$B8B6E2
 	LDA.w #$0006				;$B8B6E6
 	JSL.l CODE_BCE2CE			;$B8B6E9
 	JSL.l CODE_BCE2D7			;$B8B6ED
@@ -6629,7 +6629,7 @@ CODE_B8B70D:
 	JSR.w CODE_B8C56B			;$B8B70D
 	BCC.b CODE_B8B70A			;$B8B710
 	LDA.w #$0034				;$B8B712
-	JSL.l CODE_B9A009			;$B8B715
+	JSL.l set_anim_handle_kiddy		;$B8B715
 	LDA.w #$004A				;$B8B719
 	STA.b $38,x				;$B8B71C
 	STZ.b $2A,x				;$B8B71E
@@ -6711,7 +6711,7 @@ CODE_B8B79F:
 	JSL.l CODE_B9E00F			;$B8B7A6
 	JSR.w CODE_B8B729			;$B8B7AA
 	JSL.l CODE_B9E006			;$B8B7AD
-	JSL.l CODE_B9A006			;$B8B7B1
+	JSL.l process_sprite_animation		;$B8B7B1
 	LDA.w #$0006				;$B8B7B5
 	JSL.l CODE_BCE2CE			;$B8B7B8
 	JSL.l CODE_BCE2D7			;$B8B7BC
@@ -6767,7 +6767,7 @@ CODE_B8B813:
 	LDA.w #$0100				;$B8B823
 	STA.b $3A,x				;$B8B826
 	LDA.w #$0037				;$B8B828
-	JSL.l CODE_B9A009			;$B8B82B
+	JSL.l set_anim_handle_kiddy		;$B8B82B
 	STZ.w $1929				;$B8B82F
 	LDA.w #$0020				;$B8B832
 	STA.w $192B				;$B8B835
@@ -6782,7 +6782,7 @@ CODE_B8B813:
 	STZ.b $2A,x				;$B8B84F
 	STZ.b $30,x				;$B8B851
 	LDA.w #$0001				;$B8B853
-	JSL.l CODE_B9A009			;$B8B856
+	JSL.l set_anim_handle_kiddy		;$B8B856
 	JMP.w CODE_B8B7EC			;$B8B85A
 
 CODE_B8B85D:
@@ -6798,7 +6798,7 @@ CODE_B8B86F:
 	LDA.w #$004E				;$B8B875
 	STA.b $38,x				;$B8B878
 	LDA.w #$0037				;$B8B87A
-	JSL.l CODE_B9A009			;$B8B87D
+	JSL.l set_anim_handle_kiddy		;$B8B87D
 	STZ.w $1929				;$B8B881
 	LDA.w #$0020				;$B8B884
 	STA.w $192B				;$B8B887
@@ -6806,7 +6806,7 @@ CODE_B8B86F:
 	LDA.w #$0053				;$B8B88E
 	STA.b $38,x				;$B8B891
 	LDA.w #$0016				;$B8B893
-	JSL.l CODE_B9A009			;$B8B896
+	JSL.l set_anim_handle_kiddy		;$B8B896
 	JML [$04F5]				;$B8B89A
 
 CODE_B8B89D:
@@ -6834,7 +6834,7 @@ CODE_B8B8C0:
 	JSL.l CODE_B9E00F			;$B8B8C6
 	JSL.l CODE_B9E018			;$B8B8CA
 	JSL.l CODE_B9E006			;$B8B8CE
-	JSL.l CODE_B9A006			;$B8B8D2
+	JSL.l process_sprite_animation		;$B8B8D2
 	JSR.w CODE_B8C56B			;$B8B8D6
 	BCC.b CODE_B8B8F9			;$B8B8D9
 	JSL.l CODE_BCE2D7			;$B8B8DB
@@ -6914,14 +6914,14 @@ CODE_B8B961:
 	LDY.w #$0000				;$B8B96D
 	JSL.l CODE_B8F028			;$B8B970
 	LDA.w #$0037				;$B8B974
-	JSL.l CODE_B9A009			;$B8B977
+	JSL.l set_anim_handle_kiddy		;$B8B977
 	RTS					;$B8B97B
 
 CODE_B8B97C:
 	LDA.w #$0002				;$B8B97C
 	TSB.w $1927				;$B8B97F
 	JSR.w CODE_B8F0E0			;$B8B982
-	JSL.l CODE_B9A00C			;$B8B985
+	JSL.l process_anim_preserve_state	;$B8B985
 	LDA.w $1925				;$B8B989
 	INC					;$B8B98C
 	INC					;$B8B98D
@@ -6956,7 +6956,7 @@ CODE_B8B9C6:
 	JSR.w CODE_B8B9DF			;$B8B9C6
 	JSR.w CODE_B8B9FB			;$B8B9C9
 	BCS.b CODE_B8B9D5			;$B8B9CC
-	JSL.l CODE_B9A006			;$B8B9CE
+	JSL.l process_sprite_animation		;$B8B9CE
 	JMP.w CODE_B8A09B			;$B8B9D2
 
 CODE_B8B9D5:
@@ -7102,7 +7102,7 @@ CODE_B8BAC8:
 	STZ.w $191F				;$B8BACB
 	JSR.w CODE_B8B9F3			;$B8BACE
 	BCS.b CODE_B8BB01			;$B8BAD1
-	JSL.l CODE_B9A00C			;$B8BAD3
+	JSL.l process_anim_preserve_state	;$B8BAD3
 	LDA.w $0775				;$B8BAD7
 	BIT.w #$0004				;$B8BADA
 	BEQ.b CODE_B8BAFE			;$B8BADD
@@ -7186,7 +7186,7 @@ CODE_B8BB77:
 	STZ.b $2E,x				;$B8BB95
 	STZ.b $34,x				;$B8BB97
 	LDA.w #$0016				;$B8BB99
-	JSL.l CODE_B9A009			;$B8BB9C
+	JSL.l set_anim_handle_kiddy		;$B8BB9C
 	JSR.w CODE_B8E2DD			;$B8BBA0
 	LDA.w #$0020				;$B8BBA3
 	TSB.w $05AF				;$B8BBA6
@@ -7260,7 +7260,7 @@ CODE_B8BC1B:
 	ORA.w #$0000				;$B8BC3A
 	STA.b $4A,x				;$B8BC3D
 CODE_B8BC3F:
-	JSL.l CODE_B9A006			;$B8BC3F
+	JSL.l process_sprite_animation		;$B8BC3F
 	JSR.w CODE_B8B729			;$B8BC43
 	JSL.l CODE_B9E006			;$B8BC46
 	LDA.w #$0006				;$B8BC4A
@@ -7332,7 +7332,7 @@ CODE_B8BCD8:
 	LDA.w #$004E				;$B8BCDE
 	STA.b $38,x				;$B8BCE1
 	LDA.w #$0037				;$B8BCE3
-	JSL.l CODE_B9A009			;$B8BCE6
+	JSL.l set_anim_handle_kiddy		;$B8BCE6
 	STZ.w $1929				;$B8BCEA
 	LDA.w #$0020				;$B8BCED
 	STA.w $192B				;$B8BCF0
@@ -7340,7 +7340,7 @@ CODE_B8BCD8:
 	LDA.w #$0053				;$B8BCF7
 	STA.b $38,x				;$B8BCFA
 	LDA.w #$0016				;$B8BCFC
-	JSL.l CODE_B9A009			;$B8BCFF
+	JSL.l set_anim_handle_kiddy		;$B8BCFF
 	JML [$04F5]				;$B8BD03
 
 CODE_B8BD06:
@@ -7369,7 +7369,7 @@ CODE_B8BD29:
 	LDA.w #$0003				;$B8BD34
 	JSL.l CODE_B9E00F			;$B8BD37
 	JSL.l CODE_B9E006			;$B8BD3B
-	JSL.l CODE_B9A006			;$B8BD3F
+	JSL.l process_sprite_animation		;$B8BD3F
 	LDA.w #$0006				;$B8BD43
 	JSL.l CODE_BCE2CE			;$B8BD46
 	JSL.l CODE_BCE2D7			;$B8BD4A
@@ -7414,7 +7414,7 @@ CODE_B8BD8F:
 	LDA.w #$0051				;$B8BD9A
 	STA.b $38,x				;$B8BD9D
 	LDA.w #$0036				;$B8BD9F
-	JSL.l CODE_B9A009			;$B8BDA2
+	JSL.l set_anim_handle_kiddy		;$B8BDA2
 	LDX.b current_sprite			;$B8BDA6
 	LDA.b $12,x				;$B8BDA8
 	STA.b $2C,x				;$B8BDAA
@@ -7446,7 +7446,7 @@ CODE_B8BDDE:
 	JSR.w CODE_B8C56B			;$B8BDE1
 	BCC.b CODE_B8BE13			;$B8BDE4
 	JSR.w CODE_B8E0FE			;$B8BDE6
-	JSL.l CODE_B9A006			;$B8BDE9
+	JSL.l process_sprite_animation		;$B8BDE9
 	LDA.b $2A,x				;$B8BDED
 	BEQ.b CODE_B8BE16			;$B8BDEF
 	JSR.w CODE_B8B729			;$B8BDF1
@@ -7596,7 +7596,7 @@ CODE_B8BF18:
 	RTS					;$B8BF18
 
 CODE_B8BF19:
-	JSL.l CODE_B9A00C			;$B8BF19
+	JSL.l process_anim_preserve_state	;$B8BF19
 	JMP.w CODE_B8A09B			;$B8BF1D
 
 CODE_B8BF20:
@@ -7604,7 +7604,7 @@ CODE_B8BF20:
 	STZ.w $191F				;$B8BF23
 	JSR.w CODE_B8B9F3			;$B8BF26
 	BCS.b CODE_B8BF59			;$B8BF29
-	JSL.l CODE_B9A00C			;$B8BF2B
+	JSL.l process_anim_preserve_state	;$B8BF2B
 	LDA.w $0775				;$B8BF2F
 	BIT.w #$0004				;$B8BF32
 	BEQ.b CODE_B8BF56			;$B8BF35
@@ -7662,7 +7662,7 @@ CODE_B8BF97:
 CODE_B8BFA6:
 	JSR.w CODE_B8A035			;$B8BFA6
 	JSL.l CODE_B9E006			;$B8BFA9
-	JSL.l CODE_B9A00C			;$B8BFAD
+	JSL.l process_anim_preserve_state	;$B8BFAD
 	JML [$04F5]				;$B8BFB1
 
 CODE_B8BFB4:
@@ -7675,12 +7675,12 @@ CODE_B8BFB7:
 	TSB.w $05AF				;$B8BFC0
 	LDA.w #$0001				;$B8BFC3
 	JSR.w CODE_B8CC29			;$B8BFC6
-	JSL.l CODE_B9A006			;$B8BFC9
+	JSL.l process_sprite_animation		;$B8BFC9
 	JSR.w CODE_B89FC6			;$B8BFCD
 	JMP.w CODE_B8A075			;$B8BFD0
 
 CODE_B8BFD3:
-	JSL.l CODE_B9A006			;$B8BFD3
+	JSL.l process_sprite_animation		;$B8BFD3
 	JMP.w CODE_B8A09B			;$B8BFD7
 
 CODE_B8BFDA:
@@ -7757,7 +7757,7 @@ CODE_B8C051:
 	STA.w $0038,y				;$B8C060
 	JSL.l CODE_B8837A			;$B8C063
 CODE_B8C067:
-	JSL.l CODE_B9A006			;$B8C067
+	JSL.l process_sprite_animation		;$B8C067
 	JMP.w CODE_B8A075			;$B8C06B
 
 CODE_B8C06E:
@@ -7765,7 +7765,7 @@ CODE_B8C06E:
 	BEQ.b CODE_B8C075			;$B8C071
 	STZ.b $2E,x				;$B8C073
 CODE_B8C075:
-	JSL.l CODE_B9A006			;$B8C075
+	JSL.l process_sprite_animation		;$B8C075
 	JMP.w CODE_B8A075			;$B8C079
 
 CODE_B8C07C:
@@ -7778,11 +7778,11 @@ CODE_B8C07C:
 	LDX.b current_sprite			;$B8C08F
 	STZ.b $28,x				;$B8C091
 	JSR.w CODE_B8C4F8			;$B8C093
-	JSL.l CODE_B9A006			;$B8C096
+	JSL.l process_sprite_animation		;$B8C096
 	JMP.w CODE_B8A075			;$B8C09A
 
 CODE_B8C09D:
-	JSL.l CODE_B9A006			;$B8C09D
+	JSL.l process_sprite_animation		;$B8C09D
 	JMP.w CODE_B8A09B			;$B8C0A1
 
 CODE_B8C0A4:
@@ -7821,7 +7821,7 @@ DATA_B8C0DC:
 	dw CODE_B8C143
 
 CODE_B8C0E2:
-	JSL.l CODE_B9A006			;$B8C0E2
+	JSL.l process_sprite_animation		;$B8C0E2
 	JSL.l CODE_B8EFE7			;$B8C0E6
 	LDX.b current_sprite			;$B8C0EA
 	LDA.b $5A,x				;$B8C0EC
@@ -7853,7 +7853,7 @@ CODE_B8C11F:
 	JSR.w CODE_B8E1FB			;$B8C11F
 	DEC.b $5C,x				;$B8C122
 	BEQ.b CODE_B8C12D			;$B8C124
-	JSL.l CODE_B9A006			;$B8C126
+	JSL.l process_sprite_animation		;$B8C126
 	JMP.w CODE_B8A075			;$B8C12A
 
 CODE_B8C12D:
@@ -7863,7 +7863,7 @@ CODE_B8C12D:
 	STA.b $16,x				;$B8C135
 	INC.b $5A,x				;$B8C137
 	LDA.w #$003D				;$B8C139
-	JSL.l CODE_B9A009			;$B8C13C
+	JSL.l set_anim_handle_kiddy		;$B8C13C
 	JMP.w CODE_B8A075			;$B8C140
 
 CODE_B8C143:
@@ -7875,7 +7875,7 @@ CODE_B8C143:
 	JMP.w CODE_B8A075			;$B8C150
 
 CODE_B8C153:
-	JSL.l CODE_B9A006			;$B8C153
+	JSL.l process_sprite_animation		;$B8C153
 	JMP.w CODE_B8A075			;$B8C157
 
 CODE_B8C15A:
@@ -7926,12 +7926,12 @@ CODE_B8C1A8:
 	CMP.b $16,x				;$B8C1B0
 	BCS.b CODE_B8C1BE			;$B8C1B2
 	JSR.w CODE_B8E1FB			;$B8C1B4
-	JSL.l CODE_B9A006			;$B8C1B7
+	JSL.l process_sprite_animation		;$B8C1B7
 	JMP.w CODE_B8A075			;$B8C1BB
 
 CODE_B8C1BE:
 	JSL.l CODE_B9E006			;$B8C1BE
-	JSL.l CODE_B9A006			;$B8C1C2
+	JSL.l process_sprite_animation		;$B8C1C2
 	JMP.w CODE_B8A075			;$B8C1C6
 
 CODE_B8C1C9:
@@ -7943,7 +7943,7 @@ CODE_B8C1C9:
 	JSL.l CODE_B8F028			;$B8C1D8
 	LDX.b current_sprite			;$B8C1DC
 	LDA.w #$0002				;$B8C1DE
-	JSL.l CODE_B9A009			;$B8C1E1
+	JSL.l set_anim_handle_kiddy		;$B8C1E1
 	JMP.w CODE_B8A075			;$B8C1E5
 
 CODE_B8C1E8:
@@ -7967,7 +7967,7 @@ CODE_B8C1E8:
 	JSL.l CODE_B8E198			;$B8C20E
 	JSL.l CODE_B8E179			;$B8C212
 CODE_B8C216:
-	JSL.l CODE_B9A006			;$B8C216
+	JSL.l process_sprite_animation		;$B8C216
 	JMP.w CODE_B8A075			;$B8C21A
 
 CODE_B8C21D:
@@ -7978,7 +7978,7 @@ CODE_B8C21D:
 CODE_B8C224:
 	JSR.w CODE_B8A035			;$B8C224
 	JSL.l CODE_B9E006			;$B8C227
-	JSL.l CODE_B9A006			;$B8C22B
+	JSL.l process_sprite_animation		;$B8C22B
 	JMP.w CODE_B8A075			;$B8C22F
 
 CODE_B8C232:
@@ -8075,7 +8075,7 @@ CODE_B8C2BD:
 CODE_B8C2EC:
 	LDA.w #$0001				;$B8C2EC
 	JSR.w CODE_B8CC29			;$B8C2EF
-	JSL.l CODE_B9A006			;$B8C2F2
+	JSL.l process_sprite_animation		;$B8C2F2
 	JMP.w CODE_B8A075			;$B8C2F6
 
 CODE_B8C2F9:
@@ -8092,7 +8092,7 @@ CODE_B8C306:
 CODE_B8C308:
 	LDA.w #$0001				;$B8C308
 	JSR.w CODE_B8CC29			;$B8C30B
-	JSL.l CODE_B9A006			;$B8C30E
+	JSL.l process_sprite_animation		;$B8C30E
 	JMP.w CODE_B8A075			;$B8C312
 
 CODE_B8C315:
@@ -8269,13 +8269,13 @@ CODE_B8C45D:
 
 CODE_B8C469:
 	JSR.w CODE_B8E1FB			;$B8C469
-	JSL.l CODE_B9A006			;$B8C46C
+	JSL.l process_sprite_animation		;$B8C46C
 	JSR.w CODE_B8C483			;$B8C470
 	JMP.w CODE_B8A075			;$B8C473
 
 CODE_B8C476:
 	JSR.w CODE_B8E1FB			;$B8C476
-	JSL.l CODE_B9A006			;$B8C479
+	JSL.l process_sprite_animation		;$B8C479
 	JSR.w CODE_B8C483			;$B8C47D
 	JMP.w CODE_B8A09B			;$B8C480
 
@@ -8586,7 +8586,7 @@ CODE_B8C6BF:
 	LDA.w #$0018				;$B8C6CE
 	STA.b $38,x				;$B8C6D1
 	LDA.w #$0028				;$B8C6D3
-	JSL.l CODE_B9A009			;$B8C6D6
+	JSL.l set_anim_handle_kiddy		;$B8C6D6
 	RTS					;$B8C6DA
 
 CODE_B8C6DB:
@@ -8611,7 +8611,7 @@ CODE_B8C6F3:
 	LDA.w #$0025				;$B8C6FC
 	STA.b $38,x				;$B8C6FF
 	LDA.w #$000B				;$B8C701
-	JSL.l CODE_B9A015			;$B8C704
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8C704
 	LDX.b $72				;$B8C708
 	STZ.b $08,x				;$B8C70A
 	LDX.b current_sprite			;$B8C70C
@@ -9344,7 +9344,7 @@ CODE_B8CBCB:
 	STA.b $2E,x				;$B8CBE9
 	STZ.b $34,x				;$B8CBEB
 	LDA.w #$000C				;$B8CBED
-	JSL.l CODE_B9A009			;$B8CBF0
+	JSL.l set_anim_handle_kiddy		;$B8CBF0
 	RTS					;$B8CBF4
 
 CODE_B8CBF5:
@@ -9359,7 +9359,7 @@ CODE_B8CC02:
 	STA.b $2E,x				;$B8CC07
 	STZ.b $34,x				;$B8CC09
 	LDA.w #$0006				;$B8CC0B
-	JSL.l CODE_B9A015			;$B8CC0E
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8CC0E
 	RTS					;$B8CC12
 
 CODE_B8CC13:
@@ -9370,7 +9370,7 @@ CODE_B8CC13:
 	STA.b $2E,x				;$B8CC1D
 	STZ.b $34,x				;$B8CC1F
 	LDA.w #$0031				;$B8CC21
-	JSL.l CODE_B9A009			;$B8CC24
+	JSL.l set_anim_handle_kiddy		;$B8CC24
 	RTS					;$B8CC28
 
 CODE_B8CC29:
@@ -10370,7 +10370,7 @@ CODE_B8D34A:
 	LDA.w #$006A				;$B8D34C
 	STA.b $38,x				;$B8D34F
 	LDA.w #$0007				;$B8D351
-	JSL.l CODE_B9A009			;$B8D354
+	JSL.l set_anim_handle_kiddy		;$B8D354
 	RTS					;$B8D358
 
 CODE_B8D359:
@@ -10517,7 +10517,7 @@ CODE_B8D435:
 	LDA.w #$002D				;$B8D43B
 	STA.b $38,x				;$B8D43E
 	LDA.w #$0000				;$B8D440
-	JSL.l CODE_B9A015			;$B8D443
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8D443
 CODE_B8D447:
 	RTS					;$B8D447
 
@@ -10572,7 +10572,7 @@ CODE_B8D48A:
 	LDA.w #$002D				;$B8D490
 	STA.b $38,x				;$B8D493
 	LDA.w #$0000				;$B8D495
-	JSL.l CODE_B9A015			;$B8D498
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8D498
 CODE_B8D49C:
 	RTS					;$B8D49C
 
@@ -10931,7 +10931,7 @@ CODE_B8D6B9:
 	STA.b $38,x				;$B8D6ED
 	STZ.b $5C,x				;$B8D6EF
 	LDA.w #$000F 				;$B8D6F1
-	JSL.l CODE_B9A009 			;$B8D6F4 / Set roll animation
+	JSL.l set_anim_handle_kiddy 		;$B8D6F4 / Set roll animation
 	RTS 					;$B8D6F8
 
 CODE_B8D6F9:
@@ -10945,19 +10945,19 @@ CODE_B8D6F9:
 	LDA.w current_held_sprite		;$B8D70C
 	BNE.b CODE_B8D719			;$B8D70F
 	LDA.w #$0008				;$B8D711
-	JSL.l CODE_B9A009			;$B8D714
+	JSL.l set_anim_handle_kiddy		;$B8D714
 	RTS					;$B8D718
 
 CODE_B8D719:
 	CMP.w follower_kong_sprite		;$B8D719
 	BEQ.b CODE_B8D726			;$B8D71C
 	LDA.w #$0024				;$B8D71E
-	JSL.l CODE_B9A009			;$B8D721
+	JSL.l set_anim_handle_kiddy		;$B8D721
 	RTS					;$B8D725
 
 CODE_B8D726:
 	LDA.w #$002F				;$B8D726
-	JSL.l CODE_B9A009			;$B8D729
+	JSL.l set_anim_handle_kiddy		;$B8D729
 	RTS					;$B8D72D
 
 CODE_B8D72E:
@@ -10968,12 +10968,12 @@ CODE_B8D72E:
 	CMP.w #$006C				;$B8D737
 	BEQ.b CODE_B8D755			;$B8D73A
 	LDA.w #$0004				;$B8D73C
-	JSL.l CODE_B9A015			;$B8D73F
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8D73F
 	RTS					;$B8D743
 
 CODE_B8D744:
 	LDA.w #$0004				;$B8D744
-	JSL.l CODE_B9A015			;$B8D747
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8D747
 	LDA.w $04D6				;$B8D74B
 	AND.w #$0010				;$B8D74E
 	TSB.w $04E2				;$B8D751
@@ -10981,7 +10981,7 @@ CODE_B8D744:
 
 CODE_B8D755:
 	LDA.w #$0058				;$B8D755
-	JSL.l CODE_B9A000			;$B8D758
+	JSL.l set_sprite_animation		;$B8D758
 	RTS					;$B8D75C
 
 CODE_B8D75D:
@@ -11037,7 +11037,7 @@ CODE_B8D7AE:
 CODE_B8D7BC:
 	LDX.b current_sprite			;$B8D7BC
 	TYA					;$B8D7BE
-	JSL.l CODE_B9A009			;$B8D7BF
+	JSL.l set_anim_handle_kiddy		;$B8D7BF
 	JSR.w CODE_B8E2DD			;$B8D7C3
 	LDA.w #$0020				;$B8D7C6
 	TRB.w $05AF				;$B8D7C9
@@ -11108,7 +11108,7 @@ CODE_B8D83E:
 	LDA.w #$0008				;$B8D84A
 	STA.b $38,x				;$B8D84D
 	LDA.w #$001E				;$B8D84F
-	JSL.l CODE_B9A009			;$B8D852
+	JSL.l set_anim_handle_kiddy		;$B8D852
 	JSR.w CODE_B8E2DD			;$B8D856
 	LDA.w #$0020				;$B8D859
 	TRB.w $05AF				;$B8D85C
@@ -11158,7 +11158,7 @@ CODE_B8D8AF:
 	LDA.w #$0002				;$B8D8B1
 	STA.b $38,x				;$B8D8B4
 	LDA.w #$000E				;$B8D8B6
-	JSL.l CODE_B9A009			;$B8D8B9
+	JSL.l set_anim_handle_kiddy		;$B8D8B9
 	JSR.w CODE_B89071			;$B8D8BD
 	LDA.b $2E,x				;$B8D8C0
 	CLC					;$B8D8C2
@@ -11227,7 +11227,7 @@ CODE_B8D919:
 	LDA.w #$0024				;$B8D938
 	STA.b $38,x				;$B8D93B
 	LDA.w #$0005				;$B8D93D
-	JSL.l CODE_B9A015			;$B8D940
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8D940
 	LDY.w #$0280				;$B8D944
 	LDA.b [$6A],y				;$B8D947
 	STA.b $2E,x				;$B8D949
@@ -11314,7 +11314,7 @@ CODE_B8D9CE:
 	LDA.w #$0001				;$B8D9DC
 	STA.b $2E,x				;$B8D9DF
 	LDA.w #$0005				;$B8D9E1
-	JSL.l CODE_B9A009			;$B8D9E4
+	JSL.l set_anim_handle_kiddy		;$B8D9E4
 	RTS					;$B8D9E8
 
 CODE_B8D9E9:
@@ -11343,7 +11343,7 @@ CODE_B8DA0C:
 	LDA.w #$000A				;$B8DA17
 	CMP.b $40,x				;$B8DA1A
 	BEQ.b CODE_B8DA32			;$B8DA1C
-	JSL.l CODE_B9A000			;$B8DA1E
+	JSL.l set_sprite_animation		;$B8DA1E
 	LDY.w #$0038				;$B8DA22
 	LDA.b [$6A],y				;$B8DA25
 	STA.b $2E,x				;$B8DA27
@@ -11369,7 +11369,7 @@ CODE_B8DA40:
 	LDA.w #$0045				;$B8DA42
 	STA.b $38,x				;$B8DA45
 	LDA.w #$0032				;$B8DA47
-	JSL.l CODE_B9A009			;$B8DA4A
+	JSL.l set_anim_handle_kiddy		;$B8DA4A
 	RTS					;$B8DA4E
 
 CODE_B8DA4F:
@@ -11395,7 +11395,7 @@ CODE_B8DA6D:
 	LDA.w #$0010				;$B8DA75
 	STA.b $38,x				;$B8DA78
 	LDA.w #$0010				;$B8DA7A
-	JSL.l CODE_B9A009			;$B8DA7D
+	JSL.l set_anim_handle_kiddy		;$B8DA7D
 	SEC					;$B8DA81
 CODE_B8DA82:
 	RTS					;$B8DA82
@@ -11407,7 +11407,7 @@ CODE_B8DA83:
 	LDA.w #$0026				;$B8DA8B
 	STA.b $38,x				;$B8DA8E
 	LDA.w #$0010				;$B8DA90
-	JSL.l CODE_B9A015			;$B8DA93
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8DA93
 	SEC					;$B8DA97
 CODE_B8DA98:
 	RTS					;$B8DA98
@@ -11495,7 +11495,7 @@ CODE_B8DB3A:
 	STA.b $38,x				;$B8DB40
 	STZ.b $5A,x				;$B8DB42
 	LDA.w #$0005				;$B8DB44
-	JSL.l CODE_B9A015			;$B8DB47
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8DB47
 	STZ.w $1929				;$B8DB4B
 	LDA.w #$000F				;$B8DB4E
 	STA.w $192B				;$B8DB51
@@ -11570,7 +11570,7 @@ CODE_B8DBCB:
 	LDA.w #$002A				;$B8DBCB
 	STA.b $38,x				;$B8DBCE
 	LDA.w #$000C				;$B8DBD0
-	JSL.l CODE_B9A015			;$B8DBD3
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8DBD3
 CODE_B8DBD7:
 	RTS					;$B8DBD7
 
@@ -11686,7 +11686,7 @@ CODE_B8DC89:
 	LDA.w #$0012				;$B8DCA1
 	STA.b $38,x				;$B8DCA4
 	LDA.w #$0014				;$B8DCA6
-	JSL.l CODE_B9A009			;$B8DCA9
+	JSL.l set_anim_handle_kiddy		;$B8DCA9
 CODE_B8DCAD:
 	RTS					;$B8DCAD
 
@@ -11694,7 +11694,7 @@ CODE_B8DCAE:
 	LDA.w #$0013				;$B8DCAE
 	STA.b $38,x				;$B8DCB1
 	LDA.w #$0015				;$B8DCB3
-	JSL.l CODE_B9A009			;$B8DCB6
+	JSL.l set_anim_handle_kiddy		;$B8DCB6
 	RTS					;$B8DCBA
 
 CODE_B8DCBB:
@@ -11711,7 +11711,7 @@ CODE_B8DCBB:
 	LDA.w #$0028				;$B8DCD3
 	STA.b $38,x				;$B8DCD6
 	LDA.w #$0011				;$B8DCD8
-	JSL.l CODE_B9A015			;$B8DCDB
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8DCDB
 CODE_B8DCDF:
 	RTS					;$B8DCDF
 
@@ -11719,7 +11719,7 @@ CODE_B8DCE0:
 	LDA.w #$0029				;$B8DCE0
 	STA.b $38,x				;$B8DCE3
 	LDA.w #$0012				;$B8DCE5
-	JSL.l CODE_B9A015			;$B8DCE8
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8DCE8
 	RTS					;$B8DCEC
 
 CODE_B8DCED:
@@ -11774,7 +11774,7 @@ CODE_B8DD31:
 	LDA.w #$002F				;$B8DD43
 	STA.b $38,x				;$B8DD46
 	LDA.w #$0005				;$B8DD48
-	JSL.l CODE_B9A015			;$B8DD4B
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8DD4B
 CODE_B8DD4F:
 	RTS					;$B8DD4F
 
@@ -11849,7 +11849,7 @@ CODE_B8DDB1:
 	LDA.w #$002C				;$B8DDD2
 	STA.b $38,x				;$B8DDD5
 	LDA.w #$000E				;$B8DDD7
-	JSL.l CODE_B9A015			;$B8DDDA
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8DDDA
 	RTS					;$B8DDDE
 
 CODE_B8DDDF:
@@ -11860,7 +11860,7 @@ CODE_B8DDE2:
 	LDA.w #$0069				;$B8DDE8
 	STA.b $38,x				;$B8DDEB
 	LDA.w #$000F				;$B8DDED
-	JSL.l CODE_B9A015			;$B8DDF0
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8DDF0
 	RTS					;$B8DDF4
 
 CODE_B8DDF5:
@@ -11884,7 +11884,7 @@ CODE_B8DE05:
 	LDA.w #$002B				;$B8DE12
 	STA.b $38,x				;$B8DE15
 	LDA.w #$000D				;$B8DE17
-	JSL.l CODE_B9A015			;$B8DE1A
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8DE1A
 CODE_B8DE1E:
 	RTS					;$B8DE1E
 
@@ -12058,7 +12058,7 @@ CODE_B8DF35:
 	CMP.w $0000,y				;$B8DF49
 	BEQ.b CODE_B8DF57			;$B8DF4C
 	LDA.w #$0004				;$B8DF4E
-	JSL.l CODE_B9A015			;$B8DF51
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8DF51
 	BRA.b CODE_B8DF5D			;$B8DF55
 
 CODE_B8DF57:
@@ -12081,7 +12081,7 @@ CODE_B8DF5E:
 	LDA.w #$0066				;$B8DF76
 	STA.b $38,x				;$B8DF79
 	LDA.w #$0007				;$B8DF7B
-	JSL.l CODE_B9A015			;$B8DF7E
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8DF7E
 CODE_B8DF82:
 	RTS					;$B8DF82
 
@@ -12089,7 +12089,7 @@ CODE_B8DF83:
 	LDA.w #$0066				;$B8DF83
 	STA.b $38,x				;$B8DF86
 	LDA.w #$000B				;$B8DF88
-	JSL.l CODE_B9A015			;$B8DF8B
+	JSL.l set_anim_handle_animal_and_kiddy	;$B8DF8B
 	RTS					;$B8DF8F
 
 CODE_B8DF90:
@@ -12182,7 +12182,7 @@ CODE_B8E037:
 	LDA.w #$0002				;$B8E046
 	TSB.w $1957				;$B8E049
 	LDA.w #$0122				;$B8E04C
-	JSL.l CODE_B9A003			;$B8E04F
+	JSL.l set_alt_sprite_animation		;$B8E04F
 	LDA.w #$0200				;$B8E053
 	LDX.b current_sprite			;$B8E056
 	BIT.b $1E,x				;$B8E058
@@ -12687,7 +12687,7 @@ CODE_B8E369:
 	LDA.b current_animal_type		;$B8E397
 	BNE.b CODE_B8E3A2			;$B8E399
 	LDA.w #$0001				;$B8E39B
-	JSL.l CODE_B9A009			;$B8E39E
+	JSL.l set_anim_handle_kiddy		;$B8E39E
 CODE_B8E3A2:
 	RTL					;$B8E3A2
 
@@ -12783,7 +12783,7 @@ CODE_B8E441:
 	JSR.w CODE_B8E522			;$B8E44B
 	JSR.w CODE_B8E4D3			;$B8E44E
 	BCS.b CODE_B8E45E			;$B8E451
-	JSL.l CODE_B9A006			;$B8E453
+	JSL.l process_sprite_animation		;$B8E453
 	JSL.l CODE_BBAB52			;$B8E457
 CODE_B8E45B:
 	JML [$04F5]				;$B8E45B
@@ -12796,7 +12796,7 @@ CODE_B8E45E:
 
 CODE_B8E468:
 	JSR.w CODE_B8E78D			;$B8E468
-	JSL.l CODE_B9A006			;$B8E46B
+	JSL.l process_sprite_animation		;$B8E46B
 	JML [$04F5]				;$B8E46F
 
 CODE_B8E472:
@@ -12805,7 +12805,7 @@ CODE_B8E472:
 	BRA.b CODE_B8E441			;$B8E475
 
 CODE_B8E477:
-	JSL.l CODE_B9A006			;$B8E477
+	JSL.l process_sprite_animation		;$B8E477
 	JML [$04F5]				;$B8E47B
 
 CODE_B8E47E:
@@ -12813,7 +12813,7 @@ CODE_B8E47E:
 	BCS.b CODE_B8E49D			;$B8E481
 	JSR.w CODE_B8E7DF			;$B8E483
 	BCS.b CODE_B8E49D			;$B8E486
-	JSL.l CODE_B9A006			;$B8E488
+	JSL.l process_sprite_animation		;$B8E488
 	LDY.w #$000C				;$B8E48C
 	LDA.b [$6A],y				;$B8E48F
 	JSR.w CODE_B8E4FF			;$B8E491
@@ -12840,7 +12840,7 @@ CODE_B8E4B5:
 	BCS.b CODE_B8E4D0			;$B8E4B8
 	JSR.w CODE_B8E7DF			;$B8E4BA
 	BCS.b CODE_B8E4D0			;$B8E4BD
-	JSL.l CODE_B9A006			;$B8E4BF
+	JSL.l process_sprite_animation		;$B8E4BF
 	CLC					;$B8E4C3
 	JSL.l CODE_B8E5B3			;$B8E4C4
 	JSL.l CODE_B9E000			;$B8E4C8
@@ -12866,7 +12866,7 @@ CODE_B8E4EF:
 	LDX.w #$0000				;$B8E4EF
 	LDY.w $187F				;$B8E4F2
 	JSL.l CODE_B8E587			;$B8E4F5
-	JSL.l CODE_B9A000			;$B8E4F9
+	JSL.l set_sprite_animation		;$B8E4F9
 	SEC					;$B8E4FD
 CODE_B8E4FE:
 	RTS					;$B8E4FE
@@ -13179,7 +13179,7 @@ Spr007C_EllieDiagonalWaterShot_Main:
 	CMP.w $050F				;$B8E721
 	BCS.b CODE_B8E735			;$B8E724
 	JSL.l CODE_B9E000			;$B8E726
-	JSL.l CODE_B9A006			;$B8E72A
+	JSL.l process_sprite_animation		;$B8E72A
 	JSL.l CODE_BBAB46			;$B8E72E
 	JML [$04F5]				;$B8E732
 
@@ -13203,14 +13203,14 @@ CODE_B8E749:
 	BCS.b CODE_B8E75B			;$B8E74C
 	JSR.w CODE_B8E7DF			;$B8E74E
 	BCS.b CODE_B8E75B			;$B8E751
-	JSL.l CODE_B9A006			;$B8E753
+	JSL.l process_sprite_animation		;$B8E753
 	JSL.l CODE_BBAB52			;$B8E757
 CODE_B8E75B:
 	JML [$04F5]				;$B8E75B
 
 CODE_B8E75E:
 	JSR.w CODE_B8E78D			;$B8E75E
-	JSL.l CODE_B9A006			;$B8E761
+	JSL.l process_sprite_animation		;$B8E761
 	JML [$04F5]				;$B8E765
 
 CODE_B8E768:
@@ -13219,7 +13219,7 @@ CODE_B8E768:
 	BRA.b CODE_B8E749			;$B8E76B
 
 CODE_B8E76D:
-	JSL.l CODE_B9A006			;$B8E76D
+	JSL.l process_sprite_animation		;$B8E76D
 	JML [$04F5]				;$B8E771
 
 CODE_B8E774:
@@ -13227,7 +13227,7 @@ CODE_B8E774:
 	BCS.b CODE_B8E78A			;$B8E777
 	JSR.w CODE_B8E7DF			;$B8E779
 	BCS.b CODE_B8E78A			;$B8E77C
-	JSL.l CODE_B9A006			;$B8E77E
+	JSL.l process_sprite_animation		;$B8E77E
 	LDY.w #$000C				;$B8E782
 	LDA.b [$6A],y				;$B8E785
 	JSR.w CODE_B8E4FF			;$B8E787
@@ -13379,7 +13379,7 @@ CODE_B8E890:
 	BCS.b CODE_B8E8A2			;$B8E893
 	JSR.w CODE_B8E7DF			;$B8E895
 	BCS.b CODE_B8E8A2			;$B8E898
-	JSL.l CODE_B9A006			;$B8E89A
+	JSL.l process_sprite_animation		;$B8E89A
 	JSL.l CODE_BBAB52			;$B8E89E
 CODE_B8E8A2:
 	JML [$04F5]				;$B8E8A2
@@ -13387,7 +13387,7 @@ CODE_B8E8A2:
 CODE_B8E8A5:
 	JSR.w CODE_B8E78D			;$B8E8A5
 	JSR.w CODE_B8E7BF			;$B8E8A8
-	JSL.l CODE_B9A006			;$B8E8AB
+	JSL.l process_sprite_animation		;$B8E8AB
 	JML [$04F5]				;$B8E8AF
 
 CODE_B8E8B2:
@@ -13396,7 +13396,7 @@ CODE_B8E8B2:
 	BRA.b CODE_B8E890			;$B8E8B5
 
 CODE_B8E8B7:
-	JSL.l CODE_B9A006			;$B8E8B7
+	JSL.l process_sprite_animation		;$B8E8B7
 	JML [$04F5]				;$B8E8BB
 
 CODE_B8E8BE:
@@ -13404,7 +13404,7 @@ CODE_B8E8BE:
 	BCS.b CODE_B8E8D4			;$B8E8C1
 	JSR.w CODE_B8E7DF			;$B8E8C3
 	BCS.b CODE_B8E8D4			;$B8E8C6
-	JSL.l CODE_B9A006			;$B8E8C8
+	JSL.l process_sprite_animation		;$B8E8C8
 	LDY.w #$000C				;$B8E8CC
 	LDA.b [$6A],y				;$B8E8CF
 	JSR.w CODE_B8E4FF			;$B8E8D1
@@ -13413,7 +13413,7 @@ CODE_B8E8D4:
 
 CODE_B8E8D7:
 	JSL.l CODE_B9E000			;$B8E8D7
-	JSL.l CODE_B9A006			;$B8E8DB
+	JSL.l process_sprite_animation		;$B8E8DB
 	JSL.l CODE_BBAB46			;$B8E8DF
 	JML [$04F5]				;$B8E8E3
 
@@ -13472,12 +13472,12 @@ CODE_B8E943:
 	JSL.l CODE_B9E000			;$B8E948
 	PLA					;$B8E94C
 	STA.b $2A,x				;$B8E94D
-	JSL.l CODE_B9A006			;$B8E94F
+	JSL.l process_sprite_animation		;$B8E94F
 	JMP.w CODE_B8EDC1			;$B8E953
 
 CODE_B8E956:
 	JSL.l CODE_B9E000			;$B8E956
-	JSL.l CODE_B9A006			;$B8E95A
+	JSL.l process_sprite_animation		;$B8E95A
 	JMP.w CODE_B8EDC1			;$B8E95E
 
 Spr0240_Squitter_Main:
@@ -13497,14 +13497,14 @@ CODE_B8E96E:
 	JSR.w CODE_B8E7DF			;$B8E973
 	BCS.b CODE_B8E984			;$B8E976
 	JSL.l CODE_B9E000			;$B8E978
-	JSL.l CODE_B9A006			;$B8E97C
+	JSL.l process_sprite_animation		;$B8E97C
 	JSL.l CODE_BBAB52			;$B8E980
 CODE_B8E984:
 	JML [$04F5]				;$B8E984
 
 CODE_B8E987:
 	JSR.w CODE_B8E78D			;$B8E987
-	JSL.l CODE_B9A006			;$B8E98A
+	JSL.l process_sprite_animation		;$B8E98A
 	JML [$04F5]				;$B8E98E
 
 CODE_B8E991:
@@ -13513,7 +13513,7 @@ CODE_B8E991:
 	BRA.b CODE_B8E96E			;$B8E994
 
 CODE_B8E996:
-	JSL.l CODE_B9A006			;$B8E996
+	JSL.l process_sprite_animation		;$B8E996
 	JML [$04F5]				;$B8E99A
 
 CODE_B8E99D:
@@ -13547,7 +13547,7 @@ CODE_B8E9D7:
 	BCS.b CODE_B8E9F1			;$B8E9DA
 	JSR.w CODE_B8E7DF			;$B8E9DC
 	BCS.b CODE_B8E9F1			;$B8E9DF
-	JSL.l CODE_B9A006			;$B8E9E1
+	JSL.l process_sprite_animation		;$B8E9E1
 	LDY.w #$000C				;$B8E9E5
 	LDA.b [$6A],y				;$B8E9E8
 	JSR.w CODE_B8E4FF			;$B8E9EA
@@ -13565,7 +13565,7 @@ Spr0248_WebShot_Main:
 	JSR.w CODE_B8EA23			;$B8EA04
 	JSR.w CODE_B8EA41			;$B8EA07
 	BCS.b CODE_B8EA19			;$B8EA0A
-	JSL.l CODE_B9A006			;$B8EA0C
+	JSL.l process_sprite_animation		;$B8EA0C
 	JSL.l CODE_BBAB46			;$B8EA10
 	BCS.b CODE_B8EA1D			;$B8EA14
 	JML [$04F5]				;$B8EA16
@@ -13628,7 +13628,7 @@ CODE_B8EA66:
 	BCS.b CODE_B8EA84			;$B8EA6C
 	JSL.l CODE_BBAB46			;$B8EA6E
 	BCS.b CODE_B8EA7B			;$B8EA72
-	JSL.l CODE_B9A006			;$B8EA74
+	JSL.l process_sprite_animation		;$B8EA74
 	JML [$04F5]				;$B8EA78
 
 CODE_B8EA7B:
@@ -13639,11 +13639,11 @@ CODE_B8EA7B:
 CODE_B8EA84:
 	LDA.w #$0002				;$B8EA84
 	TRB.w $1957				;$B8EA87
-	JSL.l CODE_B9A006			;$B8EA8A
+	JSL.l process_sprite_animation		;$B8EA8A
 	JML [$04F5]				;$B8EA8E
 
 CODE_B8EA91:
-	JSL.l CODE_B9A006			;$B8EA91
+	JSL.l process_sprite_animation		;$B8EA91
 	LDX.b current_sprite			;$B8EA95
 	LDA.b $12,x				;$B8EA97
 	STA.b $54,x				;$B8EA99
@@ -13678,9 +13678,9 @@ CODE_B8EAC6:
 	LDA.w #$0004				;$B8EACD
 	TRB.w $1957				;$B8EAD0
 	LDA.w #$0123				;$B8EAD3
-	JSL.l CODE_B9A000			;$B8EAD6
+	JSL.l set_sprite_animation		;$B8EAD6
 CODE_B8EADA:
-	JSL.l CODE_B9A006			;$B8EADA
+	JSL.l process_sprite_animation		;$B8EADA
 	LDA.b $00,x				;$B8EADE
 	BEQ.b CODE_B8EAE9			;$B8EAE0
 	LDA.w #CODE_B8EAEC			;$B8EAE2
@@ -13736,7 +13736,7 @@ CODE_B8EB26:
 	LDA.w #$000C				;$B8EB37
 	JSL.l CODE_B9E012			;$B8EB3A
 	JSR.w CODE_B8E1FB			;$B8EB3E
-	JSL.l CODE_B9A006			;$B8EB41
+	JSL.l process_sprite_animation		;$B8EB41
 	JSL.l CODE_BBAB29			;$B8EB45
 	LDX.b current_sprite			;$B8EB49
 	LDA.w #$00F0				;$B8EB4B
@@ -13755,7 +13755,7 @@ CODE_B8EB5A:
 
 CODE_B8EB63:
 	LDA.w #$0120				;$B8EB63
-	JSL.l CODE_B9A000			;$B8EB66
+	JSL.l set_sprite_animation		;$B8EB66
 	JSL.l CODE_B68021			;$B8EB6A
 	INC.b $38,x				;$B8EB6E
 	LDA.b $1E,x				;$B8EB70
@@ -13769,7 +13769,7 @@ CODE_B8EB63:
 
 CODE_B8EB83:
 	JSL.l CODE_B9E000			;$B8EB83
-	JSL.l CODE_B9A006			;$B8EB87
+	JSL.l process_sprite_animation		;$B8EB87
 	LDA.l DATA_FF1BC0+$02			;$B8EB8B
 	STA.b $06,x				;$B8EB8F
 	LDA.w $1973				;$B8EB91
@@ -14313,7 +14313,7 @@ CODE_B8EF76:
 	JSL.l CODE_B8F028			;$B8EFB1
 	LDX.b current_sprite			;$B8EFB5
 	LDA.w #$0009				;$B8EFB7
-	JSL.l CODE_B9A009			;$B8EFBA
+	JSL.l set_anim_handle_kiddy		;$B8EFBA
 	PLX					;$B8EFBE
 	STX.b current_sprite			;$B8EFBF
 	LDY.w follower_kong_sprite		;$B8EFC1
@@ -14683,7 +14683,7 @@ CODE_B8F271:
 	RTS					;$B8F27F
 
 CODE_B8F280:
-	JSL.l CODE_B9A018			;$B8F280
+	JSL.l set_anim_once_handle_kiddy	;$B8F280
 	RTS					;$B8F284
 
 CODE_B8F285:
@@ -14724,7 +14724,7 @@ CODE_B8F2BB:
 	JML [$04F5]				;$B8F2BE
 
 CODE_B8F2C1:
-	JSL.l CODE_B9A00C			;$B8F2C1
+	JSL.l process_anim_preserve_state	;$B8F2C1
 	JSR.w CODE_B8F35B			;$B8F2C5
 	JML [$04F5]				;$B8F2C8
 
@@ -14734,7 +14734,7 @@ CODE_B8F2CE:
 	LDA.w #$000B				;$B8F2CE
 	JSL.l CODE_B9E00F			;$B8F2D1
 	JSR.w CODE_B8E1FB			;$B8F2D5
-	JSL.l CODE_B9A00C			;$B8F2D8
+	JSL.l process_anim_preserve_state	;$B8F2D8
 	JSR.w CODE_B8F35B			;$B8F2DC
 	JML [$04F5]				;$B8F2DF
 
@@ -14742,7 +14742,7 @@ CODE_B8F2E2:
 	JSR.w CODE_B8A035			;$B8F2E2
 	JSR.w CODE_B8A04C			;$B8F2E5
 	JSL.l CODE_B9E006			;$B8F2E8
-	JSL.l CODE_B9A00C			;$B8F2EC
+	JSL.l process_anim_preserve_state	;$B8F2EC
 	JSR.w CODE_B8F35B			;$B8F2F0
 	JML [$04F5]				;$B8F2F3
 
@@ -14767,12 +14767,12 @@ CODE_B8F2F6:
 
 CODE_B8F324:
 	JSL.l CODE_B9E006			;$B8F324
-	JSL.l CODE_B9A00C			;$B8F328
+	JSL.l process_anim_preserve_state	;$B8F328
 	JML [$04F5]				;$B8F32C
 
 CODE_B8F32F:
 	JSR.w CODE_B8E1FB			;$B8F32F
-	JSL.l CODE_B9A00C			;$B8F332
+	JSL.l process_anim_preserve_state	;$B8F332
 	JML [$04F5]				;$B8F336
 
 CODE_B8F339:
@@ -14786,7 +14786,7 @@ CODE_B8F348:
 	LDA.w #$0071				;$B8F348
 	STA.w $0038,y				;$B8F34B
 	LDA.w #$0040				;$B8F34E
-	JSL.l CODE_B9A018			;$B8F351
+	JSL.l set_anim_once_handle_kiddy	;$B8F351
 	JSR.w CODE_B8F35B			;$B8F355
 	JML [$04F5]				;$B8F358
 
@@ -15071,7 +15071,7 @@ CODE_B8F6AE:
 	STA.b $38,x				;$B8F6B1
 	STZ.b $30,x				;$B8F6B3
 	LDA.w #$0001				;$B8F6B5
-	JSL.l CODE_B9A018			;$B8F6B8
+	JSL.l set_anim_once_handle_kiddy	;$B8F6B8
 	RTS					;$B8F6BC
 
 CODE_B8F6BD:
@@ -15079,7 +15079,7 @@ CODE_B8F6BD:
 	BIT.b $1E,x				;$B8F6C1
 	BVS.b CODE_B8F6D5			;$B8F6C3
 	LDA.w #$0003				;$B8F6C5
-	JSL.l CODE_B9A018			;$B8F6C8
+	JSL.l set_anim_once_handle_kiddy	;$B8F6C8
 	JSR.w CODE_B8F62C			;$B8F6CC
 	LDA.w #$0004				;$B8F6CF
 	JMP.w CODE_B8F3C3			;$B8F6D2
@@ -15093,7 +15093,7 @@ CODE_B8F6DB:
 	BIT.b $1E,x				;$B8F6DF
 	BVC.b CODE_B8F6F3			;$B8F6E1
 	LDA.w #$0003				;$B8F6E3
-	JSL.l CODE_B9A018			;$B8F6E6
+	JSL.l set_anim_once_handle_kiddy	;$B8F6E6
 	JSR.w CODE_B8F62C			;$B8F6EA
 	LDA.w #$0004				;$B8F6ED
 	JMP.w CODE_B8F3C3			;$B8F6F0
@@ -15105,7 +15105,7 @@ CODE_B8F6F3:
 CODE_B8F6F9:
 	JSL.l CODE_B89C4C			;$B8F6F9
 	LDA.w #$0040				;$B8F6FD
-	JSL.l CODE_B9A018			;$B8F700
+	JSL.l set_anim_once_handle_kiddy	;$B8F700
 	LDX.w follower_kong_sprite		;$B8F704
 	LDA.w #$0077				;$B8F707
 	STA.b $38,x				;$B8F70A
@@ -15130,7 +15130,7 @@ CODE_B8F734:
 	LDA.w #$0073				;$B8F734
 	STA.b $38,x				;$B8F737
 	LDA.w #$0002				;$B8F739
-	JSL.l CODE_B9A018			;$B8F73C
+	JSL.l set_anim_once_handle_kiddy	;$B8F73C
 	LDX.b current_sprite			;$B8F740
 	STZ.b $2E,x				;$B8F742
 	JSR.w CODE_B8F62C			;$B8F744
@@ -15155,7 +15155,7 @@ CODE_B8F76F:
 	LDA.w #$0073				;$B8F76F
 	STA.b $38,x				;$B8F772
 	LDA.w #$0004				;$B8F774
-	JSL.l CODE_B9A018			;$B8F777
+	JSL.l set_anim_once_handle_kiddy	;$B8F777
 	LDX.b current_sprite			;$B8F77B
 	STZ.b $2E,x				;$B8F77D
 	JSR.w CODE_B8F62C			;$B8F77F
@@ -15185,7 +15185,7 @@ CODE_B8F7A4:
 	LDA.w #$0073				;$B8F7B3
 	STA.b $38,x				;$B8F7B6
 	LDA.w #$0002				;$B8F7B8
-	JSL.l CODE_B9A018			;$B8F7BB
+	JSL.l set_anim_once_handle_kiddy	;$B8F7BB
 	LDX.b current_sprite			;$B8F7BF
 	STZ.b $2E,x				;$B8F7C1
 	LDA.w $1941				;$B8F7C3
@@ -15214,7 +15214,7 @@ CODE_B8F7E8:
 CODE_B8F7F0:
 	JSL.l CODE_B8E198			;$B8F7F0
 	LDA.w #$0008				;$B8F7F4
-	JSL.l CODE_B9A009			;$B8F7F7
+	JSL.l set_anim_handle_kiddy		;$B8F7F7
 	LDX.b current_sprite			;$B8F7FB
 	LDA.w #$0073				;$B8F7FD
 	STA.b $38,x				;$B8F800
@@ -15291,7 +15291,7 @@ CODE_B8F870:
 	JSL.l CODE_B8E15A			;$B8F89E
 	JSL.l CODE_B8E198			;$B8F8A2
 	LDA.w #$0008				;$B8F8A6
-	JSL.l CODE_B9A009			;$B8F8A9
+	JSL.l set_anim_handle_kiddy		;$B8F8A9
 	JSL.l CODE_B89C4C			;$B8F8AD
 	LDA.w #$0006				;$B8F8B1
 	JMP.w CODE_B8F3CB			;$B8F8B4
@@ -15329,7 +15329,7 @@ CODE_B8F8F2:
 	JSR.w CODE_B8D448			;$B8F8FF
 	STZ.b $2E,x				;$B8F902
 	LDA.w #$0002				;$B8F904
-	JSL.l CODE_B9A018			;$B8F907
+	JSL.l set_anim_once_handle_kiddy	;$B8F907
 	LDX.b current_sprite			;$B8F90B
 	LDA.w #$0072				;$B8F90D
 	STA.b $38,x				;$B8F910
@@ -15345,7 +15345,7 @@ CODE_B8F91C:
 	JSR.w CODE_B8D3C2			;$B8F929
 	STZ.b $2E,x				;$B8F92C
 	LDA.w #$0002				;$B8F92E
-	JSL.l CODE_B9A018			;$B8F931
+	JSL.l set_anim_once_handle_kiddy	;$B8F931
 	LDX.b current_sprite			;$B8F935
 	LDA.w #$0072				;$B8F937
 	STA.b $38,x				;$B8F93A
@@ -15365,7 +15365,7 @@ CODE_B8F942:
 	ORA.w #$4000				;$B8F959
 	STA.b $1E,x				;$B8F95C
 	LDA.w #$003F				;$B8F95E
-	JSL.l CODE_B9A018			;$B8F961
+	JSL.l set_anim_once_handle_kiddy	;$B8F961
 	JSR.w CODE_B8F994			;$B8F965
 	JSL.l CODE_B89C4C			;$B8F968
 	LDA.w #$0160				;$B8F96C
@@ -15379,7 +15379,7 @@ CODE_B8F942:
 	AND.w #$BFFF				;$B8F97F
 	STA.b $1E,x				;$B8F982
 	LDA.w #$003F				;$B8F984
-	JSL.l CODE_B9A018			;$B8F987
+	JSL.l set_anim_once_handle_kiddy	;$B8F987
 	JSR.w CODE_B8F994			;$B8F98B
 	LDA.w #$0004				;$B8F98E
 	JMP.w CODE_B8F3C3			;$B8F991
@@ -15401,7 +15401,7 @@ CODE_B8F9A4:
 	STA.w $0006,y				;$B8F9AE
 	JSR.w CODE_B8D448			;$B8F9B1
 	LDA.w #$0004				;$B8F9B4
-	JSL.l CODE_B9A018			;$B8F9B7
+	JSL.l set_anim_once_handle_kiddy	;$B8F9B7
 	LDX.b current_sprite			;$B8F9BB
 	LDA.w #$0072				;$B8F9BD
 	STA.b $38,x				;$B8F9C0
@@ -15415,7 +15415,7 @@ CODE_B8F9CD:
 	JSL.l CODE_B8E179			;$B8F9D1
 	JSL.l CODE_B8E198			;$B8F9D5
 	LDA.w #$0008				;$B8F9D9
-	JSL.l CODE_B9A009			;$B8F9DC
+	JSL.l set_anim_handle_kiddy		;$B8F9DC
 	LDX.b current_sprite			;$B8F9E0
 	LDA.w #$0076				;$B8F9E2
 	STA.b $38,x				;$B8F9E5

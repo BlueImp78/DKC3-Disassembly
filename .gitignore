@@ -22,3 +22,5 @@ verify.bat
 verify.py
 asar.exe
 *.exe
+*.bat
+*.sym

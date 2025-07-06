@@ -2441,7 +2441,7 @@ CODE_BB917E:
 	TCD					;$BB9181
 	LDA.w $0001,y				;$BB9182
 	PHY					;$BB9185
-	JSL.l CODE_B9A003			;$BB9186
+	JSL.l set_alt_sprite_animation		;$BB9186
 	PLY					;$BB918A
 	LDX.b alternate_sprite			;$BB918B
 	JMP.w initscript_next			;$BB918D
@@ -8826,7 +8826,7 @@ CODE_BBCA16:
 CODE_BBCA21:
 	LDX.b $5C,y				;$BBCA21
 	BEQ.b CODE_BBCA2C			;$BBCA23
-	JSL.l CODE_B9A006			;$BBCA25
+	JSL.l process_sprite_animation		;$BBCA25
 	JML [$04F5]				;$BBCA29
 
 CODE_BBCA2C:
@@ -9252,7 +9252,7 @@ CODE_BBCCFC:
 	JML [$04F5]				;$BBCD08
 
 CODE_BBCD0B:
-	JSL.l CODE_B9A006			;$BBCD0B
+	JSL.l process_sprite_animation		;$BBCD0B
 	JSL.l populate_sprite_clipping		;$BBCD0F
 	JSL.l CODE_BEC012			;$BBCD13
 	BCS.b CODE_BBCD1C			;$BBCD17
@@ -9305,7 +9305,7 @@ CODE_BBCD6E:
 	JML [$04F5]				;$BBCD6E
 
 CODE_BBCD71:
-	JSL.l CODE_B9A006			;$BBCD71
+	JSL.l process_sprite_animation		;$BBCD71
 	JSL.l CODE_BBD68C			;$BBCD75
 	JML [$04F5]				;$BBCD79
 
@@ -9642,11 +9642,11 @@ CODE_BBCFC7:
 	STZ.b $26,x				;$BBCFD5
 	INC.b $38,x				;$BBCFD7
 	LDA.b $40,x				;$BBCFD9
-	JSL.l CODE_B9A000			;$BBCFDB
+	JSL.l set_sprite_animation		;$BBCFDB
 	JML [$04F5]				;$BBCFDF
 
 CODE_BBCFE2:
-	JSL.l CODE_B9A006			;$BBCFE2
+	JSL.l process_sprite_animation		;$BBCFE2
 	JSL.l populate_sprite_clipping		;$BBCFE6
 	JSL.l CODE_BEC012			;$BBCFEA
 	BCS.b CODE_BBCFF3			;$BBCFEE
@@ -9676,7 +9676,7 @@ DATA_BBD018:
 	dw CODE_BBD046
 
 CODE_BBD01C:
-	JSL.l CODE_B9A006			;$BBD01C
+	JSL.l process_sprite_animation		;$BBD01C
 	JSL.l populate_sprite_clipping		;$BBD020
 	JSL.l CODE_BEC012			;$BBD024
 	BCS.b CODE_BBD02D			;$BBD028
@@ -9716,7 +9716,7 @@ CODE_BBD046:
 	JML [$04F5]				;$BBD070
 
 CODE_BBD073:
-	JSL.l CODE_B9A006			;$BBD073
+	JSL.l process_sprite_animation		;$BBD073
 	JML [$04F5]				;$BBD077
 
 Spr0154_GreenBananaSpawner_Main:
@@ -9818,11 +9818,11 @@ CODE_BBD117:
 	STZ.b $26,x				;$BBD125
 	INC.b $38,x				;$BBD127
 	LDA.b $40,x				;$BBD129
-	JSL.l CODE_B9A000			;$BBD12B
+	JSL.l set_sprite_animation		;$BBD12B
 	JML [$04F5]				;$BBD12F
 
 CODE_BBD132:
-	JSL.l CODE_B9A006			;$BBD132
+	JSL.l process_sprite_animation		;$BBD132
 	DEC.b $5E,x				;$BBD136
 	BPL.b CODE_BBD152			;$BBD138
 	JSR.w CODE_BBD1AB			;$BBD13A
@@ -9904,7 +9904,7 @@ CODE_BBD1C2:
 	JSL.l CODE_BEC012			;$BBD1CE
 	BCS.b CODE_BBD1F1			;$BBD1D2
 CODE_BBD1D4:
-	JSL.l CODE_B9A006			;$BBD1D4
+	JSL.l process_sprite_animation		;$BBD1D4
 	LDA.b $6C,x				;$BBD1D8
 	CMP.w #$8000				;$BBD1DA
 	BNE.b CODE_BBD1E2			;$BBD1DD
@@ -9928,7 +9928,7 @@ CODE_BBD1F1:
 	STA.b $38,x				;$BBD203
 	LDA.w #$28D4				;$BBD205
 	JSL.l CODE_BBD64E			;$BBD208
-	JSL.l CODE_B9A006			;$BBD20C
+	JSL.l process_sprite_animation		;$BBD20C
 	JML [$04F5]				;$BBD210
 
 CODE_BBD213:
@@ -9949,7 +9949,7 @@ CODE_BBD22D:
 CODE_BBD234:
 	JSL.l CODE_BBD68C			;$BBD234
 	BMI.b CODE_BBD241			;$BBD238
-	JSL.l CODE_B9A006			;$BBD23A
+	JSL.l process_sprite_animation		;$BBD23A
 	JML [$04F5]				;$BBD23E
 
 CODE_BBD241:
@@ -9960,7 +9960,7 @@ CODE_BBD241:
 
 Spr0284_BearCoin_Main:
 CODE_BBD24E:
-	JSL.l CODE_B9A006			;$BBD24E
+	JSL.l process_sprite_animation		;$BBD24E
 	JSL.l populate_sprite_clipping		;$BBD252
 	JSL.l CODE_BEC012			;$BBD256
 	BCS.b CODE_BBD25F			;$BBD25A
@@ -9974,7 +9974,7 @@ CODE_BBD25F:
 
 Spr0288_unknown_sprite_0288_Main:
 CODE_BBD26A:
-	JSL.l CODE_B9A006			;$BBD26A
+	JSL.l process_sprite_animation		;$BBD26A
 	JSL.l populate_sprite_clipping		;$BBD26E
 	JSL.l CODE_BEC012			;$BBD272
 	BCS.b CODE_BBD27B			;$BBD276
@@ -10014,7 +10014,7 @@ CODE_BBD2A6:
 	INC.b $38,x				;$BBD2AB
 CODE_BBD2AD:
 	JSL.l CODE_B9E000			;$BBD2AD
-	JSL.l CODE_B9A006			;$BBD2B1
+	JSL.l process_sprite_animation		;$BBD2B1
 	JML [$04F5]				;$BBD2B5
 
 CODE_BBD2B8:
@@ -10053,7 +10053,7 @@ CODE_BBD2EE:
 	JML [$04F5]				;$BBD2EE
 
 CODE_BBD2F1:
-	JSL.l CODE_B9A006			;$BBD2F1
+	JSL.l process_sprite_animation		;$BBD2F1
 	JSL.l populate_sprite_clipping		;$BBD2F5
 	JSL.l CODE_BEC012			;$BBD2F9
 	BCS.b CODE_BBD302			;$BBD2FD
@@ -10096,11 +10096,11 @@ CODE_BBD341:
 	JML [$04F5]				;$BBD346
 
 CODE_BBD349:
-	JSL.l CODE_B9A006			;$BBD349
+	JSL.l process_sprite_animation		;$BBD349
 	JML [$04F5]				;$BBD34D
 
 CODE_BBD350:
-	JSL.l CODE_B9A006			;$BBD350
+	JSL.l process_sprite_animation		;$BBD350
 	JSL.l populate_sprite_clipping		;$BBD354
 	LDA.w #$0040				;$BBD358
 	JSL.l CODE_BEC000			;$BBD35B
@@ -10165,7 +10165,7 @@ CODE_BBD3BD:
 	INC.b $5D,x				;$BBD3C1
 	REP.b #$20				;$BBD3C3
 CODE_BBD3C5:
-	JSL.l CODE_B9A006			;$BBD3C5
+	JSL.l process_sprite_animation		;$BBD3C5
 	JML [$04F5]				;$BBD3C9
 
 CODE_BBD3CC:
@@ -10188,7 +10188,7 @@ CODE_BBD3E4:
 	LDA.w #$071A				;$BBD3EA
 	JSL.l CODE_B28012			;$BBD3ED
 CODE_BBD3F1:
-	JSL.l CODE_B9A006			;$BBD3F1
+	JSL.l process_sprite_animation		;$BBD3F1
 	JML [$04F5]				;$BBD3F5
 
 CODE_BBD3F8:
@@ -10198,7 +10198,7 @@ CODE_BBD3F8:
 CODE_BBD3FC:
 	CPY.w $18DF				;$BBD3FC
 	BNE.b CODE_BBD427			;$BBD3FF
-	JSL.l CODE_B9A006			;$BBD401
+	JSL.l process_sprite_animation		;$BBD401
 	DEC.b $62,x				;$BBD405
 	BMI.b CODE_BBD40C			;$BBD407
 	JML [$04F5]				;$BBD409
@@ -10375,7 +10375,7 @@ CODE_BBD58F:
 	LDA.w $0062,y				;$BBD59D
 CODE_BBD5A0:
 	STA.w $005C,y				;$BBD5A0
-	JSL.l CODE_B9A006			;$BBD5A3
+	JSL.l process_sprite_animation		;$BBD5A3
 	JSL.l CODE_BBD68C			;$BBD5A7
 	BPL.b CODE_BBD5B5			;$BBD5AB
 	LDA.b $5C,x				;$BBD5AD
@@ -10427,7 +10427,7 @@ CODE_BBD5F1:
 CODE_BBD604:
 	INC.b $38,x				;$BBD604
 CODE_BBD606:
-	JSL.l CODE_B9A006			;$BBD606
+	JSL.l process_sprite_animation		;$BBD606
 	JML [$04F5]				;$BBD60A
 
 CODE_BBD60D:
@@ -10441,7 +10441,7 @@ CODE_BBD60D:
 CODE_BBD61C:
 	CPY.w $18DF				;$BBD61C
 	BNE.b CODE_BBD647			;$BBD61F
-	JSL.l CODE_B9A006			;$BBD621
+	JSL.l process_sprite_animation		;$BBD621
 	DEC.b $64,x				;$BBD625
 	BMI.b CODE_BBD62C			;$BBD627
 	JML [$04F5]				;$BBD629
@@ -11428,14 +11428,14 @@ Spr02AC_RopeFire_Main:
 	BNE ..return				;$BBDD75   |
 	INC $38,x				;$BBDD77  / Set state 1
 ..return:
-	JSL CODE_B9A006				;$BBDD79  \ Process animation
+	JSL process_sprite_animation		;$BBDD79  \ Process animation
 	JMP [$04F5]				;$BBDD7D  / Return
 
 .state_1:
 	JSL populate_sprite_clipping		;$BBDD80  \
 	LDA #$0000				;$BBDD84   | Get collision flags (hurt always)
 	JSL CODE_BEC009				;$BBDD87   | Check collision with kong
-	JSL CODE_B9A006				;$BBDD8B   | Process animation
+	JSL process_sprite_animation		;$BBDD8B   | Process animation
 	JSL CODE_B9E000				;$BBDD8F   | Process current movement
 	JMP CODE_BBC827				;$BBDD93  / Return (handle despawn?)
 
@@ -11613,7 +11613,7 @@ CODE_BBDED4:
 CODE_BBDEF3:
 	LDX.b alternate_sprite			;$BBDEF3
 	LDA.b $40,x				;$BBDEF5
-	JSL.l CODE_B9A003			;$BBDEF7
+	JSL.l set_alt_sprite_animation		;$BBDEF7
 	LDX.b alternate_sprite			;$BBDEFB
 	LDY.b current_sprite			;$BBDEFD
 	LDA.w $004C,y				;$BBDEFF
