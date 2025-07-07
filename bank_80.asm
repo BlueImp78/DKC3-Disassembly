@@ -2901,7 +2901,7 @@ CODE_809741:
 CODE_80974D:
 	RTS					;$80974D
 
-Spr01A4_FileSelectMenu_Main:
+file_select_menu_main:
 ;$80974E
 	LDA.w #$0004				;$80974E
 	TSB.w $1C35				;$809751
@@ -5004,7 +5004,7 @@ CODE_80A7C3:
 	BNE.b CODE_80A7C0			;$80A7E8
 	RTS					;$80A7EA
 
-Spr01B0_FileSelectNumber_Main:
+file_select_number_main:
 ;$80A7EB
 	JMP.w (DATA_80A7EE,x)			;$80A7EB
 
@@ -5061,7 +5061,7 @@ CODE_80A81A:
 	STX.b next_oam_slot			;$80A847
 	JML [$04F5]				;$80A849
 
-Spr0330_FileSelectIcon_Main:
+file_select_icon_main:
 ;$80A84C
 	JMP.w (DATA_80A84F,x)			;$80A84C
 
@@ -5431,7 +5431,7 @@ CODE_80AB28:
 	STA.b $24,x				;$80AB35
 	RTS					;$80AB37
 
-Spr01A8_unknown_sprite_01A8_Main:
+unknown_sprite_01A8_main:
 ;$80AB38
 	LDA.w #$4000				;$80AB38
 	BIT.w $1C35				;$80AB3B
@@ -5771,7 +5771,7 @@ CODE_80ADD5:
 	LDY.b current_sprite			;$80ADE4
 	RTS					;$80ADE6
 
-Spr0068_PlayModeText_Main:
+play_mode_text_main:
 ;$80ADE7
 	JMP.w (DATA_80ADEA,x)			;$80ADE7
 
@@ -7488,7 +7488,7 @@ CODE_80BD3B:
 	BNE.b CODE_80BD26			;$80BD4A
 	RTS					;$80BD4C
 
-Spr01E4_unknown_sprite_01E4_Main:
+unknown_sprite_01E4_main:
 ;$80BD4D
 	JMP.w (DATA_80BD50,x)			;$80BD4D
 
@@ -7670,7 +7670,7 @@ DATA_80BEDB:
 	db "NOUVEAU RECORD!", $00
 	db "NEU REKORD!", $00
 
-Spr0110_unknown_sprite_0110_Main:
+unknown_sprite_0110_main:
 ;$80BF03
 	JMP.w (DATA_80BF06,x)			;$80BF03
 

@@ -1,4 +1,4 @@
-Spr00F4_unknown_sprite_00F4_Main:
+unknown_sprite_00F4_main:
 ;$BAFFFC
 	JML [$04F5]				;$BAFFFC
 

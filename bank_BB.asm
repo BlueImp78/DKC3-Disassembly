@@ -1,131 +1,131 @@
-; Note: These NOP : JMPs must be at the start of this half bank or else the decompression routine will break.
+;Command set 1 jump table
+copy_or_return_1_entry:
+	NOP					;$BB8000  \ Decompression command entry
+	JMP copy_or_return_1			;$BB8001  /
 
-CODE_BB8000:
-	NOP					;$BB8000
-	JMP.w CODE_BB86BA			;$BB8001
+stream_byte_1_entry:
+	NOP					;$BB8004  \ Decompression command entry
+	JMP stream_byte_1			;$BB8005  /
 
-CODE_BB8004:
-	NOP					;$BB8004
-	JMP.w CODE_BB8726			;$BB8005
+stream_word_1_entry:
+	NOP					;$BB8008  \ Decompression command entry
+	JMP stream_word_1			;$BB8009  /
 
-CODE_BB8008:
-	NOP					;$BB8008
-	JMP.w CODE_BB8744			;$BB8009
+stream_byte_fill_1_entry:
+	NOP					;$BB800C  \ Decompression command entry
+	JMP stream_byte_fill_1			;$BB800D  /
 
-CODE_BB800C:
-	NOP					;$BB800C
-	JMP.w CODE_BB877B			;$BB800D
+direct_byte_1_fill_1_entry:
+	NOP					;$BB8010  \ Decompression command entry
+	JMP direct_byte_1_fill_1		;$BB8011  /
 
-CODE_BB8010:
-	NOP					;$BB8010
-	JMP.w CODE_BB87B6			;$BB8011
+direct_byte_2_fill_1_entry:
+	NOP					;$BB8014  \ Decompression command entry
+	JMP direct_byte_2_fill_1		;$BB8015  /
 
-CODE_BB8014:
-	NOP					;$BB8014
-	JMP.w CODE_BB87E3			;$BB8015
+direct_word_put_1_entry:
+	NOP					;$BB8018  \ Decompression command entry
+	JMP direct_word_put_1			;$BB8019  /
 
-CODE_BB8018:
-	NOP					;$BB8018
-	JMP.w CODE_BB8810			;$BB8019
+direct_byte_1_put_1_entry:
+	NOP					;$BB801C  \ Decompression command entry
+	JMP direct_byte_1_put_1			;$BB801D  /
 
-CODE_BB801C:
-	NOP					;$BB801C
-	JMP.w CODE_BB882C			;$BB801D
+direct_byte_2_put_1_entry:
+	NOP					;$BB8020  \ Decompression command entry
+	JMP direct_byte_2_put_1			;$BB8021  /
 
-CODE_BB8020:
-	NOP					;$BB8020
-	JMP.w CODE_BB883E			;$BB8021
+back_copy_word_1_entry:
+	NOP					;$BB8024  \ Decompression command entry
+	JMP back_copy_word_1			;$BB8025  /
 
-CODE_BB8024:
-	NOP					;$BB8024
-	JMP.w CODE_BB8850			;$BB8025
+back_copy_1_entry:
+	NOP					;$BB8028  \ Decompression command entry
+	JMP back_copy_1				;$BB8029  /
 
-CODE_BB8028:
-	NOP					;$BB8028
-	JMP.w CODE_BB888F			;$BB8029
+back_copy_far_1_entry:
+	NOP					;$BB802C  \ Decompression command entry
+	JMP back_copy_far_1			;$BB802D  /
 
-CODE_BB802C:
-	NOP					;$BB802C
-	JMP.w CODE_BB88F2			;$BB802D
+back_copy_arbitrary_1_entry:
+	NOP					;$BB8030  \ Decompression command entry
+	JMP back_copy_arbitrary_1		;$BB8031  /
 
-CODE_BB8030:
-	NOP					;$BB8030
-	JMP.w CODE_BB8959			;$BB8031
+duplicate_byte_1_entry:
+	NOP					;$BB8034  \ Decompression command entry
+	JMP duplicate_byte_1			;$BB8035  /
 
-CODE_BB8034:
-	NOP					;$BB8034
-	JMP.w CODE_BB89C8			;$BB8035
+duplicate_word_1_entry:
+	NOP					;$BB8038  \ Decompression command entry
+	JMP duplicate_word_1			;$BB8039  /
 
-CODE_BB8038:
-	NOP					;$BB8038
-	JMP.w CODE_BB89E0			;$BB8039
+copy_future_word_1_entry:
+	NOP					;$BB803C  \ Decompression command entry
+	JMP copy_future_word_1			;$BB803D  /
 
-CODE_BB803C:
-	NOP					;$BB803C
-	JMP.w CODE_BB8A06			;$BB803D
+;Command set 2 jump table
+copy_or_return_2_entry:
+	JMP copy_or_return_2			;$BB8040  > Decompression command entry
 
-CODE_BB8040:
-	JMP.w CODE_BB86FF			;$BB8040
+stream_byte_2_entry:
+	NOP					;$BB8043  \ Decompression command entry
+	JMP stream_byte_2			;$BB8044  /
 
-CODE_BB8043:
-	NOP					;$BB8043
-	JMP.w CODE_BB873A			;$BB8044
+stream_word_2_entry:
+	NOP					;$BB8047  \ Decompression command entry
+	JMP stream_word_2			;$BB8048  /
 
-CODE_BB8047:
-	NOP					;$BB8047
-	JMP.w CODE_BB876B			;$BB8048
+stream_byte_fill_2_entry:
+	NOP					;$BB804B  \ Decompression command entry
+	JMP stream_byte_fill_2			;$BB804C  /
 
-CODE_BB804B:
-	NOP					;$BB804B
-	JMP.w CODE_BB8791			;$BB804C
+direct_byte_1_fill_2_entry:
+	NOP					;$BB804F  \ Decompression command entry
+	JMP direct_byte_1_fill_2		;$BB8050  /
 
-CODE_BB804F:
-	NOP					;$BB804F
-	JMP.w CODE_BB87CB			;$BB8050
+direct_byte_2_fill_2_entry:
+	NOP					;$BB8053  \ Decompression command entry
+	JMP direct_byte_2_fill_2		;$BB8054  /
 
-CODE_BB8053:
-	NOP					;$BB8053
-	JMP.w CODE_BB87F8			;$BB8054
+direct_word_put_2_entry:
+	NOP					;$BB8057  \ Decompression command entry
+	JMP direct_word_put_2			;$BB8058  /
 
-CODE_BB8057:
-	NOP					;$BB8057
-	JMP.w CODE_BB881E			;$BB8058
+direct_byte_1_put_2_entry:
+	NOP					;$BB805B  \ Decompression command entry
+	JMP direct_byte_1_put_2			;$BB805C  /
 
-CODE_BB805B:
-	NOP					;$BB805B
-	JMP.w CODE_BB8835			;$BB805C
+direct_byte_2_put_2_entry:
+	NOP					;$BB805F  \ Decompression command entry
+	JMP direct_byte_2_put_2			;$BB8060  /
 
-CODE_BB805F:
-	NOP					;$BB805F
-	JMP.w CODE_BB8847			;$BB8060
+back_copy_word_2_entry:
+	NOP					;$BB8063  \ Decompression command entry
+	JMP back_copy_word_2			;$BB8064  /
 
-CODE_BB8063:
-	NOP					;$BB8063
-	JMP.w CODE_BB886E			;$BB8064
+back_copy_2_entry:
+	NOP					;$BB8067  \ Decompression command entry
+	JMP back_copy_2				;$BB8068  /
 
-CODE_BB8067:
-	NOP					;$BB8067
-	JMP.w CODE_BB88B9			;$BB8068
+back_copy_far_2_entry:
+	NOP					;$BB806B  \ Decompression command entry
+	JMP back_copy_far_2			;$BB806C  /
 
-CODE_BB806B:
-	NOP					;$BB806B
-	JMP.w CODE_BB8927			;$BB806C
+back_copy_arbitrary_2_entry:
+	NOP					;$BB806F  \ Decompression command entry
+	JMP back_copy_arbitrary_2		;$BB8070  /
 
-CODE_BB806F:
-	NOP					;$BB806F
-	JMP.w CODE_BB8982			;$BB8070
+duplicate_byte_2_entry:
+	NOP					;$BB8073  \ Decompression command entry
+	JMP duplicate_byte_2			;$BB8074  /
 
-CODE_BB8073:
-	NOP					;$BB8073
-	JMP.w CODE_BB89D4			;$BB8074
+duplicate_word_2_entry:
+	NOP					;$BB8077  \ Decompression command entry
+	JMP duplicate_word_2			;$BB8078  /
 
-CODE_BB8077:
-	NOP					;$BB8077
-	JMP.w CODE_BB89F3			;$BB8078
-
-CODE_BB807B:
-	NOP					;$BB807B
-	JMP.w CODE_BB8A20			;$BB807C
+copy_future_word_2_entry:
+	NOP					;$BB807B  \ Decompression command entry
+	JMP copy_future_word_2			;$BB807C  /
 
 UNK_BB807F:
 	db $12,$29,$DE,$B3,$BF
@@ -134,318 +134,318 @@ sprite_main_table:
 ;BB8084
 %offset(sprite_main_bank, 2)
 %offset(sprite_timestop_flag, 3)
-	dl Spr0000_null_sprite_main-1 : db $00
-	dl Spr0004_unknown_sprite_0004_Main-1 : db $00
-	dl Spr0008_unknown_sprite_0008_Main-1 : db $00
-	dl Spr000C_unknown_sprite_000C_Main-1 : db $00
-	dl Spr0010_HeadToHeadDot_Main-1 : db $00
-	dl Spr0014_ThrownSoftball_Main-1 : db $00
-	dl Spr0018_unknown_sprite_0018_Main-1 : db $00
-	dl Spr001C_unknown_sprite_001C_Main-1 : db $00
-	dl Spr0020_ArichSpit_Main-1 : db $00
-	dl Spr0024_unknown_sprite_0024_Main-1 : db $00
-	dl Spr0028_unknown_sprite_0028_Main-1 : db $00
-	dl Spr002C_ThrownSnowball_Main-1 : db $00
-	dl Spr0030_BarrelShield_Main-1 : db $00
-	dl Spr0034_BarrelPieces_Main-1 : db $00
-	dl Spr0038_MapSwimmingKongSplash_Main-1 : db $00
-	dl Spr003C_unknown_sprite_003C_Main-1 : db $00
-	dl Spr0040_MinkeyAcorn_Main-1 : db $00
-	dl Spr0044_RotatingCylinderKey_Main-1 : db $00
-	dl Spr0048_BleakFightCursor_Main-1 : db $00
-	dl Spr004C_TopOfCottonTopCoveWaterfall_Main-1 : db $00
-	dl Spr0050_BarbosSpikeProjectile_Main-1 : db $00
-	dl Spr0054_BarbosEye_Main-1 : db $00
-	dl Spr0058_BarbosPupil_Main-1 : db $00
-	dl Spr005C_unknown_sprite_005C_Main-1 : db $00
-	dl Spr0060_BottomOfRightCottonTopCoveWaterfall_Main-1 : db $00
-	dl Spr0064_BottomOfCottonTopCoveWaterfall_Main-1 : db $00
-	dl Spr0068_PlayModeText_Main-1 : db $00
-	dl Spr006C_unknown_sprite_006C_Main-1 : db $00
-	dl Spr0070_BananaBirdCaveCover_Main-1 : db $00
-	dl Spr0074_unknown_sprite_0074_Main-1 : db $00
-	dl Spr0078_EllieHorizontalWaterShot_Main-1 : db $00
-	dl Spr007C_EllieDiagonalWaterShot_Main-1 : db $00
-	dl Spr0080_SquawksEgg_Main-1 : db $00
-	dl Spr0084_KremwoodForestLog_Main-1 : db $00
-	dl Spr0088_MapCannon_Main-1 : db $00
-	dl Spr008C_unknown_sprite_008C_Main-1 : db $00
-	dl Spr0090_KAOSLaserHeadFlameJet_Main-1 : db $00
-	dl Spr0094_ChairliftChair_Main-1 : db $00
-	dl Spr0098_SewerStockpileGrate_Main-1 : db $00
-	dl Spr009C_unknown_sprite_009C_Main-1 : db $00
-	dl Spr00A0_unknown_sprite_00A0_Main-1 : db $00
-	dl Spr00A4_unknown_sprite_00A4_Main-1 : db $00
-	dl Spr00A8_RazorRidgePipe_Main-1 : db $00
-	dl Spr00AC_unknown_sprite_00AC_Main-1 : db $00
-	dl Spr00B0_unknown_sprite_00B0_Main-1 : db $00
-	dl Spr00B4_KremtoaBridge_Main-1 : db $00
-	dl Spr00B8_KuchukaBomb_Main-1 : db $00
-	dl Spr00BC_RedGemInBananaBirdQueenBarrier_Main-1 : db $00
-	dl Spr00C0_MapBananaBird_Main-1 : db $00
-	dl Spr00C4_KRoolFightPlatform_Main-1 : db $00
-	dl Spr00C8_KRoolFightBGDecorations_Main-1 : db $00
-	dl Spr00CC_SquirtPupil_Main-1 : db $00
-	dl Spr00D0_Minkey_Main-1 : db $00
-	dl Spr00D4_unknown_sprite_00D4_Main-1 : db $00
-	dl Spr00D8_BelchaTooth_Main-1 : db $00
-	dl Spr00DC_unknown_sprite_00DC_Main-1 : db $00
-	dl Spr00E0_InventoryItemHUDSquares_Main-1 : db $00
-	dl Spr00E4_unknown_sprite_00E4_Main-1 : db $00
-	dl Spr00E8_Squirt_Main-1 : db $01
-	dl Spr00EC_UpwardsShotBarrel_Main-1 : db $00
-	dl Spr00F0_RareLogo_Main-1 : db $00
-	dl Spr00F4_unknown_sprite_00F4_Main-1 : db $00
-	dl Spr00F8_FunkyKong_Main-1 : db $00
-	dl Spr00FC_TitleScreenSign_Main-1 : db $00
-	dl Spr0100_SneekWheel_Main-1 : db $00
-	dl Spr0104_AreaNameText_Main-1 : db $00
-	dl Spr0108_Bleak_Main-1 : db $00
-	dl Spr010C_BananaBirdCaveCrystal_Main-1 : db $00
-	dl Spr0110_unknown_sprite_0110_Main-1 : db $00
-	dl Spr0114_TheEndSign_Main-1 : db $00
-	dl Spr0118_KRool_Main-1 : db $00
-	dl Spr011C_KRoolCurtain_Main-1 : db $00
-	dl Spr0120_GiantBananaBirdQueenEgg_Main-1 : db $00
-	dl Spr0124_LevelEndFlagpole_Main-1 : db $01
-	dl Spr0128_unknown_sprite_0128_Main-1 : db $00
-	dl Spr012C_unknown_sprite_012C_Main-1 : db $00
-	dl Spr0130_unknown_sprite_0130_Main-1 : db $00
-	dl Spr0134_unknown_sprite_0134_Main-1 : db $00
-	dl Spr0138_unknown_sprite_0138_Main-1 : db $00
-	dl Spr013C_StampedeTrigger_Main-1 : db $00
-	dl Spr0140_unknown_sprite_0140_Main-1 : db $00
-	dl Spr0144_FloorDoor_Main-1 : db $00
-	dl Spr0148_ExitDoor_Main-1 : db $00
-	dl Spr014C_SpawnedRegularBanana_Main-1 : db $00
-	dl Spr0150_GreenBanana_Main-1 : db $00
-	dl Spr0154_GreenBananaSpawner_Main-1 : db $00
-	dl Spr0158_KongFusedCliffsRope_Main-1 : db $00
-	dl Spr015C_KongFusedCliffsAutoscroll_Main-1 : db $00
-	dl Spr0160_unknown_sprite_0160_Main-1 : db $00
-	dl Spr0164_KAOSHeadExplosionSpawner_Main-1 : db $00
-	dl Spr0168_VerticalAutoscroll_Main-1 : db $00
-	dl Spr016C_WaterfallBarrelSpawner_Main-1 : db $00
-	dl Spr0170_BarrelRespawner_Main-1 : db $00
-	dl Spr0174_unknown_sprite_0174_Main-1 : db $00
-	dl Spr0178_BuzzSwarmSpawner_Main-1 : db $00
-	dl Spr017C_unknown_sprite_0180_Main-1 : db $00
-	dl Spr0180_unknown_sprite_0180_Main-1 : db $00
-	dl Spr0184_TargetSpawner_Main-1 : db $00
-	dl Spr0188_unknown_sprite_0188_Main-1 : db $00
-	dl Spr018C_KuffnKlout_Main-1 : db $00
-	dl Spr0190_unknown_sprite_0190_Main-1 : db $00
-	dl Spr0194_ArichBackHitbox_Main-1 : db $00
-	dl Spr0198_MapFlag_Main-1 : db $00
-	dl Spr019C_unknown_sprite_019C_Main-1 : db $00
-	dl Spr01A0_unknown_sprite_01A0_Main-1 : db $00
-	dl Spr01A4_FileSelectMenu_Main-1 : db $00
-	dl Spr01A8_unknown_sprite_01A8_Main-1 : db $00
-	dl Spr01AC_BrashCabinDigitalDisplay_Main-1 : db $00
-	dl Spr01B0_FileSelectNumber_Main-1 : db $00
-	dl Spr01B4_unknown_sprite_01B4_Main-1 : db $00
-	dl Spr01B8_unknown_sprite_01B8_Main-1 : db $00
-	dl Spr01BC_unknown_sprite_01BC_Main-1 : db $00
-	dl Spr01C0_SpeedrunTimer_Main-1 : db $01
-	dl Spr01C4_unknown_sprite_01C4_Main-1 : db $00
-	dl Spr01C8_unknown_sprite_01C8_Main-1 : db $00
-	dl Spr01CC_unknown_sprite_01CC_Main-1 : db $00
-	dl Spr01D0_LightningBoltSpawner_Main-1 : db $00
-	dl Spr01D4_KnautilusSpriteMask_Main-1 : db $00
-	dl Spr01D8_PlayerKrosshairController_Main-1 : db $00
-	dl Spr01DC_unknown_sprite_01DC_Main-1 : db $00
-	dl Spr01E0_unknown_sprite_01E0_Main-1 : db $00
-	dl Spr01E4_unknown_sprite_01E4_Main-1 : db $00
-	dl Spr01E8_Belcha_Main-1 : db $01
-	dl Spr01EC_Barbos_Main-1 : db $01
-	dl Spr01F0_unknown_sprite_01F0_Main-1 : db $00
-	dl Spr01F4_SquealsOnWheelsTracker_Main-1 : db $00
-	dl Spr01F8_BazzaSpawner_Main-1 : db $00
-	dl Spr01FC_BananaBird_Main-1 : db $00
-	dl Spr0200_unknown_sprite_0200_Main-1 : db $00
-	dl Spr0204_KAOS_Main-1 : db $01
-	dl Spr0208_unknown_sprite_0208_Main-1 : db $00
-	dl Spr020C_unknown_sprite_020C_Main-1 : db $00
-	dl Spr0210_NintendoPresentsKong_Main-1 : db $00
-	dl Spr0214_RotatingCylinderHandle_Main-1 : db $00
-	dl Spr0218_RareLogoKiddy_Main-1 : db $00
-	dl Spr021C_RareLogoDixie_Main-1 : db $00
-	dl Spr0220_Toboggan_Main-1 : db $00
-	dl Spr0224_TobogganSparks_Main-1 : db $01
-	dl Spr0228_LargePipe_Main-1 : db $00
-	dl Spr022C_DixieKong_Main-1 : db $00
-	dl Spr0230_KiddyKong_Main-1 : db $00
-	dl Spr0234_Ellie_Main-1 : db $00
-	dl Spr0238_Enguarde_Main-1 : db $00
-	dl Spr023C_Squawks_Main-1 : db $00
-	dl Spr0240_Squitter_Main-1 : db $00
-	dl Spr0244_Parry_Main-1 : db $00
-	dl Spr0248_WebShot_Main-1 : db $00
-	dl Spr024C_WebPlatform_Main-1 : db $00
-	dl Spr0250_AnimalBuddyBox_Main-1 : db $00
-	dl Spr0254_AnimalBuddyIcon_Main-1 : db $01
-	dl Spr0258_NoAnimalBuddySign_Main-1 : db $01
-	dl Spr025C_unknown_sprite_025C_Main-1 : db $01
-	dl Spr0260_unknown_sprite_0260_Main-1 : db $00
-	dl Spr0264_unknown_sprite_0264_Main-1 : db $00
-	dl Spr0268_FireballLandingParticles_Main-1 : db $00
-	dl Spr026C_BurstEffect_Main-1 : db $01
-	dl Spr0270_WaterSplash_Main-1 : db $00
-	dl Spr0274_SmokePuff_Main-1 : db $01
-	dl Spr0278_BarrelSwitchS_Main-1 : db $00
-	dl Spr027C_MillPlatform_Main-1 : db $00
-	dl Spr0280_unknown_sprite_0280_Main-1 : db $00
-	dl Spr0284_BearCoin_Main-1 : db $00
-	dl Spr0288_unknown_sprite_0288_Main-1 : db $00
-	dl Spr028C_BonusBCoin_Main-1 : db $00
-	dl Spr0290_CollectableCog_Main-1 : db $00
-	dl Spr0294_KongLetters_Main-1 : db $00
-	dl Spr0298_Bananas_Main-1 : db $00
-	dl Spr029C_ExtraLifeBalloon_Main-1 : db $00
-	dl Spr02A0_LevelEndFlag_Main-1 : db $01
-	dl Spr02A4_unknown_sprite_02A4_Main-1 : db $01
-	dl Spr02A8_BonusLevelTimer_Main-1 : db $00
-	dl Spr02AC_RopeFire_Main-1 : db $00
-	dl Spr02B0_KongWaterSplash_Main-1 : db $00
-	dl Spr02B4_BarrelCannon_Main-1 : db $00
-	dl Spr02B8_BarrelIcons_Main-1 : db $00
-	dl Spr02BC_CheckpointBarrel_Main-1 : db $00
-	dl Spr02C0_Barrel_Main-1 : db $00
-	dl Spr02C4_DKBarrel_Main-1 : db $00
-	dl Spr02C8_unknown_sprite_02C8_Main-1 : db $00
-	dl Spr02CC_unknown_sprite_02CC_Main-1 : db $00
-	dl Spr02D0_TNTBarrel_Main-1 : db $00
-	dl Spr02D4_SteelKeg_Main-1 : db $00
-	dl Spr02D8_WoodenBox_Main-1 : db $00
-	dl Spr02DC_WaterfallBarrel_Main-1 : db $00
-	dl Spr02E0_InvincibilityBarrel_Main-1 : db $00
-	dl Spr02E4_FuelCan_Main-1 : db $00
-	dl Spr02E8_KAOSHeadExplosion_Main-1 : db $00
-	dl Spr02EC_Rocket_Main-1 : db $00
-	dl Spr02F0_RocketFlame_Main-1 : db $00
-	dl Spr02F4_RocketEyes_Main-1 : db $00
-	dl Spr02F8_Sneek_Main-1 : db $00
-	dl Spr02FC_Buzz_Main-1 : db $00
-	dl Spr0300_Koco_Main-1 : db $00
-	dl Spr0304_MapKong_Main-1 : db $00
-	dl Spr0308_StationaryDisplaySprite1_Main-1 : db $00
-	dl Spr030C_MapVehicle_Main-1 : db $00
-	dl Spr0310_unknown_sprite_0310_Main-1 : db $00
-	dl Spr0314_EndingSwankyKong_Main-1 : db $00
-	dl Spr0318_MovingDisplaySprite_Main-1 : db $00
-	dl Spr031C_GameOverBlocks_Main-1 : db $00
-	dl Spr0320_BrothersBear_Main-1 : db $00
-	dl Spr0324_BrothersBearAccessories_Main-1 : db $00
-	dl Spr0328_MainMapWaterfall_Main-1 : db $00
-	dl Spr032C_unknown_sprite_032C_Main-1 : db $00
-	dl Spr0330_FileSelectIcon_Main-1 : db $00
-	dl Spr0334_ChairliftPulley_Main-1 : db $00
-	dl Spr0338_unknown_sprite_0338_Main-1 : db $00
-	dl Spr033C_StationaryDisplaySprite2_Main-1 : db $00
-	dl Spr0340_BramblesVase_Main-1 : db $00
-	dl Spr0344_GyrocopterBladesAndShadow_Main-1 : db $00
-	dl Spr0348_unknown_sprite_0348_Main-1 : db $00
-	dl Spr034C_unknown_sprite_034C_Main-1 : db $00
-	dl Spr0350_unknown_sprite_0350_Main-1 : db $00
-	dl Spr0354_SkyHighSecretRock_Main-1 : db $00
-	dl Spr0358_Krosshair_Main-1 : db $00
-	dl Spr035C_Knautilus_Main-1 : db $00
-	dl Spr0360_unknown_sprite_0360_Main-1 : db $00
-	dl Spr0364_KRoolHead_Main-1 : db $00
-	dl Spr0368_MotorBoatFunkyAndCrankyInEnding_Main-1 : db $00
-	dl Spr036C_WrinklysSaveCave_Main-1 : db $00
-	dl Spr0370_MapBananaBirdQueen_Main-1 : db $00
-	dl Spr0374_BuzzSwarrm_Main-1 : db $00
-	dl Spr0378_FollowingKlasp_Main-1 : db $00
-	dl Spr037C_AutoMovingKlasp_Main-1 : db $00
-	dl Spr0380_Lemguin_Main-1 : db $00
-	dl Spr0384_FriendlyNibblaHead_Main-1 : db $00
-	dl Spr0388_FriendlyNibblaBody_Main-1 : db $00
-	dl Spr038C_DoorLeverHandle_Main-1 : db $00
-	dl Spr0390_LeverControlledMetalDoor_Main-1 : db $00
-	dl Spr0394_DoorGear_Main-1 : db $00
-	dl Spr0398_SneekInWheel_Main-1 : db $00
-	dl Spr039C_SneekControlledMetalDoor_Main-1 : db $00
-	dl Spr03A0_ArichLegs_Main-1 : db $00
-	dl Spr03A4_ArichHead_Main-1 : db $00
-	dl Spr03A8_ArichPupil_Main-1 : db $00
-	dl Spr03AC_unknown_sprite_03AC_Main-1 : db $00
-	dl Spr03B0_unknown_sprite_03B0_Main-1 : db $00
-	dl Spr03B4_Lurchin_Main-1 : db $00
-	dl Spr03B8_BleakSnowball_Main-1 : db $00
-	dl Spr03BC_ReKoil_Main-1 : db $00
-	dl Spr03C0_BleakFightKong_Main-1 : db $01
-	dl Spr03C4_unknown_sprite_03C4_Main-1 : db $00
-	dl Spr03C8_SkiddaAndKobble_Main-1 : db $00
-	dl Spr03CC_BigSmokeCloud_Main-1 : db $00
-	dl Spr03D0_Koin_Main-1 : db $00
-	dl Spr03D4_DKCoin_Main-1 : db $00
-	dl Spr03D8_LemguinSpawner_Main-1 : db $00
-	dl Spr03DC_DefeatedBleakSnowball_Main-1 : db $00
-	dl Spr03E0_Knocka_Main-1 : db $00
-	dl Spr03E4_KnockaLimbs_Main-1 : db $00
-	dl Spr03E8_unknown_sprite_03E8_Main-1 : db $00
-	dl Spr03EC_SideOfBelchasMouth_Main-1 : db $00
-	dl Spr03F0_BurpedUpBarrel_Main-1 : db $00
-	dl Spr03F4_KnikKnak_Main-1 : db $00
-	dl Spr03F8_Krimp_Main-1 : db $00
-	dl Spr03FC_KnautilusFireballShooter_Main-1 : db $00
-	dl Spr0400_BelchaPlatform_Main-1 : db $00
-	dl Spr0404_BarbosMouth_Main-1 : db $00
-	dl Spr0408_PurpleLurchin_Main-1 : db $00
-	dl Spr040C_BarbosSpawnedGreenLurchin_Main-1 : db $00
-	dl Spr0410_SeashellMissle_Main-1 : db $00
-	dl Spr0414_Bristle_Main-1 : db $00
-	dl Spr0418_Krumple_Main-1 : db $00
-	dl Spr041C_Swoopy_Main-1 : db $00
-	dl Spr0420_Kuchuka_Main-1 : db $00
-	dl Spr0424_KuchukaHand_Main-1 : db $00
-	dl Spr0428_FlyingKnikKnak_Main-1 : db $00
-	dl Spr042C_Bazza_Main-1 : db $00
-	dl Spr0430_BountyBass_Main-1 : db $00
-	dl Spr0434_BootyBird_Main-1 : db $00
-	dl Spr0438_unknown_sprite_0438_Main-1 : db $00
-	dl Spr043C_unknown_sprite_043C_Main-1 : db $00
-	dl Spr0440_unknown_sprite_0440_Main-1 : db $00
-	dl Spr0444_Nid_Main-1 : db $00
-	dl Spr0448_Bazuka_Main-1 : db $00
-	dl Spr044C_BarrelShotByBazuka_Main-1 : db $00
-	dl Spr0450_BarrelSwitch_Main-1 : db $00
-	dl Spr0454_Kopter_Main-1 : db $00
-	dl Spr0458_MurkyMillElevator_Main-1 : db $00
-	dl Spr045C_NibblaHead_Main-1 : db $00
-	dl Spr0460_NibblaBody_Main-1 : db $00
-	dl Spr0464_BonusBCoinBossPrize_Main-1 : db $00
-	dl Spr0468_BearCoinBossPrize_Main-1 : db $00
-	dl Spr046C_KAOSLaserHead_Main-1 : db $00
-	dl Spr0470_KAOSSkullHead_Main-1 : db $00
-	dl Spr0474_KAOSFlame_Main-1 : db $00
-	dl Spr0478_KAOSBlade_Main-1 : db $00
-	dl Spr047C_KAOSBoxingGlove_Main-1 : db $00
-	dl Spr0480_KAOSFlameSpread_Main-1 : db $00
-	dl Spr0484_Karbine_Main-1 : db $00
-	dl Spr0488_KarbineFireball_Main-1 : db $00
-	dl Spr048C_KrosshairFireball_Main-1 : db $00
-	dl Spr0490_GleaminBream_Main-1 : db $00
-	dl Spr0494_KAOSCylinderHead_Main-1 : db $00
-	dl Spr0498_KAOSBombs_Main-1 : db $00
-	dl Spr049C_unknown_sprite_049C_Main-1 : db $00
-	dl Spr04A0_TNTExplosion_Main-1 : db $00
-	dl Spr04A4_KRoolPropeller_Main-1 : db $00
-	dl Spr04A8_KastleKAOSLever_Main-1 : db $00
-	dl Spr04AC_ElectricNode_Main-1 : db $00
-	dl Spr04B0_KRoolsFeet_Main-1 : db $00
-	dl Spr04B4_KnautilusFireballShooterFireball_Main-1 : db $00
-	dl Spr04B8_BGSteelKeg_Main-1 : db $00
-	dl Spr04BC_SquirtsEyePart_Main-1 : db $00
-	dl Spr04C0_unknown_sprite_04C0_Main-1 : db $00
-	dl Spr04C4_CrankyKong_Main-1 : db $00
-	dl Spr04C8_TimerDigit_Main-1 : db $00
-	dl Spr04CC_HeadToHeadIcon_Main-1 : db $00
-	dl Spr04D0_Target_Main-1 : db $00
-	dl Spr04D4_TargetShootKong_Main-1 : db $00
-	dl Spr04D8_SwankyKong_Main-1 : db $00
-	dl Spr04DC_PrizeFromSwankyKong_Main-1 : db $00
+	dl null_sprite_main-1					: db $00	;0000
+	dl unknown_sprite_0004_main-1				: db $00	;0004
+	dl unknown_sprite_0008_main-1				: db $00	;0008
+	dl unknown_sprite_000C_main-1				: db $00	;000C
+	dl head_to_head_dot_main-1				: db $00	;0010
+	dl thrown_softball_main-1				: db $00	;0014
+	dl unknown_sprite_0018_main-1				: db $00	;0018
+	dl unknown_sprite_001C_main-1				: db $00	;001C
+	dl arich_spit_main-1					: db $00	;0020
+	dl unknown_sprite_0024_main-1				: db $00	;0024
+	dl unknown_sprite_0028_main-1				: db $00	;0028
+	dl thrown_snowball_main-1				: db $00	;002C
+	dl barrel_shield_main-1					: db $00	;0030
+	dl barrel_pieces_main-1					: db $00	;0034
+	dl map_swimming_kong_splash_main-1			: db $00	;0038
+	dl unknown_sprite_003C_main-1				: db $00	;003C
+	dl minkey_acorn_main-1					: db $00	;0040
+	dl rotating_cylinder_key_main-1				: db $00	;0044
+	dl bleak_fight_cursor_main-1				: db $00	;0048
+	dl top_of_cotton_top_cove_waterfall_main-1		: db $00	;004C
+	dl barbos_spike_projectile_main-1			: db $00	;0050
+	dl barbos_eye_main-1					: db $00	;0054
+	dl barbos_pupil_main-1					: db $00	;0058
+	dl unknown_sprite_005C_main-1				: db $00	;005C
+	dl bottom_of_right_cotton_top_cove_waterfall_main-1	: db $00	;0060
+	dl bottom_of_cotton_top_cove_waterfall_main-1		: db $00	;0064
+	dl play_mode_text_main-1				: db $00	;0068
+	dl unknown_sprite_006C_main-1				: db $00	;006C
+	dl banana_bird_cave_cover_main-1			: db $00	;0070
+	dl unknown_sprite_0074_main-1				: db $00	;0074
+	dl ellie_horizontal_water_shot_main-1			: db $00	;0078
+	dl ellie_diagonal_water_shot_main-1			: db $00	;007C
+	dl squawks_egg_main-1					: db $00	;0080
+	dl kremwood_forest_log_main-1				: db $00	;0084
+	dl map_cannon_main-1					: db $00	;0088
+	dl unknown_sprite_008C_main-1				: db $00	;008C
+	dl kaos_laser_head_flame_jet_main-1			: db $00	;0090
+	dl chairlift_chair_main-1				: db $00	;0094
+	dl sewer_stockpile_grate_main-1				: db $00	;0098
+	dl unknown_sprite_009C_main-1				: db $00	;009C
+	dl unknown_sprite_00A0_main-1				: db $00	;00A0
+	dl unknown_sprite_00A4_main-1				: db $00	;00A4
+	dl razor_ridge_pipe_main-1				: db $00	;00A8
+	dl unknown_sprite_00AC_main-1				: db $00	;00AC
+	dl unknown_sprite_00B0_main-1				: db $00	;00B0
+	dl krematoa_bridge_main-1				: db $00	;00B4
+	dl kuchuka_bomb_main-1					: db $00	;00B8
+	dl red_gem_in_banana_bird_queen_barrier_main-1		: db $00	;00BC
+	dl map_banana_bird_main-1				: db $00	;00C0
+	dl k_rool_fight_platform_main-1				: db $00	;00C4
+	dl k_rool_fight_bg_decorations_main-1			: db $00	;00C8
+	dl squirt_pupil_main-1					: db $00	;00CC
+	dl minkey_main-1					: db $00	;00D0
+	dl unknown_sprite_00D4_main-1				: db $00	;00D4
+	dl belcha_tooth_main-1					: db $00	;00D8
+	dl unknown_sprite_00DC_main-1				: db $00	;00DC
+	dl inventory_item_squares_main-1			: db $00	;00E0
+	dl unknown_sprite_00E4_main-1				: db $00	;00E4
+	dl squirt_main-1					: db $01	;00E8
+	dl upwards_shot_barrel_main-1				: db $00	;00EC
+	dl rare_logo_main-1					: db $00	;00F0
+	dl unknown_sprite_00F4_main-1				: db $00	;00F4
+	dl funky_kong_main-1					: db $00	;00F8
+	dl title_screen_sign_main-1				: db $00	;00FC
+	dl sneek_wheel_main-1					: db $00	;0100
+	dl area_name_text_main-1				: db $00	;0104
+	dl bleak_main-1						: db $00	;0108
+	dl banana_bird_cave_crystal_main-1			: db $00	;010C
+	dl unknown_sprite_0110_main-1				: db $00	;0110
+	dl the_end_sign_main-1					: db $00	;0114
+	dl k_rool_main-1					: db $00	;0118
+	dl k_rool_curtain_main-1				: db $00	;011C
+	dl giant_banana_bird_queen_egg_main-1			: db $00	;0120
+	dl level_end_flagpole_main-1				: db $01	;0124
+	dl unknown_sprite_0128_main-1				: db $00	;0128
+	dl unknown_sprite_012C_main-1				: db $00	;012C
+	dl unknown_sprite_0130_main-1				: db $00	;0130
+	dl unknown_sprite_0134_main-1				: db $00	;0134
+	dl unknown_sprite_0138_main-1				: db $00	;0138
+	dl stampede_trigger_main-1				: db $00	;013C
+	dl unknown_sprite_0140_main-1				: db $00	;0140
+	dl floor_door_main-1					: db $00	;0144
+	dl exit_door_main-1					: db $00	;0148
+	dl banana_main-1					: db $00	;014C
+	dl green_banana_main-1					: db $00	;0150
+	dl green_banana_spawner_main-1				: db $00	;0154
+	dl kong_fused_cliffs_rope_main-1			: db $00	;0158
+	dl kong_fused_cliffs_autoscroll_main-1			: db $00	;015C
+	dl unknown_sprite_0160_main-1				: db $00	;0160
+	dl kaos_head_explosion_spawner_main-1			: db $00	;0164
+	dl vertical_autoscroll_main-1				: db $00	;0168
+	dl waterfall_barrel_spawner_main-1			: db $00	;016C
+	dl barrel_respawner_main-1				: db $00	;0170
+	dl unknown_sprite_0174_main-1				: db $00	;0174
+	dl buzz_swarm_spawner_main-1				: db $00	;0178
+	dl unknown_sprite_017C_main-1				: db $00	;017C
+	dl unknown_sprite_0180_main-1				: db $00	;0180
+	dl target_spawner_main-1				: db $00	;0184
+	dl unknown_sprite_0188_main-1				: db $00	;0188
+	dl kuff_n_klout_main-1					: db $00	;018C
+	dl unknown_sprite_0190_main-1				: db $00	;0190
+	dl arich_back_hitbox_main-1				: db $00	;0194
+	dl map_flag_main-1					: db $00	;0198
+	dl unknown_sprite_019C_main-1				: db $00	;019C
+	dl unknown_sprite_01A0_main-1				: db $00	;01A0
+	dl file_select_menu_main-1				: db $00	;01A4
+	dl unknown_sprite_01A8_main-1				: db $00	;01A8
+	dl brash_cabin_digital_display_main-1			: db $00	;01AC
+	dl file_select_number_main-1				: db $00	;01B0
+	dl unknown_sprite_01B4_main-1				: db $00	;01B4
+	dl unknown_sprite_01B8_main-1				: db $00	;01B8
+	dl unknown_sprite_01BC_main-1				: db $00	;01BC
+	dl speedrun_timer_main-1				: db $01	;01C0
+	dl unknown_sprite_01C4_main-1				: db $00	;01C4
+	dl unknown_sprite_01C8_main-1				: db $00	;01C8
+	dl unknown_sprite_01CC_main-1				: db $00	;01CC
+	dl lightning_bolt_spawner_main-1			: db $00	;01D0
+	dl knautilus_sprite_mask_main-1				: db $00	;01D4
+	dl player_krosshair_controller_main-1			: db $00	;01D8
+	dl unknown_sprite_01DC_main-1				: db $00	;01DC
+	dl unknown_sprite_01E0_main-1				: db $00	;01E0
+	dl unknown_sprite_01E4_main-1				: db $00	;01E4
+	dl belcha_main-1					: db $01	;01E8
+	dl barbos_main-1					: db $01	;01EC
+	dl unknown_sprite_01F0_main-1				: db $00	;01F0
+	dl squeals_on_wheels_tracker_main-1			: db $00	;01F4
+	dl bazza_spawner_main-1					: db $00	;01F8
+	dl banana_bird_main-1					: db $00	;01FC
+	dl unknown_sprite_0200_main-1				: db $00	;0200
+	dl kaos_main-1						: db $01	;0204
+	dl unknown_sprite_0208_main-1				: db $00	;0208
+	dl unknown_sprite_020C_main-1				: db $00	;020C
+	dl nintendo_presents_kong_main-1			: db $00	;0210
+	dl rotating_cylinder_handle_main-1			: db $00	;0214
+	dl rare_logo_kiddy_main-1				: db $00	;0218
+	dl rare_logo_dixie_main-1				: db $00	;021C
+	dl toboggan_main-1					: db $00	;0220
+	dl toboggan_sparks_main-1				: db $01	;0224
+	dl large_pipe_main-1					: db $00	;0228
+	dl dixie_kong_main-1					: db $00	;022C
+	dl kiddy_kong_main-1					: db $00	;0230
+	dl ellie_main-1						: db $00	;0234
+	dl enguarde_main-1					: db $00	;0238
+	dl squawks_main-1					: db $00	;023C
+	dl squitter_main-1					: db $00	;0240
+	dl parry_main-1						: db $00	;0244
+	dl web_shot_main-1					: db $00	;0248
+	dl web_platform_main-1					: db $00	;024C
+	dl animal_buddy_box_main-1				: db $00	;0250
+	dl animal_buddy_icon_main-1				: db $01	;0254
+	dl no_animal_buddy_sign_main-1				: db $01	;0258
+	dl unknown_sprite_025C_main-1				: db $01	;025C
+	dl unknown_sprite_0260_main-1				: db $00	;0260
+	dl unknown_sprite_0264_main-1				: db $00	;0264
+	dl fireball_landing_particles_main-1			: db $00	;0268
+	dl burst_effect_main-1					: db $01	;026C
+	dl water_splash_main-1					: db $00	;0270
+	dl smoke_puff_main-1					: db $01	;0274
+	dl barrel_switch_s_main-1				: db $00	;0278
+	dl mill_platform_main-1					: db $00	;027C
+	dl unknown_sprite_0280_main-1				: db $00	;0280
+	dl bear_coin_main-1					: db $00	;0284
+	dl unknown_sprite_0288_main-1				: db $00	;0288
+	dl bonus_coin_main-1					: db $00	;028C
+	dl collectable_cog_main-1				: db $00	;0290
+	dl kong_letters_main-1					: db $00	;0294
+	dl bananas_main-1					: db $00	;0298
+	dl extra_life_balloon_main-1				: db $00	;029C
+	dl level_end_flag_main-1				: db $01	;02A0
+	dl unknown_sprite_02A4_main-1				: db $01	;02A4
+	dl bonus_level_timer_main-1				: db $00	;02A8
+	dl rope_fire_main-1					: db $00	;02AC
+	dl kong_water_splash_main-1				: db $00	;02B0
+	dl barrel_cannon_main-1					: db $00	;02B4
+	dl barrel_icons_main-1					: db $00	;02B8
+	dl checkpoint_barrel_main-1				: db $00	;02BC
+	dl barrel_main-1					: db $00	;02C0
+	dl dk_barrel_main-1					: db $00	;02C4
+	dl unknown_sprite_02C8_main-1				: db $00	;02C8
+	dl unknown_sprite_02CC_main-1				: db $00	;02CC
+	dl tnt_barrel_main-1					: db $00	;02D0
+	dl steel_keg_main-1					: db $00	;02D4
+	dl wooden_box_main-1					: db $00	;02D8
+	dl waterfall_barrel_main-1				: db $00	;02DC
+	dl invincibility_barrel_main-1				: db $00	;02E0
+	dl fuel_can_main-1					: db $00	;02E4
+	dl kaos_head_explosion_main-1				: db $00	;02E8
+	dl rocket_main-1					: db $00	;02EC
+	dl rocket_flame_main-1					: db $00	;02F0
+	dl rocket_eyes_main-1					: db $00	;02F4
+	dl sneek_main-1						: db $00	;02F8
+	dl buzz_main-1						: db $00	;02FC
+	dl koco_main-1						: db $00	;0300
+	dl map_kong_main-1					: db $00	;0304
+	dl stationary_display_sprite1_main-1			: db $00	;0308
+	dl map_vehicle_main-1					: db $00	;030C
+	dl unknown_sprite_0310_main-1				: db $00	;0310
+	dl ending_swanky_main-1					: db $00	;0314
+	dl moving_display_sprite_main-1				: db $00	;0318
+	dl game_over_blocks_main-1				: db $00	;031C
+	dl brothers_bear_main-1					: db $00	;0320
+	dl brothers_bear_accessories_main-1			: db $00	;0324
+	dl main_map_waterfall_main-1				: db $00	;0328
+	dl unknown_sprite_032C_main-1				: db $00	;032C
+	dl file_select_icon_main-1				: db $00	;0330
+	dl chairlift_pulley_main-1				: db $00	;0334
+	dl unknown_sprite_0338_main-1				: db $00	;0338
+	dl stationary_display_sprite_2_main-1			: db $00	;033C
+	dl brambles_vase_main-1					: db $00	;0340
+	dl gyrocopter_blades_and_shadow_main-1			: db $00	;0344
+	dl unknown_sprite_0348_main-1				: db $00	;0348
+	dl unknown_sprite_034C_main-1				: db $00	;034C
+	dl unknown_sprite_0350_main-1				: db $00	;0350
+	dl sky_high_secret_rock_main-1				: db $00	;0354
+	dl krosshair_main-1					: db $00	;0358
+	dl knautilus_main-1					: db $00	;035C
+	dl unknown_sprite_0360_main-1				: db $00	;0360
+	dl k_rool_head_main-1					: db $00	;0364
+	dl funky_cranky_secret_ending_main-1			: db $00	;0368
+	dl wrinklys_save_cave_main-1				: db $00	;036C
+	dl map_banana_bird_queen_main-1				: db $00	;0370
+	dl buzz_swarm_main-1					: db $00	;0374
+	dl klasp_follow_main-1					: db $00	;0378
+	dl klasp_auto_move_main-1				: db $00	;037C
+	dl lemguin_main-1					: db $00	;0380
+	dl nibbla_head_friendly_main-1				: db $00	;0384
+	dl nibbla_body_friendly_main-1				: db $00	;0388
+	dl door_lever_handle_main-1				: db $00	;038C
+	dl metal_door_lever_controlled_main-1			: db $00	;0390
+	dl door_gear_main-1					: db $00	;0394
+	dl sneek_in_wheel_main-1				: db $00	;0398
+	dl metal_door_sneek_controlled_main-1			: db $00	;039C
+	dl arich_legs_main-1					: db $00	;03A0
+	dl arich_head_main-1					: db $00	;03A4
+	dl arich_pupil_main-1					: db $00	;03A8
+	dl unknown_sprite_03AC_main-1				: db $00	;03AC
+	dl unknown_sprite_03B0_main-1				: db $00	;03B0
+	dl lurchin_main-1					: db $00	;03B4
+	dl bleak_snowball_main-1				: db $00	;03B8
+	dl re_koil_main-1					: db $00	;03BC
+	dl bleak_fight_kong_main-1				: db $01	;03C0
+	dl unknown_sprite_03C4_main-1				: db $00	;03C4
+	dl skidda_and_kobble_main-1				: db $00	;03C8
+	dl big_smoke_cloud_main-1				: db $00	;03CC
+	dl koin_main-1						: db $00	;03D0
+	dl dk_coin_main-1					: db $00	;03D4
+	dl lemguin_spawner_main-1				: db $00	;03D8
+	dl defeated_bleak_snowball_main-1			: db $00	;03DC
+	dl knocka_main-1					: db $00	;03E0
+	dl knocka_limbs_main-1					: db $00	;03E4
+	dl unknown_sprite_03E8_main-1				: db $00	;03E8
+	dl belcha_mouth_side_main-1				: db $00	;03EC
+	dl belcha_barrel_main-1					: db $00	;03F0
+	dl knik_knak_main-1					: db $00	;03F4
+	dl krimp_main-1						: db $00	;03F8
+	dl knautilus_fireball_shooter_main-1			: db $00	;03FC
+	dl belcha_platform_main-1				: db $00	;0400
+	dl barbos_mouth_main-1					: db $00	;0404
+	dl purple_lurchin_main-1				: db $00	;0408
+	dl barbos_green_lurchin_main-1				: db $00	;040C
+	dl seashell_missle_main-1				: db $00	;0410
+	dl bristle_main-1					: db $00	;0414
+	dl krumple_main-1					: db $00	;0418
+	dl swoopy_main-1					: db $00	;041C
+	dl kuchuka_main-1					: db $00	;0420
+	dl kuchuka_hand_main-1					: db $00	;0424
+	dl flying_knik_knak_main-1				: db $00	;0428
+	dl bazza_main-1						: db $00	;042C
+	dl bounty_bass_main-1					: db $00	;0430
+	dl booty_bird_main-1					: db $00	;0434
+	dl unknown_sprite_0438_main-1				: db $00	;0438
+	dl unknown_sprite_043C_main-1				: db $00	;043C
+	dl unknown_sprite_0440_main-1				: db $00	;0440
+	dl nid_main-1						: db $00	;0444
+	dl bazuka_main-1					: db $00	;0448
+	dl barrel_shot_by_bazuka_main-1				: db $00	;044C
+	dl barrel_switch_main-1					: db $00	;0450
+	dl kopter_main-1					: db $00	;0454
+	dl murky_mill_elevator_main-1				: db $00	;0458
+	dl nibbla_head_main-1					: db $00	;045C
+	dl nibbla_body_main-1					: db $00	;0460
+	dl boss_prize_bonus_coin_main-1				: db $00	;0464
+	dl boss_prize_bear_coin_main-1				: db $00	;0468
+	dl kaos_laser_head_main-1				: db $00	;046C
+	dl kaos_skull_head_main-1				: db $00	;0470
+	dl kaos_flame_main-1					: db $00	;0474
+	dl kaos_blade_main-1					: db $00	;0478
+	dl kaos_boxing_glove_main-1				: db $00	;047C
+	dl kaos_flame_spread_main-1				: db $00	;0480
+	dl karbine_main-1					: db $00	;0484
+	dl karbine_fireball_main-1				: db $00	;0488
+	dl krosshair_fireball_main-1				: db $00	;048C
+	dl gleamin_bream_main-1					: db $00	;0490
+	dl kaos_cylinder_head_main-1				: db $00	;0494
+	dl kaos_bombs_main-1					: db $00	;0498
+	dl unknown_sprite_049C_main-1				: db $00	;049C
+	dl tnt_explosion_main-1					: db $00	;04A0
+	dl k_rool_propeller_main-1				: db $00	;04A4
+	dl kastle_kaos_lever_main-1				: db $00	;04A8
+	dl electric_node_main-1					: db $00	;04AC
+	dl k_rool_feet_main-1					: db $00	;04B0
+	dl knautilus_fireball_shooter_fireball_main-1		: db $00	;04B4
+	dl bg_steel_keg_main-1					: db $00	;04B8
+	dl squirts_eye_part_main-1				: db $00	;04BC
+	dl unknown_sprite_04C0_main-1				: db $00	;04C0
+	dl cranky_kong_main-1					: db $00	;04C4
+	dl timer_digit_main-1					: db $00	;04C8
+	dl head_to_head_icon_main-1				: db $00	;04CC
+	dl target_main-1					: db $00	;04D0
+	dl target_shoot_kong_main-1				: db $00	;04D4
+	dl swanky_kong_main-1					: db $00	;04D8
+	dl swanky_kong_prize_main-1				: db $00	;04DC
 
 disable_screen_wrapper:
 ;$BB8564
@@ -628,697 +628,697 @@ CODE_BB8612:
 	JMP.w CODE_BB8F2C			;$BB8612
 
 CODE_BB8615:
-	LDA.w $0454				;$BB8615
+	LDA $0454				;$BB8615
 	PHA					;$BB8618
-	LDA.w $0452				;$BB8619
-	BRA.b CODE_BB8639			;$BB861C
+	LDA $0452				;$BB8619
+	BRA CODE_BB8639				;$BB861C
 
 CODE_BB861E:
-	JSL.l CODE_BB8A3F			;$BB861E
+	JSL CODE_BB8A3F				;$BB861E
 	PEA.w $7E0000>>16			;$BB8622
-	BRA.b CODE_BB8639			;$BB8625
+	BRA CODE_BB8639				;$BB8625
 
 ADDR_BB8627:
-	LDA.w #$0000				;$BB8627
+	LDA #$0000				;$BB8627
 	PEA.w $7F0000>>16			;$BB862A
-	BRA.b CODE_BB8639			;$BB862D
+	BRA CODE_BB8639				;$BB862D
 
 CODE_BB862F:
-	LDA.w #$0000				;$BB862F
+	LDA #$0000				;$BB862F
 CODE_BB8632:
-	JSL.l CODE_BB8A3F			;$BB8632
+	JSL CODE_BB8A3F				;$BB8632
 	PEA.w $7F0000>>16			;$BB8636
-CODE_BB8639:										; Note: Decompression routine.
-	STA.b $20				;$BB8639
+CODE_BB8639:					; Note: Decompression routine.
+	STA $20					;$BB8639
 	PLA					;$BB863B
-	STA.b $22				;$BB863C
-	STX.b $1C				;$BB863E
-	STY.b $1E				;$BB8640
+	STA $22					;$BB863C
+	STX $1C					;$BB863E
+	STY $1E					;$BB8640
 	PHB					;$BB8642
 	PHY					;$BB8643
-	LDA.w #$FFFF				;$BB8644
-	STA.b $1A				;$BB8647
-	LDA.w #$7E2100				;$BB8649
-	STA.b $2E				;$BB864C
+	LDA #$FFFF				;$BB8644
+	STA $1A					;$BB8647
+	LDA #$7E2100				;$BB8649
+	STA $2E					;$BB864C
 	LDA.w #$7E2100>>16			;$BB864E
-	STA.b $30				;$BB8651
-	STA.b $2C				;$BB8653
-	LDA.w #$2000				;$BB8655
-	STA.b $2A				;$BB8658
-	LDA.w #$8001				;$BB865A
-	STA.b $36				;$BB865D
-	LDA.w #$8040				;$BB865F
-	STA.b $32				;$BB8662
-	LDX.b $20				;$BB8664
-	LDY.w #$0001				;$BB8666
-	SEP.b #$20				;$BB8669
-	LDA.b $22				;$BB866B
+	STA $30					;$BB8651
+	STA $2C					;$BB8653
+	LDA #$2000				;$BB8655
+	STA $2A					;$BB8658
+	LDA #$8001				;$BB865A
+	STA $36					;$BB865D
+	LDA #$8040				;$BB865F
+	STA $32					;$BB8662
+	LDX $20					;$BB8664
+	LDY #$0001				;$BB8666
+	SEP #$20				;$BB8669
+	LDA $22					;$BB866B
 	PHA					;$BB866D
 	PLB					;$BB866E
-	LDA.b [$1C],y				;$BB866F
-	STA.b $3A				;$BB8671
+	LDA [$1C],y				;$BB866F
+	STA $3A					;$BB8671
 	INY					;$BB8673
-	LDA.b [$1C],y				;$BB8674
-	STA.b $3B				;$BB8676
+	LDA [$1C],y				;$BB8674
+	STA $3B					;$BB8676
 	INY					;$BB8678
-	LDA.b [$1C],y				;$BB8679
-	STA.b $3E				;$BB867B
+	LDA [$1C],y				;$BB8679
+	STA $3E					;$BB867B
 	INY					;$BB867D
-	LDA.b [$1C],y				;$BB867E
-	STA.b $3F				;$BB8680
+	LDA [$1C],y				;$BB867E
+	STA $3F					;$BB8680
 	INY					;$BB8682
-	REP.b #$20				;$BB8683
-	LDA.b [$1C],y				;$BB8685
-	STA.b $3C				;$BB8687
-	LDY.w #$0027				;$BB8689
-	STZ.b $24				;$BB868C
-	STZ.b $26				;$BB868E
-	SEP.b #$20				;$BB8690
-CODE_BB8692:
-	LDA.b [$1C],y				;$BB8692
-	INY					;$BB8694
-	STA.b $2E				;$BB8695
-	AND.b #$F0				;$BB8697
-	LSR					;$BB8699
-	LSR					;$BB869A
-	STA.b $36				;$BB869B
-	PEI.b ($36)				;$BB869D
-	RTS					;$BB869F
+	REP #$20				;$BB8683
+	LDA [$1C],y				;$BB8685
+	STA $3C					;$BB8687
+	LDY #$0027				;$BB8689
+	STZ $24					;$BB868C
+	STZ $26					;$BB868E
+	SEP #$20				;$BB8690
+execute_command_set_1:				;	   |
+	LDA [$1C],y				;$BB8692   |\ Read the first command byte
+	INY					;$BB8694   | |
+	STA $2E					;$BB8695   |/
+	AND #$F0				;$BB8697   |\ Command = (byte & 0xF0) >> 2
+	LSR					;$BB8699   | | Range $00-$3C
+	LSR					;$BB869A   | |
+	STA $36					;$BB869B   |/
+	PEI ($36)				;$BB869D   | Push command address onto the stack
+	RTS					;$BB869F  / Return to execute command
 
-CODE_BB86A0:
-	LDA.b $2E				;$BB86A0
-	AND.b #$0F				;$BB86A2
-	ASL					;$BB86A4
-	ASL					;$BB86A5
-	ADC.b #$3F				;$BB86A6
-	STA.b $32				;$BB86A8
-	PEI.b ($32)				;$BB86AA
-	RTS					;$BB86AC
+execute_command_set_2_wide:
+	LDA $2E					;$BB86A0  \ Read next command byte
+	AND #$0F				;$BB86A2   |\ Command = (byte & 0xF0) >> 2
+	ASL					;$BB86A4   | | Range $3F-$7B
+	ASL					;$BB86A5   | |
+	ADC #$3F				;$BB86A6   |/
+	STA $32					;$BB86A8   |
+	PEI ($32)				;$BB86AA   | Push command address onto the stack
+	RTS					;$BB86AC  / Return to execute command
 
-CODE_BB86AD:
-	LDA.b $2A				;$BB86AD
-	AND.b #$0F				;$BB86AF
-	ASL					;$BB86B1
-	ASL					;$BB86B2
-	ADC.b #$3F				;$BB86B3
-	STA.b $32				;$BB86B5
-	PEI.b ($32)				;$BB86B7
-	RTS					;$BB86B9
+execute_command_set_2:
+	LDA $2A					;$BB86AD  \ Read next command byte
+	AND #$0F				;$BB86AF   |\ Command = (byte & 0xF0) >> 2
+	ASL					;$BB86B1   | | Range $3F-$7B
+	ASL					;$BB86B2   | |
+	ADC #$3F				;$BB86B3   | |
+	STA $32					;$BB86B5   |/
+	PEI ($32)				;$BB86B7   | Push command address onto the stack
+	RTS					;$BB86B9  / Return to execute command
 
-CODE_BB86BA:
-	LDA.b $2E				;$BB86BA
-	AND.b #$0F				;$BB86BC
-	BEQ.b CODE_BB86D0			;$BB86BE
-	STA.b $24				;$BB86C0
-CODE_BB86C2:
-	LDA.b [$1C],y				;$BB86C2
-	INY					;$BB86C4
-	STA.w $0000,x				;$BB86C5
-	INX					;$BB86C8
-	DEC.b $24				;$BB86C9
-	BNE.b CODE_BB86C2			;$BB86CB
-	JMP.w CODE_BB8692			;$BB86CD
+copy_or_return_1:
+	LDA $2E					;$BB86BA  \ \ Read number of bytes to copy
+	AND #$0F				;$BB86BC   | |
+	BEQ finalize_decompression		;$BB86BE   |/ If zero bytes, conclude decompression
+	STA $24					;$BB86C0   | Store number of bytes to copy
+.copy_byte:					;	   |
+	LDA [$1C],y				;$BB86C2   |\ Direct copy of up to 16 bytes
+	INY					;$BB86C4   | |
+	STA $0000,x				;$BB86C5   | |
+	INX					;$BB86C8   | |
+	DEC $24					;$BB86C9   | |
+	BNE .copy_byte				;$BB86CB   |/
+	JMP execute_command_set_1		;$BB86CD  / Read new command
 
-CODE_BB86D0:
-	REP.b #$20				;$BB86D0
-	PLY					;$BB86D2
-	PLB					;$BB86D3
-	TXA					;$BB86D4
-	SEC					;$BB86D5
-	SBC.b $20				;$BB86D6
-	TAX					;$BB86D8
-	LDA.b $1A				;$BB86D9
-	BMI.b CODE_BB86FE			;$BB86DB
-	LDA.b $40				;$BB86DD
-	STA.w !REGISTER_VRAMAddressLo		;$BB86DF
-	LDA.b $20				;$BB86E2
-	STA.w DMA[$00].SourceLo			;$BB86E4
-	LDA.b $22				;$BB86E7
-	STA.w DMA[$00].SourceBank		;$BB86E9
-	STX.w DMA[$00].SizeLo			;$BB86EC
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$BB86EF
-	STA.w DMA[$00].Parameters		;$BB86F2
-	SEP.b #$20				;$BB86F5
-	LDA.b #$01				;$BB86F7
-	STA.w !REGISTER_DMAEnable		;$BB86F9
-	REP.b #$20				;$BB86FC
-CODE_BB86FE:
-	RTL					;$BB86FE
+finalize_decompression:
+	REP #$20				;$BB86D0  \ \ Restore 16 bit A, data bank and Y
+	PLY					;$BB86D2   | |
+	PLB					;$BB86D3   |/
+	TXA					;$BB86D4   |\ Calculate the number of decompressed bytes (stored in X)
+	SEC					;$BB86D5   | | X = X - destination (Where X as an operand is the destination offset)
+	SBC $20					;$BB86D6   | |
+	TAX					;$BB86D8   |/
+	LDA $1A					;$BB86D9   |\ Check if DMA should run
+	BMI .skip_DMA				;$BB86DB   |/
+	LDA $40					;$BB86DD   |\ This would be a be a DMA to VRAM
+	STA.w !REGISTER_VRAMAddressLo		;$BB86DF   | | However $32 is a constant and will always be skipped (0xFFFF)
+	LDA $20					;$BB86E2   | |
+	STA DMA[$00].SourceLo			;$BB86E4   | |
+	LDA $22					;$BB86E7   | |
+	STA DMA[$00].SourceBank			;$BB86E9   | |
+	STX DMA[$00].SizeLo			;$BB86EC   | |
+	LDA #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$BB86EF   | |
+	STA DMA[$00].Parameters			;$BB86F2   | |
+	SEP #$20				;$BB86F5   | |
+	LDA #$01				;$BB86F7   | |
+	STA.w !REGISTER_DMAEnable		;$BB86F9   | |
+	REP #$20				;$BB86FC   |/
+.skip_DMA:					;	   |
+	RTL					;$BB86FE  / Done with decompression
 
-CODE_BB86FF:
-	LDA.b [$1C],y				;$BB86FF
-	INY					;$BB8701
-	STA.b $2A				;$BB8702
-	STA.b $2E				;$BB8704
-	LDA.b [$2A]				;$BB8706
-	BEQ.b CODE_BB86D0			;$BB8708
-	STA.b $24				;$BB870A
-CODE_BB870C:
-	LDA.b [$2E]				;$BB870C
-	STA.b $26				;$BB870E
-	LDA.b [$1C],y				;$BB8710
-	INY					;$BB8712
-	STA.b $2A				;$BB8713
-	STA.b $2E				;$BB8715
-	LDA.b $26				;$BB8717
-	ORA.b [$2A]				;$BB8719
-	STA.w $0000,x				;$BB871B
-	INX					;$BB871E
-	DEC.b $24				;$BB871F
-	BNE.b CODE_BB870C			;$BB8721
-	JMP.w CODE_BB86A0			;$BB8723
+copy_or_return_2:
+	LDA [$1C],y				;$BB86FF  \ \ Load next operand
+	INY					;$BB8701   |/
+	STA $2A					;$BB8702   |\ Store in nibble lookup tables
+	STA $2E					;$BB8704   |/
+	LDA [$2A]				;$BB8706   |\ Load number of bytes to write
+	BEQ finalize_decompression		;$BB8708   | | If zero bytes, conclude decompression
+	STA $24					;$BB870A   |/ Store number of bytes to write
+.copy_byte:					;	   |
+	LDA [$2E]				;$BB870C   |\ operand2 = high byte
+	STA $26					;$BB870E   |/
+	LDA [$1C],y				;$BB8710   |\ Load next operand
+	INY					;$BB8712   |/
+	STA $2A					;$BB8713   |\ Store in nibble lookup tables
+	STA $2E					;$BB8715   |/
+	LDA $26					;$BB8717   | Load operand2
+	ORA [$2A]				;$BB8719   |\ write operand2 | low nibble
+	STA $0000,x				;$BB871B   |/
+	INX					;$BB871E   |\ Continue until no there are no more bytes
+	DEC $24					;$BB871F   | |
+	BNE .copy_byte				;$BB8721   |/
+	JMP execute_command_set_2_wide		;	  / Run next command;$BB8723
 
-CODE_BB8726:
-	LDA.b [$2E]				;$BB8726
-	STA.b $26				;$BB8728
-	LDA.b [$1C],y				;$BB872A
-	INY					;$BB872C
-	STA.b $2A				;$BB872D
-	LDA.b $26				;$BB872F
-	ORA.b [$2A]				;$BB8731
-	STA.w $0000,x				;$BB8733
-	INX					;$BB8736
-	JMP.w CODE_BB86AD			;$BB8737
+stream_byte_1:
+	LDA [$2E]				;$BB8726  \ \ Load operand high nibble
+	STA $26					;$BB8728   |/
+	LDA [$1C],y				;$BB872A   |\ Load next operand
+	INY					;$BB872C   | |
+	STA $2A					;$BB872D   |/
+	LDA $26					;$BB872F   | Load operand high nibble
+	ORA [$2A]				;$BB8731   |\ write high nibble | low nibble
+	STA $0000,x				;$BB8733   | |
+	INX					;$BB8736   |/
+	JMP execute_command_set_2		;$BB8737  / Run next command
 
-CODE_BB873A:
-	LDA.b [$1C],y				;$BB873A
-	INY					;$BB873C
-	STA.w $0000,x				;$BB873D
-	INX					;$BB8740
-	JMP.w CODE_BB8692			;$BB8741
+stream_byte_2:
+	LDA [$1C],y				;$BB873A  \ \ Copy one byte from the compression stream
+	INY					;$BB873C   | |
+	STA $0000,x				;$BB873D   | |
+	INX					;$BB8740   |/
+	JMP execute_command_set_1		;$BB8741  / Run next command
 
-CODE_BB8744:
-	LDA.b [$2E]				;$BB8744
-	STA.b $26				;$BB8746
-	LDA.b [$1C],y				;$BB8748
-	INY					;$BB874A
-	STA.b $2A				;$BB874B
-	STA.b $2E				;$BB874D
-	LDA.b $26				;$BB874F
-	ORA.b [$2A]				;$BB8751
-	STA.w $0000,x				;$BB8753
-	INX					;$BB8756
-	LDA.b [$2E]				;$BB8757
-	STA.b $26				;$BB8759
-	LDA.b [$1C],y				;$BB875B
-	INY					;$BB875D
-	STA.b $2A				;$BB875E
-	LDA.b $26				;$BB8760
-	ORA.b [$2A]				;$BB8762
-	STA.w $0000,x				;$BB8764
-	INX					;$BB8767
-	JMP.w CODE_BB86AD			;$BB8768
+stream_word_1:
+	LDA [$2E]				;$BB8744  \ \ Load operand high nibble into operand2
+	STA $26					;$BB8746   |/
+	LDA [$1C],y				;$BB8748   |\ Load next operand
+	INY					;$BB874A   |/
+	STA $2A					;$BB874B   |\ Store in nibble lookup tables
+	STA $2E					;$BB874D   |/
+	LDA $26					;$BB874F   | Load operand2
+	ORA [$2A]				;$BB8751   |\  write operand2 | low nibble
+	STA $0000,x				;$BB8753   | |
+	INX					;$BB8756   |/
+	LDA [$2E]				;$BB8757   |\ Load operand high nibble into operand2
+	STA $26					;$BB8759   |/
+	LDA [$1C],y				;$BB875B   |\ Load next operand
+	INY					;$BB875D   |/
+	STA $2A					;$BB875E   | Store in low nibble lookup table
+	LDA $26					;$BB8760   | Load operand2
+	ORA [$2A]				;$BB8762   |\  write operand2 | low nibble
+	STA $0000,x				;$BB8764   | |
+	INX					;$BB8767   |/
+	JMP execute_command_set_2		;$BB8768  / Run next command
 
-CODE_BB876B:
-	REP.b #$20				;$BB876B
-	LDA.b [$1C],y				;$BB876D
-	STA.w $0000,x				;$BB876F
-	INY					;$BB8772
-	INY					;$BB8773
-	INX					;$BB8774
-	INX					;$BB8775
-	SEP.b #$20				;$BB8776
-	JMP.w CODE_BB8692			;$BB8778
+stream_word_2:
+	REP #$20				;$BB876B  \ \ Copy one word from the compression stream
+	LDA [$1C],y				;$BB876D   | |
+	STA $0000,x				;$BB876F   | |
+	INY					;$BB8772   | |
+	INY					;$BB8773   | |
+	INX					;$BB8774   | |
+	INX					;$BB8775   | |
+	SEP #$20				;$BB8776   |/
+	JMP execute_command_set_1		;$BB8778  / Run next command
 
-CODE_BB877B:
-	LDA.b $2E				;$BB877B
-	AND.b #$0F				;$BB877D
-	ADC.b #$03				;$BB877F
-	STA.b $24				;$BB8781
-	LDA.b [$1C],y				;$BB8783
-	INY					;$BB8785
-CODE_BB8786:
-	STA.w $0000,x				;$BB8786
-	INX					;$BB8789
-	DEC.b $24				;$BB878A
-	BNE.b CODE_BB8786			;$BB878C
-	JMP.w CODE_BB8692			;$BB878E
+stream_byte_fill_1:
+	LDA $2E					;$BB877B   |\ Load operand
+	AND #$0F				;$BB877D   | | Count = operand & 0x0F + 3
+	ADC #$03				;$BB877F   | |
+	STA $24					;$BB8781   |/
+	LDA [$1C],y				;$BB8783   |\  Load fill byte
+	INY					;$BB8785   |/
+.fill_byte:					;	   |
+	STA $0000,x				;$BB8786   |\ Store and repeat with fill byte.
+	INX					;$BB8789   | |
+	DEC $24					;$BB878A   | |
+	BNE .fill_byte				;$BB878C   |/
+	JMP execute_command_set_1		;$BB878E  / Run next command
 
-CODE_BB8791:
-	LDA.b [$1C],y				;$BB8791
-	INY					;$BB8793
-	STA.b $2A				;$BB8794
-	STA.b $2E				;$BB8796
-	LDA.b [$2A]				;$BB8798
-	ADC.b #$03				;$BB879A
-	STA.b $24				;$BB879C
-	LDA.b [$2E]				;$BB879E
-	STA.b $26				;$BB87A0
-	LDA.b [$1C],y				;$BB87A2
-	INY					;$BB87A4
-	STA.b $2A				;$BB87A5
-	LDA.b $26				;$BB87A7
-	ORA.b [$2A]				;$BB87A9
-CODE_BB87AB:
-	STA.w $0000,x				;$BB87AB
-	INX					;$BB87AE
-	DEC.b $24				;$BB87AF
-	BNE.b CODE_BB87AB			;$BB87B1
-	JMP.w CODE_BB86AD			;$BB87B3
+stream_byte_fill_2:
+	LDA [$1C],y				;$BB8791   |\ Load next operand
+	INY					;$BB8793   |/
+	STA $2A					;$BB8794   |\ Store in nibble lookup tables
+	STA $2E					;$BB8796   |/
+	LDA [$2A]				;$BB8798   |\ Count = low nibble + 3
+	ADC #$03				;$BB879A   | |
+	STA $24					;$BB879C   |/
+	LDA [$2E]				;$BB879E   |\ Operand2 = high nibble
+	STA $26					;$BB87A0   |/
+	LDA [$1C],y				;$BB87A2   |\ Load next operand
+	INY					;$BB87A4   | |
+	STA $2A					;$BB87A5   |/ Store low nibble look up
+	LDA $26					;$BB87A7   |\ Load operand2
+	ORA [$2A]				;$BB87A9   |/ fill byte =  operand2 | low nibble
+.fill_byte:					;	   |
+	STA $0000,x				;$BB87AB   |\ Store and repeat with fill byte.
+	INX					;$BB87AE   | |
+	DEC $24					;$BB87AF   | |
+	BNE .fill_byte				;$BB87B1   |/
+	JMP execute_command_set_2		;$BB87B3  / Run next command
 
-CODE_BB87B6:
-	LDA.b $2E				;$BB87B6
-	AND.b #$0F				;$BB87B8
-	ADC.b #$03				;$BB87BA
-	STA.b $24				;$BB87BC
-	LDA.b $3A				;$BB87BE
-CODE_BB87C0:
-	STA.w $0000,x				;$BB87C0
-	INX					;$BB87C3
-	DEC.b $24				;$BB87C4
-	BNE.b CODE_BB87C0			;$BB87C6
-	JMP.w CODE_BB8692			;$BB87C8
+direct_byte_1_fill_1:
+	LDA $2E					;$BB87B6  \ \ Load operand
+	AND #$0F				;$BB87B8   | | Count = operand & 0x0F + 3
+	ADC #$03				;$BB87BA   | |
+	STA $24					;$BB87BC   |/
+	LDA $3A					;$BB87BE   | Load fill byte 1
+.fill_byte:					;	   |
+	STA $0000,x				;$BB87C0   |\ Store and repeat with fill byte.
+	INX					;$BB87C3   | |
+	DEC $24					;$BB87C4   | |
+	BNE .fill_byte				;$BB87C6   |/
+	JMP execute_command_set_1		;$BB87C8  / Run next command
 
-CODE_BB87CB:
-	LDA.b [$1C],y				;$BB87CB
-	INY					;$BB87CD
-	STA.b $2A				;$BB87CE
-	LDA.b [$2A]				;$BB87D0
-	ADC.b #$03				;$BB87D2
-	STA.b $24				;$BB87D4
-	LDA.b $3A				;$BB87D6
-CODE_BB87D8:
-	STA.w $0000,x				;$BB87D8
-	INX					;$BB87DB
-	DEC.b $24				;$BB87DC
-	BNE.b CODE_BB87D8			;$BB87DE
-	JMP.w CODE_BB86AD			;$BB87E0
+direct_byte_1_fill_2:
+	LDA [$1C],y				;$BB87CB  \ \ Load next operand
+	INY					;$BB87CD   | |
+	STA $2A					;$BB87CE   |/ Store in low nibble lookup
+	LDA [$2A]				;$BB87D0   |\ Count = low nibble + 3
+	ADC #$03				;$BB87D2   | |
+	STA $24					;$BB87D4   |/
+	LDA $3A					;$BB87D6   | Load fill byte 1
+.fill_byte:					;	   |
+	STA $0000,x				;$BB87D8   |\ Store and repeat with fill byte.
+	INX					;$BB87DB   | |
+	DEC $24					;$BB87DC   | |
+	BNE .fill_byte				;$BB87DE   |/
+	JMP execute_command_set_2		;$BB87E0  / Run next command
 
-CODE_BB87E3:
-	LDA.b $2E				;$BB87E3
-	AND.b #$0F				;$BB87E5
-	ADC.b #$03				;$BB87E7
-	STA.b $24				;$BB87E9
-	LDA.b $3B				;$BB87EB
-CODE_BB87ED:
-	STA.w $0000,x				;$BB87ED
-	INX					;$BB87F0
-	DEC.b $24				;$BB87F1
-	BNE.b CODE_BB87ED			;$BB87F3
-	JMP.w CODE_BB8692			;$BB87F5
+direct_byte_2_fill_1:
+	LDA $2E					;$BB87E3  \ \  Load operand
+	AND #$0F				;$BB87E5   | | Count = (operand & 0x0F) + 3
+	ADC #$03				;$BB87E7   | |
+	STA $24					;$BB87E9   |/
+	LDA $3B					;$BB87EB   | Load fill byte 2
+.fill_byte:					;	   |
+	STA $0000,x				;$BB87ED   |\ Store and repeat with fill byte.
+	INX					;$BB87F0   | |
+	DEC $24					;$BB87F1   | |
+	BNE .fill_byte				;$BB87F3   |/
+	JMP execute_command_set_1		;$BB87F5  / Run next command
 
-CODE_BB87F8:
-	LDA.b [$1C],y				;$BB87F8
-	INY					;$BB87FA
-	STA.b $2A				;$BB87FB
-	LDA.b [$2A]				;$BB87FD
-	ADC.b #$03				;$BB87FF
-	STA.b $24				;$BB8801
-	LDA.b $3B				;$BB8803
-CODE_BB8805:
-	STA.w $0000,x				;$BB8805
-	INX					;$BB8808
-	DEC.b $24				;$BB8809
-	BNE.b CODE_BB8805			;$BB880B
-	JMP.w CODE_BB86AD			;$BB880D
+direct_byte_2_fill_2:
+	LDA [$1C],y				;$BB87F8  \ \ Load next operand
+	INY					;$BB87FA   | |
+	STA $2A					;$BB87FB   |/ Store in low nibble lookup
+	LDA [$2A]				;$BB87FD   |\ Count = low nibble + 3
+	ADC #$03				;$BB87FF   | |
+	STA $24					;$BB8801   |/
+	LDA $3B					;$BB8803   | Load fill byte 2
+.fill_byte:					;	   |
+	STA $0000,x				;$BB8805   |\ Store and repeat with fill byte.
+	INX					;$BB8808   | |
+	DEC $24					;$BB8809   | |
+	BNE .fill_byte				;$BB880B   |/
+	JMP execute_command_set_2		;$BB880D  / Run next command
 
-CODE_BB8810:
-	REP.b #$20				;$BB8810
-	LDA.b $3C				;$BB8812
-	STA.w $0000,x				;$BB8814
-	INX					;$BB8817
-	INX					;$BB8818
-	SEP.b #$20				;$BB8819
-	JMP.w CODE_BB86A0			;$BB881B
+direct_word_put_1:
+	REP #$20				;$BB8810  \ \ Store direct word
+	LDA $3C					;$BB8812   | |
+	STA $0000,x				;$BB8814   | |
+	INX					;$BB8817   | |
+	INX					;$BB8818   | |
+	SEP #$20				;$BB8819   |/
+	JMP execute_command_set_2_wide		;$BB881B  / Run next command
 
-CODE_BB881E:
-	REP.b #$20				;$BB881E
-	LDA.b $3C				;$BB8820
-	STA.w $0000,x				;$BB8822
-	INX					;$BB8825
-	INX					;$BB8826
-	SEP.b #$20				;$BB8827
-	JMP.w CODE_BB8692			;$BB8829
+direct_word_put_2:
+	REP #$20				;$BB881E  \ \ Store direct word
+	LDA $3C					;$BB8820   | |
+	STA $0000,x				;$BB8822   | |
+	INX					;$BB8825   | |
+	INX					;$BB8826   | |
+	SEP #$20				;$BB8827   |/
+	JMP execute_command_set_1		;$BB8829  / Run next command
 
-CODE_BB882C:
-	LDA.b $3E				;$BB882C
-	STA.w $0000,x				;$BB882E
-	INX					;$BB8831
-	JMP.w CODE_BB86A0			;$BB8832
+direct_byte_1_put_1:
+	LDA $3E					;$BB882C  \ \ Store direct byte 1
+	STA $0000,x				;$BB882E   | |
+	INX					;$BB8831   |/
+	JMP execute_command_set_2_wide		;$BB8832  / Run next command
 
-CODE_BB8835:
-	LDA.b $3E				;$BB8835
-	STA.w $0000,x				;$BB8837
-	INX					;$BB883A
-	JMP.w CODE_BB8692			;$BB883B
+direct_byte_1_put_2:
+	LDA $3E					;$BB8835  \ \ Store direct byte 1
+	STA $0000,x				;$BB8837   | |
+	INX					;$BB883A   |/
+	JMP execute_command_set_1		;$BB883B  / Run next command
 
-CODE_BB883E:
-	LDA.b $3F				;$BB883E
-	STA.w $0000,x				;$BB8840
-	INX					;$BB8843
-	JMP.w CODE_BB86A0			;$BB8844
+direct_byte_2_put_1:
+	LDA $3F					;$BB883E  \ \ Store direct byte 2
+	STA $0000,x				;$BB8840   | |
+	INX					;$BB8843   |/
+	JMP execute_command_set_2_wide		;$BB8844  / Run next command
 
-CODE_BB8847:
-	LDA.b $3F				;$BB8847
-	STA.w $0000,x				;$BB8849
-	INX					;$BB884C
-	JMP.w CODE_BB8692			;$BB884D
+direct_byte_2_put_2:
+	LDA $3F					;$BB8847  \ \ Store direct byte 2
+	STA $0000,x				;$BB8849   | |
+	INX					;$BB884C   |/
+	JMP execute_command_set_1		;$BB884D  / Run next command
 
-CODE_BB8850:
-	PHY					;$BB8850
-	LDA.b $2E				;$BB8851
-	AND.b #$0F				;$BB8853
-	ADC.b #$02				;$BB8855
-	STA.b $26				;$BB8857
-	REP.b #$20				;$BB8859
-	TXA					;$BB885B
-	SEC					;$BB885C
-	SBC.b $26				;$BB885D
-	TAY					;$BB885F
-	LDA.w $0000,y				;$BB8860
-	STA.w $0000,x				;$BB8863
-	INX					;$BB8866
-	INX					;$BB8867
-	SEP.b #$20				;$BB8868
-	PLY					;$BB886A
-	JMP.w CODE_BB8692			;$BB886B
+back_copy_word_1:
+	PHY					;$BB8850  \ Preserve compression index
+	LDA $2E					;$BB8851   | Load operand
+	AND #$0F				;$BB8853   |\  Offset = (operand & 0x0F) + 2
+	ADC #$02				;$BB8855   | |
+	STA $26					;$BB8857   |/
+	REP #$20				;$BB8859   |\ Prepare to copy (1 word) from a previous point in decompressed data
+	TXA					;$BB885B   | | The new offset is stored in Y
+	SEC					;$BB885C   | | Y = X - offset
+	SBC $26					;$BB885D   | |
+	TAY					;$BB885F   |/
+	LDA $0000,y				;$BB8860   |\ Copy from previous data
+	STA $0000,x				;$BB8863   | |
+	INX					;$BB8866   | |
+	INX					;$BB8867   |/
+	SEP #$20				;$BB8868   | Return to 8 bit A
+	PLY					;$BB886A   | Restore compression index
+	JMP execute_command_set_1		;$BB886B  / Run next command
 
-CODE_BB886E:
-	LDA.b [$1C],y				;$BB886E
-	INY					;$BB8870
-	STA.b $2A				;$BB8871
-	LDA.b [$2A]				;$BB8873
-	ADC.b #$02				;$BB8875
-	STA.b $26				;$BB8877
-	PHY					;$BB8879
-	REP.b #$20				;$BB887A
-	TXA					;$BB887C
-	SEC					;$BB887D
-	SBC.b $26				;$BB887E
-	TAY					;$BB8880
-	LDA.w $0000,y				;$BB8881
-	STA.w $0000,x				;$BB8884
-	INX					;$BB8887
-	INX					;$BB8888
-	SEP.b #$20				;$BB8889
-	PLY					;$BB888B
-	JMP.w CODE_BB86AD			;$BB888C
+back_copy_word_2:
+	LDA [$1C],y				;$BB886E  \ \ Load next operand
+	INY					;$BB8870   | |
+	STA $2A					;$BB8871   |/
+	LDA [$2A]				;$BB8873   |\  Offset = low nibble + 2
+	ADC #$02				;$BB8875   | |
+	STA $26					;$BB8877   |/
+	PHY					;$BB8879   | Preserve compression index
+	REP #$20				;$BB887A   |\ Prepare to copy (1 word) from a previous point in decompressed data
+	TXA					;$BB887C   | | The new offset is stored in Y
+	SEC					;$BB887D   | | Y = X - offset
+	SBC $26					;$BB887E   | |
+	TAY					;$BB8880   |/
+	LDA $0000,y				;$BB8881   |\ Copy from previous data
+	STA $0000,x				;$BB8884   | |
+	INX					;$BB8887   | |
+	INX					;$BB8888   |/
+	SEP #$20				;$BB8889   | Return to 8 bit A
+	PLY					;$BB888B   | Restore compression index
+	JMP execute_command_set_2		;$BB888C  / Run next command
 
-CODE_BB888F:
-	LDA.b $2E				;$BB888F
-	AND.b #$0F				;$BB8891
-	ADC.b #$03				;$BB8893
-	STA.b $24				;$BB8895
-	LDA.b [$1C],y				;$BB8897
-	STA.b $26				;$BB8899
-	INY					;$BB889B
-	PHY					;$BB889C
-	REP.b #$20				;$BB889D
-	TXA					;$BB889F
-	SEC					;$BB88A0
-	SBC.b $24				;$BB88A1
-	SEC					;$BB88A3
-	SBC.b $26				;$BB88A4
-	TAY					;$BB88A6
-	SEP.b #$20				;$BB88A7
-CODE_BB88A9:
-	LDA.w $0000,y				;$BB88A9
-	INY					;$BB88AC
-	STA.w $0000,x				;$BB88AD
-	INX					;$BB88B0
-	DEC.b $24				;$BB88B1
-	BNE.b CODE_BB88A9			;$BB88B3
-	PLY					;$BB88B5
-	JMP.w CODE_BB8692			;$BB88B6
+back_copy_1:
+	LDA $2E					;$BB888F  \ Load next operand
+	AND #$0F				;$BB8891   |\  Count = (operand & 0x0F) + 3
+	ADC #$03				;$BB8893   | |
+	STA $24					;$BB8895   |/
+	LDA [$1C],y				;$BB8897   |\ Load next operand
+	STA $26					;$BB8899   | |
+	INY					;$BB889B   |/
+	PHY					;$BB889C   | Preserve compression index
+	REP #$20				;$BB889D   |\ Prepare to copy from a previous point in decompressed data
+	TXA					;$BB889F   | | The new offset is stored in Y
+	SEC					;$BB88A0   | | Y = X - count - offset
+	SBC $24					;$BB88A1   | |
+	SEC					;$BB88A3   | |
+	SBC $26					;$BB88A4   | |
+	TAY					;$BB88A6   |/
+	SEP #$20				;$BB88A7   | Back to 8 bit A
+.byte_copy:					;	   |
+	LDA $0000,y				;$BB88A9   |\ Copy from previous data
+	INY					;$BB88AC   | |
+	STA $0000,x				;$BB88AD   | |
+	INX					;$BB88B0   |/
+	DEC $24					;$BB88B1   |\ Copy count number of bytes
+	BNE .byte_copy				;$BB88B3   |/
+	PLY					;$BB88B5   | Restore compression index
+	JMP execute_command_set_1		;$BB88B6  / Run next command
 
-CODE_BB88B9:
-	LDA.b [$1C],y				;$BB88B9
-	INY					;$BB88BB
-	STA.b $2A				;$BB88BC
-	STA.b $2E				;$BB88BE
-	LDA.b [$2A]				;$BB88C0
-	ADC.b #$03				;$BB88C2
-	STA.b $24				;$BB88C4
-	LDA.b [$2E]				;$BB88C6
-	STA.b $26				;$BB88C8
-	LDA.b [$1C],y				;$BB88CA
-	INY					;$BB88CC
-	STA.b $2A				;$BB88CD
-	LDA.b [$2A]				;$BB88CF
-	ORA.b $26				;$BB88D1
-	STA.b $26				;$BB88D3
-	PHY					;$BB88D5
-	REP.b #$20				;$BB88D6
-	TXA					;$BB88D8
-	SEC					;$BB88D9
-	SBC.b $24				;$BB88DA
-	SEC					;$BB88DC
-	SBC.b $26				;$BB88DD
-	TAY					;$BB88DF
-	SEP.b #$20				;$BB88E0
-CODE_BB88E2:
-	LDA.w $0000,y				;$BB88E2
-	INY					;$BB88E5
-	STA.w $0000,x				;$BB88E6
-	INX					;$BB88E9
-	DEC.b $24				;$BB88EA
-	BNE.b CODE_BB88E2			;$BB88EC
-	PLY					;$BB88EE
-	JMP.w CODE_BB86AD			;$BB88EF
+back_copy_2:
+	LDA [$1C],y				;$BB88B9  \ \ Load next operand
+	INY					;$BB88BB   |/
+	STA $2A					;$BB88BC   |\ Store in nibble look up tables
+	STA $2E					;$BB88BE   |/
+	LDA [$2A]				;$BB88C0   |\ Count = low nibble + 3
+	ADC #$03				;$BB88C2   | |
+	STA $24					;$BB88C4   |/
+	LDA [$2E]				;$BB88C6   |\ Store high nibble in offset
+	STA $26					;$BB88C8   |/
+	LDA [$1C],y				;$BB88CA   |\ Load next operand and store in the low nibble lookup
+	INY					;$BB88CC   | |
+	STA $2A					;$BB88CD   |/
+	LDA [$2A]				;$BB88CF   |\ offset = low nibble | offset
+	ORA $26					;$BB88D1   | |
+	STA $26					;$BB88D3   |/
+	PHY					;$BB88D5   | Preserve compression index
+	REP #$20				;$BB88D6   |\ Prepare to copy from a previous point in decompressed data
+	TXA					;$BB88D8   | | The new offset is stored in Y
+	SEC					;$BB88D9   | | Y = X - count - offset
+	SBC $24					;$BB88DA   | |
+	SEC					;$BB88DC   | |
+	SBC $26					;$BB88DD   | |
+	TAY					;$BB88DF   |/
+	SEP #$20				;$BB88E0   | Back to 8 bit A
+.byte_copy:					;	   |
+	LDA $0000,y				;$BB88E2   |\ Copy from previous data
+	INY					;$BB88E5   | |
+	STA $0000,x				;$BB88E6   | |
+	INX					;$BB88E9   |/
+	DEC $24					;$BB88EA   |\ Copy count number of bytes
+	BNE .byte_copy				;$BB88EC   |/
+	PLY					;$BB88EE   | Restore compression index
+	JMP execute_command_set_2		;$BB88EF  / Run next command
 
-CODE_BB88F2:
-	LDA.b $2E				;$BB88F2
-	AND.b #$0F				;$BB88F4
-	ADC.b #$03				;$BB88F6
-	STA.b $24				;$BB88F8
-	LDA.b [$1C],y				;$BB88FA
-	INY					;$BB88FC
-	XBA					;$BB88FD
-	LDA.b [$1C],y				;$BB88FE
-	INY					;$BB8900
-	STA.b $2E				;$BB8901
-	REP.b #$20				;$BB8903
-	LSR					;$BB8905
-	LSR					;$BB8906
-	LSR					;$BB8907
-	LSR					;$BB8908
-	CLC					;$BB8909
-	ADC.w #$0103				;$BB890A
-	STA.b $28				;$BB890D
-	PHY					;$BB890F
-	TXA					;$BB8910
-	SEC					;$BB8911
-	SBC.b $28				;$BB8912
-	TAY					;$BB8914
-	SEP.b #$20				;$BB8915
-CODE_BB8917:
-	LDA.w $0000,y				;$BB8917
-	INY					;$BB891A
-	STA.w $0000,x				;$BB891B
-	INX					;$BB891E
-	DEC.b $24				;$BB891F
-	BNE.b CODE_BB8917			;$BB8921
-	PLY					;$BB8923
-	JMP.w CODE_BB86A0			;$BB8924
+back_copy_far_1:
+	LDA $2E					;$BB88F2  \ Load next operand
+	AND #$0F				;$BB88F4   |\  Count = (operand & 0x0F) + 3
+	ADC #$03				;$BB88F6   | |
+	STA $24					;$BB88F8   |/
+	LDA [$1C],y				;$BB88FA   |\ Load next operand
+	INY					;$BB88FC   | |
+	XBA					;$BB88FD   |/ Store as high byte for the full operand
+	LDA [$1C],y				;$BB88FE   |\ Load next operand store in high byte look up
+	INY					;$BB8900   | |
+	STA $2E					;$BB8901   |/
+	REP #$20				;$BB8903   | Switch to 16 bit A
+	LSR					;$BB8905   |\ Offset = (operand >> 4) + 0x0103
+	LSR					;$BB8906   | |
+	LSR					;$BB8907   | |
+	LSR					;$BB8908   | |
+	CLC					;$BB8909   | |
+	ADC #$0103				;$BB890A   | |
+	STA $28					;$BB890D   |/
+	PHY					;$BB890F   | Preserve compression index
+	TXA					;$BB8910   |\ Prepare to copy from a previous point in decompressed data
+	SEC					;$BB8911   | | Y = X - offset
+	SBC $28					;$BB8912   | |
+	TAY					;$BB8914   |/
+	SEP #$20				;$BB8915   | Back to 8 bit A
+.byte_copy:					;	   |
+	LDA $0000,y				;$BB8917   |\ Copy from previous data
+	INY					;$BB891A   | |
+	STA $0000,x				;$BB891B   | |
+	INX					;$BB891E   |/
+	DEC $24					;$BB891F   |\ Copy count number of bytes
+	BNE .byte_copy				;$BB8921   |/
+	PLY					;$BB8923   | Restore compression index
+	JMP execute_command_set_2_wide		;	  / Run next command;$BB8924
 
-CODE_BB8927:
-	LDA.b [$1C],y				;$BB8927
-	INY					;$BB8929
-	STA.b $2A				;$BB892A
-	LDA.b [$2A]				;$BB892C
-	ADC.b #$03				;$BB892E
-	STA.b $24				;$BB8930
-	LDA.b $2A				;$BB8932
-	AND.b #$0F				;$BB8934
-	XBA					;$BB8936
-	LDA.b [$1C],y				;$BB8937
-	INY					;$BB8939
-	REP.b #$20				;$BB893A
-	ADC.w #$0103				;$BB893C
-	STA.b $28				;$BB893F
-	PHY					;$BB8941
-	TXA					;$BB8942
-	SEC					;$BB8943
-	SBC.b $28				;$BB8944
-	TAY					;$BB8946
-	SEP.b #$20				;$BB8947
-CODE_BB8949:
-	LDA.w $0000,y				;$BB8949
-	INY					;$BB894C
-	STA.w $0000,x				;$BB894D
-	INX					;$BB8950
-	DEC.b $24				;$BB8951
-	BNE.b CODE_BB8949			;$BB8953
-	PLY					;$BB8955
-	JMP.w CODE_BB8692			;$BB8956
+back_copy_far_2:
+	LDA [$1C],y				;$BB8927  \ \ Load next operand
+	INY					;$BB8929   | |
+	STA $2A					;$BB892A   |/ Store in low nibble look up table
+	LDA [$2A]				;$BB892C   |\ Count = low nibble + 3
+	ADC #$03				;$BB892E   | |
+	STA $24					;$BB8930   |/
+	LDA $2A					;$BB8932   |\ Copy the low nibble to the operand high byte
+	AND #$0F				;$BB8934   | |
+	XBA					;$BB8936   |/
+	LDA [$1C],y				;$BB8937   |\ Load the operand low byte
+	INY					;$BB8939   |/
+	REP #$20				;$BB893A   |\ Offset = operand + 0x0103
+	ADC #$0103				;$BB893C   | |
+	STA $28					;$BB893F   |/
+	PHY					;$BB8941   | Preserve compression index
+	TXA					;$BB8942   |\ Prepare to copy from a previous point in decompressed data
+	SEC					;$BB8943   | | Y = X - offset
+	SBC $28					;$BB8944   | |
+	TAY					;$BB8946   |/
+	SEP #$20				;$BB8947   | Back to 8 bit A
+.byte_copy:					;	   |
+	LDA $0000,y				;$BB8949   |\ Copy from previous data
+	INY					;$BB894C   | |
+	STA $0000,x				;$BB894D   | |
+	INX					;$BB8950   |/
+	DEC $24					;$BB8951   |\ Copy count number of bytes
+	BNE .byte_copy				;$BB8953   |/
+	PLY					;$BB8955   | Restore compression index
+	JMP execute_command_set_1		;$BB8956  / Run next command
 
-CODE_BB8959:
-	LDA.b $2E				;$BB8959
-	AND.b #$0F				;$BB895B
-	ADC.b #$03				;$BB895D
-	STA.b $24				;$BB895F
-	REP.b #$20				;$BB8961
-	LDA.b [$1C],y				;$BB8963
-	XBA					;$BB8965
-	STA.b $28				;$BB8966
-	INY					;$BB8968
-	INY					;$BB8969
-	PHY					;$BB896A
-	TXA					;$BB896B
-	SEC					;$BB896C
-	SBC.b $28				;$BB896D
-	TAY					;$BB896F
-	SEP.b #$20				;$BB8970
-CODE_BB8972:
-	LDA.w $0000,y				;$BB8972
-	INY					;$BB8975
-	STA.w $0000,x				;$BB8976
-	INX					;$BB8979
-	DEC.b $24				;$BB897A
-	BNE.b CODE_BB8972			;$BB897C
-	PLY					;$BB897E
-	JMP.w CODE_BB8692			;$BB897F
+back_copy_arbitrary_1:
+	LDA $2E					;$BB8959  \ Load next operand
+	AND #$0F				;$BB895B   |\  Count = (operand & 0x0F) + 3
+	ADC #$03				;$BB895D   | |
+	STA $24					;$BB895F   |/
+	REP #$20				;$BB8961   |\ Read a big endian word for the offset
+	LDA [$1C],y				;$BB8963   | |
+	XBA					;$BB8965   | |
+	STA $28					;$BB8966   |/
+	INY					;$BB8968   |\ Increment the compression index
+	INY					;$BB8969   |/
+	PHY					;$BB896A   | Preserve compression index
+	TXA					;$BB896B   |\ Prepare to copy from a previous point in decompressed data
+	SEC					;$BB896C   | | Y = X - offset
+	SBC $28					;$BB896D   | |
+	TAY					;$BB896F   |/
+	SEP #$20				;$BB8970   | Back to 8 bit A
+.byte_copy:					;	   |
+	LDA $0000,y				;$BB8972   |\ Copy from previous data
+	INY					;$BB8975   | |
+	STA $0000,x				;$BB8976   | |
+	INX					;$BB8979   |/
+	DEC $24					;$BB897A   |\ Copy count number of bytes
+	BNE .byte_copy				;$BB897C   |/
+	PLY					;$BB897E   | Restore compression index
+	JMP execute_command_set_1		;$BB897F  / Run next command
 
-CODE_BB8982:
-	LDA.b [$1C],y				;$BB8982
-	INY					;$BB8984
-	STA.b $2A				;$BB8985
-	LDA.b [$2A]				;$BB8987
-	ADC.b #$03				;$BB8989
-	STA.b $24				;$BB898B
-	LDA.b $2A				;$BB898D
-	XBA					;$BB898F
-	LDA.b [$1C],y				;$BB8990
-	INY					;$BB8992
-	REP.b #$20				;$BB8993
-	ASL					;$BB8995
-	ASL					;$BB8996
-	ASL					;$BB8997
-	ASL					;$BB8998
-	STA.b $28				;$BB8999
-	AND.w #$00FF				;$BB899B
-	SEP.b #$20				;$BB899E
-	LDA.b [$1C],y				;$BB89A0
-	INY					;$BB89A2
-	PHY					;$BB89A3
-	STA.b $2A				;$BB89A4
-	LDA.b [$2A]				;$BB89A6
-	REP.b #$20				;$BB89A8
-	AND.w #$000F				;$BB89AA
-	ORA.b $28				;$BB89AD
-	STA.b $28				;$BB89AF
-	TXA					;$BB89B1
-	SEC					;$BB89B2
-	SBC.b $28				;$BB89B3
-	TAY					;$BB89B5
-	SEP.b #$20				;$BB89B6
-CODE_BB89B8:
-	LDA.w $0000,y				;$BB89B8
-	INY					;$BB89BB
-	STA.w $0000,x				;$BB89BC
-	INX					;$BB89BF
-	DEC.b $24				;$BB89C0
-	BNE.b CODE_BB89B8			;$BB89C2
-	PLY					;$BB89C4
-	JMP.w CODE_BB86AD			;$BB89C5
+back_copy_arbitrary_2:
+	LDA [$1C],y				;$BB8982  \ \ Load next operand
+	INY					;$BB8984   | |
+	STA $2A					;$BB8985   |/ Store in low nibble look up table
+	LDA [$2A]				;$BB8987   |\ Count = low nibble + 3
+	ADC #$03				;$BB8989   | |
+	STA $24					;$BB898B   |/
+	LDA $2A					;$BB898D   |\ Copy as the operand high byte
+	XBA					;$BB898F   |/
+	LDA [$1C],y				;$BB8990   |\ Load the operand low byte
+	INY					;$BB8992   |/
+	REP #$20				;$BB8993   | Set A to 16 bit
+	ASL					;$BB8995   |\ Offset = (operand << 4)
+	ASL					;$BB8996   | |
+	ASL					;$BB8997   | |
+	ASL					;$BB8998   | |
+	STA $28					;$BB8999   |/
+	AND #$00FF				;$BB899B   | Clear the high byte of the offset
+	SEP #$20				;$BB899E   | Resume 8 bit A
+	LDA [$1C],y				;$BB89A0   |\ Load next operand
+	INY					;$BB89A2   |/
+	PHY					;$BB89A3   | Preserve compression index
+	STA $2A					;$BB89A4   | Store the operand in the low nibble look up table
+	LDA [$2A]				;$BB89A6   |\ Load low nibble
+	REP #$20				;$BB89A8   | |
+	AND #$000F				;$BB89AA   |/
+	ORA $28					;$BB89AD   |\ offset = offset | low nibble
+	STA $28					;$BB89AF   |/
+	TXA					;$BB89B1   |\ Prepare to copy from a previous point in decompressed data
+	SEC					;$BB89B2   | | Y = X - offset
+	SBC $28					;$BB89B3   | |
+	TAY					;$BB89B5   |/
+	SEP #$20				;$BB89B6   | Back to 8 bit A
+.copy_byte:					;	   |
+	LDA $0000,y				;$BB89B8   |\ Copy from previous data
+	INY					;$BB89BB   | |
+	STA $0000,x				;$BB89BC   | |
+	INX					;$BB89BF   |/
+	DEC $24					;$BB89C0   |\ Copy count number of bytes
+	BNE .copy_byte				;$BB89C2   |/
+	PLY					;$BB89C4   | Restore compression index
+	JMP execute_command_set_2		;$BB89C5  / Run next command Run next command
 
-CODE_BB89C8:
-	DEX					;$BB89C8
-	LDA.w $0000,x				;$BB89C9
-	STA.w $0001,x				;$BB89CC
-	INX					;$BB89CF
-	INX					;$BB89D0
-	JMP.w CODE_BB86A0			;$BB89D1
+duplicate_byte_1:
+	DEX					;$BB89C8  \ \ Copy previous byte to the decompression stream
+	LDA $0000,x				;$BB89C9   | |
+	STA $0001,x				;$BB89CC   | |
+	INX					;$BB89CF   | |
+	INX					;$BB89D0   |/
+	JMP execute_command_set_2_wide		;$BB89D1  / Run next command
 
-CODE_BB89D4:
-	DEX					;$BB89D4
-	LDA.w $0000,x				;$BB89D5
-	STA.w $0001,x				;$BB89D8
-	INX					;$BB89DB
-	INX					;$BB89DC
-	JMP.w CODE_BB8692			;$BB89DD
+duplicate_byte_2:
+	DEX					;$BB89D4  \ \ Copy previous byte to the decompression stream
+	LDA $0000,x				;$BB89D5   | |
+	STA $0001,x				;$BB89D8   | |
+	INX					;$BB89DB   | |
+	INX					;$BB89DC   |/
+	JMP execute_command_set_1		;$BB89DD  / Run next command
 
-CODE_BB89E0:
-	REP.b #$20				;$BB89E0
-	DEX					;$BB89E2
-	DEX					;$BB89E3
-	LDA.w $0000,x				;$BB89E4
-	STA.w $0002,x				;$BB89E7
-	SEP.b #$20				;$BB89EA
-	INX					;$BB89EC
-	INX					;$BB89ED
-	INX					;$BB89EE
-	INX					;$BB89EF
-	JMP.w CODE_BB86A0			;$BB89F0
+duplicate_word_1:
+	REP #$20				;$BB89E0  \ \ Copy the previous word to the decompression stream
+	DEX					;$BB89E2   | |
+	DEX					;$BB89E3   | | First go back two bytes
+	LDA $0000,x				;$BB89E4   | |
+	STA $0002,x				;$BB89E7   | |
+	SEP #$20				;$BB89EA   | |
+	INX					;$BB89EC   | | Then jump ahead four bytes
+	INX					;$BB89ED   | |
+	INX					;$BB89EE   | |
+	INX					;$BB89EF   |/
+	JMP execute_command_set_2_wide		;$BB89F0  / Run next command
 
-CODE_BB89F3:
-	REP.b #$20				;$BB89F3
-	DEX					;$BB89F5
-	DEX					;$BB89F6
-	LDA.w $0000,x				;$BB89F7
-	STA.w $0002,x				;$BB89FA
-	SEP.b #$20				;$BB89FD
-	INX					;$BB89FF
-	INX					;$BB8A00
-	INX					;$BB8A01
-	INX					;$BB8A02
-	JMP.w CODE_BB8692			;$BB8A03
+duplicate_word_2:
+	REP #$20				;$BB89F3  \ \ Copy the previous word to the decompression stream
+	DEX					;$BB89F5   | |
+	DEX					;$BB89F6   | | First go back two bytes
+	LDA $0000,x				;$BB89F7   | |
+	STA $0002,x				;$BB89FA   | |
+	SEP #$20				;$BB89FD   | |
+	INX					;$BB89FF   | | Then jump ahead four bytes
+	INX					;$BB8A00   | |
+	INX					;$BB8A01   | |
+	INX					;$BB8A02   |/
+	JMP execute_command_set_1		;$BB8A03  / Run next command
 
-CODE_BB8A06:
-	PHY					;$BB8A06
-	LDA.b $2E				;$BB8A07
-	REP.b #$20				;$BB8A09
-	AND.w #$000F				;$BB8A0B
-	ASL					;$BB8A0E
-	ADC.w #$0007				;$BB8A0F
-	TAY					;$BB8A12
-	LDA.b [$1C],y				;$BB8A13
-	STA.w $0000,x				;$BB8A15
-	SEP.b #$20				;$BB8A18
-	INX					;$BB8A1A
-	INX					;$BB8A1B
-	PLY					;$BB8A1C
-	JMP.w CODE_BB8692			;$BB8A1D
+copy_future_word_1:
+	PHY					;$BB8A06  \ Preserve compression index
+	LDA $2E					;$BB8A07   | Load next operand
+	REP #$20				;$BB8A09   | Set A to 16 bit
+	AND #$000F				;$BB8A0B   |\ Y = (operand << 1) + 7
+	ASL					;$BB8A0E   | |
+	ADC #$0007				;$BB8A0F   | |
+	TAY					;$BB8A12   |/
+	LDA [$1C],y				;$BB8A13   |\ Copy word from compression stream to the decompression stream
+	STA $0000,x				;$BB8A15   |/
+	SEP #$20				;$BB8A18   |\ Return to 8 bit A and increment the decompression index
+	INX					;$BB8A1A   | |
+	INX					;$BB8A1B   |/
+	PLY					;$BB8A1C   | Restore compression index
+	JMP execute_command_set_1		;$BB8A1D  / Run next command
 
-CODE_BB8A20:
-	LDA.b [$1C],y				;$BB8A20
-	INY					;$BB8A22
-	STA.b $2E				;$BB8A23
-	REP.b #$20				;$BB8A25
-	AND.w #$00F0				;$BB8A27
-	LSR					;$BB8A2A
-	LSR					;$BB8A2B
-	LSR					;$BB8A2C
-	PHY					;$BB8A2D
-	ADC.w #$0007				;$BB8A2E
-	TAY					;$BB8A31
-	LDA.b [$1C],y				;$BB8A32
-	STA.w $0000,x				;$BB8A34
-	SEP.b #$20				;$BB8A37
-	INX					;$BB8A39
-	INX					;$BB8A3A
-	PLY					;$BB8A3B
-	JMP.w CODE_BB86A0			;$BB8A3C
+copy_future_word_2:
+	LDA [$1C],y				;$BB8A20  \ \ Load next operand
+	INY					;$BB8A22   | |
+	STA $2E					;$BB8A23   |/ Store to high nibble look up table
+	REP #$20				;$BB8A25   | Set A to 16 bit
+	AND #$00F0				;$BB8A27   |\ Operand = operand >> 3
+	LSR					;$BB8A2A   | |
+	LSR					;$BB8A2B   | |
+	LSR					;$BB8A2C   |/
+	PHY					;$BB8A2D   | Preserve compression index
+	ADC #$0007				;$BB8A2E   |\ Y = operand + 7
+	TAY					;$BB8A31   |/
+	LDA [$1C],y				;$BB8A32   |\ Copy word from compression stream to the decompression stream
+	STA $0000,x				;$BB8A34   |/
+	SEP #$20				;$BB8A37   |\ Return to 8 bit A and increment the decompression index
+	INX					;$BB8A39   | |
+	INX					;$BB8A3A   |/
+	PLY					;$BB8A3B   | Restore compression index
+	JMP execute_command_set_2_wide		;$BB8A3C  / Run next command
 
 CODE_BB8A3F:
 	PHA					;$BB8A3F
 	PHX					;$BB8A40
 	PHY					;$BB8A41
-	LDY.w #$0100				;$BB8A42
+	LDY #$0100				;$BB8A42
 	TDC					;$BB8A45
 	TAX					;$BB8A46
-	SEP.b #$20				;$BB8A47
-CODE_BB8A49:
-	STA.l $7E2100,x				;$BB8A49
-	CLC					;$BB8A4D
-	ADC.b #$10				;$BB8A4E
-	AND.b #$F0				;$BB8A50
-	INX					;$BB8A52
-	DEY					;$BB8A53
-	BNE.b CODE_BB8A49			;$BB8A54
-	LDY.w #$0100				;$BB8A56
-	LDX.w #$0000				;$BB8A59
-CODE_BB8A5C:
+	SEP #$20				;$BB8A47
+.build_high_nibble:				;
+	STA $7E2100,x				;$BB8A49   |\ Store look up value (index & 0x0F) << 4
+	CLC					;$BB8A4D   | |
+	ADC #$10				;$BB8A4E   | |
+	AND #$F0				;$BB8A50   |/
+	INX					;$BB8A52   |\ Loop through all 256 values
+	DEY					;$BB8A53   | |
+	BNE .build_high_nibble			;$BB8A54   |/
+	LDY #$0100				;$BB8A56   | Prepare to generate the low nibble table
+	LDX #$0000				;$BB8A59   |
+.build_low_nibble:				;	
 	TXA					;$BB8A5C
 	LSR					;$BB8A5D
 	LSR					;$BB8A5E
 	LSR					;$BB8A5F
 	LSR					;$BB8A60
-	STA.l $7E2000,x				;$BB8A61
+	STA $7E2000,x				;$BB8A61
 	INX					;$BB8A65
 	DEY					;$BB8A66
-	BNE.b CODE_BB8A5C			;$BB8A67
-	REP.b #$20				;$BB8A69
+	BNE .build_low_nibble			;$BB8A67
+	REP #$20				;$BB8A69
 	PLY					;$BB8A6B
 	PLX					;$BB8A6C
 	PLA					;$BB8A6D
@@ -6007,7 +6007,7 @@ CODE_BBABE4:
 	SEC					;$BBABFA
 	RTL					;$BBABFB
 
-Spr0260_unknown_sprite_0260_Main:
+unknown_sprite_0260_main:
 ;$BBABFC
 	LDY.b current_sprite			;$BBABFC
 	LDA.w $0038,y				;$BBABFE
@@ -6227,10 +6227,35 @@ CODE_BBAD61:
 	RTL					;$BBAD63
 
 DATA_BBAD64:
-	dw aux_sprite_table,$0878,$08E6,$0954,$09C2,$0A30,$0A9E,$0B0C
-	dw $0B7A,$0BE8,$0C56,$0CC4,$0D32,$0DA0,$0E0E,$0E7C
-	dw $0EEA,$0F58,$0FC6,$1034,$10A2,$1110,$117E,$11EC
-	dw $125A,$12C8,$1336,$13A4,$1412
+	dw aux_sprite_table
+	dw $0878
+	dw $08E6
+	dw $0954
+	dw $09C2
+	dw $0A30
+	dw $0A9E
+	dw $0B0C
+	dw $0B7A
+	dw $0BE8
+	dw $0C56
+	dw $0CC4
+	dw $0D32
+	dw $0DA0
+	dw $0E0E
+	dw $0E7C
+	dw $0EEA
+	dw $0F58
+	dw $0FC6
+	dw $1034
+	dw $10A2
+	dw $1110
+	dw $117E
+	dw $11EC
+	dw $125A
+	dw $12C8
+	dw $1336
+	dw $13A4
+	dw $1412
 
 CODE_BBAD9E:
 	LDX.w #$03FE				;$BBAD9E
@@ -8564,7 +8589,7 @@ CODE_BBC827:
 	JSL.l CODE_BBAB52			;$BBC827
 	JML [$04F5]				;$BBC82B
 
-Spr0124_LevelEndFlagpole_Main:
+level_end_flagpole_main:
 ;$BBC82E
 	LDA.w $0039,y				;$BBC82E
 	AND.w #$00FF				;$BBC831
@@ -8809,7 +8834,7 @@ CODE_BBC9E4:
 	STY.b $32,x				;$BBCA0A
 	RTS					;$BBCA0C
 
-Spr02A0_LevelEndFlag_Main:
+level_end_flag_main:
 ;$BBCA0D
 	JMP.w (DATA_BBCA10,x)			;$BBCA0D
 
@@ -9046,7 +9071,7 @@ CODE_BBCB7A:
 CODE_BBCBB1:
 	RTS					;$BBCBB1
 
-Spr0148_ExitDoor_Main:
+exit_door_main:
 ;$BBCBB2
 	JMP.w (DATA_BBCBB5,x)			;$BBCBB2
 
@@ -9231,7 +9256,7 @@ CODE_BBCCD7:
 CODE_BBCCE8:
 	JML [$04F5]				;$BBCCE8
 
-Spr0294_KongLetters_Main:
+kong_letters_main:
 CODE_BBCCEB:
 	JMP.w (DATA_BBCCEE,x)			;$BBCCEB
 
@@ -9624,7 +9649,7 @@ CODE_BBCFAF:
 DATA_BBCFB0:
 	db $5C,$10,$12,$64,$5E,$14,$16,$66,$60,$2A,$2C,$58,$62,$30,$32,$5A
 
-Spr014C_SpawnedRegularBanana_Main:
+banana_main:
 ;$BBCFC0
 	JMP.w (DATA_BBCFC3,x)			;$BBCFC0
 
@@ -9667,7 +9692,7 @@ CODE_BBCFF3:
 	JSL.l CODE_BB8591			;$BBD00E
 	JML [$04F5]				;$BBD012
 
-Spr0298_Bananas_Main:
+bananas_main:
 CODE_BBD015:
 	JMP.w (DATA_BBD018,x)			;$BBD015
 
@@ -9719,7 +9744,7 @@ CODE_BBD073:
 	JSL.l process_sprite_animation		;$BBD073
 	JML [$04F5]				;$BBD077
 
-Spr0154_GreenBananaSpawner_Main:
+green_banana_spawner_main:
 ;$BBD07A
 	JMP.w (DATA_BBD07D,x)			;$BBD07A
 
@@ -9766,7 +9791,7 @@ CODE_BBD0A2:
 	CLC					;$BBD0D3
 	ADC.w $005C,y				;$BBD0D4
 	TAY					;$BBD0D7
-	PEA.w ((DATA_FFB5AD&$FF0000)>>16)|((Spr0154_GreenBananaSpawner_Main&$FF0000)>>8)	;$BBD0D8
+	PEA.w ((DATA_FFB5AD&$FF0000)>>16)|((green_banana_spawner_main&$FF0000)>>8)	;$BBD0D8
 	PLB					;$BBD0DB
 	LDA.w $0000,y				;$BBD0DC
 	STA.b $12,x				;$BBD0DF
@@ -9800,7 +9825,7 @@ CODE_BBD103:
 	STA.b $38,x				;$BBD10B
 	JML [$04F5]				;$BBD10D
 
-Spr0150_GreenBanana_Main:
+green_banana_main:
 ;$BBD110
 	JMP.w (DATA_BBD113,x)			;$BBD110
 
@@ -9887,7 +9912,7 @@ CODE_BBD1AB:
 	STA.b $60,x				;$BBD1B6
 	RTS					;$BBD1B8
 
-Spr029C_ExtraLifeBalloon_Main:
+extra_life_balloon_main:
 ;$BBD1B9
 	JMP.w (DATA_BBD1BC,x)			;$BBD1B9
 
@@ -9958,7 +9983,7 @@ CODE_BBD241:
 	JSL.l CODE_BB8597			;$BBD247
 	JML [$04F5]				;$BBD24B
 
-Spr0284_BearCoin_Main:
+bear_coin_main:
 CODE_BBD24E:
 	JSL.l process_sprite_animation		;$BBD24E
 	JSL.l populate_sprite_clipping		;$BBD252
@@ -9972,7 +9997,7 @@ CODE_BBD25F:
 	JSL.l CODE_BBD42A			;$BBD263
 	JML [$04F5]				;$BBD267
 
-Spr0288_unknown_sprite_0288_Main:
+unknown_sprite_0288_main:
 CODE_BBD26A:
 	JSL.l process_sprite_animation		;$BBD26A
 	JSL.l populate_sprite_clipping		;$BBD26E
@@ -9999,7 +10024,7 @@ CODE_BBD294:
 	JSL.l CODE_BBD42A			;$BBD298
 	JML [$04F5]				;$BBD29C
 
-Spr02A4_unknown_sprite_02A4_Main:
+unknown_sprite_02A4_main:
 ;$BBD29F
 	JMP.w (DATA_BBD2A2,x)			;$BBD29F
 
@@ -10026,7 +10051,7 @@ CODE_BBD2B8:
 	JSL.l CODE_BBD42A			;$BBD2C4
 	JML [$04F5]				;$BBD2C8
 
-Spr028C_BonusBCoin_Main:
+bonus_coin_main:
 CODE_BBD2CB:
 	JMP.w (DATA_BBD2CE,x)			;$BBD2CB
 
@@ -10122,7 +10147,7 @@ CODE_BBD373:
 	STA.b $38,x				;$BBD37C
 	JML [$04F5]				;$BBD37E
 
-Spr0290_CollectableCog_Main:
+collectable_cog_main:
 ;$BBD381
 	JMP.w (DATA_BBD384,x)			;$BBD381
 
@@ -10545,7 +10570,7 @@ CODE_BBD6BF:
 CODE_BBD6CF:
 	RTS					;$BBD6CF
 
-Spr02A8_BonusLevelTimer_Main:
+bonus_level_timer_main:
 ;$BBD6D0
 	JMP.w (DATA_BBD6D3,x)			;$BBD6D0
 
@@ -10895,7 +10920,7 @@ CODE_BBD974:
 	CMP.w #$0001				;$BBD97A
 	RTS					;$BBD97D
 
-Spr0144_FloorDoor_Main:
+floor_door_main:
 ;$BBD97E
 	JMP.w (DATA_BBD981,x)			;$BBD97E
 
@@ -11098,7 +11123,7 @@ CODE_BBDAFA:
 	SEC					;$BBDB0E
 	RTS					;$BBDB0F
 
-Spr0158_KongFusedCliffsRope_Main:
+kong_fused_cliffs_rope_main:
 ;$BBDB10
 	TYX					;$BBDB10
 	LDA.b $4C,x				;$BBDB11
@@ -11180,7 +11205,7 @@ CODE_BBDB51:
 CODE_BBDBA2:
 	JML [$04F5]				;$BBDBA2
 
-Spr015C_KongFusedCliffsAutoscroll_Main:
+kong_fused_cliffs_autoscroll_main:
 ;$BBDBA5
 	JMP.w (DATA_BBDBA8,x)			;$BBDBA5
 
@@ -11412,7 +11437,7 @@ CODE_BBDD5E:
 	RTL					;$BBDD5E
 
 
-Spr02AC_RopeFire_Main:
+rope_fire_main:
 	JMP (.state_table,x)			;$BBDD5F
 
 .state_table:
@@ -11440,7 +11465,7 @@ Spr02AC_RopeFire_Main:
 	JMP CODE_BBC827				;$BBDD93  / Return (handle despawn?)
 
 
-Spr0160_unknown_sprite_0160_Main:
+unknown_sprite_0160_main:
 	JMP.w (DATA_BBDD99,x)			;$BBDD96
 
 DATA_BBDD99:
@@ -11630,7 +11655,7 @@ CODE_BBDEF3:
 DATA_BBDF15:
 	db $01,$02,$04,$08,$10,$20,$40,$80
 
-Spr0140_unknown_sprite_0140_Main:
+unknown_sprite_0140_main:
 ;$BBDF1D
 	JMP.w (DATA_BBDF20,x)			;$BBDF1D
 

@@ -3692,13 +3692,13 @@ CODE_B89F20:
 	STZ.b $3A,x				;$B89F29
 	RTS					;$B89F2B
 
-Spr022C_DixieKong_Main:
+dixie_kong_main:
 ;$B89F2C
 	LDX.w #$1480				;$B89F2C
 	LDY.w #$14D2				;$B89F2F
 	BRA.b CODE_B89F3A			;$B89F32
 
-Spr0230_KiddyKong_Main:
+kiddy_kong_main:
 ;$B89F34
 	LDX.w #$14D2				;$B89F34
 	LDY.w #$1480				;$B89F37
@@ -12590,7 +12590,7 @@ CODE_B8E2DD:
 	JSL.l CODE_B7D7FB			;$B8E2E3
 	RTS					;$B8E2E7
 
-Spr012C_unknown_sprite_012C_Main:
+unknown_sprite_012C_main:
 ;$B8E2E8
 	LDA.w $059B				;$B8E2E8
 	AND.w #$0180				;$B8E2EB
@@ -12602,8 +12602,8 @@ CODE_B8E2F7:
 	JSL.l CODE_BB85A3			;$B8E2F7
 	JML [$04F5]				;$B8E2FB
 
-Spr0004_unknown_sprite_0004_Main:
-Spr0264_unknown_sprite_0264_Main:
+unknown_sprite_0004_main:
+unknown_sprite_0264_main:
 ;$B8E2FE
 	LDA.w $059B				;$B8E2FE
 	AND.w #$0180				;$B8E301
@@ -12620,7 +12620,7 @@ CODE_B8E317:
 	JSL.l CODE_BB85A3			;$B8E317
 	JML [$04F5]				;$B8E31B
 
-Spr0134_unknown_sprite_0134_Main:
+unknown_sprite_0134_main:
 ;$B8E31E
 	LDA.w $059B				;$B8E31E
 	AND.w #$0180				;$B8E321
@@ -12628,7 +12628,7 @@ Spr0134_unknown_sprite_0134_Main:
 	JSL.l CODE_BB85AF			;$B8E326
 	JML [$04F5]				;$B8E32A
 
-Spr0130_unknown_sprite_0130_Main:
+unknown_sprite_0130_main:
 CODE_B8E32D:
 	JSL.l CODE_BB85B2			;$B8E32D
 	JML [$04F5]				;$B8E331
@@ -12763,7 +12763,7 @@ CODE_B8E42B:
 	JSL.l CODE_B9E006			;$B8E42D
 	RTL					;$B8E431
 
-Spr0234_Ellie_Main:
+ellie_main:
 ;$B8E432
 	JMP.w (DATA_B8E435,x)			;$B8E432
 
@@ -13161,8 +13161,8 @@ CODE_B8E6D9:
 CODE_B8E6FE:
 	RTS					;$B8E6FE
 
-Spr0078_EllieHorizontalWaterShot_Main:
-Spr007C_EllieDiagonalWaterShot_Main:
+ellie_horizontal_water_shot_main:
+ellie_diagonal_water_shot_main:
 ;$B8E6FF
 	JSL.l populate_sprite_clipping		;$B8E6FF
 	LDA.w $0777				;$B8E703
@@ -13187,7 +13187,7 @@ CODE_B8E735:
 	JSL.l CODE_BB8591			;$B8E735
 	JML [$04F5]				;$B8E739
 
-Spr0238_Enguarde_Main:
+enguarde_main:
 ;$B8E73C
 	JMP.w (DATA_B8E73F,x)			;$B8E73C
 
@@ -13362,7 +13362,7 @@ CODE_B8E870:
 	SEC					;$B8E87F
 	RTS					;$B8E880
 
-Spr023C_Squawks_Main:
+squawks_main:
 ;$B8E881
 	JMP.w (DATA_B8E884,x)			;$B8E881
 
@@ -13417,7 +13417,7 @@ CODE_B8E8D7:
 	JSL.l CODE_BBAB46			;$B8E8DF
 	JML [$04F5]				;$B8E8E3
 
-Spr0080_SquawksEgg_Main:
+squawks_egg_main:
 ;$B8E8E6
 	JMP.w (DATA_B8E8E9,x)			;$B8E8E6
 
@@ -13480,7 +13480,7 @@ CODE_B8E956:
 	JSL.l process_sprite_animation		;$B8E95A
 	JMP.w CODE_B8EDC1			;$B8E95E
 
-Spr0240_Squitter_Main:
+squitter_main:
 ;$B8E961
 	JMP.w (DATA_B8E964,x)			;$B8E961
 
@@ -13555,7 +13555,7 @@ CODE_B8E9D7:
 CODE_B8E9F1:
 	JML [$04F5]				;$B8E9F1
 
-Spr0248_WebShot_Main:
+web_shot_main:
 ;$B8E9F4
 	JSL.l populate_sprite_clipping		;$B8E9F4
 	LDA.w #$0040				;$B8E9F8
@@ -13612,7 +13612,7 @@ CODE_B8EA59:
 	SEC					;$B8EA59
 	RTS					;$B8EA5A
 
-Spr024C_WebPlatform_Main:
+web_platform_main:
 ;$B8EA5B
 	JMP.w (DATA_B8EA5E,x)			;$B8EA5B
 
@@ -13702,7 +13702,7 @@ CODE_B8EAF6:
 CODE_B8EAFF:
 	RTL					;$B8EAFF
 
-Spr0244_Parry_Main:
+parry_main:
 ;$B8EB00
 	JMP.w (DATA_B8EB03,x)			;$B8EB00
 
@@ -13918,7 +13918,7 @@ CODE_B8EC88:
 	STA.w $000E,y				;$B8ECA1
 	RTS					;$B8ECA4
 
-Spr0254_AnimalBuddyIcon_Main:
+animal_buddy_icon_main:
 ;$B8ECA5
 	JMP.w (DATA_B8ECA8,x)			;$B8ECA5
 
@@ -14011,7 +14011,7 @@ CODE_B8ED26:
 CODE_B8ED4A:
 	RTL					;$B8ED4A
 
-Spr0258_NoAnimalBuddySign_Main:
+no_animal_buddy_sign_main:
 ;$B8ED4B
 	LDA.w $0006,y				;$B8ED4B
 	BEQ.b CODE_B8ED5F			;$B8ED4E
@@ -14141,7 +14141,7 @@ CODE_B8EE45:
 	STA.w $17D2				;$B8EE54
 	RTS					;$B8EE57
 
-Spr025C_unknown_sprite_025C_Main:
+unknown_sprite_025C_main:
 ;$B8EE58
 	JSL.l CODE_B9E000			;$B8EE58
 	BCS.b CODE_B8EE61			;$B8EE5C
@@ -14165,7 +14165,7 @@ CODE_B8EE7A:
 	JSL.l CODE_BB858E			;$B8EE81
 	JML [$04F5]				;$B8EE85
 
-Spr0250_AnimalBuddyBox_Main:
+animal_buddy_box_main:
 ;$B8EE88
 	JMP.w (DATA_B8EE8B,x)			;$B8EE88
 
@@ -14698,7 +14698,7 @@ CODE_B8F294:
 	STZ.b $58,x				;$B8F296
 	RTS					;$B8F298
 
-Spr013C_StampedeTrigger_Main:
+stampede_trigger_main:
 ;$B8F299
 	JMP.w (DATA_B8F29C,x)			;$B8F299
 

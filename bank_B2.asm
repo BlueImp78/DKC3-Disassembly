@@ -1749,7 +1749,7 @@ CODE_B28F52:
 	LDX.w #CODE_808045>>16			;$B28F55
 	JML.l CODE_808003			;$B28F58
 
-Spr0214_RotatingCylinderHandle_Main:
+rotating_cylinder_handle_main:
 ;$B28F5C
 	LDY.b current_sprite			;$B28F5C
 	LDA.w $1975				;$B28F5E
@@ -1808,16 +1808,16 @@ CODE_B28FC0:
 	STA.w $0016,y				;$B28FC0
 	JML [$04F5]				;$B28FC3
 
-Spr00DC_unknown_sprite_00DC_Main:
+unknown_sprite_00DC_main:
 ;$B28FC6
 	JML [$04F5]				;$B28FC6
 
-Spr0044_RotatingCylinderKey_Main:
+rotating_cylinder_key_main:
 ;$B28FC9
 	JSL.l process_sprite_animation		;$B28FC9
 	JML [$04F5]				;$B28FCD
 
-Spr00F0_RareLogo_Main:
+rare_logo_main:
 ;$B28FD0
 	LDX.b current_sprite			;$B28FD0
 	JSR.w CODE_B2903B			;$B28FD2
@@ -1906,7 +1906,7 @@ DATA_B29073:
 	db $00,$00,$00,$67,$00,$00,$00,$00,$43,$04,$00,$00,$00,$3D,$0C,$00
 	db $00,$00,$37,$14,$00,$00,$00,$35,$18
 
-Spr0210_NintendoPresentsKong_Main:
+nintendo_presents_kong_main:
 ;$B290AC
 	JSL.l process_sprite_animation		;$B290AC
 	JSR.w CODE_B29057			;$B290B0
@@ -1944,7 +1944,7 @@ CODE_B290F0:
 	STA.b $12,x				;$B290F3
 	JML [$04F5]				;$B290F5
 
-Spr0218_RareLogoKiddy_Main:
+rare_logo_kiddy_main:
 ;$B290F8
 	JSL.l process_sprite_animation		;$B290F8
 	LDX.b current_sprite			;$B290FC
@@ -1996,7 +1996,7 @@ CODE_B29129:
 	STA.b $16,x				;$B29162
 	JML [$04F5]				;$B29164
 
-Spr021C_RareLogoDixie_Main:
+rare_logo_dixie_main:
 ;$B29167
 	JSL.l process_sprite_animation		;$B29167
 	LDX.b current_sprite			;$B2916B
@@ -2170,7 +2170,7 @@ CODE_B29277:
 	JSL.l CODE_B78018			;$B292B9
 	RTS					;$B292BD
 
-Spr00FC_TitleScreenSign_Main:
+title_screen_sign_main:
 ;$B292BE
 	LDA.w $06AB				;$B292BE
 	BIT.w #$0002				;$B292C1
@@ -2213,7 +2213,7 @@ CODE_B292FB:
 CODE_B29302:
 	JML [$04F5]				;$B29302
 
-Spr019C_unknown_sprite_019C_Main:
+unknown_sprite_019C_main:
 ;$B29305
 	LDA.w $06AB				;$B29305
 	BIT.w #$0002				;$B29308
@@ -4455,7 +4455,7 @@ DATA_B2B080:
 	dw $001C,$001C,$001D,$001E,$001F,$0020,$0022,$0024
 	dw $0026
 
-Spr0220_Toboggan_Main:
+toboggan_main:
 ;$B2B122
 	JMP.w (DATA_F2B125,x)			;$B2B122
 
@@ -6250,7 +6250,7 @@ CODE_B2BECE:
 	INC.b $38,x				;$B2BEDF
 	JMP.w CODE_B2BEF8			;$B2BEE1
 
-Spr0224_TobogganSparks_Main:
+toboggan_sparks_main:
 ;$B2BEE4
 	JSL.l process_sprite_animation		;$B2BEE4
 	LDA.b $00,x				;$B2BEE8
@@ -6305,7 +6305,7 @@ DATA_B2BF38:
 DATA_B2BF45:
 	db $ED,$EF,$F2,$F5,$F8,$FB,$FE,$02,$06,$08,$0A,$0D,$10
 
-Spr0228_LargePipe_Main:
+large_pipe_main:
 ;$B2BF52
 	JSL.l CODE_BBAB52			;$B2BF52
 	BCS.b CODE_B2BF89			;$B2BF56
@@ -6345,7 +6345,7 @@ CODE_B2BF91:
 CODE_B2BF97:
 	JML [$04F5]				;$B2BF97
 
-Spr0310_unknown_sprite_0310_Main:
+unknown_sprite_0310_main:
 ;$B2BF9A
 	LDA.w $04FB				;$B2BF9A
 	CPY.w active_kong_sprite		;$B2BF9D
@@ -6484,7 +6484,7 @@ CODE_B2C085:
 	BMI.b CODE_B2C084			;$B2C08A
 	BRA.b CODE_B2C05E			;$B2C08C
 
-Spr0304_MapKong_Main:
+map_kong_main:
 ;$B2C08E
 	LDA.w #$007E				;$B2C08E
 	STA.b $6C				;$B2C091
@@ -7623,7 +7623,7 @@ DATA_B2CAB0:
 	db $D0,$D8,$D0,$D8,$D0,$D8,$D0,$D8,$D0,$D8,$D0,$E4,$D0,$E4,$D0,$E4
 	db $D0,$E4,$E6,$D8
 
-Spr0038_MapSwimmingKongSplash_Main:
+map_swimming_kong_splash_main:
 ;$B2CAC4
 	LDX.w active_kong_sprite		;$B2CAC4
 	LDA.b $38,x				;$B2CAC7
@@ -7686,7 +7686,7 @@ CODE_B2CB17:
 CODE_B2CB34:
 	JML [$04F5]				;$B2CB34
 
-Spr003C_unknown_sprite_003C_Main:
+unknown_sprite_003C_main:
 ;$B2CB37
 	JMP.w (DATA_B2CB3A,x)			;$B2CB37
 
@@ -7837,7 +7837,7 @@ DATA_B2CC42:
 	db $00,$10,$F8,$10,$F1,$0D,$EE,$0A,$ED,$08,$EF,$00,$F2,$FA,$F7,$F8
 	db $00,$F8,$09,$F8,$0E,$FA,$11,$00,$13,$08,$12,$0A,$0F,$0D,$08,$10
 
-Spr030C_MapVehicle_Main:
+map_vehicle_main:
 ;$B2CC62
 	JMP.w (DATA_B2CC65,x)			;$B2CC62
 
@@ -8238,7 +8238,7 @@ CODE_B2CFAD:
 	CLC					;$B2CFB6
 	RTS					;$B2CFB7
 
-Spr0344_GyrocopterBladesAndShadow_Main:
+gyrocopter_blades_and_shadow_main:
 ;$B2CFB8
 	LDX.b $5C,y				;$B2CFB8
 	JSR.w CODE_B2CFE9			;$B2CFBA
@@ -9012,7 +9012,7 @@ CODE_B2D52B:
 	TDC					;$B2D52B
 	RTS					;$B2D52C
 
-Spr031C_GameOverBlocks_Main:
+game_over_blocks_main:
 ;$B2D52D
 	JMP.w (DATA_B2D530,x)			;$B2D52D
 
@@ -9112,12 +9112,12 @@ CODE_B2D5DF:
 CODE_B2D5EA:
 	BRA.b CODE_B2D5B9			;$B2D5EA
 
-Spr0308_StationaryDisplaySprite1_Main:
+stationary_display_sprite1_main:
 ;$B2D5EC
 	JSL.l process_anim_preserve_state	;$B2D5EC
 	JML [$04F5]				;$B2D5F0
 
-Spr0314_EndingSwankyKong_Main:
+ending_swanky_main:
 ;$B2D5F3
 	JMP.w (DATA_B2D5F6,x)			;$B2D5F3
 
@@ -9130,13 +9130,13 @@ CODE_B2D5FA:
 	INC.b $38,x				;$B2D5FB
 	LDY.w #$0338				;$B2D5FD
 	JSL.l CODE_BB8585			;$B2D600
-Spr0318_MovingDisplaySprite_Main:
+moving_display_sprite_main:
 CODE_B2D604:
 	JSL.l CODE_B9E000			;$B2D604
 	JSL.l process_anim_preserve_state	;$B2D608
 	JML [$04F5]				;$B2D60C
 
-Spr00F8_FunkyKong_Main:
+funky_kong_main:
 ;$B2D60F
 	JMP.w (DATA_B2D612,x)			;$B2D60F
 
@@ -9251,13 +9251,13 @@ CODE_B2D6F1:
 
 CODE_B2D6F8:
 	JSL.l process_anim_preserve_state	;$B2D6F8
-Spr01D4_KnautilusSpriteMask_Main:
+knautilus_sprite_mask_main:
 ;$B2D6FC
 	JSL.l CODE_B9E000			;$B2D6FC
 	JML [$04F5]				;$B2D700
 
 
-Spr04D8_SwankyKong_Main:
+swanky_kong_main:
 	JMP (.state_table,x)			;$B2D703
 
 .state_table:
@@ -9287,7 +9287,7 @@ Spr04D8_SwankyKong_Main:
 	JMP CODE_B2E074				;$B2D72F  |> Return and process animation
 
 
-Spr0320_BrothersBear_Main:
+brothers_bear_main:
 	JMP.w (DATA_B2D735,x)			;$B2D732
 
 DATA_B2D735:
@@ -9445,7 +9445,7 @@ DATA_B2D861:
 	db $AC,$7C,$80,$70,$2E,$72,$5E,$72,$80,$70,$00,$A0
 
 
-Spr0324_BrothersBearAccessories_Main:
+brothers_bear_accessories_main:
 	JMP.w (DATA_B2D880,x)			;$B2D87D
 
 DATA_B2D880:
@@ -9469,7 +9469,7 @@ CODE_B2D898:
 	STA.w $0024,y				;$B2D8A0
 	JML [$04F5]				;$B2D8A3
 
-Spr032C_unknown_sprite_032C_Main:
+unknown_sprite_032C_main:
 ;$B2D8A6
 	JMP.w (DATA_B2D8A9,x)			;$B2D8A6
 
@@ -9516,7 +9516,7 @@ CODE_B2D8E5:
 CODE_B2D8F1:
 	JML [$04F5]				;$B2D8F1
 
-Spr0328_MainMapWaterfall_Main:
+main_map_waterfall_main:
 ;$B2D8F4
 	JMP.w (DATA_B2D8F7,x)			;$B2D8F4
 
@@ -9533,7 +9533,7 @@ CODE_B2D8FB:
 CODE_B2D907:
 	JML [$04F5]				;$B2D907
 
-Spr034C_unknown_sprite_034C_Main:
+unknown_sprite_034C_main:
 ;$B2D90A
 	JMP.w (DATA_B2D90D,x)			;$B2D90A
 
@@ -9565,7 +9565,7 @@ CODE_B2D938:
 	JSL.l process_anim_preserve_state	;$B2D93C
 	JML [$04F5]				;$B2D940
 
-Spr0334_ChairliftPulley_Main:
+chairlift_pulley_main:
 ;$B2D943
 	JMP.w (DATA_B2D946,x)			;$B2D943
 
@@ -9659,7 +9659,7 @@ CODE_B2D9BA:
 	STA.b $6C,x				;$B2D9FA
 	RTS					;$B2D9FC
 
-Spr01AC_BrashCabinDigitalDisplay_Main:
+brash_cabin_digital_display_main:
 ;$B2D9FD
 	JMP.w (DATA_B2DA00,x)			;$B2D9FD
 
@@ -9814,7 +9814,7 @@ DATA_B2DB3D:
 	db $1C,$1C,$0B,$0B,$1C,$0B,$16,$17,$1D,$1D,$0B,$0B,$1D,$0B,$18,$19
 	db $1E,$1E,$0B,$0B,$1E,$0B,$1A,$1B,$1D,$1D,$0B,$0B,$1D,$0B,$18,$19
 
-Spr0338_unknown_sprite_0338_Main:
+unknown_sprite_0338_main:
 ;$B2DB5D
 	JMP.w (DATA_F2DB60,x)			;$B2DB5D
 
@@ -9861,7 +9861,7 @@ CODE_B2DBA2:
 CODE_B2DBB7:
 	JML [$04F5]				;$B2DBB7
 
-Spr0340_BramblesVase_Main:
+brambles_vase_main:
 ;$B2DBBA
 	JMP.w (DATA_B2DBBD,x)			;$B2DBBA
 
@@ -9892,8 +9892,8 @@ CODE_B2DBE4:
 	JSL.l CODE_B78018			;$B2DBEC
 	JML [$04F5]				;$B2DBF0
 
-Spr00A8_RazorRidgePipe_Main:
-Spr00AC_unknown_sprite_00AC_Main:
+razor_ridge_pipe_main:
+unknown_sprite_00AC_main:
 ;$B2DBF3
 	JMP.w (DATA_B2DBF6,x)			;$B2DBF3
 
@@ -9923,7 +9923,7 @@ CODE_B2DC16:
 	DEC.b $5C,x				;$B2DC18
 CODE_B2DC1A:
 	JSL.l process_sprite_animation		;$B2DC1A
-Spr033C_StationaryDisplaySprite2_Main:
+stationary_display_sprite_2_main:
 CODE_B2DC1E:
 	JML [$04F5]				;$B2DC1E
 
@@ -9931,7 +9931,7 @@ CODE_B2DC21:
 	JSL.l CODE_BB8591			;$B2DC21
 	BRA.b CODE_B2DC1E			;$B2DC25
 
-Spr00B0_unknown_sprite_00B0_Main:
+unknown_sprite_00B0_main:
 ;$B2DC27
 	JMP.w (DATA_B2DC2A,x)			;$B2DC27
 
@@ -9977,7 +9977,7 @@ CODE_B2DC85:
 	STA.w $0024,y				;$B2DC88
 	JML [$04F5]				;$B2DC8B
 
-Spr0348_unknown_sprite_0348_Main:
+unknown_sprite_0348_main:
 ;$B2DC8E
 	JMP.w (DATA_B2DC91,x)			;$B2DC8E
 
@@ -10183,7 +10183,7 @@ CODE_B2DE33:
 DATA_B2DE3D:
 	db $55,$46,$37,$28,$19,$00
 
-Spr0360_unknown_sprite_0360_Main:
+unknown_sprite_0360_main:
 ;$B2DE43
 	LDA.w #$1000				;$B2DE43
 	TRB.w $05FB				;$B2DE46
@@ -10212,7 +10212,7 @@ Spr0360_unknown_sprite_0360_Main:
 CODE_B2DE95:
 	JML [$04F5]				;$B2DE95
 
-Spr010C_BananaBirdCaveCrystal_Main:
+banana_bird_cave_crystal_main:
 ;$B2DE98
 	TYX					;$B2DE98
 	LDA.b $5C,x				;$B2DE99
@@ -10338,7 +10338,7 @@ CODE_B2DF85:
 	STA.b [$42],y				;$B2DF8E
 	RTS					;$B2DF90
 
-Spr01B4_unknown_sprite_01B4_Main:
+unknown_sprite_01B4_main:
 ;$B2DF91
 	JMP.w (DATA_B2DF94,x)			;$B2DF91
 
@@ -10465,7 +10465,7 @@ CODE_B2E074:
 	JSL.l process_sprite_animation		;$B2E074
 	JML [$04F5]				;$B2E078
 
-Spr00E0_InventoryItemHUDSquares_Main:
+inventory_item_squares_main:
 ;$B2E07B
 	JMP.w (DATA_B2E07E,x)			;$B2E07B
 
@@ -10957,7 +10957,7 @@ CODE_B2E418:
 	CLC					;$B2E418
 	RTS					;$B2E419
 
-Spr01B8_unknown_sprite_01B8_Main:
+unknown_sprite_01B8_main:
 ;$B2E41A
 	JMP.w (DATA_B2E41D,x)			;$B2E41A
 
@@ -11026,7 +11026,7 @@ CODE_B2E48D:
 	JSL.l CODE_BB8591			;$B2E48D
 	BRA.b CODE_B2E467			;$B2E491
 
-Spr01BC_unknown_sprite_01BC_Main:
+unknown_sprite_01BC_main:
 ;$B2E493
 	JMP.w (DATA_B2E496,x)			;$B2E493
 
@@ -11129,7 +11129,7 @@ CODE_B2E549:
 	STZ.b $00,x				;$B2E553
 	RTS					;$B2E555
 
-Spr006C_unknown_sprite_006C_Main:
+unknown_sprite_006C_main:
 ;$B2E556
 	JMP.w (DATA_B2E559,x)			;$B2E556
 
@@ -11175,7 +11175,7 @@ CODE_B2E5A1:
 	JSL.l CODE_B9E000			;$B2E5A1
 	JML [$04F5]				;$B2E5A5
 
-Spr01C0_SpeedrunTimer_Main:
+speedrun_timer_main:
 ;$B2E5A8
 	JMP.w (DATA_B2E5AB,x)			;$B2E5A8
 
@@ -11248,7 +11248,7 @@ CODE_B2E634:
 CODE_B2E637:
 	RTS					;$B2E637
 
-Spr0198_MapFlag_Main:
+map_flag_main:
 ;$B2E638
 	JMP.w (DATA_B2E63B,x)			;$B2E638
 
@@ -11405,7 +11405,7 @@ CODE_B2E742:
 CODE_B2E750:
 	JML [$04F5]				;$B2E750
 
-Spr036C_WrinklysSaveCave_Main:
+wrinklys_save_cave_main:
 ;$B2E753
 	JMP.w (DATA_B2E756,x)			;$B2E753
 
@@ -11434,7 +11434,7 @@ CODE_B2E77D:
 	JSL.l process_anim_preserve_state	;$B2E77D
 	JML [$04F5]				;$B2E781
 
-Spr0084_KremwoodForestLog_Main:
+kremwood_forest_log_main:
 ;$B2E784
 	JMP.w (DATA_B2E787,x)			;$B2E784
 
@@ -11500,7 +11500,7 @@ CODE_B2E7F7:
 	JSL.l CODE_B9E000			;$B2E7FB
 	JML [$04F5]				;$B2E7FF
 
-Spr0088_MapCannon_Main:
+map_cannon_main:
 ;$B2E802
 	JMP.w (DATA_B2E805,x)			;$B2E802
 
@@ -11711,7 +11711,7 @@ CODE_B2E975:
 	STA.w $001E,y				;$B2E98E
 	RTS					;$B2E991
 
-Spr0074_unknown_sprite_0074_Main:
+unknown_sprite_0074_main:
 ;$B2E992
 	LDA.w $0016,y				;$B2E992
 	CMP.w #$00D0				;$B2E995
@@ -11724,7 +11724,7 @@ CODE_B2E9A5:
 	JSL.l CODE_BB8591			;$B2E9A5
 	JML [$04F5]				;$B2E9A9
 
-Spr0070_BananaBirdCaveCover_Main:
+banana_bird_cave_cover_main:
 CODE_B2E9AC:
 	JMP.w (DATA_B2E9AF,x)			;$B2E9AC
 
@@ -11766,7 +11766,7 @@ CODE_B2E9F9:
 	JSL.l CODE_BB8591			;$B2E9F9
 	JML [$04F5]				;$B2E9FD
 
-Spr01C4_unknown_sprite_01C4_Main:
+unknown_sprite_01C4_main:
 ;$B2EA00
 	JMP.w (DATA_B2EA03,x)			;$B2EA00
 
@@ -11872,7 +11872,7 @@ DATA_B2EAA9:
 	dw $0306
 	dw $0C00
 
-Spr008C_unknown_sprite_008C_Main:
+unknown_sprite_008C_main:
 ;$B2EAB3
 	JMP.w (DATA_B2EAB6,x)			;$B2EAB3
 
@@ -11889,7 +11889,7 @@ CODE_B2EAC3:
 	JSL.l process_sprite_animation		;$B2EAC3
 	JML [$04F5]				;$B2EAC7
 
-Spr0094_ChairliftChair_Main:
+chairlift_chair_main:
 ;$B2EACA
 	JMP.w (DATA_B2EACD,x)			;$B2EACA
 
@@ -12091,7 +12091,7 @@ CODE_B2EC3A:
 	STA.b $5A,x				;$B2EC42
 	RTS					;$B2EC44
 
-Spr01C8_unknown_sprite_01C8_Main:
+unknown_sprite_01C8_main:
 ;$B2EC45
 	JMP.w (DATA_B2EC48,x)			;$B2EC45
 
@@ -12160,7 +12160,7 @@ CODE_B2ECB6:
 	STA.w $004C,y				;$B2ECB6
 	RTS					;$B2ECB9
 
-Spr0098_SewerStockpileGrate_Main:
+sewer_stockpile_grate_main:
 ;$B2ECBA
 	JMP.w (DATA_B2ECBD,x)			;$B2ECBA
 
@@ -12188,7 +12188,7 @@ CODE_B2ECE4:
 CODE_B2ECE8:
 	JML [$04F5]				;$B2ECE8
 
-Spr01CC_unknown_sprite_01CC_Main:
+unknown_sprite_01CC_main:
 ;$B2ECEB
 	JMP.w (DATA_B2ECEE,x)			;$B2ECEB
 
@@ -12237,7 +12237,7 @@ CODE_B2ED38:
 	STA.w $005C,y				;$B2ED38
 	BRA.b CODE_B2ED1D			;$B2ED3B
 
-Spr009C_unknown_sprite_009C_Main:
+unknown_sprite_009C_main:
 ;$B2ED3D
 	JMP.w (DATA_B2ED40,x)			;$B2ED3D
 
@@ -12287,7 +12287,7 @@ CODE_B2ED73:
 	JSL.l process_sprite_animation		;$B2ED8C
 	JML [$04F5]				;$B2ED90
 
-Spr0354_SkyHighSecretRock_Main:
+sky_high_secret_rock_main:
 ;$B2ED93
 	LDA.w map_node_number			;$B2ED93
 	CMP.w #$000A				;$B2ED96
@@ -12366,7 +12366,7 @@ CODE_B2EE1A:
 	BCC.b CODE_B2EE05			;$B2EE1F
 	RTS					;$B2EE21
 
-Spr00A0_unknown_sprite_00A0_Main:
+unknown_sprite_00A0_main:
 ;$B2EE22
 	JMP.w (DATA_B2EE25,x)			;$B2EE22
 
@@ -12401,7 +12401,7 @@ CODE_B2EE3A:
 CODE_B2EE5F:
 	JML [$04F5]				;$B2EE5F
 
-Spr00A4_unknown_sprite_00A4_Main:
+unknown_sprite_00A4_main:
 ;$B2EE62
 	TYX					;$B2EE62
 	LDA.b $5C,x				;$B2EE63
@@ -12414,7 +12414,7 @@ Spr00A4_unknown_sprite_00A4_Main:
 CODE_B2EE72:
 	JML [$04F5]				;$B2EE72
 
-Spr0358_Krosshair_Main:
+krosshair_main:
 ;$B2EE75
 	JMP.w (DATA_B2EE78,x)			;$B2EE75
 
@@ -12742,7 +12742,7 @@ CODE_B2F065:
 CODE_B2F0DF:
 	RTS					;$B2F0DF
 
-Spr01D0_LightningBoltSpawner_Main:
+lightning_bolt_spawner_main:
 ;$B2F0E0
 	TYX					;$B2F0E0
 	LDY.w active_kong_sprite		;$B2F0E1
@@ -13031,8 +13031,8 @@ CODE_B2F309:
 CODE_B2F322:
 	RTS					;$B2F322
 
-Spr0114_TheEndSign_Main:
-Spr035C_Knautilus_Main:
+the_end_sign_main:
+knautilus_main:
 ;$B2F323
 	JMP.w (DATA_B2F326,x)			;$B2F323
 
@@ -13137,7 +13137,7 @@ CODE_B2F3EC:
 	JSR.w CODE_B2F881			;$B2F3EC
 	JML [$04F5]				;$B2F3EF
 
-Spr00B4_KremtoaBridge_Main:
+krematoa_bridge_main:
 ;$B2F3F2
 	JMP.w (DATA_B2F3F5,x)			;$B2F3F2
 
@@ -13183,7 +13183,7 @@ CODE_B2F42F:
 CODE_B2F44C:
 	JML [$04F5]				;$B2F44C
 
-Spr01D8_PlayerKrosshairController_Main:
+player_krosshair_controller_main:
 ;$B2F44F
 	LDA.w #$0001				;$B2F44F
 	BIT.w $05AF				;$B2F452
@@ -13271,7 +13271,7 @@ CODE_B2F4D8:
 CODE_B2F4F0:
 	RTS					;$B2F4F0
 
-Spr01DC_unknown_sprite_01DC_Main:
+unknown_sprite_01DC_main:
 ;$B2F4F1
 	JMP.w (DATA_B2F4F4,x)			;$B2F4F1
 
@@ -13345,7 +13345,7 @@ CODE_B2F55C:
 	STA.w $15E8				;$B2F57E
 	RTS					;$B2F581
 
-Spr01E0_unknown_sprite_01E0_Main:
+unknown_sprite_01E0_main:
 ;$B2F582
 	JMP.w (DATA_B2F585,x)			;$B2F582
 
@@ -13438,7 +13438,7 @@ CODE_B2F62B:
 CODE_B2F64B:
 	JML [$04F5]				;$B2F64B
 
-Spr00BC_RedGemInBananaBirdQueenBarrier_Main:
+red_gem_in_banana_bird_queen_barrier_main:
 ;$B2F64E
 	LDA.w $15E8				;$B2F64E
 	BIT.w #$FF00				;$B2F651
@@ -13466,7 +13466,7 @@ CODE_B2F684:
 CODE_B2F68E:
 	JML [$04F5]				;$B2F68E
 
-Spr0364_KRoolHead_Main:
+k_rool_head_main:
 ;$B2F691
 	JMP.w (DATA_B2F694,x)			;$B2F691
 
@@ -13629,7 +13629,7 @@ CODE_B2F797:
 	STY.b $32,x				;$B2F7BB
 	RTS					;$B2F7BD
 
-Spr0120_GiantBananaBirdQueenEgg_Main:
+giant_banana_bird_queen_egg_main:
 ;$B2F7BE
 	JMP.w (DATA_B2F7C1,x)			;$B2F7BE
 
@@ -13731,7 +13731,7 @@ CODE_B2F881:
 	STA.w $0016,y				;$B2F88A
 	RTS					;$B2F88D
 
-Spr0368_MotorBoatFunkyAndCrankyInEnding_Main:
+funky_cranky_secret_ending_main:
 ;$B2F88E
 	JMP.w (DATA_B2F891,x)			;$B2F88E
 
@@ -13877,7 +13877,7 @@ CODE_B2F9AC:
 	STA.w $0012,y				;$B2F9B0
 	RTS					;$B2F9B3
 
-Spr00C0_MapBananaBird_Main:
+map_banana_bird_main:
 ;$B2F9B4
 	JMP.w (DATA_B2F9B7,x)			;$B2F9B4
 
@@ -13919,7 +13919,7 @@ CODE_B2F9F1:
 	JSR.w CODE_B2FA6E			;$B2F9FA
 	RTS					;$B2F9FD
 
-Spr0370_MapBananaBirdQueen_Main:
+map_banana_bird_queen_main:
 ;$B2F9FE
 	JMP.w (DATA_B2FA01,x)			;$B2F9FE
 
@@ -14010,7 +14010,7 @@ DATA_B2FA96:
 DATA_B2FA9E:
 	db $E4,$E4,$E4,$D8,$D8,$D8,$E4,$E4
 
-Spr00CC_SquirtPupil_Main:
+squirt_pupil_main:
 ;$B2FAA6
 	JMP.w (DATA_B2FAA9,x)			;$B2FAA6
 
@@ -14072,7 +14072,7 @@ CODE_B2FB11:
 CODE_B2FB15:
 	JML [$04F5]				;$B2FB15
 
-Spr01A0_unknown_sprite_01A0_Main:
+unknown_sprite_01A0_main:
 ;$B2FB18
 	JML [$04F5]				;$B2FB18
 

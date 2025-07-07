@@ -1,4 +1,4 @@
-Spr00C8_KRoolFightBGDecorations_Main:
+k_rool_fight_bg_decorations_main:
 ;$ACB000
 	JMP.w (DATA_ACB003,x)			;$ACB000
 
@@ -90,7 +90,7 @@ DATA_ACB073:
 	dw $0040
 	dw $0040
 
-Spr04B8_BGSteelKeg_Main:
+bg_steel_keg_main:
 ;$ACB0A1
 	JMP.w (DATA_ACB0A4,x)			;$ACB0A1
 
@@ -170,7 +170,7 @@ CODE_ACB127:
 CODE_ACB131:
 	JML [$04F5]				;$ACB131
 
-Spr0478_KAOSBlade_Main:
+kaos_blade_main:
 ;$ACB134
 	JMP.w (DATA_ACB137,x)			;$ACB134
 

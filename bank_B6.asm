@@ -86,44 +86,44 @@ CODE_B68054:
 	JMP.w CODE_B6F272			;$B68054
 
 
-Spr0000_null_sprite_main:
-Spr0128_unknown_sprite_0128_Main:
+null_sprite_main:
+unknown_sprite_0128_main:
 ;$B68057
 	JML [$04F5]				;$B68057
 
 
-Spr0138_unknown_sprite_0138_Main:
-Spr0278_BarrelSwitchS_Main:
+unknown_sprite_0138_main:
+barrel_switch_s_main:
 CODE_B6805A:
 	JSL.l CODE_BBAB52			;$B6805A
 	JML [$04F5]				;$B6805E
 
 
-Spr0270_WaterSplash_Main:
-Spr0274_SmokePuff_Main:
+water_splash_main:
+smoke_puff_main:
 ;$B68061
 	JSL.l CODE_B9E000			;$B68061
 
 
-Spr0268_FireballLandingParticles_Main:
-Spr026C_BurstEffect_Main:
+fireball_landing_particles_main:
+burst_effect_main:
 ;$B68065
 	JSL.l process_sprite_animation		;$B68065
 	JMP.w CODE_B6805A			;$B68069
 
 
-Spr0060_BottomOfRightCottonTopCoveWaterfall_Main:
-Spr0064_BottomOfCottonTopCoveWaterfall_Main:
+bottom_of_right_cotton_top_cove_waterfall_main:
+bottom_of_cotton_top_cove_waterfall_main:
 	JSL.l process_sprite_animation		;$B6806C
 	JML [$04F5]				;$B68070
 
 
-Spr0008_unknown_sprite_0008_Main:
+unknown_sprite_0008_main:
 	JSL.l process_sprite_animation		;$B68073
 	JML [$04F5]				;$B68077
 
 
-Spr000C_unknown_sprite_000C_Main:
+unknown_sprite_000C_main:
 	JSL.l process_sprite_animation		;$B6807A
 	JML [$04F5]				;$B6807E
 
@@ -183,7 +183,7 @@ CODE_B680DB:
 ;Sneek variables:
 ;	$6A,x   Timer until idle sound effect plays	
 
-Spr02F8_Sneek_Main:
+sneek_main:
 	JMP (.state_table,x)			;$B680DE
 
 .state_table:
@@ -256,7 +256,7 @@ Spr02F8_Sneek_Main:
 	JMP CODE_B6805A				;$B6816D  / Return and handle despawn
 
 
-Spr02FC_Buzz_Main:
+buzz_main:
 ;$B68170
 	JMP.w (DATA_B68173,x)			;$B68170
 
@@ -337,7 +337,7 @@ CODE_B68212:
 	JSL.l CODE_B28024			;$B6821C
 	RTS					;$B68220
 
-Spr0300_Koco_Main:
+koco_main:
 ;$B68221
 	JMP.w (DATA_B68224,x)			;$B68221
 
@@ -378,7 +378,7 @@ CODE_B68267:
 	JSL.l process_sprite_animation		;$B6826B
 	JMP.w CODE_B680C9			;$B6826F
 
-Spr027C_MillPlatform_Main:
+mill_platform_main:
 ;$B68272
 	JMP.w (DATA_B68275,x)			;$B68272
 
@@ -677,7 +677,7 @@ CODE_B68450:
 	STA.b $54,x				;$B68478
 	RTS					;$B6847A
 
-Spr0178_BuzzSwarmSpawner_Main:
+buzz_swarm_spawner_main:
 ;$B6847B
 	TYX					;$B6847B
 	LDY.w active_kong_sprite		;$B6847C
@@ -740,7 +740,7 @@ CODE_B684F9:
 CODE_B68504:
 	JMP.w CODE_B6805A			;$B68504
 
-Spr0374_BuzzSwarrm_Main:
+buzz_swarm_main:
 ;$B68507
 	LDA.w #$0562				;$B68507
 	JSL.l CODE_B28024			;$B6850A
@@ -915,7 +915,7 @@ CODE_B6861C:
 ;	$64,x	X position mirror
 ;	$6A,x	Time until spawning explosions on contact (4 frames)
 
-Spr0378_FollowingKlasp_Main:
+klasp_follow_main:
 	JMP (.following_klasp_state_table,x)		;$B6863B
 
 .following_klasp_state_table:
@@ -1054,7 +1054,7 @@ Spr0378_FollowingKlasp_Main:
 	STY $30,x				;$B6871B  \ Update target X velocity
 	BRA.b .CODE_B686C9			;$B6871D  /
 
-#Spr037C_AutoMovingKlasp_Main:
+#klasp_auto_move_main:
 	JMP (.automoving_klasp_state_table,x)	;$B6871F
 
 .automoving_klasp_state_table:
@@ -1121,7 +1121,7 @@ CODE_B6878E:
 	JSL.l CODE_B680A5			;$B68792   |
 	JML.l CODE_B680C9			;$B68796  /
 
-Spr03D8_LemguinSpawner_Main:
+lemguin_spawner_main:
 ;$B6879A
 	JMP.w (DATA_B6879D,x)			;$B6879A
 
@@ -1188,7 +1188,7 @@ CODE_B68810:
 	LDA.b $66,x				;$B68817
 	BRA.b CODE_B687F3			;$B68819
 
-Spr0380_Lemguin_Main:
+lemguin_main:
 ;$B6881B
 	JMP.w (DATA_B6881E,x)			;$B6881B
 
@@ -1375,7 +1375,7 @@ DATA_B6894D:
 	dw $2D19
 
 
-Spr0384_FriendlyNibblaHead_Main:
+nibbla_head_friendly_main:
 ;$B68969
 	PHX					;$B68969
 	TYX					;$B6896A
@@ -1738,11 +1738,11 @@ CODE_B68C38:
 	STA.b $2E,x				;$B68C38
 	RTS					;$B68C3A
 
-Spr0388_FriendlyNibblaBody_Main:
+nibbla_body_friendly_main:
 ;$B68C3B
 	JMP.w CODE_B685E6			;$B68C3B
 
-Spr03B4_Lurchin_Main:
+lurchin_main:
 ;$B68C3E
 	JMP.w (DATA_B68C41,x)			;$B68C3E
 
@@ -1874,12 +1874,12 @@ CODE_B68CF3:
 CODE_B68D2B:
 	RTS					;$B68D2B
 
-Spr0028_unknown_sprite_0028_Main:
+unknown_sprite_0028_main:
 ;$B68D2C
 	JSL.l CODE_BBAB46			;$B68D2C
 	JML [$04F5]				;$B68D30
 
-Spr00D4_unknown_sprite_00D4_Main:
+unknown_sprite_00D4_main:
 ;$B68D33
 	JMP.w (DATA_B68D36,x)			;$B68D33
 
@@ -1986,7 +1986,7 @@ CODE_B68DF8:
 CODE_B68E10:
 	RTS					;$B68E10
 
-Spr01FC_BananaBird_Main:
+banana_bird_main:
 ;$B68E11
 	JMP.w (DATA_B68E14,x)			;$B68E11
 
@@ -2534,7 +2534,7 @@ CODE_B69232:
 	ASL					;$B6923D
 	RTL					;$B6923E
 
-Spr038C_DoorLeverHandle_Main:
+door_lever_handle_main:
 ;$B6923F
 	JMP.w (DATA_B69242,x)			;$B6923F
 
@@ -2672,7 +2672,7 @@ CODE_B6930B:
 	STA.w $04AA				;$B69334
 	RTS					;$B69337
 
-Spr0390_LeverControlledMetalDoor_Main:
+metal_door_lever_controlled_main:
 ;$B69338
 	JMP.w (DATA_B6933B,x)			;$B69338
 
@@ -2781,7 +2781,7 @@ CODE_B693F6:
 	INC.b $60,x				;$B693FB
 	BRA.b CODE_B693E9			;$B693FD
 
-Spr0394_DoorGear_Main:
+door_gear_main:
 ;$B693FF
 	JMP.w (DATA_B69402,x)			;$B693FF
 
@@ -2841,14 +2841,14 @@ CODE_B69441:
 	STA.b $32,x				;$B69462
 	RTS					;$B69464
 
-Spr0180_unknown_sprite_0180_Main:
+unknown_sprite_0180_main:
 ;$B69465
 	INC.w $054F				;$B69465
 	JSL.l CODE_BB85A9			;$B69468
 	JSL.l CODE_BB8594			;$B6946C
 	JML [$04F5]				;$B69470
 
-Spr017C_unknown_sprite_0180_Main:
+unknown_sprite_017C_main:
 ;$B69473
 	JMP.w (DATA_B69476,x)			;$B69473
 
@@ -2935,7 +2935,7 @@ CODE_B69501:
 	REP.b #$20				;$B6950A
 	RTS					;$B6950C
 
-Spr0100_SneekWheel_Main:
+sneek_wheel_main:
 ;$B6950D
 	LDA.w $0064,y				;$B6950D
 	BEQ.b CODE_B69545			;$B69510
@@ -3108,7 +3108,7 @@ CODE_B69668:
 	JSL.l CODE_BEC018			;$B69668
 	RTL					;$B6966C
 
-Spr0398_SneekInWheel_Main:
+sneek_in_wheel_main:
 ;$B6966D
 	JMP.w (DATA_B69670,x)			;$B6966D
 
@@ -3142,14 +3142,14 @@ CODE_B696A0:
 	JSL.l process_sprite_animation		;$B696A4
 	JMP.w CODE_B680C9			;$B696A8
 
-Spr01F4_SquealsOnWheelsTracker_Main:
+squeals_on_wheels_tracker_main:
 ;$B696AB
 	TYX					;$B696AB
 	JSR.w CODE_B696FC			;$B696AC
 	STA.w $15E6				;$B696AF
 	JMP.w CODE_B6805A			;$B696B2
 
-Spr039C_SneekControlledMetalDoor_Main:
+metal_door_sneek_controlled_main:
 ;$B696B5
 	JMP.w (DATA_B696B8,x)			;$B696B5
 
@@ -3229,7 +3229,7 @@ CODE_B6971D:
 	TAY					;$B69733
 	RTS					;$B69734
 
-Spr0188_unknown_sprite_0188_Main:
+unknown_sprite_0188_main:
 ;$B69735
 	LDA.b level_number			;$B69735
 	CMP.w #!Define_DKC3_LevelID_RipsawRage_Main	;$B69737
@@ -3316,7 +3316,7 @@ DATA_B697C2:
 	dw $039B
 	dw $FFFF
 
-Spr03AC_unknown_sprite_03AC_Main:
+unknown_sprite_03AC_main:
 ;$B697CC
 	LDA.b $00				;$B697CC
 	ASL					;$B697CE
@@ -3346,8 +3346,8 @@ Spr03AC_unknown_sprite_03AC_Main:
 	STA.b $16,x				;$B697F6
 	JMP.w CODE_B6BF79			;$B697F8
 
-Spr03B0_unknown_sprite_03B0_Main:
-Spr03BC_ReKoil_Main:
+unknown_sprite_03B0_main:
+re_koil_main:
 ;$B697FB
 	JMP.w (DATA_B697FE,x)			;$B697FB
 
@@ -3534,7 +3534,7 @@ CODE_B69939:
 	STA.b $64,x				;$B69942
 	RTS					;$B69944
 
-Spr018C_KuffnKlout_Main:
+kuff_n_klout_main:
 ;$B69945
 	STY.w $1C15				;$B69945
 	PHX					;$B69948
@@ -4043,7 +4043,7 @@ CODE_B69D08:
 	LDX.b current_sprite			;$B69D17
 	RTS					;$B69D19
 
-Spr03C4_unknown_sprite_03C4_Main:
+unknown_sprite_03C4_main:
 ;$B69D1A
 	JMP.w (DATA_B69D1D,x)			;$B69D1A
 
@@ -4325,7 +4325,7 @@ CODE_B69F33:
 CODE_B69F46:
 	RTS					;$B69F46
 
-Spr03C8_SkiddaAndKobble_Main:
+skidda_and_kobble_main:
 ;$B69F47
 	JMP.w (DATA_B69F4A,x)			;$B69F47
 
@@ -4391,7 +4391,7 @@ CODE_B69F8A:
 ;	$5C,x	attack interval
 ;	$5E,x	animation speed
 
-Spr00D0_Minkey_Main:
+minkey_main:
 	JMP.w (.state_table,x)			;$B69FAC
 
 .state_table:
@@ -4414,7 +4414,7 @@ Spr00D0_Minkey_Main:
 CODE_B69FCD:
 	JMP.w CODE_B6F231			;$B69FCD  |>
 
-Spr0040_MinkeyAcorn_Main:
+minkey_acorn_main:
 	JMP (.state_table,x)			;$B69FD0
 
 .state_table:
@@ -4492,7 +4492,7 @@ Spr0040_MinkeyAcorn_Main:
 	JMP CODE_B6BF79				;$B6A059  / Return and process animation
 
 
-Spr0190_unknown_sprite_0190_Main:
+unknown_sprite_0190_main:
 	JMP.w (DATA_B6A05F,x)			;$B6A05C
 
 DATA_B6A05F:
@@ -4571,7 +4571,7 @@ CODE_B6A0DC:
 	JML [$04F5]				;$B6A0E4
 
 
-Spr03D0_Koin_Main:
+koin_main:
 	JMP.w (DATA_B6A0EA,x)			;$B6A0E7
 
 DATA_B6A0EA:
@@ -5421,7 +5421,7 @@ DATA_B6A718:
 DATA_B6A727:
 	db $39,$F5,$2D,$72,$F0,$2D,$AB,$EB,$2D,$E4,$E6,$2D,$FF,$E1,$2D
 
-Spr03D4_DKCoin_Main:
+dk_coin_main:
 ;$B6A736
 	JMP.w (DATA_B6A739,x)			;$B6A736
 
@@ -5466,7 +5466,7 @@ CODE_B6A766:
 CODE_B6A78B:
 	JMP.w CODE_B685E6			;$B6A78B
 
-Spr03E0_Knocka_Main:
+knocka_main:
 ;$B6A78E
 	JSL.l CODE_BEC036			;$B6A78E
 	JMP.w (DATA_B6A795,x)			;$B6A792
@@ -5887,13 +5887,13 @@ CODE_B6AAE9:
 CODE_B6AAFD:
 	RTS					;$B6AAFD
 
-Spr03E4_KnockaLimbs_Main:
+knocka_limbs_main:
 ;$B6AAFE
 	LDA.w #!sprite_Knocka			;$B6AAFE
 	JSR.w CODE_B6B22E			;$B6AB01
 	JML [$04F5]				;$B6AB04
 
-Spr03F8_Krimp_Main:
+krimp_main:
 ;$B6AB07
 	JMP.w (DATA_B6AB0A,x)			;$B6AB07
 
@@ -5953,7 +5953,7 @@ CODE_B6AB62:
 	LDA.w #$023D				;$B6AB65
 	JMP.w CODE_B6878B			;$B6AB68
 
-Spr0414_Bristle_Main:
+bristle_main:
 ;$B6AB6B
 	JMP.w (DATA_B6AB6E,x)			;$B6AB6B
 
@@ -6193,7 +6193,7 @@ CODE_B6AD18:
 	LDA.w #$0253				;$B6AD1F
 	JMP.w CODE_B6878B			;$B6AD22
 
-Spr0418_Krumple_Main:
+krumple_main:
 ;$B6AD25
 	JMP.w (DATA_B6AD28,x)			;$B6AD25
 
@@ -6313,7 +6313,7 @@ CODE_B6ADF3:
 	LDA.w #$025B				;$B6ADF6
 	JMP.w CODE_B6878B			;$B6ADF9
 
-Spr01F0_unknown_sprite_01F0_Main:
+unknown_sprite_01F0_main:
 ;$B6ADFC
 	JMP.w (DATA_B6ADFF,x)			;$B6ADFC
 
@@ -6351,7 +6351,7 @@ CODE_B6AE09:
 CODE_B6AE3F:
 	JMP.w CODE_B6805A			;$B6AE3F
 
-Spr041C_Swoopy_Main:
+swoopy_main:
 ;$B6AE42
 	JMP.w (DATA_B6AE45,x)			;$B6AE42
 
@@ -6638,7 +6638,7 @@ CODE_B6B043:
 	LDA.w #$0262				;$B6B046
 	JMP.w CODE_B6878B			;$B6B049
 
-Spr0420_Kuchuka_Main:
+kuchuka_main:
 ;$B6B04C
 	JSL.l CODE_BEC036			;$B6B04C
 	JMP.w (DATA_B6B053,x)			;$B6B050
@@ -6867,7 +6867,7 @@ CODE_B6B21A:
 	STA.w $0060,y				;$B6B221
 	RTS					;$B6B224
 
-Spr0424_KuchukaHand_Main:
+kuchuka_hand_main:
 ;$B6B225
 	LDA.w #!sprite_Kuchuka			;$B6B225
 	JSR.w CODE_B6B22E			;$B6B228
@@ -6887,7 +6887,7 @@ CODE_B6B238:
 	BNE.b CODE_B6B234			;$B6B23D
 	RTS					;$B6B23F
 
-Spr00B8_KuchukaBomb_Main:
+kuchuka_bomb_main:
 ;$B6B240
 	JMP.w (DATA_B6B243,x)			;$B6B240
 
@@ -7113,7 +7113,7 @@ CODE_B6B3D6:
 	JSL.l CODE_B28012			;$B6B3FF
 	RTL					;$B6B403
 
-Spr04A0_TNTExplosion_Main:
+tnt_explosion_main:
 ;$B6B404
 	JSL.l CODE_BBAB46			;$B6B404
 	BCC.b CODE_B6B40D			;$B6B408
@@ -7124,7 +7124,7 @@ CODE_B6B40D:
 	JSL.l CODE_B9E000			;$B6B410
 	JMP.w CODE_B685E6			;$B6B414
 
-Spr0428_FlyingKnikKnak_Main:
+flying_knik_knak_main:
 ;$B6B417
 	JSL.l CODE_BEC036			;$B6B417
 	BCC.b CODE_B6B42C			;$B6B41B
@@ -7528,7 +7528,7 @@ CODE_B6B744:
 ;	$64,x	Current X velocity to apply to Bazza
 ;	$66,x   X home position to apply to Bazza
 
-Spr01F8_BazzaSpawner_Main:
+bazza_spawner_main:
 	JMP (.state_table,x)			;$B6B745
 
 .state_table:
@@ -7565,7 +7565,7 @@ Spr01F8_BazzaSpawner_Main:
 	JMP CODE_B6805A				;$B6B785  |> Return and handle despawn
 
 
-Spr042C_Bazza_Main:
+bazza_main:
 	JMP.w (DATA_B6B78B,x)			;$B6B788
 
 DATA_B6B78B:
@@ -7604,8 +7604,8 @@ CODE_B6B7CD:
 	JMP.w CODE_B696A0			;$B6B7CD
 
 
-Spr0430_BountyBass_Main:
-Spr0434_BootyBird_Main:
+bounty_bass_main:
+booty_bird_main:
 ;$B6B7D0
 	JMP.w (DATA_B6B7D3,x)			;$B6B7D0
 
@@ -7880,17 +7880,17 @@ CODE_B6B9EB:
 	JMP.w CODE_B6BF79			;$B6B9F6
 
 
-Spr0438_unknown_sprite_0438_Main:
+unknown_sprite_0438_main:
 	JSR.w CODE_B6BA0E			;$B6B9F9
 	JML.l CODE_BBC815			;$B6B9FC
 
 
-Spr043C_unknown_sprite_043C_Main:
+unknown_sprite_043C_main:
 	JSR.w CODE_B6BA0E			;$B6BA00
 	JML.l CODE_BBC818			;$B6BA03
 
 
-Spr0440_unknown_sprite_0440_Main:
+unknown_sprite_0440_main:
 	JSR.w CODE_B6BA0E			;$B6BA07
 	JML.l CODE_BBC81B			;$B6BA0A
 
@@ -7915,7 +7915,7 @@ CODE_B6BA27:
 	RTS					;$B6BA28
 
 
-Spr0444_Nid_Main:
+nid_main:
 ;$B6BA29
 	JMP.w (DATA_B6BA2C,x)			;$B6BA29
 
@@ -8069,7 +8069,7 @@ CODE_B6BB34:
 CODE_B6BB46:
 	RTS					;$B6BB46
 
-Spr0448_Bazuka_Main:
+bazuka_main:
 ;$B6BB47
 	JMP.w (DATA_B6BB4A,x)			;$B6BB47
 
@@ -8433,8 +8433,8 @@ CODE_B6BDEE:
 	JSL.l CODE_BEC009			;$B6BDF8
 	RTS					;$B6BDFC
 
-Spr00EC_UpwardsShotBarrel_Main:
-Spr044C_BarrelShotByBazuka_Main:
+upwards_shot_barrel_main:
+barrel_shot_by_bazuka_main:
 ;$B6BDFD
 	JMP.w (DATA_B6BE00,x)			;$B6BDFD
 
@@ -8649,7 +8649,7 @@ CODE_B6BF85:
 CODE_B6BF98:
 	RTS					;$B6BF98
 
-Spr0450_BarrelSwitch_Main:
+barrel_switch_main:
 ;$B6BF99
 	JMP.w (DATA_B6BF9C,x)			;$B6BF99
 
@@ -8735,7 +8735,7 @@ DATA_B6C027:
 	dw $0156
 	dw $001C
 
-Spr0454_Kopter_Main:
+kopter_main:
 ;$B6C033
 	JMP.w (DATA_B6C036,x)			;$B6C033
 
@@ -9157,7 +9157,7 @@ CODE_B6C32C:
 CODE_B6C33B:
 	RTS					;$B6C33B
 
-Spr0458_MurkyMillElevator_Main:
+murky_mill_elevator_main:
 ;$B6C33C
 	JMP.w (DATA_B6C33F,x)			;$B6C33C
 
@@ -9345,7 +9345,7 @@ CODE_B6C458:
 	STA.w $0058,y				;$B6C48D
 	RTS					;$B6C490
 
-Spr0200_unknown_sprite_0200_Main:
+unknown_sprite_0200_main:
 ;$B6C491
 	LDA.w $1B6B				;$B6C491
 	BNE.b CODE_B6C500			;$B6C494
@@ -9428,7 +9428,7 @@ CODE_B6C53B:
 CODE_B6C53E:
 	JML [$04F5]				;$B6C53E
 
-Spr045C_NibblaHead_Main:
+nibbla_head_main:
 ;$B6C541
 	JMP.w (DATA_B6C544,x)			;$B6C541
 
@@ -9655,16 +9655,16 @@ CODE_B6C6EA:
 	STA.w $0016,y				;$B6C6F5
 	RTS					;$B6C6F8
 
-Spr0460_NibblaBody_Main:
+nibbla_body_main:
 ;$B6C6F9
 	JMP.w CODE_B685E6			;$B6C6F9
 
-Spr0464_BonusBCoinBossPrize_Main:
+boss_prize_bonus_coin_main:
 ;$B6C6FC
 	JSR.w CODE_B6C70A			;$B6C6FC
 	JML.l CODE_BBC81E			;$B6C6FF
 
-Spr0468_BearCoinBossPrize_Main:
+boss_prize_bear_coin_main:
 ;$B6C703
 	JSR.w CODE_B6C70A			;$B6C703
 	JML.l CODE_BBC824			;$B6C706
@@ -9799,7 +9799,7 @@ CODE_B6C7E2:
 	STA.b $16,x				;$B6C7F0
 	RTS					;$B6C7F2
 
-Spr00E4_unknown_sprite_00E4_Main:
+unknown_sprite_00E4_main:
 ;$B6C7F3
 	JSR.w CODE_B6C70A			;$B6C7F3
 	JMP.w (DATA_B6C7F9,x)			;$B6C7F6
@@ -9870,7 +9870,7 @@ CODE_B6C878:
 CODE_B6C883:
 	JML [$04F5]				;$B6C883
 
-Spr0484_Karbine_Main:
+karbine_main:
 ;$B6C886
 	JMP.w (DATA_B6C889,x)			;$B6C886
 
@@ -10091,7 +10091,7 @@ CODE_B6CA05:
 CODE_B6CA2E:
 	RTS					;$B6CA2E
 
-Spr0488_KarbineFireball_Main:
+karbine_fireball_main:
 ;$B6CA2F
 	JMP.w (DATA_B6CA32,x)			;$B6CA2F
 
@@ -10177,7 +10177,7 @@ CODE_B6CABF:
 CODE_B6CACF:
 	RTS					;$B6CACF
 
-Spr048C_KrosshairFireball_Main:
+krosshair_fireball_main:
 ;$B6CAD0
 	JMP.w (DATA_B6CAD3,x)			;$B6CAD0
 
@@ -10324,7 +10324,7 @@ CODE_B6CBC7:
 	STA.b $12,x				;$B6CBDD
 	RTS					;$B6CBDF
 
-Spr0490_GleaminBream_Main:
+gleamin_bream_main:
 ;$B6CBE0
 	JMP.w (DATA_B6CBE3,x)			;$B6CBE0
 
@@ -10414,7 +10414,7 @@ CODE_B6CC8B:
 	REP.b #$20				;$B6CC97
 	RTS					;$B6CC99
 
-Spr049C_unknown_sprite_049C_Main:
+unknown_sprite_049C_main:
 ;$B6CC9A
 	TYX					;$B6CC9A
 	DEC.b $5C,x				;$B6CC9B
@@ -10427,20 +10427,20 @@ CODE_B6CCA3:
 CODE_B6CCA6:
 	JML [$04F5]				;$B6CCA6
 
-Spr03CC_BigSmokeCloud_Main:
+big_smoke_cloud_main:
 ;$B6CCA9
 	JSL.l CODE_B9E000			;$B6CCA9
 	JMP.w CODE_B685E6			;$B6CCAD
 
-Spr03FC_KnautilusFireballShooter_Main:
+knautilus_fireball_shooter_main:
 ;$B6CCB0
 	JML [$04F5]				;$B6CCB0
 
-Spr004C_TopOfCottonTopCoveWaterfall_Main:
+top_of_cotton_top_cove_waterfall_main:
 ;$B6CCB3
 	JMP.w CODE_B685E6			;$B6CCB3
 
-Spr01E8_Belcha_Main:
+belcha_main:
 ;$B6CCB6
 	LDA.w $194B				;$B6CCB6
 	BIT.w #$0004				;$B6CCB9
@@ -10945,7 +10945,7 @@ CODE_B6D09A:
 	CMP.w $0012,y				;$B6D0A0
 	RTS					;$B6D0A3
 
-Spr03EC_SideOfBelchasMouth_Main:
+belcha_mouth_side_main:
 ;$B6D0A4
 	PHX					;$B6D0A4
 	JSR.w CODE_B6D7F4			;$B6D0A5
@@ -11069,7 +11069,7 @@ CODE_B6D155:
 	BNE.b CODE_B6D155			;$B6D172
 	JML [$04F5]				;$B6D174
 
-Spr03F0_BurpedUpBarrel_Main:
+belcha_barrel_main:
 ;$B6D177
 	JMP.w (DATA_B6D17A,x)			;$B6D177
 
@@ -11161,7 +11161,7 @@ CODE_B6D1F1:
 CODE_B6D227:
 	RTS					;$B6D227
 
-Spr03F4_KnikKnak_Main:
+knik_knak_main:
 ;$B6D228
 	JSL.l CODE_BEC036			;$B6D228
 	JMP.w (DATA_B6D22F,x)			;$B6D22C
@@ -11412,12 +11412,12 @@ CODE_B6D410:
 	STA.b $30,x				;$B6D41B
 	RTS					;$B6D41D
 
-Spr0400_BelchaPlatform_Main:
+belcha_platform_main:
 ;$B6D41E
 	JSL.l CODE_B9E000			;$B6D41E
 	JML [$04F5]				;$B6D422
 
-Spr00D8_BelchaTooth_Main:
+belcha_tooth_main:
 ;$B6D425
 	LDA.w $0038,y				;$B6D425
 	CMP.w #$0001				;$B6D428
@@ -11965,7 +11965,7 @@ CODE_B6D859:
 CODE_B6D861:
 	JML [$04F5]				;$B6D861
 
-Spr00E8_Squirt_Main:
+squirt_main:
 ;$B6D864
 	JMP.w (DATA_B6D867,x)			;$B6D864
 
@@ -12543,7 +12543,7 @@ CODE_B6DCD8:
 	INC					;$B6DCE9
 	RTS					;$B6DCEA
 
-Spr04BC_SquirtsEyePart_Main:
+squirts_eye_part_main:
 ;$B6DCEB
 	JMP.w (DATA_B6DCEE,x)			;$B6DCEB
 
@@ -13243,7 +13243,7 @@ DATA_B6E237:
 	db $00,$F9,$F9,$02,$F8,$F6,$04,$F8,$F9,$06,$F8,$F9,$08,$F8,$F9,$0A
 	db $F8,$F9,$0C,$F8,$FC,$FE
 
-Spr04D0_Target_Main:
+target_main:
 ;$B6E24D
 	JMP.w (DATA_B6E250,x)			;$B6E24D
 
@@ -13260,7 +13260,7 @@ CODE_B6E254:
 CODE_B6E260:
 	JMP.w CODE_B685E6			;$B6E260
 
-Spr0014_ThrownSoftball_Main:
+thrown_softball_main:
 ;$B6E263
 	LDX.b current_sprite			;$B6E263
 	LDA.b $5C,x				;$B6E265
@@ -13282,7 +13282,7 @@ Spr0014_ThrownSoftball_Main:
 CODE_B6E28D:
 	JMP.w CODE_B685E6			;$B6E28D
 
-Spr0018_unknown_sprite_0018_Main:
+unknown_sprite_0018_main:
 ;$B6E290
 	JMP.w (DATA_B6E293,x)			;$B6E290
 
@@ -13331,7 +13331,7 @@ CODE_B6E2D6:
 	JSL.l CODE_B9E000			;$B6E2E0
 	JMP.w CODE_B685E6			;$B6E2E4
 
-Spr001C_unknown_sprite_001C_Main:
+unknown_sprite_001C_main:
 ;$B6E2E7
 	TYX					;$B6E2E7
 	DEC.b $5C,x				;$B6E2E8
@@ -13345,7 +13345,7 @@ CODE_B6E2EF:
 	JSL.l CODE_B9E003			;$B6E2F9
 	JML.l CODE_B685E6			;$B6E2FD
 
-Spr04DC_PrizeFromSwankyKong_Main:
+swanky_kong_prize_main:
 ;$B6E301
 	JMP.w (DATA_B6E304,x)			;$B6E301
 
@@ -13389,7 +13389,7 @@ CODE_B6E33D:
 CODE_B6E340:
 	JML.l CODE_BBC812			;$B6E340
 
-Spr047C_KAOSBoxingGlove_Main:
+kaos_boxing_glove_main:
 ;$B6E344
 	PHX					;$B6E344
 	LDX.w $1B6B				;$B6E345
@@ -13518,7 +13518,7 @@ CODE_B6E418:
 	LDY.w #$0400				;$B6E431
 	BRA.b CODE_B6E407			;$B6E434
 
-Spr0498_KAOSBombs_Main:
+kaos_bombs_main:
 ;$B6E436
 	JMP.w (DATA_B6E439,x)			;$B6E436
 
@@ -13581,7 +13581,7 @@ CODE_B6E494:
 CODE_B6E4A6:
 	RTS					;$B6E4A6
 
-Spr0404_BarbosMouth_Main:
+barbos_mouth_main:
 ;$B6E4A7
 	JMP.w (DATA_B6E4AA,x)			;$B6E4A7
 
@@ -13649,7 +13649,7 @@ CODE_B6E50D:
 CODE_B6E520:
 	JMP.w CODE_B685E6			;$B6E520
 
-Spr03DC_DefeatedBleakSnowball_Main:
+defeated_bleak_snowball_main:
 ;$B6E523
 	JMP.w (DATA_B6E526,x)			;$B6E523
 
@@ -13752,7 +13752,7 @@ CODE_B6E5C7:
 CODE_B6E5C9:
 	JMP.w CODE_B685E6			;$B6E5C9
 
-Spr0020_ArichSpit_Main:
+arich_spit_main:
 ;$B6E5CC
 	LDA.w #$0038				;$B6E5CC
 	JSL.l CODE_BEC006			;$B6E5CF
@@ -13768,7 +13768,7 @@ CODE_B6E5E5:
 	JSL.l CODE_B9E000			;$B6E5E5
 	JMP.w CODE_B6BF79			;$B6E5E9
 
-Spr0024_unknown_sprite_0024_Main:
+unknown_sprite_0024_main:
 ;$B6E5EC
 	JMP.w (DATA_B6E5EF,x)			;$B6E5EC
 
@@ -13838,7 +13838,7 @@ CODE_B6E664:
 	STA.b $2A,x				;$B6E66A
 	RTS					;$B6E66C
 
-Spr0194_ArichBackHitbox_Main:
+arich_back_hitbox_main:
 ;$B6E66D
 	JMP.w (DATA_B6E670,x)			;$B6E66D
 
@@ -13861,7 +13861,7 @@ CODE_B6E686:
 	JSL.l CODE_BEC01B			;$B6E689
 	RTL					;$B6E68D
 
-Spr03A0_ArichLegs_Main:
+arich_legs_main:
 ;$B6E68E
 	JMP.w (DATA_B6E691,x)			;$B6E68E
 
@@ -13942,8 +13942,8 @@ CODE_B6E70F:
 CODE_B6E724:
 	RTS					;$B6E724
 
-Spr020C_unknown_sprite_020C_Main:
-Spr04AC_ElectricNode_Main:
+unknown_sprite_020C_main:
+electric_node_main:
 ;$B6E725
 	JMP.w (DATA_B6E728,x)			;$B6E725
 
@@ -14055,7 +14055,7 @@ CODE_B6E7E7:
 	STA.b $12,x				;$B6E7E7
 	RTS					;$B6E7E9
 
-Spr04C0_unknown_sprite_04C0_Main:
+unknown_sprite_04C0_main:
 ;$B6E7EA
 	PHX					;$B6E7EA
 	TYX					;$B6E7EB
@@ -14098,7 +14098,7 @@ CODE_B6E81E:
 	BNE.b CODE_B6E80E			;$B6E824
 	BRA.b CODE_B6E816			;$B6E826
 
-Spr0090_KAOSLaserHeadFlameJet_Main:
+kaos_laser_head_flame_jet_main:
 ;$B6E828
 	LDX.w $1B6D				;$B6E828
 	LDA.b $12,x				;$B6E82B
@@ -14107,7 +14107,7 @@ Spr0090_KAOSLaserHeadFlameJet_Main:
 	STA.w $0016,y				;$B6E832
 	JMP.w CODE_B685E6			;$B6E835
 
-Spr0474_KAOSFlame_Main:
+kaos_flame_main:
 ;$B6E838
 	JMP.w (DATA_B6E83B,x)			;$B6E838
 
@@ -14229,7 +14229,7 @@ CODE_B6E90D:
 CODE_B6E92F:
 	JMP.w CODE_B685E6			;$B6E92F
 
-Spr0480_KAOSFlameSpread_Main:
+kaos_flame_spread_main:
 ;$B6E932
 	JMP.w (DATA_B6E935,x)			;$B6E932
 
@@ -14293,7 +14293,7 @@ CODE_B6E9A7:
 	JSL.l CODE_BEC009			;$B6E9AE
 	RTS					;$B6E9B2
 
-Spr04B0_KRoolsFeet_Main:
+k_rool_feet_main:
 ;$B6E9B3
 	JMP.w (DATA_B6E9B6,x)			;$B6E9B3
 
@@ -14371,7 +14371,7 @@ CODE_B6EA2C:
 CODE_B6EA41:
 	JML [$04F5]				;$B6EA41
 
-Spr011C_KRoolCurtain_Main:
+k_rool_curtain_main:
 ;$B6EA44
 	JMP.w (DATA_B6EA47,x)			;$B6EA44
 
@@ -14398,7 +14398,7 @@ CODE_B6EA5B:
 	EOR.b $2E,x				;$B6EA64
 	RTS					;$B6EA66
 
-Spr04A4_KRoolPropeller_Main:
+k_rool_propeller_main:
 ;$B6EA67
 	JMP.w (DATA_B6EA6A,x)			;$B6EA67
 
@@ -14543,7 +14543,7 @@ DATA_B6EB87:
 	dw $D5F8,$D3F8,$D3F9,$D2F9,$D2F9,$D2F9,$D4FA,$D4FE
 	dw $D4F8,$D4F8,$D4F8,$D4F8
 
-Spr04B4_KnautilusFireballShooterFireball_Main:
+knautilus_fireball_shooter_fireball_main:
 ;$B6EB9F
 	TYX					;$B6EB9F
 	LDA.b $60,x				;$B6EBA0
@@ -14574,8 +14574,8 @@ CODE_B6EBD8:
 CODE_B6EBDB:
 	JMP.w CODE_B6F27D			;$B6EBDB
 
-Spr0208_unknown_sprite_0208_Main:
-Spr04A8_KastleKAOSLever_Main:
+unknown_sprite_0208_main:
+kastle_kaos_lever_main:
 ;$B6EBDE
 	JMP.w (DATA_B6EBE1,x)			;$B6EBDE
 
@@ -14791,7 +14791,7 @@ CODE_B6ED4B:
 CODE_B6ED4D:
 	RTS					;$B6ED4D
 
-Spr00C4_KRoolFightPlatform_Main:
+k_rool_fight_platform_main:
 ;$B6ED4E
 	JMP.w (DATA_B6ED51,x)			;$B6ED4E
 
@@ -14946,8 +14946,8 @@ CODE_B6EE46:
 	REP.b #$20				;$B6EE4E
 	RTL					;$B6EE50
 
-Spr0104_AreaNameText_Main:
-Spr0350_unknown_sprite_0350_Main:
+area_name_text_main:
+unknown_sprite_0350_main:
 ;$B6EE51
 	JMP.w (DATA_B6EE54,x)			;$B6EE51
 

@@ -1258,7 +1258,7 @@ CODE_BEC870:
 	JMP.w CODE_BEC38F			;$BEC870
 
 
-Spr0030_BarrelShield_Main:
+barrel_shield_main:
 	JMP (.state_table,x)			;$BEC873
 
 .state_table:
@@ -1307,7 +1307,7 @@ Spr0030_BarrelShield_Main:
 	JML [$04F5]				;$BEC8C5  |>
 
 
-Spr02B8_BarrelIcons_Main:
+barrel_icons_main:
 	LDA $004A,y				;$BEC8C8  \
 	BNE .CODE_BEC8D4			;$BEC8CB   |
 	JSL CODE_BB8591				;$BEC8CD   |
@@ -1321,7 +1321,7 @@ Spr02B8_BarrelIcons_Main:
 	JMP [$04F5]				;$BEC8DD  |>
 
 
-Spr02B4_BarrelCannon_Main:
+barrel_cannon_main:
 	JMP.w (DATA_BEC8E3,x)			;$BEC8E0
 
 DATA_BEC8E3:
@@ -2443,7 +2443,7 @@ CODE_BED0E4:
 	RTL					;$BED0EC
 
 
-Spr0280_unknown_sprite_0280_Main:
+unknown_sprite_0280_main:
 	JMP.w (DATA_BED0F0,x)			;$BED0ED
 
 DATA_BED0F0:
@@ -2544,14 +2544,14 @@ CODE_BED189:
 	RTS					;$BED195
 
 
-Spr0034_BarrelPieces_Main:
+barrel_pieces_main:
 	JSL process_sprite_animation		;$BED196  \ Process animation
 	JSL CODE_B9E000				;$BED19A   | Process current movement
 	JSL CODE_BBAB46				;$BED19E   | Despawn if offscreen
 	JMP [$04F5]				;$BED1A2  / Return
 
 
-Spr02E0_InvincibilityBarrel_Main:
+invincibility_barrel_main:
 	JSL populate_sprite_clipping		;$BED1A5  \
 	LDA #$0000				;$BED1A9   |
 	JSL CODE_BEC176				;$BED1AC   |
@@ -2568,7 +2568,7 @@ Spr02E0_InvincibilityBarrel_Main:
 	JMP [$04F5]				;$BED1C9  /
 
 
-Spr0164_KAOSHeadExplosionSpawner_Main:
+kaos_head_explosion_spawner_main:
 	JSL.l CODE_B9E000			;$BED1CC
 	DEC.b $5C,x				;$BED1D0
 	BPL.b CODE_BED1DC			;$BED1D2
@@ -2628,7 +2628,7 @@ DATA_BED229:
 	dw $FFF8, $FFFC
 
 
-Spr02E8_KAOSHeadExplosion_Main:
+kaos_head_explosion_main:
 	JSL.l populate_sprite_clipping		;$BED249
 	LDA.w #$0240				;$BED24D
 	LDY.w #$0020				;$BED250
@@ -2685,7 +2685,7 @@ CODE_BED28A:
 	RTS					;$BED2B2
 
 
-Spr02C8_unknown_sprite_02C8_Main:
+unknown_sprite_02C8_main:
 	JMP.w (DATA_BED2B6,x)			;$BED2B3
 
 DATA_BED2B6:
@@ -2725,7 +2725,7 @@ CODE_BED2F7:
 	JMP.w CODE_BEE182			;$BED2FB
 
 
-Spr02C4_DKBarrel_Main:
+dk_barrel_main:
 	JMP.w (.state_table,x)			;$BED2FE
 
 .state_table:
@@ -2746,7 +2746,7 @@ Spr02C4_DKBarrel_Main:
 	JSL process_sprite_animation		;$BED31F  \ Process animation
 	JMP CODE_BEE182				;$BED323  / Return and handle despawn
 
-Spr02CC_unknown_sprite_02CC_Main:
+unknown_sprite_02CC_main:
 ;$BED326
 	JSR.w CODE_BED907			;$BED326
 	BCS.b CODE_BED33C			;$BED329
@@ -2802,7 +2802,7 @@ CODE_BED36D:
 	JSL.l CODE_BEE83D			;$BED393
 	JML [$04F5]				;$BED397
 
-Spr02C0_Barrel_Main:
+barrel_main:
 ;$BED39A
 	JSR.w CODE_BED907			;$BED39A
 	BCS.b CODE_BED3A2			;$BED39D
@@ -3013,7 +3013,7 @@ CODE_BED52D:
 	JSR.w CODE_BEDADB			;$BED552
 	JML [$04F5]				;$BED555
 
-Spr02D0_TNTBarrel_Main:
+tnt_barrel_main:
 ;$BED558
 	JSR.w CODE_BED907			;$BED558
 	BCS.b CODE_BED570			;$BED55B
@@ -3156,7 +3156,7 @@ CODE_BED664:
 	JSL.l CODE_BB8597			;$BED684
 	JML [$04F5]				;$BED688
 
-Spr02D4_SteelKeg_Main:
+steel_keg_main:
 ;$BED68B
 	JSR.w CODE_BED907			;$BED68B
 	BCS.b CODE_BED6A9			;$BED68E
@@ -3566,7 +3566,7 @@ CODE_BED9B0:
 CODE_BED9B5:
 	RTS					;$BED9B5
 
-Spr02D8_WoodenBox_Main:
+wooden_box_main:
 ;$BED9B6
 	JSR.w CODE_BED907			;$BED9B6
 	BCS.b CODE_BED9D0			;$BED9B9
@@ -3870,7 +3870,7 @@ CODE_BEDBED:
 CODE_BEDC06:
 	RTS					;$BEDC06
 
-Spr02BC_CheckpointBarrel_Main:
+checkpoint_barrel_main:
 CODE_BEDC07:
 	JMP.w (DATA_BEDC0A,x)			;$BEDC07
 
@@ -4048,7 +4048,7 @@ CODE_BEDD5C:
 	STA.b $12,x				;$BEDD5E
 	RTS					;$BEDD60
 
-Spr02EC_Rocket_Main:
+rocket_main:
 ;$BEDD61
 	JMP.w (DATA_BEDD64,x)			;$BEDD61
 
@@ -4271,7 +4271,7 @@ CODE_BEDEF7:
 	JSR.w CODE_BECF10			;$BEDF1F
 	RTS					;$BEDF22
 
-Spr005C_unknown_sprite_005C_Main:
+unknown_sprite_005C_main:
 ;$BEDF23
 	LDX.b $5C,y				;$BEDF23
 	LDA.w $001E,y				;$BEDF25
@@ -4311,7 +4311,7 @@ CODE_BEDF4D:
 CODE_BEDF6F:
 	JML [$04F5]				;$BEDF6F
 
-Spr02F0_RocketFlame_Main:
+rocket_flame_main:
 ;$BEDF72
 	JMP.w (DATA_BEDF75,x)			;$BEDF72
 
@@ -4451,7 +4451,7 @@ CODE_BEE080:
 	STA.w $0016,y				;$BEE082
 	RTS					;$BEE085
 
-Spr02F4_RocketEyes_Main:
+rocket_eyes_main:
 ;$BEE086
 	LDY.b current_sprite			;$BEE086
 	LDX.b $5C,y				;$BEE088
@@ -4508,7 +4508,7 @@ DATA_BEE0CD:
 	dw $0005
 	dw $0028
 
-Spr02E4_FuelCan_Main:
+fuel_can_main:
 ;$BEE0E3
 	LDA.w $0039,y				;$BEE0E3
 	AND.w #$00FF				;$BEE0E6
@@ -4590,7 +4590,7 @@ CODE_BEE16A:
 	JSL.l CODE_BB8591			;$BEE174
 	JML [$04F5]				;$BEE178
 
-Spr02B0_KongWaterSplash_Main:
+kong_water_splash_main:
 ;$BEE17B
 	JSL.l process_sprite_animation		;$BEE17B
 	JML [$04F5]				;$BEE17F
@@ -4599,7 +4599,7 @@ CODE_BEE182:
 	JSL.l CODE_BBAB52			;$BEE182
 	JML [$04F5]				;$BEE186
 
-Spr0168_VerticalAutoscroll_Main:
+vertical_autoscroll_main:
 ;$BEE189
 	JMP.w (DATA_BEE18C,x)			;$BEE189
 
@@ -4763,7 +4763,7 @@ DATA_BEE2BD:
 	dw $039B
 	dw $0000
 
-Spr016C_WaterfallBarrelSpawner_Main:
+waterfall_barrel_spawner_main:
 ;$BEE2C7
 	JMP.w (DATA_BEE2CA,x)			;$BEE2C7
 
@@ -4838,7 +4838,7 @@ CODE_BEE34F:
 	LDA.l $7E9880,x				;$BEE34F
 	CMP.l $7E9882,x				;$BEE353
 	BCC.b CODE_BEE3A0			;$BEE357
-	PEA.w (($7E9882&$FF0000)>>16)|((Spr016C_WaterfallBarrelSpawner_Main&$FF0000)>>8)	;$BEE359
+	PEA.w (($7E9882&$FF0000)>>16)|((waterfall_barrel_spawner_main&$FF0000)>>8)	;$BEE359
 	PLB					;$BEE35C
 	LDY.w $7E9882,x				;$BEE35D
 	STA.w $7E9882,x				;$BEE360
@@ -5115,7 +5115,7 @@ CODE_BEE55B:
 CODE_BEE58B:
 	RTS					;$BEE58B
 
-Spr02DC_WaterfallBarrel_Main:
+waterfall_barrel_main:
 ;$BEE58C
 	JMP.w (DATA_BEE58F,x)			;$BEE58C
 
@@ -5210,7 +5210,7 @@ CODE_BEE64D:
 	SEC					;$BEE64D
 	RTS					;$BEE64E
 
-Spr0170_BarrelRespawner_Main:
+barrel_respawner_main:
 ;$BEE64F
 	JMP.w (DATA_BEE652,x)			;$BEE64F
 
@@ -5479,7 +5479,7 @@ CODE_BEE83D:
 	LDA.w #$0766				;$BEE83D
 	JML.l CODE_B28018			;$BEE840
 
-Spr0174_unknown_sprite_0174_Main:
+unknown_sprite_0174_main:
 ;$BEE844
 	LDA.w $0060,y				;$BEE844
 	BEQ.b CODE_BEE855			;$BEE847

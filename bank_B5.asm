@@ -73,7 +73,7 @@ CODE_B58045:
 CODE_B58048:
 	JMP.w CODE_B5C4BE			;$B58048
 
-Spr04C4_CrankyKong_Main:
+cranky_kong_main:
 ;$B5804B
 	TYX					;$B5804B
 	LDA.b $38,x				;$B5804C
@@ -410,11 +410,11 @@ CODE_B582E7:
 	RTS					;$B582E7
 
 
-Spr04CC_HeadToHeadIcon_Main:
+head_to_head_icon_main:
 	JML [$04F5]				;$B582E8
 
 
-Spr0010_HeadToHeadDot_Main:
+head_to_head_dot_main:
 	JML [$04F5]				;$B582EB
 
 
@@ -705,7 +705,7 @@ CODE_B584E5:
 CODE_B584F5:
 	RTS					;$B584F5
 
-Spr04C8_TimerDigit_Main:
+timer_digit_main:
 ;$B584F6
 	JML [$04F5]				;$B584F6
 
@@ -1011,7 +1011,7 @@ CODE_B58726:
 CODE_B5875C:
 	JMP.w CODE_B5F164			;$B5875C
 
-Spr0184_TargetSpawner_Main:
+target_spawner_main:
 ;$B5875F
 	JMP.w (DATA_B58762,x)			;$B5875F
 
@@ -2087,7 +2087,7 @@ CODE_B58F9E:
 	STA.w $1BB5				;$B58FB9
 	RTS					;$B58FBC
 
-Spr04D4_TargetShootKong_Main:
+target_shoot_kong_main:
 ;$B58FBD
 	JMP.w (DATA_B58FC0,x)			;$B58FBD
 
@@ -2293,7 +2293,7 @@ CODE_B59112:
 	JSL.l CODE_BB85A0			;$B5911F
 	RTS					;$B59123
 
-Spr03A4_ArichHead_Main:
+arich_head_main:
 ;$B59124
 	JMP.w (DATA_B59127,x)			;$B59124
 
@@ -3335,7 +3335,7 @@ CODE_B5994F:
 	STA.w $1B77				;$B5995C
 	RTS					;$B5995F
 
-Spr03A8_ArichPupil_Main:
+arich_pupil_main:
 ;$B59960
 	TYX					;$B59960
 	LDY.w #$0006				;$B59961
@@ -3441,7 +3441,7 @@ DATA_B59A97:
 DATA_B59AC3:
 	db $00,$D2,$E1,$F0,$FF
 
-Spr0108_Bleak_Main:
+bleak_main:
 ;$B59AC8
 	PHY					;$B59AC8
 	PHX					;$B59AC9
@@ -4255,7 +4255,7 @@ CODE_B5A15A:
 DATA_B5A16A:
 	dw $0000,$0010,$0000,$0010,$0010,$0000,$0000
 
-Spr03B8_BleakSnowball_Main:
+bleak_snowball_main:
 ;$B5A178
 	JSL.l CODE_B9E000			;$B5A178
 	LDA.b $16,x				;$B5A17C
@@ -4266,7 +4266,7 @@ Spr03B8_BleakSnowball_Main:
 CODE_B5A186:
 	JMP.w CODE_B5F164			;$B5A186
 
-Spr03C0_BleakFightKong_Main:
+bleak_fight_kong_main:
 ;$B5A189
 	JMP.w (DATA_B5A18C,x)			;$B5A189
 
@@ -4454,7 +4454,7 @@ CODE_B5A2CC:
 	STA.b $5A,x				;$B5A2E0
 	RTS					;$B5A2E2
 
-Spr03E8_unknown_sprite_03E8_Main:
+unknown_sprite_03E8_main:
 ;$B5A2E3
 	LDY.w $1BB9				;$B5A2E3
 	JSL.l CODE_BEC003			;$B5A2E6
@@ -4496,7 +4496,7 @@ CODE_B5A31D:
 CODE_B5A341:
 	JMP.w CODE_B5F164			;$B5A341
 
-Spr0048_BleakFightCursor_Main:
+bleak_fight_cursor_main:
 ;$B5A344
 	LDA.w $1B6F				;$B5A344
 	ASL					;$B5A347
@@ -4509,7 +4509,7 @@ Spr0048_BleakFightCursor_Main:
 	dw $0137
 	dw $016C
 
-Spr002C_ThrownSnowball_Main:
+thrown_snowball_main:
 ;$B5A356
 	JSL.l CODE_B9E000			;$B5A356
 	LDA.b $2E,x				;$B5A35A
@@ -4747,7 +4747,7 @@ DATA_B5A4F9:
 	dw $3C50
 
 
-Spr01EC_Barbos_Main:
+barbos_main:
 ;$B5A511
 	LDA.w $194B				;$B5A511
 	BIT.w #$0004				;$B5A514
@@ -5737,7 +5737,7 @@ CODE_B5ACD1:
 	LDA.w !REGISTER_QuotientLo		;$B5ACF3
 	RTS					;$B5ACF6
 
-Spr0054_BarbosEye_Main:
+barbos_eye_main:
 ;$B5ACF7
 	JMP.w (DATA_B5ACFA,x)			;$B5ACF7
 
@@ -5871,7 +5871,7 @@ DATA_B5ADD7:
 	dw $03A2
 	dw $0398
 
-Spr0058_BarbosPupil_Main:
+barbos_pupil_main:
 ;$B5ADE9
 	JMP.w (DATA_B5ADEC,x)			;$B5ADE9
 
@@ -6107,7 +6107,7 @@ DATA_B5AF9F:
 DATA_B5AFAF:
 	db $02,$00,$02,$01,$02,$02,$02,$03,$00,$04,$01,$04,$02,$04,$02,$03
 
-Spr0408_PurpleLurchin_Main:
+purple_lurchin_main:
 ;$B5AFBF
 	JMP.w (DATA_B5AFC2,x)			;$B5AFBF
 
@@ -6336,7 +6336,7 @@ CODE_B5B188:
 	STA.b $5A,x				;$B5B191
 	RTS					;$B5B193
 
-Spr040C_BarbosSpawnedGreenLurchin_Main:
+barbos_green_lurchin_main:
 ;$B5B194
 	JMP.w (DATA_B5B197,x)			;$B5B194
 
@@ -6672,7 +6672,7 @@ CODE_B5B425:
 	STA.b $2A,x				;$B5B42B
 	RTS					;$B5B42D
 
-Spr0050_BarbosSpikeProjectile_Main:
+barbos_spike_projectile_main:
 ;$B5B42E
 	JMP.w (DATA_B5B431,x)			;$B5B42E
 
@@ -6700,7 +6700,7 @@ CODE_B5B440:
 CODE_B5B45F:
 	JML [$04F5]				;$B5B45F
 
-Spr0410_SeashellMissle_Main:
+seashell_missle_main:
 ;$B5B462
 	JMP.w (DATA_B5B465,x)			;$B5B462
 
@@ -7456,7 +7456,7 @@ DATA_B5BA84:
 DATA_B5BA9F:
 	dw $0012,$000F,$000F,$000B,$0007
 
-Spr0204_KAOS_Main:
+kaos_main:
 ;$B5BAA9
 	LDA.w $194B				;$B5BAA9
 	BIT.w #$0004				;$B5BAAC
@@ -9189,7 +9189,7 @@ CODE_B5C7CC:
 	STA.w $1B81				;$B5C7DD
 	JMP.w CODE_B5C6AB			;$B5C7E0
 
-Spr046C_KAOSLaserHead_Main:
+kaos_laser_head_main:
 ;$B5C7E3
 	JSR.w CODE_B5CACF			;$B5C7E3
 	JMP.w (DATA_B5C7E9,x)			;$B5C7E6
@@ -9776,7 +9776,7 @@ CODE_B5CC58:
 CODE_B5CC64:
 	RTS					;$B5CC64
 
-Spr0470_KAOSSkullHead_Main:
+kaos_skull_head_main:
 ;$B5CC65
 	JMP.w (DATA_B5CC68,x)			;$B5CC65
 
@@ -10078,7 +10078,7 @@ CODE_B5CEA0:
 	PLA					;$B5CEAE
 	RTS					;$B5CEAF
 
-Spr0494_KAOSCylinderHead_Main:
+kaos_cylinder_head_main:
 ;$B5CEB0
 	JMP.w (DATA_B5CEB3,x)			;$B5CEB0
 
@@ -10353,7 +10353,7 @@ DATA_B5D1F3:
 	db $00,$01,$1E,$6C,$01,$86,$01,$32,$00,$3C,$00,$23,$00,$2D,$00,$FF
 	db $08,$32,$1E,$30,$01,$D0,$02,$00,$02,$68,$01,$8C,$01
 
-Spr0118_KRool_Main:
+k_rool_main:
 ;$B5D210
 	NOP #4					;$B5D210
 	LDA.w $0016,y				;$B5D214
