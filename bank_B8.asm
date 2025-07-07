@@ -731,7 +731,7 @@ CODE_B88557:
 	SBC.w #$0234				;$B8855A
 	STA.b $3E				;$B8855D
 	LDY.w #$0010				;$B8855F
-	LDA.w $05B5				;$B88562
+	LDA.w current_kong			;$B88562
 	BEQ.b CODE_B8856B			;$B88565
 	TYA					;$B88567
 	LDY.w #$0000				;$B88568
@@ -790,7 +790,7 @@ CODE_B885D5:
 	STZ.w $1891				;$B885DD
 	LDX.w $17C8				;$B885E0
 	LDA.w #$FFC0				;$B885E3
-	LDY.w $05B5				;$B885E6
+	LDY.w current_kong			;$B885E6
 	BEQ.b CODE_B885EE			;$B885E9
 	LDA.w #$FFA0				;$B885EB
 CODE_B885EE:
@@ -1036,7 +1036,7 @@ CODE_B887F5:
 	LDX.w active_kong_sprite		;$B887FD
 	LDA.w #$0002				;$B88800
 	JSL.l CODE_BB85A0			;$B88803
-	LDA.w $05B5				;$B88807
+	LDA.w current_kong			;$B88807
 	BNE.b CODE_B88823			;$B8880A
 	LDY.w follower_kong_sprite		;$B8880C
 	LDA.b $1E,x				;$B8880F
@@ -3358,10 +3358,10 @@ CODE_B89C4C:
 	RTL					;$B89C5B
 
 CODE_B89C5C:
-	LDA.w $05B5				;$B89C5C
+	LDA.w current_kong			;$B89C5C
 	EOR.w #$0001				;$B89C5F
 CODE_B89C62:
-	STA.w $05B5				;$B89C62
+	STA.w current_kong			;$B89C62
 	INC					;$B89C65
 	STA.w $05B3				;$B89C66
 	DEC					;$B89C69
@@ -3407,7 +3407,7 @@ CODE_B89CBD:
 	AND.w #$00FF				;$B89CC5
 	DEC					;$B89CC8
 	ASL					;$B89CC9
-	ADC.w $05B5				;$B89CCA
+	ADC.w current_kong			;$B89CCA
 	ASL					;$B89CCD
 	TAX					;$B89CCE
 	LDA.l DATA_B89E43,x			;$B89CCF
@@ -3437,7 +3437,7 @@ CODE_B89D01:
 	AND.w #$00FF				;$B89D0E
 	DEC					;$B89D11
 	ASL					;$B89D12
-	ADC.w $05B5				;$B89D13
+	ADC.w current_kong			;$B89D13
 	ASL					;$B89D16
 	TAX					;$B89D17
 	LDA.l DATA_B89E63,x			;$B89D18
@@ -3461,7 +3461,7 @@ CODE_B89D4A:
 	CLC					;$B89D4A
 	ADC.b $06,x				;$B89D4B
 	STA.b $06,x				;$B89D4D
-	LDA.w $05B5				;$B89D4F
+	LDA.w current_kong			;$B89D4F
 	JSL.l CODE_B89C62			;$B89D52
 	JSR.w CODE_B89EAC			;$B89D56
 	LDX.w follower_kong_sprite		;$B89D59
@@ -4659,7 +4659,7 @@ CODE_B8A763:
 	LDA.b $3A				;$B8A78C
 	CMP.b $16,x				;$B8A78E
 	BCS.b CODE_B8A7B0			;$B8A790
-	LDA.w $05B5				;$B8A792
+	LDA.w current_kong			;$B8A792
 	BEQ.b CODE_B8A79B			;$B8A795
 	LDA.w #$000D				;$B8A797
 	CLC					;$B8A79A
@@ -10989,7 +10989,7 @@ CODE_B8D75D:
 	TSB.w $1877				;$B8D760
 	LDA.b current_animal_type		;$B8D763
 	BNE.b CODE_B8D77A			;$B8D765
-	LDA.w $05B5				;$B8D767
+	LDA.w current_kong			;$B8D767
 	BNE.b CODE_B8D773			;$B8D76A
 	LDA.w #$0001				;$B8D76C
 	STA.w $1871				;$B8D76F
@@ -12604,7 +12604,6 @@ CODE_B8E2F7:
 
 unknown_sprite_0004_main:
 unknown_sprite_0264_main:
-;$B8E2FE
 	LDA.w $059B				;$B8E2FE
 	AND.w #$0180				;$B8E301
 	BEQ.b CODE_B8E317			;$B8E304
@@ -12628,7 +12627,7 @@ unknown_sprite_0134_main:
 	JSL.l CODE_BB85AF			;$B8E326
 	JML [$04F5]				;$B8E32A
 
-unknown_sprite_0130_main:
+sprite_marker_main:
 CODE_B8E32D:
 	JSL.l CODE_BB85B2			;$B8E32D
 	JML [$04F5]				;$B8E331
@@ -13712,7 +13711,7 @@ DATA_B8EB03:
 	dw CODE_B8EB83
 
 CODE_B8EB09:
-	STY.b $7A				;$B8EB09
+	STY.b parry_index			;$B8EB09
 	TYX					;$B8EB0B
 	INC.b $38,x				;$B8EB0C
 	JSR.w CODE_B8EC24			;$B8EB0E
@@ -13727,7 +13726,7 @@ CODE_B8EB09:
 	LDA.w #$00F0				;$B8EB21
 	STA.b $66,x				;$B8EB24
 CODE_B8EB26:
-	LDY.b $7A				;$B8EB26
+	LDY.b parry_index			;$B8EB26
 	BEQ.b CODE_B8EB63			;$B8EB28
 	JSR.w CODE_B8EC6A			;$B8EB2A
 	JSR.w CODE_B8EBA9			;$B8EB2D
@@ -13750,7 +13749,7 @@ CODE_B8EB55:
 
 CODE_B8EB5A:
 	JSL.l CODE_BB8591			;$B8EB5A
-	STZ.b $7A				;$B8EB5E
+	STZ.b parry_index			;$B8EB5E
 	JML [$04F5]				;$B8EB60
 
 CODE_B8EB63:
@@ -13764,7 +13763,7 @@ CODE_B8EB63:
 	LDA.w #$00F4				;$B8EB77
 	STA.b $0E,x				;$B8EB7A
 	STZ.b $3A,x				;$B8EB7C
-	STZ.b $7A				;$B8EB7E
+	STZ.b parry_index			;$B8EB7E
 	JML [$04F5]				;$B8EB80
 
 CODE_B8EB83:

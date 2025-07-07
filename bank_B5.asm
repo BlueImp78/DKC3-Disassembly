@@ -74,7 +74,6 @@ CODE_B58048:
 	JMP.w CODE_B5C4BE			;$B58048
 
 cranky_kong_main:
-;$B5804B
 	TYX					;$B5804B
 	LDA.b $38,x				;$B5804C
 	BEQ.b CODE_B58053			;$B5804E
@@ -165,6 +164,7 @@ CODE_B580D1:
 	REP.b #$20				;$B5811B
 	JML [$04F5]				;$B5811D
 
+;Spawns kong in swanky's minigame. (And possibly in kaos kore end cutscene?) Called by cranky_kong_main
 CODE_B58120:
 	LDA.w $0547				;$B58120
 	ASL					;$B58123
@@ -174,7 +174,7 @@ CODE_B58120:
 	JSL.l CODE_BB8585			;$B58129
 	LDY.b alternate_sprite			;$B5812D
 	STY.w $1BB9				;$B5812F
-	LDA.w $05B5				;$B58132
+	LDA.w current_kong			;$B58132
 	INC					;$B58135
 	STA.w $005C,y				;$B58136
 	LDA.w #$0000				;$B58139
@@ -226,7 +226,7 @@ CODE_B5817C:
 	BRA.b CODE_B581A4			;$B58198
 
 CODE_B5819A:
-	LDA.w $05B5				;$B5819A
+	LDA.w current_kong			;$B5819A
 	EOR.w #$0001				;$B5819D
 	INC					;$B581A0
 	STA.w $005C,y				;$B581A1
@@ -419,29 +419,29 @@ head_to_head_dot_main:
 
 
 CODE_B582EE:
-	LDA.w #$816D				;$B582EE
-	LDY.w $05B5				;$B582F1
-	BEQ.b CODE_B582FA			;$B582F4
+	LDA #$816D				;$B582EE
+	LDY current_kong 			;$B582F1
+	BEQ CODE_B582FA				;$B582F4
 	CLC					;$B582F6
-	ADC.w #$000F				;$B582F7
+	ADC #$000F				;$B582F7
 CODE_B582FA:
-	STA.b $24,x				;$B582FA
-	STA.b $40,x				;$B582FC
+	STA $24,x				;$B582FA
+	STA $40,x				;$B582FC
 	RTS					;$B582FE
 
 CODE_B582FF:
-	LDA.w #$816D				;$B582FF
-	LDY.w $05B5				;$B58302
-	BNE.b CODE_B5830B			;$B58305
+	LDA #$816D				;$B582FF
+	LDY current_kong			;$B58302
+	BNE CODE_B5830B				;$B58305
 	CLC					;$B58307
-	ADC.w #$000F				;$B58308
+	ADC #$000F				;$B58308
 CODE_B5830B:
-	LDY.w $054B				;$B5830B
-	BNE.b CODE_B58313			;$B5830E
-	LDA.w #$818B				;$B58310
+	LDY $054B				;$B5830B
+	BNE CODE_B58313				;$B5830E
+	LDA #$818B				;$B58310
 CODE_B58313:
-	STA.b $24,x				;$B58313
-	STA.b $40,x				;$B58315
+	STA $24,x				;$B58313
+	STA $40,x				;$B58315
 	RTS					;$B58317
 
 CODE_B58318:
@@ -1012,7 +1012,6 @@ CODE_B5875C:
 	JMP.w CODE_B5F164			;$B5875C
 
 target_spawner_main:
-;$B5875F
 	JMP.w (DATA_B58762,x)			;$B5875F
 
 DATA_B58762:
@@ -2087,7 +2086,7 @@ CODE_B58F9E:
 	STA.w $1BB5				;$B58FB9
 	RTS					;$B58FBC
 
-target_shoot_kong_main:
+swanky_minigame_kong_main:
 ;$B58FBD
 	JMP.w (DATA_B58FC0,x)			;$B58FBD
 
@@ -3499,7 +3498,7 @@ CODE_B59B09:
 	STA.b $12,x				;$B59B31
 	LDA.w #$0003				;$B59B33
 	STA.b $38,x				;$B59B36
-	LDA.w $05B5				;$B59B38
+	LDA.w current_kong			;$B59B38
 	BNE.b CODE_B59B42			;$B59B3B
 	LDA.w #$0008				;$B59B3D
 	BRA.b CODE_B59B45			;$B59B40
@@ -3508,7 +3507,7 @@ CODE_B59B42:
 	LDA.w #$0007				;$B59B42
 CODE_B59B45:
 	JSL.l CODE_BB85A0			;$B59B45
-	LDA.w $05B5				;$B59B49
+	LDA.w current_kong			;$B59B49
 	INC					;$B59B4C
 	EOR.w #$0003				;$B59B4D
 	STA.b $5C,x				;$B59B50
@@ -3951,12 +3950,12 @@ CODE_B59F28:
 	LDX.b alternate_sprite			;$B59F2F
 	STX.w $1BB9				;$B59F31
 	STZ.b $64,x				;$B59F34
-	LDA.w $05B5				;$B59F36
+	LDA.w current_kong			;$B59F36
 	BEQ.b CODE_B59F42			;$B59F39
 	LDA.w #$0008				;$B59F3B
 	JSL.l CODE_BB85A0			;$B59F3E
 CODE_B59F42:
-	LDA.w $05B5				;$B59F42
+	LDA.w current_kong			;$B59F42
 	INC					;$B59F45
 	STA.b $5C,x				;$B59F46
 	CLC					;$B59F48
@@ -4334,7 +4333,7 @@ CODE_B5A1F5:
 	TYX					;$B5A1F5
 	DEC.b $6A,x				;$B5A1F6
 	BNE.b CODE_B5A215			;$B5A1F8
-	LDA.w $05B5				;$B5A1FA
+	LDA.w current_kong			;$B5A1FA
 	INC					;$B5A1FD
 	EOR.w #$0003				;$B5A1FE
 	STA.b $5C,x				;$B5A201
@@ -4473,7 +4472,7 @@ unknown_sprite_03E8_main:
 	STA.b $6A,x				;$B5A30A
 	DEC.b $0E,x				;$B5A30C
 	DEC.b $0E,x				;$B5A30E
-	LDA.w $05B5				;$B5A310
+	LDA.w current_kong			;$B5A310
 	BNE.b CODE_B5A31A			;$B5A313
 	LDA.w #$0008				;$B5A315
 	BRA.b CODE_B5A31D			;$B5A318
@@ -4482,7 +4481,7 @@ CODE_B5A31A:
 	LDA.w #$0007				;$B5A31A
 CODE_B5A31D:
 	JSL.l CODE_BB85A0			;$B5A31D
-	LDA.w $05B5				;$B5A321
+	LDA.w current_kong			;$B5A321
 	INC					;$B5A324
 	EOR.w #$0003				;$B5A325
 	STA.b $5C,x				;$B5A328
@@ -4498,12 +4497,12 @@ CODE_B5A341:
 
 bleak_fight_cursor_main:
 ;$B5A344
-	LDA.w $1B6F				;$B5A344
-	ASL					;$B5A347
-	TAX					;$B5A348
-	LDA.w .screen_y_positions,x		;$B5A349
-	STA.w $0016,y				;$B5A34C
-	JML [$04F5]				;$B5A34F
+	LDA.w $1B6F				;$B5A344  \
+	ASL					;$B5A347   |
+	TAX					;$B5A348   |
+	LDA.w .screen_y_positions,x		;$B5A349   |
+	STA.w $0016,y				;$B5A34C   |
+	JML [$04F5]				;$B5A34F  /
 
 .screen_y_positions:
 	dw $0137
@@ -10353,7 +10352,7 @@ DATA_B5D1F3:
 	db $00,$01,$1E,$6C,$01,$86,$01,$32,$00,$3C,$00,$23,$00,$2D,$00,$FF
 	db $08,$32,$1E,$30,$01,$D0,$02,$00,$02,$68,$01,$8C,$01
 
-k_rool_main:
+krool_main:
 ;$B5D210
 	NOP #4					;$B5D210
 	LDA.w $0016,y				;$B5D214
@@ -15548,7 +15547,7 @@ CODE_B5FB29:
 	BIT.w $05AF				;$B5FB2D
 	BEQ.b CODE_B5FBA0			;$B5FB30
 	TRB.w $05AF				;$B5FB32
-	LDA.w $05B5				;$B5FB35
+	LDA.w current_kong			;$B5FB35
 	INC					;$B5FB38
 	STA.b $5C,x				;$B5FB39
 	CLC					;$B5FB3B
@@ -15570,9 +15569,9 @@ CODE_B5FB5C:
 	JSR.w CODE_B5A2CC			;$B5FB63
 	LDA.b $12,x				;$B5FB66
 	PHA					;$B5FB68
-	LDA.w $05B5				;$B5FB69
+	LDA.w current_kong			;$B5FB69
 	EOR.w #$0001				;$B5FB6C
-	STA.w $05B5				;$B5FB6F
+	STA.w current_kong			;$B5FB6F
 	JSR.w CODE_B59F28			;$B5FB72
 	LDY.b alternate_sprite			;$B5FB75
 	LDA.w #$0802				;$B5FB77
@@ -15739,10 +15738,12 @@ DATA_B5FC79:
 	dw $019A
 	dw $01B6
 
+;Swanky game mode related
+;Code exists that will attempt to load index 03 (scrapped 2p versus mode)
 DATA_B5FC85:
-	dw DATA_B5FC8B
-	dw DATA_B5FCB9
-	dw DATA_B5FCE7
+	dw DATA_B5FC8B				;00 Head-To-Head			
+	dw DATA_B5FCB9				;01 Race to 25
+	dw DATA_B5FCE7				;02 Endurance
 
 DATA_B5FC8B:
 	dw $0000,$004B,$005A,$0006,$0010,CODE_B58450,CODE_B58E40,$0050
@@ -15803,11 +15804,21 @@ DATA_B5FD80:
 	db $3C,$00,$00,$38,$00,$00,$11,$00,$00,$08,$00,$00,$08,$00,$00,$08
 	db $00,$00,$08,$00,$00,$00
 
-;Might be KAOS laser HDMA related
+
+;CGRAM color values used by KAOS's floating head to make the eyes glow
 DATA_B5FD96:
-	dw $029F,$017E,$005E,$02BF,$01DE,$00DE,$02FF,$021E
-	dw $015E,$031F,$027F,$01DE,$033F,$02DF,$025F,$037F
-	dw $031F,$02DF,$039F,$037F,$035F,$03DF,$03DF,$03DF
+	dw $029F, $017E, $005E
+	dw $02BF, $01DE, $00DE
+	dw $02FF, $021E, $015E
+	dw $031F, $027F, $01DE
+	dw $033F, $02DF, $025F
+	dw $037F, $031F, $02DF
+	dw $039F, $037F, $035F
+	dw $03DF, $03DF, $03DF
+
+
+;Garbage data including fragments of above target spawner tables with different pointers
+;DATA_B5FDC6:
 	dw $0200,$4289,$0200,$4489,$0200,$4689,$0200,$4889
 	dw $0200,$4A89,$0800,$0032,$8910,$0016,$892E,$0016
 	dw $892E,$0018,$892E,$001A,$892E,$001C,$892E,$001E

@@ -1,4 +1,4 @@
-k_rool_fight_bg_decorations_main:
+krool_fight_bg_decorations_main:
 ;$ACB000
 	JMP.w (DATA_ACB003,x)			;$ACB000
 

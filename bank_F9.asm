@@ -16,7 +16,6 @@ else
 endif
 
 
-;Animation scripts
 animation_scripts_table:
 	%offset(animation_flags_table, 2)
 	dw !null_pointer, $0000

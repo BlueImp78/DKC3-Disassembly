@@ -149,7 +149,7 @@ sprite_main_table:
 	dl barrel_shield_main-1					: db $00	;0030
 	dl barrel_pieces_main-1					: db $00	;0034
 	dl map_swimming_kong_splash_main-1			: db $00	;0038
-	dl unknown_sprite_003C_main-1				: db $00	;003C
+	dl boat_water_trail_main-1				: db $00	;003C
 	dl minkey_acorn_main-1					: db $00	;0040
 	dl rotating_cylinder_key_main-1				: db $00	;0044
 	dl bleak_fight_cursor_main-1				: db $00	;0048
@@ -161,7 +161,7 @@ sprite_main_table:
 	dl bottom_of_right_cotton_top_cove_waterfall_main-1	: db $00	;0060
 	dl bottom_of_cotton_top_cove_waterfall_main-1		: db $00	;0064
 	dl play_mode_text_main-1				: db $00	;0068
-	dl unknown_sprite_006C_main-1				: db $00	;006C
+	dl music_test_note_main-1				: db $00	;006C
 	dl banana_bird_cave_cover_main-1			: db $00	;0070
 	dl unknown_sprite_0074_main-1				: db $00	;0074
 	dl ellie_horizontal_water_shot_main-1			: db $00	;0078
@@ -181,10 +181,10 @@ sprite_main_table:
 	dl unknown_sprite_00B0_main-1				: db $00	;00B0
 	dl krematoa_bridge_main-1				: db $00	;00B4
 	dl kuchuka_bomb_main-1					: db $00	;00B8
-	dl red_gem_in_banana_bird_queen_barrier_main-1		: db $00	;00BC
+	dl mama_bird_barrier_gem_main-1				: db $00	;00BC
 	dl map_banana_bird_main-1				: db $00	;00C0
-	dl k_rool_fight_platform_main-1				: db $00	;00C4
-	dl k_rool_fight_bg_decorations_main-1			: db $00	;00C8
+	dl krool_fight_platform_main-1				: db $00	;00C4
+	dl krool_fight_bg_decorations_main-1			: db $00	;00C8
 	dl squirt_pupil_main-1					: db $00	;00CC
 	dl minkey_main-1					: db $00	;00D0
 	dl unknown_sprite_00D4_main-1				: db $00	;00D4
@@ -204,13 +204,13 @@ sprite_main_table:
 	dl banana_bird_cave_crystal_main-1			: db $00	;010C
 	dl unknown_sprite_0110_main-1				: db $00	;0110
 	dl the_end_sign_main-1					: db $00	;0114
-	dl k_rool_main-1					: db $00	;0118
-	dl k_rool_curtain_main-1				: db $00	;011C
-	dl giant_banana_bird_queen_egg_main-1			: db $00	;0120
+	dl krool_main-1						: db $00	;0118
+	dl krool_curtain_main-1					: db $00	;011C
+	dl mama_bird_egg-1					: db $00	;0120
 	dl level_end_flagpole_main-1				: db $01	;0124
-	dl unknown_sprite_0128_main-1				: db $00	;0128
+	dl unknown_sprite_0128_main-1				: db $00	;0128 Spawns in swanky minigame
 	dl unknown_sprite_012C_main-1				: db $00	;012C
-	dl unknown_sprite_0130_main-1				: db $00	;0130
+	dl sprite_marker_main-1					: db $00	;0130
 	dl unknown_sprite_0134_main-1				: db $00	;0134
 	dl unknown_sprite_0138_main-1				: db $00	;0138
 	dl stampede_trigger_main-1				: db $00	;013C
@@ -220,8 +220,8 @@ sprite_main_table:
 	dl banana_main-1					: db $00	;014C
 	dl green_banana_main-1					: db $00	;0150
 	dl green_banana_spawner_main-1				: db $00	;0154
-	dl kong_fused_cliffs_rope_main-1			: db $00	;0158
-	dl kong_fused_cliffs_autoscroll_main-1			: db $00	;015C
+	dl kongfused_cliffs_rope_main-1				: db $00	;0158
+	dl kongfused_cliffs_autoscroll_main-1			: db $00	;015C
 	dl unknown_sprite_0160_main-1				: db $00	;0160
 	dl kaos_head_explosion_spawner_main-1			: db $00	;0164
 	dl vertical_autoscroll_main-1				: db $00	;0168
@@ -246,7 +246,7 @@ sprite_main_table:
 	dl unknown_sprite_01B4_main-1				: db $00	;01B4
 	dl unknown_sprite_01B8_main-1				: db $00	;01B8
 	dl unknown_sprite_01BC_main-1				: db $00	;01BC
-	dl speedrun_timer_main-1				: db $01	;01C0
+	dl riverside_race_timer_main-1				: db $01	;01C0
 	dl unknown_sprite_01C4_main-1				: db $00	;01C4
 	dl unknown_sprite_01C8_main-1				: db $00	;01C8
 	dl unknown_sprite_01CC_main-1				: db $00	;01CC
@@ -262,7 +262,7 @@ sprite_main_table:
 	dl squeals_on_wheels_tracker_main-1			: db $00	;01F4
 	dl bazza_spawner_main-1					: db $00	;01F8
 	dl banana_bird_main-1					: db $00	;01FC
-	dl unknown_sprite_0200_main-1				: db $00	;0200
+	dl nibbla_handler_main-1				: db $00	;0200
 	dl kaos_main-1						: db $01	;0204
 	dl unknown_sprite_0208_main-1				: db $00	;0208
 	dl unknown_sprite_020C_main-1				: db $00	;020C
@@ -304,7 +304,7 @@ sprite_main_table:
 	dl extra_life_balloon_main-1				: db $00	;029C
 	dl level_end_flag_main-1				: db $01	;02A0
 	dl unknown_sprite_02A4_main-1				: db $01	;02A4
-	dl bonus_level_timer_main-1				: db $00	;02A8
+	dl bonus_timer_main-1					: db $00	;02A8
 	dl rope_fire_main-1					: db $00	;02AC
 	dl kong_water_splash_main-1				: db $00	;02B0
 	dl barrel_cannon_main-1					: db $00	;02B4
@@ -328,7 +328,7 @@ sprite_main_table:
 	dl buzz_main-1						: db $00	;02FC
 	dl koco_main-1						: db $00	;0300
 	dl map_kong_main-1					: db $00	;0304
-	dl stationary_display_sprite1_main-1			: db $00	;0308
+	dl stationary_display_sprite_main-1			: db $00	;0308
 	dl map_vehicle_main-1					: db $00	;030C
 	dl unknown_sprite_0310_main-1				: db $00	;0310
 	dl ending_swanky_main-1					: db $00	;0314
@@ -351,10 +351,10 @@ sprite_main_table:
 	dl krosshair_main-1					: db $00	;0358
 	dl knautilus_main-1					: db $00	;035C
 	dl unknown_sprite_0360_main-1				: db $00	;0360
-	dl k_rool_head_main-1					: db $00	;0364
+	dl krool_head_main-1					: db $00	;0364
 	dl funky_cranky_secret_ending_main-1			: db $00	;0368
 	dl wrinklys_save_cave_main-1				: db $00	;036C
-	dl map_banana_bird_queen_main-1				: db $00	;0370
+	dl map_mama_bird_main-1					: db $00	;0370
 	dl buzz_swarm_main-1					: db $00	;0374
 	dl klasp_follow_main-1					: db $00	;0378
 	dl klasp_auto_move_main-1				: db $00	;037C
@@ -373,10 +373,10 @@ sprite_main_table:
 	dl unknown_sprite_03B0_main-1				: db $00	;03B0
 	dl lurchin_main-1					: db $00	;03B4
 	dl bleak_snowball_main-1				: db $00	;03B8
-	dl re_koil_main-1					: db $00	;03BC
+	dl rekoil_main-1					: db $00	;03BC
 	dl bleak_fight_kong_main-1				: db $01	;03C0
 	dl unknown_sprite_03C4_main-1				: db $00	;03C4
-	dl skidda_and_kobble_main-1				: db $00	;03C8
+	dl kobble_and_skidda_main-1				: db $00	;03C8
 	dl big_smoke_cloud_main-1				: db $00	;03CC
 	dl koin_main-1						: db $00	;03D0
 	dl dk_coin_main-1					: db $00	;03D4
@@ -395,7 +395,7 @@ sprite_main_table:
 	dl purple_lurchin_main-1				: db $00	;0408
 	dl barbos_green_lurchin_main-1				: db $00	;040C
 	dl seashell_missle_main-1				: db $00	;0410
-	dl bristle_main-1					: db $00	;0414
+	dl bristles_main-1					: db $00	;0414
 	dl krumple_main-1					: db $00	;0418
 	dl swoopy_main-1					: db $00	;041C
 	dl kuchuka_main-1					: db $00	;0420
@@ -409,7 +409,7 @@ sprite_main_table:
 	dl unknown_sprite_0440_main-1				: db $00	;0440
 	dl nid_main-1						: db $00	;0444
 	dl bazuka_main-1					: db $00	;0448
-	dl barrel_shot_by_bazuka_main-1				: db $00	;044C
+	dl bazuka_barrel_main-1					: db $00	;044C
 	dl barrel_switch_main-1					: db $00	;0450
 	dl kopter_main-1					: db $00	;0454
 	dl murky_mill_elevator_main-1				: db $00	;0458
@@ -431,11 +431,11 @@ sprite_main_table:
 	dl kaos_bombs_main-1					: db $00	;0498
 	dl unknown_sprite_049C_main-1				: db $00	;049C
 	dl tnt_explosion_main-1					: db $00	;04A0
-	dl k_rool_propeller_main-1				: db $00	;04A4
+	dl krool_propeller_main-1				: db $00	;04A4
 	dl kastle_kaos_lever_main-1				: db $00	;04A8
 	dl electric_node_main-1					: db $00	;04AC
-	dl k_rool_feet_main-1					: db $00	;04B0
-	dl knautilus_fireball_shooter_fireball_main-1		: db $00	;04B4
+	dl krool_feet_main-1					: db $00	;04B0
+	dl knautilus_fireball_main-1				: db $00	;04B4
 	dl bg_steel_keg_main-1					: db $00	;04B8
 	dl squirts_eye_part_main-1				: db $00	;04BC
 	dl unknown_sprite_04C0_main-1				: db $00	;04C0
@@ -443,7 +443,7 @@ sprite_main_table:
 	dl timer_digit_main-1					: db $00	;04C8
 	dl head_to_head_icon_main-1				: db $00	;04CC
 	dl target_main-1					: db $00	;04D0
-	dl target_shoot_kong_main-1				: db $00	;04D4
+	dl swanky_minigame_kong_main-1				: db $00	;04D4
 	dl swanky_kong_main-1					: db $00	;04D8
 	dl swanky_kong_prize_main-1				: db $00	;04DC
 
@@ -3212,7 +3212,7 @@ CODE_BB96C3:
 CODE_BB96CD:
 	CMP.w #$0001				;$BB96CD
 	BEQ.b CODE_BB96ED			;$BB96D0
-	LDA.w $05B5				;$BB96D2
+	LDA.w current_kong			;$BB96D2
 	BNE.b CODE_BB96F2			;$BB96D5
 CODE_BB96D7:
 	LDA.w $195A				;$BB96D7
@@ -3227,7 +3227,7 @@ CODE_BB96D7:
 	RTS					;$BB96EC
 
 CODE_BB96ED:
-	LDA.w $05B5				;$BB96ED
+	LDA.w current_kong			;$BB96ED
 	BNE.b CODE_BB96D7			;$BB96F0
 CODE_BB96F2:
 	LDA.w $1958				;$BB96F2
@@ -3656,7 +3656,7 @@ CODE_BB9A2F:
 	STA.w $18CF				;$BB9A35
 CODE_BB9A38:
 	JSL.l init_sprite_render_order		;$BB9A38
-	LDA.w $05B5				;$BB9A3C
+	LDA.w current_kong			;$BB9A3C
 	JSL.l CODE_B8805A			;$BB9A3F
 	LDA.w $0767				;$BB9A43
 	ASL					;$BB9A46
@@ -3911,7 +3911,7 @@ CODE_BB9C3A:
 	LDY.w $054B				;$BB9C3D
 	BNE.b CODE_BB9C49			;$BB9C40
 	DEC					;$BB9C42
-	LDY.w $05B5				;$BB9C43
+	LDY.w current_kong			;$BB9C43
 	BNE.b CODE_BB9C49			;$BB9C46
 	DEC					;$BB9C48
 CODE_BB9C49:
@@ -4732,8 +4732,8 @@ CODE_BBA299:
 	BEQ.b CODE_BBA2B1			;$BBA29C
 	CMP.w #$0001				;$BBA29E
 	BNE.b CODE_BBA2AB			;$BBA2A1
-	EOR.w $05B5				;$BBA2A3
-	STA.w $05B5				;$BBA2A6
+	EOR.w current_kong			;$BBA2A3
+	STA.w current_kong			;$BBA2A6
 	BRA.b CODE_BBA2B1			;$BBA2A9
 
 CODE_BBA2AB:
@@ -8861,7 +8861,7 @@ CODE_BBCA2C:
 CODE_BBCA33:
 	STA.w $0060,y				;$BBCA33
 	LDX.b $62,y				;$BBCA36
-	LDA.w $05B5				;$BBCA38
+	LDA.w current_kong			;$BBCA38
 	BEQ.b CODE_BBCA3F			;$BBCA3B
 	LDX.b $64,y				;$BBCA3D
 CODE_BBCA3F:
@@ -10570,7 +10570,7 @@ CODE_BBD6BF:
 CODE_BBD6CF:
 	RTS					;$BBD6CF
 
-bonus_level_timer_main:
+bonus_timer_main:
 ;$BBD6D0
 	JMP.w (DATA_BBD6D3,x)			;$BBD6D0
 
@@ -11123,7 +11123,7 @@ CODE_BBDAFA:
 	SEC					;$BBDB0E
 	RTS					;$BBDB0F
 
-kong_fused_cliffs_rope_main:
+kongfused_cliffs_rope_main:
 ;$BBDB10
 	TYX					;$BBDB10
 	LDA.b $4C,x				;$BBDB11
@@ -11205,7 +11205,7 @@ CODE_BBDB51:
 CODE_BBDBA2:
 	JML [$04F5]				;$BBDBA2
 
-kong_fused_cliffs_autoscroll_main:
+kongfused_cliffs_autoscroll_main:
 ;$BBDBA5
 	JMP.w (DATA_BBDBA8,x)			;$BBDBA5
 
@@ -11656,7 +11656,6 @@ DATA_BBDF15:
 	db $01,$02,$04,$08,$10,$20,$40,$80
 
 unknown_sprite_0140_main:
-;$BBDF1D
 	JMP.w (DATA_BBDF20,x)			;$BBDF1D
 
 DATA_BBDF20:

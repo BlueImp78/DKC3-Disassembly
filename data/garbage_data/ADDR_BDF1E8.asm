@@ -1,3 +1,4 @@
+;This is actually dkc1 code
 
 CODE_BDF1E8:
 	JSR.w CODE_BDF1EC

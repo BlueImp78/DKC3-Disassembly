@@ -1809,16 +1809,13 @@ CODE_B28FC0:
 	JML [$04F5]				;$B28FC3
 
 unknown_sprite_00DC_main:
-;$B28FC6
 	JML [$04F5]				;$B28FC6
 
 rotating_cylinder_key_main:
-;$B28FC9
 	JSL.l process_sprite_animation		;$B28FC9
 	JML [$04F5]				;$B28FCD
 
 rare_logo_main:
-;$B28FD0
 	LDX.b current_sprite			;$B28FD0
 	JSR.w CODE_B2903B			;$B28FD2
 	JSR.w CODE_B29057			;$B28FD5
@@ -3311,7 +3308,7 @@ CODE_B29CE4:
 
 CODE_B29CED:
 	JSL.l CODE_B8806F			;$B29CED
-	LDA.w $05B5				;$B29CF1
+	LDA.w current_kong			;$B29CF1
 	JSL.l CODE_B8805A			;$B29CF4
 	LDA.w $05AF				;$B29CF8
 	BIT.w #$4000				;$B29CFB
@@ -6306,7 +6303,6 @@ DATA_B2BF45:
 	db $ED,$EF,$F2,$F5,$F8,$FB,$FE,$02,$06,$08,$0A,$0D,$10
 
 large_pipe_main:
-;$B2BF52
 	JSL.l CODE_BBAB52			;$B2BF52
 	BCS.b CODE_B2BF89			;$B2BF56
 	CPX.b $CC				;$B2BF58
@@ -6346,7 +6342,6 @@ CODE_B2BF97:
 	JML [$04F5]				;$B2BF97
 
 unknown_sprite_0310_main:
-;$B2BF9A
 	LDA.w $04FB				;$B2BF9A
 	CPY.w active_kong_sprite		;$B2BF9D
 	BEQ.b CODE_B2BFA5			;$B2BFA0
@@ -7686,8 +7681,7 @@ CODE_B2CB17:
 CODE_B2CB34:
 	JML [$04F5]				;$B2CB34
 
-unknown_sprite_003C_main:
-;$B2CB37
+boat_water_trail_main:
 	JMP.w (DATA_B2CB3A,x)			;$B2CB37
 
 DATA_B2CB3A:
@@ -9112,7 +9106,7 @@ CODE_B2D5DF:
 CODE_B2D5EA:
 	BRA.b CODE_B2D5B9			;$B2D5EA
 
-stationary_display_sprite1_main:
+stationary_display_sprite_main:
 ;$B2D5EC
 	JSL.l process_anim_preserve_state	;$B2D5EC
 	JML [$04F5]				;$B2D5F0
@@ -11129,8 +11123,7 @@ CODE_B2E549:
 	STZ.b $00,x				;$B2E553
 	RTS					;$B2E555
 
-unknown_sprite_006C_main:
-;$B2E556
+music_test_note_main:
 	JMP.w (DATA_B2E559,x)			;$B2E556
 
 DATA_B2E559:
@@ -11175,7 +11168,7 @@ CODE_B2E5A1:
 	JSL.l CODE_B9E000			;$B2E5A1
 	JML [$04F5]				;$B2E5A5
 
-speedrun_timer_main:
+riverside_race_timer_main:
 ;$B2E5A8
 	JMP.w (DATA_B2E5AB,x)			;$B2E5A8
 
@@ -11406,33 +11399,32 @@ CODE_B2E750:
 	JML [$04F5]				;$B2E750
 
 wrinklys_save_cave_main:
-;$B2E753
-	JMP.w (DATA_B2E756,x)			;$B2E753
+	JMP (.state_table,x)			;$B2E753
 
-DATA_B2E756:
-	dw CODE_B2E75A
-	dw CODE_B2E77D
+.state_table:
+	dw .init
+	dw .idle
 
-CODE_B2E75A:
-	LDA.w $001E,y				;$B2E75A
-	AND.w #$01E0				;$B2E75D
-	LSR					;$B2E760
-	LSR					;$B2E761
-	LSR					;$B2E762
-	LSR					;$B2E763
-	TAX					;$B2E764
-	LDA.w #$0000				;$B2E765
-	STA.w $06D8,x				;$B2E768
-	STY.w $06F4				;$B2E76B
-	LDA.w $001E,y				;$B2E76E
-	AND.w #$FE1F				;$B2E771
-	ORA.w #$01C0				;$B2E774
-	STA.w $001E,y				;$B2E777
-	TYX					;$B2E77A
-	INC.b $38,x				;$B2E77B
-CODE_B2E77D:
-	JSL.l process_anim_preserve_state	;$B2E77D
-	JML [$04F5]				;$B2E781
+.init:
+	LDA $001E,y				;$B2E75A  \
+	AND #$01E0				;$B2E75D   |
+	LSR					;$B2E760   |
+	LSR					;$B2E761   |
+	LSR					;$B2E762   |
+	LSR					;$B2E763   |
+	TAX					;$B2E764   |
+	LDA #$0000				;$B2E765   |
+	STA $06D8,x				;$B2E768   |
+	STY $06F4				;$B2E76B   |
+	LDA $001E,y				;$B2E76E   |
+	AND #$FE1F				;$B2E771   |
+	ORA #$01C0				;$B2E774   |
+	STA $001E,y				;$B2E777   |
+	TYX					;$B2E77A   |
+	INC $38,x				;$B2E77B  /
+.idle:
+	JSL.l process_anim_preserve_state	;$B2E77D  \
+	JML [$04F5]				;$B2E781  /
 
 kremwood_forest_log_main:
 ;$B2E784
@@ -13438,7 +13430,7 @@ CODE_B2F62B:
 CODE_B2F64B:
 	JML [$04F5]				;$B2F64B
 
-red_gem_in_banana_bird_queen_barrier_main:
+mama_bird_barrier_gem_main:
 ;$B2F64E
 	LDA.w $15E8				;$B2F64E
 	BIT.w #$FF00				;$B2F651
@@ -13466,7 +13458,7 @@ CODE_B2F684:
 CODE_B2F68E:
 	JML [$04F5]				;$B2F68E
 
-k_rool_head_main:
+krool_head_main:
 ;$B2F691
 	JMP.w (DATA_B2F694,x)			;$B2F691
 
@@ -13629,7 +13621,7 @@ CODE_B2F797:
 	STY.b $32,x				;$B2F7BB
 	RTS					;$B2F7BD
 
-giant_banana_bird_queen_egg_main:
+mama_bird_egg:
 ;$B2F7BE
 	JMP.w (DATA_B2F7C1,x)			;$B2F7BE
 
@@ -13919,7 +13911,7 @@ CODE_B2F9F1:
 	JSR.w CODE_B2FA6E			;$B2F9FA
 	RTS					;$B2F9FD
 
-map_banana_bird_queen_main:
+map_mama_bird_main:
 ;$B2F9FE
 	JMP.w (DATA_B2FA01,x)			;$B2F9FE
 

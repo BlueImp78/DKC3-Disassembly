@@ -951,6 +951,7 @@ CODE_B4882D:
 	LDX.w #CODE_80803F>>16			;$B4883A
 	JML.l CODE_808003			;$B4883D
 
+;Entering swanky minigame
 CODE_B48841:
 	LDA.w $1C59				;$B48841
 	STA.w $054B				;$B48844
@@ -3941,7 +3942,7 @@ CODE_B4A0F1:
 	LDA.w $05AF				;$B4A108
 	BIT.w #$4000				;$B4A10B
 	BNE.b CODE_B4A11D			;$B4A10E
-	LDA.w $05B5				;$B4A110
+	LDA.w current_kong			;$B4A110
 	BEQ.b CODE_B4A11A			;$B4A113
 	LDY.w #$0000				;$B4A115
 	BRA.b CODE_B4A11D			;$B4A118
@@ -5633,7 +5634,7 @@ CODE_B4AFA6:
 	JSL.l CODE_BB8585			;$B4AFAE
 	LDY.w #$0274				;$B4AFB2
 	JSL.l CODE_BB8585			;$B4AFB5
-	LDA.w $05B5				;$B4AFB9
+	LDA.w current_kong			;$B4AFB9
 	JSL.l CODE_B8805A			;$B4AFBC
 	LDA.w $05AF				;$B4AFC0
 	BIT.w #$4000				;$B4AFC3
@@ -6515,7 +6516,7 @@ CODE_B4B6AE:
 	AND.w #$7FFF				;$B4B6BE
 	STA.w map_node_number			;$B4B6C1
 	STA.w $1C8D				;$B4B6C4
-	LDX.w $05B5				;$B4B6C7
+	LDX.w current_kong			;$B4B6C7
 	STX.b $1A				;$B4B6CA
 	LDX.w #$0002				;$B4B6CC
 	STX.b $22				;$B4B6CF
@@ -6525,15 +6526,15 @@ CODE_B4B6AE:
 	BEQ.b CODE_B4B6EF			;$B4B6DA
 	CMP.w #$0001				;$B4B6DC
 	BNE.b CODE_B4B6E9			;$B4B6DF
-	EOR.w $05B5				;$B4B6E1
-	STA.w $05B5				;$B4B6E4
+	EOR.w current_kong			;$B4B6E1
+	STA.w current_kong			;$B4B6E4
 	BRA.b CODE_B4B6EF			;$B4B6E7
 
 CODE_B4B6E9:
 	LDA.w #$2000				;$B4B6E9
 	TSB.w $05FB				;$B4B6EC
 CODE_B4B6EF:
-	LDA.w $05B5				;$B4B6EF
+	LDA.w current_kong			;$B4B6EF
 	JSL.l CODE_B8805A			;$B4B6F2
 	LDX.w active_kong_sprite		;$B4B6F6
 	LDA.w #$0170				;$B4B6F9

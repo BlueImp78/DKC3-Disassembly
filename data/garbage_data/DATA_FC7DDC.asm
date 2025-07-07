@@ -1,4 +1,4 @@
-
+;Leftover german DKC1 cranky dialogue
 UNK_FC7DDC:
 	db " Junge",$A1
 	db "H\tte ich dir Gr^nschnabe",$EC

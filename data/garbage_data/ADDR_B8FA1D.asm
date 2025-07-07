@@ -1,6 +1,7 @@
  
 UNK_B8FA1D:
 	db $61,$F6
+
 	LDA.w #$0004
 	JMP.w $B8F3F8
 

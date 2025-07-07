@@ -1,6 +1,6 @@
 
 ADDR_BEE9F5:
-	db $A9,$05
+	db $A9,$05		;JML [$05A9] but cut off
 
 ADDR_BEE9F7:
 	LDX.b $64

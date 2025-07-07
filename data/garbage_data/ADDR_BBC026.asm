@@ -276,7 +276,7 @@ ADDR_BBC22C:
 ADDR_BBC233:
 	STA.w $0060,y
 	LDX.b $62,y
-	LDA.w $05B5
+	LDA.w current_kong
 	BEQ.b ADDR_BBC23F
 	LDX.b $64,y
 ADDR_BBC23F:

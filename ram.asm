@@ -4,15 +4,17 @@ includeonce
 spc_transaction = $06
 current_song = $08
 
+NMI_pointer = $4A
 
-NMI_pointer = $56
-game_logic_pointer = $58
+;game_logic_pointer = $58
 global_frame_counter = $5A
+
 sprite_contants_pointer = $6A
 
 current_sprite = $70
 current_kong_control_variables = $72
 alternate_sprite = $76
+parry_index = $7A
 current_mount = $7C
 current_animal_type = $7E
 
@@ -67,6 +69,7 @@ follower_kong_control_variables = $04FF
 
 water_level = $050F
 active_cheats = $053B
+current_kong = $05B5
 parent_level_number = $05B9
 
 
@@ -104,6 +107,11 @@ palette_upload_ring_buffer = $06FC
 aux_sprite_table = $080A
 main_sprite_table = $0878
 main_sprite_table_end = $0878+(sizeof(sprite)*24)
+
+
+dixie_sprite_slot = $0878
+kiddy_sprite_slot = $08E6
+non_kong_sprite_slots = $0954
 
 
 dixie_control_variables = $1480

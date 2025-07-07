@@ -337,49 +337,52 @@ CODE_B68212:
 	JSL.l CODE_B28024			;$B6821C
 	RTS					;$B68220
 
+
+;Koco variables:
+;	$6A,x   Timer that does nothing when it stops. Perhaps would have been for a sound effect.
+
 koco_main:
-;$B68221
-	JMP.w (DATA_B68224,x)			;$B68221
+	JMP (.state_table,x)			;$B68221
 
-DATA_B68224:
-	dw CODE_B68228
-	dw CODE_B68267
+.state_table:
+	dw .idle
+	dw .defeated
 
-CODE_B68228:
-	JSL.l populate_sprite_clipping		;$B68228
-	LDA.w #$0000				;$B6822C
-	LDX.w #$0000				;$B6822F
-	LDY.w #$00A0				;$B68232
-	JSL.l CODE_BEC024			;$B68235
-	BCC.b CODE_B68240			;$B68239
-	CMP.w #$0002				;$B6823B
-	BEQ.b CODE_B68259			;$B6823E
-CODE_B68240:
-	JSR.w CODE_B68CF3			;$B68240
-	INC.b $6A,x				;$B68243
-	LDA.b $6A,x				;$B68245
-	CMP.w #$004B				;$B68247
-	BNE.b CODE_B6824E			;$B6824A
-	STZ.b $6A,x				;$B6824C
-CODE_B6824E:
-	JSL.l process_sprite_animation		;$B6824E
-	JSL.l CODE_B9E000			;$B68252
-	JMP.w CODE_B6805A			;$B68256
+.idle:
+	JSL populate_sprite_clipping		;$B68228  \
+	LDA #$0000				;$B6822C   |
+	LDX #$0000				;$B6822F   | Get collision flags
+	LDY #$00A0				;$B68232   |
+	JSL CODE_BEC024				;$B68235   | Check collision
+	BCC ..failed_defeat_or_no_collision	;$B68239   |
+	CMP #$0002				;$B6823B   | Check if we succeeded in defeating him
+	BEQ ..defeated_in_kong_collision	;$B6823E  / If yes, defeat Koco
+..failed_defeat_or_no_collision:
+	JSR CODE_B68CF3				;$B68240  \ Else handle Fish Food Frenzy related things
+	INC $6A,x				;$B68243   | Increase a timer
+	LDA $6A,x				;$B68245   |
+	CMP #$004B				;$B68247   | Check if timer is done
+	BNE ..return				;$B6824A   | If not, return
+	STZ $6A,x				;$B6824C  / Else reset timer
+..return:
+	JSL process_sprite_animation		;$B6824E  \
+	JSL CODE_B9E000				;$B68252   | Process current movement
+	JMP CODE_B6805A				;$B68256  / Return and handle despawn
 
-CODE_B68259:
-	LDA.w #$0140				;$B68259
-	JSR.w defeat_sprite_using_animation	;$B6825C
-	JSR.w CODE_B680A9			;$B6825F
-	INC.b $38,x				;$B68262
-	JMP.w CODE_B6805A			;$B68264
+..defeated_in_kong_collision:
+	LDA #$0140				;$B68259  \
+	JSR defeat_sprite_using_animation	;$B6825C   | Set Koco defeated animation
+	JSR CODE_B680A9				;$B6825F   | Make him fall offscreen
+	INC $38,x				;$B68262   | Set defeated state
+	JMP CODE_B6805A				;$B68264  / Return and handle despawn
 
-CODE_B68267:
-	JSL.l CODE_B9E000			;$B68267
-	JSL.l process_sprite_animation		;$B6826B
-	JMP.w CODE_B680C9			;$B6826F
+.defeated:
+	JSL CODE_B9E000				;$B68267  \ Process current movement
+	JSL process_sprite_animation		;$B6826B   |
+	JMP CODE_B680C9				;$B6826F  / Return and handle despawn
+
 
 mill_platform_main:
-;$B68272
 	JMP.w (DATA_B68275,x)			;$B68272
 
 DATA_B68275:
@@ -1304,7 +1307,7 @@ CODE_B688E2:
 	BRA.b CODE_B68892			;$B688E4
 
 CODE_B688E6:
-	JMP.w CODE_B696A0			;$B688E6
+	JMP.w generic_move_and_animate_state	;$B688E6
 
 CODE_B688E9:
 	LDA.w #$0038				;$B688E9
@@ -1794,7 +1797,7 @@ CODE_B68C94:
 	JML [$04F5]				;$B68C94
 
 CODE_B68C97:
-	JMP.w CODE_B696A0			;$B68C97
+	JMP.w generic_move_and_animate_state	;$B68C97
 
 CODE_B68C9A:
 	JSL.l populate_sprite_clipping		;$B68C9A
@@ -1847,32 +1850,32 @@ CODE_B68CED:
 	BRA.b CODE_B68CE4			;$B68CF1
 
 CODE_B68CF3:
-	LDA.w parent_level_number		;$B68CF3
-	CMP.w #$0036				;$B68CF6
-	BNE.b CODE_B68D2B			;$B68CF9
-	LDA.b $12,x				;$B68CFB
-	CLC					;$B68CFD
-	ADC.w #$FFC4				;$B68CFE
-	STA.b $1A				;$B68D01
-	CLC					;$B68D03
-	ADC.w #$0078				;$B68D04
-	STA.b $1C				;$B68D07
-	LDA.b $16,x				;$B68D09
-	CLC					;$B68D0B
-	ADC.w #$FFD8				;$B68D0C
-	STA.b $1E				;$B68D0F
-	CLC					;$B68D11
-	ADC.w #$006E				;$B68D12
-	STA.b $20				;$B68D15
-	LDY.w $1B6B				;$B68D17
-	LDA.w #$001A				;$B68D1A
-	JSL.l CODE_B6F3AB			;$B68D1D
-	BCC.b CODE_B68D2B			;$B68D21
-	LDA.w $1B6F				;$B68D23
-	BNE.b CODE_B68D2B			;$B68D26
-	STX.w $1B6F				;$B68D28
-CODE_B68D2B:
-	RTS					;$B68D2B
+	LDA.w parent_level_number		;$B68CF3  \ Get current level
+	CMP.w #$0036				;$B68CF6   | Check if its fish food frenzy
+	BNE.b .return				;$B68CF9   | If not, return
+	LDA.b $12,x				;$B68CFB   |
+	CLC					;$B68CFD   |
+	ADC.w #$FFC4				;$B68CFE   |
+	STA.b $1A				;$B68D01   |
+	CLC					;$B68D03   |
+	ADC.w #$0078				;$B68D04   |
+	STA.b $1C				;$B68D07   |
+	LDA.b $16,x				;$B68D09   |
+	CLC					;$B68D0B   |
+	ADC.w #$FFD8				;$B68D0C   |
+	STA.b $1E				;$B68D0F   |
+	CLC					;$B68D11   |
+	ADC.w #$006E				;$B68D12   |
+	STA.b $20				;$B68D15   |
+	LDY.w $1B6B				;$B68D17   | Get Nibbla sprite
+	LDA.w #$001A				;$B68D1A   |
+	JSL.l CODE_B6F3AB			;$B68D1D   |
+	BCC.b .return				;$B68D21   |
+	LDA.w $1B6F				;$B68D23   |
+	BNE.b .return				;$B68D26   |
+	STX.w $1B6F				;$B68D28   /
+.return:
+	RTS					;$B68D2B  |>
 
 unknown_sprite_0028_main:
 ;$B68D2C
@@ -2936,7 +2939,6 @@ CODE_B69501:
 	RTS					;$B6950C
 
 sneek_wheel_main:
-;$B6950D
 	LDA.w $0064,y				;$B6950D
 	BEQ.b CODE_B69545			;$B69510
 	PHY					;$B69512
@@ -3109,48 +3111,45 @@ CODE_B69668:
 	RTL					;$B6966C
 
 sneek_in_wheel_main:
-;$B6966D
-	JMP.w (DATA_B69670,x)			;$B6966D
+	JMP.w (.state_table,x)			;$B6966D
 
-DATA_B69670:
-	dw CODE_B69674
-	dw CODE_B696A0
+.state_table:
+	dw .idle
+	dw generic_move_and_animate_state
 
-CODE_B69674:
-	TYX					;$B69674
-	LDA.w #$0038				;$B69675
-	JSL.l CODE_BEC006			;$B69678
-	BCS.b CODE_B69681			;$B6967C
-	JMP.w CODE_B685E6			;$B6967E
+.idle:
+	TYX					;$B69674  \ Get wheel sneek sprite
+	LDA #$0038				;$B69675   | Get collision flags
+	JSL CODE_BEC006				;$B69678   | Check throwable collision
+	BCS ..collision_happened		;$B6967C   |
+	JMP CODE_B685E6				;$B6967E  / Return and process animation
 
-CODE_B69681:
-	INC.b $38,x				;$B69681
-	LDA.b $5E,x				;$B69683
-	JSR.w defeat_sprite_using_animation	;$B69685
-	LDA.w #$063C				;$B69688
-	JSL.l CODE_B28012			;$B6968B
-	JSR.w CODE_B680A9			;$B6968F
-	LDY.b $5C,x				;$B69692
-	LDA.w #$0003				;$B69694
-	STA.w $0038,y				;$B69697
-	TYX					;$B6969A
-	STZ.b $5E,x				;$B6969B
-	JMP.w CODE_B680C9			;$B6969D
+..collision_happened:
+	INC $38,x				;$B69681  \ Set defeated state
+	LDA $5E,x				;$B69683   |
+	JSR defeat_sprite_using_animation	;$B69685   |
+	LDA #$063C				;$B69688   |
+	JSL CODE_B28012				;$B6968B   | Play sneek hurt sound effect
+	JSR CODE_B680A9				;$B6968F   | Make him fall offscreen
+	LDY $5C,x				;$B69692   |
+	LDA #$0003				;$B69694   |
+	STA $0038,y				;$B69697   |
+	TYX					;$B6969A   |
+	STZ $5E,x				;$B6969B   |
+	JMP CODE_B680C9				;$B6969D  / Return and handle despawn
 
-CODE_B696A0:
-	JSL.l CODE_B9E000			;$B696A0
-	JSL.l process_sprite_animation		;$B696A4
-	JMP.w CODE_B680C9			;$B696A8
+generic_move_and_animate_state:
+	JSL CODE_B9E000				;$B696A0  \ Process current movement
+	JSL process_sprite_animation		;$B696A4   |
+	JMP CODE_B680C9				;$B696A8  / Return and handle despawn
 
 squeals_on_wheels_tracker_main:
-;$B696AB
 	TYX					;$B696AB
 	JSR.w CODE_B696FC			;$B696AC
 	STA.w $15E6				;$B696AF
 	JMP.w CODE_B6805A			;$B696B2
 
 metal_door_sneek_controlled_main:
-;$B696B5
 	JMP.w (DATA_B696B8,x)			;$B696B5
 
 DATA_B696B8:
@@ -3347,7 +3346,7 @@ unknown_sprite_03AC_main:
 	JMP.w CODE_B6BF79			;$B697F8
 
 unknown_sprite_03B0_main:
-re_koil_main:
+rekoil_main:
 ;$B697FB
 	JMP.w (DATA_B697FE,x)			;$B697FB
 
@@ -3401,7 +3400,7 @@ CODE_B69855:
 	JMP.w CODE_B6F231			;$B69857
 
 CODE_B6985A:
-	JMP.w CODE_B696A0			;$B6985A
+	JMP.w generic_move_and_animate_state	;$B6985A
 
 CODE_B6985D:
 	TYX					;$B6985D
@@ -4325,7 +4324,7 @@ CODE_B69F33:
 CODE_B69F46:
 	RTS					;$B69F46
 
-skidda_and_kobble_main:
+kobble_and_skidda_main:
 ;$B69F47
 	JMP.w (DATA_B69F4A,x)			;$B69F47
 
@@ -4364,7 +4363,7 @@ CODE_B69F7E:
 	JMP.w CODE_B6878B			;$B69F84
 
 CODE_B69F87:
-	JMP.w CODE_B696A0			;$B69F87
+	JMP.w generic_move_and_animate_state	;$B69F87
 
 CODE_B69F8A:
 	TYX					;$B69F8A
@@ -4662,7 +4661,7 @@ CODE_B6A18D:
 	RTS					;$B6A18D
 
 CODE_B6A18E:
-	JMP.w CODE_B696A0			;$B6A18E
+	JMP.w generic_move_and_animate_state	;$B6A18E
 
 CODE_B6A191:
 	JSR.w CODE_B6A4FE			;$B6A191
@@ -5934,7 +5933,7 @@ CODE_B6AB3F:
 	JMP.w CODE_B6F231			;$B6AB43
 
 CODE_B6AB46:
-	JMP.w CODE_B696A0			;$B6AB46
+	JMP.w generic_move_and_animate_state	;$B6AB46
 
 CODE_B6AB49:
 	LDA.w #$0038				;$B6AB49
@@ -5953,7 +5952,7 @@ CODE_B6AB62:
 	LDA.w #$023D				;$B6AB65
 	JMP.w CODE_B6878B			;$B6AB68
 
-bristle_main:
+bristles_main:
 ;$B6AB6B
 	JMP.w (DATA_B6AB6E,x)			;$B6AB6B
 
@@ -6014,7 +6013,7 @@ CODE_B6ABD0:
 	JMP.w CODE_B6F231			;$B6ABD4
 
 CODE_B6ABD7:
-	JMP.w CODE_B696A0			;$B6ABD7
+	JMP.w generic_move_and_animate_state	;$B6ABD7
 
 CODE_B6ABDA:
 	LDA.w #$0641				;$B6ABDA
@@ -6237,7 +6236,7 @@ CODE_B6AD63:
 	JMP.w CODE_B6F231			;$B6AD67
 
 CODE_B6AD6A:
-	JMP.w CODE_B696A0			;$B6AD6A
+	JMP.w generic_move_and_animate_state	;$B6AD6A
 
 CODE_B6AD6D:
 	LDX.b current_sprite			;$B6AD6D
@@ -6421,7 +6420,7 @@ CODE_B6AEB1:
 	JMP.w CODE_B685E6			;$B6AEBE
 
 CODE_B6AEC1:
-	JMP.w CODE_B696A0			;$B6AEC1
+	JMP.w generic_move_and_animate_state	;$B6AEC1
 
 CODE_B6AEC4:
 	JSR.w CODE_B6AFAD			;$B6AEC4
@@ -7288,7 +7287,7 @@ CODE_B6B554:
 	JMP.w CODE_B6F231			;$B6B554
 
 CODE_B6B557:
-	JMP.w CODE_B696A0			;$B6B557
+	JMP.w generic_move_and_animate_state	;$B6B557
 
 CODE_B6B55A:
 	LDA.w #$053F				;$B6B55A
@@ -7601,7 +7600,7 @@ CODE_B6B7CA:
 	JMP.w CODE_B685E6			;$B6B7CA
 
 CODE_B6B7CD:
-	JMP.w CODE_B696A0			;$B6B7CD
+	JMP.w generic_move_and_animate_state	;$B6B7CD
 
 
 bounty_bass_main:
@@ -8200,7 +8199,7 @@ CODE_B6BC41:
 	JML [$04F5]				;$B6BC41
 
 CODE_B6BC44:
-	JMP.w CODE_B696A0			;$B6BC44
+	JMP.w generic_move_and_animate_state	;$B6BC44
 
 CODE_B6BC47:
 	LDA.w $1B6B				;$B6BC47
@@ -8434,7 +8433,7 @@ CODE_B6BDEE:
 	RTS					;$B6BDFC
 
 upwards_shot_barrel_main:
-barrel_shot_by_bazuka_main:
+bazuka_barrel_main:
 ;$B6BDFD
 	JMP.w (DATA_B6BE00,x)			;$B6BDFD
 
@@ -9042,7 +9041,7 @@ CODE_B6C267:
 	JMP.w CODE_B6F231			;$B6C267
 
 CODE_B6C26A:
-	JMP.w CODE_B696A0			;$B6C26A
+	JMP.w generic_move_and_animate_state	;$B6C26A
 
 CODE_B6C26D:
 	JSR.w CODE_B6C2C6			;$B6C26D
@@ -9345,8 +9344,7 @@ CODE_B6C458:
 	STA.w $0058,y				;$B6C48D
 	RTS					;$B6C490
 
-unknown_sprite_0200_main:
-;$B6C491
+nibbla_handler_main:
 	LDA.w $1B6B				;$B6C491
 	BNE.b CODE_B6C500			;$B6C494
 	LDY.w #$0154				;$B6C496
@@ -11309,7 +11307,7 @@ CODE_B6D357:
 	JMP.w CODE_B685E6			;$B6D357
 
 CODE_B6D35A:
-	JMP.w CODE_B696A0			;$B6D35A
+	JMP.w generic_move_and_animate_state	;$B6D35A
 
 CODE_B6D35D:
 	JSL.l CODE_B9E000			;$B6D35D
@@ -13294,7 +13292,7 @@ DATA_B6E293:
 CODE_B6E299:
 	TYX					;$B6E299
 	LDY.w $1BB9				;$B6E29A
-	LDA.w $05B5				;$B6E29D
+	LDA.w current_kong			;$B6E29D
 	BEQ.b CODE_B6E2A6			;$B6E2A0
 	CLC					;$B6E2A2
 	ADC.w #$0008				;$B6E2A3
@@ -14293,7 +14291,7 @@ CODE_B6E9A7:
 	JSL.l CODE_BEC009			;$B6E9AE
 	RTS					;$B6E9B2
 
-k_rool_feet_main:
+krool_feet_main:
 ;$B6E9B3
 	JMP.w (DATA_B6E9B6,x)			;$B6E9B3
 
@@ -14371,7 +14369,7 @@ CODE_B6EA2C:
 CODE_B6EA41:
 	JML [$04F5]				;$B6EA41
 
-k_rool_curtain_main:
+krool_curtain_main:
 ;$B6EA44
 	JMP.w (DATA_B6EA47,x)			;$B6EA44
 
@@ -14398,7 +14396,7 @@ CODE_B6EA5B:
 	EOR.b $2E,x				;$B6EA64
 	RTS					;$B6EA66
 
-k_rool_propeller_main:
+krool_propeller_main:
 ;$B6EA67
 	JMP.w (DATA_B6EA6A,x)			;$B6EA67
 
@@ -14543,7 +14541,7 @@ DATA_B6EB87:
 	dw $D5F8,$D3F8,$D3F9,$D2F9,$D2F9,$D2F9,$D4FA,$D4FE
 	dw $D4F8,$D4F8,$D4F8,$D4F8
 
-knautilus_fireball_shooter_fireball_main:
+knautilus_fireball_main:
 ;$B6EB9F
 	TYX					;$B6EB9F
 	LDA.b $60,x				;$B6EBA0
@@ -14791,7 +14789,7 @@ CODE_B6ED4B:
 CODE_B6ED4D:
 	RTS					;$B6ED4D
 
-k_rool_fight_platform_main:
+krool_fight_platform_main:
 ;$B6ED4E
 	JMP.w (DATA_B6ED51,x)			;$B6ED4E
 

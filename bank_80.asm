@@ -642,7 +642,7 @@ CODE_808417:
 	STA.b level_number			;$80842F
 	STA.w parent_level_number		;$808431
 	LDA.w #$0000				;$808434
-	STA.w $05B5				;$808437
+	STA.w current_kong			;$808437
 	STZ.w $05AF				;$80843A
 	STZ.w $05B1				;$80843D
 	STZ.b $C2				;$808440
@@ -939,7 +939,7 @@ CODE_80869A:
 CODE_8086A0:
 	JSL.l CODE_BB8585			;$8086A0
 CODE_8086A4:
-	STZ.w $05B5				;$8086A4
+	STZ.w current_kong			;$8086A4
 	LDX.b alternate_sprite			;$8086A7
 	STX.w active_kong_sprite		;$8086A9
 	LDA.w #$1480				;$8086AC
@@ -1972,7 +1972,7 @@ CODE_808EF1:
 	AND.w #$7FFF				;$808F2D
 	LDY.w #$0001				;$808F30
 CODE_808F33:
-	STY.w $05B5				;$808F33
+	STY.w current_kong			;$808F33
 	STA.w $052B				;$808F36
 	LDY.w #$0002				;$808F39
 	LDA.b [$1E],y				;$808F3C
@@ -2101,7 +2101,7 @@ CODE_809040:
 	AND.w #$7FFF				;$809075
 	STA.w $052B				;$809078
 	LDY.w #$0001				;$80907B
-	STY.w $05B5				;$80907E
+	STY.w current_kong			;$80907E
 	LDA.w #$0002				;$809081
 	STA.w map_node_number			;$809084
 	STZ.w current_world			;$809087
@@ -2393,7 +2393,7 @@ CODE_8092B6:
 	LDA.w stereo_select			;$8092C7
 	LDY.w #$00DF				;$8092CA
 	STA.b [$D0],y				;$8092CD
-	LDA.w $05B5				;$8092CF
+	LDA.w current_kong			;$8092CF
 	LDY.w #$00DD				;$8092D2
 	STA.b [$D0],y				;$8092D5
 	REP.b #$20				;$8092D7
@@ -2490,7 +2490,7 @@ CODE_809375:
 	STA.w stereo_select			;$80938B
 	LDY.w #$00DD				;$80938E
 	LDA.b [$D0],y				;$809391
-	STA.w $05B5				;$809393
+	STA.w current_kong			;$809393
 	REP.b #$20				;$809396
 	RTS					;$809398
 
@@ -8302,6 +8302,8 @@ DATA_80C5EE:
 UNK_80C5F7:
 	db "                ", $A0
 
+;"All time greats" screen scores
+;Name, completion time, game percentage
 DATA_80C608:
 	dw DATA_80C63E
 	dw DATA_80C632
@@ -8310,19 +8312,29 @@ DATA_80C608:
 	dw DATA_80C612
 
 DATA_80C612:
-	db "CRANK", $D9, $B0, $4D, $11, $00, $67
+	db "CRANK", $D9
+	db $B0, $4D, $11, $00
+	db $67
 
 DATA_80C61D:
-	db "FUNK", $D9, $90, $F3, $12, $00, $65
+	db "FUNK", $D9
+	db $90, $F3, $12, $00
+	db $65
 
 DATA_80C627:
-	db "SWANK", $D9, $80, $C6, $13, $00, $58
+	db "SWANK", $D9
+	db $80, $C6, $13, $00
+	db $58
 
 DATA_80C632:
-	db "WRINKL", $D9, $80, $2B, $18, $00, $3C
+	db "WRINKL", $D9
+	db $80, $2B, $18, $00
+	db $3C
 
 DATA_80C63E:
-	db "RAR", $C5, $80, $F5, $20, $00, $01
+	db "RAR", $C5
+	db $80, $F5, $20, $00
+	db $01
 
 DATA_80C647:
 	db $DB
@@ -8330,6 +8342,7 @@ DATA_80C647:
 DATA_80C648:
 	db $DC,$20,$5D,$A0,$20,$56,$5E,$A0
 
+;ASCII table?
 DATA_80C650:
 	db $00,$41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F
 	db $50,$51,$52,$53,$54,$55,$56,$57,$58,$59,$5A,$30,$31,$32,$33,$34
@@ -8389,7 +8402,7 @@ DATA_80C679:
 	dw DATA_80CA39,$03E2 : db !Define_DKC3_LevelID_SwankysSideshow_PhotoAlbum,$00 : dw $0100
 	dw DATA_80CA0A,$03E4 : db !Define_DKC3_LevelID_KiddysPhotoAlbumArea,$00 : dw $0278
 	dw DATA_80C9FF,$03E6 : db !Define_DKC3_LevelID_DixiesPhotoAlbumArea,$00 : dw $02D0
-	dw $0000,$0000 : db $00,$00 : dw $FFFF
+	dw !null_pointer,$0000 : db $00,$00 : dw $FFFF
 
 DATA_80C829:
 	db "KOBBLE", $00
@@ -8550,29 +8563,29 @@ DATA_80CA2D:
 DATA_80CA39:
 	db "CRANKY KONG", $00
 
-;NMI_START
-CODE_80CA45:
-	JML.l CODE_80CA49			;$80CA45
-CODE_80CA49:
-	REP.b #$30				;$80CA49
+NMI_start:
+	JML .fast_rom_hop			;$80CA45
+
+.fast_rom_hop:
+	REP #$30				;$80CA49
 	PHD					;$80CA4B
 	PHA					;$80CA4C
 	PHX					;$80CA4D
 	PHY					;$80CA4E
-	LDA.w #$0000				;$80CA4F
+	LDA #$0000				;$80CA4F
 	TCD					;$80CA52
 	CLD					;$80CA53
-	SEP.b #$20				;$80CA54
+	SEP #$20				;$80CA54
 	LDA.l !REGISTER_NMIEnable		;$80CA56
-	LDA.b #$8F				;$80CA5A
+	LDA #$8F				;$80CA5A
 	STA.l !REGISTER_ScreenDisplayRegister	;$80CA5C
-	REP.b #$20				;$80CA60
-	LDA.l $00005A				;$80CA62
+	REP #$20				;$80CA60
+	LDA.l global_frame_counter		;$80CA62
 	INC					;$80CA66
-	STA.l $00005A				;$80CA67
-	JMP.w ($004A)				;$80CA6B
+	STA.l global_frame_counter		;$80CA67
+	JMP.w (NMI_pointer)			;$80CA6B
 
-CODE_80CA6E:
+IRQ_start:
 	SEI					;$80CA6E
 	RTI					;$80CA6F
 
@@ -8628,8 +8641,8 @@ UNK_80CB62:
 	db "CRANKY KONG", $00
 
 CODE_80CB6E:
-	JML.l CODE_80CB72			;$80CB6E
-CODE_80CB72:
+	JML.l .CODE_80CB72			;$80CB6E
+.CODE_80CB72:
 	REP.b #$30				;$80CB72
 	PHD					;$80CB74
 	PHA					;$80CB75

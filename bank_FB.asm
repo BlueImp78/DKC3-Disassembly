@@ -10,6 +10,7 @@ else
 	padbyte $00 : pad $FB7FC0
 endif
 
+;64 bytes, most likely to pad to $7FFF
 UNK_FB7FC0:
 	dw $DE71,$FBFB,$F3DC,$31FB,$FBF8,$3DFB,$FBFB,$C5FB
 	dw $2AC1,$7BAA,$F5D1,$FBFB,$18FB,$EB1F,$48FB,$C10D
