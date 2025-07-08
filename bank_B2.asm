@@ -776,52 +776,52 @@ CODE_B28521:
 	RTS					;$B2852C
 
 CODE_B2852D:
-	LDA.w #$1300				;$B2852D
-	STA.b $80				;$B28530
-	SEP.b #$20				;$B28532
-	LDX.w #(!REGISTER_BG2VertScrollOffset&$0000FF<<8)+$42	;$B28534
-	STX.w HDMA[$01].Parameters		;$B28537
-	LDX.w #DATA_B285F9			;$B2853A
-	STX.w HDMA[$01].SourceLo		;$B2853D
-	LDA.b #DATA_B285F9>>16			;$B28540
-	STA.w HDMA[$01].SourceBank		;$B28542
-	LDA.b #$7E				;$B28545
-	STA.w HDMA[$01].IndirectSourceBank	;$B28547
-	LDX.w #(!REGISTER_MainScreenLayers&$0000FF<<8)+$00	;$B2854A
-	STX.w HDMA[$02].Parameters		;$B2854D
-	LDX.w #DATA_B285F2			;$B28550
-	STX.w HDMA[$02].SourceLo		;$B28553
-	LDA.b #DATA_B285F2>>16			;$B28556
-	STA.w HDMA[$02].SourceBank		;$B28558
-	LDA.b #$7E				;$B2855B
-	STA.w HDMA[$02].IndirectSourceBank	;$B2855D
-	LDX.w #(!REGISTER_FixedColorData&$0000FF<<8)+$00	;$B28560
-	STX.w HDMA[$03].Parameters		;$B28563
-	LDX.w #DATA_B285B8			;$B28566
-	STX.w HDMA[$03].SourceLo		;$B28569
-	LDA.b #DATA_B285B8>>16			;$B2856C
-	STA.w HDMA[$03].SourceBank		;$B2856E
-	LDA.b #$7E				;$B28571
-	STA.w HDMA[$03].IndirectSourceBank	;$B28573
-	LDX.w #(!REGISTER_ColorMathSelectAndEnable&$0000FF<<8)+$00	;$B28576
-	STX.w HDMA[$04].Parameters		;$B28579
-	LDX.w #DATA_B285B1			;$B2857C
-	STX.w HDMA[$04].SourceLo		;$B2857F
-	LDA.b #DATA_B285B1>>16			;$B28582
-	STA.w HDMA[$04].SourceBank		;$B28584
-	LDA.b #$7E				;$B28587
-	STA.w HDMA[$04].IndirectSourceBank	;$B28589
-	LDX.w #(!REGISTER_BG3VertScrollOffset&$0000FF<<8)+$42	;$B2858C
-	STX.w HDMA[$05].Parameters		;$B2858F
-	LDX.w #DATA_B285F9			;$B28592
-	STX.w HDMA[$05].SourceLo		;$B28595
-	LDA.b #DATA_B285F9>>16			;$B28598
-	STA.w HDMA[$05].SourceBank		;$B2859A
-	LDA.b #$7E				;$B2859D
-	STA.w HDMA[$05].IndirectSourceBank	;$B2859F
-	REP.b #$20				;$B285A2
-	LDA.w #$3E01				;$B285A4
-	STA.w $04E4				;$B285A7
+	LDA #$1300				;$B2852D
+	STA $80					;$B28530
+	SEP #$20				;$B28532
+	LDX #$1042				;$B28534
+	STX HDMA[$01].Parameters		;$B28537
+	LDX #DATA_B285F9			;$B2853A
+	STX HDMA[$01].SourceLo			;$B2853D
+	LDA #DATA_B285F9>>16			;$B28540
+	STA HDMA[$01].SourceBank		;$B28542
+	LDA #$7E				;$B28545
+	STA HDMA[$01].IndirectSourceBank	;$B28547
+	LDX #$2C00				;$B2854A
+	STX HDMA[$02].Parameters		;$B2854D
+	LDX #DATA_B285F2			;$B28550
+	STX HDMA[$02].SourceLo			;$B28553
+	LDA #DATA_B285F2>>16			;$B28556
+	STA HDMA[$02].SourceBank		;$B28558
+	LDA #$7E				;$B2855B
+	STA HDMA[$02].IndirectSourceBank	;$B2855D
+	LDX #$3200				;$B28560
+	STX HDMA[$03].Parameters		;$B28563
+	LDX #DATA_B285B8			;$B28566
+	STX HDMA[$03].SourceLo			;$B28569
+	LDA #DATA_B285B8>>16			;$B2856C
+	STA HDMA[$03].SourceBank		;$B2856E
+	LDA #$7E				;$B28571
+	STA HDMA[$03].IndirectSourceBank	;$B28573
+	LDX #$3100				;$B28576
+	STX HDMA[$04].Parameters		;$B28579
+	LDX #DATA_B285B1			;$B2857C
+	STX HDMA[$04].SourceLo			;$B2857F
+	LDA #DATA_B285B1>>16			;$B28582
+	STA HDMA[$04].SourceBank		;$B28584
+	LDA #$7E				;$B28587
+	STA HDMA[$04].IndirectSourceBank	;$B28589
+	LDX #$1242				;$B2858C
+	STX HDMA[$05].Parameters		;$B2858F
+	LDX #DATA_B285F9			;$B28592
+	STX HDMA[$05].SourceLo			;$B28595
+	LDA #DATA_B285F9>>16			;$B28598
+	STA HDMA[$05].SourceBank		;$B2859A
+	LDA #$7E				;$B2859D
+	STA HDMA[$05].IndirectSourceBank	;$B2859F
+	REP #$20				;$B285A2
+	LDA #$3E01				;$B285A4
+	STA $04E4				;$B285A7
 	RTS					;$B285AA
 
 DATA_B285AB:
@@ -1750,7 +1750,6 @@ CODE_B28F52:
 	JML.l CODE_808003			;$B28F58
 
 rotating_cylinder_handle_main:
-;$B28F5C
 	LDY.b current_sprite			;$B28F5C
 	LDA.w $1975				;$B28F5E
 	CLC					;$B28F61
@@ -1904,7 +1903,6 @@ DATA_B29073:
 	db $00,$00,$37,$14,$00,$00,$00,$35,$18
 
 nintendo_presents_kong_main:
-;$B290AC
 	JSL.l process_sprite_animation		;$B290AC
 	JSR.w CODE_B29057			;$B290B0
 	LDX.b current_sprite			;$B290B3
@@ -1942,7 +1940,6 @@ CODE_B290F0:
 	JML [$04F5]				;$B290F5
 
 rare_logo_kiddy_main:
-;$B290F8
 	JSL.l process_sprite_animation		;$B290F8
 	LDX.b current_sprite			;$B290FC
 	LDA.b $2E,x				;$B290FE
@@ -1994,7 +1991,6 @@ CODE_B29129:
 	JML [$04F5]				;$B29164
 
 rare_logo_dixie_main:
-;$B29167
 	JSL.l process_sprite_animation		;$B29167
 	LDX.b current_sprite			;$B2916B
 	LDA.b $2E,x				;$B2916D
@@ -2168,7 +2164,6 @@ CODE_B29277:
 	RTS					;$B292BD
 
 title_screen_sign_main:
-;$B292BE
 	LDA.w $06AB				;$B292BE
 	BIT.w #$0002				;$B292C1
 	BEQ.b CODE_B292DB			;$B292C4
@@ -2211,7 +2206,6 @@ CODE_B29302:
 	JML [$04F5]				;$B29302
 
 unknown_sprite_019C_main:
-;$B29305
 	LDA.w $06AB				;$B29305
 	BIT.w #$0002				;$B29308
 	BEQ.b CODE_B29322			;$B2930B
@@ -2530,7 +2524,7 @@ CODE_B29578:
 	CLC					;$B295AB
 	ADC.w #$01C0				;$B295AC
 	STA.b $B4				;$B295AF
-	LDA.b level_number			;$B295B1
+	LDA level_number			;$B295B1
 	JSL.l CODE_BB85F4			;$B295B3
 	LDA.w #$A000				;$B295B7
 	TRB.w $0775				;$B295BA
@@ -2909,141 +2903,141 @@ CODE_B29941:
 CODE_B29952:
 	PHK					;$B29952
 	PLB					;$B29953
-	LDA.w #CODE_808337			;$B29954
-	STA.b $52				;$B29957
+	LDA #CODE_808337			;$B29954
+	STA $52					;$B29957
 	LDA.w #CODE_808337>>16			;$B29959
-	STA.b $54				;$B2995C
-	JSR.w CODE_B28521			;$B2995E
-	JSL.l disable_screen_wrapper		;$B29961
-	JSL.l CODE_808009			;$B29965
-	JSL.l CODE_80800C			;$B29969
-	JSL.l CODE_80801B			;$B2996D
-	JSL.l CODE_BB857F			;$B29971
-	LDA.w #!Define_DKC3_MusicID_MamaBird	;$B29975
-	JSL.l CODE_B28009			;$B29978
-	LDA.w #$0047				;$B2997C
-	LDY.w #$0000				;$B2997F
-	LDX.w #$0020				;$B29982
-	JSL.l CODE_BB856D			;$B29985
-	LDA.w #$0037				;$B29989
-	JSL.l vram_payload_handler_global	;$B2998C
-	LDA.w #$0030				;$B29990
-	JSL.l set_PPU_registers_global		;$B29993
-	LDA.w #$FFFF				;$B29997
-	STA.w $06D8				;$B2999A
-	STA.w $06DA				;$B2999D
-	LDA.w #$4000				;$B299A0
-	STA.w $073C				;$B299A3
-	JSL.l CODE_80807E			;$B299A6
-	JSR.w CODE_B29CED			;$B299AA
-	LDY.w #$0328				;$B299AD
-	JSL.l CODE_BB8585			;$B299B0
-	LDX.b alternate_sprite			;$B299B4
-	STX.w $1C3F				;$B299B6
-	JSL.l CODE_808081			;$B299B9
-	LDY.w #$0326				;$B299BD
-	JSL.l CODE_BB85B5			;$B299C0
-	LDY.w #$032C				;$B299C4
-	JSL.l CODE_BB85B5			;$B299C7
-	JSR.w CODE_B29D51			;$B299CB
-	SEP.b #$20				;$B299CE
-	LDX.w #(!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$02	;$B299D0
-	STX.w HDMA[$01].Parameters		;$B299D3
-	LDX.w #$7EA174				;$B299D6
-	STX.w HDMA[$01].SourceLo		;$B299D9
-	LDA.b #$7EA174>>16			;$B299DC
-	STA.w HDMA[$01].SourceBank		;$B299DE
-	STZ.w HDMA[$01].IndirectSourceBank	;$B299E1
-	LDX.w #(!REGISTER_BG3VertScrollOffset&$0000FF<<8)+$02	;$B299E4
-	STX.w HDMA[$02].Parameters		;$B299E7
-	LDX.w #$7EA16A				;$B299EA
-	STX.w HDMA[$02].SourceLo		;$B299ED
-	LDA.b #$7EA16A>>16			;$B299F0
-	STA.w HDMA[$02].SourceBank		;$B299F2
-	STZ.w HDMA[$02].IndirectSourceBank	;$B299F5
-	LDX.w #(!REGISTER_ColorMathInitialSettings&$0000FF<<8)+$00	;$B299F8
-	STX.w HDMA[$03].Parameters		;$B299FB
-	LDX.w #$7EA1DA				;$B299FE
-	STX.w HDMA[$03].SourceLo		;$B29A01
-	LDA.b #$7EA1DA>>16			;$B29A04
-	STA.w HDMA[$03].SourceBank		;$B29A06
-	STA.w HDMA[$03].IndirectSourceBank	;$B29A09
-	LDX.w #(!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$41	;$B29A0C
-	STX.w HDMA[$07].Parameters		;$B29A0F
-	LDX.w #$7EA25A				;$B29A12
-	STX.w HDMA[$07].SourceLo		;$B29A15
-	LDA.b #$7EA25A>>16			;$B29A18
-	STA.w HDMA[$07].SourceBank		;$B29A1A
-	STA.w HDMA[$07].IndirectSourceBank	;$B29A1D
-	REP.b #$20				;$B29A20
-	LDA.w #$0001				;$B29A22
-	STA.w $1C49				;$B29A25
-	LDA.w #$003F				;$B29A28
-	STA.w $1C4B				;$B29A2B
-	LDA.w #$00FF				;$B29A2E
-	STA.l $7EA25A				;$B29A31
-	STA.l $7EA25D				;$B29A35
-	LDA.w #$A47A				;$B29A39
-	STA.l $7EA25B				;$B29A3C
-	LDA.w #$A578				;$B29A40
-	STA.l $7EA25E				;$B29A43
-	LDA.w #$0000				;$B29A47
-	STA.l $7EA260				;$B29A4A
-	LDA.w #$0001				;$B29A4E
-	STA.l $7EA45A				;$B29A51
-	LDX.w #$7EA45A				;$B29A55
-	LDY.w #$7EA45C				;$B29A58
-	LDA.w #$01E0				;$B29A5B
+	STA $54					;$B2995C
+	JSR CODE_B28521				;$B2995E
+	JSL disable_screen_wrapper		;$B29961
+	JSL CODE_808009				;$B29965
+	JSL CODE_80800C				;$B29969
+	JSL CODE_80801B				;$B2996D
+	JSL CODE_BB857F				;$B29971
+	LDA #!Define_DKC3_MusicID_MamaBird	;$B29975
+	JSL CODE_B28009				;$B29978
+	LDA #$0047				;$B2997C
+	LDY #$0000				;$B2997F
+	LDX #$0020				;$B29982
+	JSL CODE_BB856D				;$B29985
+	LDA #$0037				;$B29989
+	JSL vram_payload_handler_global		;$B2998C
+	LDA #$0030				;$B29990
+	JSL set_PPU_registers_global		;$B29993
+	LDA #$FFFF				;$B29997
+	STA $06D8				;$B2999A
+	STA $06DA				;$B2999D
+	LDA #$4000				;$B299A0
+	STA $073C				;$B299A3
+	JSL CODE_80807E				;$B299A6
+	JSR CODE_B29CED				;$B299AA
+	LDY #$0328				;$B299AD
+	JSL CODE_BB8585				;$B299B0
+	LDX alternate_sprite			;$B299B4
+	STX $1C3F				;$B299B6
+	JSL CODE_808081				;$B299B9
+	LDY #$0326				;$B299BD
+	JSL CODE_BB85B5				;$B299C0
+	LDY #$032C				;$B299C4
+	JSL CODE_BB85B5				;$B299C7
+	JSR CODE_B29D51				;$B299CB
+	SEP #$20				;$B299CE
+	LDX #$1102				;$B299D0
+	STX HDMA[$01].Parameters		;$B299D3
+	LDX #$7EA174				;$B299D6
+	STX HDMA[$01].SourceLo			;$B299D9
+	LDA #$7EA174>>16			;$B299DC
+	STA HDMA[$01].SourceBank		;$B299DE
+	STZ HDMA[$01].IndirectSourceBank	;$B299E1
+	LDX #$1202				;$B299E4
+	STX HDMA[$02].Parameters		;$B299E7
+	LDX #$7EA16A				;$B299EA
+	STX HDMA[$02].SourceLo			;$B299ED
+	LDA #$7EA16A>>16			;$B299F0
+	STA HDMA[$02].SourceBank		;$B299F2
+	STZ HDMA[$02].IndirectSourceBank	;$B299F5
+	LDX #$3000				;$B299F8
+	STX HDMA[$03].Parameters		;$B299FB
+	LDX #$7EA1DA				;$B299FE
+	STX HDMA[$03].SourceLo			;$B29A01
+	LDA #$7EA1DA>>16			;$B29A04
+	STA HDMA[$03].SourceBank		;$B29A06
+	STA HDMA[$03].IndirectSourceBank	;$B29A09
+	LDX #$2641				;$B29A0C
+	STX HDMA[$07].Parameters		;$B29A0F
+	LDX #$7EA25A				;$B29A12
+	STX HDMA[$07].SourceLo			;$B29A15
+	LDA #$7EA25A>>16			;$B29A18
+	STA HDMA[$07].SourceBank		;$B29A1A
+	STA HDMA[$07].IndirectSourceBank	;$B29A1D
+	REP #$20				;$B29A20
+	LDA #$0001				;$B29A22
+	STA $1C49				;$B29A25
+	LDA #$003F				;$B29A28
+	STA $1C4B				;$B29A2B
+	LDA #$00FF				;$B29A2E
+	STA $7EA25A				;$B29A31
+	STA $7EA25D				;$B29A35
+	LDA #$A47A				;$B29A39
+	STA $7EA25B				;$B29A3C
+	LDA #$A578				;$B29A40
+	STA $7EA25E				;$B29A43
+	LDA #$0000				;$B29A47
+	STA $7EA260				;$B29A4A
+	LDA #$0001				;$B29A4E
+	STA $7EA45A				;$B29A51
+	LDX #$7EA45A				;$B29A55
+	LDY #$7EA45C				;$B29A58
+	LDA #$01E0				;$B29A5B
 	MVN $7EA45C>>16,$7EA45A>>16		;$B29A5E
-	LDX.w #DATA_B29EDA			;$B29A61
-	LDY.w #$7EA16A				;$B29A64
-	LDA.w #$001D				;$B29A67
+	LDX #DATA_B29EDA			;$B29A61
+	LDY #$7EA16A				;$B29A64
+	LDA #$001D				;$B29A67
 	MVN $7EA16A>>16,DATA_B29EDA>>16		;$B29A6A
 	PHK					;$B29A6D
 	PLB					;$B29A6E
-	LDA.w #$8E01				;$B29A6F
-	STA.w $04E4				;$B29A72
-	LDY.w #$0324				;$B29A75
-	JSL.l CODE_BB85B5			;$B29A78
-	LDX.b alternate_sprite			;$B29A7C
-	STX.w $1C41				;$B29A7E
-	STZ.b $20				;$B29A81
-	STZ.b $1E				;$B29A83
-	STZ.b $1C				;$B29A85
-	LDA.w #$0014				;$B29A87
-	STA.w $1C45				;$B29A8A
-	JSL.l CODE_B78027			;$B29A8D
-	STZ.w $1C3B				;$B29A91
-	STZ.w $1C37				;$B29A94
-	LDA.w #$0060				;$B29A97
-	STA.w $1C39				;$B29A9A
-	LDA.w #$000F				;$B29A9D
-	JSL.l CODE_BB859A			;$B29AA0
-	ORA.w #$3000				;$B29AA4
+	LDA #$8E01				;$B29A6F
+	STA $04E4				;$B29A72
+	LDY #$0324				;$B29A75
+	JSL CODE_BB85B5				;$B29A78
+	LDX alternate_sprite			;$B29A7C
+	STX $1C41				;$B29A7E
+	STZ $20					;$B29A81
+	STZ $1E					;$B29A83
+	STZ $1C					;$B29A85
+	LDA #$0014				;$B29A87
+	STA $1C45				;$B29A8A
+	JSL CODE_B78027				;$B29A8D
+	STZ $1C3B				;$B29A91
+	STZ $1C37				;$B29A94
+	LDA #$0060				;$B29A97
+	STA $1C39				;$B29A9A
+	LDA #$000F				;$B29A9D
+	JSL CODE_BB859A				;$B29AA0
+	ORA #$3000				;$B29AA4
 	CLC					;$B29AA7
-	ADC.w #$01C0				;$B29AA8
-	STA.b $B4				;$B29AAB
-	JSL.l CODE_80801E			;$B29AAD
-	JSL.l CODE_80801E			;$B29AB1
-	JSL.l CODE_80801E			;$B29AB5
-	JSL.l CODE_80801E			;$B29AB9
-	LDA.w #$0200				;$B29ABD
-	JSL.l CODE_808024			;$B29AC0
-	LDA.w #$000200				;$B29AC4
-	STA.w DMA[$00].SourceLo			;$B29AC7
-	STA.w DMA[$00].Unused2			;$B29ACA
-	LDA.w #$0220				;$B29ACD
-	STA.w DMA[$00].SizeLo			;$B29AD0
-	LDA.w #(!REGISTER_OAMDataWritePort&$0000FF<<8)+$00	;$B29AD3
-	STA.w DMA[$00].Parameters		;$B29AD6
+	ADC #$01C0				;$B29AA8
+	STA $B4					;$B29AAB
+	JSL CODE_80801E				;$B29AAD
+	JSL CODE_80801E				;$B29AB1
+	JSL CODE_80801E				;$B29AB5
+	JSL CODE_80801E				;$B29AB9
+	LDA #$0200				;$B29ABD
+	JSL CODE_808024				;$B29AC0
+	LDA #$0200				;$B29AC4
+	STA DMA[$00].SourceLo			;$B29AC7
+	STA DMA[$00].Unused2			;$B29ACA
+	LDA #$0220				;$B29ACD
+	STA DMA[$00].SizeLo			;$B29AD0
+	LDA #$0400				;$B29AD3
+	STA DMA[$00].Parameters			;$B29AD6
 	SEP.b #$20				;$B29AD9
-	STZ.w DMA[$00].SourceBank		;$B29ADB
-	LDA.b #$01				;$B29ADE
+	STZ DMA[$00].SourceBank			;$B29ADB
+	LDA #$01				;$B29ADE
 	STA.w !REGISTER_DMAEnable		;$B29AE0
-	REP.b #$20				;$B29AE3
-	LDA.w #CODE_B29AEF			;$B29AE5
+	REP #$20				;$B29AE3
+	LDA #CODE_B29AEF			;$B29AE5
 	LDX.w #CODE_B29AEF>>16			;$B29AE8
-	JML.l CODE_808003			;$B29AEB
+	JML CODE_808003				;$B29AEB
 
 CODE_B29AEF:
 	LDA.w $04E4				;$B29AEF
@@ -3556,36 +3550,36 @@ CODE_B29EFA:
 	RTS					;$B29F13
 
 CODE_B29F14:
-	LDA.w #$0217				;$B29F14
+	LDA #$0217				;$B29F14
 	STA.w !REGISTER_MainScreenLayers	;$B29F17
-	LDX.w #$72E0				;$B29F1A
+	LDX #$72E0				;$B29F1A
 	STX.w !REGISTER_VRAMAddressLo		;$B29F1D
-	LDA.w #$7EF5C0				;$B29F20
-	STA.w DMA[$00].SourceLo			;$B29F23
-	STA.w DMA[$00].Unused2			;$B29F26
-	LDA.w #$0100				;$B29F29
-	STA.w DMA[$00].SizeLo			;$B29F2C
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B29F2F
-	STA.w DMA[$00].Parameters		;$B29F32
-	SEP.b #$20				;$B29F35
-	LDA.b #$7EF5C0>>16			;$B29F37
-	STA.w DMA[$00].SourceBank		;$B29F39
-	LDA.b #$01				;$B29F3C
+	LDA #$7EF5C0				;$B29F20
+	STA DMA[$00].SourceLo			;$B29F23
+	STA DMA[$00].Unused2			;$B29F26
+	LDA #$0100				;$B29F29
+	STA DMA[$00].SizeLo			;$B29F2C
+	LDA #$1801				;$B29F2F
+	STA DMA[$00].Parameters			;$B29F32
+	SEP #$20				;$B29F35
+	LDA #$7EF5C0>>16			;$B29F37
+	STA DMA[$00].SourceBank			;$B29F39
+	LDA #$01				;$B29F3C
 	STA.w !REGISTER_DMAEnable		;$B29F3E
-	REP.b #$20				;$B29F41
+	REP #$20				;$B29F41
 	RTS					;$B29F43
 
 CODE_B29F44:
-	JSL.l CODE_80806F			;$B29F44
-	LDA.w #$2000				;$B29F48
-	STA.b $20				;$B29F4B
-	JSR.w CODE_B29F63			;$B29F4D
-	LDX.w $1C3F				;$B29F50
-	STX.b current_sprite			;$B29F53
-	LDA.w #$0346				;$B29F55
-	JSL.l set_sprite_animation		;$B29F58
-	LDA.w #$0001				;$B29F5C
-	TSB.w $1C35				;$B29F5F
+	JSL CODE_80806F				;$B29F44
+	LDA #$2000				;$B29F48
+	STA $20					;$B29F4B
+	JSR CODE_B29F63				;$B29F4D
+	LDX $1C3F				;$B29F50
+	STX current_sprite			;$B29F53
+	LDA #$0346				;$B29F55
+	JSL set_sprite_animation		;$B29F58
+	LDA #$0001				;$B29F5C
+	TSB $1C35				;$B29F5F
 	RTS					;$B29F62
 
 CODE_B29F63:
@@ -5175,7 +5169,7 @@ CODE_B2B712:
 	JML [$04F5]				;$B2B712
 
 CODE_B2B715:
-	LDA.w $194B				;$B2B715
+	LDA.w timestop_flags			;$B2B715
 	AND.w #$0004				;$B2B718
 	BNE.b CODE_B2B727			;$B2B71B
 	LDX.b current_sprite			;$B2B71D
@@ -5328,7 +5322,7 @@ CODE_B2B842:
 	LDA.w #$0004				;$B2B846
 	STA.b $38,x				;$B2B849
 	LDA.w #$0003				;$B2B84B
-	STA.w $194B				;$B2B84E
+	STA.w timestop_flags			;$B2B84E
 CODE_B2B851:
 	RTS					;$B2B851
 
@@ -6195,7 +6189,7 @@ CODE_B2BE6B:
 	RTS					;$B2BE7B
 
 CODE_B2BE7C:
-	LDA.w $194B				;$B2BE7C
+	LDA.w timestop_flags			;$B2BE7C
 	AND.w #$0004				;$B2BE7F
 	BNE.b CODE_B2BEBD			;$B2BE82
 	LDX.b current_sprite			;$B2BE84

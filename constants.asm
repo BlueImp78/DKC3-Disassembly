@@ -377,7 +377,7 @@ includeonce
 !sprite_unknown_017C			= $017C
 !sprite_unknown_0180			= $0180
 !sprite_target_spawner			= $0184
-!sprite_unknown_0188			= $0188
+!sprite_ripsaw_rage_controller		= $0188
 !sprite_kuff_n_klout			= $018C
 !sprite_unknown_0190			= $0190
 !sprite_arich_back_hitbox		= $0194

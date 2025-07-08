@@ -34,36 +34,36 @@ CODE_B4801E:
 CODE_B48021:
 	PHK					;$B48021
 	PLB					;$B48022
-	LDA.w #CODE_808337			;$B48023
-	STA.b $52				;$B48026
+	LDA #CODE_808337			;$B48023
+	STA $52					;$B48026
 	LDA.w #CODE_808337>>16			;$B48028
-	STA.b $54				;$B4802B
-	STZ.b current_animal_type		;$B4802D
-	LDA.w #$1400				;$B4802F
-	STA.b $80				;$B48032
-	STZ.w $1C35				;$B48034
-	LDA.w #$0001				;$B48037
-	TRB.w $05AF				;$B4803A
-	JSL.l disable_screen_wrapper		;$B4803D
-	JSL.l CODE_808009			;$B48041
-	JSL.l CODE_80800C			;$B48045
-	JSL.l CODE_80801B			;$B48049
-	JSL.l CODE_BB857F			;$B4804D
-	LDA.w #$1D93				;$B48051
-	STA.w $0541				;$B48054
-	STZ.b current_animal_type		;$B48057
-	LDA.w #$000200				;$B48059
-	STA.w DMA[$00].SourceLo			;$B4805C
-	STA.w DMA[$00].Unused2			;$B4805F
-	LDA.w #$0220				;$B48062
-	STA.w DMA[$00].SizeLo			;$B48065
-	LDA.w #(!REGISTER_OAMDataWritePort&$0000FF<<8)+$00	;$B48068
-	STA.w DMA[$00].Parameters		;$B4806B
-	SEP.b #$20				;$B4806E
-	STZ.w DMA[$00].SourceBank		;$B48070
-	LDA.b #$01				;$B48073
+	STA $54					;$B4802B
+	STZ current_animal_type			;$B4802D
+	LDA #$1400				;$B4802F
+	STA $80					;$B48032
+	STZ $1C35				;$B48034
+	LDA #$0001				;$B48037
+	TRB $05AF				;$B4803A
+	JSL disable_screen_wrapper		;$B4803D
+	JSL CODE_808009				;$B48041
+	JSL CODE_80800C				;$B48045
+	JSL CODE_80801B				;$B48049
+	JSL CODE_BB857F				;$B4804D
+	LDA #$1D93				;$B48051
+	STA $0541				;$B48054
+	STZ current_animal_type			;$B48057
+	LDA #$000200				;$B48059
+	STA DMA[$00].SourceLo			;$B4805C
+	STA DMA[$00].Unused2			;$B4805F
+	LDA #$0220				;$B48062
+	STA DMA[$00].SizeLo			;$B48065
+	LDA #$0400				;$B48068
+	STA DMA[$00].Parameters			;$B4806B
+	SEP #$20				;$B4806E
+	STZ DMA[$00].SourceBank			;$B48070
+	LDA #$01				;$B48073
 	STA.w !REGISTER_DMAEnable		;$B48075
-	REP.b #$20				;$B48078
+	REP #$20				;$B48078
 	RTS					;$B4807A
 
 CODE_B4807B:
@@ -4826,309 +4826,309 @@ CODE_B4A812:
 
 CODE_B4A82A:
 	STX.w !REGISTER_VRAMAddressLo		;$B4A82A
-	LDA.w #$7EF5C0				;$B4A82D
-	STA.w DMA[$00].SourceLo			;$B4A830
-	STA.w DMA[$00].Unused2			;$B4A833
-	LDA.w #$0100				;$B4A836
-	STA.w DMA[$00].SizeLo			;$B4A839
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B4A83C
-	STA.w DMA[$00].Parameters		;$B4A83F
-	SEP.b #$20				;$B4A842
-	LDA.b #$7EF5C0>>16			;$B4A844
-	STA.w DMA[$00].SourceBank		;$B4A846
-	REP.b #$20				;$B4A849
-	SEP.b #$20				;$B4A84B
-	LDA.w $04E4				;$B4A84D
-	AND.b #$02				;$B4A850
+	LDA #$7EF5C0				;$B4A82D
+	STA DMA[$00].SourceLo			;$B4A830
+	STA DMA[$00].Unused2			;$B4A833
+	LDA #$0100				;$B4A836
+	STA DMA[$00].SizeLo			;$B4A839
+	LDA #$1801				;$B4A83C
+	STA DMA[$00].Parameters			;$B4A83F
+	SEP #$20				;$B4A842
+	LDA #$7EF5C0>>16			;$B4A844
+	STA DMA[$00].SourceBank			;$B4A846
+	REP #$20				;$B4A849
+	SEP #$20				;$B4A84B
+	LDA $04E4				;$B4A84D
+	AND #$02				;$B4A850
 	LSR					;$B4A852
 	STA.w !REGISTER_DMAEnable		;$B4A853
-	REP.b #$20				;$B4A856
+	REP #$20				;$B4A856
 	RTS					;$B4A858
 
 CODE_B4A859:
-	LDA.w #$7F20				;$B4A859
+	LDA #$7F20				;$B4A859
 	STA.w !REGISTER_VRAMAddressLo		;$B4A85C
-	LDA.w #$7EF000				;$B4A85F
-	STA.w DMA[$00].SourceLo			;$B4A862
-	STA.w DMA[$00].Unused2			;$B4A865
-	LDA.w #$0080				;$B4A868
-	STA.w DMA[$00].SizeLo			;$B4A86B
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B4A86E
-	STA.w DMA[$00].Parameters		;$B4A871
-	SEP.b #$20				;$B4A874
-	LDA.b #$7EF000>>16			;$B4A876
-	STA.w DMA[$00].SourceBank		;$B4A878
-	LDA.b #$01				;$B4A87B
+	LDA #$7EF000				;$B4A85F
+	STA DMA[$00].SourceLo			;$B4A862
+	STA DMA[$00].Unused2			;$B4A865
+	LDA #$0080				;$B4A868
+	STA DMA[$00].SizeLo			;$B4A86B
+	LDA #$1801				;$B4A86E
+	STA DMA[$00].Parameters			;$B4A871
+	SEP #$20				;$B4A874
+	LDA #$7EF000>>16			;$B4A876
+	STA DMA[$00].SourceBank			;$B4A878
+	LDA #$01				;$B4A87B
 	STA.w !REGISTER_DMAEnable		;$B4A87D
-	REP.b #$20				;$B4A880
+	REP #$20				;$B4A880
 	RTS					;$B4A882
 
 CODE_B4A883:
-	STZ.b $1A				;$B4A883
-	LDX.w #DATA_B4F2BF			;$B4A885
-	JSR.w CODE_B4A89E			;$B4A888
+	STZ $1A					;$B4A883
+	LDX #DATA_B4F2BF			;$B4A885
+	JSR CODE_B4A89E				;$B4A888
 	RTS					;$B4A88B
 
 CODE_B4A88C:
-	STZ.b $1A				;$B4A88C
-	LDX.w #DATA_B4F2F6			;$B4A88E
-	JSR.w CODE_B4A89E			;$B4A891
+	STZ $1A					;$B4A88C
+	LDX #DATA_B4F2F6			;$B4A88E
+	JSR CODE_B4A89E				;$B4A891
 	RTS					;$B4A894
 
 CODE_B4A895:
-	STZ.b $1A				;$B4A895
-	LDX.w #DATA_B4F34D			;$B4A897
-	JSR.w CODE_B4A89E			;$B4A89A
+	STZ $1A					;$B4A895
+	LDX #DATA_B4F34D			;$B4A897
+	JSR CODE_B4A89E				;$B4A89A
 	RTS					;$B4A89D
 
 CODE_B4A89E:
-	SEP.b #$20				;$B4A89E
-	LDY.w $0000,x				;$B4A8A0
+	SEP #$20				;$B4A89E
+	LDY $0000,x				;$B4A8A0
 CODE_B4A8A3:
-	LDA.w $0002,x				;$B4A8A3
-	STA.b $1C				;$B4A8A6
+	LDA $0002,x				;$B4A8A3
+	STA $1C					;$B4A8A6
 	PHX					;$B4A8A8
-	LDX.b $1A				;$B4A8A9
+	LDX $1A					;$B4A8A9
 CODE_B4A8AB:
-	LDA.w $0000,y				;$B4A8AB
-	STA.l $7EA15A,x				;$B4A8AE
+	LDA $0000,y				;$B4A8AB
+	STA $7EA15A,x				;$B4A8AE
 	INX					;$B4A8B2
 	INY					;$B4A8B3
-	DEC.b $1C				;$B4A8B4
-	BNE.b CODE_B4A8AB			;$B4A8B6
-	STX.b $1A				;$B4A8B8
+	DEC $1C					;$B4A8B4
+	BNE CODE_B4A8AB				;$B4A8B6
+	STX $1A					;$B4A8B8
 	PLX					;$B4A8BA
 	INX					;$B4A8BB
 	INX					;$B4A8BC
 	INX					;$B4A8BD
-	LDY.w $0000,x				;$B4A8BE
-	BNE.b CODE_B4A8A3			;$B4A8C1
-	REP.b #$20				;$B4A8C3
+	LDY $0000,x				;$B4A8BE
+	BNE CODE_B4A8A3				;$B4A8C1
+	REP #$20				;$B4A8C3
 	RTS					;$B4A8C5
 
 CODE_B4A8C6:
-	LDX.w #$2000				;$B4A8C6
-	JSR.w CODE_B4A6B6			;$B4A8C9
-	LDA.w #$7EF000				;$B4A8CC
-	STA.w DMA[$00].SourceLo			;$B4A8CF
-	STA.w DMA[$00].Unused2			;$B4A8D2
-	LDA.w #$0800				;$B4A8D5
-	STA.w DMA[$00].SizeLo			;$B4A8D8
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B4A8DB
-	STA.w DMA[$00].Parameters		;$B4A8DE
-	SEP.b #$20				;$B4A8E1
-	LDA.b #$7EF000>>16			;$B4A8E3
-	STA.w DMA[$00].SourceBank		;$B4A8E5
-	REP.b #$20				;$B4A8E8
-	LDA.w #$0003				;$B4A8EA
-	STA.w $04E4				;$B4A8ED
+	LDX #$2000				;$B4A8C6
+	JSR CODE_B4A6B6				;$B4A8C9
+	LDA #$7EF000				;$B4A8CC
+	STA DMA[$00].SourceLo			;$B4A8CF
+	STA DMA[$00].Unused2			;$B4A8D2
+	LDA #$0800				;$B4A8D5
+	STA DMA[$00].SizeLo			;$B4A8D8
+	LDA #$1801				;$B4A8DB
+	STA DMA[$00].Parameters			;$B4A8DE
+	SEP #$20				;$B4A8E1
+	LDA #$7EF000>>16			;$B4A8E3
+	STA DMA[$00].SourceBank			;$B4A8E5
+	REP #$20				;$B4A8E8
+	LDA #$0003				;$B4A8EA
+	STA $04E4				;$B4A8ED
 	RTS					;$B4A8F0
 
 CODE_B4A8F1:
-	LDA.w #$0040				;$B4A8F1
-	TRB.w $05FB				;$B4A8F4
-	LDA.w $05AF				;$B4A8F7
-	AND.w #$8000				;$B4A8FA
-	STA.w $044A				;$B4A8FD
-	BMI.b CODE_B4A909			;$B4A900
-	LDA.w #!Define_DKC3_MusicID_HanginAtFunkys	;$B4A902
-	JSL.l CODE_B28009			;$B4A905
+	LDA #$0040				;$B4A8F1
+	TRB $05FB				;$B4A8F4
+	LDA $05AF				;$B4A8F7
+	AND #$8000				;$B4A8FA
+	STA $044A				;$B4A8FD
+	BMI CODE_B4A909				;$B4A900
+	LDA #!Define_DKC3_MusicID_HanginAtFunkys	;$B4A902
+	JSL CODE_B28009				;$B4A905
 CODE_B4A909:
-	LDA.w #$0611				;$B4A909
-	STA.b $B8				;$B4A90C
-	LDA.w #DATA_B4F946			;$B4A90E
-	STA.w $1C73				;$B4A911
-	JSL.l CODE_BCF888			;$B4A914
-	LDX.w #DATA_B4F90F			;$B4A918
-	JSR.w CODE_B4A159			;$B4A91B
-	LDX.w #DATA_B4F64F			;$B4A91E
-	JSR.w CODE_B4A2CF			;$B4A921
-	LDA.w #$FFFF				;$B4A924
-	STA.w $06E8				;$B4A927
-	STA.w $06E6				;$B4A92A
-	LDY.w #$025C				;$B4A92D
-	JSL.l CODE_BB85B8			;$B4A930
-	LDX.b alternate_sprite			;$B4A934
-	STX.w $18E7				;$B4A936
-	LDA.w #$0D00				;$B4A939
-	STA.b $5E,x				;$B4A93C
-	STZ.w $06E8				;$B4A93E
-	STZ.w $06E6				;$B4A941
-	LDX.w #DATA_B4F299			;$B4A944
-	JSR.w CODE_B4A7C9			;$B4A947
-	JSR.w CODE_B4A883			;$B4A94A
-	LDA.w #$0094				;$B4A94D
-	LDY.w #$0070				;$B4A950
-	LDX.w #$0004				;$B4A953
-	JSL.l CODE_BB8570			;$B4A956
-	LDA.w #$0004				;$B4A95A
-	STA.w $1C3B				;$B4A95D
-	LDA.w #$420C				;$B4A960
-	STA.l $7EA18C				;$B4A963
-	LDA.w #$3800				;$B4A967
-	STA.l $7EA18F				;$B4A96A
-	LDA.w $05FB				;$B4A96E
-	BIT.w #$0004				;$B4A971
-	BNE.b CODE_B4A98B			;$B4A974
-	LDA.w $0605				;$B4A976
-	BIT.w #$2003				;$B4A979
-	BNE.b CODE_B4A98B			;$B4A97C
-	LDA.w $0611				;$B4A97E
-	BIT.w #$8000				;$B4A981
-	BEQ.b CODE_B4A98B			;$B4A984
-	BIT.w #$0438				;$B4A986
-	BEQ.b CODE_B4A991			;$B4A989
+	LDA #$0611				;$B4A909
+	STA $B8					;$B4A90C
+	LDA #DATA_B4F946			;$B4A90E
+	STA $1C73				;$B4A911
+	JSL CODE_BCF888				;$B4A914
+	LDX #DATA_B4F90F			;$B4A918
+	JSR CODE_B4A159				;$B4A91B
+	LDX #DATA_B4F64F			;$B4A91E
+	JSR CODE_B4A2CF				;$B4A921
+	LDA #$FFFF				;$B4A924
+	STA $06E8				;$B4A927
+	STA $06E6				;$B4A92A
+	LDY #$025C				;$B4A92D
+	JSL CODE_BB85B8				;$B4A930
+	LDX alternate_sprite			;$B4A934
+	STX $18E7				;$B4A936
+	LDA #$0D00				;$B4A939
+	STA $5E,x				;$B4A93C
+	STZ $06E8				;$B4A93E
+	STZ $06E6				;$B4A941
+	LDX #DATA_B4F299			;$B4A944
+	JSR CODE_B4A7C9				;$B4A947
+	JSR CODE_B4A883				;$B4A94A
+	LDA #$0094				;$B4A94D
+	LDY #$0070				;$B4A950
+	LDX #$0004				;$B4A953
+	JSL CODE_BB8570				;$B4A956
+	LDA #$0004				;$B4A95A
+	STA $1C3B				;$B4A95D
+	LDA #$420C				;$B4A960
+	STA $7EA18C				;$B4A963
+	LDA #$3800				;$B4A967
+	STA $7EA18F				;$B4A96A
+	LDA $05FB				;$B4A96E
+	BIT #$0004				;$B4A971
+	BNE CODE_B4A98B				;$B4A974
+	LDA $0605				;$B4A976
+	BIT #$2003				;$B4A979
+	BNE CODE_B4A98B				;$B4A97C
+	LDA $0611				;$B4A97E
+	BIT #$8000				;$B4A981
+	BEQ CODE_B4A98B				;$B4A984
+	BIT #$0438				;$B4A986
+	BEQ CODE_B4A991				;$B4A989
 CODE_B4A98B:
-	LDA.w #$4200				;$B4A98B
-	TSB.w $1C35				;$B4A98E
+	LDA #$4200				;$B4A98B
+	TSB $1C35				;$B4A98E
 CODE_B4A991:
-	JSR.w CODE_B4A347			;$B4A991
-	JSR.w CODE_B4A8C6			;$B4A994
-	LDA.w #$F10C				;$B4A997
-	LDX.w #$000B				;$B4A99A
-	STA.b $42				;$B4A99D
-	LDA.w #$05CD				;$B4A99F
-	LDY.w #$000A				;$B4A9A2
-	JSR.w CODE_B4A498			;$B4A9A5
-	LDX.w #$7000				;$B4A9A8
+	JSR CODE_B4A347				;$B4A991
+	JSR CODE_B4A8C6				;$B4A994
+	LDA #$F10C				;$B4A997
+	LDX #$000B				;$B4A99A
+	STA $42					;$B4A99D
+	LDA #$05CD				;$B4A99F
+	LDY #$000A				;$B4A9A2
+	JSR CODE_B4A498				;$B4A9A5
+	LDX #$7000				;$B4A9A8
 	STX.w !REGISTER_VRAMAddressLo		;$B4A9AB
-	LDA.w #$7EF000				;$B4A9AE
-	STA.w DMA[$00].SourceLo			;$B4A9B1
-	STA.w DMA[$00].Unused2			;$B4A9B4
-	LDA.w #$0400				;$B4A9B7
-	STA.w DMA[$00].SizeLo			;$B4A9BA
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B4A9BD
-	STA.w DMA[$00].Parameters		;$B4A9C0
-	SEP.b #$20				;$B4A9C3
-	LDA.b #$7EF000>>16			;$B4A9C5
-	STA.w DMA[$00].SourceBank		;$B4A9C7
-	LDA.b #$01				;$B4A9CA
+	LDA #$7EF000				;$B4A9AE
+	STA DMA[$00].SourceLo			;$B4A9B1
+	STA DMA[$00].Unused2			;$B4A9B4
+	LDA #$0400				;$B4A9B7
+	STA DMA[$00].SizeLo			;$B4A9BA
+	LDA #$1801				;$B4A9BD
+	STA DMA[$00].Parameters			;$B4A9C0
+	SEP #$20				;$B4A9C3
+	LDA #$7EF000>>16			;$B4A9C5
+	STA DMA[$00].SourceBank			;$B4A9C7
+	LDA #$01				;$B4A9CA
 	STA.w !REGISTER_DMAEnable		;$B4A9CC
-	REP.b #$20				;$B4A9CF
-	JSR.w CODE_B4A812			;$B4A9D1
-	LDA.w #$FFFF				;$B4A9D4
-	STA.l $7EA171				;$B4A9D7
-	LDA.w #$0005				;$B4A9DB
-	JSL.l CODE_BB85E2			;$B4A9DE
+	REP #$20				;$B4A9CF
+	JSR CODE_B4A812				;$B4A9D1
+	LDA #$FFFF				;$B4A9D4
+	STA $7EA171				;$B4A9D7
+	LDA #$0005				;$B4A9DB
+	JSL CODE_BB85E2				;$B4A9DE
 	PHK					;$B4A9E2
 	PLB					;$B4A9E3
-	LDA.w #$4000				;$B4A9E4
-	BIT.w $0611				;$B4A9E7
-	BEQ.b CODE_B4A9F0			;$B4A9EA
-	JSL.l CODE_BCF972			;$B4A9EC
+	LDA #$4000				;$B4A9E4
+	BIT $0611				;$B4A9E7
+	BEQ CODE_B4A9F0				;$B4A9EA
+	JSL CODE_BCF972				;$B4A9EC
 CODE_B4A9F0:
 	RTS					;$B4A9F0
 
 CODE_B4A9F1:
-	LDA.w $05AF				;$B4A9F1
-	AND.w #$8000				;$B4A9F4
-	STA.w $044A				;$B4A9F7
-	BMI.b CODE_B4AA03			;$B4A9FA
-	LDA.w #!Define_DKC3_MusicID_SwankysSideshow	;$B4A9FC
-	JSL.l CODE_B28009			;$B4A9FF
+	LDA $05AF				;$B4A9F1
+	AND #$8000				;$B4A9F4
+	STA $044A				;$B4A9F7
+	BMI CODE_B4AA03				;$B4A9FA
+	LDA #!Define_DKC3_MusicID_SwankysSideshow	;$B4A9FC
+	JSL CODE_B28009				;$B4A9FF
 CODE_B4AA03:
-	LDA.w #$0613				;$B4AA03
-	STA.b $B8				;$B4AA06
-	LDA.w #$0010				;$B4AA08
-	TRB.w $0613				;$B4AA0B
-	LDA.w #DATA_B4F961			;$B4AA0E
-	STA.w $1C73				;$B4AA11
-	LDA.w #$000F				;$B4AA14
-	JSL.l CODE_BB859A			;$B4AA17
-	AND.w #$0E00				;$B4AA1B
-	ORA.w #$01A0				;$B4AA1E
-	STA.w $18F7				;$B4AA21
-	STA.b $B6				;$B4AA24
-	LDA.w #$FFFF				;$B4AA26
-	STA.w $06F2				;$B4AA29
-	LDA.b level_number			;$B4AA2C
+	LDA #$0613				;$B4AA03
+	STA $B8					;$B4AA06
+	LDA #$0010				;$B4AA08
+	TRB $0613				;$B4AA0B
+	LDA #DATA_B4F961			;$B4AA0E
+	STA $1C73				;$B4AA11
+	LDA #$000F				;$B4AA14
+	JSL CODE_BB859A				;$B4AA17
+	AND #$0E00				;$B4AA1B
+	ORA #$01A0				;$B4AA1E
+	STA $18F7				;$B4AA21
+	STA $B6					;$B4AA24
+	LDA #$FFFF				;$B4AA26
+	STA $06F2				;$B4AA29
+	LDA level_number			;$B4AA2C
 	PHA					;$B4AA2E
-	STZ.b level_number			;$B4AA2F
-	JSL.l CODE_B7E49C			;$B4AA31
+	STZ level_number			;$B4AA2F
+	JSL CODE_B7E49C				;$B4AA31
 	PLA					;$B4AA35
-	STA.b level_number			;$B4AA36
-	LDA.w $05D5				;$B4AA38
-	STA.w $18D1				;$B4AA3B
-	STZ.w $18D3				;$B4AA3E
-	JSL.l CODE_BCF888			;$B4AA41
-	LDX.w #DATA_B4F917			;$B4AA45
-	JSR.w CODE_B4A159			;$B4AA48
-	LDX.w #DATA_B4F666			;$B4AA4B
-	JSR.w CODE_B4A2CF			;$B4AA4E
-	LDX.w #DATA_B4F2CA			;$B4AA51
-	JSR.w CODE_B4A7C9			;$B4AA54
-	JSR.w CODE_B4A88C			;$B4AA57
-	LDA.w #$0095				;$B4AA5A
-	LDY.w #$0070				;$B4AA5D
-	LDX.w #$0004				;$B4AA60
-	JSL.l CODE_BB8570			;$B4AA63
-	STZ.w $1C41				;$B4AA67
-	STZ.w $1C45				;$B4AA6A
-	STZ.w $1C49				;$B4AA6D
-	LDA.w #$423B				;$B4AA70
-	STA.l $7EA18C				;$B4AA73
-	SEP.b #$20				;$B4AA77
-	LDA.b #$00				;$B4AA79
-	STA.l $7EA18F				;$B4AA7B
-	REP.b #$20				;$B4AA7F
-	JSR.w CODE_B4A410			;$B4AA81
+	STA level_number			;$B4AA36
+	LDA $05D5				;$B4AA38
+	STA $18D1				;$B4AA3B
+	STZ $18D3				;$B4AA3E
+	JSL CODE_BCF888				;$B4AA41
+	LDX #DATA_B4F917			;$B4AA45
+	JSR CODE_B4A159				;$B4AA48
+	LDX #DATA_B4F666			;$B4AA4B
+	JSR CODE_B4A2CF				;$B4AA4E
+	LDX #DATA_B4F2CA			;$B4AA51
+	JSR CODE_B4A7C9				;$B4AA54
+	JSR CODE_B4A88C				;$B4AA57
+	LDA #$0095				;$B4AA5A
+	LDY #$0070				;$B4AA5D
+	LDX #$0004				;$B4AA60
+	JSL CODE_BB8570				;$B4AA63
+	STZ $1C41				;$B4AA67
+	STZ $1C45				;$B4AA6A
+	STZ $1C49				;$B4AA6D
+	LDA #$423B				;$B4AA70
+	STA $7EA18C				;$B4AA73
+	SEP #$20				;$B4AA77
+	LDA #$00				;$B4AA79
+	STA $7EA18F				;$B4AA7B
+	REP #$20				;$B4AA7F
+	JSR CODE_B4A410				;$B4AA81
 	PHK					;$B4AA84
 	PLB					;$B4AA85
-	LDX.w #$2000				;$B4AA86
-	JSR.w CODE_B4A6B6			;$B4AA89
-	LDA.w #$0003				;$B4AA8C
-	LDY.w #$00F0				;$B4AA8F
-	LDX.w #$0001				;$B4AA92
-	JSL.l CODE_BB856D			;$B4AA95
-	STZ.w $1C59				;$B4AA99
-	JSR.w CODE_B4A8C6			;$B4AA9C
-	LDA.w #$F322				;$B4AA9F
-	STA.b $42				;$B4AAA2
-	LDA.w #$2D7F				;$B4AAA4
-	LDX.w #$000E				;$B4AAA7
-	LDY.w #$0008				;$B4AAAA
-	JSR.w CODE_B4A498			;$B4AAAD
-	LDX.w #$7000				;$B4AAB0
+	LDX #$2000				;$B4AA86
+	JSR CODE_B4A6B6				;$B4AA89
+	LDA #$0003				;$B4AA8C
+	LDY #$00F0				;$B4AA8F
+	LDX #$0001				;$B4AA92
+	JSL CODE_BB856D				;$B4AA95
+	STZ $1C59				;$B4AA99
+	JSR CODE_B4A8C6				;$B4AA9C
+	LDA #$F322				;$B4AA9F
+	STA $42					;$B4AAA2
+	LDA #$2D7F				;$B4AAA4
+	LDX #$000E				;$B4AAA7
+	LDY #$0008				;$B4AAAA
+	JSR CODE_B4A498				;$B4AAAD
+	LDX #$7000				;$B4AAB0
 	STX.w !REGISTER_VRAMAddressLo		;$B4AAB3
-	LDA.w #$7EF000				;$B4AAB6
-	STA.w DMA[$00].SourceLo			;$B4AAB9
-	STA.w DMA[$00].Unused2			;$B4AABC
-	LDA.w #$0800				;$B4AABF
-	STA.w DMA[$00].SizeLo			;$B4AAC2
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B4AAC5
-	STA.w DMA[$00].Parameters		;$B4AAC8
-	SEP.b #$20				;$B4AACB
-	LDA.b #$7EF000>>16			;$B4AACD
-	STA.w DMA[$00].SourceBank		;$B4AACF
-	LDA.b #$01				;$B4AAD2
+	LDA #$7EF000				;$B4AAB6
+	STA DMA[$00].SourceLo			;$B4AAB9
+	STA DMA[$00].Unused2			;$B4AABC
+	LDA #$0800				;$B4AABF
+	STA DMA[$00].SizeLo			;$B4AAC2
+	LDA #$1801				;$B4AAC5
+	STA DMA[$00].Parameters			;$B4AAC8
+	SEP #$20				;$B4AACB
+	LDA #$7EF000>>16			;$B4AACD
+	STA DMA[$00].SourceBank			;$B4AACF
+	LDA #$01				;$B4AAD2
 	STA.w !REGISTER_DMAEnable		;$B4AAD4
-	REP.b #$20				;$B4AAD7
-	JSR.w CODE_B4A812			;$B4AAD9
-	LDA.w #$FFFF				;$B4AADC
-	STA.l $7EA171				;$B4AADF
-	LDA.w #$0004				;$B4AAE3
-	STA.w $1C3B				;$B4AAE6
-	LDA.w #$0001				;$B4AAE9
-	STA.w $1C57				;$B4AAEC
-	STZ.w $1C55				;$B4AAEF
-	LDA.w #$2000				;$B4AAF2
-	JSL.l CODE_BCF9CB			;$B4AAF5
-	LDA.w $0613				;$B4AAF9
-	BIT.w #$4000				;$B4AAFC
-	BNE.b CODE_B4AB14			;$B4AAFF
-	JSR.w CODE_B4AB1F			;$B4AB01
-	STZ.b $62,x				;$B4AB04
-	JSL.l CODE_BCF9E6			;$B4AB06
-	LDA.w $0613				;$B4AB0A
-	BIT.w #$8000				;$B4AB0D
-	BNE.b CODE_B4AB1E			;$B4AB10
-	BRA.b CODE_B4AB18			;$B4AB12
+	REP #$20				;$B4AAD7
+	JSR CODE_B4A812				;$B4AAD9
+	LDA #$FFFF				;$B4AADC
+	STA $7EA171				;$B4AADF
+	LDA #$0004				;$B4AAE3
+	STA $1C3B				;$B4AAE6
+	LDA #$0001				;$B4AAE9
+	STA $1C57				;$B4AAEC
+	STZ $1C55				;$B4AAEF
+	LDA #$2000				;$B4AAF2
+	JSL CODE_BCF9CB				;$B4AAF5
+	LDA $0613				;$B4AAF9
+	BIT #$4000				;$B4AAFC
+	BNE CODE_B4AB14				;$B4AAFF
+	JSR CODE_B4AB1F				;$B4AB01
+	STZ $62,x				;$B4AB04
+	JSL CODE_BCF9E6				;$B4AB06
+	LDA $0613				;$B4AB0A
+	BIT #$8000				;$B4AB0D
+	BNE CODE_B4AB1E				;$B4AB10
+	BRA CODE_B4AB18				;$B4AB12
 
 CODE_B4AB14:
-	JSL.l CODE_BCFA04			;$B4AB14
+	JSL CODE_BCFA04				;$B4AB14
 CODE_B4AB18:
-	LDA.w #$4200				;$B4AB18
-	TSB.w $1C35				;$B4AB1B
+	LDA #$4200				;$B4AB18
+	TSB $1C35				;$B4AB1B
 CODE_B4AB1E:
 	RTS					;$B4AB1E
 
@@ -8441,50 +8441,50 @@ DATA_B4C719:
 	dw $FFFF, $0000
 
 CODE_B4C739:
-	JSR.w CODE_B4C8E5			;$B4C739
-	SEP.b #$20				;$B4C73C
-	STA.l $7EA172				;$B4C73E
-	LDA.b #$88				;$B4C742
+	JSR CODE_B4C8E5				;$B4C739
+	SEP #$20				;$B4C73C
+	STA $7EA172				;$B4C73E
+	LDA #$88				;$B4C742
 	SEC					;$B4C744
-	SBC.b $1A				;$B4C745
-	STA.l $7EA16C				;$B4C747
-	REP.b #$20				;$B4C74B
-	LDA.b $00				;$B4C74D
-	BIT.w #$0003				;$B4C74F
-	BNE.b CODE_B4C7AD			;$B4C752
+	SBC $1A					;$B4C745
+	STA $7EA16C				;$B4C747
+	REP #$20				;$B4C74B
+	LDA $00					;$B4C74D
+	BIT #$0003				;$B4C74F
+	BNE CODE_B4C7AD				;$B4C752
 	LSR					;$B4C754
-	AND.w #$000E				;$B4C755
+	AND #$000E				;$B4C755
 	TAX					;$B4C758
 	LDA.l DATA_B4C7AE,x			;$B4C759
-	STA.w DMA[$00].SourceLo			;$B4C75D
-	STA.w DMA[$00].Unused2			;$B4C760
-	LDA.w #$0300				;$B4C763
-	STA.w DMA[$00].SizeLo			;$B4C766
-	LDA.w #$5480				;$B4C769
+	STA DMA[$00].SourceLo			;$B4C75D
+	STA DMA[$00].Unused2			;$B4C760
+	LDA #$0300				;$B4C763
+	STA DMA[$00].SizeLo			;$B4C766
+	LDA #$5480				;$B4C769
 	STA.w !REGISTER_VRAMAddressLo		;$B4C76C
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B4C76F
-	STA.w DMA[$00].Parameters		;$B4C772
-	SEP.b #$20				;$B4C775
-	LDA.b #DATA_F40000>>16			;$B4C777
-	STA.w DMA[$00].SourceBank		;$B4C779
-	LDA.b #$01				;$B4C77C
+	LDA #$1801				;$B4C76F
+	STA DMA[$00].Parameters			;$B4C772
+	SEP #$20				;$B4C775
+	LDA #DATA_F40000>>16			;$B4C777
+	STA DMA[$00].SourceBank			;$B4C779
+	LDA #$01				;$B4C77C
 	STA.w !REGISTER_DMAEnable		;$B4C77E
-	REP.b #$20				;$B4C781
+	REP #$20				;$B4C781
 	LDA.l DATA_B4C7BE,x			;$B4C783
-	STA.w DMA[$00].SourceLo			;$B4C787
-	STA.w DMA[$00].Unused2			;$B4C78A
-	LDA.w #$0300				;$B4C78D
-	STA.w DMA[$00].SizeLo			;$B4C790
-	LDA.w #$5600				;$B4C793
+	STA DMA[$00].SourceLo			;$B4C787
+	STA DMA[$00].Unused2			;$B4C78A
+	LDA #$0300				;$B4C78D
+	STA DMA[$00].SizeLo			;$B4C790
+	LDA #$5600				;$B4C793
 	STA.w !REGISTER_VRAMAddressLo		;$B4C796
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B4C799
-	STA.w DMA[$00].Parameters		;$B4C79C
-	SEP.b #$20				;$B4C79F
-	LDA.b #DATA_F41800>>16			;$B4C7A1
-	STA.w DMA[$00].SourceBank		;$B4C7A3
-	LDA.b #$01				;$B4C7A6
+	LDA #$1801				;$B4C799
+	STA DMA[$00].Parameters			;$B4C79C
+	SEP #$20				;$B4C79F
+	LDA #DATA_F41800>>16			;$B4C7A1
+	STA DMA[$00].SourceBank			;$B4C7A3
+	LDA #$01				;$B4C7A6
 	STA.w !REGISTER_DMAEnable		;$B4C7A8
-	REP.b #$20				;$B4C7AB
+	REP #$20				;$B4C7AB
 CODE_B4C7AD:
 	RTS					;$B4C7AD
 
@@ -8509,37 +8509,37 @@ DATA_B4C7BE:
 	dw DATA_F41800+$1500
 
 CODE_B4C7CE:
-	JSR.w CODE_B4C8F9			;$B4C7CE
+	JSR CODE_B4C8F9				;$B4C7CE
 	RTS					;$B4C7D1
 
 CODE_B4C7D2:
-	LDA.b $00				;$B4C7D2
-	BIT.w #$0001				;$B4C7D4
-	BEQ.b CODE_B4C807			;$B4C7D7
-	AND.w #$000E				;$B4C7D9
+	LDA active_frame_counter		;$B4C7D2
+	BIT #$0001				;$B4C7D4
+	BEQ .return				;$B4C7D7
+	AND #$000E				;$B4C7D9
 	TAX					;$B4C7DC
 	LDA.l DATA_F36023,x			;$B4C7DD
-	STA.w DMA[$00].SourceLo			;$B4C7E1
-	STA.w DMA[$00].Unused2			;$B4C7E4
-	LDA.w #$02C0				;$B4C7E7
-	STA.w DMA[$00].SizeLo			;$B4C7EA
-	LDA.w #$5470				;$B4C7ED
+	STA DMA[$00].SourceLo			;$B4C7E1
+	STA DMA[$00].Unused2			;$B4C7E4
+	LDA #$02C0				;$B4C7E7
+	STA DMA[$00].SizeLo			;$B4C7EA
+	LDA #$5470				;$B4C7ED
 	STA.w !REGISTER_VRAMAddressLo		;$B4C7F0
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B4C7F3
-	STA.w DMA[$00].Parameters		;$B4C7F6
-	SEP.b #$20				;$B4C7F9
-	LDA.b #DATA_F36033>>16			;$B4C7FB
-	STA.w DMA[$00].SourceBank		;$B4C7FD
-	LDA.b #$01				;$B4C800
+	LDA #$1801				;$B4C7F3
+	STA DMA[$00].Parameters			;$B4C7F6
+	SEP #$20				;$B4C7F9
+	LDA #DATA_F36033>>16			;$B4C7FB
+	STA DMA[$00].SourceBank			;$B4C7FD
+	LDA #$01				;$B4C800
 	STA.w !REGISTER_DMAEnable		;$B4C802
-	REP.b #$20				;$B4C805
-CODE_B4C807:
+	REP #$20				;$B4C805
+.return:
 	RTS					;$B4C807
 
 CODE_B4C808:
-	JSR.w CODE_B4C8E5			;$B4C808
-	LDA.w #$FBFE				;$B4C80B
-	SEP.b #$20				;$B4C80E
+	JSR CODE_B4C8E5				;$B4C808
+	LDA #$FBFE				;$B4C80B
+	SEP #$20				;$B4C80E
 	STA.w !REGISTER_BG2VertScrollOffset	;$B4C810
 	XBA					;$B4C813
 	STA.w !REGISTER_BG2VertScrollOffset	;$B4C814
@@ -8547,37 +8547,37 @@ CODE_B4C808:
 	RTS					;$B4C819
 
 CODE_B4C81A:
-	JSR.w CODE_B4C90D			;$B4C81A
-	LDA.l $7EA75C				;$B4C81D
-	AND.w #$0003				;$B4C821
+	JSR CODE_B4C90D				;$B4C81A
+	LDA $7EA75C				;$B4C81D
+	AND #$0003				;$B4C821
 	ASL					;$B4C824
 	TAX					;$B4C825
 	LDA.l DATA_B4C86B,x			;$B4C826
-	LDY.w #$007C				;$B4C82A
-	LDX.w #$0001				;$B4C82D
-	JSL.l CODE_BB856D			;$B4C830
-	LDA.b $00				;$B4C834
-	BIT.w #$0003				;$B4C836
-	BNE.b CODE_B4C86A			;$B4C839
+	LDY #$007C				;$B4C82A
+	LDX #$0001				;$B4C82D
+	JSL CODE_BB856D				;$B4C830
+	LDA active_frame_counter		;$B4C834
+	BIT #$0003				;$B4C836
+	BNE .return				;$B4C839
 	LSR					;$B4C83B
-	AND.w #$000E				;$B4C83C
+	AND #$000E				;$B4C83C
 	TAX					;$B4C83F
 	LDA.l DATA_B4C873,x			;$B4C840
-	STA.w DMA[$00].SourceLo			;$B4C844
-	STA.w DMA[$00].Unused2			;$B4C847
-	LDA.w #$0240				;$B4C84A
-	STA.w DMA[$00].SizeLo			;$B4C84D
-	LDA.w #$5480				;$B4C850
+	STA DMA[$00].SourceLo			;$B4C844
+	STA DMA[$00].Unused2			;$B4C847
+	LDA #$0240				;$B4C84A
+	STA DMA[$00].SizeLo			;$B4C84D
+	LDA #$5480				;$B4C850
 	STA.w !REGISTER_VRAMAddressLo		;$B4C853
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B4C856
-	STA.w DMA[$00].Parameters		;$B4C859
-	SEP.b #$20				;$B4C85C
-	LDA.b #DATA_EC8978>>16			;$B4C85E
-	STA.w DMA[$00].SourceBank		;$B4C860
-	LDA.b #$01				;$B4C863
+	LDA #$1801				;$B4C856
+	STA DMA[$00].Parameters			;$B4C859
+	SEP #$20				;$B4C85C
+	LDA #DATA_EC8978>>16			;$B4C85E
+	STA DMA[$00].SourceBank			;$B4C860
+	LDA #$01				;$B4C863
 	STA.w !REGISTER_DMAEnable		;$B4C865
 	REP.b #$20				;$B4C868
-CODE_B4C86A:
+.return:
 	RTS					;$B4C86A
 
 DATA_B4C86B:
@@ -8598,42 +8598,42 @@ DATA_B4C873:
 
 
 CODE_B4C883:
-	LDA.w #$0100				;$B4C883
-	BIT.w $05FD				;$B4C886
-	BNE.b CODE_B4C890			;$B4C889
-	JSR.w CODE_B4C8E5			;$B4C88B
-	BRA.b CODE_B4C893			;$B4C88E
+	LDA #$0100				;$B4C883
+	BIT $05FD				;$B4C886
+	BNE CODE_B4C890				;$B4C889
+	JSR CODE_B4C8E5				;$B4C88B
+	BRA CODE_B4C893				;$B4C88E
 
 CODE_B4C890:
-	JSR.w CODE_B4C8DD			;$B4C890
+	JSR CODE_B4C8DD				;$B4C890
 CODE_B4C893:
-	LDA.w #$0200				;$B4C893
-	TRB.w $05FD				;$B4C896
-	BEQ.b CODE_B4C8DC			;$B4C899
-	LDA.w #(!REGISTER_WriteToCGRAMPort&$0000FF<<8)+$00	;$B4C89B
-	STA.w DMA[$00].Parameters		;$B4C89E
-	LDA.w $15E8				;$B4C8A1
-	STA.w DMA[$00].SizeLo			;$B4C8A4
-	LDA.w #$7E2F80				;$B4C8A7
-	STA.w DMA[$00].SourceLo			;$B4C8AA
-	SEP.b #$20				;$B4C8AD
-	LDA.b #$7E2F80>>16			;$B4C8AF
-	STA.w DMA[$00].SourceBank		;$B4C8B1
-	LDA.b #$00				;$B4C8B4
+	LDA #$0200				;$B4C893
+	TRB $05FD				;$B4C896
+	BEQ CODE_B4C8DC				;$B4C899
+	LDA #$2200				;$B4C89B
+	STA DMA[$00].Parameters			;$B4C89E
+	LDA $15E8				;$B4C8A1
+	STA DMA[$00].SizeLo			;$B4C8A4
+	LDA #$7E2F80				;$B4C8A7
+	STA DMA[$00].SourceLo			;$B4C8AA
+	SEP #$20				;$B4C8AD
+	LDA #$7E2F80>>16			;$B4C8AF
+	STA DMA[$00].SourceBank			;$B4C8B1
+	LDA #$00				;$B4C8B4
 	STA.w !REGISTER_CGRAMAddress		;$B4C8B6
-	LDA.b #$01				;$B4C8B9
+	LDA #$01				;$B4C8B9
 	STA.w !REGISTER_DMAEnable		;$B4C8BB
-	LDA.w $15E4				;$B4C8BE
-	ORA.b #$80				;$B4C8C1
+	LDA $15E4				;$B4C8BE
+	ORA #$80				;$B4C8C1
 	STA.w !REGISTER_FixedColorData		;$B4C8C3
-	LDA.w $15E4				;$B4C8C6
+	LDA $15E4				;$B4C8C6
 	LSR					;$B4C8C9
-	ORA.b #$40				;$B4C8CA
+	ORA #$40				;$B4C8CA
 	STA.w !REGISTER_FixedColorData		;$B4C8CC
-	LDA.b #$0F				;$B4C8CF
+	LDA #$0F				;$B4C8CF
 	SEC					;$B4C8D1
-	SBC.w $15E4				;$B4C8D2
-	ORA.b #$20				;$B4C8D5
+	SBC $15E4				;$B4C8D2
+	ORA #$20				;$B4C8D5
 	STA.w !REGISTER_FixedColorData		;$B4C8D7
 	REP.b #$20				;$B4C8DA
 CODE_B4C8DC:
@@ -8827,58 +8827,58 @@ DATA_B4CA2F:
 	db $2C,$01,$A4,$17,$05,$06
 
 CODE_B4CA7D:
-	LDX.w #$7E4180				;$B4CA7D
-	LDA.w #$7000				;$B4CA80
-	JSR.w CODE_B4CA8C			;$B4CA83
-	LDX.w #$7E6180				;$B4CA86
-	LDA.w #$7800				;$B4CA89
+	LDX #$7E4180				;$B4CA7D
+	LDA #$7000				;$B4CA80
+	JSR CODE_B4CA8C				;$B4CA83
+	LDX #$7E6180				;$B4CA86
+	LDA #$7800				;$B4CA89
 CODE_B4CA8C:
-	STX.b $22				;$B4CA8C
-	STA.b $20				;$B4CA8E
-	LDX.w #$01E0				;$B4CA90
-	LDA.w $048E				;$B4CA93
-	BPL.b CODE_B4CA9B			;$B4CA96
-	LDX.w #$00F8				;$B4CA98
+	STX $22					;$B4CA8C
+	STA $20					;$B4CA8E
+	LDX #$01E0				;$B4CA90
+	LDA $048E				;$B4CA93
+	BPL CODE_B4CA9B				;$B4CA96
+	LDX #$00F8				;$B4CA98
 CODE_B4CA9B:
 	TXA					;$B4CA9B
 	CLC					;$B4CA9C
-	ADC.w $1973				;$B4CA9D
+	ADC $1973				;$B4CA9D
 	ASL					;$B4CAA0
 	ASL					;$B4CAA1
-	STA.b $1A				;$B4CAA2
-	AND.w #$03E0				;$B4CAA4
+	STA $1A					;$B4CAA2
+	AND #$03E0				;$B4CAA4
 	CLC					;$B4CAA7
-	ADC.b $20				;$B4CAA8
+	ADC $20					;$B4CAA8
 	STA.w !REGISTER_VRAMAddressLo		;$B4CAAA
 	CLC					;$B4CAAD
-	ADC.w #$0400				;$B4CAAE
+	ADC #$0400				;$B4CAAE
 	TAX					;$B4CAB1
-	LDA.b $1A				;$B4CAB2
+	LDA $1A					;$B4CAB2
 	ASL					;$B4CAB4
-	AND.w #$0FC0				;$B4CAB5
+	AND #$0FC0				;$B4CAB5
 	CLC					;$B4CAB8
-	ADC.b $22				;$B4CAB9
-	STA.w DMA[$00].SourceLo			;$B4CABB
-	STA.w DMA[$00].Unused2			;$B4CABE
-	ADC.w #$1000				;$B4CAC1
-	STA.w DMA[$07].SourceLo			;$B4CAC4
-	STA.w DMA[$07].Unused2			;$B4CAC7
-	LDA.w #$0040				;$B4CACA
-	STA.w DMA[$00].SizeLo			;$B4CACD
-	STA.w DMA[$07].SizeLo			;$B4CAD0
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B4CAD3
-	STA.w DMA[$00].Parameters		;$B4CAD6
-	STA.w DMA[$07].Parameters		;$B4CAD9
-	SEP.b #$20				;$B4CADC
-	LDA.b #$7E4180>>16			;$B4CADE
-	STA.w DMA[$00].SourceBank		;$B4CAE0
-	STA.w DMA[$07].SourceBank		;$B4CAE3
-	LDA.b #$01				;$B4CAE6
+	ADC $22					;$B4CAB9
+	STA DMA[$00].SourceLo			;$B4CABB
+	STA DMA[$00].Unused2			;$B4CABE
+	ADC #$1000				;$B4CAC1
+	STA DMA[$07].SourceLo			;$B4CAC4
+	STA DMA[$07].Unused2			;$B4CAC7
+	LDA #$0040				;$B4CACA
+	STA DMA[$00].SizeLo			;$B4CACD
+	STA DMA[$07].SizeLo			;$B4CAD0
+	LDA #$1801				;$B4CAD3
+	STA DMA[$00].Parameters			;$B4CAD6
+	STA DMA[$07].Parameters			;$B4CAD9
+	SEP #$20				;$B4CADC
+	LDA #$7E4180>>16			;$B4CADE
+	STA DMA[$00].SourceBank			;$B4CAE0
+	STA DMA[$07].SourceBank			;$B4CAE3
+	LDA #$01				;$B4CAE6
 	STA.w !REGISTER_DMAEnable		;$B4CAE8
 	STX.w !REGISTER_VRAMAddressLo		;$B4CAEB
-	LDA.b #$80				;$B4CAEE
+	LDA #$80				;$B4CAEE
 	STA.w !REGISTER_DMAEnable		;$B4CAF0
-	REP.b #$20				;$B4CAF3
+	REP #$20				;$B4CAF3
 	RTS					;$B4CAF5
 
 CODE_B4CAF6:
@@ -10335,53 +10335,53 @@ DATA_B4DF3A:
 	db $00,$F7,$FF,$00,$30,$7F,$B7,$82,$97,$00,$F7,$FF,$00,$30
 
 DATA_B4DF48:
-	dw (!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$42 : dl $7EA15A : db $7E
-	dw (!REGISTER_CGRAMAddress&$0000FF<<8)+$43 : dl $7EA1DA : db DATA_B4E647>>16
-	dw (!REGISTER_CGRAMAddress&$0000FF<<8)+$43 : dl $7EA1CA : db DATA_B4E147>>16
+	dw $0F42 : dl $7EA15A : db $7E
+	dw $2143 : dl $7EA1DA : db DATA_B4E647>>16
+	dw $2143 : dl $7EA1CA : db DATA_B4E147>>16
 	dw $0000
 
 DATA_B4DF5C:
-	dw (!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$42 : dl $7EA15A : db $7E
+	dw $0F42 : dl $7EA15A : db $7E
 	dw $0000
 
 DATA_B4DF64:
-	dw (!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$42 : dl DATA_B4E7AC : db $7EA15A>>16
-	dw (!REGISTER_CGRAMAddress&$0000FF<<8)+$43 : dl DATA_B4E7B5 : db DATA_B4E7BC>>16
-	dw (!REGISTER_BG2VertScrollOffset&$0000FF<<8)+$42 : dl DATA_B4ED12 : db $7EA35A>>16
+	dw $0F42 : dl DATA_B4E7AC : db $7EA15A>>16
+	dw $2143 : dl DATA_B4E7B5 : db DATA_B4E7BC>>16
+	dw $1042 : dl DATA_B4ED12 : db $7EA35A>>16
 	dw $0000
 
 DATA_B4DF78:
-	dw (!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$42 : dl $7EA15A : db $7E
-	dw (!REGISTER_BG2AddressAndSize&$0000FF<<8)+$00 : dl DATA_B4E704 : db DATA_B4E704>>16
-	dw (!REGISTER_MainScreenLayers&$0000FF<<8)+$00 : dl DATA_B4E6FD : db DATA_B4E6FD>>16
-	dw (!REGISTER_CGRAMAddress&$0000FF<<8)+$03 : dl DATA_B4E70B : db DATA_B4E70B>>16
+	dw $0F42 : dl $7EA15A : db $7E
+	dw $0800 : dl DATA_B4E704 : db DATA_B4E704>>16
+	dw $2C00 : dl DATA_B4E6FD : db DATA_B4E6FD>>16
+	dw $2103 : dl DATA_B4E70B : db DATA_B4E70B>>16
 	dw $0000
 
 DATA_B4DF92:
-	dw (!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$42 : dl $7EA15A : db $7E
-	dw (!REGISTER_ColorMathSelectAndEnable&$0000FF<<8)+$00 : dl DATA_B4E74F : db DATA_B4E74F>>16
+	dw $0F42 : dl $7EA15A : db $7E
+	dw $3100 : dl DATA_B4E74F : db DATA_B4E74F>>16
 	dw $0000
 
 DATA_B4DFA0:
-	dw (!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$01 : dl DATA_B4E001 : db $00
-	dw (!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$42 : dl DATA_B4E651 : db $7EA15A>>16
-	dw (!REGISTER_BG2VertScrollOffset&$0000FF<<8)+$42 : dl DATA_B4E647 : db $7EA26C>>16
-	dw (!REGISTER_BG2AddressAndSize&$0000FF<<8)+$00 : dl DATA_B4E6F6 : db DATA_B4E6F6>>16
-	dw (!REGISTER_Window2LeftPositionDesignation&$0000FF<<8)+$41 : dl DATA_B4E0D3 : db DATA_B4E0E0>>16
-	dw (!REGISTER_MainScreenLayers&$0000FF<<8)+$00 : dl DATA_B4E6ED : db DATA_B4E6ED>>16
-	dw (!REGISTER_CGRAMAddress&$0000FF<<8)+$43 : dl DATA_B4E140 : db DATA_B4E147>>16
+	dw $2601 : dl DATA_B4E001 : db $00
+	dw $0F42 : dl DATA_B4E651 : db $7EA15A>>16
+	dw $1042 : dl DATA_B4E647 : db $7EA26C>>16
+	dw $0800 : dl DATA_B4E6F6 : db DATA_B4E6F6>>16
+	dw $2841 : dl DATA_B4E0D3 : db DATA_B4E0E0>>16
+	dw $2C00 : dl DATA_B4E6ED : db DATA_B4E6ED>>16
+	dw $2143 : dl DATA_B4E140 : db DATA_B4E147>>16
 	dw $0000
 
 DATA_B4DFCC:
-	dw (!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$42 : dl $7EA15A : db $7E
-	dw (!REGISTER_MainScreenLayers&$0000FF<<8)+$00 : dl DATA_B4E754 : db DATA_B4E754>>16
-	dw (!REGISTER_CGRAMAddress&$0000FF<<8)+$03 : dl DATA_B4E763 : db DATA_B4E763>>16
-	dw (!REGISTER_FixedColorData&$0000FF<<8)+$02 : dl DATA_B4E75D : db DATA_B4E75D>>16
+	dw $0F42 : dl $7EA15A : db $7E
+	dw $2C00 : dl DATA_B4E754 : db DATA_B4E754>>16
+	dw $2103 : dl DATA_B4E763 : db DATA_B4E763>>16
+	dw $3202 : dl DATA_B4E75D : db DATA_B4E75D>>16
 	dw $0000
 
 DATA_B4DFE6:
-	dw (!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$42 : dl $7EA15A : db $7E
-	dw (!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$01 : dl DATA_B4DFF4 : db $00
+	dw $0F42 : dl $7EA15A : db $7E
+	dw $2601 : dl DATA_B4DFF4 : db $00
 	dw $0000
 
 DATA_B4DFF4:
@@ -10776,12 +10776,12 @@ DATA_B4EEDD:
 	dw $0606,$52ED,$0707,$5F3A,$0808,$5F3F
 
 DATA_B4F299:
-	dw (!REGISTER_MainScreenLayers&$0000FF<<8)+$01 : dl $7EA15A : db $00
-	dw (!REGISTER_ColorMathSelectAndEnable&$0000FF<<8)+$00 : dl $7EA18A : db $00
-	dw (!REGISTER_BG3VertScrollOffset&$0000FF<<8)+$02 : dl $7EA16A : db $00
-	dw (!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$01 : dl $7EA195 : db $00
-	dw (!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$02 : dl $7EA174 : db $00
-	dw (!REGISTER_BG2VertScrollOffset&$0000FF<<8)+$02 : dl $7EA19F : db $00
+	dw $2C01 : dl $7EA15A : db $00
+	dw $3100 : dl $7EA18A : db $00
+	dw $1202 : dl $7EA16A : db $00
+	dw $2601 : dl $7EA195 : db $00
+	dw $1102 : dl $7EA174 : db $00
+	dw $1002 : dl $7EA19F : db $00
 	dw $0000
 
 DATA_B4F2BF:
@@ -10791,13 +10791,13 @@ DATA_B4F2BF:
 	dw $0000
 
 DATA_B4F2CA:
-	dw (!REGISTER_MainScreenLayers&$0000FF<<8)+$01 : dl $7EA15A : db $00
-	dw (!REGISTER_ColorMathSelectAndEnable&$0000FF<<8)+$00 : dl $7EA18A : db $00
-	dw (!REGISTER_BG3VertScrollOffset&$0000FF<<8)+$02 : dl $7EA16A : db $00
-	dw (!REGISTER_ColorMathInitialSettings&$0000FF<<8)+$00 : dl $7EA1A6 : db $00
-	dw (!REGISTER_FixedColorData&$0000FF<<8)+$02 : dl $7EA19F : db $00
-	dw (!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$01 : dl $7EA195 : db $00
-	dw (!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$02 : dl $7EA174 : db $00
+	dw $2C01 : dl $7EA15A : db $00
+	dw $3100 : dl $7EA18A : db $00
+	dw $1202 : dl $7EA16A : db $00
+	dw $3000 : dl $7EA1A6 : db $00
+	dw $3202 : dl $7EA19F : db $00
+	dw $2601 : dl $7EA195 : db $00
+	dw $1102 : dl $7EA174 : db $00
 	dw $0000
 
 DATA_B4F2F6:
@@ -10807,21 +10807,21 @@ DATA_B4F2F6:
 	dw $0000
 
 DATA_B4F301:
-	dw (!REGISTER_MainScreenLayers&$0000FF<<8)+$01 : dl $7EA15A : db $00
-	dw (!REGISTER_ColorMathSelectAndEnable&$0000FF<<8)+$00 : dl $7EA18A : db $00
-	dw (!REGISTER_BG3VertScrollOffset&$0000FF<<8)+$02 : dl $7EA16A : db $00
-	dw (!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$01 : dl $7EA195 : db $00
-	dw (!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$02 : dl $7EA174 : db $00
-	dw (!REGISTER_Window2LeftPositionDesignation&$0000FF<<8)+$41 : dl $7EA55A : db $7E
-	dw (!REGISTER_ColorMathInitialSettings&$0000FF<<8)+$00 : dl DATA_B4FCBD : db $00
+	dw $2C01 : dl $7EA15A : db $00
+	dw $3100 : dl $7EA18A : db $00
+	dw $1202 : dl $7EA16A : db $00
+	dw $2601 : dl $7EA195 : db $00
+	dw $1102 : dl $7EA174 : db $00
+	dw $2841 : dl $7EA55A : db $7E
+	dw $3000 : dl DATA_B4FCBD : db $00
 	dw $0000
 
 DATA_B4F32D:
-	dw (!REGISTER_MainScreenLayers&$0000FF<<8)+$01 : dl $7EA15A : db $00
-	dw (!REGISTER_BG3VertScrollOffset&$0000FF<<8)+$02 : dl $7EA16A : db $00
-	dw (!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$02 : dl $7EA174 : db $00
-	dw (!REGISTER_ColorMathSelectAndEnable&$0000FF<<8)+$00 : dl $7EA18A : db $00
-	dw (!REGISTER_FixedColorData&$0000FF<<8)+$00 : dl $7EA19F : db $00
+	dw $2C01 : dl $7EA15A : db $00
+	dw $1202 : dl $7EA16A : db $00
+	dw $1102 : dl $7EA174 : db $00
+	dw $3100 : dl $7EA18A : db $00
+	dw $3200 : dl $7EA19F : db $00
 	dw $0000
 
 DATA_B4F34D:
@@ -10831,9 +10831,9 @@ DATA_B4F34D:
 	dw $0000
 
 DATA_B4F358:
-	dw (!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$42 : dl DATA_B4FCCC : db $7EA15A>>16
-	dw (!REGISTER_ColorMathSelectAndEnable&$0000FF<<8)+$00 : dl $7EA15A : db $00
-	dw (!REGISTER_Window2LeftPositionDesignation&$0000FF<<8)+$01 : dl $7EA166 : db $00
+	dw $0F42 : dl DATA_B4FCCC : db $7EA15A>>16
+	dw $3100 : dl $7EA15A : db $00
+	dw $2801 : dl $7EA166 : db $00
 	dw $0000
 
 DATA_B4F36C:

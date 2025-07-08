@@ -1,5 +1,6 @@
 includeonce
 
+active_frame_counter = $00
 
 spc_transaction = $06
 current_song = $08
@@ -21,7 +22,6 @@ current_animal_type = $7E
 next_oam_slot = $82
 
 level_number = $C0
-active_frame_counter = $C2
 invincibility_timer = $CA
 
 stack_end = $0100
@@ -36,7 +36,7 @@ stereo_select = $0432
 camera_x_position = $0493
 camera_y_position = $0497
 camera_shake_properties = $04B2
-current_game_mode = $04C2
+current_game_mode = $04C4
 active_player = $04C6
 
 
@@ -106,7 +106,8 @@ palette_upload_ring_buffer = $06FC
 
 aux_sprite_table = $080A
 main_sprite_table = $0878
-main_sprite_table_end = $0878+(sizeof(sprite)*24)
+main_sprite_table_end = $1480
+;main_sprite_table_end = $0878+(sizeof(sprite)*24)
 
 
 dixie_sprite_slot = $0878

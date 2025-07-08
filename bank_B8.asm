@@ -487,7 +487,7 @@ CODE_B8833B:
 CODE_B8833C:
 	LDA.w #$0007				;$B8833C
 	LDY.w #$0100				;$B8833F
-	JSL.l CODE_BB85D0			;$B88342
+	JSL.l enable_timestop			;$B88342
 	LDA.w #$0002				;$B88346
 	JSL.l CODE_B2800F			;$B88349
 	JSL.l CODE_B88352			;$B8834D
@@ -693,7 +693,7 @@ CODE_B884F8:
 	LDA.w #$0100				;$B88507
 	STA.b $3A,x				;$B8850A
 	LDA.w #$0003				;$B8850C
-	STA.w $194B				;$B8850F
+	STA.w timestop_flags			;$B8850F
 	LDA.w #$0020				;$B88512
 	STA.b $38,x				;$B88515
 	LDA.w #$0078				;$B88517
@@ -997,7 +997,7 @@ DATA_B88783:
 CODE_B887A3:
 	LDA.w #$001C				;$B887A3
 	LDY.w #$0014				;$B887A6
-	JSL.l CODE_BB85D0			;$B887A9
+	JSL.l enable_timestop			;$B887A9
 	LDA.b $7A				;$B887AD
 	STA.b current_sprite			;$B887AF
 	JSL.l CODE_B888D9			;$B887B1
@@ -1110,7 +1110,7 @@ CODE_B888B0:
 	STZ.b current_mount			;$B888B2
 	LDA.w #$001C				;$B888B4
 	LDY.w #$0014				;$B888B7
-	JSL.l CODE_BB85D0			;$B888BA
+	JSL.l enable_timestop			;$B888BA
 	LDA.w active_kong_sprite		;$B888BE
 	STA.b current_sprite			;$B888C1
 	JSR.w CODE_B8C607			;$B888C3
@@ -1368,7 +1368,7 @@ CODE_B88AD4:
 	BEQ.b CODE_B88B06			;$B88AFA
 	LDA.w #$0003				;$B88AFC
 	LDY.w #$0280				;$B88AFF
-	JSL.l CODE_BB85D0			;$B88B02
+	JSL.l enable_timestop			;$B88B02
 CODE_B88B06:
 	LDA.w $17C8				;$B88B06
 	STA.b current_sprite			;$B88B09
@@ -1915,7 +1915,7 @@ CODE_B88FB7:
 	STZ.w $04AE				;$B88FBA
 	LDA.w #$001C				;$B88FBD
 	LDY.w #$0002				;$B88FC0
-	JSL.l CODE_BB85D0			;$B88FC3
+	JSL.l enable_timestop			;$B88FC3
 	JSL.l CODE_B89C4C			;$B88FC7
 	LDA.w $17CA				;$B88FCB
 	STA.b $2E,x				;$B88FCE
@@ -1944,7 +1944,7 @@ CODE_B89001:
 	STZ.w $04AE				;$B89004
 	LDA.w #$001C				;$B89007
 	LDY.w #$0002				;$B8900A
-	JSL.l CODE_BB85D0			;$B8900D
+	JSL.l enable_timestop			;$B8900D
 	JSL.l CODE_B89C4C			;$B89011
 	JSR.w CODE_B89071			;$B89015
 	JSL.l CODE_B8E179			;$B89018
@@ -2019,7 +2019,7 @@ CODE_B89092:
 CODE_B8909A:
 	LDA.w #$001C				;$B8909A
 	LDY.w #$0002				;$B8909D
-	JSL.l CODE_BB85D0			;$B890A0
+	JSL.l enable_timestop			;$B890A0
 	LDA.b current_animal_type		;$B890A4
 	BNE.b CODE_B890F1			;$B890A6
 	JSL.l CODE_B89C4C			;$B890A8
@@ -2105,7 +2105,7 @@ CODE_B89144:
 	JSL.l CODE_B89C4C			;$B8914A
 	LDA.w #$001C				;$B8914E
 	LDY.w #$0002				;$B89151
-	JSL.l CODE_BB85D0			;$B89154
+	JSL.l enable_timestop			;$B89154
 	LDA.w #$0008				;$B89158
 	JSR.w CODE_B8C5C7			;$B8915B
 	LDX.b current_sprite			;$B8915E
@@ -2279,7 +2279,7 @@ CODE_B89279:
 CODE_B892D2:
 	LDA.w #$0003				;$B892D2
 	LDY.w #$00F0				;$B892D5
-	JSL.l CODE_BB85D0			;$B892D8
+	JSL.l enable_timestop			;$B892D8
 	RTL					;$B892DC
 
 CODE_B892DD:
@@ -2345,13 +2345,13 @@ CODE_B89342:
 	JSL.l set_anim_handle_kiddy		;$B89355
 	LDA.w #$0003				;$B89359
 	LDY.w #$01E0				;$B8935C
-	JSL.l CODE_BB85D0			;$B8935F
+	JSL.l enable_timestop			;$B8935F
 	RTL					;$B89363
 
 CODE_B89364:
 	LDA.w #$0007				;$B89364
 	LDY.w #$00F0				;$B89367
-	JSL.l CODE_BB85D0			;$B8936A
+	JSL.l enable_timestop			;$B8936A
 	LDX.w active_kong_sprite		;$B8936E
 	LDA.b $12,x				;$B89371
 	STA.w $1931				;$B89373
@@ -2502,7 +2502,7 @@ CODE_B894A1:
 CODE_B894AB:
 	LDA.w #$0080				;$B894AB
 	LDY.w #$0014				;$B894AE
-	JSL.l CODE_BB85D0			;$B894B1
+	JSL.l enable_timestop			;$B894B1
 	LDA.w #$003C				;$B894B5
 	STA.w $1899				;$B894B8
 	JSR.w CODE_B8C5A0			;$B894BB
@@ -2556,7 +2556,7 @@ CODE_B8952E:
 	BNE.b CODE_B89585			;$B89534
 	LDA.w #$0003				;$B89536
 	LDY.w #$00F0				;$B89539
-	JSL.l CODE_BB85D0			;$B8953C
+	JSL.l enable_timestop			;$B8953C
 	LDA.w #$0012				;$B89540
 	JSL.l CODE_BFF006			;$B89543
 	JSR.w CODE_B88721			;$B89547
@@ -2587,7 +2587,7 @@ CODE_B8952E:
 CODE_B89585:
 	LDA.w #$0080				;$B89585
 	LDY.w #$0014				;$B89588
-	JSL.l CODE_BB85D0			;$B8958B
+	JSL.l enable_timestop			;$B8958B
 	LDA.w #$0012				;$B8958F
 	JSL.l CODE_BFF006			;$B89592
 	JSR.w CODE_B88721			;$B89596
@@ -2637,7 +2637,7 @@ CODE_B895FA:
 	BEQ.b CODE_B8965E			;$B89600
 	LDA.w #$001F				;$B89602
 	LDY.w #$0014				;$B89605
-	JSL.l CODE_BB85D0			;$B89608
+	JSL.l enable_timestop			;$B89608
 	LDX.w active_kong_sprite		;$B8960C
 	LDY.w follower_kong_sprite		;$B8960F
 	LDA.w #$002F				;$B89612
@@ -2671,7 +2671,7 @@ CODE_B89617:
 	LDA.w #$005B				;$B89652
 	STA.b $38,x				;$B89655
 	LDA.w #$0018				;$B89657
-	TRB.w $194B				;$B8965A
+	TRB.w timestop_flags			;$B8965A
 CODE_B8965D:
 	RTL					;$B8965D
 
@@ -2684,7 +2684,7 @@ CODE_B8965E:
 	JSL.l set_anim_handle_animal_and_kiddy	;$B8966A
 	LDA.w #$0003				;$B8966E
 	LDY.w #$00F0				;$B89671
-	JSL.l CODE_BB85D0			;$B89674
+	JSL.l enable_timestop			;$B89674
 	JSR.w CODE_B89422			;$B89678
 	RTL					;$B8967B
 
@@ -2757,7 +2757,7 @@ CODE_B89702:
 	JSL.l CODE_BB85FD			;$B8971E
 	LDA.w #$0007				;$B89722
 	LDY.w #$002D				;$B89725
-	JSL.l CODE_BB85D0			;$B89728
+	JSL.l enable_timestop			;$B89728
 	RTL					;$B8972C
 
 CODE_B8972D:
@@ -2765,7 +2765,7 @@ CODE_B8972D:
 	BCS.b CODE_B8979B			;$B89730
 	LDA.w #$0007				;$B89732
 	LDY.w #$00F0				;$B89735
-	JSL.l CODE_BB85D0			;$B89738
+	JSL.l enable_timestop			;$B89738
 	LDA.w follower_kong_sprite		;$B8973C
 	STA.w current_held_sprite		;$B8973F
 	STZ.w $186D				;$B89742
@@ -2828,7 +2828,7 @@ CODE_B8979C:
 	LDA.w #$0040				;$B897E0
 	STA.b $38,x				;$B897E3
 	STZ.b $3A,x				;$B897E5
-	JSL.l CODE_BB85D3			;$B897E7
+	JSL.l disable_timestop			;$B897E7
 	JSL.l CODE_B8EFE7			;$B897EB
 	RTL					;$B897EF
 
@@ -3054,7 +3054,7 @@ CODE_B899B3:
 	JSL.l CODE_B28018			;$B89A04
 	LDA.w #$0007				;$B89A08
 	LDY.w #$0078				;$B89A0B
-	JSL.l CODE_BB85D0			;$B89A0E
+	JSL.l enable_timestop			;$B89A0E
 CODE_B89A12:
 	RTL					;$B89A12
 
@@ -3225,7 +3225,7 @@ CODE_B89B3E:
 	JSL.l CODE_B28018			;$B89B6C
 	LDA.w #$0007				;$B89B70
 	LDY.w #$0078				;$B89B73
-	JSL.l CODE_BB85D0			;$B89B76
+	JSL.l enable_timestop			;$B89B76
 	RTL					;$B89B7A
 
 CODE_B89B7B:
@@ -3772,7 +3772,7 @@ CODE_B89FC6:
 	RTS					;$B89FCA
 
 CODE_B89FCB:
-	LDA.w $194B				;$B89FCB
+	LDA.w timestop_flags			;$B89FCB
 	AND.w #$0004				;$B89FCE
 	BNE.b CODE_B89FE4			;$B89FD1
 	LDX.b current_sprite			;$B89FD3
@@ -4320,7 +4320,7 @@ CODE_B8A4C9:
 	AND.w #$0004				;$B8A4CC
 	BEQ.b CODE_B8A50F			;$B8A4CF
 	LDX.w #$0002				;$B8A4D1
-	LDA.b level_number			;$B8A4D4
+	LDA level_number			;$B8A4D4
 	CMP.w #!Define_DKC3_LevelID_KonveyorRopeKlash_Bonus1	;$B8A4D6
 	BEQ.b CODE_B8A4E3			;$B8A4D9
 	LDX.w #$0000				;$B8A4DB
@@ -5706,7 +5706,7 @@ CODE_B8AFEF:
 	JML [$04F5]				;$B8B001
 
 CODE_B8B004:
-	JSL.l CODE_BB85D3			;$B8B004
+	JSL.l disable_timestop			;$B8B004
 	LDA.w #$4000				;$B8B008
 	TRB.w $05AF				;$B8B00B
 	LDX.b current_sprite			;$B8B00E
@@ -5753,7 +5753,7 @@ CODE_B8B06A:
 	STZ.b $64,x				;$B8B077
 	LDA.w #$0007				;$B8B079
 	LDY.w #$0000				;$B8B07C
-	JSL.l CODE_BB85D0			;$B8B07F
+	JSL.l enable_timestop			;$B8B07F
 CODE_B8B083:
 	JMP.w CODE_B8A09B			;$B8B083
 
@@ -5842,7 +5842,7 @@ CODE_B8B100:
 	JSR.w CODE_B8EC88			;$B8B105
 	LDA.w #$0033				;$B8B108
 	STA.w $0038,y				;$B8B10B
-	JSL.l CODE_BB85D3			;$B8B10E
+	JSL.l disable_timestop			;$B8B10E
 	JMP.w CODE_B8A075			;$B8B112
 
 CODE_B8B115:
@@ -7630,7 +7630,7 @@ CODE_B8BF59:
 	STA.b $28,x				;$B8BF5F
 	LDA.w #$0004				;$B8BF61
 	TRB.w $05B1				;$B8BF64
-	LDA.b level_number			;$B8BF67
+	LDA level_number			;$B8BF67
 	CMP.w #!Define_DKC3_LevelID_BelchasBarn	;$B8BF69
 	BCC.b CODE_B8BF79			;$B8BF6C
 	CMP.w #!Define_DKC3_LevelID_LakesideLimbo_Main	;$B8BF6E
@@ -7708,7 +7708,7 @@ CODE_B8BFFC:
 	TSB.w $05AF				;$B8BFFF
 	DEC.b $00				;$B8C002
 	LDA.w #$0002				;$B8C004
-	STA.w $194D				;$B8C007
+	STA.w timestop_timer			;$B8C007
 	INC.b $64,x				;$B8C00A
 	LDA.b $64,x				;$B8C00C
 	AND.w #$001F				;$B8C00E
@@ -7892,7 +7892,7 @@ CODE_B8C15A:
 	STA.b $28,x				;$B8C172
 	JSL.l CODE_B9E006			;$B8C174
 	JSL.l CODE_B9A595			;$B8C178
-	JSL.l CODE_BB85D3			;$B8C17C
+	JSL.l disable_timestop			;$B8C17C
 	RTS					;$B8C180
 
 CODE_B8C181:
@@ -8320,7 +8320,7 @@ CODE_B8C483:
 	LDX.w #$0028				;$B8C4E3
 	JSL.l CODE_B8F028			;$B8C4E6
 	JSL.l CODE_BB85FD			;$B8C4EA
-	JSL.l CODE_BB85D3			;$B8C4EE
+	JSL.l disable_timestop			;$B8C4EE
 	LDX.w $0503				;$B8C4F2
 	STX.b current_sprite			;$B8C4F5
 CODE_B8C4F7:
@@ -8371,7 +8371,7 @@ CODE_B8C549:
 	LDA.w #$0027				;$B8C551
 	JSL.l CODE_B882B6			;$B8C554
 	LDA.w #$0003				;$B8C558
-	STA.w $194B				;$B8C55B
+	STA.w timestop_flags			;$B8C55B
 	RTS					;$B8C55E
 
 CODE_B8C55F:
@@ -10279,7 +10279,7 @@ CODE_B8D2A1:
 	TSB.w $05B1				;$B8D2AD
 	LDA.w #$0100				;$B8D2B0
 	TRB.w $05AF				;$B8D2B3
-	JSL.l CODE_BB85D3			;$B8D2B6
+	JSL.l disable_timestop			;$B8D2B6
 CODE_B8D2BA:
 	RTS					;$B8D2BA
 
@@ -12293,7 +12293,7 @@ CODE_B8E0FE:
 	LDX.b current_sprite			;$B8E100
 	CPX.w follower_kong_sprite		;$B8E102
 	BEQ.b CODE_B8E138			;$B8E105
-	LDA.b level_number			;$B8E107
+	LDA level_number			;$B8E107
 	CMP.w #!Define_DKC3_LevelID_SpringinSpiders_Bonus1	;$B8E109
 	BNE.b CODE_B8E122			;$B8E10C
 	LDA.w $196D				;$B8E10E
@@ -13516,7 +13516,7 @@ CODE_B8E996:
 	JML [$04F5]				;$B8E99A
 
 CODE_B8E99D:
-	LDA.b level_number			;$B8E99D
+	LDA level_number			;$B8E99D
 	CMP.w #!Define_DKC3_LevelID_CreepyCaverns_Main	;$B8E99F
 	BNE.b CODE_B8E9B9			;$B8E9A2
 	LDA.w $0016,y				;$B8E9A4
@@ -13859,7 +13859,7 @@ CODE_B8EC24:
 	STA.b $1E				;$B8EC34
 	LDA.w $0016,y				;$B8EC36
 	STA.b $20				;$B8EC39
-	LDA.b level_number			;$B8EC3B
+	LDA level_number			;$B8EC3B
 	CMP.w #!Define_DKC3_LevelID_SquealsOnWheels_Main	;$B8EC3D
 	BEQ.b CODE_B8EC53			;$B8EC40
 	LDA.w $050F				;$B8EC42
@@ -14326,7 +14326,7 @@ CODE_B8EF76:
 	STA.w $0062,y				;$B8EFD9
 	LDA.w #$000F				;$B8EFDC
 	LDY.w #$003C				;$B8EFDF
-	JSL.l CODE_BB85D0			;$B8EFE2
+	JSL.l enable_timestop			;$B8EFE2
 	RTL					;$B8EFE6
 
 CODE_B8EFE7:

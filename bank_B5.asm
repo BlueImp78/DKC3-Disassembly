@@ -90,7 +90,7 @@ CODE_B58053:
 CODE_B58066:
 	LDA.w #$0019				;$B58066
 	STA.w $054D				;$B58069
-	LDA.b level_number			;$B5806C
+	LDA level_number			;$B5806C
 	CMP.w #!Define_DKC3_LevelID_SwankysSideshowInTent	;$B5806E
 	BNE.b CODE_B58087			;$B58071
 	LDA.w #$0006				;$B58073
@@ -141,7 +141,7 @@ CODE_B580D1:
 	JSL.l CODE_B78027			;$B580DC
 	JSL.l CODE_B7802A			;$B580E0
 	SEP.b #$20				;$B580E4
-	LDX.w #(!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$02	;$B580E6
+	LDX.w #$1102				;$B580E6
 	STX.w HDMA[$01].Parameters		;$B580E9
 	LDX.w #$7EA174				;$B580EC
 	STX.w HDMA[$01].SourceLo		;$B580EF
@@ -4356,7 +4356,7 @@ CODE_B5A218:
 	TSB.w $05AF				;$B5A222
 	DEC.b $00				;$B5A225
 	LDA.w #$0002				;$B5A227
-	STA.w $194D				;$B5A22A
+	STA.w timestop_timer			;$B5A22A
 	INC.b $4C,x				;$B5A22D
 	LDA.b $4C,x				;$B5A22F
 	AND.w #$001F				;$B5A231
@@ -4380,7 +4380,7 @@ CODE_B5A24C:
 	BCC.b CODE_B5A267			;$B5A259
 	LDA.w #$0100				;$B5A25B
 	TRB.w $05AF				;$B5A25E
-	JSL.l CODE_BB85D3			;$B5A261
+	JSL.l disable_timestop			;$B5A261
 	BRA.b CODE_B5A26A			;$B5A265
 
 CODE_B5A267:
@@ -4390,7 +4390,7 @@ CODE_B5A26A:
 	LDX.b current_sprite			;$B5A26A
 	STZ.b $38,x				;$B5A26C
 	STZ.b $26,x				;$B5A26E
-	JSL.l CODE_BB85D3			;$B5A270
+	JSL.l disable_timestop			;$B5A270
 	JMP.w CODE_B5A19E			;$B5A274
 
 CODE_B5A277:
@@ -4748,7 +4748,7 @@ DATA_B5A4F9:
 
 barbos_main:
 ;$B5A511
-	LDA.w $194B				;$B5A511
+	LDA.w timestop_flags			;$B5A511
 	BIT.w #$0004				;$B5A514
 	BNE.b CODE_B5A548			;$B5A517
 	JMP.w (DATA_B5A51C,x)			;$B5A519
@@ -7457,7 +7457,7 @@ DATA_B5BA9F:
 
 kaos_main:
 ;$B5BAA9
-	LDA.w $194B				;$B5BAA9
+	LDA.w timestop_flags			;$B5BAA9
 	BIT.w #$0004				;$B5BAAC
 	BNE.b CODE_B5BB10			;$B5BAAF
 	LDA.w $0016,y				;$B5BAB1
@@ -8426,7 +8426,7 @@ CODE_B5C210:
 	JSL.l CODE_B28024			;$B5C22B
 CODE_B5C22F:
 	JSR.w CODE_B5C2C9			;$B5C22F
-	LDA.b level_number			;$B5C232
+	LDA level_number			;$B5C232
 	CMP.w #!Define_DKC3_LevelID_KAOSKarnage	;$B5C234
 	BEQ.b CODE_B5C23C			;$B5C237
 	JMP.w CODE_B5C2C6			;$B5C239
@@ -8545,7 +8545,7 @@ CODE_B5C2F7:
 	RTS					;$B5C30D
 
 CODE_B5C30E:
-	LDA.b level_number			;$B5C30E
+	LDA level_number			;$B5C30E
 	CMP.w #!Define_DKC3_LevelID_KAOSKarnage	;$B5C310
 	BNE.b CODE_B5C332			;$B5C313
 	LDA.w $1B75				;$B5C315
@@ -8589,7 +8589,7 @@ CODE_B5C350:
 	BRA.b CODE_B5C346			;$B5C353
 
 CODE_B5C355:
-	LDA.b level_number			;$B5C355
+	LDA level_number			;$B5C355
 	CMP.w #!Define_DKC3_LevelID_KAOSKarnage	;$B5C357
 	BNE.b CODE_B5C35D			;$B5C35A
 	RTS					;$B5C35C
@@ -8651,7 +8651,7 @@ CODE_B5C3BD:
 	LDA.w $1B75				;$B5C3BF
 	ASL					;$B5C3C2
 	TAX					;$B5C3C3
-	LDA.b level_number			;$B5C3C4
+	LDA level_number			;$B5C3C4
 	CMP.w #!Define_DKC3_LevelID_KAOSKarnage	;$B5C3C6
 	BEQ.b CODE_B5C3D4			;$B5C3C9
 	JMP.w (DATA_B5C3CE,x)			;$B5C3CB
@@ -9983,7 +9983,7 @@ CODE_B5CE01:
 	RTS					;$B5CE01
 
 CODE_B5CE02:
-	LDA.b level_number			;$B5CE02
+	LDA level_number			;$B5CE02
 	CMP.w #!Define_DKC3_LevelID_KAOSKarnage	;$B5CE04
 	BEQ.b CODE_B5CE14			;$B5CE07
 	LDA.w #$0038				;$B5CE09
@@ -10544,7 +10544,7 @@ CODE_B5D38B:
 	LDA.w #$0008				;$B5D38F
 	STA.b $38,x				;$B5D392
 CODE_B5D394:
-	LDA.b level_number			;$B5D394
+	LDA level_number			;$B5D394
 	CMP.w #!Define_DKC3_LevelID_KastleKAOS	;$B5D396
 	BEQ.b CODE_B5D39E			;$B5D399
 	JMP.w CODE_B5D838			;$B5D39B
@@ -13553,7 +13553,7 @@ CODE_B5EBDD:
 	LDA.w $1B75				;$B5EBDD
 	ASL					;$B5EBE0
 	TAY					;$B5EBE1
-	LDA.b level_number			;$B5EBE2
+	LDA level_number			;$B5EBE2
 	CMP.w #!Define_DKC3_LevelID_KastleKAOS	;$B5EBE4
 	BNE.b CODE_B5EBEE			;$B5EBE7
 	LDA.w DATA_B5EBF3-$02,y			;$B5EBE9
@@ -13675,7 +13675,7 @@ CODE_B5ED38:
 	LDA.w $1B75				;$B5ED3A
 	ASL					;$B5ED3D
 	TAX					;$B5ED3E
-	LDA.b level_number			;$B5ED3F
+	LDA level_number			;$B5ED3F
 	CMP.w #!Define_DKC3_LevelID_KastleKAOS	;$B5ED41
 	BEQ.b CODE_B5ED5F			;$B5ED44
 	JMP.w (DATA_B5ED49,x)			;$B5ED46
@@ -14770,7 +14770,7 @@ CODE_B5F511:
 	PHK					;$B5F512
 	PLB					;$B5F513
 	LDX.b current_sprite			;$B5F514
-	LDA.b level_number			;$B5F516
+	LDA level_number			;$B5F516
 	CMP.w #!Define_DKC3_LevelID_BleaksHouse	;$B5F518
 	BEQ.b CODE_B5F57E			;$B5F51B
 	LDA.b $00,x				;$B5F51D
@@ -15555,7 +15555,7 @@ CODE_B5FB29:
 	JSL.l set_sprite_animation		;$B5FB3F
 	LDA.w #$0023				;$B5FB43
 	LDY.w #$07D0				;$B5FB46
-	JSL.l CODE_BB85D0			;$B5FB49
+	JSL.l enable_timestop			;$B5FB49
 	LDA.w $04C4				;$B5FB4D
 	DEC					;$B5FB50
 	BNE.b CODE_B5FB5C			;$B5FB51

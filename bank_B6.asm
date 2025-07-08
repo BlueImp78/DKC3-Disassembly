@@ -3110,8 +3110,9 @@ CODE_B69668:
 	JSL.l CODE_BEC018			;$B69668
 	RTL					;$B6966C
 
+
 sneek_in_wheel_main:
-	JMP.w (.state_table,x)			;$B6966D
+	JMP (.state_table,x)			;$B6966D
 
 .state_table:
 	dw .idle
@@ -3143,11 +3144,13 @@ generic_move_and_animate_state:
 	JSL process_sprite_animation		;$B696A4   |
 	JMP CODE_B680C9				;$B696A8  / Return and handle despawn
 
+
 squeals_on_wheels_tracker_main:
 	TYX					;$B696AB
 	JSR.w CODE_B696FC			;$B696AC
 	STA.w $15E6				;$B696AF
 	JMP.w CODE_B6805A			;$B696B2
+
 
 metal_door_sneek_controlled_main:
 	JMP.w (DATA_B696B8,x)			;$B696B5
@@ -3228,83 +3231,82 @@ CODE_B6971D:
 	TAY					;$B69733
 	RTS					;$B69734
 
-unknown_sprite_0188_main:
-;$B69735
-	LDA.b level_number			;$B69735
-	CMP.w #!Define_DKC3_LevelID_RipsawRage_Main	;$B69737
-	BEQ.b CODE_B6973F			;$B6973A
-	JMP.w CODE_B6979A			;$B6973C
+ripsaw_rage_controller_main:
+	LDA level_number			;$B69735
+	CMP #!Define_DKC3_LevelID_RipsawRage_Main	;$B69737
+	BEQ .main_level				;$B6973A
+	JMP CODE_B6979A				;$B6973C
 
-CODE_B6973F:
+.main_level:
 	TYX					;$B6973F
-	LDA.b $5C,x				;$B69740
-	BEQ.b CODE_B69748			;$B69742
-	DEC.b $5C,x				;$B69744
-	BRA.b CODE_B6979A			;$B69746
+	LDA $5C,x				;$B69740
+	BEQ CODE_B69748				;$B69742
+	DEC $5C,x				;$B69744
+	BRA CODE_B6979A				;$B69746
 
 CODE_B69748:
-	LDA.b $00				;$B69748
+	LDA active_frame_counter		;$B69748
 	ASL					;$B6974A
 	CLC					;$B6974B
-	ADC.b $00				;$B6974C
+	ADC active_frame_counter		;$B6974C
 	ASL					;$B6974E
 	ASL					;$B6974F
-	AND.w #$01F0				;$B69750
-	LDY.w #$00BC				;$B69753
-	CMP.w #$01A0				;$B69756
-	BEQ.b CODE_B69763			;$B69759
-	LDY.w #$00BE				;$B6975B
-	CMP.w #$00A0				;$B6975E
-	BNE.b CODE_B6979A			;$B69761
+	AND #$01F0				;$B69750
+	LDY #$00BC				;$B69753
+	CMP #$01A0				;$B69756
+	BEQ CODE_B69763				;$B69759
+	LDY #$00BE				;$B6975B
+	CMP #$00A0				;$B6975E
+	BNE CODE_B6979A				;$B69761
 CODE_B69763:
-	STY.b $1E				;$B69763
-	LDA.w #$0004				;$B69765
-	STA.b $5C,x				;$B69768
-	LDA.w $196D				;$B6976A
+	STY $1E					;$B69763
+	LDA #$0004				;$B69765
+	STA $5C,x				;$B69768
+	LDA $196D				;$B6976A
 	SEC					;$B6976D
-	SBC.w #$0018				;$B6976E
-	STA.b $1A				;$B69771
-	ADC.w #$0130				;$B69773
-	STA.b $1C				;$B69776
-	LDY.b $5E,x				;$B69778
+	SBC #$0018				;$B6976E
+	STA $1A					;$B69771
+	ADC #$0130				;$B69773
+	STA $1C					;$B69776
+	LDY $5E,x				;$B69778
 CODE_B6977A:
-	LDA.w $0000,y				;$B6977A
-	BMI.b CODE_B6979A			;$B6977D
-	CMP.b $1A				;$B6977F
-	BCC.b CODE_B69796			;$B69781
-	CMP.b $1C				;$B69783
-	BCS.b CODE_B69796			;$B69785
+	LDA $0000,y				;$B6977A
+	BMI CODE_B6979A				;$B6977D
+	CMP $1A					;$B6977F
+	BCC CODE_B69796				;$B69781
+	CMP $1C					;$B69783
+	BCS CODE_B69796				;$B69785
 	PHY					;$B69787
-	LDY.b $1E				;$B69788
-	JSL.l CODE_BB8585			;$B6978A
+	LDY $1E					;$B69788
+	JSL CODE_BB8585				;$B6978A
 	PLY					;$B6978E
-	LDX.b alternate_sprite			;$B6978F
-	LDA.w $0000,y				;$B69791
-	STA.b $12,x				;$B69794
+	LDX alternate_sprite			;$B6978F
+	LDA $0000,y				;$B69791
+	STA $12,x				;$B69794
 CODE_B69796:
 	INY					;$B69796
 	INY					;$B69797
 	BRA.b CODE_B6977A			;$B69798
 
 CODE_B6979A:
-	LDY.w active_kong_sprite		;$B6979A
-	LDA.w $0012,y				;$B6979D
-	CMP.w #$0150				;$B697A0
-	BCC.b CODE_B697B4			;$B697A3
-	CMP.w #$0230				;$B697A5
-	BCC.b CODE_B697B9			;$B697A8
-	CMP.w #$02D0				;$B697AA
-	BCC.b CODE_B697B4			;$B697AD
-	CMP.w #$03B0				;$B697AF
-	BCC.b CODE_B697B9			;$B697B2
+	LDY active_kong_sprite			;$B6979A
+	LDA $0012,y				;$B6979D
+	CMP #$0150				;$B697A0
+	BCC CODE_B697B4				;$B697A3
+	CMP #$0230				;$B697A5
+	BCC CODE_B697B9				;$B697A8
+	CMP #$02D0				;$B697AA
+	BCC CODE_B697B4				;$B697AD
+	CMP #$03B0				;$B697AF
+	BCC CODE_B697B9				;$B697B2
 CODE_B697B4:
-	LDA.w #$3000				;$B697B4
-	BRA.b CODE_B697BC			;$B697B7
+	LDA #$3000				;$B697B4
+	BRA CODE_B697BC				;$B697B7
 
 CODE_B697B9:
-	LDA.w #$2000				;$B697B9
+	LDA #$2000				;$B697B9
 CODE_B697BC:
-	STA.w $1D85				;$B697BC
+	STA $1D85				;$B697BC
 	JML [$04F5]				;$B697BF
 
 ;Unreferenced
@@ -8213,7 +8215,7 @@ CODE_B6BC58:
 	JSR.w CODE_B6F371			;$B6BC59
 	INC.b $38,x				;$B6BC5C
 	STX.w $1B6B				;$B6BC5E
-	LDA.b level_number			;$B6BC61
+	LDA level_number			;$B6BC61
 	CMP.w #!Define_DKC3_LevelID_CrissKrossCliffs_Main	;$B6BC63
 	BNE.b CODE_B6BC6F			;$B6BC66
 	LDA.w $054F				;$B6BC68
@@ -8290,7 +8292,7 @@ CODE_B6BCF8:
 	JML [$04F5]				;$B6BCF8
 
 CODE_B6BCFB:
-	LDA.b level_number			;$B6BCFB
+	LDA level_number			;$B6BCFB
 	CMP.w #!Define_DKC3_LevelID_CrissKrossCliffs_Main	;$B6BCFD
 	BNE.b CODE_B6BD07			;$B6BD00
 	LDA.b $64,x				;$B6BD02
@@ -10412,8 +10414,8 @@ CODE_B6CC8B:
 	REP.b #$20				;$B6CC97
 	RTS					;$B6CC99
 
+
 unknown_sprite_049C_main:
-;$B6CC9A
 	TYX					;$B6CC9A
 	DEC.b $5C,x				;$B6CC9B
 	BMI.b CODE_B6CCA3			;$B6CC9D
@@ -10425,22 +10427,22 @@ CODE_B6CCA3:
 CODE_B6CCA6:
 	JML [$04F5]				;$B6CCA6
 
+
 big_smoke_cloud_main:
-;$B6CCA9
 	JSL.l CODE_B9E000			;$B6CCA9
 	JMP.w CODE_B685E6			;$B6CCAD
 
+
 knautilus_fireball_shooter_main:
-;$B6CCB0
 	JML [$04F5]				;$B6CCB0
 
+
 top_of_cotton_top_cove_waterfall_main:
-;$B6CCB3
 	JMP.w CODE_B685E6			;$B6CCB3
 
+
 belcha_main:
-;$B6CCB6
-	LDA.w $194B				;$B6CCB6
+	LDA.w timestop_flags			;$B6CCB6
 	BIT.w #$0004				;$B6CCB9
 	BNE.b CODE_B6CCD9			;$B6CCBC
 	JMP.w (DATA_B6CCC1,x)			;$B6CCBE
@@ -14440,7 +14442,7 @@ CODE_B6EA8C:
 	STA.w $003C,y				;$B6EAB2
 	TYX					;$B6EAB5
 	STZ.b $3A,x				;$B6EAB6
-	LDA.b level_number			;$B6EAB8
+	LDA level_number			;$B6EAB8
 	CMP.w #!Define_DKC3_LevelID_Knautilus	;$B6EABA
 	BNE.b CODE_B6EAC8			;$B6EABD
 	LDY.w $1BBD				;$B6EABF

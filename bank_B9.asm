@@ -2498,7 +2498,7 @@ CODE_B9B08A:
 	CMP.w #$0040				;$B9B08F
 	BNE.b CODE_B9B09F			;$B9B092
 	JSL.l CODE_B880A2			;$B9B094
-	JSL.l CODE_BB85D3			;$B9B098
+	JSL.l disable_timestop			;$B9B098
 	JMP.w CODE_B9A1B0			;$B9B09C
 
 CODE_B9B09F:
@@ -8272,7 +8272,7 @@ CODE_B9F66B:
 	LDA.w #DATA_B9F6DA			;$B9F66B
 CODE_B9F66E:
 	STA.b $1C				;$B9F66E
-	LDA.b level_number			;$B9F670
+	LDA level_number			;$B9F670
 	CMP.w #!Define_DKC3_LevelID_Knautilus	;$B9F672
 	BEQ.b CODE_B9F612			;$B9F675
 	LDX.b current_sprite			;$B9F677

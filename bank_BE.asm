@@ -1409,7 +1409,7 @@ CODE_BEC97E:
 	BEQ.b CODE_BEC99F			;$BEC993
 	LDA.w #$0003				;$BEC995
 	LDY.w #$0080				;$BEC998
-	JSL.l CODE_BB85D0			;$BEC99B
+	JSL.l enable_timestop			;$BEC99B
 CODE_BEC99F:
 	JSL.l CODE_B880AB			;$BEC99F
 	JSL.l CODE_BED09F			;$BEC9A3
@@ -1565,7 +1565,7 @@ CODE_BECABF:
 	BEQ.b CODE_BECAEC			;$BECAC4
 	LDA.w #$0003				;$BECAC6
 	LDY.w #$0280				;$BECAC9
-	JSL.l CODE_BB85D0			;$BECACC
+	JSL.l enable_timestop			;$BECACC
 	LDX.b current_sprite			;$BECAD0
 	LDA.w #$000A				;$BECAD2
 	STA.b $38,x				;$BECAD5
@@ -1696,7 +1696,7 @@ CODE_BECBB5:
 	STA.b $38,x				;$BECBBF
 	LDA.w #$0003				;$BECBC1
 	LDY.w #$0048				;$BECBC4
-	JSL.l CODE_BB85D0			;$BECBC7
+	JSL.l enable_timestop			;$BECBC7
 	JML [$04F5]				;$BECBCB
 
 CODE_BECBCE:

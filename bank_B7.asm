@@ -928,7 +928,7 @@ CODE_B78605:
 	PLB					;$B78606
 	LDY.b next_oam_slot			;$B78607
 	LDX.w #$0000				;$B78609
-	LDA.b level_number			;$B7860C
+	LDA level_number			;$B7860C
 	CMP.w #$000F				;$B7860E
 	BEQ.b CODE_B7861D			;$B78611
 	CMP.w #$0011				;$B78613
@@ -4949,7 +4949,7 @@ CODE_B7B8A0:
 	STA.w DMA[$00].Unused2			;$B7B8AC
 	LDA.w #$0040				;$B7B8AF
 	STA.w DMA[$00].SizeLo			;$B7B8B2
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B7B8B5
+	LDA.w #$1801				;$B7B8B5
 	STA.w DMA[$00].Parameters		;$B7B8B8
 	SEP.b #$20				;$B7B8BB
 	STZ.w DMA[$00].SourceBank		;$B7B8BD
@@ -4996,7 +4996,7 @@ CODE_B7B901:
 	STA.w DMA[$00].Unused2			;$B7B90D
 	LDA.w #$000C				;$B7B910
 	STA.w DMA[$00].SizeLo			;$B7B913
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B7B916
+	LDA.w #$1801				;$B7B916
 	STA.w DMA[$00].Parameters		;$B7B919
 	SEP.b #$20				;$B7B91C
 	STZ.w DMA[$00].SourceBank		;$B7B91E
@@ -5047,7 +5047,7 @@ CODE_B7B967:
 	STA.w DMA[$00].Unused2			;$B7B973
 	LDA.w #$0040				;$B7B976
 	STA.w DMA[$00].SizeLo			;$B7B979
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B7B97C
+	LDA.w #$1801				;$B7B97C
 	STA.w DMA[$00].Parameters		;$B7B97F
 	SEP.b #$20				;$B7B982
 	STZ.w DMA[$00].SourceBank		;$B7B984
@@ -5286,7 +5286,7 @@ CODE_B7BB21:
 	STA.w DMA[$00].Unused2			;$B7BB35
 	LDA.w #$0040				;$B7BB38
 	STA.w DMA[$00].SizeLo			;$B7BB3B
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B7BB3E
+	LDA.w #$1801				;$B7BB3E
 	STA.w DMA[$00].Parameters		;$B7BB41
 	SEP.b #$20				;$B7BB44
 	STZ.w DMA[$00].SourceBank		;$B7BB46
@@ -5302,7 +5302,7 @@ CODE_B7BB21:
 	STA.w DMA[$00].Unused2			;$B7BB5F
 	LDA.w #$0040				;$B7BB62
 	STA.w DMA[$00].SizeLo			;$B7BB65
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B7BB68
+	LDA.w #$1801				;$B7BB68
 	STA.w DMA[$00].Parameters		;$B7BB6B
 	SEP.b #$20				;$B7BB6E
 	STZ.w DMA[$00].SourceBank		;$B7BB70
@@ -5341,7 +5341,7 @@ CODE_B7BB98:
 	STA.w DMA[$00].Unused2			;$B7BBAC
 	LDA.w #$0040				;$B7BBAF
 	STA.w DMA[$00].SizeLo			;$B7BBB2
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B7BBB5
+	LDA.w #$1801				;$B7BBB5
 	STA.w DMA[$00].Parameters		;$B7BBB8
 	SEP.b #$20				;$B7BBBB
 	STZ.w DMA[$00].SourceBank		;$B7BBBD
@@ -5357,7 +5357,7 @@ CODE_B7BB98:
 	STA.w DMA[$00].Unused2			;$B7BBD6
 	LDA.w #$0040				;$B7BBD9
 	STA.w DMA[$00].SizeLo			;$B7BBDC
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B7BBDF
+	LDA.w #$1801				;$B7BBDF
 	STA.w DMA[$00].Parameters		;$B7BBE2
 	SEP.b #$20				;$B7BBE5
 	STZ.w DMA[$00].SourceBank		;$B7BBE7
@@ -8934,7 +8934,7 @@ CODE_B7D4BC:
 	STA.w $04BA				;$B7D4CA
 	STZ.w $04BC				;$B7D4CD
 	STZ.w $04BE				;$B7D4D0
-	LDA.b level_number			;$B7D4D3
+	LDA level_number			;$B7D4D3
 	ASL					;$B7D4D5
 	TAX					;$B7D4D6
 	LDA.l DATA_FDC259+$02,x			;$B7D4D7
@@ -10609,7 +10609,7 @@ CODE_B7E130:
 
 CODE_B7E13F:
 	JSR.w CODE_B7E218			;$B7E13F
-	LDA.w $194B				;$B7E142
+	LDA.w timestop_flags			;$B7E142
 	BIT.w #$0002				;$B7E145
 	BNE.b CODE_B7E1A9			;$B7E148
 	JSR.w CODE_B7E336			;$B7E14A
@@ -10667,7 +10667,7 @@ CODE_B7E197:
 	DEC					;$B7E1A5
 	STA.w $1975				;$B7E1A6
 CODE_B7E1A9:
-	LDA.w $194B				;$B7E1A9
+	LDA.w timestop_flags			;$B7E1A9
 	BIT.w #$0001				;$B7E1AC
 	BNE.b CODE_B7E217			;$B7E1AF
 	JSR.w CODE_B7E25E			;$B7E1B1
@@ -11180,7 +11180,7 @@ CODE_B7E4D6:
 	STA.b $26				;$B7E4FC
 	LDA.w DATA_B7E747+$04,x			;$B7E4FE
 	STA.b $1E				;$B7E501
-	LDA.b level_number			;$B7E503
+	LDA level_number			;$B7E503
 	ASL					;$B7E505
 	TAX					;$B7E506
 	LDA.l DATA_ECD002+$02,x			;$B7E507

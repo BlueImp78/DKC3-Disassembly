@@ -379,30 +379,27 @@ init_registers:
 	RTS					;$808257
 
 init_registers_global:
-;$808258
 	JSR.w init_registers			;$808258
 	RTL					;$80825B
 
 VRAM_zero_fill:
-;$80825C
 	dw $0000
 
 clear_VRAM:
-;80825E
-	STZ.w !REGISTER_VRAMAddressLo		;$80825C
-	LDA.w #VRAM_zero_fill			;$80825F
-	STA.w DMA[$00].SourceLo			;$808262
-	STA.w DMA[$00].Unused2			;$808265
-	STZ.w DMA[$00].SizeLo			;$808268
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$09	;$80826B
-	STA.w DMA[$00].Parameters		;$80826E
-	SEP.b #$20				;$808271
-	LDA.b #VRAM_zero_fill>>16		;$808273
-	STA.w DMA[$00].SourceBank		;$808275
-	LDA.b #$01				;$808278
-	STA.w !REGISTER_DMAEnable		;$80827A
-	REP.b #$20				;$80827D
-	RTS					;$80827F
+	STZ.w !REGISTER_VRAMAddressLo		;$80825E
+	LDA.w #VRAM_zero_fill			;$808261
+	STA.w DMA[$00].SourceLo			;$808264
+	STA.w DMA[$00].Unused2			;$808267
+	STZ.w DMA[$00].SizeLo			;$80826A
+	LDA.w #$1809				;$80826D
+	STA.w DMA[$00].Parameters		;$808270
+	SEP.b #$20				;$808273
+	LDA.b #VRAM_zero_fill>>16		;$808275
+	STA.w DMA[$00].SourceBank		;$808277
+	LDA.b #$01				;$80827A
+	STA.w !REGISTER_DMAEnable		;$80827C
+	REP.b #$20				;$80827F
+	RTS					;$808281
 
 clear_vram_global:
 ;$808282
@@ -800,7 +797,7 @@ CODE_808550:
 	AND.w #$F1FF				;$808590
 	ORA.w #$0C00				;$808593
 	STA.b $1E,x				;$808596
-	LDA.b level_number			;$808598
+	LDA level_number			;$808598
 	CMP.w #!Define_DKC3_LevelID_BossPhotos	;$80859A
 	BNE.b CODE_8085A7			;$80859D
 	LDA.b $16,x				;$80859F
@@ -1062,7 +1059,7 @@ CODE_808799:
 	INC					;$8087A9
 	AND.w #$000F				;$8087AA
 	STA.b $E6				;$8087AD
-	LDA.w #(!REGISTER_WriteToCGRAMPort&$0000FF<<8)+$00	;$8087AF
+	LDA.w #$2200				;$8087AF
 	STA.w DMA[$00].Parameters		;$8087B2
 	LDA.w #$001E				;$8087B5
 	STA.w DMA[$00].SizeLo			;$8087B8
@@ -1089,7 +1086,7 @@ CODE_8087D5:
 CODE_8087E0:
 	STA.w DMA[$00].SourceLo			;$8087E0
 	STY.w DMA[$00].SizeLo			;$8087E3
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$8087E6
+	LDA.w #$1801				;$8087E6
 	STA.w DMA[$00].Parameters		;$8087E9
 	SEP.b #$30				;$8087EC
 	STX.w DMA[$00].SourceBank		;$8087EE
@@ -1104,7 +1101,7 @@ CODE_8087F9:
 	BEQ.b CODE_808804			;$8087FF
 	JSR.w CODE_80882A			;$808801
 CODE_808804:
-	LDA.w #(!REGISTER_WriteToCGRAMPort&$0000FF<<8)+$00	;$808804
+	LDA.w #$2200				;$808804
 	STA.w DMA[$00].Parameters		;$808807
 	LDA.w #$0200				;$80880A
 	STA.w DMA[$00].SizeLo			;$80880D
@@ -1123,7 +1120,7 @@ CODE_808804:
 CODE_80882A:
 	LDA.w #$2000				;$80882A
 	TSB.w $05B1				;$80882D
-	LDA.b level_number			;$808830
+	LDA level_number			;$808830
 	CMP.w #!Define_DKC3_LevelID_BrothersBearPhotos	;$808832
 	BEQ.b CODE_808898			;$808835
 	CMP.w #!Define_DKC3_LevelID_BossPhotos	;$808837
@@ -1147,7 +1144,7 @@ CODE_80882A:
 	STA.l $7EA160				;$808870
 	STA.l $7EA161				;$808874
 	SEP.b #$20				;$808878
-	LDX.w #(!REGISTER_Window2LeftPositionDesignation&$0000FF<<8)+$01	;$80887A
+	LDX.w #$2801				;$80887A
 	STX.w HDMA[$07].Parameters		;$80887D
 	LDX.w #$7EA15A				;$808880
 	STX.w HDMA[$07].SourceLo		;$808883
@@ -1238,34 +1235,32 @@ CODE_80889E:
 	RTS					;$808982
 
 set_all_oam_offscreen:
-;$808983
-	LDA.w #oam_table			;$808983
-	STA.b next_oam_slot			;$808986
-	JSR.w set_unused_oam_offscreen		;$808988
+	LDA #oam_table				;$808983
+	STA next_oam_slot			;$808986
+	JSR set_unused_oam_offscreen		;$808988
 	RTL					;$80898B
 
 CODE_80898C:
 	PHB					;$80898C
-	JSR.w set_unused_oam_offscreen		;$80898D
+	JSR set_unused_oam_offscreen		;$80898D
 	PLB					;$808990
 	RTL					;$808991
 
 set_unused_oam_offscreen:
-;$808992
 	PHK					;$808992
 	PLB					;$808993
-	LDX.b $82				;$808994
-	CPX.w #$0400				;$808996
-	BEQ.b .oam_full				;$808999
-	LDA.w #$F0FF				;$80899B
+	LDX next_oam_slot			;$808994
+	CPX #$0400				;$808996
+	BEQ .oam_full				;$808999
+	LDA #$F0FF				;$80899B
 .next_slot:
-	STA.b $00,x				;$80899E
+	STA $00,x				;$80899E
 	INX					;$8089A0
 	INX					;$8089A1
 	INX					;$8089A2
 	INX					;$8089A3
-	CPX.w #$0400				;$8089A4
-	BNE.b .next_slot			;$8089A7
+	CPX #$0400				;$8089A4
+	BNE .next_slot				;$8089A7
 .oam_full:
 	RTS					;$8089A9
 
@@ -1576,16 +1571,16 @@ DATA_808C35:
 	dw $2000,$8400,$0840,$2000,$FFFF
 
 CODE_808C3F:
-	JSR.w CODE_808C43			;$808C3F
+	JSR CODE_808C43				;$808C3F
 	RTL					;$808C42
 
 CODE_808C43:
-	LDA.w #$000200				;$808C43
+	LDA.w #$0200				;$808C43
 	STA.w DMA[$00].SourceLo			;$808C46
 	STA.w DMA[$00].Unused2			;$808C49
 	LDA.w #$0220				;$808C4C
 	STA.w DMA[$00].SizeLo			;$808C4F
-	LDA.w #(!REGISTER_OAMDataWritePort&$0000FF<<8)+$00	;$808C52
+	LDA.w #$0400				;$808C52
 	STA.w DMA[$00].Parameters		;$808C55
 	SEP.b #$20				;$808C58
 	STZ.w DMA[$00].SourceBank		;$808C5A
@@ -2206,6 +2201,7 @@ CODE_80916F:
 	CLC					;$80916F
 	RTS					;$809170
 
+;Look into
 DATA_809171:
 	dw $B06062,$B062EC,$B06576
 
@@ -2244,21 +2240,21 @@ CODE_8091A3:
 	RTL					;$8091A8
 
 CODE_8091A9:
-	JSR.w CODE_80920D			;$8091A9
-	JSR.w CODE_8091CB			;$8091AC
+	JSR CODE_80920D				;$8091A9
+	JSR CODE_8091CB				;$8091AC
 	RTS					;$8091AF
 
 CODE_8091B0:
-	LDA.w $04C4				;$8091B0
-	CMP.w #$0002				;$8091B3
-	BNE.b CODE_8091C4			;$8091B6
-	JSR.w CODE_80939D			;$8091B8
-	JSR.w CODE_80920D			;$8091BB
-	JSR.w CODE_8091CB			;$8091BE
-	JSR.w CODE_80939D			;$8091C1
-CODE_8091C4:
-	JSR.w CODE_80920D			;$8091C4
-	JSR.w CODE_8091CB			;$8091C7
+	LDA current_game_mode			;$8091B0
+	CMP #$0002				;$8091B3
+	BNE CODE_8091C4				;$8091B6
+	JSR CODE_80939D				;$8091B8
+	JSR CODE_80920D				;$8091BB
+	JSR CODE_8091CB				;$8091BE
+	JSR CODE_80939D				;$8091C1
+CODE_8091C4:	
+	JSR CODE_80920D				;$8091C4
+	JSR CODE_8091CB				;$8091C7
 	RTS					;$8091CA
 
 CODE_8091CB:
@@ -2407,22 +2403,22 @@ CODE_8092B6:
 	RTS					;$8092EA
 
 CODE_8092EB:
-	JSR.w CODE_8091EC			;$8092EB
-	JSR.w CODE_8092F2			;$8092EE
+	JSR CODE_8091EC				;$8092EB
+	JSR CODE_8092F2				;$8092EE
 	RTL					;$8092F1
 
 CODE_8092F2:
-	LDA.w #$2AF4				;$8092F2
-	STA.b $84				;$8092F5
-	LDA.w #$007E				;$8092F7
-	STA.b $86				;$8092FA
-	LDA.w $04C4				;$8092FC
-	CMP.w #$0002				;$8092FF
-	BNE.b CODE_80930E			;$809302
-	LDA.w $04C6				;$809304
-	BEQ.b CODE_80930E			;$809307
-	LDA.w #$0148				;$809309
-	BRA.b CODE_809311			;$80930C
+	LDA #$2AF4				;$8092F2
+	STA $84					;$8092F5
+	LDA #$007E				;$8092F7
+	STA $86					;$8092FA
+	LDA current_game_mode			;$8092FC
+	CMP #$0002				;$8092FF
+	BNE CODE_80930E				;$809302
+	LDA $04C6				;$809304
+	BEQ CODE_80930E				;$809307
+	LDA #$0148				;$809309
+	BRA CODE_809311				;$80930C
 
 CODE_80930E:
 	LDA.w #$0006				;$80930E
@@ -2583,33 +2579,33 @@ CODE_809428:
 	RTS					;$809436
 
 CODE_809437:
-	LDA.w #CODE_808337			;$809437
-	STA.b $52				;$80943A
+	LDA #CODE_808337			;$809437
+	STA $52					;$80943A
 	LDA.w #CODE_808337>>16			;$80943C
-	STA.b $54				;$80943F
-	LDA.w #$1300				;$809441
-	STA.b $80				;$809444
-	JSL.l disable_screen_wrapper		;$809446
-	JSL.l init_registers_global		;$80944A
-	JSL.l CODE_808CB0			;$80944E
-	JSL.l clear_vram_global			;$809452
-	LDX.w #$7EA15A				;$809456
+	STA $54					;$80943F
+	LDA #$1300				;$809441
+	STA $80					;$809444
+	JSL disable_screen_wrapper		;$809446
+	JSL init_registers_global		;$80944A
+	JSL CODE_808CB0				;$80944E
+	JSL clear_vram_global			;$809452
+	LDX #$7EA15A				;$809456
 	LDY.w #$7EA15A>>16			;$809459
-	LDA.w #$0660				;$80945C
-	JSL.l CODE_808CEC			;$80945F
-	JSL.l CODE_BB857F			;$809463
-	LDA.w #$000200				;$809467
-	STA.w DMA[$00].SourceLo			;$80946A
-	STA.w DMA[$00].Unused2			;$80946D
-	LDA.w #$0220				;$809470
-	STA.w DMA[$00].SizeLo			;$809473
-	LDA.w #(!REGISTER_OAMDataWritePort&$0000FF<<8)+$00	;$809476
-	STA.w DMA[$00].Parameters		;$809479
-	SEP.b #$20				;$80947C
-	STZ.w DMA[$00].SourceBank		;$80947E
+	LDA #$0660				;$80945C
+	JSL CODE_808CEC				;$80945F
+	JSL CODE_BB857F				;$809463
+	LDA #$0200				;$809467
+	STA DMA[$00].SourceLo			;$80946A
+	STA DMA[$00].Unused2			;$80946D
+	LDA #$0220				;$809470
+	STA DMA[$00].SizeLo			;$809473
+	LDA #$0400				;$809476
+	STA DMA[$00].Parameters			;$809479
+	SEP #$20				;$80947C
+	STZ DMA[$00].SourceBank			;$80947E
 	LDA.b #$01				;$809481
 	STA.w !REGISTER_DMAEnable		;$809483
-	REP.b #$20				;$809486
+	REP #$20				;$809486
 	RTS					;$809488
 
 CODE_809489:
@@ -2716,7 +2712,7 @@ CODE_809586:
 	STA.w DMA[$00].Unused2			;$8095A0
 	LDA.w #$0700				;$8095A3
 	STA.w DMA[$00].SizeLo			;$8095A6
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$8095A9
+	LDA.w #$1801				;$8095A9
 	STA.w DMA[$00].Parameters		;$8095AC
 	SEP.b #$20				;$8095AF
 	LDA.b #$7EF000>>16			;$8095B1
@@ -2894,15 +2890,14 @@ CODE_809734:
 	RTS					;$809740
 
 CODE_809741:
-	JSL.l fade_screen			;$809741
-	LDA.w screen_brightness			;$809745
-	BNE.b CODE_80974D			;$809748
-	CMP.w screen_fade_speed			;$80974A
+	JSL fade_screen				;$809741
+	LDA screen_brightness			;$809745
+	BNE CODE_80974D				;$809748
+	CMP screen_fade_speed			;$80974A
 CODE_80974D:
 	RTS					;$80974D
 
 file_select_menu_main:
-;$80974E
 	LDA.w #$0004				;$80974E
 	TSB.w $1C35				;$809751
 	LDA.w #$4000				;$809754
@@ -3738,42 +3733,42 @@ CODE_809E1A:
 
 CODE_809E3B:
 	SEP.b #$20				;$809E3B
-	LDX.w #(!REGISTER_ColorMathSelectAndEnable&$0000FF<<8)+$00	;$809E3D
+	LDX.w #$3100				;$809E3D
 	STX.w HDMA[$01].Parameters		;$809E40
 	LDX.w #$7EA15A				;$809E43
 	STX.w HDMA[$01].SourceLo		;$809E46
 	LDA.b #$7EA15A>>16			;$809E49
 	STA.w HDMA[$01].SourceBank		;$809E4B
 	STA.w HDMA[$01].IndirectSourceBank	;$809E4E
-	LDX.w #(!REGISTER_ColorMathInitialSettings&$0000FF<<8)+$00	;$809E51
+	LDX.w #$3000				;$809E51
 	STX.w HDMA[$02].Parameters		;$809E54
 	LDX.w #$7EA17A				;$809E57
 	STX.w HDMA[$02].SourceLo		;$809E5A
 	LDA.b #$7EA17A>>16			;$809E5D
 	STA.w HDMA[$02].SourceBank		;$809E5F
 	STA.w HDMA[$02].IndirectSourceBank	;$809E62
-	LDX.w #(!REGISTER_BG1HorizScrollOffset&$0000FF<<8)+$03	;$809E65
+	LDX.w #$0D03				;$809E65
 	STX.w HDMA[$03].Parameters		;$809E68
 	LDX.w #$7EA18A				;$809E6B
 	STX.w HDMA[$03].SourceLo		;$809E6E
 	LDA.b #$7EA18A>>16			;$809E71
 	STA.w HDMA[$03].SourceBank		;$809E73
 	STA.w HDMA[$03].IndirectSourceBank	;$809E76
-	LDX.w #(!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$03	;$809E79
+	LDX.w #$1103				;$809E79
 	STX.w HDMA[$04].Parameters		;$809E7C
 	LDX.w #$7EA1AE				;$809E7F
 	STX.w HDMA[$04].SourceLo		;$809E82
 	LDA.b #$7EA1AE>>16			;$809E85
 	STA.w HDMA[$04].SourceBank		;$809E87
 	STA.w HDMA[$04].IndirectSourceBank	;$809E8A
-	LDX.w #(!REGISTER_MainScreenLayers&$0000FF<<8)+$00	;$809E8D
+	LDX.w #$2C00				;$809E8D
 	STX.w HDMA[$05].Parameters		;$809E90
 	LDX.w #$7EA1E1				;$809E93
 	STX.w HDMA[$05].SourceLo		;$809E96
 	LDA.b #$7EA1E1>>16			;$809E99
 	STA.w HDMA[$05].SourceBank		;$809E9B
 	STA.w HDMA[$05].IndirectSourceBank	;$809E9E
-	LDX.w #(!REGISTER_FixedColorData&$0000FF<<8)+$00	;$809EA1
+	LDX.w #$3200				;$809EA1
 	STX.w HDMA[$06].Parameters		;$809EA4
 	LDX.w #$7EA1F2				;$809EA7
 	STX.w HDMA[$06].SourceLo		;$809EAA
@@ -4040,34 +4035,34 @@ CODE_80A112:
 	RTS					;$80A112
 
 CODE_80A113:
-	LDA.w stereo_select			;$80A113
-	STA.b $1A				;$80A116
-	JSR.w CODE_80A166			;$80A118
-	LDA.w #$BC70				;$80A11B
-	JSR.w CODE_80A453			;$80A11E
-	JSR.w CODE_80A166			;$80A121
-	LDA.w #$C470				;$80A124
-	JSR.w CODE_80A453			;$80A127
-	JSR.w CODE_80A166			;$80A12A
-	LDA.w #$CC70				;$80A12D
-	JSR.w CODE_80A453			;$80A130
-	JSR.w CODE_80A166			;$80A133
-	LDA.w #$D470				;$80A136
-	JSR.w CODE_80A453			;$80A139
-	LDA.w language_select			;$80A13C
-	STA.b $1A				;$80A13F
-	JSR.w CODE_80A177			;$80A141
-	LDA.w #$BCB0				;$80A144
-	JSR.w CODE_80A453			;$80A147
-	JSR.w CODE_80A177			;$80A14A
-	LDA.w #$C4B0				;$80A14D
-	JSR.w CODE_80A453			;$80A150
-	JSR.w CODE_80A177			;$80A153
-	LDA.w #$CCB0				;$80A156
-	JSR.w CODE_80A453			;$80A159
-	JSR.w CODE_80A177			;$80A15C
-	LDA.w #$D4B0				;$80A15F
-	JSR.w CODE_80A453			;$80A162
+	LDA stereo_select			;$80A113
+	STA $1A					;$80A116
+	JSR CODE_80A166				;$80A118
+	LDA #$BC70				;$80A11B
+	JSR CODE_80A453				;$80A11E
+	JSR CODE_80A166				;$80A121
+	LDA #$C470				;$80A124
+	JSR CODE_80A453				;$80A127
+	JSR CODE_80A166				;$80A12A
+	LDA #$CC70				;$80A12D
+	JSR CODE_80A453				;$80A130
+	JSR CODE_80A166				;$80A133
+	LDA #$D470				;$80A136
+	JSR CODE_80A453				;$80A139
+	LDA language_select			;$80A13C
+	STA $1A					;$80A13F
+	JSR CODE_80A177				;$80A141
+	LDA #$BCB0				;$80A144
+	JSR CODE_80A453				;$80A147
+	JSR CODE_80A177				;$80A14A
+	LDA #$C4B0				;$80A14D
+	JSR CODE_80A453				;$80A150
+	JSR CODE_80A177				;$80A153
+	LDA #$CCB0				;$80A156
+	JSR CODE_80A453				;$80A159
+	JSR CODE_80A177				;$80A15C
+	LDA #$D4B0				;$80A15F
+	JSR CODE_80A453				;$80A162
 	RTS					;$80A165
 
 CODE_80A166:
@@ -4097,17 +4092,17 @@ DATA_80A184:
 	dw DATA_80C358
 
 CODE_80A188:
-	LDX.w #DATA_80C36D			;$80A188
-	LDY.w #$0094				;$80A18B
-	JSR.w CODE_80A417			;$80A18E
-	JSR.w CODE_80A369			;$80A191
-	LDX.w #DATA_80C36D			;$80A194
-	LDY.w #$0094				;$80A197
-	JSR.w CODE_80A417			;$80A19A
-	JSR.w CODE_80A369			;$80A19D
-	LDX.w #DATA_80C36D			;$80A1A0
-	LDY.w #$0094				;$80A1A3
-	JSR.w CODE_80A417			;$80A1A6
+	LDX #DATA_80C36D			;$80A188
+	LDY #$0094				;$80A18B
+	JSR CODE_80A417				;$80A18E
+	JSR CODE_80A369				;$80A191
+	LDX #DATA_80C36D			;$80A194
+	LDY #$0094				;$80A197
+	JSR CODE_80A417				;$80A19A
+	JSR CODE_80A369				;$80A19D
+	LDX #DATA_80C36D			;$80A1A0
+	LDY #$0094				;$80A1A3
+	JSR CODE_80A417				;$80A1A6
 	RTS					;$80A1A9
 
 CODE_80A1AA:
@@ -4156,32 +4151,32 @@ CODE_80A1F9:
 	RTS					;$80A210
 
 CODE_80A211:
-	LDA.w #$0006				;$80A211
-	JSR.w CODE_80A286			;$80A214
-	JSR.w CODE_80A2A5			;$80A217
-	JSR.w CODE_80A2BE			;$80A21A
-	JSR.w CODE_80A366			;$80A21D
-	LDY.w $1CD0				;$80A220
-	CPY.w #$0002				;$80A223
-	BEQ.b CODE_80A247			;$80A226
-	LDA.w #$0005				;$80A228
-	JSR.w CODE_80A286			;$80A22B
-	JSR.w CODE_80A2A5			;$80A22E
-	LDX.w #DATA_80C36B			;$80A231
-	LDY.w #$0096				;$80A234
-	JSR.w CODE_80A417			;$80A237
-	LDX.w #$001C97				;$80A23A
-	LDY.w #$009A				;$80A23D
-	JSR.w CODE_80A417			;$80A240
-	JSR.w CODE_80A26D			;$80A243
+	LDA #$0006				;$80A211
+	JSR CODE_80A286				;$80A214
+	JSR CODE_80A2A5				;$80A217
+	JSR CODE_80A2BE				;$80A21A
+	JSR CODE_80A366				;$80A21D
+	LDY $1CD0				;$80A220
+	CPY #$0002				;$80A223
+	BEQ CODE_80A247				;$80A226
+	LDA #$0005				;$80A228
+	JSR CODE_80A286				;$80A22B
+	JSR CODE_80A2A5				;$80A22E
+	LDX #DATA_80C36B			;$80A231
+	LDY #$0096				;$80A234
+	JSR CODE_80A417				;$80A237
+	LDX #$001C97				;$80A23A
+	LDY #$009A				;$80A23D
+	JSR CODE_80A417				;$80A240
+	JSR CODE_80A26D				;$80A243
 	RTS					;$80A246
 
 CODE_80A247:
-	LDA.w #$0142				;$80A247
-	JSR.w CODE_80A286			;$80A24A
-	JSR.w CODE_80A2A5			;$80A24D
-	JSR.w CODE_80A2BE			;$80A250
-	JSR.w CODE_80A26D			;$80A253
+	LDA #$0142				;$80A247
+	JSR CODE_80A286				;$80A24A
+	JSR CODE_80A2A5				;$80A24D
+	JSR CODE_80A2BE				;$80A250
+	JSR CODE_80A26D				;$80A253
 	RTS					;$80A256
 
 CODE_80A257:
@@ -4235,17 +4230,17 @@ CODE_80A2AF:
 	RTS					;$80A2BD
 
 CODE_80A2BE:
-	LDY.w #$000E				;$80A2BE
-	LDA.b [$84],y				;$80A2C1
-	AND.w #$00FF				;$80A2C3
-	LDX.w $1C95				;$80A2C6
-	STX.b $36				;$80A2C9
-	LDX.w #$0003				;$80A2CB
-	LDY.w #$00A2				;$80A2CE
-	JSR.w CODE_80A64A			;$80A2D1
-	LDX.w #DATA_80C369			;$80A2D4
-	LDY.w #$00A8				;$80A2D7
-	JSR.w CODE_80A417			;$80A2DA
+	LDY #$000E				;$80A2BE
+	LDA [$84],y				;$80A2C1
+	AND #$00FF				;$80A2C3
+	LDX $1C95				;$80A2C6
+	STX $36					;$80A2C9
+	LDX #$0003				;$80A2CB
+	LDY #$00A2				;$80A2CE
+	JSR CODE_80A64A				;$80A2D1
+	LDX #DATA_80C369			;$80A2D4
+	LDY #$00A8				;$80A2D7
+	JSR CODE_80A417				;$80A2DA
 	RTS					;$80A2DD
 
 CODE_80A2DE:
@@ -4509,18 +4504,18 @@ else
 	LDA.b $00,x				;$80A48C
 endif
 	INX					;$80A48E
-	BIT.w #$0080				;$80A48F
-	BEQ.b CODE_80A47E			;$80A492
+	BIT #$0080				;$80A48F
+	BEQ CODE_80A47E				;$80A492
 	PLX					;$80A494
 CODE_80A48F:
 	INX					;$80A48F
 	INX					;$80A490
 	INX					;$80A491
 	INX					;$80A492
-	BRA.b CODE_80A46C			;$80A493
+	BRA CODE_80A46C				;$80A493
 
 CODE_80A495:
-	STY.b next_oam_slot			;$80A495
+	STY next_oam_slot			;$80A495
 	RTS					;$80A497
 
 CODE_80A498:
@@ -5005,7 +5000,6 @@ CODE_80A7C3:
 	RTS					;$80A7EA
 
 file_select_number_main:
-;$80A7EB
 	JMP.w (DATA_80A7EE,x)			;$80A7EB
 
 DATA_80A7EE:
@@ -5062,7 +5056,6 @@ CODE_80A81A:
 	JML [$04F5]				;$80A849
 
 file_select_icon_main:
-;$80A84C
 	JMP.w (DATA_80A84F,x)			;$80A84C
 
 DATA_80A84F:
@@ -5168,25 +5161,25 @@ CODE_80A914:
 	JML [$04F5]				;$80A91D
 
 CODE_80A920:
-	INC.b $38,x				;$80A920
+	INC $38,x				;$80A920
 CODE_80A922:
 	TYX					;$80A922
-	LDA.w #$0080				;$80A923
-	BIT.w $1C35				;$80A926
-	BEQ.b CODE_80A96C			;$80A929
-	LDA.w $1C8F				;$80A92B
-	CMP.b $6A,x				;$80A92E
-	BNE.b CODE_80A965			;$80A930
+	LDA #$0080				;$80A923
+	BIT $1C35				;$80A926
+	BEQ CODE_80A96C				;$80A929
+	LDA $1C8F				;$80A92B
+	CMP $6A,x				;$80A92E
+	BNE CODE_80A965				;$80A930
 	TAY					;$80A932
-	STY.w $04C4				;$80A933
-	LDA.w #$0001				;$80A936
-	STA.b $38,x				;$80A939
-	LDA.w $1C37				;$80A93B
-	STA.b $6A,x				;$80A93E
-	CPY.w #$0000				;$80A940
-	BNE.b CODE_80A94A			;$80A943
-	JSR.w CODE_80A257			;$80A945
-	BRA.b CODE_80A94D			;$80A948
+	STY current_game_mode			;$80A933
+	LDA #$0001				;$80A936
+	STA $38,x				;$80A939
+	LDA $1C37				;$80A93B
+	STA $6A,x				;$80A93E
+	CPY #$0000				;$80A940
+	BNE CODE_80A94A				;$80A943
+	JSR CODE_80A257				;$80A945
+	BRA CODE_80A94D				;$80A948
 
 CODE_80A94A:
 	JSR.w CODE_80A26D			;$80A94A
@@ -5432,7 +5425,6 @@ CODE_80AB28:
 	RTS					;$80AB37
 
 unknown_sprite_01A8_main:
-;$80AB38
 	LDA.w #$4000				;$80AB38
 	BIT.w $1C35				;$80AB3B
 	BNE.b CODE_80AB43			;$80AB3E
@@ -5772,7 +5764,6 @@ CODE_80ADD5:
 	RTS					;$80ADE6
 
 play_mode_text_main:
-;$80ADE7
 	JMP.w (DATA_80ADEA,x)			;$80ADE7
 
 DATA_80ADEA:
@@ -5846,14 +5837,14 @@ CODE_80AE3E:
 	LDA.w #$0800				;$80AE75
 	JSL.l CODE_808CEC			;$80AE78
 	SEP.b #$20				;$80AE7C
-	LDX.w #(!REGISTER_ColorMathInitialSettings&$0000FF<<8)+$01	;$80AE7E
+	LDX.w #$3001				;$80AE7E
 	STX.w HDMA[$01].Parameters		;$80AE81
 	LDX.w #$7EA15A				;$80AE84
 	STX.w HDMA[$01].SourceLo		;$80AE87
 	LDA.b #$7EA15A>>16			;$80AE8A
 	STA.w HDMA[$01].SourceBank		;$80AE8C
 	STA.w HDMA[$01].IndirectSourceBank	;$80AE8F
-	LDX.w #(!REGISTER_MainScreenLayers&$0000FF<<8)+$01	;$80AE92
+	LDX.w #$2C01				;$80AE92
 	STX.w HDMA[$02].Parameters		;$80AE95
 	LDX.w #$7EA164				;$80AE98
 	STX.w HDMA[$02].SourceLo		;$80AE9B
@@ -6229,7 +6220,7 @@ CODE_80B1ED:
 	STA.w DMA[$00].Unused2			;$80B1FF
 	LDA.w #$0800				;$80B202
 	STA.w DMA[$00].SizeLo			;$80B205
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$80B208
+	LDA.w #$1801				;$80B208
 	STA.w DMA[$00].Parameters		;$80B20B
 	SEP.b #$20				;$80B20E
 	LDA.b #$7EF000>>16			;$80B210
@@ -6407,7 +6398,7 @@ CODE_80B378:
 	STA.w DMA[$00].Unused2			;$80B394
 	LDA.w #$0220				;$80B397
 	STA.w DMA[$00].SizeLo			;$80B39A
-	LDA.w #(!REGISTER_OAMDataWritePort&$0000FF<<8)+$00	;$80B39D
+	LDA.w #$0400				;$80B39D
 	STA.w DMA[$00].Parameters		;$80B3A0
 	SEP.b #$20				;$80B3A3
 	STZ.w DMA[$00].SourceBank		;$80B3A5
@@ -6792,7 +6783,7 @@ CODE_80B714:
 	STA.w DMA[$00].Unused2			;$80B726
 	LDA.w #$0380				;$80B729
 	STA.w DMA[$00].SizeLo			;$80B72C
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$80B72F
+	LDA.w #$1801				;$80B72F
 	STA.w DMA[$00].Parameters		;$80B732
 	SEP.b #$20				;$80B735
 	LDA.b #$7EF200>>16			;$80B737
@@ -6890,7 +6881,7 @@ CODE_80B7FD:
 	STA.w DMA[$00].Unused2			;$80B81B
 	LDA.w #$0800				;$80B81E
 	STA.w DMA[$00].SizeLo			;$80B821
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$80B824
+	LDA.w #$1801				;$80B824
 	STA.w DMA[$00].Parameters		;$80B827
 	SEP.b #$20				;$80B82A
 	LDA.b #$7EF000>>16			;$80B82C
@@ -7008,31 +6999,31 @@ CODE_80B91D:
 	RTS					;$80B925
 
 CODE_80B926:
-	SEP.b #$20				;$80B926
-	LDX.w #(!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$42	;$80B928
-	STX.w HDMA[$04].Parameters		;$80B92B
-	LDX.w #DATA_80C20E			;$80B92E
-	STX.w HDMA[$04].SourceLo		;$80B931
-	LDA.b #DATA_80C20E>>16			;$80B934
-	STA.w HDMA[$04].SourceBank		;$80B936
-	LDA.b #$7E				;$80B939
-	STA.w HDMA[$04].IndirectSourceBank	;$80B93B
-	LDX.w #(!REGISTER_BG2VertScrollOffset&$0000FF<<8)+$42	;$80B93E
-	STX.w HDMA[$06].Parameters		;$80B941
-	LDX.w #DATA_80C20E			;$80B944
-	STX.w HDMA[$06].SourceLo		;$80B947
-	LDA.b #DATA_80C20E>>16			;$80B94A
-	STA.w HDMA[$06].SourceBank		;$80B94C
-	LDA.b #$7E				;$80B94F
-	STA.w HDMA[$06].IndirectSourceBank	;$80B951
-	LDX.w #(!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$01	;$80B954
-	STX.w HDMA[$05].Parameters		;$80B957
-	LDX.w #DATA_80C215			;$80B95A
-	STX.w HDMA[$05].SourceLo		;$80B95D
-	LDA.b #DATA_80C215>>16			;$80B960
-	STA.w HDMA[$05].SourceBank		;$80B962
-	STA.w HDMA[$05].IndirectSourceBank	;$80B965
-	REP.b #$20				;$80B968
+	SEP #$20				;$80B926
+	LDX #$0F42				;$80B928
+	STX HDMA[$04].Parameters		;$80B92B
+	LDX #DATA_80C20E			;$80B92E
+	STX HDMA[$04].SourceLo			;$80B931
+	LDA #DATA_80C20E>>16			;$80B934
+	STA HDMA[$04].SourceBank		;$80B936
+	LDA #$7E				;$80B939
+	STA HDMA[$04].IndirectSourceBank	;$80B93B
+	LDX #$1042				;$80B93E
+	STX HDMA[$06].Parameters		;$80B941
+	LDX #DATA_80C20E			;$80B944
+	STX HDMA[$06].SourceLo			;$80B947
+	LDA #DATA_80C20E>>16			;$80B94A
+	STA HDMA[$06].SourceBank		;$80B94C
+	LDA #$7E				;$80B94F
+	STA HDMA[$06].IndirectSourceBank	;$80B951
+	LDX #$2601				;$80B954
+	STX HDMA[$05].Parameters		;$80B957
+	LDX #DATA_80C215			;$80B95A
+	STX HDMA[$05].SourceLo			;$80B95D
+	LDA #DATA_80C215>>16			;$80B960
+	STA HDMA[$05].SourceBank		;$80B962
+	STA HDMA[$05].IndirectSourceBank	;$80B965
+	REP #$20				;$80B968
 	RTS					;$80B96A
 
 CODE_80B96B:
@@ -7163,7 +7154,7 @@ CODE_80BA6A:
 	STA.w DMA[$00].Unused2			;$80BA82
 	LDA.w #$0800				;$80BA85
 	STA.w DMA[$00].SizeLo			;$80BA88
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$80BA8B
+	LDA.w #$1801				;$80BA8B
 	STA.w DMA[$00].Parameters		;$80BA8E
 	SEP.b #$20				;$80BA91
 	LDA.b #$7EF000>>16			;$80BA93
@@ -7402,7 +7393,7 @@ CODE_80BC81:
 
 CODE_80BC90:
 	SEP.b #$20				;$80BC90
-	LDX.w #(!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$41	;$80BC92
+	LDX.w #$2641				;$80BC92
 	STX.w HDMA[$07].Parameters		;$80BC95
 	LDX.w #$7EA25A				;$80BC98
 	STX.w HDMA[$07].SourceLo		;$80BC9B
@@ -7489,7 +7480,6 @@ CODE_80BD3B:
 	RTS					;$80BD4C
 
 unknown_sprite_01E4_main:
-;$80BD4D
 	JMP.w (DATA_80BD50,x)			;$80BD4D
 
 DATA_80BD50:
@@ -7671,7 +7661,6 @@ DATA_80BEDB:
 	db "NEU REKORD!", $00
 
 unknown_sprite_0110_main:
-;$80BF03
 	JMP.w (DATA_80BF06,x)			;$80BF03
 
 DATA_80BF06:
@@ -8641,25 +8630,25 @@ UNK_80CB62:
 	db "CRANKY KONG", $00
 
 CODE_80CB6E:
-	JML.l .CODE_80CB72			;$80CB6E
+	JML .CODE_80CB72			;$80CB6E
 .CODE_80CB72:
-	REP.b #$30				;$80CB72
+	REP #$30				;$80CB72
 	PHD					;$80CB74
 	PHA					;$80CB75
 	PHX					;$80CB76
 	PHY					;$80CB77
-	LDA.w #$0000				;$80CB78
+	LDA #$0000				;$80CB78
 	TCD					;$80CB7B
 	CLD					;$80CB7C
-	SEP.b #$20				;$80CB7D
+	SEP #$20				;$80CB7D
 	LDA.l !REGISTER_NMIEnable		;$80CB7F
-	LDA.b #$8F				;$80CB83
+	LDA #$8F				;$80CB83
 	STA.l !REGISTER_ScreenDisplayRegister	;$80CB85
-	REP.b #$20				;$80CB89
-	LDA.l $00005A				;$80CB8B
+	REP #$20				;$80CB89
+	LDA.l global_frame_counter		;$80CB8B
 	INC					;$80CB8F
-	STA.l $00005A				;$80CB90
-	JMP.w ($004A)				;$80CB94
+	STA.l global_frame_counter		;$80CB90
+	JMP.w (NMI_pointer)			;$80CB94
 
 CODE_80CB97:
 	SEI					;$80CB97

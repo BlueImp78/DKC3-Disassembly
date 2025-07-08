@@ -90,7 +90,7 @@ CODE_B38086:
 CODE_B38093:
 	STA.w DMA[$00].SourceLo			;$B38093
 	STY.w DMA[$00].SizeLo			;$B38096
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B38099
+	LDA.w #$1801				;$B38099
 	STA.w DMA[$00].Parameters		;$B3809C
 	SEP.b #$30				;$B3809F
 	STX.w DMA[$00].SourceBank		;$B380A1
@@ -138,33 +138,33 @@ DATA_B380AC:
 	dw CODE_B39637
 
 CODE_B380F4:
-	LDA.w $04E4				;$B380F4
+	LDA $04E4				;$B380F4
 	STA.w !REGISTER_DMAEnable		;$B380F7
-	JSL.l CODE_B3D843			;$B380FA
-	JSL.l CODE_B7B00F			;$B380FE
-	JSL.l CODE_B7B012			;$B38102
-	JSL.l CODE_80801E			;$B38106
+	JSL CODE_B3D843			;$B380FA
+	JSL CODE_B7B00F			;$B380FE
+	JSL CODE_B7B012			;$B38102
+	JSL CODE_80801E			;$B38106
 	RTS					;$B3810A
 
 CODE_B3810B:
-	JSR.w CODE_B380F4			;$B3810B
-	LDA.w $196D				;$B3810E
+	JSR CODE_B380F4				;$B3810B
+	LDA $196D				;$B3810E
 	LSR					;$B38111
-	SEP.b #$20				;$B38112
+	SEP #$20				;$B38112
 	STA.w !REGISTER_BG3HorizScrollOffset	;$B38114
 	STZ.w !REGISTER_BG3HorizScrollOffset	;$B38117
-	LDA.w $196D				;$B3811A
+	LDA $196D				;$B3811A
 	STA.w !REGISTER_BG2HorizScrollOffset	;$B3811D
-	LDA.w $196E				;$B38120
+	LDA $196E				;$B38120
 	STA.w !REGISTER_BG2HorizScrollOffset	;$B38123
-	LDA.w $1975				;$B38126
+	LDA $1975				;$B38126
 	STA.w !REGISTER_BG2VertScrollOffset	;$B38129
 	STZ.w !REGISTER_BG2VertScrollOffset	;$B3812C
 	STZ.w !REGISTER_BG3VertScrollOffset	;$B3812F
 	STZ.w !REGISTER_BG3VertScrollOffset	;$B38132
-	LDA.w screen_brightness			;$B38135
+	LDA screen_brightness			;$B38135
 	STA.w !REGISTER_ScreenDisplayRegister	;$B38138
-	REP.b #$20				;$B3813B
+	REP #$20				;$B3813B
 	RTS					;$B3813D
 
 CODE_B3813E:
@@ -784,7 +784,7 @@ CODE_B38671:
 	STA.w DMA[$07].Unused2			;$B38678
 	LDA.w #$0040				;$B3867B
 	STA.w DMA[$07].SizeLo			;$B3867E
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B38681
+	LDA.w #$1801				;$B38681
 	STA.w DMA[$07].Parameters		;$B38684
 	SEP.b #$20				;$B38687
 	LDA.b #DATA_B387B6>>16			;$B38689
@@ -1296,7 +1296,7 @@ CODE_B397A2:
 	STA.w DMA[$00].Unused2			;$B397C4
 	LDA.w #$0100				;$B397C7
 	STA.w DMA[$00].SizeLo			;$B397CA
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B397CD
+	LDA.w #$1801				;$B397CD
 	STA.w DMA[$00].Parameters		;$B397D0
 	SEP.b #$20				;$B397D3
 	LDA.b #$7EF5C0>>16			;$B397D5
@@ -2429,7 +2429,7 @@ CODE_B3A3EC:
 	JSL.l CODE_80801E			;$B3A3F6
 	JSL.l CODE_80801E			;$B3A3FA
 	JSL.l CODE_80801E			;$B3A3FE
-	LDA.w $194B				;$B3A402
+	LDA.w timestop_flags			;$B3A402
 	BIT.w #$0004				;$B3A405
 	BEQ.b CODE_B3A40D			;$B3A408
 	JMP.w CODE_B3A5C8			;$B3A40A
@@ -2705,52 +2705,52 @@ DATA_B3A62E:
 	dw CODE_B3D820
 
 CODE_B3A678:
-	JSL.l CODE_808015			;$B3A678
-	JSL.l CODE_BB85C1			;$B3A67C
-	JSL.l CODE_B7800C			;$B3A680
-	JSL.l CODE_B7800F			;$B3A684
-	JSL.l CODE_808012			;$B3A688
-	JSL.l CODE_808021			;$B3A68C
-	JML.l CODE_808006			;$B3A690
+	JSL CODE_808015				;$B3A678
+	JSL CODE_BB85C1				;$B3A67C
+	JSL CODE_B7800C				;$B3A680
+	JSL CODE_B7800F				;$B3A684
+	JSL CODE_808012				;$B3A688
+	JSL CODE_808021				;$B3A68C
+	JML CODE_808006				;$B3A690
 
 CODE_B3A694:
-	DEC.b $00				;$B3A694
-	LDA.w $05B1				;$B3A696
-	AND.w #$7000				;$B3A699
-	BNE.b CODE_B3A6B9			;$B3A69C
-	JSL.l CODE_808021			;$B3A69E
-	LDA.w screen_brightness			;$B3A6A2
-	BEQ.b CODE_B3A6AB			;$B3A6A5
-	JML.l CODE_808006			;$B3A6A7
+	DEC $00					;$B3A694
+	LDA $05B1				;$B3A696
+	AND #$7000				;$B3A699
+	BNE CODE_B3A6B9				;$B3A69C
+	JSL CODE_808021				;$B3A69E
+	LDA screen_brightness			;$B3A6A2
+	BEQ CODE_B3A6AB				;$B3A6A5
+	JML CODE_808006				;$B3A6A7
 
 CODE_B3A6AB:
-	LDA.w #$0040				;$B3A6AB
-	TRB.w $05AF				;$B3A6AE
-	JSL.l CODE_BB85C7			;$B3A6B1
-	JML.l CODE_808006			;$B3A6B5
+	LDA #$0040				;$B3A6AB
+	TRB $05AF				;$B3A6AE
+	JSL CODE_BB85C7				;$B3A6B1
+	JML CODE_808006				;$B3A6B5
 
 CODE_B3A6B9:
-	JSL.l CODE_80804E			;$B3A6B9
-	JML.l CODE_808006			;$B3A6BD
+	JSL CODE_80804E				;$B3A6B9
+	JML CODE_808006				;$B3A6BD
 
 CODE_B3A6C1:
-	JSL.l CODE_808015			;$B3A6C1
-	BNE.b CODE_B3A6F4			;$B3A6C5
-	JSR.w CODE_B3A8E4			;$B3A6C7
-	JSR.w CODE_B3CADC			;$B3A6CA
-	JSL.l CODE_BB8582			;$B3A6CD
-	JSL.l CODE_BB85C1			;$B3A6D1
-	JSL.l CODE_B7B009			;$B3A6D5
-	JSR.w CODE_B3A6F7			;$B3A6D9
-	JSL.l CODE_B7B00C			;$B3A6DC
-	JSL.l CODE_B78000			;$B3A6E0
-	JSL.l CODE_BB85BB			;$B3A6E4
-	JSL.l CODE_808012			;$B3A6E8
-	JSL.l CODE_808021			;$B3A6EC
-	JML.l CODE_808006			;$B3A6F0
+	JSL CODE_808015				;$B3A6C1
+	BNE CODE_B3A6F4				;$B3A6C5
+	JSR CODE_B3A8E4				;$B3A6C7
+	JSR CODE_B3CADC				;$B3A6CA
+	JSL CODE_BB8582				;$B3A6CD
+	JSL CODE_BB85C1				;$B3A6D1
+	JSL CODE_B7B009				;$B3A6D5
+	JSR CODE_B3A6F7				;$B3A6D9
+	JSL CODE_B7B00C				;$B3A6DC
+	JSL CODE_B78000				;$B3A6E0
+	JSL CODE_BB85BB				;$B3A6E4
+	JSL CODE_808012				;$B3A6E8
+	JSL CODE_808021				;$B3A6EC
+	JML CODE_808006				;$B3A6F0
 
 CODE_B3A6F4:
-	JMP.w CODE_B3A694			;$B3A6F4
+	JMP CODE_B3A694				;$B3A6F4
 
 CODE_B3A6F7:
 	LDA.w $15E6				;$B3A6F7
@@ -3836,7 +3836,7 @@ CODE_B3B055:
 	STA.l $7EA3F4,x				;$B3B158
 	STA.l $7EA3F6,x				;$B3B15C
 	STA.l $7EA3F8,x				;$B3B160
-	LDA.b !RAM_DKC3_Global_CurrentLevelLo	;$B3B164
+	LDA level_number			;$B3B164
 	CMP.w #!Define_DKC3_LevelID_PotHolePanic_Main	;$B3B166
 	BNE.b CODE_B3B174			;$B3B169
 	LDA.w $196D				;$B3B16B
@@ -5506,7 +5506,7 @@ CODE_B3C0F4:
 	STA.b $1E				;$B3C101
 	LDA.w #$03A7				;$B3C103
 	STA.b $20				;$B3C106
-	LDA.b !RAM_DKC3_Global_CurrentLevelLo	;$B3C108
+	LDA level_number			;$B3C108
 	CMP.w #!Define_DKC3_LevelID_SwoopySalvo_Main	;$B3C10A
 	BEQ.b CODE_B3C149			;$B3C10D
 	CMP.w #!Define_DKC3_LevelID_SwoopySalvo_Bonus2	;$B3C10F
@@ -8155,7 +8155,7 @@ CODE_B3D840:
 	JMP.w CODE_B3A694			;$B3D840
 
 CODE_B3D843:
-	LDA.w #(!REGISTER_WriteToVRAMPortLo&$0000FF<<8)+$01	;$B3D843
+	LDA.w #$1801				;$B3D843
 	STA.w DMA[$00].Parameters		;$B3D846
 	SEP.b #$10				;$B3D849
 	LDY.b #$01				;$B3D84B
@@ -9231,7 +9231,7 @@ CODE_B3E0EF:
 	LDA.w #$0202				;$B3E10B
 	STA.w !REGISTER_ColorMathInitialSettings	;$B3E10E
 	SEP.b #$20				;$B3E111
-	LDX.w #(!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$43	;$B3E113
+	LDX.w #$0F43 				;$B3E113
 	STX.w HDMA[$03].Parameters		;$B3E116
 	LDX.w #$7EA4EA				;$B3E119
 	STX.w HDMA[$03].SourceLo		;$B3E11C
@@ -9244,180 +9244,180 @@ CODE_B3E0EF:
 	RTS					;$B3E12F
 
 CODE_B3E130:
-	JSR.w CODE_B3ECB9			;$B3E130
-	LDX.w #$0000				;$B3E133
+	JSR CODE_B3ECB9				;$B3E130
+	LDX #$0000				;$B3E133
 CODE_B3E136:
-	LDA.w #$0090				;$B3E136
-	STA.l $7EA4EA,x				;$B3E139
-	LDA.w #$A51A				;$B3E13D
-	STA.l $7EA4EB,x				;$B3E140
+	LDA #$0090				;$B3E136
+	STA $7EA4EA,x				;$B3E139
+	LDA #$A51A				;$B3E13D
+	STA $7EA4EB,x				;$B3E140
 	INX					;$B3E144
 	INX					;$B3E145
 	INX					;$B3E146
-	CPX.w #$002D				;$B3E147
-	BNE.b CODE_B3E136			;$B3E14A
-	SEP.b #$20				;$B3E14C
-	LDX.w #(!REGISTER_MainScreenLayers&$0000FF<<8)+$01	;$B3E14E
-	STX.w HDMA[$01].Parameters		;$B3E151
-	LDX.w #$7EA15A				;$B3E154
-	STX.w HDMA[$01].SourceLo		;$B3E157
-	LDA.b #$7EA15A>>16			;$B3E15A
-	STA.w HDMA[$01].SourceBank		;$B3E15C
-	STA.w HDMA[$01].IndirectSourceBank	;$B3E15F
-	LDX.w #(!REGISTER_ColorMathInitialSettings&$0000FF<<8)+$01	;$B3E162
-	STX.w HDMA[$02].Parameters		;$B3E165
-	LDX.w #$7EA1DA				;$B3E168
-	STX.w HDMA[$02].SourceLo		;$B3E16B
-	LDA.b #$7EA1DA>>16			;$B3E16E
-	STA.w HDMA[$02].SourceBank		;$B3E170
-	STA.w HDMA[$02].IndirectSourceBank	;$B3E173
-	LDX.w #(!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$43	;$B3E176
-	STX.w HDMA[$03].Parameters		;$B3E179
-	LDX.w #$7EA4EA				;$B3E17C
-	STX.w HDMA[$03].SourceLo		;$B3E17F
-	LDA.b #$7EA4EA>>16			;$B3E182
-	STA.w HDMA[$03].SourceBank		;$B3E184
-	STA.w HDMA[$03].IndirectSourceBank	;$B3E187
-	LDX.w #(!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$43	;$B3E18A
-	STX.w HDMA[$04].Parameters		;$B3E18D
-	LDX.w #$7EA4EA				;$B3E190
-	STX.w HDMA[$04].SourceLo		;$B3E193
-	LDA.b #$7EA4EA>>16			;$B3E196
-	STA.w HDMA[$04].SourceBank		;$B3E198
-	STA.w HDMA[$04].IndirectSourceBank	;$B3E19B
-	REP.b #$20				;$B3E19E
-	LDA.w #$1E01				;$B3E1A0
-	STA.w $04E4				;$B3E1A3
+	CPX #$002D				;$B3E147
+	BNE CODE_B3E136				;$B3E14A
+	SEP #$20				;$B3E14C
+	LDX #$2C01				;$B3E14E
+	STX HDMA[$01].Parameters		;$B3E151
+	LDX #$7EA15A				;$B3E154
+	STX HDMA[$01].SourceLo			;$B3E157
+	LDA #$7EA15A>>16			;$B3E15A
+	STA HDMA[$01].SourceBank		;$B3E15C
+	STA HDMA[$01].IndirectSourceBank	;$B3E15F
+	LDX #$3001				;$B3E162
+	STX HDMA[$02].Parameters		;$B3E165
+	LDX #$7EA1DA				;$B3E168
+	STX HDMA[$02].SourceLo			;$B3E16B
+	LDA #$7EA1DA>>16			;$B3E16E
+	STA HDMA[$02].SourceBank		;$B3E170
+	STA HDMA[$02].IndirectSourceBank	;$B3E173
+	LDX #$0F43 				;$B3E176
+	STX HDMA[$03].Parameters		;$B3E179
+	LDX #$7EA4EA				;$B3E17C
+	STX HDMA[$03].SourceLo			;$B3E17F
+	LDA #$7EA4EA>>16			;$B3E182
+	STA HDMA[$03].SourceBank		;$B3E184
+	STA HDMA[$03].IndirectSourceBank	;$B3E187
+	LDX #$1143 				;$B3E18A
+	STX HDMA[$04].Parameters		;$B3E18D
+	LDX #$7EA4EA				;$B3E190
+	STX HDMA[$04].SourceLo			;$B3E193
+	LDA #$7EA4EA>>16			;$B3E196
+	STA HDMA[$04].SourceBank		;$B3E198
+	STA HDMA[$04].IndirectSourceBank	;$B3E19B
+	REP #$20				;$B3E19E
+	LDA #$1E01				;$B3E1A0
+	STA $04E4				;$B3E1A3
 	RTS					;$B3E1A6
 
 CODE_B3E1A7:
-	LDA.w #$11C0				;$B3E1A7
-	STA.b $80				;$B3E1AA
-	LDA.w #$004C				;$B3E1AC
-	STA.l $7EA17A				;$B3E1AF
-	STA.l $7EA17C				;$B3E1B3
-	LDA.w #$1201				;$B3E1B7
-	STA.l $7EA17E				;$B3E1BA
-	LDA.w #$00C0				;$B3E1BE
-	STA.l $7EA1AA				;$B3E1C1
-	LDA.w #$0080				;$B3E1C5
-	STA.l $7EA1AC				;$B3E1C8
-	LDA.w #$0040				;$B3E1CC
-	STA.l $7EA1C6				;$B3E1CF
-	LDA.w #$0058				;$B3E1D3
-	STA.l $7EA1DA				;$B3E1D6
-	LDA.w #$0001				;$B3E1DA
-	STA.l $7EA1DF				;$B3E1DD
-	STA.l $7EA35C				;$B3E1E1
-	LDA.w #$0842				;$B3E1E5
-	STA.l $7EA1DD				;$B3E1E8
-	SEP.b #$20				;$B3E1EC
-	LDX.w #(!REGISTER_SubScreenLayers&$0000FF<<8)+$00	;$B3E1EE
-	STX.w HDMA[$01].Parameters		;$B3E1F1
-	LDX.w #$7EA17A				;$B3E1F4
-	STX.w HDMA[$01].SourceLo		;$B3E1F7
-	LDA.b #$7EA17A>>16			;$B3E1FA
-	STA.w HDMA[$01].SourceBank		;$B3E1FC
-	STA.w HDMA[$01].IndirectSourceBank	;$B3E1FF
-	LDX.w #(!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$01	;$B3E202
-	STX.w HDMA[$02].Parameters		;$B3E205
-	LDX.w #$7EA19A				;$B3E208
-	STX.w HDMA[$02].SourceLo		;$B3E20B
-	LDA.b #$7EA19A>>16			;$B3E20E
-	STA.w HDMA[$02].SourceBank		;$B3E210
-	STA.w HDMA[$02].IndirectSourceBank	;$B3E213
-	LDX.w #(!REGISTER_CGRAMAddress&$0000FF<<8)+$03	;$B3E216
-	STX.w HDMA[$03].Parameters		;$B3E219
-	LDX.w #$7EA1DA				;$B3E21C
-	STX.w HDMA[$03].SourceLo		;$B3E21F
-	LDA.b #$7EA1DA>>16			;$B3E222
-	STA.w HDMA[$03].SourceBank		;$B3E224
-	STA.w HDMA[$03].IndirectSourceBank	;$B3E227
-	REP.b #$20				;$B3E22A
-	LDA.w #$0C01				;$B3E22C
-	STA.w $04E4				;$B3E22F
+	LDA #$11C0				;$B3E1A7
+	STA $80					;$B3E1AA
+	LDA #$004C				;$B3E1AC
+	STA $7EA17A				;$B3E1AF
+	STA $7EA17C				;$B3E1B3
+	LDA #$1201				;$B3E1B7
+	STA $7EA17E				;$B3E1BA
+	LDA #$00C0				;$B3E1BE
+	STA $7EA1AA				;$B3E1C1
+	LDA #$0080				;$B3E1C5
+	STA $7EA1AC				;$B3E1C8
+	LDA #$0040				;$B3E1CC
+	STA $7EA1C6				;$B3E1CF
+	LDA #$0058				;$B3E1D3
+	STA $7EA1DA				;$B3E1D6
+	LDA #$0001				;$B3E1DA
+	STA $7EA1DF				;$B3E1DD
+	STA $7EA35C				;$B3E1E1
+	LDA #$0842				;$B3E1E5
+	STA $7EA1DD				;$B3E1E8
+	SEP #$20				;$B3E1EC
+	LDX #$2D00 				;$B3E1EE
+	STX HDMA[$01].Parameters		;$B3E1F1
+	LDX #$7EA17A				;$B3E1F4
+	STX HDMA[$01].SourceLo			;$B3E1F7
+	LDA #$7EA17A>>16			;$B3E1FA
+	STA HDMA[$01].SourceBank		;$B3E1FC
+	STA HDMA[$01].IndirectSourceBank	;$B3E1FF
+	LDX #$2601				;$B3E202
+	STX HDMA[$02].Parameters		;$B3E205
+	LDX #$7EA19A				;$B3E208
+	STX HDMA[$02].SourceLo			;$B3E20B
+	LDA #$7EA19A>>16			;$B3E20E
+	STA HDMA[$02].SourceBank		;$B3E210
+	STA HDMA[$02].IndirectSourceBank	;$B3E213
+	LDX #$2103				;$B3E216
+	STX HDMA[$03].Parameters		;$B3E219
+	LDX #$7EA1DA				;$B3E21C
+	STX HDMA[$03].SourceLo			;$B3E21F
+	LDA #$7EA1DA>>16			;$B3E222
+	STA HDMA[$03].SourceBank		;$B3E224
+	STA HDMA[$03].IndirectSourceBank	;$B3E227
+	REP #$20				;$B3E22A
+	LDA #$0C01				;$B3E22C
+	STA $04E4				;$B3E22F
 	RTS					;$B3E232
 
 CODE_B3E233:
-	JSR.w CODE_B3ECB3			;$B3E233
-	LDA.w #$00FF				;$B3E236
-	STA.l $7EA15A				;$B3E239
-	STA.l $7EA15C				;$B3E23D
-	LDA.w #$0020				;$B3E241
-	STA.l $7EA16A				;$B3E244
-	LDA.w #$00CE				;$B3E248
-	STA.l $7EA16D				;$B3E24B
-	STA.l $7EA170				;$B3E24F
-	LDA.w #$0001				;$B3E253
-	STA.l $7EA173				;$B3E256
-	LDA.w #DATA_B3E322			;$B3E25A
-	STA.l $7EA16B				;$B3E25D
-	LDA.w #DATA_B3E322			;$B3E261
-	STA.l $7EA16E				;$B3E264
-	LDA.w #DATA_B3E370			;$B3E268
-	STA.l $7EA171				;$B3E26B
-	LDA.w #DATA_B3E322			;$B3E26F
-	STA.l $7EA174				;$B3E272
-	LDX.w #$000E				;$B3E276
+	JSR CODE_B3ECB3				;$B3E233
+	LDA #$00FF				;$B3E236
+	STA $7EA15A				;$B3E239
+	STA $7EA15C				;$B3E23D
+	LDA #$0020				;$B3E241
+	STA $7EA16A				;$B3E244
+	LDA #$00CE				;$B3E248
+	STA $7EA16D				;$B3E24B
+	STA $7EA170				;$B3E24F
+	LDA #$0001				;$B3E253
+	STA $7EA173				;$B3E256
+	LDA #DATA_B3E322			;$B3E25A
+	STA $7EA16B				;$B3E25D
+	LDA #DATA_B3E322			;$B3E261
+	STA $7EA16E				;$B3E264
+	LDA #DATA_B3E370			;$B3E268
+	STA $7EA171				;$B3E26B
+	LDA #DATA_B3E322			;$B3E26F
+	STA $7EA174				;$B3E272
+	LDX #$000E				;$B3E276
 CODE_B3E279:
 	LDA.l DATA_B3E57A,x			;$B3E279
-	STA.l $7EA17A,x				;$B3E27D
+	STA $7EA17A,x				;$B3E27D
 	LDA.l DATA_B3E57A+$10,x			;$B3E281
-	STA.l $7EA18A,x				;$B3E285
+	STA $7EA18A,x				;$B3E285
 	LDA.l DATA_B3E57A+$20,x			;$B3E289
-	STA.l $7EA19A,x				;$B3E28D
+	STA $7EA19A,x				;$B3E28D
 	LDA.l DATA_B3E57A+$2A,x			;$B3E291
-	STA.l $7EA1AA,x				;$B3E295
+	STA $7EA1AA,x				;$B3E295
 	DEX					;$B3E299
 	DEX					;$B3E29A
-	BPL.b CODE_B3E279			;$B3E29B
-	SEP.b #$20				;$B3E29D
-	LDX.w #(!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$40	;$B3E29F
-	STX.w HDMA[$01].Parameters		;$B3E2A2
-	LDX.w #$7EA17A				;$B3E2A5
-	STX.w HDMA[$01].SourceLo		;$B3E2A8
-	LDA.b #$7EA17A>>16			;$B3E2AB
-	STA.w HDMA[$01].SourceBank		;$B3E2AD
-	STA.w HDMA[$01].IndirectSourceBank	;$B3E2B0
-	LDX.w #(!REGISTER_Window1RightPositionDesignation&$0000FF<<8)+$40	;$B3E2B3
-	STX.w HDMA[$02].Parameters		;$B3E2B6
-	LDX.w #$7EA18A				;$B3E2B9
-	STX.w HDMA[$02].SourceLo		;$B3E2BC
-	LDA.b #$7EA18A>>16			;$B3E2BF
-	STA.w HDMA[$02].SourceBank		;$B3E2C1
-	STA.w HDMA[$02].IndirectSourceBank	;$B3E2C4
-	LDX.w #(!REGISTER_Window2LeftPositionDesignation&$0000FF<<8)+$40	;$B3E2C7
-	STX.w HDMA[$03].Parameters		;$B3E2CA
-	LDX.w #$7EA19A				;$B3E2CD
-	STX.w HDMA[$03].SourceLo		;$B3E2D0
-	LDA.b #$7EA19A>>16			;$B3E2D3
-	STA.w HDMA[$03].SourceBank		;$B3E2D5
-	STA.w HDMA[$03].IndirectSourceBank	;$B3E2D8
-	LDX.w #(!REGISTER_Window2RightPositionDesignation&$0000FF<<8)+$40	;$B3E2DB
-	STX.w HDMA[$04].Parameters		;$B3E2DE
-	LDX.w #$7EA1AA				;$B3E2E1
-	STX.w HDMA[$04].SourceLo		;$B3E2E4
-	LDA.b #$7EA1AA>>16			;$B3E2E7
-	STA.w HDMA[$04].SourceBank		;$B3E2E9
-	STA.w HDMA[$04].IndirectSourceBank	;$B3E2EC
-	LDX.w #(!REGISTER_FixedColorData&$0000FF<<8)+$40	;$B3E2EF
-	STX.w HDMA[$05].Parameters		;$B3E2F2
-	LDX.w #$7EA16A				;$B3E2F5
-	STX.w HDMA[$05].SourceLo		;$B3E2F8
-	LDA.b #$7EA16A>>16			;$B3E2FB
-	STA.w HDMA[$05].SourceBank		;$B3E2FD
-	LDA.b #DATA_B3E322>>16			;$B3E300
-	STA.w HDMA[$05].IndirectSourceBank	;$B3E302
-	LDX.w #(!REGISTER_MainScreenLayers&$0000FF<<8)+$00	;$B3E305
-	STX.w HDMA[$06].Parameters		;$B3E308
-	LDX.w #$7EA1BA				;$B3E30B
-	STX.w HDMA[$06].SourceLo		;$B3E30E
-	LDA.b #$7EA1BA>>16			;$B3E311
-	STA.w HDMA[$06].SourceBank		;$B3E313
-	STA.w HDMA[$06].IndirectSourceBank	;$B3E316
-	REP.b #$20				;$B3E319
-	LDA.w #$7E01				;$B3E31B
-	STA.w $04E4				;$B3E31E
+	BPL CODE_B3E279				;$B3E29B
+	SEP #$20				;$B3E29D
+	LDX #$2640				;$B3E29F
+	STX HDMA[$01].Parameters		;$B3E2A2
+	LDX #$7EA17A				;$B3E2A5
+	STX HDMA[$01].SourceLo			;$B3E2A8
+	LDA #$7EA17A>>16			;$B3E2AB
+	STA HDMA[$01].SourceBank		;$B3E2AD
+	STA HDMA[$01].IndirectSourceBank	;$B3E2B0
+	LDX #$2740				;$B3E2B3
+	STX HDMA[$02].Parameters		;$B3E2B6
+	LDX #$7EA18A				;$B3E2B9
+	STX HDMA[$02].SourceLo			;$B3E2BC
+	LDA #$7EA18A>>16			;$B3E2BF
+	STA HDMA[$02].SourceBank		;$B3E2C1
+	STA HDMA[$02].IndirectSourceBank	;$B3E2C4
+	LDX #$2840				;$B3E2C7
+	STX HDMA[$03].Parameters		;$B3E2CA
+	LDX #$7EA19A				;$B3E2CD
+	STX HDMA[$03].SourceLo			;$B3E2D0
+	LDA #$7EA19A>>16			;$B3E2D3
+	STA HDMA[$03].SourceBank		;$B3E2D5
+	STA HDMA[$03].IndirectSourceBank	;$B3E2D8
+	LDX #$2940				;$B3E2DB
+	STX HDMA[$04].Parameters		;$B3E2DE
+	LDX #$7EA1AA				;$B3E2E1
+	STX HDMA[$04].SourceLo			;$B3E2E4
+	LDA #$7EA1AA>>16			;$B3E2E7
+	STA HDMA[$04].SourceBank		;$B3E2E9
+	STA HDMA[$04].IndirectSourceBank	;$B3E2EC
+	LDX #$3240				;$B3E2EF
+	STX HDMA[$05].Parameters		;$B3E2F2
+	LDX #$7EA16A				;$B3E2F5
+	STX HDMA[$05].SourceLo			;$B3E2F8
+	LDA #$7EA16A>>16			;$B3E2FB
+	STA HDMA[$05].SourceBank		;$B3E2FD
+	LDA #DATA_B3E322>>16			;$B3E300
+	STA HDMA[$05].IndirectSourceBank	;$B3E302
+	LDX #$2C00 				;$B3E305
+	STX HDMA[$06].Parameters		;$B3E308
+	LDX #$7EA1BA				;$B3E30B
+	STX HDMA[$06].SourceLo			;$B3E30E
+	LDA #$7EA1BA>>16			;$B3E311
+	STA HDMA[$06].SourceBank		;$B3E313
+	STA HDMA[$06].IndirectSourceBank	;$B3E316
+	REP #$20				;$B3E319
+	LDA #$7E01				;$B3E31B
+	STA $04E4				;$B3E31E
 	RTS					;$B3E321
 
 DATA_B3E322:
@@ -9469,98 +9469,98 @@ DATA_B3E57A:
 	db $01,$5B,$A1,$00
 
 CODE_B3E5AE:
-	LDA.w #$1180				;$B3E5AE
-	STA.b $80				;$B3E5B1
-	LDA.w #$0060				;$B3E5B3
-	STA.l $7EA15A				;$B3E5B6
-	STA.l $7EA26A				;$B3E5BA
-	STA.l $7EA270				;$B3E5BE
-	LDA.w #$0098				;$B3E5C2
-	STA.l $7EA160				;$B3E5C5
-	LDA.w #$A16A				;$B3E5C9
-	STA.l $7EA15B				;$B3E5CC
-	STA.l $7EA15E				;$B3E5D0
-	LDA.w #$005C				;$B3E5D4
-	STA.l $7EA25A				;$B3E5D7
-	LDA.w #$009C				;$B3E5DB
-	STA.l $7EA260				;$B3E5DE
-	LDA.w #DATA_B3E6D2			;$B3E5E2
-	STA.l $7EA25B				;$B3E5E5
-	LDA.w #DATA_B3E6D6			;$B3E5E9
-	STA.l $7EA25E				;$B3E5EC
-	LDA.w #DATA_B3E6DA			;$B3E5F0
-	STA.l $7EA261				;$B3E5F3
-	LDA.w #$0038				;$B3E5F7
-	STA.l $7EA1EA				;$B3E5FA
-	STA.l $7EA1F0				;$B3E5FE
-	LDA.w #$A1FA				;$B3E602
-	STA.l $7EA1EB				;$B3E605
-	STA.l $7EA1EE				;$B3E609
-	LDA.w #$A1FC				;$B3E60D
-	STA.l $7EA1F1				;$B3E610
-	STA.l $7EA21C				;$B3E614
-	LDA.w #$004C				;$B3E618
-	STA.l $7EA23A				;$B3E61B
-	LDA.w #$0017				;$B3E61F
-	STA.l $7EA23B				;$B3E622
-	LDA.w #$0001				;$B3E626
-	STA.l $7EA23D				;$B3E629
-	LDA.w #$1215				;$B3E62D
-	STA.l $7EA23E				;$B3E630
-	LDA.w #$0030				;$B3E634
-	STA.l $7EA24A				;$B3E637
-	LDA.w #$0001				;$B3E63B
-	STA.l $7EA24D				;$B3E63E
-	LDA.w #$0080				;$B3E642
-	STA.l $7EA254				;$B3E645
-	STA.l $7EA252				;$B3E649
-	SEP.b #$20				;$B3E64D
-	LDX.w #(!REGISTER_CGRAMAddress&$0000FF<<8)+$43	;$B3E64F
-	STX.w HDMA[$01].Parameters		;$B3E652
-	LDX.w #$7EA25A				;$B3E655
-	STX.w HDMA[$01].SourceLo		;$B3E658
-	LDA.b #$7EA25A>>16			;$B3E65B
-	STA.w HDMA[$01].SourceBank		;$B3E65D
-	LDA.b #DATA_B3E6D2>>16			;$B3E660
-	STA.w HDMA[$01].IndirectSourceBank	;$B3E662
-	LDX.w #(!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$42	;$B3E665
-	STX.w HDMA[$02].Parameters		;$B3E668
-	LDX.w #$7EA15A				;$B3E66B
-	STX.w HDMA[$02].SourceLo		;$B3E66E
-	LDA.b #$7EA15A>>16			;$B3E671
-	STA.w HDMA[$02].SourceBank		;$B3E673
-	STA.w HDMA[$02].IndirectSourceBank	;$B3E676
-	LDX.w #(!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$41	;$B3E679
-	STX.w HDMA[$03].Parameters		;$B3E67C
-	LDX.w #$7EA1EA				;$B3E67F
-	STX.w HDMA[$03].SourceLo		;$B3E682
-	LDA.b #$7EA1EA>>16			;$B3E685
-	STA.w HDMA[$03].SourceBank		;$B3E687
-	STA.w HDMA[$03].IndirectSourceBank	;$B3E68A
-	LDX.w #(!REGISTER_BG3VertScrollOffset&$0000FF<<8)+$02	;$B3E68D
-	STX.w HDMA[$04].Parameters		;$B3E690
-	LDX.w #$7EA26A				;$B3E693
-	STX.w HDMA[$04].SourceLo		;$B3E696
-	LDA.b #$7EA26A>>16			;$B3E699
-	STA.w HDMA[$04].SourceBank		;$B3E69B
-	STA.w HDMA[$04].IndirectSourceBank	;$B3E69E
-	LDX.w #(!REGISTER_MainScreenLayers&$0000FF<<8)+$01	;$B3E6A1
-	STX.w HDMA[$05].Parameters		;$B3E6A4
-	LDX.w #$7EA23A				;$B3E6A7
-	STX.w HDMA[$05].SourceLo		;$B3E6AA
-	LDA.b #$7EA23A>>16			;$B3E6AD
-	STA.w HDMA[$05].SourceBank		;$B3E6AF
-	STA.w HDMA[$05].IndirectSourceBank	;$B3E6B2
-	LDX.w #(!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$02	;$B3E6B5
-	STX.w HDMA[$06].Parameters		;$B3E6B8
-	LDX.w #$7EA24A				;$B3E6BB
-	STX.w HDMA[$06].SourceLo		;$B3E6BE
-	LDA.b #$7EA24A>>16			;$B3E6C1
-	STA.w HDMA[$06].SourceBank		;$B3E6C3
-	STA.w HDMA[$06].IndirectSourceBank	;$B3E6C6
-	REP.b #$20				;$B3E6C9
-	LDA.w #$7E01				;$B3E6CB
-	STA.w $04E4				;$B3E6CE
+	LDA #$1180				;$B3E5AE
+	STA $80					;$B3E5B1
+	LDA #$0060				;$B3E5B3
+	STA $7EA15A				;$B3E5B6
+	STA $7EA26A				;$B3E5BA
+	STA $7EA270				;$B3E5BE
+	LDA #$0098				;$B3E5C2
+	STA $7EA160				;$B3E5C5
+	LDA #$A16A				;$B3E5C9
+	STA $7EA15B				;$B3E5CC
+	STA $7EA15E				;$B3E5D0
+	LDA #$005C				;$B3E5D4
+	STA $7EA25A				;$B3E5D7
+	LDA #$009C				;$B3E5DB
+	STA $7EA260				;$B3E5DE
+	LDA #DATA_B3E6D2			;$B3E5E2
+	STA $7EA25B				;$B3E5E5
+	LDA #DATA_B3E6D6			;$B3E5E9
+	STA $7EA25E				;$B3E5EC
+	LDA #DATA_B3E6DA			;$B3E5F0
+	STA $7EA261				;$B3E5F3
+	LDA #$0038				;$B3E5F7
+	STA $7EA1EA				;$B3E5FA
+	STA $7EA1F0				;$B3E5FE
+	LDA #$A1FA				;$B3E602
+	STA $7EA1EB				;$B3E605
+	STA $7EA1EE				;$B3E609
+	LDA #$A1FC				;$B3E60D
+	STA $7EA1F1				;$B3E610
+	STA $7EA21C				;$B3E614
+	LDA #$004C				;$B3E618
+	STA $7EA23A				;$B3E61B
+	LDA #$0017				;$B3E61F
+	STA $7EA23B				;$B3E622
+	LDA #$0001				;$B3E626
+	STA $7EA23D				;$B3E629
+	LDA #$1215				;$B3E62D
+	STA $7EA23E				;$B3E630
+	LDA #$0030				;$B3E634
+	STA $7EA24A				;$B3E637
+	LDA #$0001				;$B3E63B
+	STA $7EA24D				;$B3E63E
+	LDA #$0080				;$B3E642
+	STA $7EA254				;$B3E645
+	STA $7EA252				;$B3E649
+	SEP #$20				;$B3E64D
+	LDX #$2143				;$B3E64F
+	STX HDMA[$01].Parameters		;$B3E652
+	LDX #$7EA25A				;$B3E655
+	STX HDMA[$01].SourceLo			;$B3E658
+	LDA #$7EA25A>>16			;$B3E65B
+	STA HDMA[$01].SourceBank		;$B3E65D
+	LDA #DATA_B3E6D2>>16			;$B3E660
+	STA HDMA[$01].IndirectSourceBank	;$B3E662
+	LDX #$1142				;$B3E665
+	STX HDMA[$02].Parameters		;$B3E668
+	LDX #$7EA15A				;$B3E66B
+	STX HDMA[$02].SourceLo			;$B3E66E
+	LDA #$7EA15A>>16			;$B3E671
+	STA HDMA[$02].SourceBank		;$B3E673
+	STA HDMA[$02].IndirectSourceBank	;$B3E676
+	LDX #$2641				;$B3E679
+	STX HDMA[$03].Parameters		;$B3E67C
+	LDX #$7EA1EA				;$B3E67F
+	STX HDMA[$03].SourceLo			;$B3E682
+	LDA #$7EA1EA>>16			;$B3E685
+	STA HDMA[$03].SourceBank		;$B3E687
+	STA HDMA[$03].IndirectSourceBank	;$B3E68A
+	LDX #$1202				;$B3E68D
+	STX HDMA[$04].Parameters		;$B3E690
+	LDX #$7EA26A				;$B3E693
+	STX HDMA[$04].SourceLo			;$B3E696
+	LDA #$7EA26A>>16			;$B3E699
+	STA HDMA[$04].SourceBank		;$B3E69B
+	STA HDMA[$04].IndirectSourceBank	;$B3E69E
+	LDX #$2C01				;$B3E6A1
+	STX HDMA[$05].Parameters		;$B3E6A4
+	LDX #$7EA23A				;$B3E6A7
+	STX HDMA[$05].SourceLo			;$B3E6AA
+	LDA #$7EA23A>>16			;$B3E6AD
+	STA HDMA[$05].SourceBank		;$B3E6AF
+	STA HDMA[$05].IndirectSourceBank	;$B3E6B2
+	LDX #$0F02 				;$B3E6B5
+	STX HDMA[$06].Parameters		;$B3E6B8
+	LDX #$7EA24A				;$B3E6BB
+	STX HDMA[$06].SourceLo			;$B3E6BE
+	LDA #$7EA24A>>16			;$B3E6C1
+	STA HDMA[$06].SourceBank		;$B3E6C3
+	STA HDMA[$06].IndirectSourceBank	;$B3E6C6
+	REP #$20				;$B3E6C9
+	LDA #$7E01				;$B3E6CB
+	STA $04E4				;$B3E6CE
 	RTS					;$B3E6D1
 
 DATA_B3E6D2:
@@ -9579,86 +9579,86 @@ DATA_B3E6DA:
 	db $00,$00,$78,$0D,$0D,$0D,$35,$09,$0E,$0E,$12,$09,$0F,$0F,$CF,$04
 
 CODE_B3E74A:
-	JSR.w CODE_B3ECB9			;$B3E74A
-	LDX.w #$0000				;$B3E74D
+	JSR CODE_B3ECB9				;$B3E74A
+	LDX #$0000				;$B3E74D
 CODE_B3E750:
-	LDA.w #$0090				;$B3E750
-	STA.l $7EA19A,x				;$B3E753
-	STA.l $7EA49A,x				;$B3E757
-	STA.l $7EA28A,x				;$B3E75B
-	STA.l $7EA58A,x				;$B3E75F
-	STA.l $7EA38A,x				;$B3E763
-	STA.l $7EA68A,x				;$B3E767
-	LDA.w #$A3BA				;$B3E76B
-	STA.l $7EA19B,x				;$B3E76E
-	LDA.w #$A6BA				;$B3E772
-	STA.l $7EA49B,x				;$B3E775
-	LDA.w #$A3DA				;$B3E779
-	STA.l $7EA28B,x				;$B3E77C
-	LDA.w #$A6DA				;$B3E780
-	STA.l $7EA58B,x				;$B3E783
-	LDA.w #$A3FA				;$B3E787
-	STA.l $7EA38B,x				;$B3E78A
-	LDA.w #$A6FA				;$B3E78E
-	STA.l $7EA68B,x				;$B3E791
+	LDA #$0090				;$B3E750
+	STA $7EA19A,x				;$B3E753
+	STA $7EA49A,x				;$B3E757
+	STA $7EA28A,x				;$B3E75B
+	STA $7EA58A,x				;$B3E75F
+	STA $7EA38A,x				;$B3E763
+	STA $7EA68A,x				;$B3E767
+	LDA #$A3BA				;$B3E76B
+	STA $7EA19B,x				;$B3E76E
+	LDA #$A6BA				;$B3E772
+	STA $7EA49B,x				;$B3E775
+	LDA #$A3DA				;$B3E779
+	STA $7EA28B,x				;$B3E77C
+	LDA #$A6DA				;$B3E780
+	STA $7EA58B,x				;$B3E783
+	LDA #$A3FA				;$B3E787
+	STA $7EA38B,x				;$B3E78A
+	LDA #$A6FA				;$B3E78E
+	STA $7EA68B,x				;$B3E791
 	INX					;$B3E795
 	INX					;$B3E796
 	INX					;$B3E797
-	CPX.w #$0030				;$B3E798
-	BNE.b CODE_B3E750			;$B3E79B
-	SEP.b #$20				;$B3E79D
-	LDX.w #(!REGISTER_MainScreenLayers&$0000FF<<8)+$01	;$B3E79F
-	STX.w HDMA[$01].Parameters		;$B3E7A2
-	LDX.w #$7EA15A				;$B3E7A5
-	STX.w HDMA[$01].SourceLo		;$B3E7A8
-	LDA.b #$7EA15A>>16			;$B3E7AB
-	STA.w HDMA[$01].SourceBank		;$B3E7AD
-	STA.w HDMA[$01].IndirectSourceBank	;$B3E7B0
-	LDX.w #(!REGISTER_CGRAMAddress&$0000FF<<8)+$03	;$B3E7B3
-	STX.w HDMA[$02].Parameters		;$B3E7B6
-	LDX.w #$7EA17A				;$B3E7B9
-	STX.w HDMA[$02].SourceLo		;$B3E7BC
-	LDA.b #$7EA17A>>16			;$B3E7BF
-	STA.w HDMA[$02].SourceBank		;$B3E7C1
-	STA.w HDMA[$02].IndirectSourceBank	;$B3E7C4
-	LDX.w #(!REGISTER_ColorMathInitialSettings&$0000FF<<8)+$01	;$B3E7C7
-	STX.w HDMA[$03].Parameters		;$B3E7CA
-	LDX.w #$7EA16A				;$B3E7CD
-	STX.w HDMA[$03].SourceLo		;$B3E7D0
-	LDA.b #$7EA16A>>16			;$B3E7D3
-	STA.w HDMA[$03].SourceBank		;$B3E7D5
-	STA.w HDMA[$03].IndirectSourceBank	;$B3E7D8
-	LDX.w #(!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$42	;$B3E7DB
-	STX.w HDMA[$04].Parameters		;$B3E7DE
-	LDX.w #$7EA18A				;$B3E7E1
-	STX.w HDMA[$04].SourceLo		;$B3E7E4
-	LDA.b #$7EA18A>>16			;$B3E7E7
-	STA.w HDMA[$04].SourceBank		;$B3E7E9
-	STA.w HDMA[$04].IndirectSourceBank	;$B3E7EC
-	LDX.w #(!REGISTER_BG1HorizScrollOffset&$0000FF<<8)+$42	;$B3E7EF
-	STX.w HDMA[$05].Parameters		;$B3E7F2
-	LDX.w #$7EA19A				;$B3E7F5
-	STX.w HDMA[$05].SourceLo		;$B3E7F8
-	LDA.b #$7EA19A>>16			;$B3E7FB
-	STA.w HDMA[$05].SourceBank		;$B3E7FD
-	STA.w HDMA[$05].IndirectSourceBank	;$B3E800
-	LDX.w #(!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$42	;$B3E803
-	STX.w HDMA[$06].Parameters		;$B3E806
-	LDX.w #$7EA28A				;$B3E809
-	STX.w HDMA[$06].SourceLo		;$B3E80C
-	LDA.b #$7EA28A>>16			;$B3E80F
-	STA.w HDMA[$06].SourceBank		;$B3E811
-	STA.w HDMA[$06].IndirectSourceBank	;$B3E814
-	LDX.w #(!REGISTER_BG1VertScrollOffset&$0000FF<<8)+$42	;$B3E817
-	STX.w HDMA[$07].Parameters		;$B3E81A
-	LDX.w #$7EA38A				;$B3E81D
-	STX.w HDMA[$07].SourceLo		;$B3E820
-	LDA.b #$7EA38A>>16			;$B3E823
-	STA.w HDMA[$07].SourceBank		;$B3E825
-	STA.w HDMA[$07].IndirectSourceBank	;$B3E828
-	REP.b #$20				;$B3E82B
-	LDA.w #$FE01				;$B3E82D
-	STA.w $04E4				;$B3E830
+	CPX #$0030				;$B3E798
+	BNE CODE_B3E750				;$B3E79B
+	SEP #$20				;$B3E79D
+	LDX #$2C01 				;$B3E79F
+	STX HDMA[$01].Parameters		;$B3E7A2
+	LDX #$7EA15A				;$B3E7A5
+	STX HDMA[$01].SourceLo			;$B3E7A8
+	LDA #$7EA15A>>16			;$B3E7AB
+	STA HDMA[$01].SourceBank		;$B3E7AD
+	STA HDMA[$01].IndirectSourceBank	;$B3E7B0
+	LDX #$2103				;$B3E7B3
+	STX HDMA[$02].Parameters		;$B3E7B6
+	LDX #$7EA17A				;$B3E7B9
+	STX HDMA[$02].SourceLo			;$B3E7BC
+	LDA #$7EA17A>>16			;$B3E7BF
+	STA HDMA[$02].SourceBank		;$B3E7C1
+	STA HDMA[$02].IndirectSourceBank	;$B3E7C4
+	LDX #$3001				;$B3E7C7
+	STX HDMA[$03].Parameters		;$B3E7CA
+	LDX #$7EA16A				;$B3E7CD
+	STX HDMA[$03].SourceLo			;$B3E7D0
+	LDA #$7EA16A>>16			;$B3E7D3
+	STA HDMA[$03].SourceBank		;$B3E7D5
+	STA HDMA[$03].IndirectSourceBank	;$B3E7D8
+	LDX #$1142				;$B3E7DB
+	STX HDMA[$04].Parameters		;$B3E7DE
+	LDX #$7EA18A				;$B3E7E1
+	STX HDMA[$04].SourceLo			;$B3E7E4
+	LDA #$7EA18A>>16			;$B3E7E7
+	STA HDMA[$04].SourceBank		;$B3E7E9
+	STA HDMA[$04].IndirectSourceBank	;$B3E7EC
+	LDX #$0D42				;$B3E7EF
+	STX HDMA[$05].Parameters		;$B3E7F2
+	LDX #$7EA19A				;$B3E7F5
+	STX HDMA[$05].SourceLo			;$B3E7F8
+	LDA #$7EA19A>>16			;$B3E7FB
+	STA HDMA[$05].SourceBank		;$B3E7FD
+	STA HDMA[$05].IndirectSourceBank	;$B3E800
+	LDX #$0F42				;$B3E803
+	STX HDMA[$06].Parameters		;$B3E806
+	LDX #$7EA28A				;$B3E809
+	STX HDMA[$06].SourceLo			;$B3E80C
+	LDA #$7EA28A>>16			;$B3E80F
+	STA HDMA[$06].SourceBank		;$B3E811
+	STA HDMA[$06].IndirectSourceBank	;$B3E814
+	LDX #$0E42				;$B3E817
+	STX HDMA[$07].Parameters		;$B3E81A
+	LDX #$7EA38A				;$B3E81D
+	STX HDMA[$07].SourceLo			;$B3E820
+	LDA #$7EA38A>>16			;$B3E823
+	STA HDMA[$07].SourceBank		;$B3E825
+	STA HDMA[$07].IndirectSourceBank	;$B3E828
+	REP #$20				;$B3E82B
+	LDA #$FE01				;$B3E82D
+	STA $04E4				;$B3E830
 	RTS					;$B3E833
 
 CODE_B3E834:
@@ -9729,61 +9729,61 @@ CODE_B3E8B2:
 	BRA.b CODE_B3E8D5			;$B3E8C1
 
 CODE_B3E8C3:
-	LDX.w #$0000				;$B3E8C3
+	LDX #$0000				;$B3E8C3
 CODE_B3E8C6:
 	LDA.l DATA_B3E9C8,x			;$B3E8C6
-	STA.l $7EA19A,x				;$B3E8CA
+	STA $7EA19A,x				;$B3E8CA
 	INX					;$B3E8CE
 	INX					;$B3E8CF
-	CPX.w #$0040				;$B3E8D0
-	BNE.b CODE_B3E8C6			;$B3E8D3
+	CPX #$0040				;$B3E8D0
+	BNE CODE_B3E8C6				;$B3E8D3
 CODE_B3E8D5:
-	SEP.b #$20				;$B3E8D5
-	LDX.w #(!REGISTER_BG1HorizScrollOffset&$0000FF<<8)+$43	;$B3E8D7
-	STX.w HDMA[$01].Parameters		;$B3E8DA
-	LDX.w #$7EA15A				;$B3E8DD
-	STX.w HDMA[$01].SourceLo		;$B3E8E0
-	LDA.b #$7EA15A>>16			;$B3E8E3
-	STA.w HDMA[$01].SourceBank		;$B3E8E5
-	STA.w HDMA[$01].IndirectSourceBank	;$B3E8E8
-	LDX.w #(!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$01	;$B3E8EB
-	STX.w HDMA[$02].Parameters		;$B3E8EE
-	LDX.w #$7EA17A				;$B3E8F1
-	STX.w HDMA[$02].SourceLo		;$B3E8F4
-	LDA.b #$7EA17A>>16			;$B3E8F7
-	STA.w HDMA[$02].SourceBank		;$B3E8F9
-	STA.w HDMA[$02].IndirectSourceBank	;$B3E8FC
-	LDX.w #(!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$42	;$B3E8FF
-	STX.w HDMA[$03].Parameters		;$B3E902
-	LDX.w #$7EA4EA				;$B3E905
-	STX.w HDMA[$03].SourceLo		;$B3E908
-	LDA.b #$7EA4EA>>16			;$B3E90B
-	STA.w HDMA[$03].SourceBank		;$B3E90D
-	STA.w HDMA[$03].IndirectSourceBank	;$B3E910
-	LDX.w #(!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$42	;$B3E913
-	STX.w HDMA[$04].Parameters		;$B3E916
-	LDX.w #$7EA55A				;$B3E919
-	STX.w HDMA[$04].SourceLo		;$B3E91C
-	LDA.b #$7EA55A>>16			;$B3E91F
-	STA.w HDMA[$04].SourceBank		;$B3E921
-	STA.w HDMA[$04].IndirectSourceBank	;$B3E924
-	LDX.w #(!REGISTER_FixedColorData&$0000FF<<8)+$00	;$B3E927
-	STX.w HDMA[$05].Parameters		;$B3E92A
-	LDX.w #$7EA19A				;$B3E92D
-	STX.w HDMA[$05].SourceLo		;$B3E930
-	LDA.b #$7EA19A>>16			;$B3E933
-	STA.w HDMA[$05].SourceBank		;$B3E935
-	STA.w HDMA[$05].IndirectSourceBank	;$B3E938
-	LDX.w #(!REGISTER_BG2VertScrollOffset&$0000FF<<8)+$42	;$B3E93B
-	STX.w HDMA[$06].Parameters		;$B3E93E
-	LDX.w #$7EA5BA				;$B3E941
-	STX.w HDMA[$06].SourceLo		;$B3E944
-	LDA.b #$7EA5BA>>16			;$B3E947
-	STA.w HDMA[$06].SourceBank		;$B3E949
-	STA.w HDMA[$06].IndirectSourceBank	;$B3E94C
-	REP.b #$20				;$B3E94F
-	LDA.w #$7E01				;$B3E951
-	STA.w $04E4				;$B3E954
+	SEP #$20				;$B3E8D5
+	LDX #$0D43				;$B3E8D7
+	STX HDMA[$01].Parameters		;$B3E8DA
+	LDX #$7EA15A				;$B3E8DD
+	STX HDMA[$01].SourceLo			;$B3E8E0
+	LDA #$7EA15A>>16			;$B3E8E3
+	STA HDMA[$01].SourceBank		;$B3E8E5
+	STA HDMA[$01].IndirectSourceBank	;$B3E8E8
+	LDX #$2601				;$B3E8EB
+	STX HDMA[$02].Parameters		;$B3E8EE
+	LDX #$7EA17A				;$B3E8F1
+	STX HDMA[$02].SourceLo			;$B3E8F4
+	LDA #$7EA17A>>16			;$B3E8F7
+	STA HDMA[$02].SourceBank		;$B3E8F9
+	STA HDMA[$02].IndirectSourceBank	;$B3E8FC
+	LDX #$0F42				;$B3E8FF
+	STX HDMA[$03].Parameters		;$B3E902
+	LDX #$7EA4EA				;$B3E905
+	STX HDMA[$03].SourceLo			;$B3E908
+	LDA #$7EA4EA>>16			;$B3E90B
+	STA HDMA[$03].SourceBank		;$B3E90D
+	STA HDMA[$03].IndirectSourceBank	;$B3E910
+	LDX #$1142				;$B3E913
+	STX HDMA[$04].Parameters		;$B3E916
+	LDX #$7EA55A				;$B3E919
+	STX HDMA[$04].SourceLo			;$B3E91C
+	LDA #$7EA55A>>16			;$B3E91F
+	STA HDMA[$04].SourceBank		;$B3E921
+	STA HDMA[$04].IndirectSourceBank	;$B3E924
+	LDX #$3200				;$B3E927
+	STX HDMA[$05].Parameters		;$B3E92A
+	LDX #$7EA19A				;$B3E92D
+	STX HDMA[$05].SourceLo			;$B3E930
+	LDA #$7EA19A>>16			;$B3E933
+	STA HDMA[$05].SourceBank		;$B3E935
+	STA HDMA[$05].IndirectSourceBank	;$B3E938
+	LDX #$1042				;$B3E93B
+	STX HDMA[$06].Parameters		;$B3E93E
+	LDX #$7EA5BA				;$B3E941
+	STX HDMA[$06].SourceLo			;$B3E944
+	LDA #$7EA5BA>>16			;$B3E947
+	STA HDMA[$06].SourceBank		;$B3E949
+	STA HDMA[$06].IndirectSourceBank	;$B3E94C
+	REP #$20				;$B3E94F
+	LDA #$7E01				;$B3E951
+	STA $04E4				;$B3E954
 	RTS					;$B3E957
 
 DATA_B3E958:
@@ -9805,53 +9805,53 @@ DATA_B3E9C8:
 	dw $2408,$2308,$2308,$2208
 
 CODE_B3EA00:
-	JSR.w CODE_B3ECB9			;$B3EA00
-	LDA.w #$00FF				;$B3EA03
-	STA.l $7EA15A				;$B3EA06
-	STA.l $7EA15D				;$B3EA0A
-	LDA.w #$A16A				;$B3EA0E
-	STA.l $7EA15B				;$B3EA11
-	LDA.w #$A268				;$B3EA15
-	STA.l $7EA15E				;$B3EA18
-	LDA.w #$01C0				;$B3EA1C
-	STA.b $20				;$B3EA1F
-	LDA.w #$0000				;$B3EA21
-	STA.b $1C				;$B3EA24
-	LDA.b $00				;$B3EA26
+	JSR CODE_B3ECB9				;$B3EA00
+	LDA #$00FF				;$B3EA03
+	STA $7EA15A				;$B3EA06
+	STA $7EA15D				;$B3EA0A
+	LDA #$A16A				;$B3EA0E
+	STA $7EA15B				;$B3EA11
+	LDA #$A268				;$B3EA15
+	STA $7EA15E				;$B3EA18
+	LDA #$01C0				;$B3EA1C
+	STA $20					;$B3EA1F
+	LDA #$0000				;$B3EA21
+	STA $1C					;$B3EA24
+	LDA $00					;$B3EA26
 	ASL					;$B3EA28
-	EOR.w #$FFFF				;$B3EA29
+	EOR #$FFFF				;$B3EA29
 	XBA					;$B3EA2C
-	LDX.w #$0000				;$B3EA2D
+	LDX #$0000				;$B3EA2D
 CODE_B3EA30:
-	STA.l $7EA569,x				;$B3EA30
+	STA $7EA569,x				;$B3EA30
 	SEC					;$B3EA34
-	SBC.b $1C				;$B3EA35
-	STA.b $24				;$B3EA37
-	LDA.b $1B				;$B3EA39
+	SBC $1C					;$B3EA35
+	STA $24					;$B3EA37
+	LDA $1B					;$B3EA39
 	CLC					;$B3EA3B
-	ADC.b $20				;$B3EA3C
-	STA.b $1B				;$B3EA3E
-	LDA.b $1D				;$B3EA40
-	ADC.w #$0000				;$B3EA42
-	STA.b $1D				;$B3EA45
-	DEC.b $20				;$B3EA47
-	DEC.b $20				;$B3EA49
-	LDA.b $24				;$B3EA4B
+	ADC $20					;$B3EA3C
+	STA $1B					;$B3EA3E
+	LDA $1D					;$B3EA40
+	ADC #$0000				;$B3EA42
+	STA $1D					;$B3EA45
+	DEC $20					;$B3EA47
+	DEC $20					;$B3EA49
+	LDA $24					;$B3EA4B
 	INX					;$B3EA4D
 	INX					;$B3EA4E
-	CPX.w #$01C0				;$B3EA4F
-	BNE.b CODE_B3EA30			;$B3EA52
-	SEP.b #$20				;$B3EA54
-	LDX.w #(!REGISTER_BG2VertScrollOffset&$0000FF<<8)+$42	;$B3EA56
-	STX.w HDMA[$01].Parameters		;$B3EA59
-	LDX.w #$7EA15A				;$B3EA5C
-	STX.w HDMA[$01].SourceLo		;$B3EA5F
-	LDA.b #$7EA15A>>16			;$B3EA62
-	STA.w HDMA[$01].SourceBank		;$B3EA64
-	STA.w HDMA[$01].IndirectSourceBank	;$B3EA67
-	REP.b #$20				;$B3EA6A
-	LDA.w #$0201				;$B3EA6C
-	STA.w $04E4				;$B3EA6F
+	CPX #$01C0				;$B3EA4F
+	BNE CODE_B3EA30				;$B3EA52
+	SEP #$20				;$B3EA54
+	LDX #$1042				;$B3EA56
+	STX HDMA[$01].Parameters		;$B3EA59
+	LDX #$7EA15A				;$B3EA5C
+	STX HDMA[$01].SourceLo			;$B3EA5F
+	LDA #$7EA15A>>16			;$B3EA62
+	STA HDMA[$01].SourceBank		;$B3EA64
+	STA HDMA[$01].IndirectSourceBank	;$B3EA67
+	REP #$20				;$B3EA6A
+	LDA #$0201				;$B3EA6C
+	STA $04E4				;$B3EA6F
 	RTS					;$B3EA72
 
 CODE_B3EA73:
@@ -9885,18 +9885,18 @@ CODE_B3EA79:
 	RTS					;$B3EAC8
 
 CODE_B3EAC9:
-	JSR.w CODE_B3ECB9			;$B3EAC9
-	SEP.b #$20				;$B3EACC
-	LDX.w #(!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$01	;$B3EACE
-	STX.w HDMA[$02].Parameters		;$B3EAD1
-	LDX.w #$7EA17A				;$B3EAD4
-	STX.w HDMA[$02].SourceLo		;$B3EAD7
-	LDA.b #$7EA17A>>16			;$B3EADA
-	STA.w HDMA[$02].SourceBank		;$B3EADC
-	STA.w HDMA[$02].IndirectSourceBank	;$B3EADF
-	REP.b #$20				;$B3EAE2
-	LDA.w #$0401				;$B3EAE4
-	STA.w $04E4				;$B3EAE7
+	JSR CODE_B3ECB9				;$B3EAC9
+	SEP #$20				;$B3EACC
+	LDX #$2601				;$B3EACE
+	STX HDMA[$02].Parameters		;$B3EAD1
+	LDX #$7EA17A				;$B3EAD4
+	STX HDMA[$02].SourceLo			;$B3EAD7
+	LDA #$7EA17A>>16			;$B3EADA
+	STA HDMA[$02].SourceBank		;$B3EADC
+	STA HDMA[$02].IndirectSourceBank	;$B3EADF
+	REP #$20				;$B3EAE2
+	LDA #$0401				;$B3EAE4
+	STA $04E4				;$B3EAE7
 	RTS					;$B3EAEA
 
 CODE_B3EAEB:
@@ -9952,83 +9952,83 @@ CODE_B3EB61:
 
 CODE_B3EB7A:
 	LDA.l DATA_B3EC81,x			;$B3EB7A
-	STA.l $7EA45A,x				;$B3EB7E
+	STA $7EA45A,x				;$B3EB7E
 	LDA.l DATA_B3ECA3,x			;$B3EB82
-	STA.l $7EA4DA,x				;$B3EB86
+	STA $7EA4DA,x				;$B3EB86
 	INX					;$B3EB8A
 	INX					;$B3EB8B
-	CPX.w #$0020				;$B3EB8C
-	BNE.b CODE_B3EB7A			;$B3EB8F
+	CPX #$0020				;$B3EB8C
+	BNE CODE_B3EB7A				;$B3EB8F
 CODE_B3EB91:
-	LDA.w #$2450				;$B3EB91
-	STA.l $7EA17A				;$B3EB94
-	LDA.w #$2450				;$B3EB98
-	STA.l $7EA17C				;$B3EB9B
-	LDA.w #$6401				;$B3EB9F
-	STA.l $7EA17E				;$B3EBA2
-	LDA.w #$0050				;$B3EBA6
-	STA.l $7EA19A				;$B3EBA9
-	STA.l $7EA19D				;$B3EBAD
-	LDA.w #$0001				;$B3EBB1
-	STA.l $7EA1A0				;$B3EBB4
-	LDA.w #$00FF				;$B3EBB8
-	STA.l $7EA19B				;$B3EBBB
-	STA.l $7EA19E				;$B3EBBF
+	LDA #$2450				;$B3EB91
+	STA $7EA17A				;$B3EB94
+	LDA #$2450				;$B3EB98
+	STA $7EA17C				;$B3EB9B
+	LDA #$6401				;$B3EB9F
+	STA $7EA17E				;$B3EBA2
+	LDA #$0050				;$B3EBA6
+	STA $7EA19A				;$B3EBA9
+	STA $7EA19D				;$B3EBAD
+	LDA #$0001				;$B3EBB1
+	STA $7EA1A0				;$B3EBB4
+	LDA #$00FF				;$B3EBB8
+	STA $7EA19B				;$B3EBBB
+	STA $7EA19E				;$B3EBBF
 	XBA					;$B3EBC3
-	STA.l $7EA1A1				;$B3EBC4
-	SEP.b #$20				;$B3EBC8
-	LDX.w #(!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$43	;$B3EBCA
-	STX.w HDMA[$01].Parameters		;$B3EBCD
-	LDX.w #$7EA15A				;$B3EBD0
-	STX.w HDMA[$01].SourceLo		;$B3EBD3
-	LDA.b #$7EA15A>>16			;$B3EBD6
-	STA.w HDMA[$01].SourceBank		;$B3EBD8
-	STA.w HDMA[$01].IndirectSourceBank	;$B3EBDB
-	LDX.w #(!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$01	;$B3EBDE
-	STX.w HDMA[$02].Parameters		;$B3EBE1
-	LDX.w #$7EA19A				;$B3EBE4
-	STX.w HDMA[$02].SourceLo		;$B3EBE7
-	LDA.b #$7EA19A>>16			;$B3EBEA
-	STA.w HDMA[$02].SourceBank		;$B3EBEC
-	STA.w HDMA[$02].IndirectSourceBank	;$B3EBEF
-	LDX.w #(!REGISTER_ColorMathSelectAndEnable&$0000FF<<8)+$00	;$B3EBF2
-	STX.w HDMA[$03].Parameters		;$B3EBF5
-	LDX.w #$7EA17A				;$B3EBF8
-	STX.w HDMA[$03].SourceLo		;$B3EBFB
-	LDA.b #$7EA17A>>16			;$B3EBFE
-	STA.w HDMA[$03].SourceBank		;$B3EC00
-	STA.w HDMA[$03].IndirectSourceBank	;$B3EC03
-	LDX.w #(!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$43	;$B3EC06
-	STX.w HDMA[$04].Parameters		;$B3EC09
-	LDX.w #$7EA55A				;$B3EC0C
-	STX.w HDMA[$04].SourceLo		;$B3EC0F
-	LDA.b #$7EA55A>>16			;$B3EC12
-	STA.w HDMA[$04].SourceBank		;$B3EC14
-	STA.w HDMA[$04].IndirectSourceBank	;$B3EC17
-	LDX.w #(!REGISTER_BG1HorizScrollOffset&$0000FF<<8)+$43	;$B3EC1A
-	STX.w HDMA[$05].Parameters		;$B3EC1D
-	LDX.w #$7EA35A				;$B3EC20
-	STX.w HDMA[$05].SourceLo		;$B3EC23
-	LDA.b #$7EA35A>>16			;$B3EC26
-	STA.w HDMA[$05].SourceBank		;$B3EC28
-	STA.w HDMA[$05].IndirectSourceBank	;$B3EC2B
-	LDX.w #(!REGISTER_CGRAMAddress&$0000FF<<8)+$03	;$B3EC2E
-	STX.w HDMA[$06].Parameters		;$B3EC31
-	LDX.w #$7EA45A				;$B3EC34
-	STX.w HDMA[$06].SourceLo		;$B3EC37
-	LDA.b #$7EA45A>>16			;$B3EC3A
-	STA.w HDMA[$06].SourceBank		;$B3EC3C
-	STA.w HDMA[$06].IndirectSourceBank	;$B3EC3F
-	LDX.w #(!REGISTER_MainScreenLayers&$0000FF<<8)+$01	;$B3EC42
-	STX.w HDMA[$07].Parameters		;$B3EC45
-	LDX.w #$7EA4DA				;$B3EC48
-	STX.w HDMA[$07].SourceLo		;$B3EC4B
-	LDA.b #$7EA4DA>>16			;$B3EC4E
-	STA.w HDMA[$07].SourceBank		;$B3EC50
-	STA.w HDMA[$07].IndirectSourceBank	;$B3EC53
-	REP.b #$20				;$B3EC56
-	LDA.w #$FE01				;$B3EC58
-	STA.w $04E4				;$B3EC5B
+	STA $7EA1A1				;$B3EBC4
+	SEP #$20				;$B3EBC8
+	LDX #$0F43				;$B3EBCA
+	STX HDMA[$01].Parameters		;$B3EBCD
+	LDX #$7EA15A				;$B3EBD0
+	STX HDMA[$01].SourceLo			;$B3EBD3
+	LDA #$7EA15A>>16			;$B3EBD6
+	STA HDMA[$01].SourceBank		;$B3EBD8
+	STA HDMA[$01].IndirectSourceBank	;$B3EBDB
+	LDX #$2601				;$B3EBDE
+	STX HDMA[$02].Parameters		;$B3EBE1
+	LDX #$7EA19A				;$B3EBE4
+	STX HDMA[$02].SourceLo			;$B3EBE7
+	LDA #$7EA19A>>16			;$B3EBEA
+	STA HDMA[$02].SourceBank		;$B3EBEC
+	STA HDMA[$02].IndirectSourceBank	;$B3EBEF
+	LDX #$3100				;$B3EBF2
+	STX HDMA[$03].Parameters		;$B3EBF5
+	LDX #$7EA17A				;$B3EBF8
+	STX HDMA[$03].SourceLo			;$B3EBFB
+	LDA #$7EA17A>>16			;$B3EBFE
+	STA HDMA[$03].SourceBank		;$B3EC00
+	STA HDMA[$03].IndirectSourceBank	;$B3EC03
+	LDX #$1143 				;$B3EC06
+	STX HDMA[$04].Parameters		;$B3EC09
+	LDX #$7EA55A				;$B3EC0C
+	STX HDMA[$04].SourceLo			;$B3EC0F
+	LDA #$7EA55A>>16			;$B3EC12
+	STA HDMA[$04].SourceBank		;$B3EC14
+	STA HDMA[$04].IndirectSourceBank	;$B3EC17
+	LDX #$0D43				;$B3EC1A
+	STX HDMA[$05].Parameters		;$B3EC1D
+	LDX #$7EA35A				;$B3EC20
+	STX HDMA[$05].SourceLo			;$B3EC23
+	LDA #$7EA35A>>16			;$B3EC26
+	STA HDMA[$05].SourceBank		;$B3EC28
+	STA HDMA[$05].IndirectSourceBank	;$B3EC2B
+	LDX #$2103				;$B3EC2E
+	STX HDMA[$06].Parameters		;$B3EC31
+	LDX #$7EA45A				;$B3EC34
+	STX HDMA[$06].SourceLo			;$B3EC37
+	LDA #$7EA45A>>16			;$B3EC3A
+	STA HDMA[$06].SourceBank		;$B3EC3C
+	STA HDMA[$06].IndirectSourceBank	;$B3EC3F
+	LDX #$2C01 				;$B3EC42
+	STX HDMA[$07].Parameters		;$B3EC45
+	LDX #$7EA4DA				;$B3EC48
+	STX HDMA[$07].SourceLo			;$B3EC4B
+	LDA #$7EA4DA>>16			;$B3EC4E
+	STA HDMA[$07].SourceBank		;$B3EC50
+	STA HDMA[$07].IndirectSourceBank	;$B3EC53
+	REP #$20				;$B3EC56
+	LDA #$FE01				;$B3EC58
+	STA $04E4				;$B3EC5B
 	RTS					;$B3EC5E
 
 DATA_B3EC5F:
@@ -10045,179 +10045,179 @@ DATA_B3ECA3:
 	db $38,$17,$13,$38,$17,$13,$27,$15,$02,$09,$05,$12,$01,$04,$13,$00
 
 CODE_B3ECB3:
-	LDA.w #$0001				;$B3ECB3
-	STA.w $04E4				;$B3ECB6
+	LDA #$0001				;$B3ECB3
+	STA $04E4				;$B3ECB6
 CODE_B3ECB9:
-	LDA.w #$1200				;$B3ECB9
-	STA.b $80				;$B3ECBC
+	LDA #$1200				;$B3ECB9
+	STA $80					;$B3ECBC
 	RTS					;$B3ECBE
 
 CODE_B3ECBF:
-	LDA.w #$0170				;$B3ECBF
-	STA.l $7E9B5A				;$B3ECC2
-	LDA.w #$1180				;$B3ECC6
-	STA.b $80				;$B3ECC9
-	LDX.w #$000C				;$B3ECCB
+	LDA #$0170				;$B3ECBF
+	STA $7E9B5A				;$B3ECC2
+	LDA #$1180				;$B3ECC6
+	STA $80					;$B3ECC9
+	LDX #$000C				;$B3ECCB
 CODE_B3ECCE:
 	LDA.l DATA_B3EE8D,x			;$B3ECCE
-	STA.l $7EA46A,x				;$B3ECD2
+	STA $7EA46A,x				;$B3ECD2
 	DEX					;$B3ECD6
 	DEX					;$B3ECD7
-	BPL.b CODE_B3ECCE			;$B3ECD8
-	LDX.w #$0012				;$B3ECDA
+	BPL CODE_B3ECCE				;$B3ECD8
+	LDX #$0012				;$B3ECDA
 CODE_B3ECDD:
 	LDA.l DATA_B3EE9A,x			;$B3ECDD
-	STA.l $7EA478,x				;$B3ECE1
+	STA $7EA478,x				;$B3ECE1
 	DEX					;$B3ECE5
 	DEX					;$B3ECE6
-	BPL.b CODE_B3ECDD			;$B3ECE7
-	LDX.w #$000E				;$B3ECE9
+	BPL CODE_B3ECDD				;$B3ECE7
+	LDX #$000E				;$B3ECE9
 CODE_B3ECEC:
 	LDA.l DATA_B3EEAA,x			;$B3ECEC
-	STA.l $7EA48C,x				;$B3ECF0
+	STA $7EA48C,x				;$B3ECF0
 	DEX					;$B3ECF4
 	DEX					;$B3ECF5
-	BPL.b CODE_B3ECEC			;$B3ECF6
-	LDX.w #$0014				;$B3ECF8
+	BPL CODE_B3ECEC				;$B3ECF6
+	LDX #$0014				;$B3ECF8
 CODE_B3ECFB:
 	LDA.l DATA_B3EEBA,x			;$B3ECFB
-	STA.l $7EA49C,x				;$B3ECFF
+	STA $7EA49C,x				;$B3ECFF
 	DEX					;$B3ED03
 	DEX					;$B3ED04
-	BPL.b CODE_B3ECFB			;$B3ED05
-	LDX.w #$0040				;$B3ED07
-	LDA.w #$005C				;$B3ED0A
-	STA.l $7EA15A,x				;$B3ED0D
-	LDA.w #$A1EA				;$B3ED11
-	STA.l $7EA15B,x				;$B3ED14
+	BPL CODE_B3ECFB				;$B3ED05
+	LDX #$0040				;$B3ED07
+	LDA #$005C				;$B3ED0A
+	STA $7EA15A,x				;$B3ED0D
+	LDA #$A1EA				;$B3ED11
+	STA $7EA15B,x				;$B3ED14
 	INX					;$B3ED18
 	INX					;$B3ED19
 	INX					;$B3ED1A
 CODE_B3ED1B:
-	LDA.w #$0090				;$B3ED1B
-	STA.l $7EA15A,x				;$B3ED1E
-	LDA.w #$A1EA				;$B3ED22
-	STA.l $7EA15B,x				;$B3ED25
+	LDA #$0090				;$B3ED1B
+	STA $7EA15A,x				;$B3ED1E
+	LDA #$A1EA				;$B3ED22
+	STA $7EA15B,x				;$B3ED25
 	INX					;$B3ED29
 	INX					;$B3ED2A
 	INX					;$B3ED2B
-	CPX.w #$0073				;$B3ED2C
-	BNE.b CODE_B3ED1B			;$B3ED2F
+	CPX #$0073				;$B3ED2C
+	BNE CODE_B3ED1B				;$B3ED2F
 	PEA.w ((DATA_B3ABF4&$FF0000)>>16)|((RESET_start&$FF0000)>>8)	;$B3ED31
 	PLB					;$B3ED34
-	LDY.w #$0000				;$B3ED35
-	LDX.w #$0000				;$B3ED38
+	LDY #$0000				;$B3ED35
+	LDX #$0000				;$B3ED38
 CODE_B3ED3B:
-	LDA.w DATA_B3ABF4,y			;$B3ED3B
-	STA.l $7EA40A,x				;$B3ED3E
-	LDA.w #$0000				;$B3ED42
-	STA.l $7EA40C,x				;$B3ED45
+	LDA DATA_B3ABF4,y			;$B3ED3B
+	STA $7EA40A,x				;$B3ED3E
+	LDA #$0000				;$B3ED42
+	STA $7EA40C,x				;$B3ED45
 	INY					;$B3ED49
 	INY					;$B3ED4A
 	INX					;$B3ED4B
 	INX					;$B3ED4C
 	INX					;$B3ED4D
 	INX					;$B3ED4E
-	CPY.w #$0020				;$B3ED4F
-	BNE.b CODE_B3ED3B			;$B3ED52
+	CPY #$0020				;$B3ED4F
+	BNE CODE_B3ED3B				;$B3ED52
 	PLB					;$B3ED54
-	LDA.w #$A44A				;$B3ED55
-	STA.l $7EA15B				;$B3ED58
-	STA.l $7EA15E				;$B3ED5C
-	STA.l $7EA164				;$B3ED60
-	STA.l $7EA167				;$B3ED64
-	STA.l $7EA16A				;$B3ED68
-	STA.l $7EA16D				;$B3ED6C
-	STA.l $7EA170				;$B3ED70
-	STA.l $7EA173				;$B3ED74
-	LDA.w #$A4BA				;$B3ED78
-	STA.l $7EA20B				;$B3ED7B
-	LDA.w #$A4BE				;$B3ED7F
-	STA.l $7EA20E				;$B3ED82
-	LDA.w #$A52A				;$B3ED86
-	STA.l $7EA211				;$B3ED89
-	STA.l $7EA214				;$B3ED8D
-	LDA.w #$A1DA				;$B3ED91
-	STA.l $7EA217				;$B3ED94
-	LDA.w #$A402				;$B3ED98
-	STA.l $7EA21A				;$B3ED9B
-	LDA.w #$A40A				;$B3ED9F
-	STA.l $7EA21D				;$B3EDA2
-	STA.l $7EA220				;$B3EDA6
-	STA.l $7EA223				;$B3EDAA
-	STA.l $7EA226				;$B3EDAE
-	STA.l $7EA229				;$B3EDB2
-	SEP.b #$20				;$B3EDB6
-	LDA.b #$90				;$B3EDB8
-	STA.l $7EA163				;$B3EDBA
-	STA.l $7EA166				;$B3EDBE
-	STA.l $7EA169				;$B3EDC2
-	STA.l $7EA16C				;$B3EDC6
-	STA.l $7EA16F				;$B3EDCA
-	STA.l $7EA172				;$B3EDCE
-	STA.l $7EA21F				;$B3EDD2
-	STA.l $7EA222				;$B3EDD6
-	STA.l $7EA225				;$B3EDDA
-	STA.l $7EA228				;$B3EDDE
-	LDA.b #$00				;$B3EDE2
-	STA.l $7EA175				;$B3EDE4
-	STA.l $7EA22B				;$B3EDE8
-	LDA.b #$84				;$B3EDEC
-	STA.l $7EA216				;$B3EDEE
-	LDA.b #$20				;$B3EDF2
-	STA.l $7EA219				;$B3EDF4
-	LDX.w #(!REGISTER_FixedColorData&$0000FF<<8)+$00	;$B3EDF8
-	STX.w HDMA[$01].Parameters		;$B3EDFB
-	LDX.w #$7EA46A				;$B3EDFE
-	STX.w HDMA[$01].SourceLo		;$B3EE01
-	LDA.b #$7EA46A>>16			;$B3EE04
-	STA.w HDMA[$01].SourceBank		;$B3EE06
-	STA.w HDMA[$01].IndirectSourceBank	;$B3EE09
-	LDX.w #(!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$42	;$B3EE0C
-	STX.w HDMA[$02].Parameters		;$B3EE0F
-	LDX.w #$7EA15A				;$B3EE12
-	STX.w HDMA[$02].SourceLo		;$B3EE15
-	LDA.b #$7EA15A>>16			;$B3EE18
-	STA.w HDMA[$02].SourceBank		;$B3EE1A
-	STA.w HDMA[$02].IndirectSourceBank	;$B3EE1D
-	LDX.w #(!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$42	;$B3EE20
-	STX.w HDMA[$03].Parameters		;$B3EE23
-	LDX.w #$7EA19A				;$B3EE26
-	STX.w HDMA[$03].SourceLo		;$B3EE29
-	LDA.b #$7EA19A>>16			;$B3EE2C
-	STA.w HDMA[$03].SourceBank		;$B3EE2E
-	STA.w HDMA[$03].IndirectSourceBank	;$B3EE31
-	LDX.w #(!REGISTER_MainScreenLayers&$0000FF<<8)+$01	;$B3EE34
-	STX.w HDMA[$04].Parameters		;$B3EE37
-	LDX.w #$7EA478				;$B3EE3A
-	STX.w HDMA[$04].SourceLo		;$B3EE3D
-	LDA.b #$7EA478>>16			;$B3EE40
-	STA.w HDMA[$04].SourceBank		;$B3EE42
-	STA.w HDMA[$04].IndirectSourceBank	;$B3EE45
-	LDX.w #(!REGISTER_ColorMathInitialSettings&$0000FF<<8)+$01	;$B3EE48
-	STX.w HDMA[$05].Parameters		;$B3EE4B
-	LDX.w #$7EA48C				;$B3EE4E
-	STX.w HDMA[$05].SourceLo		;$B3EE51
-	LDA.b #$7EA48C>>16			;$B3EE54
-	STA.w HDMA[$05].SourceBank		;$B3EE56
-	STA.w HDMA[$05].IndirectSourceBank	;$B3EE59
-	LDX.w #(!REGISTER_CGRAMAddress&$0000FF<<8)+$03	;$B3EE5C
-	STX.w HDMA[$06].Parameters		;$B3EE5F
-	LDX.w #$7EA49C				;$B3EE62
-	STX.w HDMA[$06].SourceLo		;$B3EE65
-	LDA.b #$7EA49C>>16			;$B3EE68
-	STA.w HDMA[$06].SourceBank		;$B3EE6A
-	STA.w HDMA[$06].IndirectSourceBank	;$B3EE6D
-	LDX.w #(!REGISTER_BG1HorizScrollOffset&$0000FF<<8)+$43	;$B3EE70
-	STX.w HDMA[$07].Parameters		;$B3EE73
-	LDX.w #$7EA20A				;$B3EE76
-	STX.w HDMA[$07].SourceLo		;$B3EE79
-	LDA.b #$7EA20A>>16			;$B3EE7C
-	STA.w HDMA[$07].SourceBank		;$B3EE7E
-	STA.w HDMA[$07].IndirectSourceBank	;$B3EE81
-	REP.b #$20				;$B3EE84
-	LDA.w #$FE01				;$B3EE86
-	STA.w $04E4				;$B3EE89
+	LDA #$A44A				;$B3ED55
+	STA $7EA15B				;$B3ED58
+	STA $7EA15E				;$B3ED5C
+	STA $7EA164				;$B3ED60
+	STA $7EA167				;$B3ED64
+	STA $7EA16A				;$B3ED68
+	STA $7EA16D				;$B3ED6C
+	STA $7EA170				;$B3ED70
+	STA $7EA173				;$B3ED74
+	LDA #$A4BA				;$B3ED78
+	STA $7EA20B				;$B3ED7B
+	LDA #$A4BE				;$B3ED7F
+	STA $7EA20E				;$B3ED82
+	LDA #$A52A				;$B3ED86
+	STA $7EA211				;$B3ED89
+	STA $7EA214				;$B3ED8D
+	LDA #$A1DA				;$B3ED91
+	STA $7EA217				;$B3ED94
+	LDA #$A402				;$B3ED98
+	STA $7EA21A				;$B3ED9B
+	LDA #$A40A				;$B3ED9F
+	STA $7EA21D				;$B3EDA2
+	STA $7EA220				;$B3EDA6
+	STA $7EA223				;$B3EDAA
+	STA $7EA226				;$B3EDAE
+	STA $7EA229				;$B3EDB2
+	SEP #$20				;$B3EDB6
+	LDA #$90				;$B3EDB8
+	STA $7EA163				;$B3EDBA
+	STA $7EA166				;$B3EDBE
+	STA $7EA169				;$B3EDC2
+	STA $7EA16C				;$B3EDC6
+	STA $7EA16F				;$B3EDCA
+	STA $7EA172				;$B3EDCE
+	STA $7EA21F				;$B3EDD2
+	STA $7EA222				;$B3EDD6
+	STA $7EA225				;$B3EDDA
+	STA $7EA228				;$B3EDDE
+	LDA #$00				;$B3EDE2
+	STA $7EA175				;$B3EDE4
+	STA $7EA22B				;$B3EDE8
+	LDA #$84				;$B3EDEC
+	STA $7EA216				;$B3EDEE
+	LDA #$20				;$B3EDF2
+	STA $7EA219				;$B3EDF4
+	LDX #$3200				;$B3EDF8
+	STX HDMA[$01].Parameters		;$B3EDFB
+	LDX #$7EA46A				;$B3EDFE
+	STX HDMA[$01].SourceLo		;$B3EE01
+	LDA #$7EA46A>>16			;$B3EE04
+	STA HDMA[$01].SourceBank		;$B3EE06
+	STA HDMA[$01].IndirectSourceBank	;$B3EE09
+	LDX #$0F42 				;$B3EE0C
+	STX HDMA[$02].Parameters		;$B3EE0F
+	LDX #$7EA15A				;$B3EE12
+	STX HDMA[$02].SourceLo		;$B3EE15
+	LDA #$7EA15A>>16			;$B3EE18
+	STA HDMA[$02].SourceBank		;$B3EE1A
+	STA HDMA[$02].IndirectSourceBank	;$B3EE1D
+	LDX #$1142				;$B3EE20
+	STX HDMA[$03].Parameters		;$B3EE23
+	LDX #$7EA19A				;$B3EE26
+	STX HDMA[$03].SourceLo		;$B3EE29
+	LDA #$7EA19A>>16			;$B3EE2C
+	STA HDMA[$03].SourceBank		;$B3EE2E
+	STA HDMA[$03].IndirectSourceBank	;$B3EE31
+	LDX #$2C01 				;$B3EE34
+	STX HDMA[$04].Parameters		;$B3EE37
+	LDX #$7EA478				;$B3EE3A
+	STX HDMA[$04].SourceLo		;$B3EE3D
+	LDA #$7EA478>>16			;$B3EE40
+	STA HDMA[$04].SourceBank		;$B3EE42
+	STA HDMA[$04].IndirectSourceBank	;$B3EE45
+	LDX #$3001				;$B3EE48
+	STX HDMA[$05].Parameters		;$B3EE4B
+	LDX #$7EA48C				;$B3EE4E
+	STX HDMA[$05].SourceLo		;$B3EE51
+	LDA #$7EA48C>>16			;$B3EE54
+	STA HDMA[$05].SourceBank		;$B3EE56
+	STA HDMA[$05].IndirectSourceBank	;$B3EE59
+	LDX #$2103				;$B3EE5C
+	STX HDMA[$06].Parameters		;$B3EE5F
+	LDX #$7EA49C				;$B3EE62
+	STX HDMA[$06].SourceLo		;$B3EE65
+	LDA #$7EA49C>>16			;$B3EE68
+	STA HDMA[$06].SourceBank		;$B3EE6A
+	STA HDMA[$06].IndirectSourceBank	;$B3EE6D
+	LDX #$0D43 				;$B3EE70
+	STX HDMA[$07].Parameters		;$B3EE73
+	LDX #$7EA20A				;$B3EE76
+	STX HDMA[$07].SourceLo		;$B3EE79
+	LDA #$7EA20A>>16			;$B3EE7C
+	STA HDMA[$07].SourceBank		;$B3EE7E
+	STA HDMA[$07].IndirectSourceBank	;$B3EE81
+	REP #$20				;$B3EE84
+	LDA #$FE01				;$B3EE86
+	STA $04E4				;$B3EE89
 	RTS					;$B3EE8C
 
 DATA_B3EE8D:
@@ -10234,304 +10234,306 @@ DATA_B3EEBA:
 	db $00,$00,$60,$18,$00
 
 CODE_B3EECF:
-	JSR.w CODE_B3ECB9			;$B3EECF
-	LDA.w #$7864				;$B3EED2
-	STA.l $7EA16A				;$B3EED5
-	STA.l $7EA16C				;$B3EED9
-	LDA.w #$7464				;$B3EEDD
-	STA.l $7EA16E				;$B3EEE0
-	LDA.w #$0006				;$B3EEE4
-	STA.l $7EA171				;$B3EEE7
-	STA.l $7EA176				;$B3EEEB
-	LDA.w #$0004				;$B3EEEF
-	STA.l $7EA17B				;$B3EEF2
-	LDA.w #$2020				;$B3EEF6
+	JSR CODE_B3ECB9				;$B3EECF
+	LDA #$7864				;$B3EED2
+	STA $7EA16A				;$B3EED5
+	STA $7EA16C				;$B3EED9
+	LDA #$7464				;$B3EEDD
+	STA $7EA16E				;$B3EEE0
+	LDA #$0006				;$B3EEE4
+	STA $7EA171				;$B3EEE7
+	STA $7EA176				;$B3EEEB
+	LDA #$0004				;$B3EEEF
+	STA $7EA17B				;$B3EEF2
+	LDA #$2020				;$B3EEF6
 	STA.w !REGISTER_ColorMathInitialSettings	;$B3EEF9
-	STA.l $7EA173				;$B3EEFC
-	STA.l $7EA178				;$B3EF00
-	LDA.w #$2220				;$B3EF04
-	STA.l $7EA17D				;$B3EF07
-	LDA.w #$001F				;$B3EF0B
-	STA.l $7EA167				;$B3EF0E
-	LDA.w #$4464				;$B3EF12
-	STA.l $7EA18A				;$B3EF15
-	STA.l $7EA18C				;$B3EF19
-	LDA.w #$4664				;$B3EF1D
-	STA.l $7EA18E				;$B3EF20
-	SEP.b #$20				;$B3EF24
-	LDA.b #$64				;$B3EF26
-	STA.l $7EA170				;$B3EF28
-	STA.l $7EA175				;$B3EF2C
-	STA.l $7EA17A				;$B3EF30
-	STA.l $7EA15A				;$B3EF34
-	STA.l $7EA15F				;$B3EF38
-	LDA.b #$01				;$B3EF3C
-	STA.l $7EA164				;$B3EF3E
+	STA $7EA173				;$B3EEFC
+	STA $7EA178				;$B3EF00
+	LDA #$2220				;$B3EF04
+	STA $7EA17D				;$B3EF07
+	LDA #$001F				;$B3EF0B
+	STA $7EA167				;$B3EF0E
+	LDA #$4464				;$B3EF12
+	STA $7EA18A				;$B3EF15
+	STA $7EA18C				;$B3EF19
+	LDA #$4664				;$B3EF1D
+	STA $7EA18E				;$B3EF20
+	SEP #$20				;$B3EF24
+	LDA #$64				;$B3EF26
+	STA $7EA170				;$B3EF28
+	STA $7EA175				;$B3EF2C
+	STA $7EA17A				;$B3EF30
+	STA $7EA15A				;$B3EF34
+	STA $7EA15F				;$B3EF38
+	LDA #$01				;$B3EF3C
+	STA $7EA164				;$B3EF3E
 	DEC					;$B3EF42
-	STA.l $7EA169				;$B3EF43
-	LDX.w #(!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$03	;$B3EF47
-	STX.w HDMA[$01].Parameters		;$B3EF4A
-	LDX.w #$7EA15A				;$B3EF4D
-	STX.w HDMA[$01].SourceLo		;$B3EF50
-	LDA.b #$7EA15A>>16			;$B3EF53
-	STA.w HDMA[$01].SourceBank		;$B3EF55
-	STA.w HDMA[$01].IndirectSourceBank	;$B3EF58
-	LDX.w #(!REGISTER_BG2AddressAndSize&$0000FF<<8)+$00	;$B3EF5B
-	STX.w HDMA[$02].Parameters		;$B3EF5E
-	LDX.w #$7EA16A				;$B3EF61
-	STX.w HDMA[$02].SourceLo		;$B3EF64
-	LDA.b #$7EA16A>>16			;$B3EF67
-	STA.w HDMA[$02].SourceBank		;$B3EF69
-	STA.w HDMA[$02].IndirectSourceBank	;$B3EF6C
-	LDX.w #(!REGISTER_MainScreenWindowMask&$0000FF<<8)+$04	;$B3EF6F
-	STX.w HDMA[$03].Parameters		;$B3EF72
-	LDX.w #$7EA170				;$B3EF75
-	STX.w HDMA[$03].SourceLo		;$B3EF78
-	LDA.b #$7EA170>>16			;$B3EF7B
-	STA.w HDMA[$03].SourceBank		;$B3EF7D
-	STA.w HDMA[$03].IndirectSourceBank	;$B3EF80
-	LDX.w #(!REGISTER_FixedColorData&$0000FF<<8)+$00	;$B3EF83
-	STX.w HDMA[$04].Parameters		;$B3EF86
-	LDX.w #$7EA18A				;$B3EF89
-	STX.w HDMA[$04].SourceLo		;$B3EF8C
-	LDA.b #$7EA18A>>16			;$B3EF8F
-	STA.w HDMA[$04].SourceBank		;$B3EF91
-	STA.w HDMA[$04].IndirectSourceBank	;$B3EF94
-	REP.b #$20				;$B3EF97
-	LDA.w #$1E01				;$B3EF99
-	STA.w $04E4				;$B3EF9C
+	STA $7EA169				;$B3EF43
+	LDX #$0F03				;$B3EF47
+	STX HDMA[$01].Parameters		;$B3EF4A
+	LDX #$7EA15A				;$B3EF4D
+	STX HDMA[$01].SourceLo			;$B3EF50
+	LDA #$7EA15A>>16			;$B3EF53
+	STA HDMA[$01].SourceBank		;$B3EF55
+	STA HDMA[$01].IndirectSourceBank	;$B3EF58
+	LDX #$0800				;$B3EF5B
+	STX HDMA[$02].Parameters		;$B3EF5E
+	LDX #$7EA16A				;$B3EF61
+	STX HDMA[$02].SourceLo			;$B3EF64
+	LDA #$7EA16A>>16			;$B3EF67
+	STA HDMA[$02].SourceBank		;$B3EF69
+	STA HDMA[$02].IndirectSourceBank	;$B3EF6C
+	LDX #$2E04				;$B3EF6F
+	STX HDMA[$03].Parameters		;$B3EF72
+	LDX #$7EA170				;$B3EF75
+	STX HDMA[$03].SourceLo			;$B3EF78
+	LDA #$7EA170>>16			;$B3EF7B
+	STA HDMA[$03].SourceBank		;$B3EF7D
+	STA HDMA[$03].IndirectSourceBank	;$B3EF80
+	LDX #$3200				;$B3EF83
+	STX HDMA[$04].Parameters		;$B3EF86
+	LDX #$7EA18A				;$B3EF89
+	STX HDMA[$04].SourceLo			;$B3EF8C
+	LDA #$7EA18A>>16			;$B3EF8F
+	STA HDMA[$04].SourceBank		;$B3EF91
+	STA HDMA[$04].IndirectSourceBank	;$B3EF94
+	REP #$20				;$B3EF97
+	LDA #$1E01				;$B3EF99
+	STA $04E4				;$B3EF9C
 	RTS					;$B3EF9F
 
 CODE_B3EFA0:
-	JSR.w CODE_B3ECB9			;$B3EFA0
-	LDA.w #$7864				;$B3EFA3
-	STA.l $7EA16A				;$B3EFA6
-	STA.l $7EA16C				;$B3EFAA
-	LDA.w #$7464				;$B3EFAE
-	STA.l $7EA16E				;$B3EFB1
-	LDA.w #$0006				;$B3EFB5
-	STA.l $7EA171				;$B3EFB8
-	STA.l $7EA176				;$B3EFBC
-	LDA.w #$0004				;$B3EFC0
-	STA.l $7EA17B				;$B3EFC3
-	LDA.w #$2020				;$B3EFC7
+	JSR CODE_B3ECB9				;$B3EFA0
+	LDA #$7864				;$B3EFA3
+	STA $7EA16A				;$B3EFA6
+	STA $7EA16C				;$B3EFAA
+	LDA #$7464				;$B3EFAE
+	STA $7EA16E				;$B3EFB1
+	LDA #$0006				;$B3EFB5
+	STA $7EA171				;$B3EFB8
+	STA $7EA176				;$B3EFBC
+	LDA #$0004				;$B3EFC0
+	STA $7EA17B				;$B3EFC3
+	LDA #$2020				;$B3EFC7
 	STA.w !REGISTER_ColorMathInitialSettings	;$B3EFCA
-	STA.l $7EA173				;$B3EFCD
-	STA.l $7EA178				;$B3EFD1
-	LDA.w #$2220				;$B3EFD5
-	STA.l $7EA17D				;$B3EFD8
-	LDA.w #$001F				;$B3EFDC
-	STA.l $7EA167				;$B3EFDF
-	LDA.w #$4464				;$B3EFE3
-	STA.l $7EA18A				;$B3EFE6
-	STA.l $7EA18C				;$B3EFEA
-	LDA.w #$4664				;$B3EFEE
-	STA.l $7EA18E				;$B3EFF1
-	SEP.b #$20				;$B3EFF5
-	LDA.b #$64				;$B3EFF7
-	STA.l $7EA170				;$B3EFF9
-	STA.l $7EA175				;$B3EFFD
-	STA.l $7EA17A				;$B3F001
-	STA.l $7EA15A				;$B3F005
-	STA.l $7EA15F				;$B3F009
-	LDA.b #$01				;$B3F00D
-	STA.l $7EA164				;$B3F00F
+	STA $7EA173				;$B3EFCD
+	STA $7EA178				;$B3EFD1
+	LDA #$2220				;$B3EFD5
+	STA $7EA17D				;$B3EFD8
+	LDA #$001F				;$B3EFDC
+	STA $7EA167				;$B3EFDF
+	LDA #$4464				;$B3EFE3
+	STA $7EA18A				;$B3EFE6
+	STA $7EA18C				;$B3EFEA
+	LDA #$4664				;$B3EFEE
+	STA $7EA18E				;$B3EFF1
+	SEP #$20				;$B3EFF5
+	LDA #$64				;$B3EFF7
+	STA $7EA170				;$B3EFF9
+	STA $7EA175				;$B3EFFD
+	STA $7EA17A				;$B3F001
+	STA $7EA15A				;$B3F005
+	STA $7EA15F				;$B3F009
+	LDA #$01				;$B3F00D
+	STA $7EA164				;$B3F00F
 	DEC					;$B3F013
-	STA.l $7EA169				;$B3F014
-	LDX.w #(!REGISTER_BG2HorizScrollOffset&$0000FF<<8)+$03	;$B3F018
-	STX.w HDMA[$01].Parameters		;$B3F01B
-	LDX.w #$7EA15A				;$B3F01E
-	STX.w HDMA[$01].SourceLo		;$B3F021
-	LDA.b #$7EA15A>>16			;$B3F024
-	STA.w HDMA[$01].SourceBank		;$B3F026
-	STA.w HDMA[$01].IndirectSourceBank	;$B3F029
-	LDX.w #(!REGISTER_BG2AddressAndSize&$0000FF<<8)+$00	;$B3F02C
-	STX.w HDMA[$02].Parameters		;$B3F02F
-	LDX.w #$7EA16A				;$B3F032
-	STX.w HDMA[$02].SourceLo		;$B3F035
-	LDA.b #$7EA16A>>16			;$B3F038
-	STA.w HDMA[$02].SourceBank		;$B3F03A
-	STA.w HDMA[$02].IndirectSourceBank	;$B3F03D
-	LDX.w #(!REGISTER_MainScreenWindowMask&$0000FF<<8)+$04	;$B3F040
-	STX.w HDMA[$03].Parameters		;$B3F043
-	LDX.w #$7EA170				;$B3F046
-	STX.w HDMA[$03].SourceLo		;$B3F049
-	LDA.b #$7EA170>>16			;$B3F04C
-	STA.w HDMA[$03].SourceBank		;$B3F04E
-	STA.w HDMA[$03].IndirectSourceBank	;$B3F051
-	LDX.w #(!REGISTER_FixedColorData&$0000FF<<8)+$00	;$B3F054
-	STX.w HDMA[$04].Parameters		;$B3F057
-	LDX.w #$7EA18A				;$B3F05A
-	STX.w HDMA[$04].SourceLo		;$B3F05D
-	LDA.b #$7EA18A>>16			;$B3F060
-	STA.w HDMA[$04].SourceBank		;$B3F062
-	STA.w HDMA[$04].IndirectSourceBank	;$B3F065
-	REP.b #$20				;$B3F068
-	LDA.w #$0001				;$B3F06A
-	STA.w $04E4				;$B3F06D
+	STA $7EA169				;$B3F014
+	LDX #$0F03				;$B3F018
+	STX HDMA[$01].Parameters		;$B3F01B
+	LDX #$7EA15A				;$B3F01E
+	STX HDMA[$01].SourceLo			;$B3F021
+	LDA #$7EA15A>>16			;$B3F024
+	STA HDMA[$01].SourceBank		;$B3F026
+	STA HDMA[$01].IndirectSourceBank	;$B3F029
+	LDX #$0800				;$B3F02C
+	STX HDMA[$02].Parameters		;$B3F02F
+	LDX #$7EA16A				;$B3F032
+	STX HDMA[$02].SourceLo			;$B3F035
+	LDA #$7EA16A>>16			;$B3F038
+	STA HDMA[$02].SourceBank		;$B3F03A
+	STA HDMA[$02].IndirectSourceBank	;$B3F03D
+	LDX #$2E04				;$B3F040
+	STX HDMA[$03].Parameters		;$B3F043
+	LDX #$7EA170				;$B3F046
+	STX HDMA[$03].SourceLo			;$B3F049
+	LDA #$7EA170>>16			;$B3F04C
+	STA HDMA[$03].SourceBank		;$B3F04E
+	STA HDMA[$03].IndirectSourceBank	;$B3F051
+	LDX #$3200				;$B3F054
+	STX HDMA[$04].Parameters		;$B3F057
+	LDX #$7EA18A				;$B3F05A
+	STX HDMA[$04].SourceLo			;$B3F05D
+	LDA #$7EA18A>>16			;$B3F060
+	STA HDMA[$04].SourceBank		;$B3F062
+	STA HDMA[$04].IndirectSourceBank	;$B3F065
+	REP #$20				;$B3F068
+	LDA #$0001				;$B3F06A
+	STA $04E4				;$B3F06D
 	RTS					;$B3F070
 
 CODE_B3F071:
-	JSR.w CODE_B3ECB9			;$B3F071
-	LDA.w #$1617				;$B3F074
-	STA.l $7EA15A				;$B3F077
-	LDA.w #$00C0				;$B3F07B
-	STA.l $7EA16A				;$B3F07E
-	LDA.w #$A27A				;$B3F082
-	STA.l $7EA16B				;$B3F085
-	LDA.w #$00C0				;$B3F089
-	STA.l $7EA16D				;$B3F08C
-	LDA.w #$A2FA				;$B3F090
-	STA.l $7EA16E				;$B3F093
-	LDA.w #$0001				;$B3F097
-	STA.l $7EA170				;$B3F09A
-	LDA.w #$A378				;$B3F09E
-	STA.l $7EA171				;$B3F0A1
-	LDA.w #$0000				;$B3F0A5
-	STA.l $7EA173				;$B3F0A8
-	LDA.w #$2140				;$B3F0AC
-	STA.l $7EA37A				;$B3F0AF
-	LDA.w #$213F				;$B3F0B3
-	STA.l $7EA37C				;$B3F0B6
-	LDA.w #$2001				;$B3F0BA
-	STA.l $7EA37E				;$B3F0BD
-	LDA.w #$0000				;$B3F0C1
-	STA.l $7EA380				;$B3F0C4
-	LDA.w #$00C0				;$B3F0C8
-	STA.l $7EA38A				;$B3F0CB
-	LDA.w #$A39A				;$B3F0CF
-	STA.l $7EA38B				;$B3F0D2
-	LDA.w #$00DF				;$B3F0D6
-	STA.l $7EA38D				;$B3F0D9
-	LDA.w #$A496				;$B3F0DD
-	STA.l $7EA38E				;$B3F0E0
-	LDA.w #$0001				;$B3F0E4
-	STA.l $7EA390				;$B3F0E7
-	LDA.w #$A79A				;$B3F0EB
-	STA.l $7EA391				;$B3F0EE
-	LDA.w #$0000				;$B3F0F2
-	STA.l $7EA393				;$B3F0F5
+	JSR CODE_B3ECB9				;$B3F071
+	LDA #$1617				;$B3F074
+	STA $7EA15A				;$B3F077
+	LDA #$00C0				;$B3F07B
+	STA $7EA16A				;$B3F07E
+	LDA #$A27A				;$B3F082
+	STA $7EA16B				;$B3F085
+	LDA #$00C0				;$B3F089
+	STA $7EA16D				;$B3F08C
+	LDA #$A2FA				;$B3F090
+	STA $7EA16E				;$B3F093
+	LDA #$0001				;$B3F097
+	STA $7EA170				;$B3F09A
+	LDA #$A378				;$B3F09E
+	STA $7EA171				;$B3F0A1
+	LDA #$0000				;$B3F0A5
+	STA $7EA173				;$B3F0A8
+	LDA #$2140				;$B3F0AC
+	STA $7EA37A				;$B3F0AF
+	LDA #$213F				;$B3F0B3
+	STA $7EA37C				;$B3F0B6
+	LDA #$2001				;$B3F0BA
+	STA $7EA37E				;$B3F0BD
+	LDA #$0000				;$B3F0C1
+	STA $7EA380				;$B3F0C4
+	LDA #$00C0				;$B3F0C8
+	STA $7EA38A				;$B3F0CB
+	LDA #$A39A				;$B3F0CF
+	STA $7EA38B				;$B3F0D2
+	LDA #$00DF				;$B3F0D6
+	STA $7EA38D				;$B3F0D9
+	LDA #$A496				;$B3F0DD
+	STA $7EA38E				;$B3F0E0
+	LDA #$0001				;$B3F0E4
+	STA $7EA390				;$B3F0E7
+	LDA #$A79A				;$B3F0EB
+	STA $7EA391				;$B3F0EE
+	LDA #$0000				;$B3F0F2
+	STA $7EA393				;$B3F0F5
 	PHK					;$B3F0F9
 	PLB					;$B3F0FA
-	LDX.w #$03FC				;$B3F0FB
+	LDX #$03FC				;$B3F0FB
 CODE_B3F0FE:
-	LDA.w #$7373				;$B3F0FE
-	STA.l $7EA39A,x				;$B3F101
+	LDA #$7373				;$B3F0FE
+	STA $7EA39A,x				;$B3F101
 	TXA					;$B3F105
 	LSR					;$B3F106
 	LSR					;$B3F107
-	AND.w #$001E				;$B3F108
+	AND #$001E				;$B3F108
 	TAY					;$B3F10B
-	LDA.w DATA_B3F184,y			;$B3F10C
-	STA.l $7EA39C,x				;$B3F10F
+	LDA DATA_B3F184,y			;$B3F10C
+	STA $7EA39C,x				;$B3F10F
 	DEX					;$B3F113
 	DEX					;$B3F114
 	DEX					;$B3F115
 	DEX					;$B3F116
-	BPL.b CODE_B3F0FE			;$B3F117
-	LDA.w #$7373				;$B3F119
-	STA.l $7EA79A				;$B3F11C
-	LDA.w #$3DF4				;$B3F120
-	STA.l $7EA79C				;$B3F123
-	SEP.b #$20				;$B3F127
-	LDX.w #(!REGISTER_MainScreenLayers&$0000FF<<8)+$40	;$B3F129
-	STX.w HDMA[$01].Parameters		;$B3F12C
-	LDX.w #DATA_B3F1A4			;$B3F12F
-	STX.w HDMA[$01].SourceLo		;$B3F132
-	LDA.b #DATA_B3F1A4>>16			;$B3F135
-	STA.w HDMA[$01].SourceBank		;$B3F137
-	LDA.b #$7EA15A>>16			;$B3F13A
-	STA.w HDMA[$01].IndirectSourceBank	;$B3F13C
-	LDX.w #(!REGISTER_ColorMathSelectAndEnable&$0000FF<<8)+$00	;$B3F13F
-	STX.w HDMA[$02].Parameters		;$B3F142
-	LDX.w #$7EA37A				;$B3F145
-	STX.w HDMA[$02].SourceLo		;$B3F148
-	LDA.b #$7EA37A>>16			;$B3F14B
-	STA.w HDMA[$02].SourceBank		;$B3F14D
-	STA.w HDMA[$02].IndirectSourceBank	;$B3F150
-	LDX.w #(!REGISTER_CGRAMAddress&$0000FF<<8)+$43	;$B3F153
-	STX.w HDMA[$03].Parameters		;$B3F156
-	LDX.w #$7EA38A				;$B3F159
-	STX.w HDMA[$03].SourceLo		;$B3F15C
-	LDA.b #$7EA38A>>16			;$B3F15F
-	STA.w HDMA[$03].SourceBank		;$B3F161
-	STA.w HDMA[$03].IndirectSourceBank	;$B3F164
-	LDX.w #(!REGISTER_BG1HorizScrollOffset&$0000FF<<8)+$42	;$B3F167
-	STX.w HDMA[$04].Parameters		;$B3F16A
-	LDX.w #$7EA16A				;$B3F16D
-	STX.w HDMA[$04].SourceLo		;$B3F170
-	LDA.b #$7EA16A>>16			;$B3F173
-	STA.w HDMA[$04].SourceBank		;$B3F175
-	STA.w HDMA[$04].IndirectSourceBank	;$B3F178
-	REP.b #$20				;$B3F17B
-	LDA.w #$1E01				;$B3F17D
-	STA.w $04E4				;$B3F180
+	BPL CODE_B3F0FE				;$B3F117
+	LDA #$7373				;$B3F119
+	STA $7EA79A				;$B3F11C
+	LDA #$3DF4				;$B3F120
+	STA $7EA79C				;$B3F123
+	SEP #$20				;$B3F127
+	LDX #$2C40				;$B3F129
+	STX HDMA[$01].Parameters		;$B3F12C
+	LDX #DATA_B3F1A4			;$B3F12F
+	STX HDMA[$01].SourceLo			;$B3F132
+	LDA #DATA_B3F1A4>>16			;$B3F135
+	STA HDMA[$01].SourceBank		;$B3F137
+	LDA #$7EA15A>>16			;$B3F13A
+	STA HDMA[$01].IndirectSourceBank	;$B3F13C
+	LDX #$3100				;$B3F13F
+	STX HDMA[$02].Parameters		;$B3F142
+	LDX #$7EA37A				;$B3F145
+	STX HDMA[$02].SourceLo			;$B3F148
+	LDA #$7EA37A>>16			;$B3F14B
+	STA HDMA[$02].SourceBank		;$B3F14D
+	STA HDMA[$02].IndirectSourceBank	;$B3F150
+	LDX #$2143				;$B3F153
+	STX HDMA[$03].Parameters		;$B3F156
+	LDX #$7EA38A				;$B3F159
+	STX HDMA[$03].SourceLo			;$B3F15C
+	LDA #$7EA38A>>16			;$B3F15F
+	STA HDMA[$03].SourceBank		;$B3F161
+	STA HDMA[$03].IndirectSourceBank	;$B3F164
+	LDX #$0D42 				;$B3F167
+	STX HDMA[$04].Parameters		;$B3F16A
+	LDX #$7EA16A				;$B3F16D
+	STX HDMA[$04].SourceLo			;$B3F170
+	LDA #$7EA16A>>16			;$B3F173
+	STA HDMA[$04].SourceBank		;$B3F175
+	STA HDMA[$04].IndirectSourceBank	;$B3F178
+	REP #$20				;$B3F17B
+	LDA #$1E01				;$B3F17D
+	STA $04E4				;$B3F180
 	RTS					;$B3F183
 
 DATA_B3F184:
 	db $00,$00,$21,$04,$42,$08,$63,$0C,$84,$10,$A5,$14,$C6,$18,$E7,$1C
 	db $08,$21,$E7,$1C,$C6,$18,$A5,$14,$84,$10,$63,$0C,$42,$08,$21,$04
 
-DATA_B3F1A4:							; Glitch: This HDMA table lacks a terminating byte!
+
+;Missing terminator byte
+DATA_B3F1A4:
 	db $50 : dw $7EA15A
 	db $50 : dw $7EA15A
 	db $7F : dw $7EA15B
 
 CODE_B3F1AD:
-	JSR.w CODE_B3ECB9			;$B3F1AD
-	STZ.w $18A5				;$B3F1B0
-	LDX.w #$0000				;$B3F1B3
+	JSR CODE_B3ECB9				;$B3F1AD
+	STZ $18A5				;$B3F1B0
+	LDX #$0000				;$B3F1B3
 CODE_B3F1B6:
-	LDA.w #$0090				;$B3F1B6
-	STA.l $7EA4CA,x				;$B3F1B9
-	LDA.w #$A52A				;$B3F1BD
-	STA.l $7EA4CB,x				;$B3F1C0
+	LDA #$0090				;$B3F1B6
+	STA $7EA4CA,x				;$B3F1B9
+	LDA #$A52A				;$B3F1BD
+	STA $7EA4CB,x				;$B3F1C0
 	INX					;$B3F1C4
 	INX					;$B3F1C5
 	INX					;$B3F1C6
-	CPX.w #$002A				;$B3F1C7
-	BNE.b CODE_B3F1B6			;$B3F1CA
-	SEP.b #$20				;$B3F1CC
-	LDX.w #(!REGISTER_CGRAMAddress&$0000FF<<8)+$43	;$B3F1CE
-	STX.w HDMA[$01].Parameters		;$B3F1D1
-	LDX.w #$7EA15A				;$B3F1D4
-	STX.w HDMA[$01].SourceLo		;$B3F1D7
-	LDA.b #$7EA15A>>16			;$B3F1DA
-	STA.w HDMA[$01].SourceBank		;$B3F1DC
-	LDA.b #DATA_B3F23F>>16			;$B3F1DF
-	STA.w HDMA[$01].IndirectSourceBank	;$B3F1E1
-	LDX.w #(!REGISTER_CGRAMAddress&$0000FF<<8)+$43	;$B3F1E4
-	STX.w HDMA[$02].Parameters		;$B3F1E7
-	LDX.w #$7EA17A				;$B3F1EA
-	STX.w HDMA[$02].SourceLo		;$B3F1ED
-	LDA.b #$7EA17A>>16			;$B3F1F0
-	STA.w HDMA[$02].SourceBank		;$B3F1F2
-	LDA.b #DATA_B3F527>>16			;$B3F1F5
-	STA.w HDMA[$02].IndirectSourceBank	;$B3F1F7
-	LDX.w #(!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$41	;$B3F1FA
-	STX.w HDMA[$03].Parameters		;$B3F1FD
-	LDX.w #$7EA19A				;$B3F200
-	STX.w HDMA[$03].SourceLo		;$B3F203
-	LDA.b #$7EA19A>>16			;$B3F206
-	STA.w HDMA[$03].SourceBank		;$B3F208
-	STA.w HDMA[$03].IndirectSourceBank	;$B3F20B
-	LDX.w #(!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$42	;$B3F20E
-	STX.w HDMA[$04].Parameters		;$B3F211
-	LDX.w #$7EA1BA				;$B3F214
-	STX.w HDMA[$04].SourceLo		;$B3F217
-	LDA.b #$7EA1BA>>16			;$B3F21A
-	STA.w HDMA[$04].SourceBank		;$B3F21C
-	STA.w HDMA[$04].IndirectSourceBank	;$B3F21F
-	LDX.w #(!REGISTER_BG3VertScrollOffset&$0000FF<<8)+$42	;$B3F222
-	STX.w HDMA[$05].Parameters		;$B3F225
-	LDX.w #$7EA4CA				;$B3F228
-	STX.w HDMA[$05].SourceLo		;$B3F22B
-	LDA.b #$7EA4CA>>16			;$B3F22E
-	STA.w HDMA[$05].SourceBank		;$B3F230
-	STA.w HDMA[$05].IndirectSourceBank	;$B3F233
-	REP.b #$20				;$B3F236
-	LDA.w #$3E01				;$B3F238
-	STA.w $04E4				;$B3F23B
+	CPX #$002A				;$B3F1C7
+	BNE CODE_B3F1B6				;$B3F1CA
+	SEP #$20				;$B3F1CC
+	LDX #$2143				;$B3F1CE
+	STX HDMA[$01].Parameters		;$B3F1D1
+	LDX #$7EA15A				;$B3F1D4
+	STX HDMA[$01].SourceLo			;$B3F1D7
+	LDA #$7EA15A>>16			;$B3F1DA
+	STA HDMA[$01].SourceBank		;$B3F1DC
+	LDA #DATA_B3F23F>>16			;$B3F1DF
+	STA HDMA[$01].IndirectSourceBank	;$B3F1E1
+	LDX #$2143				;$B3F1E4
+	STX HDMA[$02].Parameters		;$B3F1E7
+	LDX #$7EA17A				;$B3F1EA
+	STX HDMA[$02].SourceLo			;$B3F1ED
+	LDA #$7EA17A>>16			;$B3F1F0
+	STA HDMA[$02].SourceBank		;$B3F1F2
+	LDA #DATA_B3F527>>16			;$B3F1F5
+	STA HDMA[$02].IndirectSourceBank	;$B3F1F7
+	LDX #$2641				;$B3F1FA
+	STX HDMA[$03].Parameters		;$B3F1FD
+	LDX #$7EA19A				;$B3F200
+	STX HDMA[$03].SourceLo			;$B3F203
+	LDA #$7EA19A>>16			;$B3F206
+	STA HDMA[$03].SourceBank		;$B3F208
+	STA HDMA[$03].IndirectSourceBank	;$B3F20B
+	LDX #$1142				;$B3F20E
+	STX HDMA[$04].Parameters		;$B3F211
+	LDX #$7EA1BA				;$B3F214
+	STX HDMA[$04].SourceLo			;$B3F217
+	LDA #$7EA1BA>>16			;$B3F21A
+	STA HDMA[$04].SourceBank		;$B3F21C
+	STA HDMA[$04].IndirectSourceBank	;$B3F21F
+	LDX #$1242				;$B3F222
+	STX HDMA[$05].Parameters		;$B3F225
+	LDX #$7EA4CA				;$B3F228
+	STX HDMA[$05].SourceLo			;$B3F22B
+	LDA #$7EA4CA>>16			;$B3F22E
+	STA HDMA[$05].SourceBank		;$B3F230
+	STA HDMA[$05].IndirectSourceBank	;$B3F233
+	REP #$20				;$B3F236
+	LDA #$3E01				;$B3F238
+	STA $04E4				;$B3F23B
 	RTS					;$B3F23E
 
 DATA_B3F23F:
@@ -10633,108 +10635,108 @@ DATA_B3F527:
 	dw $0303,$0000,$0101,$0000
 
 CODE_B3F80F:
-	LDA.w #$1100				;$B3F80F
-	STA.b $80				;$B3F812
-	LDA.w #$007F				;$B3F814
-	STA.l $7EA15A				;$B3F817
-	STA.l $7EA15D				;$B3F81B
-	STA.l $7EA1EA				;$B3F81F
-	STA.l $7EA1ED				;$B3F823
-	LDA.w #$A1DE				;$B3F827
-	STA.l $7EA15B				;$B3F82A
-	STA.l $7EA15E				;$B3F82E
-	LDA.w #$009D				;$B3F832
-	STA.l $7EA160				;$B3F835
-	LDA.w #$A16A				;$B3F839
-	STA.l $7EA161				;$B3F83C
-	LDA.w #$0000				;$B3F840
-	STA.l $7EA163				;$B3F843
-	LDA.w #$FF00				;$B3F847
-	STA.l $7EA1DA				;$B3F84A
-	STA.l $7EA1E4				;$B3F84E
+	LDA #$1100				;$B3F80F
+	STA $80					;$B3F812
+	LDA #$007F				;$B3F814
+	STA $7EA15A				;$B3F817
+	STA $7EA15D				;$B3F81B
+	STA $7EA1EA				;$B3F81F
+	STA $7EA1ED				;$B3F823
+	LDA #$A1DE				;$B3F827
+	STA $7EA15B				;$B3F82A
+	STA $7EA15E				;$B3F82E
+	LDA #$009D				;$B3F832
+	STA $7EA160				;$B3F835
+	LDA #$A16A				;$B3F839
+	STA $7EA161				;$B3F83C
+	LDA #$0000				;$B3F840
+	STA $7EA163				;$B3F843
+	LDA #$FF00				;$B3F847
+	STA $7EA1DA				;$B3F84A
+	STA $7EA1E4				;$B3F84E
 	XBA					;$B3F852
-	STA.l $7EA1DC				;$B3F853
-	STA.l $7EA1DE				;$B3F857
-	STA.l $7EA1E0				;$B3F85B
-	STA.l $7EA1E2				;$B3F85F
-	LDA.w #$009D				;$B3F863
-	STA.l $7EA1F0				;$B3F866
-	LDA.w #$A218				;$B3F86A
-	STA.l $7EA1EB				;$B3F86D
-	STA.l $7EA1EE				;$B3F871
-	LDA.w #$A1FA				;$B3F875
-	STA.l $7EA1F1				;$B3F878
-	LDX.w #$0000				;$B3F87C
-	LDA.w #$000A				;$B3F87F
+	STA $7EA1DC				;$B3F853
+	STA $7EA1DE				;$B3F857
+	STA $7EA1E0				;$B3F85B
+	STA $7EA1E2				;$B3F85F
+	LDA #$009D				;$B3F863
+	STA $7EA1F0				;$B3F866
+	LDA #$A218				;$B3F86A
+	STA $7EA1EB				;$B3F86D
+	STA $7EA1EE				;$B3F871
+	LDA #$A1FA				;$B3F875
+	STA $7EA1F1				;$B3F878
+	LDX #$0000				;$B3F87C
+	LDA #$000A				;$B3F87F
 CODE_B3F882:
-	STA.l $7EA1FA,x				;$B3F882
+	STA $7EA1FA,x				;$B3F882
 	INX					;$B3F886
-	CPX.w #$001D				;$B3F887
-	BNE.b CODE_B3F882			;$B3F88A
-	LDA.w #$0000				;$B3F88C
-	STA.l $7EA1FA,x				;$B3F88F
-	LDA.w #$000A				;$B3F893
-	STA.l $7EA1FB,x				;$B3F896
-	LDA.w #$00C0				;$B3F89A
-	STA.l $7EA21A				;$B3F89D
-	STA.l $7EA21D				;$B3F8A1
-	STA.l $7EA220				;$B3F8A5
-	STA.l $7EA223				;$B3F8A9
-	LDA.w #$A22A				;$B3F8AD
-	STA.l $7EA21B				;$B3F8B0
-	STA.l $7EA21E				;$B3F8B4
-	STA.l $7EA221				;$B3F8B8
-	STA.l $7EA224				;$B3F8BC
-	LDX.w #$0000				;$B3F8C0
+	CPX #$001D				;$B3F887
+	BNE CODE_B3F882				;$B3F88A
+	LDA #$0000				;$B3F88C
+	STA $7EA1FA,x				;$B3F88F
+	LDA #$000A				;$B3F893
+	STA $7EA1FB,x				;$B3F896
+	LDA #$00C0				;$B3F89A
+	STA $7EA21A				;$B3F89D
+	STA $7EA21D				;$B3F8A1
+	STA $7EA220				;$B3F8A5
+	STA $7EA223				;$B3F8A9
+	LDA #$A22A				;$B3F8AD
+	STA $7EA21B				;$B3F8B0
+	STA $7EA21E				;$B3F8B4
+	STA $7EA221				;$B3F8B8
+	STA $7EA224				;$B3F8BC
+	LDX #$0000				;$B3F8C0
 CODE_B3F8C3:
 	TXA					;$B3F8C3
 	LSR					;$B3F8C4
-	AND.w #$0003				;$B3F8C5
-	STA.b $1A				;$B3F8C8
+	AND #$0003				;$B3F8C5
+	STA $1A					;$B3F8C8
 	TXA					;$B3F8CA
 	LSR					;$B3F8CB
-	AND.w #$0060				;$B3F8CC
+	AND #$0060				;$B3F8CC
 	LSR					;$B3F8CF
 	LSR					;$B3F8D0
 	LSR					;$B3F8D1
-	ORA.b $1A				;$B3F8D2
-	ORA.w #$2000				;$B3F8D4
-	STA.l $7EA35A,x				;$B3F8D7
+	ORA $1A					;$B3F8D2
+	ORA #$2000				;$B3F8D4
+	STA $7EA35A,x				;$B3F8D7
 	INX					;$B3F8DB
 	INX					;$B3F8DC
-	CPX.w #$0800				;$B3F8DD
-	BNE.b CODE_B3F8C3			;$B3F8E0
-	SEP.b #$20				;$B3F8E2
-	LDX.w #(!REGISTER_Window1LeftPositionDesignation&$0000FF<<8)+$44	;$B3F8E4
-	STX.w HDMA[$01].Parameters		;$B3F8E7
-	LDX.w #$7EA15A				;$B3F8EA
-	STX.w HDMA[$01].SourceLo		;$B3F8ED
-	LDA.b #$7EA15A>>16			;$B3F8F0
-	STA.w HDMA[$01].SourceBank		;$B3F8F2
-	STA.w HDMA[$01].IndirectSourceBank	;$B3F8F5
-	LDX.w #(!REGISTER_BG3And4WindowMaskSettings&$0000FF<<8)+$40	;$B3F8F8
-	STX.w HDMA[$02].Parameters		;$B3F8FB
-	LDX.w #$7EA1EA				;$B3F8FE
-	STX.w HDMA[$02].SourceLo		;$B3F901
-	LDA.b #$7EA1EA>>16			;$B3F904
-	STA.w HDMA[$02].SourceBank		;$B3F906
-	STA.w HDMA[$02].IndirectSourceBank	;$B3F909
-	LDX.w #(!REGISTER_BG3HorizScrollOffset&$0000FF<<8)+$42	;$B3F90C
-	STX.w HDMA[$03].Parameters		;$B3F90F
-	LDX.w #$7EA21A				;$B3F912
-	STX.w HDMA[$03].SourceLo		;$B3F915
-	LDA.b #$7EA21A>>16			;$B3F918
-	STA.w HDMA[$03].SourceBank		;$B3F91A
-	STA.w HDMA[$03].IndirectSourceBank	;$B3F91D
-	REP.b #$20				;$B3F920
-	LDA.w #$0E01				;$B3F922
-	STA.w $04E4				;$B3F925
+	CPX #$0800				;$B3F8DD
+	BNE CODE_B3F8C3				;$B3F8E0
+	SEP #$20				;$B3F8E2
+	LDX #$2644				;$B3F8E4
+	STX HDMA[$01].Parameters		;$B3F8E7
+	LDX #$7EA15A				;$B3F8EA
+	STX HDMA[$01].SourceLo			;$B3F8ED
+	LDA #$7EA15A>>16			;$B3F8F0
+	STA HDMA[$01].SourceBank		;$B3F8F2
+	STA HDMA[$01].IndirectSourceBank	;$B3F8F5
+	LDX #$2440				;$B3F8F8
+	STX HDMA[$02].Parameters		;$B3F8FB
+	LDX #$7EA1EA				;$B3F8FE
+	STX HDMA[$02].SourceLo			;$B3F901
+	LDA #$7EA1EA>>16			;$B3F904
+	STA HDMA[$02].SourceBank		;$B3F906
+	STA HDMA[$02].IndirectSourceBank	;$B3F909
+	LDX #$1142				;$B3F90C
+	STX HDMA[$03].Parameters		;$B3F90F
+	LDX #$7EA21A				;$B3F912
+	STX HDMA[$03].SourceLo			;$B3F915
+	LDA #$7EA21A>>16			;$B3F918
+	STA HDMA[$03].SourceBank		;$B3F91A
+	STA HDMA[$03].IndirectSourceBank	;$B3F91D
+	REP #$20				;$B3F920
+	LDA #$0E01				;$B3F922
+	STA $04E4				;$B3F925
 	RTS					;$B3F928
 
 CODE_B3F929:
-	JSR.w CODE_B3ECBF			;$B3F929
-	LDA.w #$1300				;$B3F92C
-	STA.b $80				;$B3F92F
-	LDA.w #$0400				;$B3F931
-	TRB.w $04E4				;$B3F934
+	JSR CODE_B3ECBF				;$B3F929
+	LDA #$1300				;$B3F92C
+	STA $80					;$B3F92F
+	LDA #$0400				;$B3F931
+	TRB $04E4				;$B3F934
 	RTS					;$B3F937
