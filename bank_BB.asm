@@ -2215,25 +2215,25 @@ parse_initscript_entry:
 	TAX					;$BB9014
 	JMP (initscript_commands,x)		;$BB9015
 
-initscript_commands:								; Info: Sprite spawn script opcodes
+initscript_commands:				; Info: Sprite spawn script opcodes
 ;$BB9018
-	dw CODE_BB9062								; $FF - Spawn sprite?
-	dw CODE_BB9071								; $FE - 
-	dw CODE_BB9096								; $FD - 
-	dw CODE_BB9119								; $FC - 
-	dw CODE_BB9137								; $FB - 
-	dw CODE_BB917E								; $FA - 
-	dw CODE_BB91B4								; $F9 - 
-	dw CODE_BB91C9								; $F8 - 
-	dw CODE_BB91F4								; $F7 - Spawn semi-dynamic sprite?
-	dw CODE_BB92C2								; $F6 - 
-	dw CODE_BB9350								; $F5 - 
-	dw CODE_BB936B								; $F4 - 
-	dw CODE_BB9190								; $F3 - 
-	dw CODE_BB90AB								; $F2 - 
-	dw CODE_BB9452								; $F1 - 
-	dw CODE_BB9048								; $F0 - 
-	dw CODE_BB9041								; $EF - End of script
+	dw CODE_BB9062				; $FF - Set sprite type
+	dw CODE_BB9071				; $FE - 
+	dw CODE_BB9096				; $FD - 
+	dw CODE_BB9119				; $FC - 
+	dw CODE_BB9137				; $FB - 
+	dw CODE_BB917E				; $FA - 
+	dw CODE_BB91B4				; $F9 - 
+	dw CODE_BB91C9				; $F8 - 
+	dw CODE_BB91F4				; $F7 - Spawn semi-dynamic sprite?
+	dw CODE_BB92C2				; $F6 - 
+	dw CODE_BB9350				; $F5 - 
+	dw CODE_BB936B				; $F4 - 
+	dw CODE_BB9190				; $F3 - 
+	dw CODE_BB90AB				; $F2 - 
+	dw CODE_BB9452				; $F1 - 
+	dw CODE_BB9048				; $F0 - 
+	dw CODE_BB9041				; $EF - End of script
 
 CODE_BB903A:
 	PLB					;$BB903A

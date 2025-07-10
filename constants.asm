@@ -3,7 +3,25 @@ includeonce
 !null_pointer = $000000
 
 ;sprite init command constants
-!initcommand_success = $8000
+!spawn_command_success = $EF
+!spawn_command_F0 = $F0
+!spawn_command_F1 = $F1
+!spawn_command_F2 = $F2
+!spawn_command_F3 = $F3
+!spawn_command_F4 = $F4
+!spawn_command_F5 = $F5
+!spawn_command_F6 = $F6
+!spawn_command_F7 = $F7
+!spawn_command_F8 = $F8
+!spawn_command_F9 = $F9
+!spawn_command_FA = $FA
+!spawn_command_FB = $FB
+!spawn_command_FC = $FC
+!spawn_command_FD = $FD
+!spawn_command_FE = $FE
+!spawn_command_set_type = $FF
+
+
 !initcommand_set_animation = $8100
 !initcommand_skip = $2000
 !initcommand_load_subconfig = $8300

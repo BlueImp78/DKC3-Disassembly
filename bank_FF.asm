@@ -1590,7 +1590,7 @@ UNK_FF0AEC:
 	dw $CE55,$2821,$65CA,$B1CE,$CA28,$CE65,$2941,$75CA
 	dw $AFCE,$CA29
 
-;kong constants (dixie, kiddy, dixie low g, kiddy low g)
+;kong constants (dixie, kiddy, dixie low g, kiddy low g
 DATA_FF1840:
 	dw $0070, $0070, $0018, $0018
 	dw $0800, $0800, $0300, $0300
@@ -3170,521 +3170,521 @@ DATA_FF257C:
 	dw $001C, $0156, $0466
 
 DATA_FF25EE:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_025C)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0014)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_025C
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_F6, $00, $00
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0014
+	db !spawn_command_success
 
 DATA_FF25FE:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_00F4)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFB($0D0E)
-	%DKC3_SSS_OpFA($0088)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0070)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_00F4
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.render_order : dw $00D4
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FB : dw $0D0E
+	db !spawn_command_FA : dw $0088
+	db sprite.state : dw $0000
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0070
+	db !spawn_command_success
 
 DATA_FF261A:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0130)
-	%DKC3_SSS_OpXX($12, $0000)
-	%DKC3_SSS_OpXX($16, $0000)
-	%DKC3_SSS_OpXX($24, $0000)
-	%DKC3_SSS_OpXX($20, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($08, $FFFF)
-	%DKC3_SSS_OpXX($0C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0130
+	db sprite.x_position : dw $0000
+	db sprite.y_position : dw $0000
+	db sprite.sprite_graphic : dw $0000
+	db sprite.last_rendered_graphic : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.placement_number : dw $FFFF
+	db sprite.offscreen_despawn_time : dw $0000
+	db !spawn_command_success
 
 DATA_FF2636:
-	%DKC3_SSS_OpFF(!sprite_DixieKong)
-	%DKC3_SSS_OpXX($06, DATA_FF1840)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0001)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($0E, $00E4)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_DixieKong
+	db sprite.constants_address : dw DATA_FF1840
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0001
+	db sprite.unknown_5C : dw $0001
+	db sprite.state : dw $0001
+	db sprite.render_order : dw $00E4
+	db !spawn_command_success
 
 DATA_FF264C:
-	%DKC3_SSS_OpFF(!sprite_KiddyKong)
-	%DKC3_SSS_OpXX($06, DATA_FF1840+$02)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0002)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KiddyKong
+	db sprite.constants_address : dw DATA_FF1840+$02
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0002
+	db sprite.unknown_5C : dw $0001
+	db sprite.state : dw $0001
+	db sprite.render_order : dw $00D8
+	db !spawn_command_success
 
 DATA_FF2662:
-	%DKC3_SSS_OpFF(!sprite_FireballLandingParticles)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpFC($0001)
-	%DKC3_SSS_OpFA($0020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_FC : dw $0001
+	db !spawn_command_FA : dw $0020
+	db !spawn_command_success
 
 DATA_FF266F:
-	%DKC3_SSS_OpFF(!sprite_BurstEffect)
-	%DKC3_SSS_OpF5()
+	db !spawn_command_set_type : dw !sprite_BurstEffect
+	db !spawn_command_F5
 
 DATA_FF2673:
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFA($0172)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FA : dw $0172
+	db !spawn_command_success
 
 DATA_FF267D:
-	%DKC3_SSS_OpFF(!sprite_BurstEffect)
-	%DKC3_SSS_OpF6($FC, $F8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001F)
-	%DKC3_SSS_OpFA($0176)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BurstEffect
+	db !spawn_command_F6, $FC, $F8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001F
+	db !spawn_command_FA : dw $0176
+	db !spawn_command_success
 
 DATA_FF268D:
-	%DKC3_SSS_OpFF(!sprite_BurstEffect)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BurstEffect
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_success
 
 DATA_FF2697:
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpFA($0173)
-	%DKC3_SSS_OpF9(DATA_FF268D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_FA : dw $0173
+	db !spawn_command_F9 : dw DATA_FF268D
+	db !spawn_command_success
 
 DATA_FF26A1:
-	%DKC3_SSS_OpF6($FC, $F2)
-	%DKC3_SSS_OpXX($0E, $00CA)
-	%DKC3_SSS_OpFA($0173)
-	%DKC3_SSS_OpF9(DATA_FF268D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $FC, $F2
+	db sprite.render_order : dw $00CA
+	db !spawn_command_FA : dw $0173
+	db !spawn_command_F9 : dw DATA_FF268D
+	db !spawn_command_success
 
 DATA_FF26AE:
-	%DKC3_SSS_OpF6($FC, $00)
-	%DKC3_SSS_OpFA($0173)
-	%DKC3_SSS_OpFF(!sprite_SmokePuff)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $FC, $00
+	db !spawn_command_FA : dw $0173
+	db !spawn_command_set_type : dw !sprite_SmokePuff
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $000F
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FF26C1:
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpFA($0173)
-	%DKC3_SSS_OpF9(DATA_FF268D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_FA : dw $0173
+	db !spawn_command_F9 : dw DATA_FF268D
+	db !spawn_command_success
 
 DATA_FF26CB:
-	%DKC3_SSS_OpF6($F0, $0E)
-	%DKC3_SSS_OpFA($0174)
-	%DKC3_SSS_OpF9(DATA_FF268D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $F0, $0E
+	db !spawn_command_FA : dw $0174
+	db !spawn_command_F9 : dw DATA_FF268D
+	db !spawn_command_success
 
 DATA_FF26D5:
-	%DKC3_SSS_OpF6($10, $14)
-	%DKC3_SSS_OpFA($0174)
-	%DKC3_SSS_OpF9(DATA_FF268D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $10, $14
+	db !spawn_command_FA : dw $0174
+	db !spawn_command_F9 : dw DATA_FF268D
+	db !spawn_command_success
 
 DATA_FF26DF:
-	%DKC3_SSS_OpFF(!sprite_BurstEffect)
-	%DKC3_SSS_OpF6($FE, $F4)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00F8)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFA($0177)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BurstEffect
+	db !spawn_command_F6, $FE, $F4
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00F8
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FA : dw $0177
+	db !spawn_command_success
 
 DATA_FF26F2:
-	%DKC3_SSS_OpFF(!sprite_TobogganSparks)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($0021)
-	%DKC3_SSS_OpFA($017B)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_TobogganSparks
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $0021
+	db !spawn_command_FA : dw $017B
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF2702:
-	%DKC3_SSS_OpFF(!sprite_TobogganSparks)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFA($017C)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_TobogganSparks
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FA : dw $017C
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF2712:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_0008, $000F, $00)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpFA($012C)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpF6($00, $04)
-	%DKC3_SSS_OpXX($0E, $00CF)
-	%DKC3_SSS_OpF1($2A, $FF00)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_0008, $000F : db $00
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_FA : dw $012C
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_F6, $00, $04
+	db sprite.render_order : dw $00CF
+	db !spawn_command_F1, $2A : dw $FF00
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF2732:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_0008, $000F, $00)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpFA($012C)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpF6($F8, $04)
-	%DKC3_SSS_OpXX($0E, $00CF)
-	%DKC3_SSS_OpF1($2A, $FF00)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_0008, $000F : db $00
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_FA : dw $012C
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_F6, $F8, $04
+	db sprite.render_order : dw $00CF
+	db !spawn_command_F1, $2A : dw $FF00
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF2752:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_000C, $000F, $01)
-	%DKC3_SSS_OpF6($40, $30)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpFA($012B)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_000C, $000F : db $01
+	db !spawn_command_F6, $40, $30
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_FA : dw $012B
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF2765:
-	%DKC3_SSS_OpF7(!sprite_SquawksEgg, $000F, $21)
-	%DKC3_SSS_OpF6($08, $F0)
+	db !spawn_command_F7 : dw !sprite_SquawksEgg, $000F : db $21
+	db !spawn_command_F6, $08, $F0
 
 DATA_FF276E:
-	%DKC3_SSS_OpXX($06, DATA_FF1BDA)
-	%DKC3_SSS_OpFA($0132)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpXX($5A, $0044)
-	%DKC3_SSS_OpF1($2A, $0680)
-	%DKC3_SSS_OpF1($30, $0100)
-	%DKC3_SSS_OpXX($2E, $FE80)
-	%DKC3_SSS_OpEF()
+	db sprite.constants_address : dw DATA_FF1BDA
+	db !spawn_command_FA : dw $0132
+	db sprite.state : dw $0000
+	db sprite.render_order : dw $00C8
+	db sprite.movement_state : dw $0044
+	db !spawn_command_F1, $2A : dw $0680
+	db !spawn_command_F1, $30 : dw $0100
+	db sprite.y_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FF2789:
-	%DKC3_SSS_OpF7(!sprite_BarrelPieces, $001C, $05)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarrelPieces, $001C : db $05
+	db !spawn_command_F6, $00, $00
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $0004
+	db !spawn_command_success
 
 DATA_FF2799:
-	%DKC3_SSS_OpF9(DATA_FF2789)
-	%DKC3_SSS_OpFA($012E)
-	%DKC3_SSS_OpXX($44, $0080)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpXX($2E, $FC40)
-	%DKC3_SSS_OpXX($2A, $FC00)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2789
+	db !spawn_command_FA : dw $012E
+	db sprite.animation_speed : dw $0080
+	db !spawn_command_FE : dw $7000
+	db sprite.y_speed : dw $FC40
+	db sprite.x_speed : dw $FC00
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF27AF:
-	%DKC3_SSS_OpF9(DATA_FF2789)
-	%DKC3_SSS_OpFA($012F)
-	%DKC3_SSS_OpXX($44, $00A0)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($2E, $FC00)
-	%DKC3_SSS_OpXX($2A, $0400)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2789
+	db !spawn_command_FA : dw $012F
+	db sprite.animation_speed : dw $00A0
+	db !spawn_command_FE : dw $3000
+	db sprite.y_speed : dw $FC00
+	db sprite.x_speed : dw $0400
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF27C5:
-	%DKC3_SSS_OpF9(DATA_FF2789)
-	%DKC3_SSS_OpFA($012F)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpXX($44, $00C0)
-	%DKC3_SSS_OpXX($2E, $FAA0)
-	%DKC3_SSS_OpXX($2A, $0200)
-	%DKC3_SSS_OpXX($30, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2789
+	db !spawn_command_FA : dw $012F
+	db !spawn_command_FE : dw $7000
+	db sprite.animation_speed : dw $00C0
+	db sprite.y_speed : dw $FAA0
+	db sprite.x_speed : dw $0200
+	db sprite.max_x_speed : dw $0080
+	db !spawn_command_success
 
 DATA_FF27DB:
-	%DKC3_SSS_OpF9(DATA_FF2789)
-	%DKC3_SSS_OpFA($012E)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($44, $00FF)
-	%DKC3_SSS_OpXX($2E, $F980)
-	%DKC3_SSS_OpXX($2A, $FE40)
-	%DKC3_SSS_OpXX($30, $FFC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2789
+	db !spawn_command_FA : dw $012E
+	db !spawn_command_FE : dw $3000
+	db sprite.animation_speed : dw $00FF
+	db sprite.y_speed : dw $F980
+	db sprite.x_speed : dw $FE40
+	db sprite.max_x_speed : dw $FFC0
+	db !spawn_command_success
 
 DATA_FF27F1:
-	%DKC3_SSS_OpFF(!sprite_KAOSHeadExplosionSpawner)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($2A, $0040)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0010)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $0003)
-	%DKC3_SSS_OpXX($64, DATA_FF2835)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOSHeadExplosionSpawner
+	db !spawn_command_F6, $00, $00
+	db sprite.visibility : dw $C000
+	db sprite.movement_state : dw $0001
+	db sprite.x_speed : dw $0040
+	db sprite.y_speed : dw $0000
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0010
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $0003
+	db sprite.unknown_64 : dw DATA_FF2835
+	db !spawn_command_success
 
 DATA_FF2813:
-	%DKC3_SSS_OpFF(!sprite_KAOSHeadExplosionSpawner)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($2A, $FFC0)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($5C, $0010)
-	%DKC3_SSS_OpXX($5E, $0010)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $0003)
-	%DKC3_SSS_OpXX($64, DATA_FF2835)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOSHeadExplosionSpawner
+	db !spawn_command_F6, $00, $00
+	db sprite.visibility : dw $C000
+	db sprite.movement_state : dw $0001
+	db sprite.x_speed : dw $FFC0
+	db sprite.y_speed : dw $0000
+	db sprite.unknown_5C : dw $0010
+	db sprite.unknown_5E : dw $0010
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $0003
+	db sprite.unknown_64 : dw DATA_FF2835
+	db !spawn_command_success
 
 DATA_FF2835:
-	%DKC3_SSS_OpFF(!sprite_KAOSHeadExplosion)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($3A, $0400)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $FF00)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0071)
-	%DKC3_SSS_OpFA($0175)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOSHeadExplosion
+	db sprite.movement_state : dw $0001
+	db sprite.interaction_flags : dw $0400
+	db !spawn_command_F6, $00, $00
+	db sprite.visibility : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $FF00
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0071
+	db !spawn_command_FA : dw $0175
+	db !spawn_command_success
 
 DATA_FF2854:
-	%DKC3_SSS_OpFF(!sprite_WaterSplash)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0022)
-	%DKC3_SSS_OpFA($0178)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_WaterSplash
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0022
+	db !spawn_command_FA : dw $0178
+	db !spawn_command_success
 
 DATA_FF2864:
-	%DKC3_SSS_OpFF(!sprite_KongWaterSplash )
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0022)
-	%DKC3_SSS_OpFA($0179)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KongWaterSplash 
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0022
+	db !spawn_command_FA : dw $0179
+	db !spawn_command_success
 
 DATA_FF2874:
-	%DKC3_SSS_OpFF(!sprite_LevelEndFlag)
-	%DKC3_SSS_OpF6($08, $A5)
-	%DKC3_SSS_OpFA($017F)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $0005)
-	%DKC3_SSS_OpXX($64, $0006)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_LevelEndFlag
+	db !spawn_command_F6, $08, $A5
+	db !spawn_command_FA : dw $017F
+	db sprite.visibility : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $0005
+	db sprite.unknown_64 : dw $0006
+	db !spawn_command_success
 
 DATA_FF288D:
-	%DKC3_SSS_OpF9(DATA_FF2874)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpFC($002B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2874
+	db sprite.state : dw $0001
+	db !spawn_command_FC : dw $002B
+	db !spawn_command_success
 
 DATA_FF2897:
-	%DKC3_SSS_OpF9(DATA_FF2874)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpFC($0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2874
+	db sprite.state : dw $0002
+	db !spawn_command_FC : dw $0005
+	db !spawn_command_success
 
 DATA_FF28A1:
-	%DKC3_SSS_OpF9(DATA_FF2874)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpFC($0006)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2874
+	db sprite.state : dw $0002
+	db !spawn_command_FC : dw $0006
+	db !spawn_command_success
 
 DATA_FF28AB:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_02A4)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpF6($00, $90)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $000F)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpXX($2E, $FC00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_02A4
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_F6, $00, $90
+	db sprite.visibility : dw $0000
+	db sprite.movement_state : dw $0004
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $000F
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $FF00
+	db sprite.y_speed : dw $FC00
+	db !spawn_command_success
 
 DATA_FF28CA:
-	%DKC3_SSS_OpF9(DATA_FF28AB)
-	%DKC3_SSS_OpFA($014B)
-	%DKC3_SSS_OpFC($0023)
-	%DKC3_SSS_OpXX($6C, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF28AB
+	db !spawn_command_FA : dw $014B
+	db !spawn_command_FC : dw $0023
+	db sprite.unknown_6C : dw $0004
+	db !spawn_command_success
 
 DATA_FF28D7:
-	%DKC3_SSS_OpF9(DATA_FF28AB)
-	%DKC3_SSS_OpFA($0148)
-	%DKC3_SSS_OpFC($00C8)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF28AB
+	db !spawn_command_FA : dw $0148
+	db !spawn_command_FC : dw $00C8
+	db sprite.unknown_6C : dw $0000
+	db !spawn_command_success
 
 DATA_FF28E4:
-	%DKC3_SSS_OpF7(!sprite_EllieHorizontalWaterShot, $0016, $14)
-	%DKC3_SSS_OpF6($28, $ED)
-	%DKC3_SSS_OpXX($06, DATA_FF1BE6)
-	%DKC3_SSS_OpFA($0133)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpXX($5A, $0044)
-	%DKC3_SSS_OpF1($2A, $0300)
-	%DKC3_SSS_OpF1($30, $0600)
-	%DKC3_SSS_OpXX($2E, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_EllieHorizontalWaterShot, $0016 : db $14
+	db !spawn_command_F6, $28, $ED
+	db sprite.constants_address : dw DATA_FF1BE6
+	db !spawn_command_FA : dw $0133
+	db sprite.render_order : dw $00C8
+	db sprite.movement_state : dw $0044
+	db !spawn_command_F1, $2A : dw $0300
+	db !spawn_command_F1, $30 : dw $0600
+	db sprite.y_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF2905:
-	%DKC3_SSS_OpF7(!sprite_EllieDiagonalWaterShot, $0016, $28)
-	%DKC3_SSS_OpF6($26, $DA)
-	%DKC3_SSS_OpXX($06, DATA_FF1BEC)
-	%DKC3_SSS_OpFA($0134)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpXX($5A, $0044)
-	%DKC3_SSS_OpF1($2A, $0300)
-	%DKC3_SSS_OpF1($30, $0400)
-	%DKC3_SSS_OpXX($2E, $FC00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_EllieDiagonalWaterShot, $0016 : db $28
+	db !spawn_command_F6, $26, $DA
+	db sprite.constants_address : dw DATA_FF1BEC
+	db !spawn_command_FA : dw $0134
+	db sprite.render_order : dw $00C8
+	db sprite.movement_state : dw $0044
+	db !spawn_command_F1, $2A : dw $0300
+	db !spawn_command_F1, $30 : dw $0400
+	db sprite.y_speed : dw $FC00
+	db !spawn_command_success
 
 DATA_FF2926:
-	%DKC3_SSS_OpFF(!sprite_AnimalBuddyIcon)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($5C, $C818)
-	%DKC3_SSS_OpXX($5E, $0004)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_AnimalBuddyIcon
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_FE : dw $3000
+	db sprite.unknown_5C : dw $C818
+	db sprite.unknown_5E : dw $0004
+	db sprite.state : dw $0000
+	db sprite.render_order : dw $00FF
+	db !spawn_command_success
 
 DATA_FF293C:
-	%DKC3_SSS_OpF9(DATA_FF2926)
-	%DKC3_SSS_OpFC($0016)
-	%DKC3_SSS_OpXX($60, $0234)
-	%DKC3_SSS_OpXX($24, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2926
+	db !spawn_command_FC : dw $0016
+	db sprite.unknown_60 : dw $0234
+	db sprite.sprite_graphic : dw $0000
+	db !spawn_command_success
 
 DATA_FF2949:
-	%DKC3_SSS_OpF9(DATA_FF2926)
-	%DKC3_SSS_OpFC($0017)
-	%DKC3_SSS_OpXX($60, $0238)
-	%DKC3_SSS_OpXX($24, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2926
+	db !spawn_command_FC : dw $0017
+	db sprite.unknown_60 : dw $0238
+	db sprite.sprite_graphic : dw $0002
+	db !spawn_command_success
 
 DATA_FF2956:
-	%DKC3_SSS_OpF9(DATA_FF2926)
-	%DKC3_SSS_OpF8($0777, $0010, DATA_FF2B21, DATA_FF2B25)
-	%DKC3_SSS_OpXX($60, $023C)
-	%DKC3_SSS_OpXX($24, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2926
+	db !spawn_command_F8 : dw $0777, $0010, DATA_FF2B21, DATA_FF2B25
+	db sprite.unknown_60 : dw $023C
+	db sprite.sprite_graphic : dw $0004
+	db !spawn_command_success
 
 DATA_FF2969:
-	%DKC3_SSS_OpF9(DATA_FF2926)
-	%DKC3_SSS_OpFC($0019)
-	%DKC3_SSS_OpXX($60, $0240)
-	%DKC3_SSS_OpXX($24, $0006)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2926
+	db !spawn_command_FC : dw $0019
+	db sprite.unknown_60 : dw $0240
+	db sprite.sprite_graphic : dw $0006
+	db !spawn_command_success
 
 DATA_FF2976:
-	%DKC3_SSS_OpFF(!sprite_Rocket)
-	%DKC3_SSS_OpXX($38, $0008)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpFA($0180)
-	%DKC3_SSS_OpFC($001B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Rocket
+	db sprite.state : dw $0008
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_FE : dw $2000
+	db sprite.unknown_5E : dw $0000
+	db !spawn_command_FA : dw $0180
+	db !spawn_command_FC : dw $001B
+	db !spawn_command_success
 
 DATA_FF298C:
-	%DKC3_SSS_OpFF(!sprite_RocketFlame)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpF6($00, $D7)
-	%DKC3_SSS_OpF2($00CF)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($0181)
-	%DKC3_SSS_OpFC($0011)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0600)
-	%DKC3_SSS_OpXX($62, $1800)
-	%DKC3_SSS_OpXX($64, $D600)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_RocketFlame
+	db sprite.state : dw $0000
+	db !spawn_command_F6, $00, $D7
+	db !spawn_command_F2 : dw $00CF
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $0181
+	db !spawn_command_FC : dw $0011
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0600
+	db sprite.unknown_62 : dw $1800
+	db sprite.unknown_64 : dw $D600
+	db !spawn_command_success
 
 DATA_FF29AE:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_005C, $0011, $11)
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_005C)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($58, $0000)
-	%DKC3_SSS_OpXX($0E, $00CF)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($0182)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_005C, $0011 : db $11
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_005C
+	db !spawn_command_F6, $00, $00
+	db sprite.unknown_58 : dw $0000
+	db sprite.render_order : dw $00CF
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $0182
+	db !spawn_command_success
 
 DATA_FF29C7:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_005C, $0011, $11)
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_005C)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($58, $0000)
-	%DKC3_SSS_OpXX($0E, $00CF)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFA($0182)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_005C, $0011 : db $11
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_005C
+	db !spawn_command_F6, $00, $00
+	db sprite.unknown_58 : dw $0000
+	db sprite.render_order : dw $00CF
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FA : dw $0182
+	db !spawn_command_success
 
 DATA_FF29E0:
-	%DKC3_SSS_OpFF(!sprite_RocketEyes)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpF3($2E, $00)
-	%DKC3_SSS_OpFC($001B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_RocketEyes
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_F3, $2E, $00
+	db !spawn_command_FC : dw $001B
+	db !spawn_command_success
 
 DATA_FF29F0:
-	%DKC3_SSS_OpFF(!sprite_BonusLevelTimer)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($0E, $00F8)
-	%DKC3_SSS_OpXX($12, $1880)
-	%DKC3_SSS_OpXX($16, $1200)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BonusLevelTimer
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FE : dw $3000
+	db sprite.render_order : dw $00F8
+	db sprite.x_position : dw $1880
+	db sprite.y_position : dw $1200
+	db sprite.visibility : dw $C000
+	db sprite.interaction_flags : dw $0000
+	db sprite.state : dw $0001
+	db !spawn_command_success
 
 DATA_FF2A0C:
-	%DKC3_SSS_OpFF(!sprite_Toboggan)
-	%DKC3_SSS_OpFC($0021)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($0E, $00CE)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Toboggan
+	db !spawn_command_FC : dw $0021
+	db !spawn_command_F6, $00, $00
+	db sprite.render_order : dw $00CE
+	db sprite.state : dw $0001
+	db sprite.interaction_flags : dw $0000
+	db !spawn_command_success
 
 DATA_FF2A1F:
-	%DKC3_SSS_OpFF(!sprite_Toboggan)
-	%DKC3_SSS_OpFC($0021)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($0E, $00CF)
-	%DKC3_SSS_OpF3($33, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Toboggan
+	db !spawn_command_FC : dw $0021
+	db !spawn_command_F6, $00, $00
+	db sprite.state : dw $0001
+	db sprite.interaction_flags : dw $0000
+	db sprite.render_order : dw $00CF
+	db !spawn_command_F3, $33, $00
+	db !spawn_command_success
 
 DATA_FF2A35:
-	%DKC3_SSS_OpFF(!sprite_VerticalAutoscroll)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0009)
-	%DKC3_SSS_OpXX($6A, $FFFF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_VerticalAutoscroll
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0009
+	db sprite.unknown_6A : dw $FFFF
+	db !spawn_command_success
 
 DATA_FF2A4E:
-	%DKC3_SSS_OpF9(DATA_FF2A35)
-	%DKC3_SSS_OpXX($5C, DATA_FF2A58)
-	%DKC3_SSS_OpXX($6C, DATA_FF2A62)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2A35
+	db sprite.unknown_5C : dw DATA_FF2A58
+	db sprite.unknown_6C : dw DATA_FF2A62
+	db !spawn_command_success
 
 DATA_FF2A58:
 	dw $FFFE
@@ -3702,10 +3702,10 @@ DATA_FF2A62:
 	dw $0480
 
 DATA_FF2A6E:
-	%DKC3_SSS_OpF9(DATA_FF2A35)
-	%DKC3_SSS_OpXX($5C, DATA_FF2A78)
-	%DKC3_SSS_OpXX($6C, DATA_FF2A82)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2A35
+	db sprite.unknown_5C : dw DATA_FF2A78
+	db sprite.unknown_6C : dw DATA_FF2A82
+	db !spawn_command_success
 
 DATA_FF2A78:
 	dw $FFFE
@@ -3718,10 +3718,10 @@ DATA_FF2A82:
 	dw $04D0
 
 DATA_FF2A84:
-	%DKC3_SSS_OpF9(DATA_FF2A35)
-	%DKC3_SSS_OpXX($5C, DATA_FF2A8E)
-	%DKC3_SSS_OpXX($6C, DATA_FF2A98)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2A35
+	db sprite.unknown_5C : dw DATA_FF2A8E
+	db sprite.unknown_6C : dw DATA_FF2A98
+	db !spawn_command_success
 
 DATA_FF2A8E:
 	dw $FFFE
@@ -3734,133 +3734,133 @@ DATA_FF2A98:
 	dw $0800
 
 DATA_FF2A9A:
-	%DKC3_SSS_OpFF(!sprite_Ellie)
-	%DKC3_SSS_OpXX($06, DATA_FF1CE4)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0016)
-	%DKC3_SSS_OpFA($010F)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5A, $004A)
-	%DKC3_SSS_OpXX($0C, $00FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Ellie
+	db sprite.constants_address : dw DATA_FF1CE4
+	db sprite.render_order : dw $00D4
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0016
+	db !spawn_command_FA : dw $010F
+	db sprite.unknown_5C : dw $0000
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.movement_state : dw $004A
+	db sprite.offscreen_despawn_time : dw $00FF
+	db !spawn_command_success
 
 DATA_FF2AC5:
-	%DKC3_SSS_OpFF(!sprite_Enguarde)
-	%DKC3_SSS_OpXX($06, DATA_FF1CF6)
-	%DKC3_SSS_OpXX($0E, $00D0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0017)
-	%DKC3_SSS_OpFA($0114)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5A, $004A)
-	%DKC3_SSS_OpXX($0C, $00FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Enguarde
+	db sprite.constants_address : dw DATA_FF1CF6
+	db sprite.render_order : dw $00D0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0017
+	db !spawn_command_FA : dw $0114
+	db sprite.unknown_5C : dw $0000
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.movement_state : dw $004A
+	db sprite.offscreen_despawn_time : dw $00FF
+	db !spawn_command_success
 
 DATA_FF2AF0:
-	%DKC3_SSS_OpFF(!sprite_Squawks)
-	%DKC3_SSS_OpXX($06, DATA_FF1D08)
-	%DKC3_SSS_OpXX($0E, $00D0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpF8($0777, $0010, DATA_FF2B21, DATA_FF2B25)
-	%DKC3_SSS_OpFA($011B)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($0C, $00FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Squawks
+	db sprite.constants_address : dw DATA_FF1D08
+	db sprite.render_order : dw $00D0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_F8 : dw $0777, $0010, DATA_FF2B21, DATA_FF2B25
+	db !spawn_command_FA : dw $011B
+	db sprite.unknown_5C : dw $0000
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.movement_state : dw $0000
+	db sprite.offscreen_despawn_time : dw $00FF
+	db !spawn_command_success
 
 DATA_FF2B21:
-	%DKC3_SSS_OpFC($0018)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_FC : dw $0018
+	db !spawn_command_success
 
 DATA_FF2B25:
-	%DKC3_SSS_OpFC($001E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_FC : dw $001E
+	db !spawn_command_success
 
 DATA_FF2B29:
-	%DKC3_SSS_OpFF(!sprite_Squitter)
-	%DKC3_SSS_OpXX($06, DATA_FF1D1A)
-	%DKC3_SSS_OpXX($0E, $00D0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0019)
-	%DKC3_SSS_OpFA($0117)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5A, $004A)
-	%DKC3_SSS_OpXX($0C, $00FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Squitter
+	db sprite.constants_address : dw DATA_FF1D1A
+	db sprite.render_order : dw $00D0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0019
+	db !spawn_command_FA : dw $0117
+	db sprite.unknown_5C : dw $0000
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.movement_state : dw $004A
+	db sprite.offscreen_despawn_time : dw $00FF
+	db !spawn_command_success
 
 DATA_FF2B54:
-	%DKC3_SSS_OpFF(!sprite_Parry)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($0E, $00D0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001A)
-	%DKC3_SSS_OpFA($011E)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $0020)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($0C, $00FF)
-	%DKC3_SSS_OpXX($64, $0078)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Parry
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.render_order : dw $00D0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001A
+	db !spawn_command_FA : dw $011E
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $0020
+	db sprite.movement_state : dw $0000
+	db sprite.offscreen_despawn_time : dw $00FF
+	db sprite.unknown_64 : dw $0078
+	db !spawn_command_success
 
 DATA_FF2B7F:
-	%DKC3_SSS_OpFF(!sprite_WebShot)
-	%DKC3_SSS_OpXX($0E, $00D0)
-	%DKC3_SSS_OpF6($0C, $04)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFA($0121)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_WebShot
+	db sprite.render_order : dw $00D0
+	db !spawn_command_F6, $0C, $04
+	db sprite.y_speed : dw $0000
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FA : dw $0121
+	db !spawn_command_success
 
 DATA_FF2B95:
-	%DKC3_SSS_OpFF(!sprite_WebPlatform)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpF6($0C, $FE)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_WebPlatform
+	db sprite.render_order : dw $00D4
+	db !spawn_command_F6, $0C, $FE
+	db sprite.state : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_62 : dw $0000
+	db sprite.visibility : dw $0000
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_success
 
 DATA_FF2BB4:
-	%DKC3_SSS_OpFF(!sprite_KongFusedCliffsRope)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($1E, $3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KongFusedCliffsRope
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $0000
+	db sprite.oam_property : dw $3000
+	db !spawn_command_success
 
 DATA_FF2BC1:
-	%DKC3_SSS_OpF9(DATA_FF2BB4)
-	%DKC3_SSS_OpXX($4C, DATA_FF2BCB)
-	%DKC3_SSS_OpXX($4E, DATA_FF2BE5)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2BB4
+	db sprite.unknown_4C : dw DATA_FF2BCB
+	db sprite.unknown_4E : dw DATA_FF2BE5
+	db !spawn_command_success
 
 DATA_FF2BCB:
 	dw $02B0,$188A,$07A8,DATA_FF2C31
@@ -3872,10 +3872,10 @@ DATA_FF2BE5:
 	dw $2020,$1310,$1560,$07B0,$0295
 
 DATA_FF2BEF:
-	%DKC3_SSS_OpF9(DATA_FF2BB4)
-	%DKC3_SSS_OpXX($4C, DATA_FF2BF9)
-	%DKC3_SSS_OpXX($4E, DATA_FF2C03)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2BB4
+	db sprite.unknown_4C : dw DATA_FF2BF9
+	db sprite.unknown_4E : dw DATA_FF2C03
+	db !spawn_command_success
 
 DATA_FF2BF9:
 	dw $0190,$0130,$0410,DATA_FF2C3E
@@ -3885,10 +3885,10 @@ DATA_FF2C03:
 	dw $0580
 
 DATA_FF2C05:
-	%DKC3_SSS_OpF9(DATA_FF2BB4)
-	%DKC3_SSS_OpXX($4C, DATA_FF2C0F)
-	%DKC3_SSS_OpXX($4E, DATA_FF2C19)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2BB4
+	db sprite.unknown_4C : dw DATA_FF2C0F
+	db sprite.unknown_4E : dw DATA_FF2C19
+	db !spawn_command_success
 
 DATA_FF2C0F:
 	dw $0190,$0130,$0418,DATA_FF2C4B
@@ -3898,3341 +3898,3341 @@ DATA_FF2C19:
 	dw $0580
 
 DATA_FF2C1B:
-	%DKC3_SSS_OpFF(!sprite_KongFusedCliffsAutoscroll)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($24, $0001)
-	%DKC3_SSS_OpXX($22, $0001)
-	%DKC3_SSS_OpXX($20, $0001)
-	%DKC3_SSS_OpXX($26, $8006)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KongFusedCliffsAutoscroll
+	db sprite.render_order : dw $00CC
+	db sprite.sprite_graphic : dw $0001
+	db sprite.sprite_graphic_mirror : dw $0001
+	db sprite.last_rendered_graphic : dw $0001
+	db sprite.visibility : dw $8006
+	db sprite.unknown_64 : dw $0000
+	db !spawn_command_success
 
 DATA_FF2C31:
-	%DKC3_SSS_OpF9(DATA_FF2C1B)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2E, $FF20)
-	%DKC3_SSS_OpXX($18, $0170)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2C1B
+	db sprite.state : dw $0000
+	db sprite.y_speed : dw $FF20
+	db sprite.ground_y_position : dw $0170
+	db !spawn_command_success
 
 DATA_FF2C3E:
-	%DKC3_SSS_OpF9(DATA_FF2C1B)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2E, $FE00)
-	%DKC3_SSS_OpXX($18, $0170)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2C1B
+	db sprite.state : dw $0000
+	db sprite.y_speed : dw $FE00
+	db sprite.ground_y_position : dw $0170
+	db !spawn_command_success
 
 DATA_FF2C4B:
-	%DKC3_SSS_OpF9(DATA_FF2C1B)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2E, $FE80)
-	%DKC3_SSS_OpXX($18, $0170)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2C1B
+	db sprite.state : dw $0000
+	db sprite.y_speed : dw $FE80
+	db sprite.ground_y_position : dw $0170
+	db !spawn_command_success
 
 DATA_FF2C58:
-	%DKC3_SSS_OpFF(!sprite_RopeFire)
-	%DKC3_SSS_OpXX($0E, $00CD)
-	%DKC3_SSS_OpFA($0186)
-	%DKC3_SSS_OpFC($0031)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_RopeFire
+	db sprite.render_order : dw $00CD
+	db !spawn_command_FA : dw $0186
+	db !spawn_command_FC : dw $0031
+	db !spawn_command_FE : dw $3000
+	db sprite.state : dw $0000
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $0004
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db !spawn_command_success
 
 DATA_FF2C77:
-	%DKC3_SSS_OpFF(!sprite_WaterfallBarrelSpawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_WaterfallBarrelSpawner
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF2C7E:
-	%DKC3_SSS_OpFF(!sprite_WaterfallBarrel)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($0E, $00D0)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($0012)
-	%DKC3_SSS_OpFA($0187)
-	%DKC3_SSS_OpXX($26, $A007)
-	%DKC3_SSS_OpXX($5A, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_WaterfallBarrel
+	db sprite.state : dw $0000
+	db sprite.render_order : dw $00D0
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $0012
+	db !spawn_command_FA : dw $0187
+	db sprite.visibility : dw $A007
+	db sprite.movement_state : dw $0003
+	db !spawn_command_success
 
 DATA_FF2C9A:
-	%DKC3_SSS_OpFF(!sprite_BuzzSwarrm)
-	%DKC3_SSS_OpXX($0E, $00E8)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0107)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($4C, $0070)
-	%DKC3_SSS_OpXX($50, $0404)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0070)
-	%DKC3_SSS_OpFA($01A8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BuzzSwarrm
+	db sprite.render_order : dw $00E8
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0107
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.unknown_4C : dw $0070
+	db sprite.unknown_50 : dw $0404
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0070
+	db !spawn_command_FA : dw $01A8
+	db !spawn_command_success
 
 DATA_FF2CBF:
-	%DKC3_SSS_OpFF(!sprite_Lemguin)
-	%DKC3_SSS_OpF6($03, $F0)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($5A, $0044)
-	%DKC3_SSS_OpXX($06, DATA_FF1F32)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($6A, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpF2($00D4)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($0052)
-	%DKC3_SSS_OpFA($01AF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Lemguin
+	db !spawn_command_F6, $03, $F0
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.movement_state : dw $0044
+	db sprite.constants_address : dw DATA_FF1F32
+	db sprite.interaction_flags : dw $0040
+	db sprite.unknown_6A : dw $0000
+	db sprite.visibility : dw $0000
+	db !spawn_command_F2 : dw $00D4
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $0052
+	db !spawn_command_FA : dw $01AF
+	db !spawn_command_success
 
 DATA_FF2CF0:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00D4, $005A, $0D)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpF3($3C, $00)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00D4, $005A : db $0D
+	db sprite.state : dw $0000
+	db sprite.visibility : dw $C000
+	db !spawn_command_F3, $3C, $00
+	db !spawn_command_FE : dw $7000
+	db !spawn_command_success
 
 DATA_FF2D03:
-	%DKC3_SSS_OpFF(!sprite_BananaBird)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($0E, $00F4)
-	%DKC3_SSS_OpXX($06, DATA_FF1F4A)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFC($005A)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpFA($01C5)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BananaBird
+	db sprite.state : dw $0000
+	db sprite.render_order : dw $00F4
+	db sprite.constants_address : dw DATA_FF1F4A
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.visibility : dw $0000
+	db !spawn_command_FC : dw $005A
+	db !spawn_command_FE : dw $7000
+	db !spawn_command_FA : dw $01C5
+	db !spawn_command_success
 
 DATA_FF2D2B:
-	%DKC3_SSS_OpF7(!sprite_BananaBird, $005A, $0D)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($12, $008E)
-	%DKC3_SSS_OpXX($16, $0040)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF1F4A)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpF2($00F4)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($01CA)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BananaBird, $005A : db $0D
+	db sprite.unknown_5C : dw $0001
+	db sprite.x_position : dw $008E
+	db sprite.y_position : dw $0040
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.constants_address : dw DATA_FF1F4A
+	db sprite.movement_state : dw $0001
+	db sprite.state : dw $0005
+	db sprite.visibility : dw $0000
+	db !spawn_command_F2 : dw $00F4
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $01CA
+	db !spawn_command_success
 
 DATA_FF2D56:
-	%DKC3_SSS_OpF7(!sprite_BananaBird, $005A, $0D)
-	%DKC3_SSS_OpXX($12, $0110)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($06, DATA_FF1F4A)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($38, $000B)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpF2($00F4)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($01C5)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BananaBird, $005A : db $0D
+	db sprite.x_position : dw $0110
+	db sprite.y_position : dw $0080
+	db sprite.constants_address : dw DATA_FF1F4A
+	db sprite.movement_state : dw $0001
+	db sprite.state : dw $000B
+	db sprite.visibility : dw $0000
+	db !spawn_command_F2 : dw $00F4
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $01C5
+	db !spawn_command_success
 
 DATA_FF2D78:
-	%DKC3_SSS_OpF7(!sprite_BananaBird, $005A, $0D)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0030)
-	%DKC3_SSS_OpXX($06, DATA_FF1F4A)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($38, $000C)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpF2($00F4)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($01C5)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BananaBird, $005A : db $0D
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0030
+	db sprite.constants_address : dw DATA_FF1F4A
+	db sprite.movement_state : dw $0001
+	db sprite.state : dw $000C
+	db sprite.visibility : dw $0000
+	db !spawn_command_F2 : dw $00F4
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $01C5
+	db !spawn_command_success
 
 DATA_FF2D9A:
-	%DKC3_SSS_OpFF(!sprite_TargetSpawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_TargetSpawner
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF2DA1:
-	%DKC3_SSS_OpFF(!sprite_TimerDigit)
-	%DKC3_SSS_OpXX($16, $0040)
-	%DKC3_SSS_OpXX($0E, $00F8)
-	%DKC3_SSS_OpXX($26, $8000)
-	%DKC3_SSS_OpXX($24, $2981)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_TimerDigit
+	db sprite.y_position : dw $0040
+	db sprite.render_order : dw $00F8
+	db sprite.visibility : dw $8000
+	db sprite.sprite_graphic : dw $2981
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_success
 
 DATA_FF2DB7:
-	%DKC3_SSS_OpFF(!sprite_HeadToHeadIcon)
-	%DKC3_SSS_OpXX($12, $00ED)
-	%DKC3_SSS_OpXX($16, $0024)
-	%DKC3_SSS_OpXX($0E, $00F8)
-	%DKC3_SSS_OpXX($26, $8000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($003F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_HeadToHeadIcon
+	db sprite.x_position : dw $00ED
+	db sprite.y_position : dw $0024
+	db sprite.render_order : dw $00F8
+	db sprite.visibility : dw $8000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $003F
+	db !spawn_command_success
 
 DATA_FF2DCD:
-	%DKC3_SSS_OpF7(!sprite_HeadToHeadDot, $0038, $02)
-	%DKC3_SSS_OpXX($12, $00ED)
-	%DKC3_SSS_OpXX($16, $0016)
-	%DKC3_SSS_OpXX($0E, $00F8)
-	%DKC3_SSS_OpXX($26, $8000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($24, $004B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_HeadToHeadDot, $0038 : db $02
+	db sprite.x_position : dw $00ED
+	db sprite.y_position : dw $0016
+	db sprite.render_order : dw $00F8
+	db sprite.visibility : dw $8000
+	db !spawn_command_FE : dw $3000
+	db sprite.sprite_graphic : dw $004B
+	db !spawn_command_success
 
 DATA_FF2DE6:
-	%DKC3_SSS_OpFF(!sprite_Target)
-	%DKC3_SSS_OpXX($16, $01F0)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($3A, $0020)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpFA($018A)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($003D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Target
+	db sprite.y_position : dw $01F0
+	db sprite.render_order : dw $00D4
+	db sprite.state : dw $0000
+	db sprite.interaction_flags : dw $0020
+	db sprite.unknown_5E : dw $0000
+	db !spawn_command_FA : dw $018A
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $003D
+	db !spawn_command_success
 
 DATA_FF2E02:
-	%DKC3_SSS_OpF7(!sprite_ThrownSoftball, $003D, $03)
-	%DKC3_SSS_OpXX($5C, $0002)
-	%DKC3_SSS_OpXX($5E, $0003)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($018B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_ThrownSoftball, $003D : db $03
+	db sprite.unknown_5C : dw $0002
+	db sprite.unknown_5E : dw $0003
+	db sprite.unknown_60 : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.render_order : dw $00D8
+	db sprite.interaction_flags : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $018B
+	db !spawn_command_success
 
 DATA_FF2E21:
-	%DKC3_SSS_OpFF(!sprite_SneekInWheel)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFC($0058)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SneekInWheel
+	db !spawn_command_F6, $00, $00
+	db sprite.interaction_flags : dw $0040
+	db sprite.render_order : dw $00D8
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.visibility : dw $0000
+	db !spawn_command_FC : dw $0058
+	db !spawn_command_success
 
 DATA_FF2E43:
-	%DKC3_SSS_OpFF(!sprite_TargetShootKong)
-	%DKC3_SSS_OpXX($5E, $0180)
-	%DKC3_SSS_OpXX($2A, $0100)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpXX($5A, $0012)
-	%DKC3_SSS_OpXX($0E, $00E4)
-	%DKC3_SSS_OpXX($3A, $0020)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0007)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_TargetShootKong
+	db sprite.unknown_5E : dw $0180
+	db sprite.x_speed : dw $0100
+	db sprite.max_x_speed : dw $0100
+	db sprite.movement_state : dw $0012
+	db sprite.render_order : dw $00E4
+	db sprite.interaction_flags : dw $0020
+	db sprite.state : dw $0002
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0007
+	db !spawn_command_success
 
 DATA_FF2E62:
-	%DKC3_SSS_OpF9(DATA_FF52D4)
-	%DKC3_SSS_OpXX($5E, $0026)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($60, $0001)
-	%DKC3_SSS_OpXX($62, DATA_B6F46A)
-	%DKC3_SSS_OpXX($64, DATA_B6F46A)
-	%DKC3_SSS_OpXX($66, $0005)
-	%DKC3_SSS_OpXX($68, $0005)
-	%DKC3_SSS_OpXX($6C, $0096)
-	%DKC3_SSS_OpFC($0046)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF52D4
+	db sprite.unknown_5E : dw $0026
+	db sprite.x_position : dw $0080
+	db sprite.unknown_60 : dw $0001
+	db sprite.unknown_62 : dw DATA_B6F46A
+	db sprite.unknown_64 : dw DATA_B6F46A
+	db sprite.unknown_66 : dw $0005
+	db sprite.unknown_68 : dw $0005
+	db sprite.unknown_6C : dw $0096
+	db !spawn_command_FC : dw $0046
+	db !spawn_command_success
 
 DATA_FF2E81:
-	%DKC3_SSS_OpF9(DATA_FF52D4)
-	%DKC3_SSS_OpXX($5E, $0027)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($6C, $0096)
-	%DKC3_SSS_OpFC($0046)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF52D4
+	db sprite.unknown_5E : dw $0027
+	db sprite.x_position : dw $0080
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_6C : dw $0096
+	db !spawn_command_FC : dw $0046
+	db !spawn_command_success
 
 DATA_FF2E94:
-	%DKC3_SSS_OpF9(DATA_FF52D4)
-	%DKC3_SSS_OpXX($5E, $0028)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($6C, $0096)
-	%DKC3_SSS_OpFC($0046)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF52D4
+	db sprite.unknown_5E : dw $0028
+	db sprite.x_position : dw $0080
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_6C : dw $0096
+	db !spawn_command_FC : dw $0046
+	db !spawn_command_success
 
 DATA_FF2EA7:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_0018, $003D, $03)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($0E, $00F8)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0014)
-	%DKC3_SSS_OpXX($66, $0032)
-	%DKC3_SSS_OpXX($6A, $001E)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($018D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_0018, $003D : db $03
+	db sprite.unknown_60 : dw $0000
+	db sprite.render_order : dw $00F8
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0014
+	db sprite.unknown_66 : dw $0032
+	db sprite.unknown_6A : dw $001E
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $018D
+	db !spawn_command_success
 
 DATA_FF2EC6:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_001C, $003D, $03)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($5C, $0064)
-	%DKC3_SSS_OpXX($2A, $0050)
-	%DKC3_SSS_OpXX($2E, $F9E0)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($01D1)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_001C, $003D : db $03
+	db sprite.render_order : dw $00D4
+	db sprite.unknown_5C : dw $0064
+	db sprite.x_speed : dw $0050
+	db sprite.y_speed : dw $F9E0
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $01D1
+	db !spawn_command_success
 
 DATA_FF2EDF:
-	%DKC3_SSS_OpFF(!sprite_PrizeFromSwankyKong)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($5A, $0013)
-	%DKC3_SSS_OpXX($66, $001A)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($5A, $0013)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_PrizeFromSwankyKong
+	db sprite.render_order : dw $00D4
+	db !spawn_command_FE : dw $2000
+	db sprite.movement_state : dw $0013
+	db sprite.unknown_66 : dw $001A
+	db sprite.state : dw $0000
+	db sprite.visibility : dw $0000
+	db sprite.movement_state : dw $0013
+	db !spawn_command_success
 
 DATA_FF2EF8:
-	%DKC3_SSS_OpF9(DATA_FF2EDF)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpF6($E0, $F0)
-	%DKC3_SSS_OpFA($014D)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2EDF
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_F6, $E0, $F0
+	db !spawn_command_FA : dw $014D
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_success
 
 DATA_FF2F08:
-	%DKC3_SSS_OpF9(DATA_FF2EDF)
-	%DKC3_SSS_OpF6($E0, $F0)
-	%DKC3_SSS_OpFA($0148)
-	%DKC3_SSS_OpFC($00C8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2EDF
+	db !spawn_command_F6, $E0, $F0
+	db !spawn_command_FA : dw $0148
+	db !spawn_command_FC : dw $00C8
+	db !spawn_command_success
 
 DATA_FF2F15:
-	%DKC3_SSS_OpFF(!sprite_ArichLegs)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFC($0040)
-	%DKC3_SSS_OpFA($01D2)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_ArichLegs
+	db sprite.unknown_5C : dw $0000
+	db sprite.render_order : dw $00D4
+	db sprite.state : dw $0000
+	db sprite.interaction_flags : dw $0040
+	db sprite.visibility : dw $0000
+	db !spawn_command_FC : dw $0040
+	db !spawn_command_FA : dw $01D2
+	db !spawn_command_success
 
 DATA_FF2F2E:
-	%DKC3_SSS_OpF9(DATA_FF2F15)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2F15
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF2F35:
-	%DKC3_SSS_OpF9(DATA_FF2F15)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2F15
+	db !spawn_command_FE : dw $7000
+	db !spawn_command_success
 
 DATA_FF2F3C:
-	%DKC3_SSS_OpFF(!sprite_ArichPupil)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($66, $0000)
-	%DKC3_SSS_OpXX($6A, $000E)
-	%DKC3_SSS_OpXX($58, $0000)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpFC($004A)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($24, $2A76)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_ArichPupil
+	db !spawn_command_F6, $00, $00
+	db sprite.render_order : dw $00D8
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_66 : dw $0000
+	db sprite.unknown_6A : dw $000E
+	db sprite.unknown_58 : dw $0000
+	db sprite.visibility : dw $8001
+	db !spawn_command_FC : dw $004A
+	db !spawn_command_FE : dw $3000
+	db sprite.sprite_graphic : dw $2A76
+	db !spawn_command_success
 
 DATA_FF2F61:
-	%DKC3_SSS_OpF9(DATA_FF2F3C)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2F3C
+	db !spawn_command_FE : dw $7000
+	db !spawn_command_success
 
 DATA_FF2F68:
-	%DKC3_SSS_OpF7(!sprite_ArichSpit, $004B, $0C)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($5A, $0014)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($01D8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_ArichSpit, $004B : db $0C
+	db sprite.render_order : dw $00D8
+	db sprite.interaction_flags : dw $0040
+	db sprite.movement_state : dw $0014
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $01D8
+	db !spawn_command_success
 
 DATA_FF2F81:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_0024, $004B, $0C)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0014)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($01D8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_0024, $004B : db $0C
+	db sprite.render_order : dw $00D8
+	db sprite.interaction_flags : dw $0040
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0014
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $01D8
+	db !spawn_command_success
 
 DATA_FF2F9D:
-	%DKC3_SSS_OpFF(!sprite_ArichBackHitbox)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_ArichBackHitbox
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF2FA4:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_03AC)
-	%DKC3_SSS_OpXX($0E, $00F8)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFA($01DD)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_03AC
+	db sprite.render_order : dw $00F8
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FA : dw $01DD
+	db !spawn_command_success
 
 DATA_FF2FB1:
-	%DKC3_SSS_OpF9(DATA_FF2FA4)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $000F)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2FA4
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $000F
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF2FBE:
-	%DKC3_SSS_OpF9(DATA_FF2FA4)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF2FA4
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF2FC5:
-	%DKC3_SSS_OpFF(!sprite_FriendlyNibblaBody)
-	%DKC3_SSS_OpXX($0E, $00DC)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFC($0054)
-	%DKC3_SSS_OpFA($01BE)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FriendlyNibblaBody
+	db sprite.render_order : dw $00DC
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FC : dw $0054
+	db !spawn_command_FA : dw $01BE
+	db !spawn_command_success
 
 DATA_FF2FD8:
-	%DKC3_SSS_OpFF(!sprite_BleakSnowball)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($0E, $00DA)
-	%DKC3_SSS_OpXX($5A, $0014)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFC($0051)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BleakSnowball
+	db !spawn_command_F6, $00, $00
+	db sprite.render_order : dw $00DA
+	db sprite.movement_state : dw $0014
+	db sprite.visibility : dw $0000
+	db !spawn_command_FC : dw $0051
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF2FEE:
-	%DKC3_SSS_OpFF(!sprite_BleakFightKong)
-	%DKC3_SSS_OpXX($12, $00E0)
-	%DKC3_SSS_OpXX($16, $01E0)
-	%DKC3_SSS_OpXX($5E, $0180)
-	%DKC3_SSS_OpXX($66, $0000)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpXX($2A, $0200)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpXX($5A, $0012)
-	%DKC3_SSS_OpXX($0E, $00DA)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($0007)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BleakFightKong
+	db sprite.x_position : dw $00E0
+	db sprite.y_position : dw $01E0
+	db sprite.unknown_5E : dw $0180
+	db sprite.unknown_66 : dw $0000
+	db sprite.unknown_68 : dw $0000
+	db sprite.x_speed : dw $0200
+	db sprite.max_x_speed : dw $0200
+	db sprite.movement_state : dw $0012
+	db sprite.render_order : dw $00DA
+	db sprite.state : dw $0002
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $0007
+	db !spawn_command_success
 
 DATA_FF3019:
-	%DKC3_SSS_OpF7(!sprite_BleakFightCursor, $0038, $02)
-	%DKC3_SSS_OpXX($12, $0110)
-	%DKC3_SSS_OpXX($0E, $00F8)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($24, $004B)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BleakFightCursor, $0038 : db $02
+	db sprite.x_position : dw $0110
+	db sprite.render_order : dw $00F8
+	db !spawn_command_FE : dw $3000
+	db sprite.sprite_graphic : dw $004B
+	db sprite.visibility : dw $0000
+	db !spawn_command_success
 
 DATA_FF302F:
-	%DKC3_SSS_OpF7(!sprite_ThrownSnowball, $003D, $03)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5A, $0014)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($01F5)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_ThrownSnowball, $003D : db $03
+	db sprite.render_order : dw $00D8
+	db sprite.interaction_flags : dw $0000
+	db sprite.movement_state : dw $0014
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $01F5
+	db !spawn_command_success
 
 DATA_FF3048:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_03C4 )
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($66, $0000)
-	%DKC3_SSS_OpXX($6A, $0000)
-	%DKC3_SSS_OpXX($2C, $0000)
-	%DKC3_SSS_OpXX($3A, $0840)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF1F58)
-	%DKC3_SSS_OpFC($0050)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($01F9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_03C4 
+	db !spawn_command_F6, $00, $00
+	db sprite.render_order : dw $00D4
+	db sprite.movement_state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.unknown_66 : dw $0000
+	db sprite.unknown_6A : dw $0000
+	db sprite.unknown_2C : dw $0000
+	db sprite.interaction_flags : dw $0840
+	db sprite.visibility : dw $0000
+	db sprite.constants_address : dw DATA_FF1F58
+	db !spawn_command_FC : dw $0050
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $01F9
+	db !spawn_command_success
 
 DATA_FF307C:
-	%DKC3_SSS_OpFF(!sprite_BigSmokeCloud)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpF2($00D8)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BigSmokeCloud
+	db !spawn_command_F6, $00, $00
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.visibility : dw $0000
+	db !spawn_command_F2 : dw $00D8
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF309B:
-	%DKC3_SSS_OpF9(DATA_FF307C)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($44, $00B0)
-	%DKC3_SSS_OpXX($2E, $FF40)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF307C
+	db sprite.movement_state : dw $0001
+	db sprite.animation_speed : dw $00B0
+	db sprite.y_speed : dw $FF40
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF30AB:
-	%DKC3_SSS_OpF7(!sprite_MinkeyAcorn, $0056, $09)
-	%DKC3_SSS_OpF6($14, $F1)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($2E, $FF20)
-	%DKC3_SSS_OpXX($5A, $0015)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF1F6A)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($020F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_MinkeyAcorn, $0056 : db $09
+	db !spawn_command_F6, $14, $F1
+	db sprite.state : dw $0002
+	db sprite.y_speed : dw $FF20
+	db sprite.movement_state : dw $0015
+	db sprite.visibility : dw $0000
+	db sprite.constants_address : dw DATA_FF1F6A
+	db sprite.render_order : dw $00D8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $020F
+	db !spawn_command_success
 
 DATA_FF30CD:
-	%DKC3_SSS_OpFF(!sprite_Koin)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($3A, $0840)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpFC($0057)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($0211)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Koin
+	db !spawn_command_F6, $00, $00
+	db sprite.render_order : dw $00D4
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.interaction_flags : dw $0840
+	db sprite.visibility : dw $0000
+	db sprite.y_speed : dw $0000
+	db !spawn_command_FC : dw $0057
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $0211
+	db !spawn_command_success
 
 DATA_FF30F2:
-	%DKC3_SSS_OpFF(!sprite_DKCoin)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $0000)
-	%DKC3_SSS_OpFC($0023)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($24, $2E3B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_DKCoin
+	db !spawn_command_F6, $00, $00
+	db sprite.state : dw $0000
+	db sprite.render_order : dw $00D8
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $0000
+	db !spawn_command_FC : dw $0023
+	db !spawn_command_FE : dw $2000
+	db sprite.sprite_graphic : dw $2E3B
+	db !spawn_command_success
 
 DATA_FF310E:
-	%DKC3_SSS_OpFF(!sprite_Barrel)
-	%DKC3_SSS_OpXX($06, DATA_FF1D2C)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFA($014E)
-	%DKC3_SSS_OpXX($38, $0007)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $0005)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Barrel
+	db sprite.constants_address : dw DATA_FF1D2C
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FA : dw $014E
+	db sprite.state : dw $0007
+	db sprite.visibility : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $0005
+	db sprite.movement_state : dw $0040
+	db !spawn_command_success
 
 DATA_FF3136:
-	%DKC3_SSS_OpFF(!sprite_DefeatedBleakSnowball)
-	%DKC3_SSS_OpXX($5A, $0014)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($12, $0100)
-	%DKC3_SSS_OpXX($16, $0100)
-	%DKC3_SSS_OpXX($66, $0000)
-	%DKC3_SSS_OpXX($6A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0051)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_DefeatedBleakSnowball
+	db sprite.movement_state : dw $0014
+	db sprite.render_order : dw $00D4
+	db sprite.state : dw $0000
+	db sprite.visibility : dw $0000
+	db sprite.x_position : dw $0100
+	db sprite.y_position : dw $0100
+	db sprite.unknown_66 : dw $0000
+	db sprite.unknown_6A : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0051
+	db !spawn_command_success
 
 DATA_FF315E:
-	%DKC3_SSS_OpFF(!sprite_FireballLandingParticles)
-	%DKC3_SSS_OpF6($00, $09)
-	%DKC3_SSS_OpXX($0E, $00DC)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($0022)
-	%DKC3_SSS_OpFA($017A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
+	db !spawn_command_F6, $00, $09
+	db sprite.render_order : dw $00DC
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $0022
+	db !spawn_command_FA : dw $017A
+	db !spawn_command_success
 
 DATA_FF3174:
-	%DKC3_SSS_OpF7(!sprite_TopOfCottonTopCoveWaterfall, $0022, $07)
-	%DKC3_SSS_OpF6($00, $07)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($020A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_TopOfCottonTopCoveWaterfall, $0022 : db $07
+	db !spawn_command_F6, $00, $07
+	db sprite.render_order : dw $00D8
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $020A
+	db !spawn_command_success
 
 DATA_FF318A:
-	%DKC3_SSS_OpFF(!sprite_FireballLandingParticles)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($0E, $00DB)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0022)
-	%DKC3_SSS_OpFA($0178)
-	%DKC3_SSS_OpXX($44, $00B0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
+	db !spawn_command_F6, $00, $00
+	db sprite.render_order : dw $00DB
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0022
+	db !spawn_command_FA : dw $0178
+	db sprite.animation_speed : dw $00B0
+	db !spawn_command_success
 
 DATA_FF31A3:
-	%DKC3_SSS_OpFF(!sprite_KnockaLimbs)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($005B)
-	%DKC3_SSS_OpFA($021E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KnockaLimbs
+	db !spawn_command_F6, $00, $00
+	db sprite.render_order : dw $00D8
+	db sprite.visibility : dw $C000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $005B
+	db !spawn_command_FA : dw $021E
+	db !spawn_command_success
 
 DATA_FF31B9:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_03E8)
-	%DKC3_SSS_OpXX($12, $0170)
-	%DKC3_SSS_OpXX($16, $01E0)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFB($1C0F)
-	%DKC3_SSS_OpFA($015C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_03E8
+	db sprite.x_position : dw $0170
+	db sprite.y_position : dw $01E0
+	db sprite.render_order : dw $00D4
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FB : dw $1C0F
+	db !spawn_command_FA : dw $015C
+	db !spawn_command_success
 
 DATA_FF31D2:
-	%DKC3_SSS_OpF6($D8, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $D8, $00
+	db sprite.state : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db !spawn_command_FE : dw $2000
+	db sprite.visibility : dw $0000
+	db !spawn_command_success
 
 DATA_FF31E2:
-	%DKC3_SSS_OpF7(!sprite_BelchaTooth, $005F, $0E)
-	%DKC3_SSS_OpF9(DATA_FF31D2)
-	%DKC3_SSS_OpXX($0E, $00E4)
-	%DKC3_SSS_OpF3($38, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BelchaTooth, $005F : db $0E
+	db !spawn_command_F9 : dw DATA_FF31D2
+	db sprite.render_order : dw $00E4
+	db !spawn_command_F3, $38, $00
+	db !spawn_command_success
 
 DATA_FF31F2:
-	%DKC3_SSS_OpF7(!sprite_BelchaTooth, $005F, $0E)
-	%DKC3_SSS_OpF9(DATA_FF31D2)
-	%DKC3_SSS_OpXX($0E, $00E2)
-	%DKC3_SSS_OpF3($38, $01)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BelchaTooth, $005F : db $0E
+	db !spawn_command_F9 : dw DATA_FF31D2
+	db sprite.render_order : dw $00E2
+	db !spawn_command_F3, $38, $01
+	db !spawn_command_success
 
 DATA_FF3202:
-	%DKC3_SSS_OpF7(!sprite_BelchaTooth, $005F, $0E)
-	%DKC3_SSS_OpF9(DATA_FF31D2)
-	%DKC3_SSS_OpXX($0E, $00E0)
-	%DKC3_SSS_OpF3($38, $02)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BelchaTooth, $005F : db $0E
+	db !spawn_command_F9 : dw DATA_FF31D2
+	db sprite.render_order : dw $00E0
+	db !spawn_command_F3, $38, $02
+	db !spawn_command_success
 
 DATA_FF3212:
-	%DKC3_SSS_OpF7(!sprite_BelchaTooth, $005F, $0E)
-	%DKC3_SSS_OpF9(DATA_FF31D2)
-	%DKC3_SSS_OpXX($0E, $00DE)
-	%DKC3_SSS_OpF3($38, $03)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BelchaTooth, $005F : db $0E
+	db !spawn_command_F9 : dw DATA_FF31D2
+	db sprite.render_order : dw $00DE
+	db !spawn_command_F3, $38, $03
+	db !spawn_command_success
 
 DATA_FF3222:
-	%DKC3_SSS_OpF7(!sprite_BelchaTooth, $005F, $0E)
-	%DKC3_SSS_OpF9(DATA_FF31D2)
-	%DKC3_SSS_OpXX($0E, $00DC)
-	%DKC3_SSS_OpF3($38, $04)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BelchaTooth, $005F : db $0E
+	db !spawn_command_F9 : dw DATA_FF31D2
+	db sprite.render_order : dw $00DC
+	db !spawn_command_F3, $38, $04
+	db !spawn_command_success
 
 DATA_FF3232:
-	%DKC3_SSS_OpF7(!sprite_BelchaTooth, $005F, $0E)
-	%DKC3_SSS_OpF9(DATA_FF31D2)
-	%DKC3_SSS_OpXX($0E, $00EE)
-	%DKC3_SSS_OpF3($38, $05)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BelchaTooth, $005F : db $0E
+	db !spawn_command_F9 : dw DATA_FF31D2
+	db sprite.render_order : dw $00EE
+	db !spawn_command_F3, $38, $05
+	db !spawn_command_success
 
 DATA_FF3242:
-	%DKC3_SSS_OpF7(!sprite_BelchaTooth, $005F, $0E)
-	%DKC3_SSS_OpF9(DATA_FF31D2)
-	%DKC3_SSS_OpXX($0E, $00EC)
-	%DKC3_SSS_OpF3($38, $06)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BelchaTooth, $005F : db $0E
+	db !spawn_command_F9 : dw DATA_FF31D2
+	db sprite.render_order : dw $00EC
+	db !spawn_command_F3, $38, $06
+	db !spawn_command_success
 
 DATA_FF3252:
-	%DKC3_SSS_OpF7(!sprite_BelchaTooth, $005F, $0E)
-	%DKC3_SSS_OpF9(DATA_FF31D2)
-	%DKC3_SSS_OpXX($0E, $00EA)
-	%DKC3_SSS_OpF3($38, $07)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BelchaTooth, $005F : db $0E
+	db !spawn_command_F9 : dw DATA_FF31D2
+	db sprite.render_order : dw $00EA
+	db !spawn_command_F3, $38, $07
+	db !spawn_command_success
 
 DATA_FF3262:
-	%DKC3_SSS_OpF7(!sprite_BelchaTooth, $005F, $0E)
-	%DKC3_SSS_OpF9(DATA_FF31D2)
-	%DKC3_SSS_OpXX($0E, $00E8)
-	%DKC3_SSS_OpF3($38, $08)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BelchaTooth, $005F : db $0E
+	db !spawn_command_F9 : dw DATA_FF31D2
+	db sprite.render_order : dw $00E8
+	db !spawn_command_F3, $38, $08
+	db !spawn_command_success
 
 DATA_FF3272:
-	%DKC3_SSS_OpF7(!sprite_BelchaTooth, $005F, $0E)
-	%DKC3_SSS_OpF9(DATA_FF31D2)
-	%DKC3_SSS_OpXX($0E, $00E6)
-	%DKC3_SSS_OpF3($38, $09)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BelchaTooth, $005F : db $0E
+	db !spawn_command_F9 : dw DATA_FF31D2
+	db sprite.render_order : dw $00E6
+	db !spawn_command_F3, $38, $09
+	db !spawn_command_success
 
 DATA_FF3282:
-	%DKC3_SSS_OpF7(!sprite_BelchaTooth, $0062, $0E)
-	%DKC3_SSS_OpF6($D8, $00)
-	%DKC3_SSS_OpXX($0E, $00F0)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpF3($38, $0A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BelchaTooth, $0062 : db $0E
+	db !spawn_command_F6, $D8, $00
+	db sprite.render_order : dw $00F0
+	db sprite.state : dw $0001
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_F3, $38, $0A
+	db !spawn_command_success
 
 DATA_FF329B:
-	%DKC3_SSS_OpFF(!sprite_SideOfBelchasMouth)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0060)
-	%DKC3_SSS_OpF3($39, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SideOfBelchasMouth
+	db sprite.state : dw $0000
+	db sprite.render_order : dw $00D4
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0060
+	db !spawn_command_F3, $39, $00
+	db !spawn_command_success
 
 DATA_FF32B1:
-	%DKC3_SSS_OpFF(!sprite_BurpedUpBarrel)
-	%DKC3_SSS_OpF6($04, $FE)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($5C, $0014)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($5A, $0002)
-	%DKC3_SSS_OpXX($0E, $00E1)
-	%DKC3_SSS_OpXX($06, DATA_FF1F70)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFA($0229)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BurpedUpBarrel
+	db !spawn_command_F6, $04, $FE
+	db sprite.state : dw $0002
+	db sprite.unknown_5C : dw $0014
+	db sprite.y_speed : dw $0000
+	db sprite.movement_state : dw $0002
+	db sprite.render_order : dw $00E1
+	db sprite.constants_address : dw DATA_FF1F70
+	db sprite.visibility : dw $C000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FA : dw $0229
+	db !spawn_command_success
 
 DATA_FF32D6:
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpFA($012C)
-	%DKC3_SSS_OpXX($44, $0180)
-	%DKC3_SSS_OpEF()
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_FA : dw $012C
+	db sprite.animation_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF32E0:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_0008, $000F, $00)
-	%DKC3_SSS_OpF9(DATA_FF32D6)
-	%DKC3_SSS_OpF6($08, $08)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_0008, $000F : db $00
+	db !spawn_command_F9 : dw DATA_FF32D6
+	db !spawn_command_F6, $08, $08
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF32F3:
-	%DKC3_SSS_OpFF(!sprite_KnikKnak)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpXX($06, DATA_FF1E96)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($007D)
-	%DKC3_SSS_OpFA($022A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KnikKnak
+	db !spawn_command_F6, $00, $00
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.visibility : dw $0000
+	db sprite.movement_state : dw $0040
+	db sprite.render_order : dw $00D8
+	db sprite.constants_address : dw DATA_FF1E96
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $007D
+	db !spawn_command_FA : dw $022A
+	db !spawn_command_success
 
 DATA_FF331E:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_0008, $000F, $00)
-	%DKC3_SSS_OpF9(DATA_FF32D6)
-	%DKC3_SSS_OpF6($CE, $46)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_0008, $000F : db $00
+	db !spawn_command_F9 : dw DATA_FF32D6
+	db !spawn_command_F6, $CE, $46
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF332E:
-	%DKC3_SSS_OpF9(DATA_FF307C)
-	%DKC3_SSS_OpXX($12, $038C)
-	%DKC3_SSS_OpXX($16, $02F2)
-	%DKC3_SSS_OpXX($0E, $00F8)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($2E, $FF20)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0173)
-	%DKC3_SSS_OpXX($44, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF307C
+	db sprite.x_position : dw $038C
+	db sprite.y_position : dw $02F2
+	db sprite.render_order : dw $00F8
+	db sprite.movement_state : dw $0001
+	db sprite.y_speed : dw $FF20
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0173
+	db sprite.animation_speed : dw $0040
+	db !spawn_command_success
 
 DATA_FF334A:
-	%DKC3_SSS_OpF9(DATA_FF307C)
-	%DKC3_SSS_OpXX($12, $03B7)
-	%DKC3_SSS_OpXX($16, $02F2)
-	%DKC3_SSS_OpXX($0E, $00F8)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($2E, $FEE0)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0173)
-	%DKC3_SSS_OpXX($44, $0060)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF307C
+	db sprite.x_position : dw $03B7
+	db sprite.y_position : dw $02F2
+	db sprite.render_order : dw $00F8
+	db sprite.movement_state : dw $0001
+	db sprite.y_speed : dw $FEE0
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0173
+	db sprite.animation_speed : dw $0060
+	db !spawn_command_success
 
 DATA_FF3366:
-	%DKC3_SSS_OpF9(DATA_FF307C)
-	%DKC3_SSS_OpXX($12, $03EF)
-	%DKC3_SSS_OpXX($16, $02F2)
-	%DKC3_SSS_OpXX($0E, $00F8)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($2E, $FF60)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0174)
-	%DKC3_SSS_OpXX($44, $0060)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF307C
+	db sprite.x_position : dw $03EF
+	db sprite.y_position : dw $02F2
+	db sprite.render_order : dw $00F8
+	db sprite.movement_state : dw $0001
+	db sprite.y_speed : dw $FF60
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0174
+	db sprite.animation_speed : dw $0060
+	db !spawn_command_success
 
 DATA_FF3382:
-	%DKC3_SSS_OpFF(!sprite_BelchaPlatform)
-	%DKC3_SSS_OpXX($12, $03B8)
-	%DKC3_SSS_OpXX($16, $02CD)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($5A, $0003)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpF3($37, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BelchaPlatform
+	db sprite.x_position : dw $03B8
+	db sprite.y_position : dw $02CD
+	db sprite.y_speed : dw $0000
+	db sprite.movement_state : dw $0003
+	db sprite.visibility : dw $0000
+	db sprite.render_order : dw $00D4
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_F3, $37, $00
+	db !spawn_command_success
 
 DATA_FF33A1:
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpF3($3A, $00)
-	%DKC3_SSS_OpEF()
+	db sprite.state : dw $0000
+	db sprite.render_order : dw $00D4
+	db !spawn_command_F3, $3A, $00
+	db !spawn_command_success
 
 DATA_FF33AB:
-	%DKC3_SSS_OpF7(!sprite_BarbosEye, $0064, $16)
-	%DKC3_SSS_OpF9(DATA_FF33A1)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarbosEye, $0064 : db $16
+	db !spawn_command_F9 : dw DATA_FF33A1
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF33B8:
-	%DKC3_SSS_OpF7(!sprite_BarbosEye, $0064, $16)
-	%DKC3_SSS_OpF9(DATA_FF33A1)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarbosEye, $0064 : db $16
+	db !spawn_command_F9 : dw DATA_FF33A1
+	db !spawn_command_FE : dw $7000
+	db !spawn_command_success
 
 DATA_FF33C5:
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($66, $0000)
-	%DKC3_SSS_OpXX($6A, $000A)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpF3($3A, $00)
-	%DKC3_SSS_OpEF()
+	db sprite.state : dw $0000
+	db sprite.unknown_66 : dw $0000
+	db sprite.unknown_6A : dw $000A
+	db sprite.visibility : dw $0000
+	db sprite.render_order : dw $00D8
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_F3, $3A, $00
+	db !spawn_command_success
 
 DATA_FF33DB:
-	%DKC3_SSS_OpF7(!sprite_BarbosEye, $0064, $16)
-	%DKC3_SSS_OpFF(!sprite_BarbosPupil)
-	%DKC3_SSS_OpF9(DATA_FF33C5)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarbosEye, $0064 : db $16
+	db !spawn_command_set_type : dw !sprite_BarbosPupil
+	db !spawn_command_F9 : dw DATA_FF33C5
+	db sprite.unknown_68 : dw $0000
+	db !spawn_command_success
 
 DATA_FF33EB:
-	%DKC3_SSS_OpF7(!sprite_BarbosEye, $0064, $16)
-	%DKC3_SSS_OpFF(!sprite_BarbosPupil)
-	%DKC3_SSS_OpF9(DATA_FF33DB)
-	%DKC3_SSS_OpXX($68, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarbosEye, $0064 : db $16
+	db !spawn_command_set_type : dw !sprite_BarbosPupil
+	db !spawn_command_F9 : dw DATA_FF33DB
+	db sprite.unknown_68 : dw $8000
+	db !spawn_command_success
 
 DATA_FF33FB:
-	%DKC3_SSS_OpFF(!sprite_BarbosMouth)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($0E, $00D3)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFC($0064)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($24, $3147)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarbosMouth
+	db sprite.state : dw $0000
+	db sprite.render_order : dw $00D3
+	db sprite.visibility : dw $0000
+	db !spawn_command_FC : dw $0064
+	db !spawn_command_FE : dw $2000
+	db sprite.sprite_graphic : dw $3147
+	db !spawn_command_success
 
 DATA_FF3411:
-	%DKC3_SSS_OpFF(!sprite_PurpleLurchin)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpXX($5A, $0014)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($06, DATA_FF1F7C)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFC($0066)
-	%DKC3_SSS_OpFE($5000)
-	%DKC3_SSS_OpFA($0246)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_PurpleLurchin
+	db sprite.state : dw $0000
+	db sprite.unknown_68 : dw $0000
+	db sprite.movement_state : dw $0014
+	db sprite.render_order : dw $00CC
+	db sprite.constants_address : dw DATA_FF1F7C
+	db sprite.visibility : dw $0000
+	db !spawn_command_FC : dw $0066
+	db !spawn_command_FE : dw $5000
+	db !spawn_command_FA : dw $0246
+	db !spawn_command_success
 
 DATA_FF3430:
-	%DKC3_SSS_OpF9(DATA_FF3411)
-	%DKC3_SSS_OpFE($1000)
-	%DKC3_SSS_OpXX($68, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3411
+	db !spawn_command_FE : dw $1000
+	db sprite.unknown_68 : dw $8000
+	db !spawn_command_success
 
 DATA_FF343A:
-	%DKC3_SSS_OpFF(!sprite_BarbosSpawnedGreenLurchin)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0018)
-	%DKC3_SSS_OpXX($5C, $FF00)
-	%DKC3_SSS_OpXX($0E, $00DC)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFC($0065)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($0247)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarbosSpawnedGreenLurchin
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0018
+	db sprite.unknown_5C : dw $FF00
+	db sprite.render_order : dw $00DC
+	db sprite.visibility : dw $0000
+	db !spawn_command_FC : dw $0065
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $0247
+	db !spawn_command_success
 
 DATA_FF3456:
-	%DKC3_SSS_OpFF(!sprite_SeashellMissle)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($60, $0001)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($4C, $0000)
-	%DKC3_SSS_OpXX($4E, $0001)
-	%DKC3_SSS_OpXX($06, DATA_FF1F82)
-	%DKC3_SSS_OpXX($0E, $00DA)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFC($006A)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($024A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SeashellMissle
+	db sprite.state : dw $0000
+	db sprite.unknown_60 : dw $0001
+	db sprite.x_speed : dw $0000
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_4C : dw $0000
+	db sprite.unknown_4E : dw $0001
+	db sprite.constants_address : dw DATA_FF1F82
+	db sprite.render_order : dw $00DA
+	db sprite.visibility : dw $0000
+	db !spawn_command_FC : dw $006A
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $024A
+	db !spawn_command_success
 
 DATA_FF347E:
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0001
+	db sprite.visibility : dw $0000
+	db sprite.render_order : dw $00D4
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF348E:
-	%DKC3_SSS_OpF7(!sprite_BarbosSpikeProjectile, $0068, $15)
-	%DKC3_SSS_OpF6($D2, $EE)
-	%DKC3_SSS_OpF9(DATA_FF347E)
-	%DKC3_SSS_OpF3($3B, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarbosSpikeProjectile, $0068 : db $15
+	db !spawn_command_F6, $D2, $EE
+	db !spawn_command_F9 : dw DATA_FF347E
+	db !spawn_command_F3, $3B, $00
+	db !spawn_command_success
 
 DATA_FF349E:
-	%DKC3_SSS_OpF7(!sprite_BarbosSpikeProjectile, $0068, $15)
-	%DKC3_SSS_OpF6($E0, $FF)
-	%DKC3_SSS_OpF9(DATA_FF347E)
-	%DKC3_SSS_OpF3($3B, $01)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarbosSpikeProjectile, $0068 : db $15
+	db !spawn_command_F6, $E0, $FF
+	db !spawn_command_F9 : dw DATA_FF347E
+	db !spawn_command_F3, $3B, $01
+	db !spawn_command_success
 
 DATA_FF34AE:
-	%DKC3_SSS_OpF7(!sprite_BarbosSpikeProjectile, $0068, $15)
-	%DKC3_SSS_OpF6($ED, $0C)
-	%DKC3_SSS_OpF9(DATA_FF347E)
-	%DKC3_SSS_OpF3($3B, $02)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarbosSpikeProjectile, $0068 : db $15
+	db !spawn_command_F6, $ED, $0C
+	db !spawn_command_F9 : dw DATA_FF347E
+	db !spawn_command_F3, $3B, $02
+	db !spawn_command_success
 
 DATA_FF34BE:
-	%DKC3_SSS_OpF7(!sprite_BarbosSpikeProjectile, $0068, $15)
-	%DKC3_SSS_OpF6($FE, $12)
-	%DKC3_SSS_OpF9(DATA_FF347E)
-	%DKC3_SSS_OpF3($3B, $03)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarbosSpikeProjectile, $0068 : db $15
+	db !spawn_command_F6, $FE, $12
+	db !spawn_command_F9 : dw DATA_FF347E
+	db !spawn_command_F3, $3B, $03
+	db !spawn_command_success
 
 DATA_FF34CE:
-	%DKC3_SSS_OpF7(!sprite_BarbosSpikeProjectile, $0068, $15)
-	%DKC3_SSS_OpF6($13, $08)
-	%DKC3_SSS_OpF9(DATA_FF347E)
-	%DKC3_SSS_OpFE($5000)
-	%DKC3_SSS_OpF3($3B, $02)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarbosSpikeProjectile, $0068 : db $15
+	db !spawn_command_F6, $13, $08
+	db !spawn_command_F9 : dw DATA_FF347E
+	db !spawn_command_FE : dw $5000
+	db !spawn_command_F3, $3B, $02
+	db !spawn_command_success
 
 DATA_FF34E1:
-	%DKC3_SSS_OpF7(!sprite_BarbosSpikeProjectile, $0068, $15)
-	%DKC3_SSS_OpF6($26, $04)
-	%DKC3_SSS_OpF9(DATA_FF347E)
-	%DKC3_SSS_OpFE($5000)
-	%DKC3_SSS_OpF3($3B, $01)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarbosSpikeProjectile, $0068 : db $15
+	db !spawn_command_F6, $26, $04
+	db !spawn_command_F9 : dw DATA_FF347E
+	db !spawn_command_FE : dw $5000
+	db !spawn_command_F3, $3B, $01
+	db !spawn_command_success
 
 DATA_FF34F4:
-	%DKC3_SSS_OpF7(!sprite_BarbosSpikeProjectile, $0068, $15)
-	%DKC3_SSS_OpF6($2C, $F0)
-	%DKC3_SSS_OpF9(DATA_FF347E)
-	%DKC3_SSS_OpFE($5000)
-	%DKC3_SSS_OpF3($3B, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarbosSpikeProjectile, $0068 : db $15
+	db !spawn_command_F6, $2C, $F0
+	db !spawn_command_F9 : dw DATA_FF347E
+	db !spawn_command_FE : dw $5000
+	db !spawn_command_F3, $3B, $00
+	db !spawn_command_success
 
 DATA_FF3507:
-	%DKC3_SSS_OpFF(!sprite_Swoopy)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($06, DATA_FF1F94)
-	%DKC3_SSS_OpXX($5A, $0002)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($025D)
-	%DKC3_SSS_OpFC($006B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Swoopy
+	db !spawn_command_F6, $00, $00
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.render_order : dw $00D4
+	db sprite.constants_address : dw DATA_FF1F94
+	db sprite.movement_state : dw $0002
+	db sprite.interaction_flags : dw $0040
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $025D
+	db !spawn_command_FC : dw $006B
+	db !spawn_command_success
 
 DATA_FF3535:
-	%DKC3_SSS_OpFF(!sprite_KuchukaHand)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($0267)
-	%DKC3_SSS_OpFC($006D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KuchukaHand
+	db !spawn_command_F6, $00, $00
+	db sprite.render_order : dw $00D8
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $0267
+	db !spawn_command_FC : dw $006D
+	db !spawn_command_success
 
 DATA_FF354B:
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0045)
-	%DKC3_SSS_OpXX($0E, $00DC)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($06, DATA_FF1F9A)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($0269)
-	%DKC3_SSS_OpEF()
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0045
+	db sprite.render_order : dw $00DC
+	db sprite.unknown_4C : dw $0001
+	db sprite.visibility : dw $8001
+	db sprite.constants_address : dw DATA_FF1F9A
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $0269
+	db !spawn_command_success
 
 DATA_FF3564:
-	%DKC3_SSS_OpF7(!sprite_KuchukaBomb, $006D, $29)
-	%DKC3_SSS_OpF9(DATA_FF354B)
-	%DKC3_SSS_OpXX($58, $01FC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_KuchukaBomb, $006D : db $29
+	db !spawn_command_F9 : dw DATA_FF354B
+	db sprite.unknown_58 : dw $01FC
+	db !spawn_command_success
 
 DATA_FF3571:
-	%DKC3_SSS_OpF7(!sprite_KuchukaBomb, $006D, $29)
-	%DKC3_SSS_OpF9(DATA_FF354B)
-	%DKC3_SSS_OpXX($58, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_KuchukaBomb, $006D : db $29
+	db !spawn_command_F9 : dw DATA_FF354B
+	db sprite.unknown_58 : dw $0000
+	db !spawn_command_success
 
 DATA_FF357E:
-	%DKC3_SSS_OpF7(!sprite_KuchukaBomb, $006D, $29)
-	%DKC3_SSS_OpF9(DATA_FF354B)
-	%DKC3_SSS_OpXX($58, $0204)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_KuchukaBomb, $006D : db $29
+	db !spawn_command_F9 : dw DATA_FF354B
+	db sprite.unknown_58 : dw $0204
+	db !spawn_command_success
 
 DATA_FF358B:
-	%DKC3_SSS_OpFF(!sprite_TNTExplosion)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($0E, $00DC)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($026B)
-	%DKC3_SSS_OpFC($0071)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_TNTExplosion
+	db !spawn_command_F6, $00, $00
+	db sprite.render_order : dw $00DC
+	db sprite.visibility : dw $0000
+	db sprite.unknown_4C : dw $0001
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $026B
+	db !spawn_command_FC : dw $0071
+	db !spawn_command_success
 
 DATA_FF35A4:
-	%DKC3_SSS_OpFF(!sprite_Bazza)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($5A, $0002)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpFD($6000)
-	%DKC3_SSS_OpFA($026C)
-	%DKC3_SSS_OpFC($006E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Bazza
+	db !spawn_command_F6, $00, $00
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.render_order : dw $00D4
+	db sprite.visibility : dw $0000
+	db sprite.movement_state : dw $0002
+	db sprite.interaction_flags : dw $0040
+	db !spawn_command_FD : dw $6000
+	db !spawn_command_FA : dw $026C
+	db !spawn_command_FC : dw $006E
+	db !spawn_command_success
 
 DATA_FF35CF:
-	%DKC3_SSS_OpFF(!sprite_BarrelShotByBazuka)
+	db !spawn_command_set_type : dw !sprite_BarrelShotByBazuka
 DATA_FF35D2:
-	%DKC3_SSS_OpF6($00, $F1)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($60, $000A)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpF2($00F4)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $00, $F1
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.unknown_60 : dw $000A
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_6C : dw $0000
+	db !spawn_command_F2 : dw $00F4
+	db sprite.visibility : dw $0000
+	db sprite.interaction_flags : dw $0040
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF35F4:
-	%DKC3_SSS_OpF9(DATA_FF35CF)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF35CF
+	db sprite.unknown_5C : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_success
 
 DATA_FF3601:
-	%DKC3_SSS_OpF9(DATA_FF35CF)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($06, DATA_FF1DD4)
-	%DKC3_SSS_OpFC($001D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF35CF
+	db sprite.unknown_5C : dw $0001
+	db sprite.constants_address : dw DATA_FF1DD4
+	db !spawn_command_FC : dw $001D
+	db !spawn_command_success
 
 DATA_FF360E:
-	%DKC3_SSS_OpF9(DATA_FF35CF)
-	%DKC3_SSS_OpXX($5C, $0002)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF35CF
+	db sprite.unknown_5C : dw $0002
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_success
 
 DATA_FF3618:
-	%DKC3_SSS_OpF7(!sprite_UpwardsShotBarrel, $001D, $2C)
-	%DKC3_SSS_OpF9(DATA_FF35D2)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($06, DATA_FF1DD4)
-	%DKC3_SSS_OpF2($00D4)
-	%DKC3_SSS_OpF3($3F, $00)
-	%DKC3_SSS_OpXX($40, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_UpwardsShotBarrel, $001D : db $2C
+	db !spawn_command_F9 : dw DATA_FF35D2
+	db sprite.unknown_5C : dw $0001
+	db sprite.constants_address : dw DATA_FF1DD4
+	db !spawn_command_F2 : dw $00D4
+	db !spawn_command_F3, $3F, $00
+	db sprite.animation_id : dw $0000
+	db !spawn_command_success
 
 DATA_FF3631:
-	%DKC3_SSS_OpF7(!sprite_UpwardsShotBarrel, $001C, $2C)
-	%DKC3_SSS_OpF9(DATA_FF35D2)
-	%DKC3_SSS_OpXX($5C, $0002)
-	%DKC3_SSS_OpF2($00D4)
-	%DKC3_SSS_OpF3($3F, $01)
-	%DKC3_SSS_OpXX($40, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_UpwardsShotBarrel, $001C : db $2C
+	db !spawn_command_F9 : dw DATA_FF35D2
+	db sprite.unknown_5C : dw $0002
+	db !spawn_command_F2 : dw $00D4
+	db !spawn_command_F3, $3F, $01
+	db sprite.animation_id : dw $0000
+	db !spawn_command_success
 
 DATA_FF3647:
-	%DKC3_SSS_OpF9(DATA_FF307C)
-	%DKC3_SSS_OpF2($00F6)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $E000)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($2E, $FFA0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($0174)
-	%DKC3_SSS_OpXX($44, $00C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF307C
+	db !spawn_command_F2 : dw $00F6
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $E000
+	db sprite.movement_state : dw $0001
+	db sprite.y_speed : dw $FFA0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $0174
+	db sprite.animation_speed : dw $00C0
+	db !spawn_command_success
 
 DATA_FF3663:
-	%DKC3_SSS_OpF9(DATA_FF307C)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $F000)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($2E, $FFA0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($0174)
-	%DKC3_SSS_OpXX($44, $00C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF307C
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $F000
+	db sprite.movement_state : dw $0001
+	db sprite.y_speed : dw $FFA0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $0174
+	db sprite.animation_speed : dw $00C0
+	db !spawn_command_success
 
 DATA_FF367C:
-	%DKC3_SSS_OpFF(!sprite_MurkyMillElevator)
-	%DKC3_SSS_OpXX($0E, $00D2)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpF3($29, $00)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0026)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MurkyMillElevator
+	db sprite.render_order : dw $00D2
+	db sprite.state : dw $0002
+	db sprite.visibility : dw $0000
+	db !spawn_command_F3, $29, $00
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0026
+	db !spawn_command_success
 
 DATA_FF3692:
-	%DKC3_SSS_OpFF(!sprite_NibblaHead)
-	%DKC3_SSS_OpXX($0E, $00D6)
-	%DKC3_SSS_OpXX($30, $0001)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpXX($5A, $0107)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFC($0054)
-	%DKC3_SSS_OpFA($01B6)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_NibblaHead
+	db sprite.render_order : dw $00D6
+	db sprite.max_x_speed : dw $0001
+	db sprite.y_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.state : dw $0000
+	db sprite.unknown_68 : dw $0000
+	db sprite.movement_state : dw $0107
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FC : dw $0054
+	db !spawn_command_FA : dw $01B6
+	db !spawn_command_success
 
 DATA_FF36B7:
-	%DKC3_SSS_OpFF(!sprite_NibblaBody)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFC($0054)
-	%DKC3_SSS_OpFA($01BF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_NibblaBody
+	db sprite.render_order : dw $00D4
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FC : dw $0054
+	db !spawn_command_FA : dw $01BF
+	db !spawn_command_success
 
 DATA_FF36CA:
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($6C, $0002)
-	%DKC3_SSS_OpXX($5E, $0100)
-	%DKC3_SSS_OpXX($06, DATA_FF2000)
-	%DKC3_SSS_OpXX($5A, $0014)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db sprite.state : dw $0000
+	db sprite.unknown_6C : dw $0002
+	db sprite.unknown_5E : dw $0100
+	db sprite.constants_address : dw DATA_FF2000
+	db sprite.movement_state : dw $0014
+	db sprite.visibility : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF36E3:
-	%DKC3_SSS_OpF9(DATA_FF36CA)
-	%DKC3_SSS_OpFF(!sprite_BonusBCoinBossPrize)
-	%DKC3_SSS_OpFA($014A)
-	%DKC3_SSS_OpFC($0023)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36CA
+	db !spawn_command_set_type : dw !sprite_BonusBCoinBossPrize
+	db !spawn_command_FA : dw $014A
+	db !spawn_command_FC : dw $0023
+	db !spawn_command_success
 
 DATA_FF36F0:
-	%DKC3_SSS_OpF9(DATA_FF36CA)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpFF(!sprite_BearCoinBossPrize)
-	%DKC3_SSS_OpFA($0148)
-	%DKC3_SSS_OpFC($00C8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36CA
+	db sprite.unknown_6C : dw $0000
+	db !spawn_command_set_type : dw !sprite_BearCoinBossPrize
+	db !spawn_command_FA : dw $0148
+	db !spawn_command_FC : dw $00C8
+	db !spawn_command_success
 
 DATA_FF3700:
-	%DKC3_SSS_OpF9(DATA_FF36CA)
-	%DKC3_SSS_OpXX($6C, $0001)
-	%DKC3_SSS_OpFF(!sprite_BonusBCoinBossPrize)
-	%DKC3_SSS_OpFA($0149)
-	%DKC3_SSS_OpFC($0023)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36CA
+	db sprite.unknown_6C : dw $0001
+	db !spawn_command_set_type : dw !sprite_BonusBCoinBossPrize
+	db !spawn_command_FA : dw $0149
+	db !spawn_command_FC : dw $0023
+	db !spawn_command_success
 
 DATA_FF3710:
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpF2($00FF)
-	%DKC3_SSS_OpXX($12, $03BC)
-	%DKC3_SSS_OpXX($16, $02D2)
-	%DKC3_SSS_OpXX($62, $03BC)
-	%DKC3_SSS_OpXX($64, $02C5)
-	%DKC3_SSS_OpXX($66, $001B)
-	%DKC3_SSS_OpXX($6A, $005A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_F2 : dw $00FF
+	db sprite.x_position : dw $03BC
+	db sprite.y_position : dw $02D2
+	db sprite.unknown_62 : dw $03BC
+	db sprite.unknown_64 : dw $02C5
+	db sprite.unknown_66 : dw $001B
+	db sprite.unknown_6A : dw $005A
+	db !spawn_command_success
 
 DATA_FF3729:
-	%DKC3_SSS_OpF2($00FF)
-	%DKC3_SSS_OpXX($5E, $0004)
-	%DKC3_SSS_OpXX($66, $001B)
-	%DKC3_SSS_OpXX($6A, $005A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F2 : dw $00FF
+	db sprite.unknown_5E : dw $0004
+	db sprite.unknown_66 : dw $001B
+	db sprite.unknown_6A : dw $005A
+	db !spawn_command_success
 
 DATA_FF3736:
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpF2($00FF)
-	%DKC3_SSS_OpXX($5A, $0018)
-	%DKC3_SSS_OpXX($5E, $0500)
-	%DKC3_SSS_OpXX($62, $020B)
-	%DKC3_SSS_OpXX($64, $050F)
-	%DKC3_SSS_OpXX($66, $000A)
-	%DKC3_SSS_OpXX($6A, $005A)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_F2 : dw $00FF
+	db sprite.movement_state : dw $0018
+	db sprite.unknown_5E : dw $0500
+	db sprite.unknown_62 : dw $020B
+	db sprite.unknown_64 : dw $050F
+	db sprite.unknown_66 : dw $000A
+	db sprite.unknown_6A : dw $005A
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF3752:
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpF2($00FF)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($66, $001E)
-	%DKC3_SSS_OpXX($6A, $005A)
-	%DKC3_SSS_OpXX($68, $0001)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_F2 : dw $00FF
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_66 : dw $001E
+	db sprite.unknown_6A : dw $005A
+	db sprite.unknown_68 : dw $0001
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF3768:
-	%DKC3_SSS_OpF2($00FF)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($62, $01E0)
-	%DKC3_SSS_OpXX($64, $0170)
-	%DKC3_SSS_OpXX($66, $001E)
-	%DKC3_SSS_OpXX($6A, $005A)
-	%DKC3_SSS_OpXX($68, $0002)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F2 : dw $00FF
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_62 : dw $01E0
+	db sprite.unknown_64 : dw $0170
+	db sprite.unknown_66 : dw $001E
+	db sprite.unknown_6A : dw $005A
+	db sprite.unknown_68 : dw $0002
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF3781:
-	%DKC3_SSS_OpF2($00FF)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($62, $01EE)
-	%DKC3_SSS_OpXX($64, $0249)
-	%DKC3_SSS_OpXX($66, $001E)
-	%DKC3_SSS_OpXX($6A, $005A)
-	%DKC3_SSS_OpXX($68, $0002)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F2 : dw $00FF
+	db !spawn_command_F6, $00, $00
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_62 : dw $01EE
+	db sprite.unknown_64 : dw $0249
+	db sprite.unknown_66 : dw $001E
+	db sprite.unknown_6A : dw $005A
+	db sprite.unknown_68 : dw $0002
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF379D:
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpF2($00FF)
-	%DKC3_SSS_OpXX($62, $01FB)
-	%DKC3_SSS_OpXX($64, $0176)
-	%DKC3_SSS_OpXX($66, $001B)
-	%DKC3_SSS_OpXX($6A, $005A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_F2 : dw $00FF
+	db sprite.unknown_62 : dw $01FB
+	db sprite.unknown_64 : dw $0176
+	db sprite.unknown_66 : dw $001B
+	db sprite.unknown_6A : dw $005A
+	db !spawn_command_success
 
 DATA_FF37B0:
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpF2($00FF)
-	%DKC3_SSS_OpXX($62, $01FB)
-	%DKC3_SSS_OpXX($64, $0176)
-	%DKC3_SSS_OpXX($66, $001B)
-	%DKC3_SSS_OpXX($6A, $005A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_F2 : dw $00FF
+	db sprite.unknown_62 : dw $01FB
+	db sprite.unknown_64 : dw $0176
+	db sprite.unknown_66 : dw $001B
+	db sprite.unknown_6A : dw $005A
+	db !spawn_command_success
 
 DATA_FF37C3:
-	%DKC3_SSS_OpF9(DATA_FF36E3)
-	%DKC3_SSS_OpF9(DATA_FF3710)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36E3
+	db !spawn_command_F9 : dw DATA_FF3710
+	db !spawn_command_success
 
 DATA_FF37CA:
-	%DKC3_SSS_OpF9(DATA_FF36F0)
-	%DKC3_SSS_OpF9(DATA_FF3710)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36F0
+	db !spawn_command_F9 : dw DATA_FF3710
+	db !spawn_command_success
 
 DATA_FF37D1:
-	%DKC3_SSS_OpF9(DATA_FF36E3)
-	%DKC3_SSS_OpF9(DATA_FF3729)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36E3
+	db !spawn_command_F9 : dw DATA_FF3729
+	db !spawn_command_success
 
 DATA_FF37D8:
-	%DKC3_SSS_OpF9(DATA_FF36F0)
-	%DKC3_SSS_OpF9(DATA_FF3729)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36F0
+	db !spawn_command_F9 : dw DATA_FF3729
+	db !spawn_command_success
 
 DATA_FF37DF:
-	%DKC3_SSS_OpF9(DATA_FF36E3)
-	%DKC3_SSS_OpF9(DATA_FF3736)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36E3
+	db !spawn_command_F9 : dw DATA_FF3736
+	db !spawn_command_success
 
 DATA_FF37E6:
-	%DKC3_SSS_OpF9(DATA_FF36F0)
-	%DKC3_SSS_OpF9(DATA_FF3736)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36F0
+	db !spawn_command_F9 : dw DATA_FF3736
+	db !spawn_command_success
 
 DATA_FF37ED:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00E4, $00CF, $18)
-	%DKC3_SSS_OpF3($0F, $00)
-	%DKC3_SSS_OpF9(DATA_FF36CA)
-	%DKC3_SSS_OpF9(DATA_FF3752)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00E4, $00CF : db $18
+	db !spawn_command_F3, $0F, $00
+	db !spawn_command_F9 : dw DATA_FF36CA
+	db !spawn_command_F9 : dw DATA_FF3752
+	db !spawn_command_success
 
 DATA_FF37FD:
-	%DKC3_SSS_OpF9(DATA_FF36F0)
-	%DKC3_SSS_OpF9(DATA_FF3752)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36F0
+	db !spawn_command_F9 : dw DATA_FF3752
+	db !spawn_command_success
 
 DATA_FF3804:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00E4, $00DF, $18)
-	%DKC3_SSS_OpF3($0F, $08)
-	%DKC3_SSS_OpF9(DATA_FF36CA)
-	%DKC3_SSS_OpF9(DATA_FF3768)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00E4, $00DF : db $18
+	db !spawn_command_F3, $0F, $08
+	db !spawn_command_F9 : dw DATA_FF36CA
+	db !spawn_command_F9 : dw DATA_FF3768
+	db !spawn_command_success
 
 DATA_FF3814:
-	%DKC3_SSS_OpF9(DATA_FF36F0)
-	%DKC3_SSS_OpF9(DATA_FF3768)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36F0
+	db !spawn_command_F9 : dw DATA_FF3768
+	db !spawn_command_success
 
 DATA_FF381B:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00E4, $00DF, $18)
-	%DKC3_SSS_OpF3($0F, $08)
-	%DKC3_SSS_OpF9(DATA_FF36CA)
-	%DKC3_SSS_OpF9(DATA_FF3781)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00E4, $00DF : db $18
+	db !spawn_command_F3, $0F, $08
+	db !spawn_command_F9 : dw DATA_FF36CA
+	db !spawn_command_F9 : dw DATA_FF3781
+	db !spawn_command_success
 
 DATA_FF382B:
-	%DKC3_SSS_OpF9(DATA_FF36F0)
-	%DKC3_SSS_OpF9(DATA_FF3781)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36F0
+	db !spawn_command_F9 : dw DATA_FF3781
+	db !spawn_command_success
 
 DATA_FF3832:
-	%DKC3_SSS_OpF9(DATA_FF36E3)
-	%DKC3_SSS_OpF9(DATA_FF379D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36E3
+	db !spawn_command_F9 : dw DATA_FF379D
+	db !spawn_command_success
 
 DATA_FF3839:
-	%DKC3_SSS_OpF9(DATA_FF36F0)
-	%DKC3_SSS_OpF9(DATA_FF379D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36F0
+	db !spawn_command_F9 : dw DATA_FF379D
+	db !spawn_command_success
 
 DATA_FF3840:
-	%DKC3_SSS_OpF9(DATA_FF3700)
-	%DKC3_SSS_OpFF(!sprite_DKCoin)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpF9(DATA_FF37B0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3700
+	db !spawn_command_set_type : dw !sprite_DKCoin
+	db sprite.state : dw $0002
+	db !spawn_command_F9 : dw DATA_FF37B0
+	db !spawn_command_success
 
 DATA_FF384D:
-	%DKC3_SSS_OpF9(DATA_FF36F0)
-	%DKC3_SSS_OpF9(DATA_FF37B0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF36F0
+	db !spawn_command_F9 : dw DATA_FF37B0
+	db !spawn_command_success
 
 DATA_FF3854:
-	%DKC3_SSS_OpFF(!sprite_KAOSLaserHead)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpF2($00D6)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($6C, $FFF6)
-	%DKC3_SSS_OpF3($3D, $00)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0078)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOSLaserHead
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_F2 : dw $00D6
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.state : dw $0000
+	db sprite.visibility : dw $0000
+	db sprite.unknown_6C : dw $FFF6
+	db !spawn_command_F3, $3D, $00
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0078
+	db !spawn_command_success
 
 DATA_FF3876:
-	%DKC3_SSS_OpFF(!sprite_KAOSSkullHead)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpF2($00D0)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0003)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($6C, $FFEC)
-	%DKC3_SSS_OpXX($3A, $0840)
-	%DKC3_SSS_OpF3($3D, $01)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpFC($0079)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOSSkullHead
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_F2 : dw $00D0
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0003
+	db sprite.visibility : dw $0000
+	db sprite.unknown_6C : dw $FFEC
+	db sprite.interaction_flags : dw $0840
+	db !spawn_command_F3, $3D, $01
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_FC : dw $0079
+	db !spawn_command_success
 
 DATA_FF389E:
-	%DKC3_SSS_OpFF(!sprite_KAOSFlame)
-	%DKC3_SSS_OpF2($00D2)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0003)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpFC($0011)
-	%DKC3_SSS_OpFA($0290)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOSFlame
+	db !spawn_command_F2 : dw $00D2
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0003
+	db sprite.visibility : dw $0000
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_FC : dw $0011
+	db !spawn_command_FA : dw $0290
+	db !spawn_command_success
 
 DATA_FF38B7:
-	%DKC3_SSS_OpFF(!sprite_KAOSFlameSpread)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpF2($00D3)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFC($0011)
-	%DKC3_SSS_OpFA($0297)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOSFlameSpread
+	db sprite.state : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.visibility : dw $C000
+	db !spawn_command_F2 : dw $00D3
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FC : dw $0011
+	db !spawn_command_FA : dw $0297
+	db !spawn_command_success
 
 DATA_FF38D0:
-	%DKC3_SSS_OpFF(!sprite_KAOSFlameSpread)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpF2($00D3)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0011)
-	%DKC3_SSS_OpFA($0297)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOSFlameSpread
+	db sprite.state : dw $0000
+	db sprite.visibility : dw $C000
+	db sprite.max_x_speed : dw $0000
+	db !spawn_command_F2 : dw $00D3
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0011
+	db !spawn_command_FA : dw $0297
+	db !spawn_command_success
 
 DATA_FF38E9:
-	%DKC3_SSS_OpFF(!sprite_KAOSBlade)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpF2($00D4)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($62, $0291)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpFA($0291)
-	%DKC3_SSS_OpFD($7000)
-	%DKC3_SSS_OpFC($0079)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOSBlade
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_F2 : dw $00D4
+	db sprite.state : dw $0002
+	db sprite.unknown_62 : dw $0291
+	db sprite.visibility : dw $C000
+	db !spawn_command_FA : dw $0291
+	db !spawn_command_FD : dw $7000
+	db !spawn_command_FC : dw $0079
+	db !spawn_command_success
 
 DATA_FF3905:
-	%DKC3_SSS_OpFF(!sprite_KAOSBlade)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpF2($00D4)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($62, $0292)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpFA($0292)
-	%DKC3_SSS_OpFD($7000)
-	%DKC3_SSS_OpFC($0079)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOSBlade
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_F2 : dw $00D4
+	db sprite.state : dw $0002
+	db sprite.unknown_62 : dw $0292
+	db sprite.visibility : dw $C000
+	db !spawn_command_FA : dw $0292
+	db !spawn_command_FD : dw $7000
+	db !spawn_command_FC : dw $0079
+	db !spawn_command_success
 
 DATA_FF3921:
-	%DKC3_SSS_OpFF(!sprite_KAOSBoxingGlove)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpF2($00D2)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($5A, $0002)
-	%DKC3_SSS_OpFA($0293)
-	%DKC3_SSS_OpFC($007E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOSBoxingGlove
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_F2 : dw $00D2
+	db sprite.state : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.visibility : dw $0000
+	db sprite.movement_state : dw $0002
+	db !spawn_command_FA : dw $0293
+	db !spawn_command_FC : dw $007E
+	db !spawn_command_success
 
 DATA_FF393D:
-	%DKC3_SSS_OpF9(DATA_FF3921)
-	%DKC3_SSS_OpXX($2A, $FC00)
-	%DKC3_SSS_OpXX($5C, $FFE8)
-	%DKC3_SSS_OpXX($5E, $0018)
-	%DKC3_SSS_OpFD($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3921
+	db sprite.x_speed : dw $FC00
+	db sprite.unknown_5C : dw $FFE8
+	db sprite.unknown_5E : dw $0018
+	db !spawn_command_FD : dw $6000
+	db !spawn_command_success
 
 DATA_FF394D:
-	%DKC3_SSS_OpF9(DATA_FF3921)
-	%DKC3_SSS_OpXX($2A, $0400)
-	%DKC3_SSS_OpXX($5C, $0018)
-	%DKC3_SSS_OpXX($5E, $FFE8)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3921
+	db sprite.x_speed : dw $0400
+	db sprite.unknown_5C : dw $0018
+	db sprite.unknown_5E : dw $FFE8
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_success
 
 DATA_FF395D:
-	%DKC3_SSS_OpFF(!sprite_KRoolsFeet)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($16, $00C0)
-	%DKC3_SSS_OpXX($5C, $0170)
-	%DKC3_SSS_OpXX($5A, $0003)
-	%DKC3_SSS_OpXX($2E, $0100)
-	%DKC3_SSS_OpF2($00D4)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpF3($43, $00)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpFC($0084)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KRoolsFeet
+	db !spawn_command_F6, $00, $00
+	db sprite.y_position : dw $00C0
+	db sprite.unknown_5C : dw $0170
+	db sprite.movement_state : dw $0003
+	db sprite.y_speed : dw $0100
+	db !spawn_command_F2 : dw $00D4
+	db sprite.visibility : dw $0000
+	db sprite.state : dw $0000
+	db !spawn_command_F3, $43, $00
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_FC : dw $0084
+	db !spawn_command_success
 
 DATA_FF3982:
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($0E, $00D2)
-	%DKC3_SSS_OpFA($0294)
-	%DKC3_SSS_OpEF()
+	db sprite.visibility : dw $8001
+	db sprite.render_order : dw $00D2
+	db !spawn_command_FA : dw $0294
+	db !spawn_command_success
 
 DATA_FF398C:
-	%DKC3_SSS_OpF7(!sprite_KAOSLaserHeadFlameJet, $0011, $11)
-	%DKC3_SSS_OpF9(DATA_FF3982)
-	%DKC3_SSS_OpXX($58, $04FB)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_KAOSLaserHeadFlameJet, $0011 : db $11
+	db !spawn_command_F9 : dw DATA_FF3982
+	db sprite.unknown_58 : dw $04FB
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF399C:
-	%DKC3_SSS_OpF7(!sprite_KAOSLaserHeadFlameJet, $0011, $11)
-	%DKC3_SSS_OpF9(DATA_FF3982)
-	%DKC3_SSS_OpXX($58, $0405)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_KAOSLaserHeadFlameJet, $0011 : db $11
+	db !spawn_command_F9 : dw DATA_FF3982
+	db sprite.unknown_58 : dw $0405
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF39AC:
-	%DKC3_SSS_OpFF(!sprite_FireballLandingParticles)
-	%DKC3_SSS_OpF2($00D4)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFA($0296)
-	%DKC3_SSS_OpFC($0077)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
+	db !spawn_command_F2 : dw $00D4
+	db !spawn_command_FE : dw $2000
+	db sprite.visibility : dw $0000
+	db !spawn_command_FA : dw $0296
+	db !spawn_command_FC : dw $0077
+	db !spawn_command_success
 
 DATA_FF39BF:
-	%DKC3_SSS_OpFF(!sprite_KarbineFireball)
-	%DKC3_SSS_OpF6($01, $0C)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($5A, $001A)
-	%DKC3_SSS_OpXX($32, $0000)
-	%DKC3_SSS_OpXX($2C, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpF2($00C2)
-	%DKC3_SSS_OpFE($1000)
-	%DKC3_SSS_OpFA($029F)
-	%DKC3_SSS_OpFC($0077)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KarbineFireball
+	db !spawn_command_F6, $01, $0C
+	db sprite.state : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.movement_state : dw $001A
+	db sprite.unknown_32 : dw $0000
+	db sprite.unknown_2C : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.visibility : dw $0000
+	db !spawn_command_F2 : dw $00C2
+	db !spawn_command_FE : dw $1000
+	db !spawn_command_FA : dw $029F
+	db !spawn_command_FC : dw $0077
+	db !spawn_command_success
 
 DATA_FF39E7:
-	%DKC3_SSS_OpFF(!sprite_FireballLandingParticles)
-	%DKC3_SSS_OpF6($00, $14)
-	%DKC3_SSS_OpF2($00D4)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0296)
-	%DKC3_SSS_OpFC($0077)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
+	db !spawn_command_F6, $00, $14
+	db !spawn_command_F2 : dw $00D4
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0296
+	db !spawn_command_FC : dw $0077
+	db !spawn_command_success
 
 DATA_FF39FD:
-	%DKC3_SSS_OpFF(!sprite_FireballLandingParticles)
-	%DKC3_SSS_OpF6($00, $0A)
-	%DKC3_SSS_OpF2($00D4)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0296)
-	%DKC3_SSS_OpFC($0077)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
+	db !spawn_command_F6, $00, $0A
+	db !spawn_command_F2 : dw $00D4
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0296
+	db !spawn_command_FC : dw $0077
+	db !spawn_command_success
 
 DATA_FF3A13:
-	%DKC3_SSS_OpFF(!sprite_Barrel)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($06, DATA_FF1D2C)
-	%DKC3_SSS_OpF2($00DE)
-	%DKC3_SSS_OpFD($3000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFA($014E)
-	%DKC3_SSS_OpXX($38, $0007)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($16, $0100)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($3A, $0005)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Barrel
+	db !spawn_command_F6, $00, $00
+	db sprite.constants_address : dw DATA_FF1D2C
+	db !spawn_command_F2 : dw $00DE
+	db !spawn_command_FD : dw $3000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FA : dw $014E
+	db sprite.state : dw $0007
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.y_position : dw $0100
+	db sprite.visibility : dw $0000
+	db sprite.interaction_flags : dw $0005
+	db sprite.movement_state : dw $0040
+	db !spawn_command_success
 
 DATA_FF3A41:
-	%DKC3_SSS_OpFF(!sprite_KAOSCylinderHead)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpF2($00D4)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0003)
-	%DKC3_SSS_OpXX($6C, $FFEC)
-	%DKC3_SSS_OpXX($3A, $0840)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpF3($3D, $02)
-	%DKC3_SSS_OpFD($6000)
-	%DKC3_SSS_OpFC($007A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOSCylinderHead
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_F2 : dw $00D4
+	db sprite.x_speed : dw $0000
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0003
+	db sprite.unknown_6C : dw $FFEC
+	db sprite.interaction_flags : dw $0840
+	db sprite.visibility : dw $0000
+	db !spawn_command_F3, $3D, $02
+	db !spawn_command_FD : dw $6000
+	db !spawn_command_FC : dw $007A
+	db !spawn_command_success
 
 DATA_FF3A66:
-	%DKC3_SSS_OpFF(!sprite_KAOSBombs)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpF2($00D2)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($3A, $0840)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($5A, $001A)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFA($029A)
-	%DKC3_SSS_OpFD($7000)
-	%DKC3_SSS_OpFC($0078)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOSBombs
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_F2 : dw $00D2
+	db sprite.state : dw $0000
+	db sprite.interaction_flags : dw $0840
+	db sprite.unknown_4C : dw $0001
+	db sprite.movement_state : dw $001A
+	db sprite.visibility : dw $0000
+	db !spawn_command_FA : dw $029A
+	db !spawn_command_FD : dw $7000
+	db !spawn_command_FC : dw $0078
+	db !spawn_command_success
 
 DATA_FF3A88:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_049C)
-	%DKC3_SSS_OpXX($0E, $00EC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpFA($0175)
-	%DKC3_SSS_OpFC($0071)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_049C
+	db sprite.render_order : dw $00EC
+	db sprite.interaction_flags : dw $0000
+	db sprite.visibility : dw $C000
+	db !spawn_command_FA : dw $0175
+	db !spawn_command_FC : dw $0071
+	db !spawn_command_success
 
 DATA_FF3A9B:
-	%DKC3_SSS_OpF6($00, $FA)
-	%DKC3_SSS_OpF9(DATA_FF3A88)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($44, $00A9)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $00, $FA
+	db !spawn_command_F9 : dw DATA_FF3A88
+	db sprite.unknown_5C : dw $0001
+	db sprite.animation_speed : dw $00A9
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF3AAB:
-	%DKC3_SSS_OpF6($EC, $0C)
-	%DKC3_SSS_OpF9(DATA_FF3A88)
-	%DKC3_SSS_OpXX($5C, $0007)
-	%DKC3_SSS_OpXX($44, $00A9)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $EC, $0C
+	db !spawn_command_F9 : dw DATA_FF3A88
+	db sprite.unknown_5C : dw $0007
+	db sprite.animation_speed : dw $00A9
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF3ABB:
-	%DKC3_SSS_OpF6($0F, $04)
-	%DKC3_SSS_OpF9(DATA_FF3A88)
-	%DKC3_SSS_OpXX($5C, $000B)
-	%DKC3_SSS_OpXX($44, $00A9)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $0F, $04
+	db !spawn_command_F9 : dw DATA_FF3A88
+	db sprite.unknown_5C : dw $000B
+	db sprite.animation_speed : dw $00A9
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF3ACB:
-	%DKC3_SSS_OpFF(!sprite_KAOS)
-	%DKC3_SSS_OpXX($12, $0214)
-	%DKC3_SSS_OpXX($16, $00A0)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($38, $0012)
-	%DKC3_SSS_OpXX($18, $0260)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOS
+	db sprite.x_position : dw $0214
+	db sprite.y_position : dw $00A0
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.visibility : dw $0000
+	db sprite.state : dw $0012
+	db sprite.ground_y_position : dw $0260
+	db !spawn_command_success
 
 DATA_FF3AEA:
-	%DKC3_SSS_OpFF(!sprite_KRool)
-	%DKC3_SSS_OpXX($06, DATA_FF2030)
-	%DKC3_SSS_OpF2($00D4)
-	%DKC3_SSS_OpXX($12, $0288)
-	%DKC3_SSS_OpXX($16, $01BA)
-	%DKC3_SSS_OpXX($38, $0021)
-	%DKC3_SSS_OpXX($5C, $0028)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $0000)
-	%DKC3_SSS_OpXX($18, $025E)
-	%DKC3_SSS_OpFD($6000)
-	%DKC3_SSS_OpFC($0081)
-	%DKC3_SSS_OpFA($02A4)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KRool
+	db sprite.constants_address : dw DATA_FF2030
+	db !spawn_command_F2 : dw $00D4
+	db sprite.x_position : dw $0288
+	db sprite.y_position : dw $01BA
+	db sprite.state : dw $0021
+	db sprite.unknown_5C : dw $0028
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.interaction_flags : dw $0040
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $0000
+	db sprite.ground_y_position : dw $025E
+	db !spawn_command_FD : dw $6000
+	db !spawn_command_FC : dw $0081
+	db !spawn_command_FA : dw $02A4
+	db !spawn_command_success
 
 DATA_FF3B21:
-	%DKC3_SSS_OpFF(!sprite_KRoolCurtain)
-	%DKC3_SSS_OpXX($12, $0279)
-	%DKC3_SSS_OpXX($16, $01A8)
-	%DKC3_SSS_OpF2($00D6)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($5A, $0003)
-	%DKC3_SSS_OpXX($5C, $0155)
-	%DKC3_SSS_OpXX($5E, $000A)
-	%DKC3_SSS_OpXX($2E, $FF00)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFC($0087)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpF3($43, $01)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KRoolCurtain
+	db sprite.x_position : dw $0279
+	db sprite.y_position : dw $01A8
+	db !spawn_command_F2 : dw $00D6
+	db sprite.state : dw $0001
+	db sprite.movement_state : dw $0003
+	db sprite.unknown_5C : dw $0155
+	db sprite.unknown_5E : dw $000A
+	db sprite.y_speed : dw $FF00
+	db sprite.visibility : dw $0000
+	db !spawn_command_FC : dw $0087
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_F3, $43, $01
+	db !spawn_command_success
 
 DATA_FF3B49:
-	%DKC3_SSS_OpFF(!sprite_KRoolPropeller)
-	%DKC3_SSS_OpF2($00D2)
-	%DKC3_SSS_OpXX($5C, $002A)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($6A, $0002)
-	%DKC3_SSS_OpXX($6C, $0100)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($58, $0000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFC($0081)
-	%DKC3_SSS_OpFA($02A5)
-	%DKC3_SSS_OpXX($44, $0020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KRoolPropeller
+	db !spawn_command_F2 : dw $00D2
+	db sprite.unknown_5C : dw $002A
+	db sprite.state : dw $0000
+	db sprite.unknown_6A : dw $0002
+	db sprite.unknown_6C : dw $0100
+	db sprite.visibility : dw $8001
+	db sprite.interaction_flags : dw $0000
+	db sprite.unknown_58 : dw $0000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FC : dw $0081
+	db !spawn_command_FA : dw $02A5
+	db sprite.animation_speed : dw $0020
+	db !spawn_command_success
 
 DATA_FF3B71:
-	%DKC3_SSS_OpFF(!sprite_KastleKAOSLever)
-	%DKC3_SSS_OpXX($0E, $00D6)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0010)
-	%DKC3_SSS_OpXX($38, $0004)
-	%DKC3_SSS_OpXX($66, $0010)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpXX($6A, $0100)
-	%DKC3_SSS_OpXX($2E, $0008)
-	%DKC3_SSS_OpXX($16, $0100)
-	%DKC3_SSS_OpXX($1A, $0130)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0084)
-	%DKC3_SSS_OpXX($40, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KastleKAOSLever
+	db sprite.render_order : dw $00D6
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0010
+	db sprite.state : dw $0004
+	db sprite.unknown_66 : dw $0010
+	db sprite.unknown_68 : dw $0000
+	db sprite.unknown_6A : dw $0100
+	db sprite.y_speed : dw $0008
+	db sprite.y_position : dw $0100
+	db sprite.ground_distance : dw $0130
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0084
+	db sprite.animation_id : dw $0000
+	db !spawn_command_success
 
 DATA_FF3B9F:
-	%DKC3_SSS_OpF9(DATA_FF3B71)
-	%DKC3_SSS_OpXX($18, $0030)
-	%DKC3_SSS_OpXX($12, $0180)
-	%DKC3_SSS_OpF3($3E, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3B71
+	db sprite.ground_y_position : dw $0030
+	db sprite.x_position : dw $0180
+	db !spawn_command_F3, $3E, $00
+	db !spawn_command_success
 
 DATA_FF3BAC:
-	%DKC3_SSS_OpF9(DATA_FF3B71)
-	%DKC3_SSS_OpXX($18, $FFD0)
-	%DKC3_SSS_OpXX($12, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3B71
+	db sprite.ground_y_position : dw $FFD0
+	db sprite.x_position : dw $0280
+	db !spawn_command_success
 
 DATA_FF3BB6:
-	%DKC3_SSS_OpF9(DATA_FF3B71)
-	%DKC3_SSS_OpXX($18, $013D)
-	%DKC3_SSS_OpXX($12, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3B71
+	db sprite.ground_y_position : dw $013D
+	db sprite.x_position : dw $0180
+	db !spawn_command_success
 
 DATA_FF3BC0:
-	%DKC3_SSS_OpF9(DATA_FF3B71)
-	%DKC3_SSS_OpXX($18, $FED8)
-	%DKC3_SSS_OpXX($12, $0280)
-	%DKC3_SSS_OpF3($3E, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3B71
+	db sprite.ground_y_position : dw $FED8
+	db sprite.x_position : dw $0280
+	db !spawn_command_F3, $3E, $00
+	db !spawn_command_success
 
 DATA_FF3BCD:
-	%DKC3_SSS_OpF9(DATA_FF3B71)
-	%DKC3_SSS_OpXX($12, $01D5)
-	%DKC3_SSS_OpF3($3E, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3B71
+	db sprite.x_position : dw $01D5
+	db !spawn_command_F3, $3E, $00
+	db !spawn_command_success
 
 DATA_FF3BD7:
-	%DKC3_SSS_OpF9(DATA_FF3B71)
-	%DKC3_SSS_OpXX($12, $022A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3B71
+	db sprite.x_position : dw $022A
+	db !spawn_command_success
 
 DATA_FF3BDE:
-	%DKC3_SSS_OpF9(DATA_FF3B71)
-	%DKC3_SSS_OpXX($12, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3B71
+	db sprite.x_position : dw $0280
+	db !spawn_command_success
 
 DATA_FF3BE5:
-	%DKC3_SSS_OpF9(DATA_FF3B71)
-	%DKC3_SSS_OpXX($18, $0020)
-	%DKC3_SSS_OpXX($12, $0180)
-	%DKC3_SSS_OpF3($3E, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3B71
+	db sprite.ground_y_position : dw $0020
+	db sprite.x_position : dw $0180
+	db !spawn_command_F3, $3E, $00
+	db !spawn_command_success
 
 DATA_FF3BF2:
-	%DKC3_SSS_OpF9(DATA_FF3B71)
-	%DKC3_SSS_OpXX($18, $FFE0)
-	%DKC3_SSS_OpXX($12, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3B71
+	db sprite.ground_y_position : dw $FFE0
+	db sprite.x_position : dw $0280
+	db !spawn_command_success
 
 DATA_FF3BFC:
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpF2($00DE)
-	%DKC3_SSS_OpXX($12, $0318)
-	%DKC3_SSS_OpXX($16, $019B)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5A, $000D)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpF3($41, $00)
-	%DKC3_SSS_OpEF()
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_F2 : dw $00DE
+	db sprite.x_position : dw $0318
+	db sprite.y_position : dw $019B
+	db sprite.y_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.movement_state : dw $000D
+	db sprite.visibility : dw $0000
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_F3, $41, $00
+	db !spawn_command_success
 
 DATA_FF3C1E:
-	%DKC3_SSS_OpF7(!sprite_KRoolFightPlatform, $001C, $2D)
-	%DKC3_SSS_OpF9(DATA_FF3BFC)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_KRoolFightPlatform, $001C : db $2D
+	db !spawn_command_F9 : dw DATA_FF3BFC
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db !spawn_command_success
 
 DATA_FF3C2E:
-	%DKC3_SSS_OpF7(!sprite_KRoolFightPlatform, $001C, $2D)
-	%DKC3_SSS_OpF9(DATA_FF3BFC)
-	%DKC3_SSS_OpXX($38, $0004)
-	%DKC3_SSS_OpXX($2A, $FF00)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpXX($5E, $01A0)
-	%DKC3_SSS_OpXX($60, $02A0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_KRoolFightPlatform, $001C : db $2D
+	db !spawn_command_F9 : dw DATA_FF3BFC
+	db sprite.state : dw $0004
+	db sprite.x_speed : dw $FF00
+	db sprite.max_x_speed : dw $FF00
+	db sprite.unknown_5E : dw $01A0
+	db sprite.unknown_60 : dw $02A0
+	db !spawn_command_success
 
 DATA_FF3C47:
-	%DKC3_SSS_OpFF(!sprite_ElectricNode)
-	%DKC3_SSS_OpXX($0E, $00DC)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $0140)
-	%DKC3_SSS_OpXX($5E, $02C2)
-	%DKC3_SSS_OpXX($16, $01B7)
-	%DKC3_SSS_OpXX($66, $0083)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpFC($0083)
-	%DKC3_SSS_OpFA($02B8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_ElectricNode
+	db sprite.render_order : dw $00DC
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $0140
+	db sprite.unknown_5E : dw $02C2
+	db sprite.y_position : dw $01B7
+	db sprite.unknown_66 : dw $0083
+	db sprite.visibility : dw $0000
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_FC : dw $0083
+	db !spawn_command_FA : dw $02B8
+	db !spawn_command_success
 
 DATA_FF3C69:
-	%DKC3_SSS_OpFF(!sprite_ElectricNode)
-	%DKC3_SSS_OpXX($0E, $00DC)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($5C, $0140)
-	%DKC3_SSS_OpXX($5E, $02C2)
-	%DKC3_SSS_OpXX($16, $01EF)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_ElectricNode
+	db sprite.render_order : dw $00DC
+	db sprite.state : dw $0002
+	db sprite.unknown_5C : dw $0140
+	db sprite.unknown_5E : dw $02C2
+	db sprite.y_position : dw $01EF
+	db sprite.visibility : dw $0000
+	db !spawn_command_success
 
 DATA_FF3C7F:
-	%DKC3_SSS_OpF7(!sprite_KRoolFightBGDecorations, $0083, $2E)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpXX($12, $01BB)
-	%DKC3_SSS_OpXX($16, $016B)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpFA($02B9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_KRoolFightBGDecorations, $0083 : db $2E
+	db sprite.state : dw $0000
+	db sprite.render_order : dw $00C0
+	db sprite.x_position : dw $01BB
+	db sprite.y_position : dw $016B
+	db sprite.visibility : dw $0000
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_FA : dw $02B9
+	db !spawn_command_success
 
 DATA_FF3C9B:
-	%DKC3_SSS_OpF7(!sprite_KRoolFightBGDecorations, $0086, $2E)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpXX($12, $023F)
-	%DKC3_SSS_OpXX($16, $017B)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpF3($42, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_KRoolFightBGDecorations, $0086 : db $2E
+	db sprite.state : dw $0001
+	db sprite.render_order : dw $00C0
+	db sprite.x_position : dw $023F
+	db sprite.y_position : dw $017B
+	db sprite.visibility : dw $0000
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_F3, $42, $00
+	db !spawn_command_success
 
 DATA_FF3CB7:
-	%DKC3_SSS_OpFF(!sprite_KRoolsFeet)
-	%DKC3_SSS_OpF2($00D0)
-	%DKC3_SSS_OpXX($12, $0288)
-	%DKC3_SSS_OpXX($16, $01BA)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFD($6000)
-	%DKC3_SSS_OpFC($0081)
-	%DKC3_SSS_OpF3($45, $08)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KRoolsFeet
+	db !spawn_command_F2 : dw $00D0
+	db sprite.x_position : dw $0288
+	db sprite.y_position : dw $01BA
+	db sprite.state : dw $0005
+	db sprite.visibility : dw $0000
+	db !spawn_command_FD : dw $6000
+	db !spawn_command_FC : dw $0081
+	db !spawn_command_F3, $45, $08
+	db !spawn_command_success
 
 DATA_FF3CD3:
-	%DKC3_SSS_OpFF(!sprite_KRool)
-	%DKC3_SSS_OpXX($06, DATA_FF2018)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($12, $0222)
-	%DKC3_SSS_OpXX($16, $016A)
-	%DKC3_SSS_OpXX($38, $0024)
-	%DKC3_SSS_OpXX($5A, $0002)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $0000)
-	%DKC3_SSS_OpXX($18, $025E)
-	%DKC3_SSS_OpFD($7000)
-	%DKC3_SSS_OpFC($0081)
-	%DKC3_SSS_OpFA($02BE)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KRool
+	db sprite.constants_address : dw DATA_FF2018
+	db sprite.render_order : dw $00D4
+	db sprite.x_position : dw $0222
+	db sprite.y_position : dw $016A
+	db sprite.state : dw $0024
+	db sprite.movement_state : dw $0002
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.interaction_flags : dw $0040
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $0000
+	db sprite.ground_y_position : dw $025E
+	db !spawn_command_FD : dw $7000
+	db !spawn_command_FC : dw $0081
+	db !spawn_command_FA : dw $02BE
+	db !spawn_command_success
 
 DATA_FF3D0A:
-	%DKC3_SSS_OpFF(!sprite_SteelKeg)
-	%DKC3_SSS_OpXX($06, DATA_FF1DD4)
-	%DKC3_SSS_OpXX($16, $01C0)
-	%DKC3_SSS_OpF2($00DE)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($3A, $0001)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpFD($3000)
-	%DKC3_SSS_OpFC($001D)
-	%DKC3_SSS_OpFA($0164)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SteelKeg
+	db sprite.constants_address : dw DATA_FF1DD4
+	db sprite.y_position : dw $01C0
+	db !spawn_command_F2 : dw $00DE
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.visibility : dw $0000
+	db sprite.interaction_flags : dw $0001
+	db sprite.movement_state : dw $0040
+	db !spawn_command_FD : dw $3000
+	db !spawn_command_FC : dw $001D
+	db !spawn_command_FA : dw $0164
+	db !spawn_command_success
 
 DATA_FF3D35:
-	%DKC3_SSS_OpF9(DATA_FF307C)
-	%DKC3_SSS_OpXX($16, $01B2)
-	%DKC3_SSS_OpXX($0E, $00F8)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($2E, $FF80)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0174)
-	%DKC3_SSS_OpXX($44, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF307C
+	db sprite.y_position : dw $01B2
+	db sprite.render_order : dw $00F8
+	db sprite.movement_state : dw $0001
+	db sprite.y_speed : dw $FF80
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0174
+	db sprite.animation_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF3D4E:
-	%DKC3_SSS_OpFF(!sprite_ElectricNode)
-	%DKC3_SSS_OpXX($0E, $00DC)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($16, $0173)
-	%DKC3_SSS_OpXX($5C, $0135)
-	%DKC3_SSS_OpXX($5E, $02CE)
-	%DKC3_SSS_OpXX($66, $0083)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpFC($0083)
-	%DKC3_SSS_OpFA($02B8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_ElectricNode
+	db sprite.render_order : dw $00DC
+	db sprite.state : dw $0000
+	db sprite.y_position : dw $0173
+	db sprite.unknown_5C : dw $0135
+	db sprite.unknown_5E : dw $02CE
+	db sprite.unknown_66 : dw $0083
+	db sprite.visibility : dw $0000
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_FC : dw $0083
+	db !spawn_command_FA : dw $02B8
+	db !spawn_command_success
 
 DATA_FF3D70:
-	%DKC3_SSS_OpFF(!sprite_ElectricNode)
-	%DKC3_SSS_OpXX($0E, $00DC)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($16, $01A9)
-	%DKC3_SSS_OpXX($5C, $012E)
-	%DKC3_SSS_OpXX($5E, $02D6)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_ElectricNode
+	db sprite.render_order : dw $00DC
+	db sprite.state : dw $0002
+	db sprite.y_position : dw $01A9
+	db sprite.unknown_5C : dw $012E
+	db sprite.unknown_5E : dw $02D6
+	db sprite.visibility : dw $0000
+	db !spawn_command_success
 
 DATA_FF3D86:
-	%DKC3_SSS_OpFF(!sprite_KnautilusFireballShooterFireball)
-	%DKC3_SSS_OpXX($16, $015B)
-	%DKC3_SSS_OpF2($00D8)
-	%DKC3_SSS_OpXX($64, $01B5)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5A, $001A)
-	%DKC3_SSS_OpFD($3000)
-	%DKC3_SSS_OpFC($0077)
-	%DKC3_SSS_OpFA($02C2)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KnautilusFireballShooterFireball
+	db sprite.y_position : dw $015B
+	db !spawn_command_F2 : dw $00D8
+	db sprite.unknown_64 : dw $01B5
+	db sprite.state : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.visibility : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.movement_state : dw $001A
+	db !spawn_command_FD : dw $3000
+	db !spawn_command_FC : dw $0077
+	db !spawn_command_FA : dw $02C2
+	db !spawn_command_success
 
 DATA_FF3DAB:
-	%DKC3_SSS_OpFF(!sprite_FireballLandingParticles)
-	%DKC3_SSS_OpF6($00, $0E)
-	%DKC3_SSS_OpF2($00D4)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0296)
-	%DKC3_SSS_OpFC($0077)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
+	db !spawn_command_F6, $00, $0E
+	db !spawn_command_F2 : dw $00D4
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0296
+	db !spawn_command_FC : dw $0077
+	db !spawn_command_success
 
 DATA_FF3DC1:
-	%DKC3_SSS_OpFF(!sprite_FireballLandingParticles)
-	%DKC3_SSS_OpXX($12, $0200)
-	%DKC3_SSS_OpXX($16, $0138)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpF2($00F8)
-	%DKC3_SSS_OpFD($3000)
-	%DKC3_SSS_OpFA($02C3)
-	%DKC3_SSS_OpFC($0085)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
+	db sprite.x_position : dw $0200
+	db sprite.y_position : dw $0138
+	db sprite.visibility : dw $0000
+	db !spawn_command_F2 : dw $00F8
+	db !spawn_command_FD : dw $3000
+	db !spawn_command_FA : dw $02C3
+	db !spawn_command_FC : dw $0085
+	db !spawn_command_success
 
 DATA_FF3DDA:
-	%DKC3_SSS_OpFF(!sprite_KnautilusFireballShooter)
-	%DKC3_SSS_OpXX($12, $0230)
-	%DKC3_SSS_OpXX($16, $016B)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpF2($00D6)
-	%DKC3_SSS_OpFD($3000)
-	%DKC3_SSS_OpF3($43, $03)
-	%DKC3_SSS_OpFC($0085)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KnautilusFireballShooter
+	db sprite.x_position : dw $0230
+	db sprite.y_position : dw $016B
+	db sprite.state : dw $0000
+	db sprite.visibility : dw $0000
+	db !spawn_command_F2 : dw $00D6
+	db !spawn_command_FD : dw $3000
+	db !spawn_command_F3, $43, $03
+	db !spawn_command_FC : dw $0085
+	db !spawn_command_success
 
 DATA_FF3DF6:
-	%DKC3_SSS_OpFF(!sprite_BGSteelKeg)
-	%DKC3_SSS_OpXX($12, $0200)
-	%DKC3_SSS_OpXX($16, $0132)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($66, $001E)
-	%DKC3_SSS_OpXX($6A, $0028)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpXX($06, DATA_FF202A)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpF2($00D7)
-	%DKC3_SSS_OpFD($3000)
-	%DKC3_SSS_OpF3($43, $02)
-	%DKC3_SSS_OpFC($001D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BGSteelKeg
+	db sprite.x_position : dw $0200
+	db sprite.y_position : dw $0132
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.unknown_66 : dw $001E
+	db sprite.unknown_6A : dw $0028
+	db sprite.state : dw $0000
+	db sprite.visibility : dw $C000
+	db sprite.constants_address : dw DATA_FF202A
+	db sprite.movement_state : dw $0004
+	db !spawn_command_F2 : dw $00D7
+	db !spawn_command_FD : dw $3000
+	db !spawn_command_F3, $43, $02
+	db !spawn_command_FC : dw $001D
+	db !spawn_command_success
 
 DATA_FF3E27:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_04C0)
-	%DKC3_SSS_OpF2($00D0)
-	%DKC3_SSS_OpXX($16, $01AA)
-	%DKC3_SSS_OpXX($5C, $0002)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpFD($3000)
-	%DKC3_SSS_OpFC($0042)
-	%DKC3_SSS_OpFA($02D0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_04C0
+	db !spawn_command_F2 : dw $00D0
+	db sprite.y_position : dw $01AA
+	db sprite.unknown_5C : dw $0002
+	db sprite.visibility : dw $C000
+	db !spawn_command_FD : dw $3000
+	db !spawn_command_FC : dw $0042
+	db !spawn_command_FA : dw $02D0
+	db !spawn_command_success
 
 DATA_FF3E40:
-	%DKC3_SSS_OpF9(DATA_FF3E27)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($44, $00FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3E27
+	db sprite.state : dw $0000
+	db sprite.animation_speed : dw $00FF
+	db !spawn_command_success
 
 DATA_FF3E4A:
-	%DKC3_SSS_OpF9(DATA_FF3E27)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3E27
+	db sprite.state : dw $0001
+	db !spawn_command_success
 
 DATA_FF3E51:
-	%DKC3_SSS_OpFF(!sprite_SteelKeg)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($06, DATA_FF1DD4)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001D)
-	%DKC3_SSS_OpFA($0167)
-	%DKC3_SSS_OpXX($38, $0004)
-	%DKC3_SSS_OpXX($3A, $8005)
-	%DKC3_SSS_OpXX($5A, $004F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SteelKeg
+	db !spawn_command_F6, $00, $00
+	db sprite.constants_address : dw DATA_FF1DD4
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001D
+	db !spawn_command_FA : dw $0167
+	db sprite.state : dw $0004
+	db sprite.interaction_flags : dw $8005
+	db sprite.movement_state : dw $004F
+	db !spawn_command_success
 
 DATA_FF3E70:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0310)
-	%DKC3_SSS_OpFC($0003)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0001)
-	%DKC3_SSS_OpXX($0E, $0040)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0310
+	db !spawn_command_FC : dw $0003
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0001
+	db sprite.render_order : dw $0040
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF3E83:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0310)
-	%DKC3_SSS_OpFC($0004)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0088)
-	%DKC3_SSS_OpXX($0E, $0040)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0310
+	db !spawn_command_FC : dw $0004
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0088
+	db sprite.render_order : dw $0040
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF3E96:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0348)
-	%DKC3_SSS_OpFC($0007)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0199)
-	%DKC3_SSS_OpXX($5A, $0003)
-	%DKC3_SSS_OpXX($12, $0010)
-	%DKC3_SSS_OpXX($16, $0110)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $00A0)
-	%DKC3_SSS_OpXX($60, $0080)
-	%DKC3_SSS_OpXX($2A, $0200)
-	%DKC3_SSS_OpXX($2E, $FF10)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0348
+	db !spawn_command_FC : dw $0007
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0199
+	db sprite.movement_state : dw $0003
+	db sprite.x_position : dw $0010
+	db sprite.y_position : dw $0110
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $00A0
+	db sprite.unknown_60 : dw $0080
+	db sprite.x_speed : dw $0200
+	db sprite.y_speed : dw $FF10
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF3EC1:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0348)
-	%DKC3_SSS_OpFC($0008)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($019A)
-	%DKC3_SSS_OpXX($5A, $0003)
-	%DKC3_SSS_OpXX($12, $0000)
-	%DKC3_SSS_OpXX($16, $0110)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $0002)
-	%DKC3_SSS_OpXX($5E, $0060)
-	%DKC3_SSS_OpXX($60, $0080)
-	%DKC3_SSS_OpXX($2A, $0200)
-	%DKC3_SSS_OpXX($2E, $FF10)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0348
+	db !spawn_command_FC : dw $0008
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $019A
+	db sprite.movement_state : dw $0003
+	db sprite.x_position : dw $0000
+	db sprite.y_position : dw $0110
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $0002
+	db sprite.unknown_5E : dw $0060
+	db sprite.unknown_60 : dw $0080
+	db sprite.x_speed : dw $0200
+	db sprite.y_speed : dw $FF10
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF3EEC:
-	%DKC3_SSS_OpFF(!sprite_MapKong)
-	%DKC3_SSS_OpFC($0009)
-	%DKC3_SSS_OpXX($06, DATA_FF203C)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFA($02E9)
-	%DKC3_SSS_OpXX($28, DATA_FF2056)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($32, $00C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MapKong
+	db !spawn_command_FC : dw $0009
+	db sprite.constants_address : dw DATA_FF203C
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FA : dw $02E9
+	db sprite.terrain_interaction : dw DATA_FF2056
+	db sprite.movement_state : dw $0000
+	db sprite.unknown_32 : dw $00C0
+	db !spawn_command_success
 
 DATA_FF3F05:
-	%DKC3_SSS_OpFF(!sprite_MapKong)
-	%DKC3_SSS_OpFC($0009)
-	%DKC3_SSS_OpXX($06, DATA_FF203C)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFA($02E9)
-	%DKC3_SSS_OpXX($4A, $8000)
-	%DKC3_SSS_OpXX($28, DATA_FF2042)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($32, $00C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MapKong
+	db !spawn_command_FC : dw $0009
+	db sprite.constants_address : dw DATA_FF203C
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FA : dw $02E9
+	db sprite.unknown_4A : dw $8000
+	db sprite.terrain_interaction : dw DATA_FF2042
+	db sprite.movement_state : dw $0000
+	db sprite.unknown_32 : dw $00C0
+	db !spawn_command_success
 
 DATA_FF3F21:
-	%DKC3_SSS_OpF7(!sprite_MapSwimmingKongSplash, $00D2, $07)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFA($031B)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_MapSwimmingKongSplash, $00D2 : db $07
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FA : dw $031B
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0080
+	db !spawn_command_success
 
 DATA_FF3F34:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_003C, $00D2, $07)
-	%DKC3_SSS_OpF3($07, $00)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_003C, $00D2 : db $07
+	db !spawn_command_F3, $07, $00
+	db !spawn_command_FE : dw $2000
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $0000
+	db sprite.visibility : dw $C000
+	db !spawn_command_success
 
 DATA_FF3F53:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpFC($0099)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0325)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db !spawn_command_FC : dw $0099
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0325
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0080
+	db !spawn_command_success
 
 DATA_FF3F66:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpFC($009C)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0326)
-	%DKC3_SSS_OpXX($12, $00AF)
-	%DKC3_SSS_OpXX($16, $001E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db !spawn_command_FC : dw $009C
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0326
+	db sprite.x_position : dw $00AF
+	db sprite.y_position : dw $001E
+	db !spawn_command_success
 
 DATA_FF3F79:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpFC($009A)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0324)
-	%DKC3_SSS_OpXX($12, $0032)
-	%DKC3_SSS_OpXX($16, $0042)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db !spawn_command_FC : dw $009A
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0324
+	db sprite.x_position : dw $0032
+	db sprite.y_position : dw $0042
+	db sprite.render_order : dw $00FF
+	db !spawn_command_success
 
 DATA_FF3F8F:
-	%DKC3_SSS_OpFF(!sprite_WrinklysSaveCave)
-	%DKC3_SSS_OpFC($00D2)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0327)
-	%DKC3_SSS_OpXX($12, $00E3)
-	%DKC3_SSS_OpXX($16, $00AA)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_WrinklysSaveCave
+	db !spawn_command_FC : dw $00D2
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0327
+	db sprite.x_position : dw $00E3
+	db sprite.y_position : dw $00AA
+	db !spawn_command_success
 
 DATA_FF3FA2:
-	%DKC3_SSS_OpFF(!sprite_MapVehicle)
-	%DKC3_SSS_OpXX($0E, $00D0)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($60, $0180)
-	%DKC3_SSS_OpXX($36, $0180)
-	%DKC3_SSS_OpXX($12, $021C)
-	%DKC3_SSS_OpXX($16, $0277)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MapVehicle
+	db sprite.render_order : dw $00D0
+	db sprite.movement_state : dw $0001
+	db sprite.visibility : dw $8001
+	db sprite.unknown_60 : dw $0180
+	db sprite.slip_velocity : dw $0180
+	db sprite.x_position : dw $021C
+	db sprite.y_position : dw $0277
+	db sprite.unknown_6C : dw $0000
+	db !spawn_command_success
 
 DATA_FF3FBE:
-	%DKC3_SSS_OpF9(DATA_FF3FA2)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0092)
-	%DKC3_SSS_OpF3($09, $00)
-	%DKC3_SSS_OpXX($06, DATA_FF206A)
-	%DKC3_SSS_OpXX($1C, $0030)
-	%DKC3_SSS_OpXX($18, $0566)
-	%DKC3_SSS_OpXX($60, $0180)
-	%DKC3_SSS_OpXX($4E, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3FA2
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0092
+	db !spawn_command_F3, $09, $00
+	db sprite.constants_address : dw DATA_FF206A
+	db sprite.terrain_attributes : dw $0030
+	db sprite.ground_y_position : dw $0566
+	db sprite.unknown_60 : dw $0180
+	db sprite.unknown_4E : dw $0180
+	db !spawn_command_success
 
 DATA_FF3FDA:
-	%DKC3_SSS_OpF9(DATA_FF3FA2)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0093)
-	%DKC3_SSS_OpF3($0A, $00)
-	%DKC3_SSS_OpXX($06, DATA_FF2072)
-	%DKC3_SSS_OpXX($1C, $0010)
-	%DKC3_SSS_OpXX($18, $0563)
-	%DKC3_SSS_OpXX($60, $0180)
-	%DKC3_SSS_OpXX($4E, $0180)
-	%DKC3_SSS_OpXX($32, DATA_FF208A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3FA2
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0093
+	db !spawn_command_F3, $0A, $00
+	db sprite.constants_address : dw DATA_FF2072
+	db sprite.terrain_attributes : dw $0010
+	db sprite.ground_y_position : dw $0563
+	db sprite.unknown_60 : dw $0180
+	db sprite.unknown_4E : dw $0180
+	db sprite.unknown_32 : dw DATA_FF208A
+	db !spawn_command_success
 
 DATA_FF3FF9:
-	%DKC3_SSS_OpF9(DATA_FF3FA2)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($00D3)
-	%DKC3_SSS_OpF3($0B, $00)
-	%DKC3_SSS_OpXX($06, DATA_FF2082)
-	%DKC3_SSS_OpXX($1C, $0000)
-	%DKC3_SSS_OpXX($18, $0564)
-	%DKC3_SSS_OpXX($60, $0180)
-	%DKC3_SSS_OpXX($4E, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3FA2
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $00D3
+	db !spawn_command_F3, $0B, $00
+	db sprite.constants_address : dw DATA_FF2082
+	db sprite.terrain_attributes : dw $0000
+	db sprite.ground_y_position : dw $0564
+	db sprite.unknown_60 : dw $0180
+	db sprite.unknown_4E : dw $0180
+	db !spawn_command_success
 
 DATA_FF4015:
-	%DKC3_SSS_OpFF(!sprite_GyrocopterBladesAndShadow)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($12, $01B0)
-	%DKC3_SSS_OpXX($16, $0210)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($00D3)
-	%DKC3_SSS_OpFA($031D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_GyrocopterBladesAndShadow
+	db sprite.visibility : dw $8001
+	db sprite.x_position : dw $01B0
+	db sprite.y_position : dw $0210
+	db sprite.render_order : dw $00FF
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $00D3
+	db !spawn_command_FA : dw $031D
+	db !spawn_command_success
 
 DATA_FF402E:
-	%DKC3_SSS_OpF9(DATA_FF3FA2)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0096)
-	%DKC3_SSS_OpF3($0C, $00)
-	%DKC3_SSS_OpXX($06, DATA_FF207A)
-	%DKC3_SSS_OpXX($1C, $0040)
-	%DKC3_SSS_OpXX($18, $0565)
-	%DKC3_SSS_OpXX($60, $0180)
-	%DKC3_SSS_OpXX($4E, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF3FA2
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0096
+	db !spawn_command_F3, $0C, $00
+	db sprite.constants_address : dw DATA_FF207A
+	db sprite.terrain_attributes : dw $0040
+	db sprite.ground_y_position : dw $0565
+	db sprite.unknown_60 : dw $0180
+	db sprite.unknown_4E : dw $0180
+	db !spawn_command_success
 
 DATA_FF404A:
-	%DKC3_SSS_OpFF(!sprite_FunkyKong)
-	%DKC3_SSS_OpXX($12, $00DA)
-	%DKC3_SSS_OpXX($16, $00A9)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpFA($02D7)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFB($8DB0)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FunkyKong
+	db sprite.x_position : dw $00DA
+	db sprite.y_position : dw $00A9
+	db sprite.render_order : dw $00D4
+	db !spawn_command_FA : dw $02D7
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FB : dw $8DB0
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF4063:
-	%DKC3_SSS_OpFF(!sprite_BrothersBearAccessories)
-	%DKC3_SSS_OpFC($00B0)
-	%DKC3_SSS_OpXX($5E, $0073)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00D5)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BrothersBearAccessories
+	db !spawn_command_FC : dw $00B0
+	db sprite.unknown_5E : dw $0073
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00D5
+	db !spawn_command_success
 
 DATA_FF4073:
-	%DKC3_SSS_OpFF(!sprite_SwankyKong)
-	%DKC3_SSS_OpXX($12, $00EA)
-	%DKC3_SSS_OpXX($16, $00B0)
-	%DKC3_SSS_OpXX($0E, $00F0)
-	%DKC3_SSS_OpFA($02DF)
-	%DKC3_SSS_OpXX($68, $0006)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($008F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SwankyKong
+	db sprite.x_position : dw $00EA
+	db sprite.y_position : dw $00B0
+	db sprite.render_order : dw $00F0
+	db !spawn_command_FA : dw $02DF
+	db sprite.unknown_68 : dw $0006
+	db sprite.state : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $008F
+	db !spawn_command_success
 
 DATA_FF408F:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpXX($12, $0097)
-	%DKC3_SSS_OpXX($16, $007F)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpFA($02E4)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($00A1)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db sprite.x_position : dw $0097
+	db sprite.y_position : dw $007F
+	db sprite.render_order : dw $00D4
+	db !spawn_command_FA : dw $02E4
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $00A1
+	db !spawn_command_success
 
 DATA_FF40A5:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite2)
-	%DKC3_SSS_OpXX($12, $00B8)
-	%DKC3_SSS_OpXX($16, $0090)
-	%DKC3_SSS_OpXX($0E, $0000)
-	%DKC3_SSS_OpF3($0D, $00)
-	%DKC3_SSS_OpFC($00D4)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite2
+	db sprite.x_position : dw $00B8
+	db sprite.y_position : dw $0090
+	db sprite.render_order : dw $0000
+	db !spawn_command_F3, $0D, $00
+	db !spawn_command_FC : dw $00D4
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF40BB:
-	%DKC3_SSS_OpFF(!sprite_BrothersBear)
-	%DKC3_SSS_OpXX($12, $002C)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $00F0)
-	%DKC3_SSS_OpFA($032E)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BrothersBear
+	db sprite.x_position : dw $002C
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $00F0
+	db !spawn_command_FA : dw $032E
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF40CE:
-	%DKC3_SSS_OpFF(!sprite_BrothersBearAccessories)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($0E, $00F2)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BrothersBearAccessories
+	db !spawn_command_FE : dw $6000
+	db sprite.render_order : dw $00F2
+	db !spawn_command_success
 
 DATA_FF40D8:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_032C)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpFC($00B4)
-	%DKC3_SSS_OpF3($05, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_032C
+	db !spawn_command_FE : dw $6000
+	db sprite.render_order : dw $00FF
+	db !spawn_command_FC : dw $00B4
+	db !spawn_command_F3, $05, $00
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF40EB:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01C4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($12, $005F)
-	%DKC3_SSS_OpXX($16, $0079)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01C4
+	db sprite.state : dw $0000
+	db sprite.x_position : dw $005F
+	db sprite.y_position : dw $0079
+	db sprite.unknown_5C : dw $0000
+	db !spawn_command_success
 
 DATA_FF40FB:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpFA($0333)
-	%DKC3_SSS_OpXX($12, $00D6)
-	%DKC3_SSS_OpXX($16, $0082)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db !spawn_command_FA : dw $0333
+	db sprite.x_position : dw $00D6
+	db sprite.y_position : dw $0082
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_success
 
 DATA_FF410E:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01C4)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($12, $005F)
-	%DKC3_SSS_OpXX($16, $0079)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01C4
+	db sprite.state : dw $0001
+	db sprite.x_position : dw $005F
+	db sprite.y_position : dw $0079
+	db sprite.unknown_5C : dw $0001
+	db !spawn_command_success
 
 DATA_FF411E:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_008C, $0023, $22)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($0E, $00DE)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_008C, $0023 : db $22
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $0000
+	db sprite.state : dw $0000
+	db sprite.render_order : dw $00DE
+	db !spawn_command_FE : dw $7000
+	db !spawn_command_success
 
 DATA_FF4134:
-	%DKC3_SSS_OpF9(DATA_FF4149)
-	%DKC3_SSS_OpFA($02DC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4149
+	db !spawn_command_FA : dw $02DC
+	db !spawn_command_success
 
 DATA_FF413B:
-	%DKC3_SSS_OpF9(DATA_FF4149)
-	%DKC3_SSS_OpFA($02DD)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4149
+	db !spawn_command_FA : dw $02DD
+	db !spawn_command_success
 
 DATA_FF4142:
-	%DKC3_SSS_OpF9(DATA_FF4149)
-	%DKC3_SSS_OpFA($02DE)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4149
+	db !spawn_command_FA : dw $02DE
+	db !spawn_command_success
 
 DATA_FF4149:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_034C)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($12, $0100)
-	%DKC3_SSS_OpXX($16, $0070)
-	%DKC3_SSS_OpXX($2A, $FF00)
-	%DKC3_SSS_OpXX($2E, $FD00)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_034C
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $000F
+	db sprite.state : dw $0000
+	db sprite.x_position : dw $0100
+	db sprite.y_position : dw $0070
+	db sprite.x_speed : dw $FF00
+	db sprite.y_speed : dw $FD00
+	db sprite.movement_state : dw $0004
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_success
 
 DATA_FF4168:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($12, $00A8)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpFC($008E)
-	%DKC3_SSS_OpFE($0000)
-	%DKC3_SSS_OpFA($02E8)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db sprite.movement_state : dw $0000
+	db sprite.x_position : dw $00A8
+	db sprite.y_position : dw $0080
+	db !spawn_command_FC : dw $008E
+	db !spawn_command_FE : dw $0000
+	db !spawn_command_FA : dw $02E8
+	db sprite.visibility : dw $0000
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF4184:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpXX($12, $0081)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpFC($009D)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($032B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db sprite.x_position : dw $0081
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $00FF
+	db !spawn_command_FC : dw $009D
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $032B
+	db !spawn_command_success
 
 DATA_FF419A:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpXX($12, $00A0)
-	%DKC3_SSS_OpXX($16, $0088)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpFC($00A0)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpFA($0334)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db sprite.x_position : dw $00A0
+	db sprite.y_position : dw $0088
+	db sprite.render_order : dw $00FF
+	db !spawn_command_FC : dw $00A0
+	db !spawn_command_FE : dw $7000
+	db !spawn_command_FA : dw $0334
+	db !spawn_command_success
 
 DATA_FF41B0:
-	%DKC3_SSS_OpFF(!sprite_ChairliftPulley)
-	%DKC3_SSS_OpFC($00C8)
-	%DKC3_SSS_OpFA($0335)
-	%DKC3_SSS_OpXX($26, $8003)
-	%DKC3_SSS_OpXX($0E, $00F4)
-	%DKC3_SSS_OpXX($16, $007A)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_ChairliftPulley
+	db !spawn_command_FC : dw $00C8
+	db !spawn_command_FA : dw $0335
+	db sprite.visibility : dw $8003
+	db sprite.render_order : dw $00F4
+	db sprite.y_position : dw $007A
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF41C6:
-	%DKC3_SSS_OpF9(DATA_FF41B0)
-	%DKC3_SSS_OpXX($12, $00B8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF41B0
+	db sprite.x_position : dw $00B8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF41D0:
-	%DKC3_SSS_OpF9(DATA_FF41B0)
-	%DKC3_SSS_OpXX($12, $0046)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($44, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF41B0
+	db sprite.x_position : dw $0046
+	db !spawn_command_FE : dw $2000
+	db sprite.animation_speed : dw $0000
+	db !spawn_command_success
 
 DATA_FF41DD:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0338)
-	%DKC3_SSS_OpXX($12, $00BA)
-	%DKC3_SSS_OpXX($16, $006A)
-	%DKC3_SSS_OpXX($0E, $0040)
-	%DKC3_SSS_OpF3($04, $03)
-	%DKC3_SSS_OpFC($005A)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0338
+	db sprite.x_position : dw $00BA
+	db sprite.y_position : dw $006A
+	db sprite.render_order : dw $0040
+	db !spawn_command_F3, $04, $03
+	db !spawn_command_FC : dw $005A
+	db !spawn_command_FE : dw $7000
+	db !spawn_command_success
 
 DATA_FF41F3:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite2)
-	%DKC3_SSS_OpXX($12, $00B9)
-	%DKC3_SSS_OpXX($16, $006A)
-	%DKC3_SSS_OpXX($0E, $0040)
-	%DKC3_SSS_OpF3($04, $03)
-	%DKC3_SSS_OpFC($005A)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite2
+	db sprite.x_position : dw $00B9
+	db sprite.y_position : dw $006A
+	db sprite.render_order : dw $0040
+	db !spawn_command_F3, $04, $03
+	db !spawn_command_FC : dw $005A
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF4209:
-	%DKC3_SSS_OpFF(!sprite_BramblesVase)
-	%DKC3_SSS_OpXX($12, $004C)
-	%DKC3_SSS_OpXX($16, $0031)
-	%DKC3_SSS_OpXX($0E, $0080)
-	%DKC3_SSS_OpXX($5C, $0006)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $2208)
-	%DKC3_SSS_OpF3($04, $04)
-	%DKC3_SSS_OpFC($00CE)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BramblesVase
+	db sprite.x_position : dw $004C
+	db sprite.y_position : dw $0031
+	db sprite.render_order : dw $0080
+	db sprite.unknown_5C : dw $0006
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $2208
+	db !spawn_command_F3, $04, $04
+	db !spawn_command_FC : dw $00CE
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF4228:
-	%DKC3_SSS_OpF7(!sprite_InventoryItemHUDSquares, $00CF, $18)
-	%DKC3_SSS_OpXX($12, $00F6)
-	%DKC3_SSS_OpXX($16, $FFE0)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($26, $8005)
-	%DKC3_SSS_OpXX($0E, $00FE)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($6A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_InventoryItemHUDSquares, $00CF : db $18
+	db sprite.x_position : dw $00F6
+	db sprite.y_position : dw $FFE0
+	db !spawn_command_FE : dw $3000
+	db sprite.state : dw $0100
+	db sprite.visibility : dw $8005
+	db sprite.render_order : dw $00FE
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_6A : dw $0000
+	db !spawn_command_success
 
 DATA_FF4250:
-	%DKC3_SSS_OpF7(!sprite_InventoryItemHUDSquares, $00CF, $18)
-	%DKC3_SSS_OpF3($0F, $0A)
-	%DKC3_SSS_OpXX($12, $0038)
-	%DKC3_SSS_OpXX($16, $0027)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($38, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_InventoryItemHUDSquares, $00CF : db $18
+	db !spawn_command_F3, $0F, $0A
+	db sprite.x_position : dw $0038
+	db sprite.y_position : dw $0027
+	db !spawn_command_FE : dw $3000
+	db sprite.state : dw $0004
+	db !spawn_command_success
 
 DATA_FF4266:
-	%DKC3_SSS_OpF7(!sprite_InventoryItemHUDSquares, $00CF, $18)
-	%DKC3_SSS_OpF3($0F, $00)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($64, $000F)
-	%DKC3_SSS_OpXX($66, $0010)
-	%DKC3_SSS_OpXX($6A, $0060)
-	%DKC3_SSS_OpXX($38, $0004)
-	%DKC3_SSS_OpXX($0E, $00EE)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_InventoryItemHUDSquares, $00CF : db $18
+	db !spawn_command_F3, $0F, $00
+	db !spawn_command_FE : dw $3000
+	db sprite.unknown_64 : dw $000F
+	db sprite.unknown_66 : dw $0010
+	db sprite.unknown_6A : dw $0060
+	db sprite.state : dw $0004
+	db sprite.render_order : dw $00EE
+	db !spawn_command_success
 
 DATA_FF4282:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpFC($0097)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($0328)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db !spawn_command_FC : dw $0097
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $00FF
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $0328
+	db !spawn_command_success
 
 DATA_FF4298:
-	%DKC3_SSS_OpFF(!sprite_BananaBirdCaveCrystal)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($62, $00D7)
-	%DKC3_SSS_OpXX($64, $00DB)
-	%DKC3_SSS_OpF3($0E, $00)
-	%DKC3_SSS_OpFC($00D7)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($60, $0762)
-	%DKC3_SSS_OpXX($66, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BananaBirdCaveCrystal
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0080
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_62 : dw $00D7
+	db sprite.unknown_64 : dw $00DB
+	db !spawn_command_F3, $0E, $00
+	db !spawn_command_FC : dw $00D7
+	db !spawn_command_FE : dw $3000
+	db sprite.unknown_60 : dw $0762
+	db sprite.unknown_66 : dw $000F
+	db !spawn_command_success
 
 DATA_FF42BA:
-	%DKC3_SSS_OpFF(!sprite_BananaBirdCaveCrystal)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($5C, $0002)
-	%DKC3_SSS_OpXX($62, $00D6)
-	%DKC3_SSS_OpXX($64, $00DA)
-	%DKC3_SSS_OpF3($0E, $01)
-	%DKC3_SSS_OpFC($00D6)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($60, $0763)
-	%DKC3_SSS_OpXX($66, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BananaBirdCaveCrystal
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0080
+	db sprite.unknown_5C : dw $0002
+	db sprite.unknown_62 : dw $00D6
+	db sprite.unknown_64 : dw $00DA
+	db !spawn_command_F3, $0E, $01
+	db !spawn_command_FC : dw $00D6
+	db !spawn_command_FE : dw $3000
+	db sprite.unknown_60 : dw $0763
+	db sprite.unknown_66 : dw $000F
+	db !spawn_command_success
 
 DATA_FF42DC:
-	%DKC3_SSS_OpFF(!sprite_BananaBirdCaveCrystal)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($5C, $0004)
-	%DKC3_SSS_OpXX($62, $00D9)
-	%DKC3_SSS_OpXX($64, $00DD)
-	%DKC3_SSS_OpF3($0E, $02)
-	%DKC3_SSS_OpFC($00D9)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($60, $0764)
-	%DKC3_SSS_OpXX($66, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BananaBirdCaveCrystal
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0080
+	db sprite.unknown_5C : dw $0004
+	db sprite.unknown_62 : dw $00D9
+	db sprite.unknown_64 : dw $00DD
+	db !spawn_command_F3, $0E, $02
+	db !spawn_command_FC : dw $00D9
+	db !spawn_command_FE : dw $3000
+	db sprite.unknown_60 : dw $0764
+	db sprite.unknown_66 : dw $000F
+	db !spawn_command_success
 
 DATA_FF42FE:
-	%DKC3_SSS_OpFF(!sprite_BananaBirdCaveCrystal)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($5C, $0008)
-	%DKC3_SSS_OpXX($62, $00D8)
-	%DKC3_SSS_OpXX($64, $00DC)
-	%DKC3_SSS_OpF3($0E, $03)
-	%DKC3_SSS_OpFC($00D8)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($60, $0765)
-	%DKC3_SSS_OpXX($66, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BananaBirdCaveCrystal
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0080
+	db sprite.unknown_5C : dw $0008
+	db sprite.unknown_62 : dw $00D8
+	db sprite.unknown_64 : dw $00DC
+	db !spawn_command_F3, $0E, $03
+	db !spawn_command_FC : dw $00D8
+	db !spawn_command_FE : dw $3000
+	db sprite.unknown_60 : dw $0765
+	db sprite.unknown_66 : dw $000F
+	db !spawn_command_success
 
 DATA_FF4320:
-	%DKC3_SSS_OpF9(DATA_FF52D4)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $00C8)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpXX($60, $0007)
-	%DKC3_SSS_OpFC($00CF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF52D4
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $00C8
+	db sprite.unknown_6C : dw $0000
+	db sprite.unknown_60 : dw $0007
+	db !spawn_command_FC : dw $00CF
+	db !spawn_command_success
 
 DATA_FF4333:
-	%DKC3_SSS_OpF9(DATA_FF52D4)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $00B0)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF52D4
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $00B0
+	db sprite.unknown_6C : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF4346:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0350)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0350
+	db sprite.state : dw $0000
+	db sprite.visibility : dw $C000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF4353:
-	%DKC3_SSS_OpF9(DATA_FF4346)
-	%DKC3_SSS_OpXX($16, $00CA)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpXX($5E, $002E)
-	%DKC3_SSS_OpXX($12, $00C0)
-	%DKC3_SSS_OpFC($0090)
-	%DKC3_SSS_OpXX($60, $0001)
-	%DKC3_SSS_OpXX($62, DATA_B6F470)
-	%DKC3_SSS_OpXX($64, DATA_B6F470)
-	%DKC3_SSS_OpXX($66, $0005)
-	%DKC3_SSS_OpXX($68, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4346
+	db sprite.y_position : dw $00CA
+	db sprite.unknown_6C : dw $0000
+	db sprite.unknown_5E : dw $002E
+	db sprite.x_position : dw $00C0
+	db !spawn_command_FC : dw $0090
+	db sprite.unknown_60 : dw $0001
+	db sprite.unknown_62 : dw DATA_B6F470
+	db sprite.unknown_64 : dw DATA_B6F470
+	db sprite.unknown_66 : dw $0005
+	db sprite.unknown_68 : dw $0005
+	db !spawn_command_success
 
 DATA_FF4375:
-	%DKC3_SSS_OpF9(DATA_FF4346)
-	%DKC3_SSS_OpXX($16, $00CA)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpXX($5E, $002D)
-	%DKC3_SSS_OpXX($12, $0040)
-	%DKC3_SSS_OpFC($0090)
-	%DKC3_SSS_OpXX($62, DATA_B6F470)
-	%DKC3_SSS_OpXX($64, DATA_B6F470)
-	%DKC3_SSS_OpXX($66, $0005)
-	%DKC3_SSS_OpXX($68, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4346
+	db sprite.y_position : dw $00CA
+	db sprite.unknown_6C : dw $0000
+	db sprite.unknown_5E : dw $002D
+	db sprite.x_position : dw $0040
+	db !spawn_command_FC : dw $0090
+	db sprite.unknown_62 : dw DATA_B6F470
+	db sprite.unknown_64 : dw DATA_B6F470
+	db sprite.unknown_66 : dw $0005
+	db sprite.unknown_68 : dw $0005
+	db !spawn_command_success
 
 DATA_FF4394:
-	%DKC3_SSS_OpF9(DATA_FF52D4)
-	%DKC3_SSS_OpXX($16, $0010)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpFC($0090)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF52D4
+	db sprite.y_position : dw $0010
+	db sprite.unknown_6C : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db !spawn_command_FC : dw $0090
+	db !spawn_command_success
 
 DATA_FF43A4:
-	%DKC3_SSS_OpF9(DATA_FF4346)
-	%DKC3_SSS_OpXX($16, $0130)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($5E, $FFFF)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpFC($00CF)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($64, $0404)
-	%DKC3_SSS_OpXX($34, $0300)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4346
+	db sprite.y_position : dw $0130
+	db sprite.unknown_6C : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_5E : dw $FFFF
+	db sprite.x_position : dw $0080
+	db !spawn_command_FC : dw $00CF
+	db sprite.movement_state : dw $0006
+	db sprite.unknown_64 : dw $0404
+	db sprite.max_y_speed : dw $0300
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.visibility : dw $0000
+	db !spawn_command_success
 
 DATA_FF43C9:
-	%DKC3_SSS_OpFF(!sprite_GameOverBlocks)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0140)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($5A, $0003)
-	%DKC3_SSS_OpXX($6A, $00B0)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_GameOverBlocks
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0140
+	db !spawn_command_FE : dw $3000
+	db sprite.movement_state : dw $0003
+	db sprite.unknown_6A : dw $00B0
+	db sprite.unknown_64 : dw $0000
+	db !spawn_command_success
 
 DATA_FF43DF:
-	%DKC3_SSS_OpF9(DATA_FF43C9)
-	%DKC3_SSS_OpFC($00A3)
-	%DKC3_SSS_OpF3($00, $00)
-	%DKC3_SSS_OpXX($5E, $0020)
-	%DKC3_SSS_OpXX($60, $0762)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($06, DATA_FF2092)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF43C9
+	db !spawn_command_FC : dw $00A3
+	db !spawn_command_F3, $00, $00
+	db sprite.unknown_5E : dw $0020
+	db sprite.unknown_60 : dw $0762
+	db sprite.unknown_62 : dw $0001
+	db sprite.constants_address : dw DATA_FF2092
+	db !spawn_command_success
 
 DATA_FF43F5:
-	%DKC3_SSS_OpF9(DATA_FF43C9)
-	%DKC3_SSS_OpFC($00A4)
-	%DKC3_SSS_OpF3($00, $01)
-	%DKC3_SSS_OpXX($5E, $4000)
-	%DKC3_SSS_OpXX($60, $0763)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($06, DATA_FF20A2)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF43C9
+	db !spawn_command_FC : dw $00A4
+	db !spawn_command_F3, $00, $01
+	db sprite.unknown_5E : dw $4000
+	db sprite.unknown_60 : dw $0763
+	db sprite.unknown_62 : dw $0008
+	db sprite.constants_address : dw DATA_FF20A2
+	db !spawn_command_success
 
 DATA_FF440B:
-	%DKC3_SSS_OpF9(DATA_FF43C9)
-	%DKC3_SSS_OpFC($00A5)
-	%DKC3_SSS_OpF3($00, $02)
-	%DKC3_SSS_OpXX($5E, $0040)
-	%DKC3_SSS_OpXX($60, $0764)
-	%DKC3_SSS_OpXX($62, $0010)
-	%DKC3_SSS_OpXX($06, DATA_FF20AC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF43C9
+	db !spawn_command_FC : dw $00A5
+	db !spawn_command_F3, $00, $02
+	db sprite.unknown_5E : dw $0040
+	db sprite.unknown_60 : dw $0764
+	db sprite.unknown_62 : dw $0010
+	db sprite.constants_address : dw DATA_FF20AC
+	db !spawn_command_success
 
 DATA_FF4421:
-	%DKC3_SSS_OpF9(DATA_FF43C9)
-	%DKC3_SSS_OpFC($00A6)
-	%DKC3_SSS_OpF3($00, $03)
-	%DKC3_SSS_OpXX($5E, $0080)
-	%DKC3_SSS_OpXX($60, $0765)
-	%DKC3_SSS_OpXX($62, $0018)
-	%DKC3_SSS_OpXX($06, DATA_FF20B8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF43C9
+	db !spawn_command_FC : dw $00A6
+	db !spawn_command_F3, $00, $03
+	db sprite.unknown_5E : dw $0080
+	db sprite.unknown_60 : dw $0765
+	db sprite.unknown_62 : dw $0018
+	db sprite.constants_address : dw DATA_FF20B8
+	db !spawn_command_success
 
 DATA_FF4437:
-	%DKC3_SSS_OpF9(DATA_FF43C9)
-	%DKC3_SSS_OpFC($00A7)
-	%DKC3_SSS_OpF3($00, $04)
-	%DKC3_SSS_OpXX($5E, $8000)
-	%DKC3_SSS_OpXX($60, $0766)
-	%DKC3_SSS_OpXX($62, $0020)
-	%DKC3_SSS_OpXX($06, DATA_FF20C6)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF43C9
+	db !spawn_command_FC : dw $00A7
+	db !spawn_command_F3, $00, $04
+	db sprite.unknown_5E : dw $8000
+	db sprite.unknown_60 : dw $0766
+	db sprite.unknown_62 : dw $0020
+	db sprite.constants_address : dw DATA_FF20C6
+	db !spawn_command_success
 
 DATA_FF444D:
-	%DKC3_SSS_OpF9(DATA_FF43C9)
-	%DKC3_SSS_OpFC($00A8)
-	%DKC3_SSS_OpF3($00, $05)
-	%DKC3_SSS_OpXX($5E, $0010)
-	%DKC3_SSS_OpXX($60, $0767)
-	%DKC3_SSS_OpXX($62, $0028)
-	%DKC3_SSS_OpXX($06, DATA_FF20D0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF43C9
+	db !spawn_command_FC : dw $00A8
+	db !spawn_command_F3, $00, $05
+	db sprite.unknown_5E : dw $0010
+	db sprite.unknown_60 : dw $0767
+	db sprite.unknown_62 : dw $0028
+	db sprite.constants_address : dw DATA_FF20D0
+	db !spawn_command_success
 
 DATA_FF4463:
-	%DKC3_SSS_OpFF(!sprite_MainMapWaterfall)
-	%DKC3_SSS_OpF3($06, $00)
-	%DKC3_SSS_OpFC($00AA)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($12, $0131)
-	%DKC3_SSS_OpXX($16, $0227)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MainMapWaterfall
+	db !spawn_command_F3, $06, $00
+	db !spawn_command_FC : dw $00AA
+	db !spawn_command_FE : dw $2000
+	db sprite.x_position : dw $0131
+	db sprite.y_position : dw $0227
+	db sprite.render_order : dw $00C0
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF447C:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpXX($12, $01BB)
-	%DKC3_SSS_OpXX($16, $01C9)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFC($00A9)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($0337)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db sprite.x_position : dw $01BB
+	db sprite.y_position : dw $01C9
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FC : dw $00A9
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $0337
+	db !spawn_command_success
 
 DATA_FF4492:
-	%DKC3_SSS_OpF7(!sprite_TopOfCottonTopCoveWaterfall, $009A, $1A)
-	%DKC3_SSS_OpXX($12, $00DD)
-	%DKC3_SSS_OpXX($16, $0037)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFA($0339)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_TopOfCottonTopCoveWaterfall, $009A : db $1A
+	db sprite.x_position : dw $00DD
+	db sprite.y_position : dw $0037
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FA : dw $0339
+	db !spawn_command_success
 
 DATA_FF44A8:
-	%DKC3_SSS_OpF7(!sprite_TopOfCottonTopCoveWaterfall, $009A, $1A)
-	%DKC3_SSS_OpXX($12, $0096)
-	%DKC3_SSS_OpXX($16, $003D)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($033A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_TopOfCottonTopCoveWaterfall, $009A : db $1A
+	db sprite.x_position : dw $0096
+	db sprite.y_position : dw $003D
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $033A
+	db !spawn_command_success
 
 DATA_FF44BE:
-	%DKC3_SSS_OpF7(!sprite_TopOfCottonTopCoveWaterfall, $009A, $1A)
-	%DKC3_SSS_OpXX($12, $003D)
-	%DKC3_SSS_OpXX($16, $0037)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($0339)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_TopOfCottonTopCoveWaterfall, $009A : db $1A
+	db sprite.x_position : dw $003D
+	db sprite.y_position : dw $0037
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $0339
+	db !spawn_command_success
 
 DATA_FF44D4:
-	%DKC3_SSS_OpF7(!sprite_BottomOfRightCottonTopCoveWaterfall, $009A, $1B)
-	%DKC3_SSS_OpXX($12, $0093)
-	%DKC3_SSS_OpXX($16, $0070)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($033B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BottomOfRightCottonTopCoveWaterfall, $009A : db $1B
+	db sprite.x_position : dw $0093
+	db sprite.y_position : dw $0070
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $033B
+	db !spawn_command_success
 
 DATA_FF44EA:
-	%DKC3_SSS_OpF7(!sprite_BottomOfCottonTopCoveWaterfall, $009A, $1C)
-	%DKC3_SSS_OpXX($12, $00E0)
-	%DKC3_SSS_OpXX($16, $006F)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFA($033C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BottomOfCottonTopCoveWaterfall, $009A : db $1C
+	db sprite.x_position : dw $00E0
+	db sprite.y_position : dw $006F
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FA : dw $033C
+	db !spawn_command_success
 
 DATA_FF4500:
-	%DKC3_SSS_OpF7(!sprite_BottomOfCottonTopCoveWaterfall, $009A, $1C)
-	%DKC3_SSS_OpXX($12, $003A)
-	%DKC3_SSS_OpXX($16, $006F)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($033C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BottomOfCottonTopCoveWaterfall, $009A : db $1C
+	db sprite.x_position : dw $003A
+	db sprite.y_position : dw $006F
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $033C
+	db !spawn_command_success
 
 DATA_FF4516:
-	%DKC3_SSS_OpF7(!sprite_BananaBirdCaveCover, $0009, $1D)
-	%DKC3_SSS_OpXX($12, $0081)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpFE($0000)
-	%DKC3_SSS_OpF3($11, $01)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BananaBirdCaveCover, $0009 : db $1D
+	db sprite.x_position : dw $0081
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $00FF
+	db !spawn_command_FE : dw $0000
+	db !spawn_command_F3, $11, $01
+	db sprite.state : dw $0002
+	db !spawn_command_success
 
 DATA_FF452F:
-	%DKC3_SSS_OpF7(!sprite_BananaBirdCaveCover, $00C5, $1E)
-	%DKC3_SSS_OpXX($12, $00A1)
-	%DKC3_SSS_OpXX($16, $0010)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpF3($12, $03)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BananaBirdCaveCover, $00C5 : db $1E
+	db sprite.x_position : dw $00A1
+	db sprite.y_position : dw $0010
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_F3, $12, $03
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF4548:
-	%DKC3_SSS_OpF7(!sprite_BananaBirdCaveCover, $00E2, $1D)
-	%DKC3_SSS_OpXX($12, $0053)
-	%DKC3_SSS_OpXX($16, $0070)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpF3($11, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BananaBirdCaveCover, $00E2 : db $1D
+	db sprite.x_position : dw $0053
+	db sprite.y_position : dw $0070
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_F3, $11, $00
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF4561:
-	%DKC3_SSS_OpF7(!sprite_BananaBirdCaveCover, $0098, $1E)
-	%DKC3_SSS_OpXX($12, $0036)
-	%DKC3_SSS_OpXX($16, $001C)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpF3($12, $02)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BananaBirdCaveCover, $0098 : db $1E
+	db sprite.x_position : dw $0036
+	db sprite.y_position : dw $001C
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_F3, $12, $02
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF457A:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00B0, $00EB, $23)
-	%DKC3_SSS_OpXX($12, $0035)
-	%DKC3_SSS_OpXX($16, $0018)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpF3($14, $04)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00B0, $00EB : db $23
+	db sprite.x_position : dw $0035
+	db sprite.y_position : dw $0018
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_F3, $14, $04
+	db sprite.state : dw $0001
+	db !spawn_command_success
 
 DATA_FF4593:
-	%DKC3_SSS_OpF7(!sprite_BananaBirdCaveCover, $009E, $1E)
-	%DKC3_SSS_OpXX($12, $0036)
-	%DKC3_SSS_OpXX($16, $0062)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpF3($12, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BananaBirdCaveCover, $009E : db $1E
+	db sprite.x_position : dw $0036
+	db sprite.y_position : dw $0062
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_F3, $12, $00
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF45AC:
-	%DKC3_SSS_OpF7(!sprite_BananaBirdCaveCover, $0009, $1E)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpFE($0000)
-	%DKC3_SSS_OpF3($12, $01)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BananaBirdCaveCover, $0009 : db $1E
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $00FF
+	db !spawn_command_FE : dw $0000
+	db !spawn_command_F3, $12, $01
+	db sprite.state : dw $0002
+	db !spawn_command_success
 
 DATA_FF45C5:
-	%DKC3_SSS_OpF7(!sprite_PlayModeText, $00C7, $12)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpF3($02, $00)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_PlayModeText, $00C7 : db $12
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_F3, $02, $00
+	db sprite.unknown_5C : dw $0000
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF45DB:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01B4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01B4
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF45E2:
-	%DKC3_SSS_OpFF(!sprite_MapFlag)
-	%DKC3_SSS_OpXX($26, $8004)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpXX($66, $0000)
-	%DKC3_SSS_OpXX($4C, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MapFlag
+	db sprite.visibility : dw $8004
+	db sprite.state : dw $0000
+	db sprite.render_order : dw $00C0
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $0000
+	db sprite.unknown_64 : dw $0000
+	db sprite.unknown_66 : dw $0000
+	db sprite.unknown_4C : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF4607:
-	%DKC3_SSS_OpFF(!sprite_MapFlag)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpXX($24, $0101)
-	%DKC3_SSS_OpXX($22, $0101)
-	%DKC3_SSS_OpXX($12, $02A5)
-	%DKC3_SSS_OpXX($16, $020D)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($66, $0012)
-	%DKC3_SSS_OpXX($68, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MapFlag
+	db sprite.visibility : dw $C000
+	db sprite.state : dw $0002
+	db sprite.render_order : dw $00C0
+	db sprite.sprite_graphic : dw $0101
+	db sprite.sprite_graphic_mirror : dw $0101
+	db sprite.x_position : dw $02A5
+	db sprite.y_position : dw $020D
+	db sprite.render_order : dw $00FF
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_66 : dw $0012
+	db sprite.unknown_68 : dw $0040
+	db !spawn_command_success
 
 DATA_FF462C:
-	%DKC3_SSS_OpFF(!sprite_BrashCabinDigitalDisplay)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BrashCabinDigitalDisplay
+	db sprite.unknown_60 : dw $0000
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF4636:
-	%DKC3_SSS_OpFF(!sprite_FileSelectMenu)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FileSelectMenu
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF463D:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01A8)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01A8
+	db sprite.visibility : dw $C000
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF4647:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01B8)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF20DA)
-	%DKC3_SSS_OpXX($5E, $001C)
-	%DKC3_SSS_OpXX($62, $0050)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01B8
+	db sprite.state : dw $0000
+	db sprite.constants_address : dw DATA_FF20DA
+	db sprite.unknown_5E : dw $001C
+	db sprite.unknown_62 : dw $0050
+	db !spawn_command_success
 
 DATA_FF4657:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01B8)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF20F8)
-	%DKC3_SSS_OpXX($5E, $001C)
-	%DKC3_SSS_OpXX($62, $0050)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01B8
+	db sprite.state : dw $0000
+	db sprite.constants_address : dw DATA_FF20F8
+	db sprite.unknown_5E : dw $001C
+	db sprite.unknown_62 : dw $0050
+	db !spawn_command_success
 
 DATA_FF4667:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01B8)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF2116)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0064)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $0088)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01B8
+	db sprite.state : dw $0000
+	db sprite.constants_address : dw DATA_FF2116
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0064
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $0088
+	db !spawn_command_success
 
 DATA_FF467D:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01B8)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF2134)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0064)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $0088)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01B8
+	db sprite.state : dw $0000
+	db sprite.constants_address : dw DATA_FF2134
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0064
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $0088
+	db !spawn_command_success
 
 DATA_FF4693:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01BC)
-	%DKC3_SSS_OpXX($12, $0205)
-	%DKC3_SSS_OpXX($16, $01B9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01BC
+	db sprite.x_position : dw $0205
+	db sprite.y_position : dw $01B9
+	db !spawn_command_success
 
 DATA_FF469D:
-	%DKC3_SSS_OpFF(!sprite_FileSelectNumber)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($12, $0040)
-	%DKC3_SSS_OpXX($16, $00AC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FileSelectNumber
+	db sprite.state : dw $0000
+	db sprite.x_position : dw $0040
+	db sprite.y_position : dw $00AC
+	db !spawn_command_success
 
 DATA_FF46AA:
-	%DKC3_SSS_OpF7(!sprite_TopOfCottonTopCoveWaterfall, $00C8, $0F)
-	%DKC3_SSS_OpFA($033F)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($12, $0030)
-	%DKC3_SSS_OpXX($16, $0047)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_TopOfCottonTopCoveWaterfall, $00C8 : db $0F
+	db !spawn_command_FA : dw $033F
+	db !spawn_command_FE : dw $3000
+	db sprite.x_position : dw $0030
+	db sprite.y_position : dw $0047
+	db !spawn_command_success
 
 DATA_FF46BD:
-	%DKC3_SSS_OpF7(!sprite_BottomOfRightCottonTopCoveWaterfall, $00CD, $10)
-	%DKC3_SSS_OpFA($0340)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($12, $005F)
-	%DKC3_SSS_OpXX($16, $0047)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BottomOfRightCottonTopCoveWaterfall, $00CD : db $10
+	db !spawn_command_FA : dw $0340
+	db !spawn_command_FE : dw $3000
+	db sprite.x_position : dw $005F
+	db sprite.y_position : dw $0047
+	db !spawn_command_success
 
 DATA_FF46D0:
-	%DKC3_SSS_OpF7(!sprite_BottomOfCottonTopCoveWaterfall, $00CD, $13)
-	%DKC3_SSS_OpFA($0341)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($12, $00B0)
-	%DKC3_SSS_OpXX($16, $002E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BottomOfCottonTopCoveWaterfall, $00CD : db $13
+	db !spawn_command_FA : dw $0341
+	db !spawn_command_FE : dw $3000
+	db sprite.x_position : dw $00B0
+	db sprite.y_position : dw $002E
+	db !spawn_command_success
 
 DATA_FF46E3:
-	%DKC3_SSS_OpFF(!sprite_TitleScreenSign)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($12, $0150)
-	%DKC3_SSS_OpXX($2A, $F800)
-	%DKC3_SSS_OpXX($5A, $0002)
-	%DKC3_SSS_OpXX($5C, $00B8)
-	%DKC3_SSS_OpXX($26, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_TitleScreenSign
+	db !spawn_command_FE : dw $3000
+	db sprite.x_position : dw $0150
+	db sprite.x_speed : dw $F800
+	db sprite.movement_state : dw $0002
+	db sprite.unknown_5C : dw $00B8
+	db sprite.visibility : dw $8000
+	db !spawn_command_success
 
 DATA_FF46F9:
-	%DKC3_SSS_OpF9(DATA_FF46E3)
-	%DKC3_SSS_OpFC($00B1)
-	%DKC3_SSS_OpXX($5E, $0060)
-	%DKC3_SSS_OpXX($16, $0038)
-	%DKC3_SSS_OpF3($08, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF46E3
+	db !spawn_command_FC : dw $00B1
+	db sprite.unknown_5E : dw $0060
+	db sprite.y_position : dw $0038
+	db !spawn_command_F3, $08, $00
+	db !spawn_command_success
 
 DATA_FF4709:
-	%DKC3_SSS_OpF9(DATA_FF46E3)
-	%DKC3_SSS_OpFC($00E0)
-	%DKC3_SSS_OpF3($08, $02)
-	%DKC3_SSS_OpXX($16, $0048)
-	%DKC3_SSS_OpXX($5E, $003C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF46E3
+	db !spawn_command_FC : dw $00E0
+	db !spawn_command_F3, $08, $02
+	db sprite.y_position : dw $0048
+	db sprite.unknown_5E : dw $003C
+	db !spawn_command_success
 
 DATA_FF4719:
-	%DKC3_SSS_OpFF(!sprite_TitleScreenSign)
-	%DKC3_SSS_OpFC($00B1)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($12, $0185)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpXX($16, $0043)
-	%DKC3_SSS_OpXX($2A, $FA00)
-	%DKC3_SSS_OpXX($5A, $0002)
-	%DKC3_SSS_OpXX($5C, $00ED)
-	%DKC3_SSS_OpXX($5E, $0060)
-	%DKC3_SSS_OpF3($08, $01)
-	%DKC3_SSS_OpXX($26, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_TitleScreenSign
+	db !spawn_command_FC : dw $00B1
+	db !spawn_command_FE : dw $3000
+	db sprite.x_position : dw $0185
+	db sprite.render_order : dw $00FF
+	db sprite.y_position : dw $0043
+	db sprite.x_speed : dw $FA00
+	db sprite.movement_state : dw $0002
+	db sprite.unknown_5C : dw $00ED
+	db sprite.unknown_5E : dw $0060
+	db !spawn_command_F3, $08, $01
+	db sprite.visibility : dw $8000
+	db !spawn_command_success
 
 DATA_FF473E:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_019C)
-	%DKC3_SSS_OpXX($12, $0004)
-	%DKC3_SSS_OpXX($16, $FFA0)
-	%DKC3_SSS_OpXX($6A, $0008)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($5A, $003D)
-	%DKC3_SSS_OpXX($5E, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_019C
+	db sprite.x_position : dw $0004
+	db sprite.y_position : dw $FFA0
+	db sprite.unknown_6A : dw $0008
+	db sprite.y_speed : dw $0000
+	db sprite.movement_state : dw $003D
+	db sprite.unknown_5E : dw $0040
+	db !spawn_command_success
 
 DATA_FF4754:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_006C, $00DE, $19)
-	%DKC3_SSS_OpF3($10, $00)
-	%DKC3_SSS_OpFE($1000)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($26, $8000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($64, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_006C, $00DE : db $19
+	db !spawn_command_F3, $10, $00
+	db !spawn_command_FE : dw $1000
+	db sprite.movement_state : dw $0006
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.visibility : dw $8000
+	db sprite.state : dw $0000
+	db sprite.unknown_64 : dw $0003
+	db !spawn_command_success
 
 DATA_FF4770:
-	%DKC3_SSS_OpFF(!sprite_FileSelectIcon)
-	%DKC3_SSS_OpFB($0CC9)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpF3($03, $00)
-	%DKC3_SSS_OpXX($12, $0040)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FileSelectIcon
+	db !spawn_command_FB : dw $0CC9
+	db !spawn_command_FE : dw $2000
+	db sprite.movement_state : dw $0000
+	db !spawn_command_F3, $03, $00
+	db sprite.x_position : dw $0040
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF4786:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpFC($009B)
-	%DKC3_SSS_OpFA($032C)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpF2($00F0)
-	%DKC3_SSS_OpXX($44, $0060)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_FC : dw $009B
+	db !spawn_command_FA : dw $032C
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_F2 : dw $00F0
+	db sprite.animation_speed : dw $0060
+	db !spawn_command_success
 
 DATA_FF479C:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFA($0173)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpF2($00F0)
-	%DKC3_SSS_OpXX($44, $0060)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FA : dw $0173
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_F2 : dw $00F0
+	db sprite.animation_speed : dw $0060
+	db !spawn_command_success
 
 DATA_FF47AF:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpF6($00, $F0)
-	%DKC3_SSS_OpFC($009B)
-	%DKC3_SSS_OpFA($032C)
-	%DKC3_SSS_OpF2($00F0)
-	%DKC3_SSS_OpXX($44, $0060)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db !spawn_command_F6, $00, $F0
+	db !spawn_command_FC : dw $009B
+	db !spawn_command_FA : dw $032C
+	db !spawn_command_F2 : dw $00F0
+	db sprite.animation_speed : dw $0060
+	db !spawn_command_success
 
 DATA_FF47C2:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFA($032D)
-	%DKC3_SSS_OpF2($00F0)
-	%DKC3_SSS_OpXX($44, $0060)
-	%DKC3_SSS_OpXX($12, $00C0)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FA : dw $032D
+	db !spawn_command_F2 : dw $00F0
+	db sprite.animation_speed : dw $0060
+	db sprite.x_position : dw $00C0
+	db sprite.y_position : dw $0080
+	db !spawn_command_success
 
 DATA_FF47DB:
-	%DKC3_SSS_OpFF(!sprite_CollectableCog)
-	%DKC3_SSS_OpFA($0148)
-	%DKC3_SSS_OpFC($00C8)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($26, $8000)
-	%DKC3_SSS_OpXX($12, $0078)
-	%DKC3_SSS_OpXX($16, $FFF7)
-	%DKC3_SSS_OpXX($14, $001E)
-	%DKC3_SSS_OpXX($5C, $E388)
-	%DKC3_SSS_OpXX($60, $05C9)
-	%DKC3_SSS_OpXX($62, $0080)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_CollectableCog
+	db !spawn_command_FA : dw $0148
+	db !spawn_command_FC : dw $00C8
+	db !spawn_command_FE : dw $3000
+	db sprite.render_order : dw $00CC
+	db sprite.interaction_flags : dw $0000
+	db sprite.visibility : dw $8000
+	db sprite.x_position : dw $0078
+	db sprite.y_position : dw $FFF7
+	db sprite.y_sub_position : dw $001E
+	db sprite.unknown_5C : dw $E388
+	db sprite.unknown_60 : dw $05C9
+	db sprite.unknown_62 : dw $0080
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF4806:
-	%DKC3_SSS_OpFF(!sprite_CollectableCog)
-	%DKC3_SSS_OpFA($014A)
-	%DKC3_SSS_OpFC($0023)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($26, $8000)
-	%DKC3_SSS_OpXX($12, $0074)
-	%DKC3_SSS_OpXX($16, $FFF7)
-	%DKC3_SSS_OpXX($14, $0028)
-	%DKC3_SSS_OpXX($5C, $E188)
-	%DKC3_SSS_OpXX($60, $05CB)
-	%DKC3_SSS_OpXX($62, $0080)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_CollectableCog
+	db !spawn_command_FA : dw $014A
+	db !spawn_command_FC : dw $0023
+	db !spawn_command_FE : dw $3000
+	db sprite.render_order : dw $00CC
+	db sprite.interaction_flags : dw $0000
+	db sprite.visibility : dw $8000
+	db sprite.x_position : dw $0074
+	db sprite.y_position : dw $FFF7
+	db sprite.y_sub_position : dw $0028
+	db sprite.unknown_5C : dw $E188
+	db sprite.unknown_60 : dw $05CB
+	db sprite.unknown_62 : dw $0080
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF4831:
-	%DKC3_SSS_OpFF(!sprite_CollectableCog)
-	%DKC3_SSS_OpFA($014B)
-	%DKC3_SSS_OpFC($0023)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($26, $8000)
-	%DKC3_SSS_OpXX($12, $0078)
-	%DKC3_SSS_OpXX($16, $FFF7)
-	%DKC3_SSS_OpXX($14, $0022)
-	%DKC3_SSS_OpXX($5C, $E388)
-	%DKC3_SSS_OpXX($60, $05D1)
-	%DKC3_SSS_OpXX($62, $0080)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_CollectableCog
+	db !spawn_command_FA : dw $014B
+	db !spawn_command_FC : dw $0023
+	db !spawn_command_FE : dw $3000
+	db sprite.render_order : dw $00CC
+	db sprite.interaction_flags : dw $0000
+	db sprite.visibility : dw $8000
+	db sprite.x_position : dw $0078
+	db sprite.y_position : dw $FFF7
+	db sprite.y_sub_position : dw $0022
+	db sprite.unknown_5C : dw $E388
+	db sprite.unknown_60 : dw $05D1
+	db sprite.unknown_62 : dw $0080
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF485C:
-	%DKC3_SSS_OpFF(!sprite_GreenBanana)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($40, $014C)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_GreenBanana
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.animation_id : dw $014C
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00CC
+	db sprite.interaction_flags : dw $0000
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0080
+	db !spawn_command_success
 
 DATA_FF4875:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01A0)
-	%DKC3_SSS_OpXX($12, $0100)
-	%DKC3_SSS_OpXX($16, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01A0
+	db sprite.x_position : dw $0100
+	db sprite.y_position : dw $0100
+	db !spawn_command_success
 
 DATA_FF487F:
-	%DKC3_SSS_OpFF(!sprite_SpeedrunTimer)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($66, $15D7)
-	%DKC3_SSS_OpXX($12, $00E8)
-	%DKC3_SSS_OpXX($16, $00C8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SpeedrunTimer
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_66 : dw $15D7
+	db sprite.x_position : dw $00E8
+	db sprite.y_position : dw $00C8
+	db !spawn_command_success
 
 DATA_FF4898:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_0074, $00E4, $2B)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_0074, $00E4 : db $2B
+	db !spawn_command_F6, $00, $00
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $0004
+	db !spawn_command_success
 
 DATA_FF48A8:
-	%DKC3_SSS_OpF9(DATA_FF4898)
-	%DKC3_SSS_OpFA($0130)
-	%DKC3_SSS_OpXX($44, $0080)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpXX($2E, $FB40)
-	%DKC3_SSS_OpXX($2A, $FC00)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4898
+	db !spawn_command_FA : dw $0130
+	db sprite.animation_speed : dw $0080
+	db !spawn_command_FE : dw $7000
+	db sprite.y_speed : dw $FB40
+	db sprite.x_speed : dw $FC00
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF48BE:
-	%DKC3_SSS_OpF9(DATA_FF4898)
-	%DKC3_SSS_OpFA($0131)
-	%DKC3_SSS_OpXX($44, $00A0)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($2E, $FC00)
-	%DKC3_SSS_OpXX($2A, $0400)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4898
+	db !spawn_command_FA : dw $0131
+	db sprite.animation_speed : dw $00A0
+	db !spawn_command_FE : dw $3000
+	db sprite.y_speed : dw $FC00
+	db sprite.x_speed : dw $0400
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF48D4:
-	%DKC3_SSS_OpF9(DATA_FF4898)
-	%DKC3_SSS_OpFA($0131)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpXX($44, $00C0)
-	%DKC3_SSS_OpXX($2E, $FAA0)
-	%DKC3_SSS_OpXX($2A, $0200)
-	%DKC3_SSS_OpXX($30, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4898
+	db !spawn_command_FA : dw $0131
+	db !spawn_command_FE : dw $7000
+	db sprite.animation_speed : dw $00C0
+	db sprite.y_speed : dw $FAA0
+	db sprite.x_speed : dw $0200
+	db sprite.max_x_speed : dw $0080
+	db !spawn_command_success
 
 DATA_FF48EA:
-	%DKC3_SSS_OpF9(DATA_FF4898)
-	%DKC3_SSS_OpFA($0130)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($44, $00FF)
-	%DKC3_SSS_OpXX($2E, $F930)
-	%DKC3_SSS_OpXX($2A, $FE40)
-	%DKC3_SSS_OpXX($30, $FFC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4898
+	db !spawn_command_FA : dw $0130
+	db !spawn_command_FE : dw $3000
+	db sprite.animation_speed : dw $00FF
+	db sprite.y_speed : dw $F930
+	db sprite.x_speed : dw $FE40
+	db sprite.max_x_speed : dw $FFC0
+	db !spawn_command_success
 
 DATA_FF4900:
-	%DKC3_SSS_OpF9(DATA_FF4898)
-	%DKC3_SSS_OpFA($0130)
-	%DKC3_SSS_OpXX($44, $0080)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpXX($2E, $FA40)
-	%DKC3_SSS_OpXX($2A, $FA00)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4898
+	db !spawn_command_FA : dw $0130
+	db sprite.animation_speed : dw $0080
+	db !spawn_command_FE : dw $7000
+	db sprite.y_speed : dw $FA40
+	db sprite.x_speed : dw $FA00
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF4916:
-	%DKC3_SSS_OpF9(DATA_FF4898)
-	%DKC3_SSS_OpFA($0131)
-	%DKC3_SSS_OpXX($44, $0130)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($2E, $F940)
-	%DKC3_SSS_OpXX($2A, $0600)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4898
+	db !spawn_command_FA : dw $0131
+	db sprite.animation_speed : dw $0130
+	db !spawn_command_FE : dw $3000
+	db sprite.y_speed : dw $F940
+	db sprite.x_speed : dw $0600
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF492C:
-	%DKC3_SSS_OpF9(DATA_FF4898)
-	%DKC3_SSS_OpFA($0131)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpXX($44, $0140)
-	%DKC3_SSS_OpXX($2E, $FAE0)
-	%DKC3_SSS_OpXX($2A, $0140)
-	%DKC3_SSS_OpXX($30, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4898
+	db !spawn_command_FA : dw $0131
+	db !spawn_command_FE : dw $7000
+	db sprite.animation_speed : dw $0140
+	db sprite.y_speed : dw $FAE0
+	db sprite.x_speed : dw $0140
+	db sprite.max_x_speed : dw $0080
+	db !spawn_command_success
 
 DATA_FF4942:
-	%DKC3_SSS_OpF9(DATA_FF4898)
-	%DKC3_SSS_OpFA($0130)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($44, $0120)
-	%DKC3_SSS_OpXX($2E, $FAE0)
-	%DKC3_SSS_OpXX($2A, $FF00)
-	%DKC3_SSS_OpXX($30, $FFC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4898
+	db !spawn_command_FA : dw $0130
+	db !spawn_command_FE : dw $3000
+	db sprite.animation_speed : dw $0120
+	db sprite.y_speed : dw $FAE0
+	db sprite.x_speed : dw $FF00
+	db sprite.max_x_speed : dw $FFC0
+	db !spawn_command_success
 
 DATA_FF4958:
-	%DKC3_SSS_OpF7(!sprite_BananaBird, $005A, $0D)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($12, $0084)
-	%DKC3_SSS_OpXX($16, $0029)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($0E, $00F4)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpFA($01CA)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BananaBird, $005A : db $0D
+	db sprite.unknown_5C : dw $0001
+	db sprite.x_position : dw $0084
+	db sprite.y_position : dw $0029
+	db sprite.state : dw $0005
+	db sprite.render_order : dw $00F4
+	db !spawn_command_FE : dw $7000
+	db !spawn_command_FA : dw $01CA
+	db !spawn_command_success
 
 DATA_FF4974:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0360)
-	%DKC3_SSS_OpF3($0E, $04)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($12, $0085)
-	%DKC3_SSS_OpXX($16, $0029)
-	%DKC3_SSS_OpFC($00E4)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0360
+	db !spawn_command_F3, $0E, $04
+	db !spawn_command_FE : dw $3000
+	db sprite.render_order : dw $00CC
+	db sprite.x_position : dw $0085
+	db sprite.y_position : dw $0029
+	db !spawn_command_FC : dw $00E4
+	db !spawn_command_success
 
 DATA_FF498A:
-	%DKC3_SSS_OpF7(!sprite_KremwoodForestLog, $00E5, $20)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($12, $004E)
-	%DKC3_SSS_OpXX($16, $002B)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpF3($13, $00)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($5A, $0009)
-	%DKC3_SSS_OpXX($6A, $FFFF)
-	%DKC3_SSS_OpXX($5C, DATA_FF49B8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_KremwoodForestLog, $00E5 : db $20
+	db sprite.unknown_6C : dw $0005
+	db sprite.x_position : dw $004E
+	db sprite.y_position : dw $002B
+	db sprite.state : dw $0000
+	db sprite.render_order : dw $00FF
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_F3, $13, $00
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.movement_state : dw $0009
+	db sprite.unknown_6A : dw $FFFF
+	db sprite.unknown_5C : dw DATA_FF49B8
+	db !spawn_command_success
 
 DATA_FF49B8:
 	dw $FFFE
@@ -7253,64 +7253,64 @@ DATA_FF49B8:
 
 
 DATA_FF49D6:
-	%DKC3_SSS_OpF7(!sprite_MapCannon, $00E6, $20)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $2000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($12, $00DF)
-	%DKC3_SSS_OpXX($16, $0073)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpXX($2A, $FF80)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpF3($13, $06)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_MapCannon, $00E6 : db $20
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $2000
+	db sprite.state : dw $0000
+	db sprite.x_position : dw $00DF
+	db sprite.y_position : dw $0073
+	db sprite.render_order : dw $00FF
+	db sprite.x_speed : dw $FF80
+	db !spawn_command_FE : dw $7000
+	db !spawn_command_F3, $13, $06
+	db !spawn_command_success
 
 DATA_FF49F8:
-	%DKC3_SSS_OpF7(!sprite_MapCannon, $00E6, $20)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $0020)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpXX($12, $0039)
-	%DKC3_SSS_OpXX($16, $007E)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpXX($2A, $0080)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpF3($13, $06)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_MapCannon, $00E6 : db $20
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $0020
+	db sprite.state : dw $0003
+	db sprite.x_position : dw $0039
+	db sprite.y_position : dw $007E
+	db sprite.render_order : dw $00FF
+	db sprite.x_speed : dw $0080
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_F3, $13, $06
+	db !spawn_command_success
 
 DATA_FF4A1A:
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($0E, $0040)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($5A, $0009)
-	%DKC3_SSS_OpXX($6A, $FFFF)
-	%DKC3_SSS_OpFA($0320)
-	%DKC3_SSS_OpXX($5E, $0060)
-	%DKC3_SSS_OpEF()
+	db sprite.state : dw $0000
+	db sprite.render_order : dw $0040
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.movement_state : dw $0009
+	db sprite.unknown_6A : dw $FFFF
+	db !spawn_command_FA : dw $0320
+	db sprite.unknown_5E : dw $0060
+	db !spawn_command_success
 
 DATA_FF4A36:
-	%DKC3_SSS_OpF7(!sprite_ChairliftChair, $00E7, $23)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($12, $007C)
-	%DKC3_SSS_OpXX($16, $0066)
-	%DKC3_SSS_OpF9(DATA_FF4A1A)
-	%DKC3_SSS_OpXX($5C, DATA_FF4A92)
-	%DKC3_SSS_OpXX($6C, $FFFF)
-	%DKC3_SSS_OpXX($50, $00BC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_ChairliftChair, $00E7 : db $23
+	db !spawn_command_FE : dw $6000
+	db sprite.x_position : dw $007C
+	db sprite.y_position : dw $0066
+	db !spawn_command_F9 : dw DATA_FF4A1A
+	db sprite.unknown_5C : dw DATA_FF4A92
+	db sprite.unknown_6C : dw $FFFF
+	db sprite.unknown_50 : dw $00BC
+	db !spawn_command_success
 
 DATA_FF4A52:
-	%DKC3_SSS_OpF7(!sprite_ChairliftChair, $00E7, $23)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($12, $00E1)
-	%DKC3_SSS_OpXX($16, $005D)
-	%DKC3_SSS_OpF9(DATA_FF4A1A)
-	%DKC3_SSS_OpXX($5C, DATA_FF4A76)
-	%DKC3_SSS_OpXX($6C, $FFFF)
-	%DKC3_SSS_OpXX($50, $00BC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_ChairliftChair, $00E7 : db $23
+	db !spawn_command_FE : dw $2000
+	db sprite.x_position : dw $00E1
+	db sprite.y_position : dw $005D
+	db !spawn_command_F9 : dw DATA_FF4A1A
+	db sprite.unknown_5C : dw DATA_FF4A76
+	db sprite.unknown_6C : dw $FFFF
+	db sprite.unknown_50 : dw $00BC
+	db !spawn_command_success
 
 DATA_FF4A6E:
 	dw $0092
@@ -7348,28 +7348,28 @@ DATA_FF4A92:
 	dw DATA_FF4A6E
 
 DATA_FF4AA6:
-	%DKC3_SSS_OpF7(!sprite_ChairliftChair, $00E7, $23)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($12, $00D6)
-	%DKC3_SSS_OpXX($16, $002B)
-	%DKC3_SSS_OpF9(DATA_FF4A1A)
-	%DKC3_SSS_OpXX($5C, DATA_FF4B20)
-	%DKC3_SSS_OpXX($6C, $0001)
-	%DKC3_SSS_OpXX($50, $00C4)
-	%DKC3_SSS_OpXX($3C, $27A5)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_ChairliftChair, $00E7 : db $23
+	db !spawn_command_FE : dw $2000
+	db sprite.x_position : dw $00D6
+	db sprite.y_position : dw $002B
+	db !spawn_command_F9 : dw DATA_FF4A1A
+	db sprite.unknown_5C : dw DATA_FF4B20
+	db sprite.unknown_6C : dw $0001
+	db sprite.unknown_50 : dw $00C4
+	db sprite.carry_or_defeated_flags : dw $27A5
+	db !spawn_command_success
 
 DATA_FF4AC5:
-	%DKC3_SSS_OpF7(!sprite_ChairliftChair, $00E7, $23)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($12, $007F)
-	%DKC3_SSS_OpXX($16, $0023)
-	%DKC3_SSS_OpF9(DATA_FF4A1A)
-	%DKC3_SSS_OpXX($5C, DATA_FF4AF8)
-	%DKC3_SSS_OpXX($6C, $0001)
-	%DKC3_SSS_OpXX($50, $00C4)
-	%DKC3_SSS_OpXX($3C, $2998)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_ChairliftChair, $00E7 : db $23
+	db !spawn_command_FE : dw $6000
+	db sprite.x_position : dw $007F
+	db sprite.y_position : dw $0023
+	db !spawn_command_F9 : dw DATA_FF4A1A
+	db sprite.unknown_5C : dw DATA_FF4AF8
+	db sprite.unknown_6C : dw $0001
+	db sprite.unknown_50 : dw $00C4
+	db sprite.carry_or_defeated_flags : dw $2998
+	db !spawn_command_success
 
 DATA_FF4AE4:
 	dw $00E7
@@ -7416,16 +7416,16 @@ DATA_FF4B20:
 	dw DATA_FF4AE4
 
 DATA_FF4B2C:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01C8)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpFC($00E8)
-	%DKC3_SSS_OpXX($4C, $0000)
-	%DKC3_SSS_OpXX($50, $0001)
-	%DKC3_SSS_OpXX($5A, $0009)
-	%DKC3_SSS_OpXX($6A, $FFFF)
-	%DKC3_SSS_OpXX($5C, DATA_FF4B48)
-	%DKC3_SSS_OpXX($5E, $00C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01C8
+	db sprite.state : dw $0000
+	db !spawn_command_FC : dw $00E8
+	db sprite.unknown_4C : dw $0000
+	db sprite.unknown_50 : dw $0001
+	db sprite.movement_state : dw $0009
+	db sprite.unknown_6A : dw $FFFF
+	db sprite.unknown_5C : dw DATA_FF4B48
+	db sprite.unknown_5E : dw $00C0
+	db !spawn_command_success
 
 DATA_FF4B48:
 	dw $007E,$00B9,$0073,$00C1,$005A,$00C3,$FFF9,$0002
@@ -7444,609 +7444,609 @@ DATA_FF4B48:
 	dw $00DE,$0034,$FFF9,$0002,$FFFF
 
 DATA_FF4C22:
-	%DKC3_SSS_OpF9(DATA_FF4B2C)
-	%DKC3_SSS_OpXX($12, $0087)
-	%DKC3_SSS_OpXX($16, $00B5)
-	%DKC3_SSS_OpXX($1E, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4B2C
+	db sprite.x_position : dw $0087
+	db sprite.y_position : dw $00B5
+	db sprite.oam_property : dw $0000
+	db !spawn_command_FE : dw $2000
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF4C35:
-	%DKC3_SSS_OpF9(DATA_FF4B2C)
-	%DKC3_SSS_OpXX($12, $008B)
-	%DKC3_SSS_OpXX($16, $00B5)
-	%DKC3_SSS_OpXX($1E, $0006)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4B2C
+	db sprite.x_position : dw $008B
+	db sprite.y_position : dw $00B5
+	db sprite.oam_property : dw $0006
+	db !spawn_command_FE : dw $2000
+	db sprite.state : dw $0003
+	db !spawn_command_success
 
 DATA_FF4C48:
-	%DKC3_SSS_OpF9(DATA_FF4B2C)
-	%DKC3_SSS_OpXX($12, $008F)
-	%DKC3_SSS_OpXX($16, $00B5)
-	%DKC3_SSS_OpXX($1E, $000C)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4B2C
+	db sprite.x_position : dw $008F
+	db sprite.y_position : dw $00B5
+	db sprite.oam_property : dw $000C
+	db !spawn_command_FE : dw $2000
+	db sprite.state : dw $0003
+	db !spawn_command_success
 
 DATA_FF4C5B:
-	%DKC3_SSS_OpF9(DATA_FF4B2C)
-	%DKC3_SSS_OpXX($12, $0091)
-	%DKC3_SSS_OpXX($16, $00B5)
-	%DKC3_SSS_OpXX($1E, $0012)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4B2C
+	db sprite.x_position : dw $0091
+	db sprite.y_position : dw $00B5
+	db sprite.oam_property : dw $0012
+	db !spawn_command_FE : dw $2000
+	db sprite.state : dw $0003
+	db !spawn_command_success
 
 DATA_FF4C6E:
-	%DKC3_SSS_OpF7(!sprite_SewerStockpileGrate, $00E3, $24)
-	%DKC3_SSS_OpF3($15, $00)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_SewerStockpileGrate, $00E3 : db $24
+	db !spawn_command_F3, $15, $00
+	db !spawn_command_FE : dw $3000
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0080
+	db !spawn_command_success
 
 DATA_FF4C81:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite2)
-	%DKC3_SSS_OpF3($16, $00)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpFE($0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite2
+	db !spawn_command_F3, $16, $00
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $00FF
+	db !spawn_command_FE : dw $0000
+	db !spawn_command_success
 
 DATA_FF4C94:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite2)
-	%DKC3_SSS_OpF3($16, $01)
-	%DKC3_SSS_OpXX($12, $00A1)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpFE($0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite2
+	db !spawn_command_F3, $16, $01
+	db sprite.x_position : dw $00A1
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $00FF
+	db !spawn_command_FE : dw $0000
+	db !spawn_command_success
 
 DATA_FF4CA7:
-	%DKC3_SSS_OpFF(!sprite_SkyHighSecretRock)
-	%DKC3_SSS_OpFC($00E9)
-	%DKC3_SSS_OpF3($17, $00)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($60, $0201)
-	%DKC3_SSS_OpXX($64, $0101)
-	%DKC3_SSS_OpXX($30, $0018)
-	%DKC3_SSS_OpXX($34, $0010)
-	%DKC3_SSS_OpXX($12, $010F)
-	%DKC3_SSS_OpXX($16, $0043)
-	%DKC3_SSS_OpXX($0E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SkyHighSecretRock
+	db !spawn_command_FC : dw $00E9
+	db !spawn_command_F3, $17, $00
+	db !spawn_command_FE : dw $3000
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $0007
+	db sprite.unknown_60 : dw $0201
+	db sprite.unknown_64 : dw $0101
+	db sprite.max_x_speed : dw $0018
+	db sprite.max_y_speed : dw $0010
+	db sprite.x_position : dw $010F
+	db sprite.y_position : dw $0043
+	db sprite.render_order : dw $0000
+	db !spawn_command_success
 
 DATA_FF4CCF:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00A4, $0009, $26)
-	%DKC3_SSS_OpF3($1A, $00)
-	%DKC3_SSS_OpXX($12, $00A1)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00A4, $0009 : db $26
+	db !spawn_command_F3, $1A, $00
+	db sprite.x_position : dw $00A1
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $00FF
+	db sprite.visibility : dw $C000
+	db !spawn_command_success
 
 DATA_FF4CE5:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00A4, $0009, $26)
-	%DKC3_SSS_OpF3($1A, $01)
-	%DKC3_SSS_OpXX($12, $00A1)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00A4, $0009 : db $26
+	db !spawn_command_F3, $1A, $01
+	db sprite.x_position : dw $00A1
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $00FF
+	db sprite.visibility : dw $C000
+	db !spawn_command_success
 
 DATA_FF4CFB:
-	%DKC3_SSS_OpF7(!sprite_RazorRidgePipe, $00EC, $27)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpF3($1B, $00)
-	%DKC3_SSS_OpXX($12, $00A1)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_RazorRidgePipe, $00EC : db $27
+	db sprite.state : dw $0000
+	db !spawn_command_F3, $1B, $00
+	db sprite.x_position : dw $00A1
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $00FF
+	db !spawn_command_FE : dw $3000
+	db sprite.visibility : dw $0000
+	db !spawn_command_success
 
 DATA_FF4D17:
-	%DKC3_SSS_OpF7(!sprite_RazorRidgePipe, $0009, $27)
-	%DKC3_SSS_OpF3($1B, $01)
-	%DKC3_SSS_OpXX($12, $00A1)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_RazorRidgePipe, $0009 : db $27
+	db !spawn_command_F3, $1B, $01
+	db sprite.x_position : dw $00A1
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $00FF
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $0000
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF4D33:
-	%DKC3_SSS_OpF7(!sprite_RazorRidgePipe, $00EC, $27)
-	%DKC3_SSS_OpFA($0322)
-	%DKC3_SSS_OpXX($12, $00B6)
-	%DKC3_SSS_OpXX($16, $0082)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($58, $1000)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($5C, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_RazorRidgePipe, $00EC : db $27
+	db !spawn_command_FA : dw $0322
+	db sprite.x_position : dw $00B6
+	db sprite.y_position : dw $0082
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $2000
+	db sprite.state : dw $0001
+	db sprite.unknown_58 : dw $1000
+	db sprite.visibility : dw $8001
+	db sprite.unknown_5C : dw $0040
+	db !spawn_command_success
 
 DATA_FF4D55:
-	%DKC3_SSS_OpF7(!sprite_RazorRidgePipe, $00EC, $27)
-	%DKC3_SSS_OpFA($0322)
-	%DKC3_SSS_OpXX($12, $0051)
-	%DKC3_SSS_OpXX($16, $00D4)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($58, $1000)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($5C, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_RazorRidgePipe, $00EC : db $27
+	db !spawn_command_FA : dw $0322
+	db sprite.x_position : dw $0051
+	db sprite.y_position : dw $00D4
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $2000
+	db sprite.state : dw $0001
+	db sprite.unknown_58 : dw $1000
+	db sprite.visibility : dw $8001
+	db sprite.unknown_5C : dw $0040
+	db !spawn_command_success
 
 DATA_FF4D77:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01CC)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($12, $027D)
-	%DKC3_SSS_OpXX($16, $0211)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01CC
+	db sprite.state : dw $0000
+	db sprite.x_position : dw $027D
+	db sprite.y_position : dw $0211
+	db sprite.unknown_5C : dw $0000
+	db !spawn_command_success
 
 DATA_FF4D87:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_009C, $00A9, $00)
-	%DKC3_SSS_OpFA($012D)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpXX($5C, $0010)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpXX($44, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_009C, $00A9 : db $00
+	db !spawn_command_FA : dw $012D
+	db !spawn_command_FE : dw $3000
+	db sprite.render_order : dw $00FF
+	db sprite.unknown_5C : dw $0010
+	db sprite.state : dw $0000
+	db sprite.visibility : dw $C000
+	db sprite.animation_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF4DA3:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpFC($009A)
-	%DKC3_SSS_OpXX($12, $0081)
-	%DKC3_SSS_OpXX($16, $00B0)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFA($033D)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db !spawn_command_FC : dw $009A
+	db sprite.x_position : dw $0081
+	db sprite.y_position : dw $00B0
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FA : dw $033D
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF4DB9:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpFC($009A)
-	%DKC3_SSS_OpXX($12, $0081)
-	%DKC3_SSS_OpXX($16, $00C9)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFA($033E)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db !spawn_command_FC : dw $009A
+	db sprite.x_position : dw $0081
+	db sprite.y_position : dw $00C9
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FA : dw $033E
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF4DCF:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00B0, $0009, $25)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($12, $00A1)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpF3($18, $00)
-	%DKC3_SSS_OpFE($0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00B0, $0009 : db $25
+	db sprite.state : dw $0000
+	db sprite.x_position : dw $00A1
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $00FF
+	db !spawn_command_F3, $18, $00
+	db !spawn_command_FE : dw $0000
+	db !spawn_command_success
 
 DATA_FF4DE8:
-	%DKC3_SSS_OpXX($0E, $00F2)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpF3($19, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db sprite.render_order : dw $00F2
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_F3, $19, $00
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF4DF5:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpFC($00EA)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($031F)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_FC : dw $00EA
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $031F
+	db sprite.render_order : dw $00FF
+	db !spawn_command_success
 
 DATA_FF4E08:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00A0, $00EA, $22)
-	%DKC3_SSS_OpF9(DATA_FF4DE8)
-	%DKC3_SSS_OpXX($12, $005A)
-	%DKC3_SSS_OpXX($16, $00D4)
-	%DKC3_SSS_OpXX($5C, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00A0, $00EA : db $22
+	db !spawn_command_F9 : dw DATA_FF4DE8
+	db sprite.x_position : dw $005A
+	db sprite.y_position : dw $00D4
+	db sprite.unknown_5C : dw $0100
+	db !spawn_command_success
 
 DATA_FF4E1B:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00A0, $00EA, $22)
-	%DKC3_SSS_OpF9(DATA_FF4DE8)
-	%DKC3_SSS_OpXX($12, $0014)
-	%DKC3_SSS_OpXX($16, $00B4)
-	%DKC3_SSS_OpXX($5C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00A0, $00EA : db $22
+	db !spawn_command_F9 : dw DATA_FF4DE8
+	db sprite.x_position : dw $0014
+	db sprite.y_position : dw $00B4
+	db sprite.unknown_5C : dw $0200
+	db !spawn_command_success
 
 DATA_FF4E2E:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00A0, $00EA, $22)
-	%DKC3_SSS_OpF9(DATA_FF4DE8)
-	%DKC3_SSS_OpXX($12, $005C)
-	%DKC3_SSS_OpXX($16, $003B)
-	%DKC3_SSS_OpXX($5C, $0400)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00A0, $00EA : db $22
+	db !spawn_command_F9 : dw DATA_FF4DE8
+	db sprite.x_position : dw $005C
+	db sprite.y_position : dw $003B
+	db sprite.unknown_5C : dw $0400
+	db !spawn_command_success
 
 DATA_FF4E41:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00A0, $00EA, $22)
-	%DKC3_SSS_OpF9(DATA_FF4DE8)
-	%DKC3_SSS_OpXX($12, $0089)
-	%DKC3_SSS_OpXX($16, $003E)
-	%DKC3_SSS_OpXX($5C, $0800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00A0, $00EA : db $22
+	db !spawn_command_F9 : dw DATA_FF4DE8
+	db sprite.x_position : dw $0089
+	db sprite.y_position : dw $003E
+	db sprite.unknown_5C : dw $0800
+	db !spawn_command_success
 
 DATA_FF4E54:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00A0, $00EA, $22)
-	%DKC3_SSS_OpF9(DATA_FF4DE8)
-	%DKC3_SSS_OpXX($12, $00E0)
-	%DKC3_SSS_OpXX($16, $0046)
-	%DKC3_SSS_OpXX($5C, $1000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00A0, $00EA : db $22
+	db !spawn_command_F9 : dw DATA_FF4DE8
+	db sprite.x_position : dw $00E0
+	db sprite.y_position : dw $0046
+	db sprite.unknown_5C : dw $1000
+	db !spawn_command_success
 
 DATA_FF4E67:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00A0, $00EA, $22)
-	%DKC3_SSS_OpF9(DATA_FF4DE8)
-	%DKC3_SSS_OpXX($12, $007E)
-	%DKC3_SSS_OpXX($16, $00C0)
-	%DKC3_SSS_OpXX($5C, $2000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00A0, $00EA : db $22
+	db !spawn_command_F9 : dw DATA_FF4DE8
+	db sprite.x_position : dw $007E
+	db sprite.y_position : dw $00C0
+	db sprite.unknown_5C : dw $2000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF4E7D:
-	%DKC3_SSS_OpFF(!sprite_Knautilus)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpF3($1D, $00)
-	%DKC3_SSS_OpXX($12, $0089)
-	%DKC3_SSS_OpXX($16, $00AB)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($00EE)
-	%DKC3_SSS_OpXX($4C, $0006)
-	%DKC3_SSS_OpXX($4E, $00C0)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $003E)
-	%DKC3_SSS_OpXX($64, $0100)
-	%DKC3_SSS_OpXX($68, $0010)
-	%DKC3_SSS_OpXX($34, $0010)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Knautilus
+	db sprite.state : dw $0000
+	db !spawn_command_F3, $1D, $00
+	db sprite.x_position : dw $0089
+	db sprite.y_position : dw $00AB
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $00EE
+	db sprite.unknown_4C : dw $0006
+	db sprite.unknown_4E : dw $00C0
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $003E
+	db sprite.unknown_64 : dw $0100
+	db sprite.unknown_68 : dw $0010
+	db sprite.max_y_speed : dw $0010
+	db !spawn_command_success
 
 DATA_FF4EAB:
-	%DKC3_SSS_OpFF(!sprite_KnautilusSpriteMask)
-	%DKC3_SSS_OpXX($26, $8008)
-	%DKC3_SSS_OpXX($24, $0001)
-	%DKC3_SSS_OpXX($20, $0001)
-	%DKC3_SSS_OpXX($22, $0001)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($60, $0201)
-	%DKC3_SSS_OpXX($64, $0001)
-	%DKC3_SSS_OpXX($30, $0011)
-	%DKC3_SSS_OpXX($34, $0010)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KnautilusSpriteMask
+	db sprite.visibility : dw $8008
+	db sprite.sprite_graphic : dw $0001
+	db sprite.last_rendered_graphic : dw $0001
+	db sprite.sprite_graphic_mirror : dw $0001
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $0007
+	db sprite.unknown_60 : dw $0201
+	db sprite.unknown_64 : dw $0001
+	db sprite.max_x_speed : dw $0011
+	db sprite.max_y_speed : dw $0010
+	db !spawn_command_success
 
 DATA_FF4ECD:
-	%DKC3_SSS_OpF9(DATA_FF4EAB)
-	%DKC3_SSS_OpXX($12, $005C)
-	%DKC3_SSS_OpXX($16, $0086)
-	%DKC3_SSS_OpXX($0E, $00C2)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4EAB
+	db sprite.x_position : dw $005C
+	db sprite.y_position : dw $0086
+	db sprite.render_order : dw $00C2
+	db sprite.unknown_68 : dw $0000
+	db !spawn_command_success
 
 DATA_FF4EDD:
-	%DKC3_SSS_OpFF(!sprite_Knautilus)
-	%DKC3_SSS_OpF3($1D, $01)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($00EE)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($0E, $00C2)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Knautilus
+	db !spawn_command_F3, $1D, $01
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $00EE
+	db sprite.state : dw $0005
+	db sprite.render_order : dw $00C2
+	db !spawn_command_success
 
 DATA_FF4EF0:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01DC)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $003F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01DC
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $003F
+	db !spawn_command_success
 
 DATA_FF4EFA:
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $00AC)
-	%DKC3_SSS_OpXX($0E, $00C4)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpEF()
+	db sprite.visibility : dw $8001
+	db !spawn_command_FE : dw $2000
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $00AC
+	db sprite.render_order : dw $00C4
+	db sprite.state : dw $0001
+	db sprite.unknown_5C : dw $0000
+	db !spawn_command_success
 
 DATA_FF4F10:
-	%DKC3_SSS_OpF7(!sprite_KremtoaBridge, $00EF, $22)
-	%DKC3_SSS_OpF9(DATA_FF4EFA)
-	%DKC3_SSS_OpF3($19, $01)
-	%DKC3_SSS_OpXX($58, $0800)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_KremtoaBridge, $00EF : db $22
+	db !spawn_command_F9 : dw DATA_FF4EFA
+	db !spawn_command_F3, $19, $01
+	db sprite.unknown_58 : dw $0800
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF4F23:
-	%DKC3_SSS_OpF7(!sprite_KremtoaBridge, $00EF, $22)
-	%DKC3_SSS_OpF9(DATA_FF4EFA)
-	%DKC3_SSS_OpF3($19, $02)
-	%DKC3_SSS_OpXX($58, $1000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_KremtoaBridge, $00EF : db $22
+	db !spawn_command_F9 : dw DATA_FF4EFA
+	db !spawn_command_F3, $19, $02
+	db sprite.unknown_58 : dw $1000
+	db !spawn_command_success
 
 DATA_FF4F33:
-	%DKC3_SSS_OpF7(!sprite_KremtoaBridge, $00EF, $22)
-	%DKC3_SSS_OpF9(DATA_FF4EFA)
-	%DKC3_SSS_OpF3($19, $03)
-	%DKC3_SSS_OpXX($58, $1800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_KremtoaBridge, $00EF : db $22
+	db !spawn_command_F9 : dw DATA_FF4EFA
+	db !spawn_command_F3, $19, $03
+	db sprite.unknown_58 : dw $1800
+	db !spawn_command_success
 
 DATA_FF4F43:
-	%DKC3_SSS_OpF7(!sprite_KremtoaBridge, $00EF, $22)
-	%DKC3_SSS_OpF9(DATA_FF4EFA)
-	%DKC3_SSS_OpF3($19, $04)
-	%DKC3_SSS_OpXX($58, $2000)
-	%DKC3_SSS_OpXX($5C, $0700)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_KremtoaBridge, $00EF : db $22
+	db !spawn_command_F9 : dw DATA_FF4EFA
+	db !spawn_command_F3, $19, $04
+	db sprite.unknown_58 : dw $2000
+	db sprite.unknown_5C : dw $0700
+	db !spawn_command_success
 
 DATA_FF4F56:
-	%DKC3_SSS_OpF9(DATA_FF52D4)
-	%DKC3_SSS_OpFC($0101)
-	%DKC3_SSS_OpXX($16, $FFF0)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($5E, $FFFF)
-	%DKC3_SSS_OpXX($5A, $003D)
-	%DKC3_SSS_OpXX($6A, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF52D4
+	db !spawn_command_FC : dw $0101
+	db sprite.y_position : dw $FFF0
+	db sprite.x_position : dw $0080
+	db sprite.unknown_6C : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_5E : dw $FFFF
+	db sprite.movement_state : dw $003D
+	db sprite.unknown_6A : dw $0040
+	db !spawn_command_success
 
 DATA_FF4F72:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpFC($00F0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($12, $0050)
-	%DKC3_SSS_OpXX($16, $003B)
-	%DKC3_SSS_OpXX($0E, $00BE)
-	%DKC3_SSS_OpFA($0345)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db !spawn_command_FC : dw $00F0
+	db !spawn_command_FE : dw $2000
+	db sprite.x_position : dw $0050
+	db sprite.y_position : dw $003B
+	db sprite.render_order : dw $00BE
+	db !spawn_command_FA : dw $0345
+	db !spawn_command_success
 
 DATA_FF4F88:
-	%DKC3_SSS_OpFF(!sprite_KnautilusSpriteMask)
-	%DKC3_SSS_OpXX($16, $FFFA)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($64, $0100)
-	%DKC3_SSS_OpXX($34, $0040)
-	%DKC3_SSS_OpXX($06, DATA_FF2174)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KnautilusSpriteMask
+	db sprite.y_position : dw $FFFA
+	db sprite.movement_state : dw $0006
+	db sprite.unknown_64 : dw $0100
+	db sprite.max_y_speed : dw $0040
+	db sprite.constants_address : dw DATA_FF2174
+	db !spawn_command_success
 
 DATA_FF4F9B:
-	%DKC3_SSS_OpF9(DATA_FF4EAB)
-	%DKC3_SSS_OpXX($12, $00A3)
-	%DKC3_SSS_OpXX($16, $00A9)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpXX($68, $000B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF4EAB
+	db sprite.x_position : dw $00A3
+	db sprite.y_position : dw $00A9
+	db sprite.render_order : dw $00FF
+	db sprite.unknown_68 : dw $000B
+	db !spawn_command_success
 
 DATA_FF4FAB:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01E0)
-	%DKC3_SSS_OpXX($12, $0008)
-	%DKC3_SSS_OpXX($16, $003B)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpXX($26, $8009)
-	%DKC3_SSS_OpXX($24, $0001)
-	%DKC3_SSS_OpXX($20, $0001)
-	%DKC3_SSS_OpXX($22, $0001)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01E0
+	db sprite.x_position : dw $0008
+	db sprite.y_position : dw $003B
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $000F
+	db sprite.visibility : dw $8009
+	db sprite.sprite_graphic : dw $0001
+	db sprite.last_rendered_graphic : dw $0001
+	db sprite.sprite_graphic_mirror : dw $0001
+	db sprite.unknown_5E : dw $0000
+	db !spawn_command_success
 
 DATA_FF4FCA:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite2)
-	%DKC3_SSS_OpF3($1E, $00)
-	%DKC3_SSS_OpFC($00F5)
-	%DKC3_SSS_OpXX($12, $0089)
-	%DKC3_SSS_OpXX($16, $00BB)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite2
+	db !spawn_command_F3, $1E, $00
+	db !spawn_command_FC : dw $00F5
+	db sprite.x_position : dw $0089
+	db sprite.y_position : dw $00BB
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF4FDD:
-	%DKC3_SSS_OpF7(!sprite_RedGemInBananaBirdQueenBarrier, $00F4, $2B)
-	%DKC3_SSS_OpF3($1F, $07)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($12, $0081)
-	%DKC3_SSS_OpXX($16, $0073)
-	%DKC3_SSS_OpXX($58, $0000)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_RedGemInBananaBirdQueenBarrier, $00F4 : db $2B
+	db !spawn_command_F3, $1F, $07
+	db !spawn_command_FE : dw $3000
+	db sprite.x_position : dw $0081
+	db sprite.y_position : dw $0073
+	db sprite.unknown_58 : dw $0000
+	db sprite.visibility : dw $8001
+	db !spawn_command_success
 
 DATA_FF4FF6:
-	%DKC3_SSS_OpFF(!sprite_KRoolHead)
-	%DKC3_SSS_OpFA($0358)
-	%DKC3_SSS_OpFC($00F6)
-	%DKC3_SSS_OpXX($12, $0100)
-	%DKC3_SSS_OpXX($16, $0248)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $0008)
-	%DKC3_SSS_OpXX($64, $0502)
-	%DKC3_SSS_OpXX($34, $0600)
-	%DKC3_SSS_OpXX($30, $0700)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KRoolHead
+	db !spawn_command_FA : dw $0358
+	db !spawn_command_FC : dw $00F6
+	db sprite.x_position : dw $0100
+	db sprite.y_position : dw $0248
+	db !spawn_command_FE : dw $2000
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $0008
+	db sprite.unknown_64 : dw $0502
+	db sprite.max_y_speed : dw $0600
+	db sprite.max_x_speed : dw $0700
+	db !spawn_command_success
 
 DATA_FF5018:
-	%DKC3_SSS_OpFF(!sprite_WaterSplash)
-	%DKC3_SSS_OpF6($D0, $40)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0022)
-	%DKC3_SSS_OpFA($0178)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_WaterSplash
+	db !spawn_command_F6, $D0, $40
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0022
+	db !spawn_command_FA : dw $0178
+	db sprite.render_order : dw $00D8
+	db !spawn_command_success
 
 DATA_FF502B:
-	%DKC3_SSS_OpFF(!sprite_GiantBananaBirdQueenEgg)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($16, $0180)
-	%DKC3_SSS_OpXX($0E, $00E4)
-	%DKC3_SSS_OpF3($20, $00)
-	%DKC3_SSS_OpFC($00F3)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $003A)
-	%DKC3_SSS_OpXX($5E, $0270)
-	%DKC3_SSS_OpXX($50, $0150)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_GiantBananaBirdQueenEgg
+	db !spawn_command_FE : dw $3000
+	db sprite.y_position : dw $0180
+	db sprite.render_order : dw $00E4
+	db !spawn_command_F3, $20, $00
+	db !spawn_command_FC : dw $00F3
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $003A
+	db sprite.unknown_5E : dw $0270
+	db sprite.unknown_50 : dw $0150
+	db !spawn_command_success
 
 DATA_FF504A:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpF6($FC, $D8)
-	%DKC3_SSS_OpFA($035B)
-	%DKC3_SSS_OpFC($00F3)
-	%DKC3_SSS_OpXX($0E, $00E8)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpXX($2E, $FAE0)
-	%DKC3_SSS_OpXX($2A, $FF00)
-	%DKC3_SSS_OpXX($30, $FFC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db !spawn_command_F6, $FC, $D8
+	db !spawn_command_FA : dw $035B
+	db !spawn_command_FC : dw $00F3
+	db sprite.render_order : dw $00E8
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $0004
+	db sprite.y_speed : dw $FAE0
+	db sprite.x_speed : dw $FF00
+	db sprite.max_x_speed : dw $FFC0
+	db !spawn_command_success
 
 DATA_FF5069:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpF6($04, $D8)
-	%DKC3_SSS_OpFA($035C)
-	%DKC3_SSS_OpFC($00F3)
-	%DKC3_SSS_OpXX($0E, $00E8)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpXX($2E, $F9E0)
-	%DKC3_SSS_OpXX($2A, $0130)
-	%DKC3_SSS_OpXX($30, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db !spawn_command_F6, $04, $D8
+	db !spawn_command_FA : dw $035C
+	db !spawn_command_FC : dw $00F3
+	db sprite.render_order : dw $00E8
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $0004
+	db sprite.y_speed : dw $F9E0
+	db sprite.x_speed : dw $0130
+	db sprite.max_x_speed : dw $0040
+	db !spawn_command_success
 
 DATA_FF5088:
-	%DKC3_SSS_OpFF(!sprite_KRoolHead)
-	%DKC3_SSS_OpF6($12, $90)
-	%DKC3_SSS_OpFA($0087)
-	%DKC3_SSS_OpFC($0003)
-	%DKC3_SSS_OpXX($0E, $00EE)
-	%DKC3_SSS_OpXX($16, $0000)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $003A)
-	%DKC3_SSS_OpXX($5E, $0218)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KRoolHead
+	db !spawn_command_F6, $12, $90
+	db !spawn_command_FA : dw $0087
+	db !spawn_command_FC : dw $0003
+	db sprite.render_order : dw $00EE
+	db sprite.y_position : dw $0000
+	db sprite.state : dw $0003
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $003A
+	db sprite.unknown_5E : dw $0218
+	db !spawn_command_success
 
 DATA_FF50A7:
-	%DKC3_SSS_OpFF(!sprite_KRoolHead)
-	%DKC3_SSS_OpF6($F2, $A0)
-	%DKC3_SSS_OpFA($010E)
-	%DKC3_SSS_OpFC($0004)
-	%DKC3_SSS_OpXX($0E, $00EC)
-	%DKC3_SSS_OpFE($4000)
-	%DKC3_SSS_OpXX($16, $0040)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $003A)
-	%DKC3_SSS_OpXX($5E, $0218)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KRoolHead
+	db !spawn_command_F6, $F2, $A0
+	db !spawn_command_FA : dw $010E
+	db !spawn_command_FC : dw $0004
+	db sprite.render_order : dw $00EC
+	db !spawn_command_FE : dw $4000
+	db sprite.y_position : dw $0040
+	db sprite.state : dw $0003
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $003A
+	db sprite.unknown_5E : dw $0218
+	db !spawn_command_success
 
 DATA_FF50C9:
-	%DKC3_SSS_OpFF(!sprite_MapBananaBirdQueen)
-	%DKC3_SSS_OpFA($0348)
-	%DKC3_SSS_OpXX($12, $0100)
-	%DKC3_SSS_OpXX($16, $0100)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($00F7)
-	%DKC3_SSS_OpXX($0E, $00D6)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF217A)
-	%DKC3_SSS_OpXX($5A, $0036)
-	%DKC3_SSS_OpXX($4C, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MapBananaBirdQueen
+	db !spawn_command_FA : dw $0348
+	db sprite.x_position : dw $0100
+	db sprite.y_position : dw $0100
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $00F7
+	db sprite.render_order : dw $00D6
+	db sprite.state : dw $0000
+	db sprite.constants_address : dw DATA_FF217A
+	db sprite.movement_state : dw $0036
+	db sprite.unknown_4C : dw $0100
+	db !spawn_command_success
 
 DATA_FF50EB:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite2)
-	%DKC3_SSS_OpF3($24, $00)
-	%DKC3_SSS_OpFC($0009)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite2
+	db !spawn_command_F3, $24, $00
+	db !spawn_command_FC : dw $0009
+	db !spawn_command_FE : dw $3000
+	db sprite.render_order : dw $00FF
+	db !spawn_command_success
 
 DATA_FF50FB:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite2)
-	%DKC3_SSS_OpF3($25, $00)
-	%DKC3_SSS_OpFC($0009)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite2
+	db !spawn_command_F3, $25, $00
+	db !spawn_command_FC : dw $0009
+	db !spawn_command_FE : dw $3000
+	db sprite.render_order : dw $00FF
+	db !spawn_command_success
 
 DATA_FF510B:
-	%DKC3_SSS_OpFF(!sprite_MotorBoatFunkyAndCrankyInEnding)
-	%DKC3_SSS_OpF6($20, $07)
-	%DKC3_SSS_OpFA($035E)
-	%DKC3_SSS_OpFC($0092)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpFE($1000)
-	%DKC3_SSS_OpXX($0E, $00BE)
-	%DKC3_SSS_OpXX($06, DATA_FF206A)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($60, $BBBB)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpXX($34, $0040)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($28, $2042)
-	%DKC3_SSS_OpXX($4C, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MotorBoatFunkyAndCrankyInEnding
+	db !spawn_command_F6, $20, $07
+	db !spawn_command_FA : dw $035E
+	db !spawn_command_FC : dw $0092
+	db sprite.state : dw $0000
+	db !spawn_command_FE : dw $1000
+	db sprite.render_order : dw $00BE
+	db sprite.constants_address : dw DATA_FF206A
+	db sprite.movement_state : dw $0007
+	db sprite.unknown_60 : dw $BBBB
+	db sprite.unknown_64 : dw $0000
+	db sprite.max_x_speed : dw $0140
+	db sprite.max_y_speed : dw $0040
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.terrain_interaction : dw $2042
+	db sprite.unknown_4C : dw $0100
+	db !spawn_command_success
 
 DATA_FF513F:
-	%DKC3_SSS_OpFF(!sprite_MotorBoatFunkyAndCrankyInEnding)
-	%DKC3_SSS_OpFA($035D)
-	%DKC3_SSS_OpFC($00F8)
-	%DKC3_SSS_OpFE($1000)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MotorBoatFunkyAndCrankyInEnding
+	db !spawn_command_FA : dw $035D
+	db !spawn_command_FC : dw $00F8
+	db !spawn_command_FE : dw $1000
+	db sprite.render_order : dw $00C0
+	db sprite.state : dw $0002
+	db !spawn_command_success
 
 DATA_FF5152:
-	%DKC3_SSS_OpFF(!sprite_MotorBoatFunkyAndCrankyInEnding)
-	%DKC3_SSS_OpFA($0362)
-	%DKC3_SSS_OpFC($003B)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpFE($1000)
-	%DKC3_SSS_OpXX($0E, $00BC)
-	%DKC3_SSS_OpXX($4E, $0005)
-	%DKC3_SSS_OpXX($2C, $FFE0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MotorBoatFunkyAndCrankyInEnding
+	db !spawn_command_FA : dw $0362
+	db !spawn_command_FC : dw $003B
+	db sprite.state : dw $0003
+	db !spawn_command_FE : dw $1000
+	db sprite.render_order : dw $00BC
+	db sprite.unknown_4E : dw $0005
+	db sprite.unknown_2C : dw $FFE0
+	db !spawn_command_success
 
 DATA_FF516B:
-	%DKC3_SSS_OpF7(!sprite_MapBananaBird, $005A, $2A)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFA($0347)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($0E, $00E8)
-	%DKC3_SSS_OpXX($5A, $0009)
-	%DKC3_SSS_OpXX($6A, $FFFF)
-	%DKC3_SSS_OpXX($44, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_MapBananaBird, $005A : db $2A
+	db sprite.visibility : dw $0000
+	db !spawn_command_FA : dw $0347
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.state : dw $0002
+	db !spawn_command_FE : dw $3000
+	db sprite.render_order : dw $00E8
+	db sprite.movement_state : dw $0009
+	db sprite.unknown_6A : dw $FFFF
+	db sprite.animation_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF518D:
-	%DKC3_SSS_OpF9(DATA_FF516B)
-	%DKC3_SSS_OpXX($5C, DATA_FF51A0)
-	%DKC3_SSS_OpXX($44, $0200)
-	%DKC3_SSS_OpXX($5E, $00A5)
-	%DKC3_SSS_OpXX($12, $01C6)
-	%DKC3_SSS_OpXX($16, $027B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF516B
+	db sprite.unknown_5C : dw DATA_FF51A0
+	db sprite.animation_speed : dw $0200
+	db sprite.unknown_5E : dw $00A5
+	db sprite.x_position : dw $01C6
+	db sprite.y_position : dw $027B
+	db !spawn_command_success
 
 DATA_FF51A0:
 	dw $FFFB
@@ -8064,12 +8064,12 @@ DATA_FF51A0:
 
 
 DATA_FF51B8:
-	%DKC3_SSS_OpF9(DATA_FF516B)
-	%DKC3_SSS_OpXX($5C, DATA_FF51C8)
-	%DKC3_SSS_OpXX($5E, $00AC)
-	%DKC3_SSS_OpXX($12, $01CA)
-	%DKC3_SSS_OpXX($16, $0279)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF516B
+	db sprite.unknown_5C : dw DATA_FF51C8
+	db sprite.unknown_5E : dw $00AC
+	db sprite.x_position : dw $01CA
+	db sprite.y_position : dw $0279
+	db !spawn_command_success
 
 DATA_FF51C8:
 	dw $FFFB
@@ -8087,12 +8087,12 @@ DATA_FF51C8:
 
 
 DATA_FF51E0:
-	%DKC3_SSS_OpF9(DATA_FF516B)
-	%DKC3_SSS_OpXX($5C, DATA_FF51F0)
-	%DKC3_SSS_OpXX($5E, $00A4)
-	%DKC3_SSS_OpXX($12, $01C2)
-	%DKC3_SSS_OpXX($16, $0278)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF516B
+	db sprite.unknown_5C : dw DATA_FF51F0
+	db sprite.unknown_5E : dw $00A4
+	db sprite.x_position : dw $01C2
+	db sprite.y_position : dw $0278
+	db !spawn_command_success
 
 DATA_FF51F0:
 	dw $FFFB
@@ -8110,12 +8110,12 @@ DATA_FF51F0:
 
 
 DATA_FF5208:
-	%DKC3_SSS_OpF9(DATA_FF516B)
-	%DKC3_SSS_OpXX($5C, DATA_FF5218)
-	%DKC3_SSS_OpXX($5E, $00B0)
-	%DKC3_SSS_OpXX($12, $01C9)
-	%DKC3_SSS_OpXX($16, $027C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF516B
+	db sprite.unknown_5C : dw DATA_FF5218
+	db sprite.unknown_5E : dw $00B0
+	db sprite.x_position : dw $01C9
+	db sprite.y_position : dw $027C
+	db !spawn_command_success
 
 DATA_FF5218:
 	dw $FFFB
@@ -8133,12 +8133,12 @@ DATA_FF5218:
 
 
 DATA_FF5230:
-	%DKC3_SSS_OpF9(DATA_FF516B)
-	%DKC3_SSS_OpXX($5C, DATA_FF5240)
-	%DKC3_SSS_OpXX($5E, $00A8)
-	%DKC3_SSS_OpXX($12, $01C4)
-	%DKC3_SSS_OpXX($16, $027E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF516B
+	db sprite.unknown_5C : dw DATA_FF5240
+	db sprite.unknown_5E : dw $00A8
+	db sprite.x_position : dw $01C4
+	db sprite.y_position : dw $027E
+	db !spawn_command_success
 
 DATA_FF5240:
 	dw $FFFB
@@ -8156,1336 +8156,1336 @@ DATA_FF5240:
 
 
 DATA_FF5258:
-	%DKC3_SSS_OpFF(!sprite_LightningBoltSpawner)
-	%DKC3_SSS_OpXX($06, DATA_FF215E)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $000D)
-	%DKC3_SSS_OpXX($62, $0034)
-	%DKC3_SSS_OpXX($64, $0057)
-	%DKC3_SSS_OpXX($40, $01D0)
-	%DKC3_SSS_OpXX($42, $2AF8)
-	%DKC3_SSS_OpXX($4C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_LightningBoltSpawner
+	db sprite.constants_address : dw DATA_FF215E
+	db sprite.visibility : dw $C000
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $000D
+	db sprite.unknown_62 : dw $0034
+	db sprite.unknown_64 : dw $0057
+	db sprite.animation_id : dw $01D0
+	db sprite.animation_timer : dw $2AF8
+	db sprite.unknown_4C : dw $0000
+	db !spawn_command_success
 
 DATA_FF5277:
-	%DKC3_SSS_OpFF(!sprite_LightningBoltSpawner)
-	%DKC3_SSS_OpXX($06, DATA_FF2164)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $000D)
-	%DKC3_SSS_OpXX($62, $0034)
-	%DKC3_SSS_OpXX($64, $0040)
-	%DKC3_SSS_OpXX($40, $0120)
-	%DKC3_SSS_OpXX($42, $0210)
-	%DKC3_SSS_OpXX($4C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_LightningBoltSpawner
+	db sprite.constants_address : dw DATA_FF2164
+	db sprite.visibility : dw $C000
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $000D
+	db sprite.unknown_62 : dw $0034
+	db sprite.unknown_64 : dw $0040
+	db sprite.animation_id : dw $0120
+	db sprite.animation_timer : dw $0210
+	db sprite.unknown_4C : dw $0000
+	db !spawn_command_success
 
 DATA_FF5296:
-	%DKC3_SSS_OpFF(!sprite_PlayerKrosshairController)
-	%DKC3_SSS_OpXX($12, $0160)
-	%DKC3_SSS_OpXX($16, $0350)
-	%DKC3_SSS_OpXX($5A, $0050)
-	%DKC3_SSS_OpXX($5E, $0040)
-	%DKC3_SSS_OpXX($06, DATA_FF216A)
-	%DKC3_SSS_OpXX($62, $0006)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_PlayerKrosshairController
+	db sprite.x_position : dw $0160
+	db sprite.y_position : dw $0350
+	db sprite.movement_state : dw $0050
+	db sprite.unknown_5E : dw $0040
+	db sprite.constants_address : dw DATA_FF216A
+	db sprite.unknown_62 : dw $0006
+	db !spawn_command_success
 
 DATA_FF52AC:
-	%DKC3_SSS_OpFF(!sprite_KrosshairFireball)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($5A, $001A)
-	%DKC3_SSS_OpXX($32, $0000)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpXX($2C, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpF2($00F8)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($02A1)
-	%DKC3_SSS_OpFC($0077)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KrosshairFireball
+	db sprite.state : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.movement_state : dw $001A
+	db sprite.unknown_32 : dw $0000
+	db sprite.unknown_68 : dw $0000
+	db sprite.unknown_2C : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.visibility : dw $C000
+	db !spawn_command_F2 : dw $00F8
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $02A1
+	db !spawn_command_FC : dw $0077
+	db !spawn_command_success
 
 DATA_FF52D4:
-	%DKC3_SSS_OpFF(!sprite_AreaNameText)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_AreaNameText
+	db sprite.state : dw $0000
+	db sprite.visibility : dw $C000
+	db !spawn_command_FE : dw $3000
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF52E4:
-	%DKC3_SSS_OpFF(!sprite_MillPlatform)
-	%DKC3_SSS_OpXX($0E, $00C2)
-	%DKC3_SSS_OpXX($38, $0004)
-	%DKC3_SSS_OpF3($29, $00)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0032)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $0020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MillPlatform
+	db sprite.render_order : dw $00C2
+	db sprite.state : dw $0004
+	db !spawn_command_F3, $29, $00
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0032
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $0020
+	db !spawn_command_success
 
 DATA_FF52FD:
-	%DKC3_SSS_OpFF(!sprite_MillPlatform)
-	%DKC3_SSS_OpXX($0E, $00C2)
-	%DKC3_SSS_OpXX($38, $0004)
-	%DKC3_SSS_OpF3($35, $00)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001B)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $0020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MillPlatform
+	db sprite.render_order : dw $00C2
+	db sprite.state : dw $0004
+	db !spawn_command_F3, $35, $00
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001B
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $0020
+	db !spawn_command_success
 
 DATA_FF5316:
-	%DKC3_SSS_OpF7(!sprite_TopOfCottonTopCoveWaterfall, $00D2, $07)
-	%DKC3_SSS_OpF6($00, $08)
-	%DKC3_SSS_OpFA($0323)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_TopOfCottonTopCoveWaterfall, $00D2 : db $07
+	db !spawn_command_F6, $00, $08
+	db !spawn_command_FA : dw $0323
+	db !spawn_command_success
 
 DATA_FF5323:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01E4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01E4
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF532A:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01E4)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($64, $0040)
-	%DKC3_SSS_OpXX($3C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01E4
+	db sprite.state : dw $0001
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_64 : dw $0040
+	db sprite.carry_or_defeated_flags : dw $0000
+	db !spawn_command_success
 
 DATA_FF533A:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0110)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0010)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0110
+	db sprite.state : dw $0000
+	db sprite.visibility : dw $C000
+	db !spawn_command_FE : dw $3000
+	db sprite.movement_state : dw $0000
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0010
+	db sprite.unknown_60 : dw $0000
+	db !spawn_command_success
 
 DATA_FF5353:
-	%DKC3_SSS_OpF9(DATA_FF533A)
-	%DKC3_SSS_OpFC($00FA)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF533A
+	db !spawn_command_FC : dw $00FA
+	db !spawn_command_success
 
 DATA_FF535A:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpXX($12, $0FB0)
-	%DKC3_SSS_OpXX($16, $0380)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($003B)
-	%DKC3_SSS_OpFA($0363)
-	%DKC3_SSS_OpXX($06, DATA_FF2180)
-	%DKC3_SSS_OpXX($5A, $0106)
-	%DKC3_SSS_OpXX($5E, $02B0)
-	%DKC3_SSS_OpXX($64, $0302)
-	%DKC3_SSS_OpXX($34, $0080)
-	%DKC3_SSS_OpXX($66, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db sprite.x_position : dw $0FB0
+	db sprite.y_position : dw $0380
+	db sprite.render_order : dw $00FF
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $003B
+	db !spawn_command_FA : dw $0363
+	db sprite.constants_address : dw DATA_FF2180
+	db sprite.movement_state : dw $0106
+	db sprite.unknown_5E : dw $02B0
+	db sprite.unknown_64 : dw $0302
+	db sprite.max_y_speed : dw $0080
+	db sprite.unknown_66 : dw $0080
+	db !spawn_command_success
 
 DATA_FF5382:
-	%DKC3_SSS_OpFF(!sprite_TheEndSign)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $D000)
-	%DKC3_SSS_OpXX($0E, $00FD)
-	%DKC3_SSS_OpFC($00F3)
-	%DKC3_SSS_OpF3($26, $00)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_TheEndSign
+	db !spawn_command_F6, $00, $00
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $D000
+	db sprite.render_order : dw $00FD
+	db !spawn_command_FC : dw $00F3
+	db !spawn_command_F3, $26, $00
+	db !spawn_command_FE : dw $2000
+	db sprite.state : dw $0005
+	db !spawn_command_success
 
 DATA_FF539E:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpXX($12, $0220)
-	%DKC3_SSS_OpXX($16, $0100)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpFA($0368)
-	%DKC3_SSS_OpFC($0034)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpXX($2E, $FD00)
-	%DKC3_SSS_OpXX($2A, $0200)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db sprite.x_position : dw $0220
+	db sprite.y_position : dw $0100
+	db sprite.render_order : dw $00D8
+	db !spawn_command_FA : dw $0368
+	db !spawn_command_FC : dw $0034
+	db !spawn_command_FE : dw $7000
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $0040
+	db sprite.y_speed : dw $FD00
+	db sprite.x_speed : dw $0200
+	db sprite.max_x_speed : dw $0000
+	db !spawn_command_success
 
 DATA_FF53C3:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpXX($12, $0220)
-	%DKC3_SSS_OpXX($16, $0100)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpFA($036B)
-	%DKC3_SSS_OpFC($0033)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpXX($2E, $FB00)
-	%DKC3_SSS_OpXX($2A, $FE00)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db sprite.x_position : dw $0220
+	db sprite.y_position : dw $0100
+	db sprite.render_order : dw $00D8
+	db !spawn_command_FA : dw $036B
+	db !spawn_command_FC : dw $0033
+	db !spawn_command_FE : dw $3000
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $0040
+	db sprite.y_speed : dw $FB00
+	db sprite.x_speed : dw $FE00
+	db sprite.max_x_speed : dw $0000
+	db !spawn_command_success
 
 DATA_FF53E8:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpXX($12, $0146)
-	%DKC3_SSS_OpXX($16, $01E2)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpFA($0366)
-	%DKC3_SSS_OpFC($003B)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $0002)
-	%DKC3_SSS_OpXX($2A, $0180)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db sprite.x_position : dw $0146
+	db sprite.y_position : dw $01E2
+	db sprite.render_order : dw $00FF
+	db !spawn_command_FA : dw $0366
+	db !spawn_command_FC : dw $003B
+	db !spawn_command_FE : dw $7000
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $0002
+	db sprite.x_speed : dw $0180
+	db sprite.max_x_speed : dw $0000
+	db !spawn_command_success
 
 DATA_FF540A:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $00E4)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($00FF)
-	%DKC3_SSS_OpFA($0364)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $00E4
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $00FF
+	db !spawn_command_FA : dw $0364
+	db !spawn_command_success
 
 DATA_FF5420:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite1)
-	%DKC3_SSS_OpXX($12, $0080)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $00E2)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($00CD)
-	%DKC3_SSS_OpFA($0365)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite1
+	db sprite.x_position : dw $0080
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $00E2
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $00CD
+	db !spawn_command_FA : dw $0365
+	db !spawn_command_success
 
 DATA_FF5436:
-	%DKC3_SSS_OpF7(!sprite_Squirt, $006C, $17)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Squirt, $006C : db $17
+	db sprite.state : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.visibility : dw $C000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF5449:
-	%DKC3_SSS_OpFF(!sprite_SquirtsEyePart)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($60, $39DF)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpF3($44, $00)
-	%DKC3_SSS_OpFC($0041)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SquirtsEyePart
+	db sprite.render_order : dw $00D4
+	db sprite.unknown_60 : dw $39DF
+	db sprite.state : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.visibility : dw $0000
+	db !spawn_command_F3, $44, $00
+	db !spawn_command_FC : dw $0041
+	db !spawn_command_success
 
 DATA_FF5462:
-	%DKC3_SSS_OpF6($E8, $D6)
-	%DKC3_SSS_OpF9(DATA_FF5449)
-	%DKC3_SSS_OpFD($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $E8, $D6
+	db !spawn_command_F9 : dw DATA_FF5449
+	db !spawn_command_FD : dw $6000
+	db !spawn_command_success
 
 DATA_FF546C:
-	%DKC3_SSS_OpF6($18, $D6)
-	%DKC3_SSS_OpF9(DATA_FF5449)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $18, $D6
+	db !spawn_command_F9 : dw DATA_FF5449
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_success
 
 DATA_FF5476:
-	%DKC3_SSS_OpFF(!sprite_SquirtsEyePart)
-	%DKC3_SSS_OpF2($00D6)
-	%DKC3_SSS_OpXX($38, $000A)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFD($3000)
-	%DKC3_SSS_OpFC($0041)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SquirtsEyePart
+	db !spawn_command_F2 : dw $00D6
+	db sprite.state : dw $000A
+	db sprite.interaction_flags : dw $0000
+	db sprite.visibility : dw $0000
+	db !spawn_command_FD : dw $3000
+	db !spawn_command_FC : dw $0041
+	db !spawn_command_success
 
 DATA_FF548C:
-	%DKC3_SSS_OpFF(!sprite_SquirtsEyePart)
-	%DKC3_SSS_OpF2($00D2)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFD($3000)
-	%DKC3_SSS_OpFC($0076)
-	%DKC3_SSS_OpF3($44, $0E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SquirtsEyePart
+	db !spawn_command_F2 : dw $00D2
+	db sprite.interaction_flags : dw $0000
+	db sprite.state : dw $0005
+	db sprite.visibility : dw $0000
+	db !spawn_command_FD : dw $3000
+	db !spawn_command_FC : dw $0076
+	db !spawn_command_F3, $44, $0E
+	db !spawn_command_success
 
 DATA_FF54A5:
-	%DKC3_SSS_OpF6($EA, $D6)
-	%DKC3_SSS_OpF9(DATA_FF548C)
-	%DKC3_SSS_OpFD($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $EA, $D6
+	db !spawn_command_F9 : dw DATA_FF548C
+	db !spawn_command_FD : dw $6000
+	db !spawn_command_success
 
 DATA_FF54AF:
-	%DKC3_SSS_OpF6($16, $D6)
-	%DKC3_SSS_OpF9(DATA_FF548C)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F6, $16, $D6
+	db !spawn_command_F9 : dw DATA_FF548C
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_success
 
 DATA_FF54B9:
-	%DKC3_SSS_OpFF(!sprite_SquirtsEyePart)
-	%DKC3_SSS_OpF6($00, $0C)
-	%DKC3_SSS_OpF2($00D4)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($38, $0006)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpFC($0075)
-	%DKC3_SSS_OpF3($44, $0A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SquirtsEyePart
+	db !spawn_command_F6, $00, $0C
+	db !spawn_command_F2 : dw $00D4
+	db sprite.interaction_flags : dw $0000
+	db sprite.state : dw $0006
+	db sprite.visibility : dw $0000
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_FC : dw $0075
+	db !spawn_command_F3, $44, $0A
+	db !spawn_command_success
 
 DATA_FF54D5:
-	%DKC3_SSS_OpFF(!sprite_SquirtsEyePart)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpF2($00D4)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($38, $000A)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFD($3000)
-	%DKC3_SSS_OpFC($0075)
-	%DKC3_SSS_OpF3($44, $0D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SquirtsEyePart
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_F2 : dw $00D4
+	db sprite.interaction_flags : dw $0000
+	db sprite.state : dw $000A
+	db sprite.visibility : dw $0000
+	db !spawn_command_FD : dw $3000
+	db !spawn_command_FC : dw $0075
+	db !spawn_command_F3, $44, $0D
+	db !spawn_command_success
 
 DATA_FF54F1:
-	%DKC3_SSS_OpF3($3A, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($66, $0000)
-	%DKC3_SSS_OpXX($6A, $000A)
-	%DKC3_SSS_OpXX($0E, $00D3)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpXX($5A, $000D)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F3, $3A, $00
+	db sprite.state : dw $0000
+	db sprite.unknown_66 : dw $0000
+	db sprite.unknown_6A : dw $000A
+	db sprite.render_order : dw $00D3
+	db !spawn_command_FD : dw $2000
+	db sprite.movement_state : dw $000D
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.visibility : dw $0000
+	db !spawn_command_success
 
 DATA_FF550D:
-	%DKC3_SSS_OpF7(!sprite_SquirtPupil, $0075, $16)
-	%DKC3_SSS_OpF6($EA, $D6)
-	%DKC3_SSS_OpF9(DATA_FF54F1)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_SquirtPupil, $0075 : db $16
+	db !spawn_command_F6, $EA, $D6
+	db !spawn_command_F9 : dw DATA_FF54F1
+	db sprite.unknown_68 : dw $0000
+	db !spawn_command_success
 
 DATA_FF551D:
-	%DKC3_SSS_OpF7(!sprite_SquirtPupil, $0075, $16)
-	%DKC3_SSS_OpF6($17, $D6)
-	%DKC3_SSS_OpF9(DATA_FF54F1)
-	%DKC3_SSS_OpXX($68, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_SquirtPupil, $0075 : db $16
+	db !spawn_command_F6, $17, $D6
+	db !spawn_command_F9 : dw DATA_FF54F1
+	db sprite.unknown_68 : dw $8000
+	db !spawn_command_success
 
 DATA_FF552D:
-	%DKC3_SSS_OpF7(!sprite_unknown_sprite_00DC, $0102, $0A)
-	%DKC3_SSS_OpXX($0E, $00C4)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_unknown_sprite_00DC, $0102 : db $0A
+	db sprite.render_order : dw $00C4
+	db !spawn_command_FE : dw $3000
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF553D:
-	%DKC3_SSS_OpF7(!sprite_RotatingCylinderKey, $0103, $0B)
-	%DKC3_SSS_OpXX($0E, $00C4)
-	%DKC3_SSS_OpFA($0124)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_RotatingCylinderKey, $0103 : db $0B
+	db sprite.render_order : dw $00C4
+	db !spawn_command_FA : dw $0124
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF554D:
-	%DKC3_SSS_OpF7(!sprite_RotatingCylinderKey, $0104, $0B)
-	%DKC3_SSS_OpXX($0E, $00C4)
-	%DKC3_SSS_OpFA($0124)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_RotatingCylinderKey, $0104 : db $0B
+	db sprite.render_order : dw $00C4
+	db !spawn_command_FA : dw $0124
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF555D:
-	%DKC3_SSS_OpF7(!sprite_RotatingCylinderKey, $0105, $0B)
-	%DKC3_SSS_OpXX($0E, $00C4)
-	%DKC3_SSS_OpFA($0124)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_RotatingCylinderKey, $0105 : db $0B
+	db sprite.render_order : dw $00C4
+	db !spawn_command_FA : dw $0124
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF556D:
-	%DKC3_SSS_OpF7(!sprite_RotatingCylinderKey, $0106, $0B)
-	%DKC3_SSS_OpXX($0E, $00C4)
-	%DKC3_SSS_OpFA($0124)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_RotatingCylinderKey, $0106 : db $0B
+	db sprite.render_order : dw $00C4
+	db !spawn_command_FA : dw $0124
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF557D:
-	%DKC3_SSS_OpFF(!sprite_RareLogo)
-	%DKC3_SSS_OpFC($0107)
-	%DKC3_SSS_OpXX($12, $FFC0)
-	%DKC3_SSS_OpXX($16, $00C0)
-	%DKC3_SSS_OpXX($0E, $0000)
-	%DKC3_SSS_OpFA($0125)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($26, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_RareLogo
+	db !spawn_command_FC : dw $0107
+	db sprite.x_position : dw $FFC0
+	db sprite.y_position : dw $00C0
+	db sprite.render_order : dw $0000
+	db !spawn_command_FA : dw $0125
+	db !spawn_command_FE : dw $3000
+	db sprite.visibility : dw $8000
+	db !spawn_command_success
 
 DATA_FF5596:
-	%DKC3_SSS_OpFF(!sprite_RareLogoKiddy)
-	%DKC3_SSS_OpFC($000C)
-	%DKC3_SSS_OpXX($12, $0070)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $0001)
-	%DKC3_SSS_OpFA($0126)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_RareLogoKiddy
+	db !spawn_command_FC : dw $000C
+	db sprite.x_position : dw $0070
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $0001
+	db !spawn_command_FA : dw $0126
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF55AC:
-	%DKC3_SSS_OpFF(!sprite_RareLogoDixie)
-	%DKC3_SSS_OpFC($000B)
-	%DKC3_SSS_OpXX($12, $0090)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpXX($0E, $0001)
-	%DKC3_SSS_OpFA($0127)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_RareLogoDixie
+	db !spawn_command_FC : dw $000B
+	db sprite.x_position : dw $0090
+	db sprite.y_position : dw $0080
+	db sprite.render_order : dw $0001
+	db !spawn_command_FA : dw $0127
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF55C2:
-	%DKC3_SSS_OpFF(!sprite_RotatingCylinderHandle)
-	%DKC3_SSS_OpFC($0108)
-	%DKC3_SSS_OpF3($46, $00)
-	%DKC3_SSS_OpXX($12, $0020)
-	%DKC3_SSS_OpXX($16, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_RotatingCylinderHandle
+	db !spawn_command_FC : dw $0108
+	db !spawn_command_F3, $46, $00
+	db sprite.x_position : dw $0020
+	db sprite.y_position : dw $0080
+	db !spawn_command_success
 
 DATA_FF55D2:
-	%DKC3_SSS_OpFF(!sprite_NintendoPresentsKong)
-	%DKC3_SSS_OpFC($000C)
-	%DKC3_SSS_OpFA($0129)
-	%DKC3_SSS_OpXX($12, $0010)
-	%DKC3_SSS_OpXX($16, $FF88)
-	%DKC3_SSS_OpXX($2E, $0600)
-	%DKC3_SSS_OpXX($0E, $0001)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_NintendoPresentsKong
+	db !spawn_command_FC : dw $000C
+	db !spawn_command_FA : dw $0129
+	db sprite.x_position : dw $0010
+	db sprite.y_position : dw $FF88
+	db sprite.y_speed : dw $0600
+	db sprite.render_order : dw $0001
+	db sprite.visibility : dw $8001
+	db !spawn_command_success
 
 DATA_FF55EB:
-	%DKC3_SSS_OpFF(!sprite_NintendoPresentsKong)
-	%DKC3_SSS_OpFC($000B)
-	%DKC3_SSS_OpFA($012A)
-	%DKC3_SSS_OpXX($12, $00F0)
-	%DKC3_SSS_OpXX($16, $FA48)
-	%DKC3_SSS_OpXX($2E, $0800)
-	%DKC3_SSS_OpXX($0E, $0001)
-	%DKC3_SSS_OpFE($4000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_NintendoPresentsKong
+	db !spawn_command_FC : dw $000B
+	db !spawn_command_FA : dw $012A
+	db sprite.x_position : dw $00F0
+	db sprite.y_position : dw $FA48
+	db sprite.y_speed : dw $0800
+	db sprite.render_order : dw $0001
+	db !spawn_command_FE : dw $4000
+	db !spawn_command_success
 
 DATA_FF5604:
-	%DKC3_SSS_OpF9(DATA_FF8899)
-	%DKC3_SSS_OpXX($60, $9500)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpXX($12, $0590)
-	%DKC3_SSS_OpXX($16, $088D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8899
+	db sprite.unknown_60 : dw $9500
+	db sprite.max_x_speed : dw $0180
+	db sprite.x_position : dw $0590
+	db sprite.y_position : dw $088D
+	db !spawn_command_success
 
 DATA_FF5614:
-	%DKC3_SSS_OpF9(DATA_FF85A7)
-	%DKC3_SSS_OpXX($38, $0004)
-	%DKC3_SSS_OpFA($01EE)
-	%DKC3_SSS_OpXX($66, $0048)
-	%DKC3_SSS_OpXX($6A, $002D)
-	%DKC3_SSS_OpXX($12, $04E0)
-	%DKC3_SSS_OpXX($16, $05AD)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85A7
+	db sprite.state : dw $0004
+	db !spawn_command_FA : dw $01EE
+	db sprite.unknown_66 : dw $0048
+	db sprite.unknown_6A : dw $002D
+	db sprite.x_position : dw $04E0
+	db sprite.y_position : dw $05AD
+	db !spawn_command_success
 
 DATA_FF562A:
-	%DKC3_SSS_OpF9(DATA_FF8A78)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $00A0)
-	%DKC3_SSS_OpXX($66, $0100)
-	%DKC3_SSS_OpXX($12, $05F0)
-	%DKC3_SSS_OpXX($16, $06D1)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8A78
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $00A0
+	db sprite.unknown_66 : dw $0100
+	db sprite.x_position : dw $05F0
+	db sprite.y_position : dw $06D1
+	db !spawn_command_success
 
 DATA_FF563D:
-	%DKC3_SSS_OpF9(DATA_FF80FC)
-	%DKC3_SSS_OpXX($12, $0350)
-	%DKC3_SSS_OpXX($16, $0942)
-	%DKC3_SSS_OpXX($30, $01B0)
-	%DKC3_SSS_OpXX($64, $9000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80FC
+	db sprite.x_position : dw $0350
+	db sprite.y_position : dw $0942
+	db sprite.max_x_speed : dw $01B0
+	db sprite.unknown_64 : dw $9000
+	db !spawn_command_success
 
 DATA_FF564D:
-	%DKC3_SSS_OpF9(DATA_FF8B27)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpXX($12, $0340)
-	%DKC3_SSS_OpXX($16, $028D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B27
+	db sprite.max_x_speed : dw $0100
+	db sprite.x_position : dw $0340
+	db sprite.y_position : dw $028D
+	db !spawn_command_success
 
 DATA_FF565A:
-	%DKC3_SSS_OpF9(DATA_FF8D57)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpXX($12, $0530)
-	%DKC3_SSS_OpXX($16, $0754)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D57
+	db sprite.max_x_speed : dw $0100
+	db sprite.x_position : dw $0530
+	db sprite.y_position : dw $0754
+	db !spawn_command_success
 
 DATA_FF5667:
-	%DKC3_SSS_OpF9(DATA_FF98B9)
-	%DKC3_SSS_OpXX($2A, $FF80)
-	%DKC3_SSS_OpXX($2E, $002A)
-	%DKC3_SSS_OpXX($12, $0870)
-	%DKC3_SSS_OpXX($16, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98B9
+	db sprite.x_speed : dw $FF80
+	db sprite.y_speed : dw $002A
+	db sprite.x_position : dw $0870
+	db sprite.y_position : dw $0240
+	db !spawn_command_success
 
 DATA_FF5677:
-	%DKC3_SSS_OpF9(DATA_FF8923)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpXX($12, $0420)
-	%DKC3_SSS_OpXX($16, $0175)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8923
+	db sprite.unknown_60 : dw $2020
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0140
+	db sprite.x_position : dw $0420
+	db sprite.y_position : dw $0175
+	db !spawn_command_success
 
 DATA_FF568A:
-	%DKC3_SSS_OpF9(DATA_FF9688)
-	%DKC3_SSS_OpXX($60, $000A)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpXX($6A, $044C)
-	%DKC3_SSS_OpXX($12, $0578)
-	%DKC3_SSS_OpXX($16, $0AF5)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9688
+	db sprite.unknown_60 : dw $000A
+	db sprite.unknown_64 : dw $0000
+	db sprite.unknown_6A : dw $044C
+	db sprite.x_position : dw $0578
+	db sprite.y_position : dw $0AF5
+	db !spawn_command_success
 
 DATA_FF569D:
-	%DKC3_SSS_OpF9(DATA_FF8FEA)
-	%DKC3_SSS_OpXX($66, $0000)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0032)
-	%DKC3_SSS_OpXX($60, $003C)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($6C, $000A)
-	%DKC3_SSS_OpXX($68, $0020)
-	%DKC3_SSS_OpXX($6A, $0008)
-	%DKC3_SSS_OpXX($32, $2030)
-	%DKC3_SSS_OpXX($12, $0710)
-	%DKC3_SSS_OpXX($16, $0619)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8FEA
+	db sprite.unknown_66 : dw $0000
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0032
+	db sprite.unknown_60 : dw $003C
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_6C : dw $000A
+	db sprite.unknown_68 : dw $0020
+	db sprite.unknown_6A : dw $0008
+	db sprite.unknown_32 : dw $2030
+	db sprite.x_position : dw $0710
+	db sprite.y_position : dw $0619
+	db !spawn_command_success
 
 DATA_FF56C2:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpFC($0057)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($12, $2160)
-	%DKC3_SSS_OpXX($16, $01ED)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpFA($0357)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db !spawn_command_FC : dw $0057
+	db !spawn_command_FE : dw $6000
+	db sprite.x_position : dw $2160
+	db sprite.y_position : dw $01ED
+	db sprite.movement_state : dw $0040
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_FA : dw $0357
+	db !spawn_command_success
 
 DATA_FF56DB:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpFC($0023)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpXX($12, $2160)
-	%DKC3_SSS_OpXX($16, $01ED)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db !spawn_command_FC : dw $0023
+	db !spawn_command_FE : dw $6000
+	db sprite.render_order : dw $00FF
+	db sprite.x_position : dw $2160
+	db sprite.y_position : dw $01ED
+	db sprite.movement_state : dw $0040
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_success
 
 DATA_FF56F4:
-	%DKC3_SSS_OpF9(DATA_FF86D7)
-	%DKC3_SSS_OpXX($12, $0670)
-	%DKC3_SSS_OpXX($16, $06D9)
-	%DKC3_SSS_OpXX($64, $0002)
-	%DKC3_SSS_OpXX($66, $4545)
-	%DKC3_SSS_OpXX($6A, $2020)
-	%DKC3_SSS_OpXX($6C, $0040)
-	%DKC3_SSS_OpXX($1E, $4000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86D7
+	db sprite.x_position : dw $0670
+	db sprite.y_position : dw $06D9
+	db sprite.unknown_64 : dw $0002
+	db sprite.unknown_66 : dw $4545
+	db sprite.unknown_6A : dw $2020
+	db sprite.unknown_6C : dw $0040
+	db sprite.oam_property : dw $4000
+	db !spawn_command_success
 
 DATA_FF570D:
-	%DKC3_SSS_OpF9(DATA_FF78D3)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpXX($12, $0370)
-	%DKC3_SSS_OpXX($16, $03CD)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78D3
+	db sprite.max_x_speed : dw $FF00
+	db sprite.x_position : dw $0370
+	db sprite.y_position : dw $03CD
+	db !spawn_command_success
 
 DATA_FF571A:
-	%DKC3_SSS_OpF9(DATA_FF91FB)
-	%DKC3_SSS_OpXX($12, $0A90)
-	%DKC3_SSS_OpXX($16, $04AD)
-	%DKC3_SSS_OpXX($5C, $0028)
-	%DKC3_SSS_OpXX($5E, $0046)
-	%DKC3_SSS_OpXX($60, $0470)
-	%DKC3_SSS_OpXX($30, $FEF0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF91FB
+	db sprite.x_position : dw $0A90
+	db sprite.y_position : dw $04AD
+	db sprite.unknown_5C : dw $0028
+	db sprite.unknown_5E : dw $0046
+	db sprite.unknown_60 : dw $0470
+	db sprite.max_x_speed : dw $FEF0
+	db !spawn_command_success
 
 DATA_FF5730:
-	%DKC3_SSS_OpF9(DATA_FF8C54)
-	%DKC3_SSS_OpXX($12, $0910)
-	%DKC3_SSS_OpXX($16, $0835)
-	%DKC3_SSS_OpXX($5C, $0055)
-	%DKC3_SSS_OpXX($5E, $0050)
-	%DKC3_SSS_OpXX($60, $FF00)
-	%DKC3_SSS_OpXX($64, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C54
+	db sprite.x_position : dw $0910
+	db sprite.y_position : dw $0835
+	db sprite.unknown_5C : dw $0055
+	db sprite.unknown_5E : dw $0050
+	db sprite.unknown_60 : dw $FF00
+	db sprite.unknown_64 : dw $FF00
+	db !spawn_command_success
 
 DATA_FF5746:
-	%DKC3_SSS_OpF9(DATA_FFA775)
-	%DKC3_SSS_OpXX($38, $0400)
-	%DKC3_SSS_OpXX($5E, $0040)
-	%DKC3_SSS_OpXX($66, $0032)
-	%DKC3_SSS_OpXX($6C, $0037)
-	%DKC3_SSS_OpXX($12, $0710)
-	%DKC3_SSS_OpXX($16, $056D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA775
+	db sprite.state : dw $0400
+	db sprite.unknown_5E : dw $0040
+	db sprite.unknown_66 : dw $0032
+	db sprite.unknown_6C : dw $0037
+	db sprite.x_position : dw $0710
+	db sprite.y_position : dw $056D
+	db !spawn_command_success
 
 DATA_FF575C:
-	%DKC3_SSS_OpF9(DATA_FF898D)
-	%DKC3_SSS_OpXX($5C, $0040)
-	%DKC3_SSS_OpXX($64, $0250)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($6A, $02F0)
-	%DKC3_SSS_OpXX($12, $2A00)
-	%DKC3_SSS_OpXX($16, $01ED)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF898D
+	db sprite.unknown_5C : dw $0040
+	db sprite.unknown_64 : dw $0250
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_6A : dw $02F0
+	db sprite.x_position : dw $2A00
+	db sprite.y_position : dw $01ED
+	db !spawn_command_success
 
 DATA_FF5772:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF7701)
-	%DKC3_SSS_OpXX($5C, $4001)
-	%DKC3_SSS_OpXX($5E, $0300)
-	%DKC3_SSS_OpXX($12, $05DA)
-	%DKC3_SSS_OpXX($16, $06D0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF7701
+	db sprite.unknown_5C : dw $4001
+	db sprite.unknown_5E : dw $0300
+	db sprite.x_position : dw $05DA
+	db sprite.y_position : dw $06D0
+	db !spawn_command_success
 
 DATA_FF5788:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $00F0)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($12, $0580)
-	%DKC3_SSS_OpXX($16, $0510)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $00F0
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_FE : dw $2000
+	db sprite.x_position : dw $0580
+	db sprite.y_position : dw $0510
+	db !spawn_command_success
 
 DATA_FF579B:
-	%DKC3_SSS_OpF9(DATA_FF8F29)
-	%DKC3_SSS_OpXX($5C, $A0A0)
-	%DKC3_SSS_OpXX($5E, $A0A0)
-	%DKC3_SSS_OpXX($60, $0050)
-	%DKC3_SSS_OpXX($30, $0400)
-	%DKC3_SSS_OpXX($34, $0500)
-	%DKC3_SSS_OpXX($12, $0220)
-	%DKC3_SSS_OpXX($16, $09D0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8F29
+	db sprite.unknown_5C : dw $A0A0
+	db sprite.unknown_5E : dw $A0A0
+	db sprite.unknown_60 : dw $0050
+	db sprite.max_x_speed : dw $0400
+	db sprite.max_y_speed : dw $0500
+	db sprite.x_position : dw $0220
+	db sprite.y_position : dw $09D0
+	db !spawn_command_success
 
 DATA_FF57B4:
-	%DKC3_SSS_OpF9(DATA_FF9506)
-	%DKC3_SSS_OpXX($60, $8020)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpXX($12, $0710)
-	%DKC3_SSS_OpXX($16, $0890)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9506
+	db sprite.unknown_60 : dw $8020
+	db sprite.unknown_6C : dw $0005
+	db sprite.max_x_speed : dw $0200
+	db sprite.x_position : dw $0710
+	db sprite.y_position : dw $0890
+	db !spawn_command_success
 
 DATA_FF57C7:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0064)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $0016)
-	%DKC3_SSS_OpXX($1A, $0059)
-	%DKC3_SSS_OpXX($68, $02D9)
-	%DKC3_SSS_OpXX($12, $0A7A)
-	%DKC3_SSS_OpXX($16, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0064
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $0016
+	db sprite.ground_distance : dw $0059
+	db sprite.unknown_68 : dw $02D9
+	db sprite.x_position : dw $0A7A
+	db sprite.y_position : dw $0280
+	db !spawn_command_success
 
 DATA_FF57E6:
-	%DKC3_SSS_OpF9(DATA_FF739E)
-	%DKC3_SSS_OpXX($30, $FEE0)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($12, $0550)
-	%DKC3_SSS_OpXX($16, $02D0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF739E
+	db sprite.max_x_speed : dw $FEE0
+	db !spawn_command_FE : dw $6000
+	db sprite.x_position : dw $0550
+	db sprite.y_position : dw $02D0
+	db !spawn_command_success
 
 DATA_FF57F6:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FDE0)
-	%DKC3_SSS_OpXX($5C, $A800)
-	%DKC3_SSS_OpXX($12, $01A0)
-	%DKC3_SSS_OpXX($16, $0250)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FDE0
+	db sprite.unknown_5C : dw $A800
+	db sprite.x_position : dw $01A0
+	db sprite.y_position : dw $0250
+	db !spawn_command_success
 
 DATA_FF5806:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $02C0)
-	%DKC3_SSS_OpXX($60, $03F0)
-	%DKC3_SSS_OpXX($62, $0790)
-	%DKC3_SSS_OpXX($06, DATA_FF1FC4)
-	%DKC3_SSS_OpXX($12, $02F0)
-	%DKC3_SSS_OpXX($16, $0770)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $02C0
+	db sprite.unknown_60 : dw $03F0
+	db sprite.unknown_62 : dw $0790
+	db sprite.constants_address : dw DATA_FF1FC4
+	db sprite.x_position : dw $02F0
+	db sprite.y_position : dw $0770
+	db !spawn_command_success
 
 DATA_FF581C:
-	%DKC3_SSS_OpF9(DATA_FF94AB)
-	%DKC3_SSS_OpXX($60, $0060)
-	%DKC3_SSS_OpXX($30, $FE30)
-	%DKC3_SSS_OpXX($6C, $0004)
-	%DKC3_SSS_OpXX($12, $0440)
-	%DKC3_SSS_OpXX($16, $0578)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF94AB
+	db sprite.unknown_60 : dw $0060
+	db sprite.max_x_speed : dw $FE30
+	db sprite.unknown_6C : dw $0004
+	db sprite.x_position : dw $0440
+	db sprite.y_position : dw $0578
+	db !spawn_command_success
 
 DATA_FF582F:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $013E)
-	%DKC3_SSS_OpXX($66, $FE30)
-	%DKC3_SSS_OpXX($60, $00A0)
-	%DKC3_SSS_OpXX($12, $0220)
-	%DKC3_SSS_OpXX($16, $0476)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $013E
+	db sprite.unknown_66 : dw $FE30
+	db sprite.unknown_60 : dw $00A0
+	db sprite.x_position : dw $0220
+	db sprite.y_position : dw $0476
+	db !spawn_command_success
 
 DATA_FF5842:
-	%DKC3_SSS_OpF9(DATA_FF9C36)
-	%DKC3_SSS_OpXX($60, $6800)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpXX($6C, $0190)
-	%DKC3_SSS_OpXX($12, $0300)
-	%DKC3_SSS_OpXX($16, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C36
+	db sprite.unknown_60 : dw $6800
+	db sprite.max_x_speed : dw $FF00
+	db sprite.unknown_6C : dw $0190
+	db sprite.x_position : dw $0300
+	db sprite.y_position : dw $0180
+	db !spawn_command_success
 
 DATA_FF5855:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpFC($0016)
-	%DKC3_SSS_OpFA($0111)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpXX($12, $05A0)
-	%DKC3_SSS_OpXX($16, $064D)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($06, DATA_FF1CE4)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db !spawn_command_FC : dw $0016
+	db !spawn_command_FA : dw $0111
+	db sprite.max_x_speed : dw $0200
+	db sprite.x_position : dw $05A0
+	db sprite.y_position : dw $064D
+	db sprite.movement_state : dw $0040
+	db !spawn_command_FE : dw $2000
+	db sprite.constants_address : dw DATA_FF1CE4
+	db !spawn_command_success
 
 DATA_FF5871:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpFC($0017)
-	%DKC3_SSS_OpFA($0114)
-	%DKC3_SSS_OpXX($30, $01D0)
-	%DKC3_SSS_OpXX($12, $06B0)
-	%DKC3_SSS_OpXX($16, $02F8)
-	%DKC3_SSS_OpXX($5A, $003F)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($06, DATA_FF1CF6)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db !spawn_command_FC : dw $0017
+	db !spawn_command_FA : dw $0114
+	db sprite.max_x_speed : dw $01D0
+	db sprite.x_position : dw $06B0
+	db sprite.y_position : dw $02F8
+	db sprite.movement_state : dw $003F
+	db !spawn_command_FE : dw $2000
+	db sprite.constants_address : dw DATA_FF1CF6
+	db !spawn_command_success
 
 DATA_FF588D:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpFC($0018)
-	%DKC3_SSS_OpFA($011B)
-	%DKC3_SSS_OpXX($30, $FE30)
-	%DKC3_SSS_OpXX($12, $0570)
-	%DKC3_SSS_OpXX($16, $0C50)
-	%DKC3_SSS_OpXX($5A, $003F)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($06, DATA_FF1D08)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db !spawn_command_FC : dw $0018
+	db !spawn_command_FA : dw $011B
+	db sprite.max_x_speed : dw $FE30
+	db sprite.x_position : dw $0570
+	db sprite.y_position : dw $0C50
+	db sprite.movement_state : dw $003F
+	db !spawn_command_FE : dw $6000
+	db sprite.constants_address : dw DATA_FF1D08
+	db !spawn_command_success
 
 DATA_FF58A9:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpFC($001A)
-	%DKC3_SSS_OpFA($011E)
-	%DKC3_SSS_OpXX($30, $01D0)
-	%DKC3_SSS_OpXX($12, $0510)
-	%DKC3_SSS_OpXX($16, $0AD8)
-	%DKC3_SSS_OpXX($5A, $003F)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db !spawn_command_FC : dw $001A
+	db !spawn_command_FA : dw $011E
+	db sprite.max_x_speed : dw $01D0
+	db sprite.x_position : dw $0510
+	db sprite.y_position : dw $0AD8
+	db sprite.movement_state : dw $003F
+	db !spawn_command_FE : dw $2000
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_success
 
 DATA_FF58C5:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpFC($0019)
-	%DKC3_SSS_OpFA($0119)
-	%DKC3_SSS_OpXX($30, $FE20)
-	%DKC3_SSS_OpXX($12, $0880)
-	%DKC3_SSS_OpXX($16, $080D)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($06, DATA_FF1D1A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db !spawn_command_FC : dw $0019
+	db !spawn_command_FA : dw $0119
+	db sprite.max_x_speed : dw $FE20
+	db sprite.x_position : dw $0880
+	db sprite.y_position : dw $080D
+	db sprite.movement_state : dw $0040
+	db !spawn_command_FE : dw $6000
+	db sprite.constants_address : dw DATA_FF1D1A
+	db !spawn_command_success
 
 DATA_FF58E1:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpFB($8DB0)
-	%DKC3_SSS_OpFA($02D7)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($12, $0280)
-	%DKC3_SSS_OpXX($16, $03DD)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($38, $FFFB)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db !spawn_command_FB : dw $8DB0
+	db !spawn_command_FA : dw $02D7
+	db sprite.max_x_speed : dw $0000
+	db sprite.x_position : dw $0280
+	db sprite.y_position : dw $03DD
+	db sprite.movement_state : dw $0040
+	db !spawn_command_FE : dw $2000
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.state : dw $FFFB
+	db !spawn_command_success
 
 DATA_FF5900:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpFC($00A1)
-	%DKC3_SSS_OpFA($02E4)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($12, $0808)
-	%DKC3_SSS_OpXX($16, $03AD)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($58, $D000)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db !spawn_command_FC : dw $00A1
+	db !spawn_command_FA : dw $02E4
+	db sprite.max_x_speed : dw $0000
+	db sprite.x_position : dw $0808
+	db sprite.y_position : dw $03AD
+	db sprite.movement_state : dw $0040
+	db !spawn_command_FE : dw $2000
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.unknown_58 : dw $D000
+	db sprite.visibility : dw $8001
+	db !spawn_command_success
 
 DATA_FF5922:
-	%DKC3_SSS_OpFF(!sprite_EndingSwankyKong)
-	%DKC3_SSS_OpXX($58, $D8FD)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpFC($008F)
-	%DKC3_SSS_OpFA($02E0)
-	%DKC3_SSS_OpXX($12, $0244)
-	%DKC3_SSS_OpXX($16, $028D)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00E4)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_EndingSwankyKong
+	db sprite.unknown_58 : dw $D8FD
+	db sprite.visibility : dw $8001
+	db !spawn_command_FC : dw $008F
+	db !spawn_command_FA : dw $02E0
+	db sprite.x_position : dw $0244
+	db sprite.y_position : dw $028D
+	db sprite.max_x_speed : dw $0000
+	db sprite.movement_state : dw $0000
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00E4
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_success
 
 DATA_FF5947:
-	%DKC3_SSS_OpFF(!sprite_StationaryDisplaySprite2)
-	%DKC3_SSS_OpF3($22, $00)
-	%DKC3_SSS_OpFC($00F9)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StationaryDisplaySprite2
+	db !spawn_command_F3, $22, $00
+	db !spawn_command_FC : dw $00F9
+	db !spawn_command_F6, $00, $00
+	db sprite.render_order : dw $00D8
+	db !spawn_command_success
 
 DATA_FF5957:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpFC($003B)
-	%DKC3_SSS_OpFA($0351)
-	%DKC3_SSS_OpXX($12, $0180)
-	%DKC3_SSS_OpXX($16, $018E)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($38, $FFFF)
-	%DKC3_SSS_OpXX($58, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db !spawn_command_FC : dw $003B
+	db !spawn_command_FA : dw $0351
+	db sprite.x_position : dw $0180
+	db sprite.y_position : dw $018E
+	db sprite.movement_state : dw $0000
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $3000
+	db sprite.state : dw $FFFF
+	db sprite.unknown_58 : dw $0000
+	db !spawn_command_success
 
 DATA_FF5976:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpFC($000C)
-	%DKC3_SSS_OpFA($0354)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($12, $2FF0)
-	%DKC3_SSS_OpXX($16, $01CD)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db sprite.state : dw $0000
+	db !spawn_command_FC : dw $000C
+	db !spawn_command_FA : dw $0354
+	db sprite.max_x_speed : dw $0000
+	db sprite.x_position : dw $2FF0
+	db sprite.y_position : dw $01CD
+	db sprite.movement_state : dw $0040
+	db !spawn_command_FE : dw $2000
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_success
 
 DATA_FF5995:
-	%DKC3_SSS_OpF9(DATA_FF5976)
-	%DKC3_SSS_OpFA($0355)
-	%DKC3_SSS_OpXX($12, $05C0)
-	%DKC3_SSS_OpXX($16, $0AF5)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5976
+	db !spawn_command_FA : dw $0355
+	db sprite.x_position : dw $05C0
+	db sprite.y_position : dw $0AF5
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF59A5:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpFC($000B)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($06, DATA_FF2186)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db sprite.state : dw $0000
+	db !spawn_command_FC : dw $000B
+	db sprite.movement_state : dw $0040
+	db !spawn_command_FE : dw $2000
+	db sprite.constants_address : dw DATA_FF2186
+	db !spawn_command_success
 
 DATA_FF59B8:
-	%DKC3_SSS_OpF9(DATA_FF59A5)
-	%DKC3_SSS_OpFA($0353)
-	%DKC3_SSS_OpXX($12, $0710)
-	%DKC3_SSS_OpXX($16, $0215)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF59A5
+	db !spawn_command_FA : dw $0353
+	db sprite.x_position : dw $0710
+	db sprite.y_position : dw $0215
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF59C8:
-	%DKC3_SSS_OpF9(DATA_FF59A5)
-	%DKC3_SSS_OpFA($0356)
-	%DKC3_SSS_OpXX($12, $2FE0)
-	%DKC3_SSS_OpXX($16, $01CD)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF59A5
+	db !spawn_command_FA : dw $0356
+	db sprite.x_position : dw $2FE0
+	db sprite.y_position : dw $01CD
+	db sprite.render_order : dw $00FF
+	db sprite.max_x_speed : dw $0000
+	db !spawn_command_success
 
 DATA_FF59DB:
-	%DKC3_SSS_OpFF(!sprite_MovingDisplaySprite)
-	%DKC3_SSS_OpFC($0081)
-	%DKC3_SSS_OpFA($0352)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpXX($12, $02C8)
-	%DKC3_SSS_OpXX($16, $019C)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($60, $0202)
-	%DKC3_SSS_OpXX($64, $0203)
-	%DKC3_SSS_OpXX($30, $0028)
-	%DKC3_SSS_OpXX($34, $0018)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($38, $FFF5)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MovingDisplaySprite
+	db !spawn_command_FC : dw $0081
+	db !spawn_command_FA : dw $0352
+	db sprite.max_x_speed : dw $0200
+	db sprite.x_position : dw $02C8
+	db sprite.y_position : dw $019C
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $0007
+	db sprite.unknown_60 : dw $0202
+	db sprite.unknown_64 : dw $0203
+	db sprite.max_x_speed : dw $0028
+	db sprite.max_y_speed : dw $0018
+	db !spawn_command_FE : dw $3000
+	db sprite.state : dw $FFF5
+	db !spawn_command_success
 
 DATA_FF5A06:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0174)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0174
+	db sprite.state : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF5A13:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0174)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0174
+	db sprite.state : dw $0001
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF5A20:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0174)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0174
+	db sprite.state : dw $0002
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF5A2D:
-	%DKC3_SSS_OpF9(DATA_FF5A06)
-	%DKC3_SSS_OpXX($5C, $0006)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5A06
+	db sprite.unknown_5C : dw $0006
+	db !spawn_command_success
 
 DATA_FF5A34:
-	%DKC3_SSS_OpF9(DATA_FF5A06)
-	%DKC3_SSS_OpXX($5C, $0021)
-	%DKC3_SSS_OpXX($60, $007E)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5A06
+	db sprite.unknown_5C : dw $0021
+	db sprite.unknown_60 : dw $007E
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF5A41:
-	%DKC3_SSS_OpF9(DATA_FF5A06)
-	%DKC3_SSS_OpXX($5C, $0002)
-	%DKC3_SSS_OpXX($60, $007E)
-	%DKC3_SSS_OpXX($62, $0234)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5A06
+	db sprite.unknown_5C : dw $0002
+	db sprite.unknown_60 : dw $007E
+	db sprite.unknown_62 : dw $0234
+	db !spawn_command_success
 
 DATA_FF5A4E:
-	%DKC3_SSS_OpF9(DATA_FF5A13)
-	%DKC3_SSS_OpXX($5C, $0006)
-	%DKC3_SSS_OpXX($60, $007E)
-	%DKC3_SSS_OpXX($62, $0234)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5A13
+	db sprite.unknown_5C : dw $0006
+	db sprite.unknown_60 : dw $007E
+	db sprite.unknown_62 : dw $0234
+	db !spawn_command_success
 
 DATA_FF5A5B:
-	%DKC3_SSS_OpF9(DATA_FF5A20)
-	%DKC3_SSS_OpXX($5C, $0024)
-	%DKC3_SSS_OpXX($5E, $0023)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5A20
+	db sprite.unknown_5C : dw $0024
+	db sprite.unknown_5E : dw $0023
+	db !spawn_command_success
 
 DATA_FF5A65:
-	%DKC3_SSS_OpF9(DATA_FF5A20)
-	%DKC3_SSS_OpXX($5C, $0005)
-	%DKC3_SSS_OpXX($5E, $0007)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5A20
+	db sprite.unknown_5C : dw $0005
+	db sprite.unknown_5E : dw $0007
+	db !spawn_command_success
 
 DATA_FF5A6F:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0160)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $0015)
-	%DKC3_SSS_OpXX($5E, $15E4)
-	%DKC3_SSS_OpXX($6C, $FFFF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0160
+	db sprite.interaction_flags : dw $0000
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $0015
+	db sprite.unknown_5E : dw $15E4
+	db sprite.unknown_6C : dw $FFFF
+	db !spawn_command_success
 
 DATA_FF5A82:
-	%DKC3_SSS_OpF9(DATA_FF5A6F)
-	%DKC3_SSS_OpXX($60, $0101)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5A6F
+	db sprite.unknown_60 : dw $0101
+	db !spawn_command_success
 
 DATA_FF5A89:
-	%DKC3_SSS_OpF9(DATA_FF5A6F)
-	%DKC3_SSS_OpXX($60, $0201)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5A6F
+	db sprite.unknown_60 : dw $0201
+	db !spawn_command_success
 
 DATA_FF5A90:
-	%DKC3_SSS_OpF9(DATA_FF5A6F)
-	%DKC3_SSS_OpXX($60, $0301)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5A6F
+	db sprite.unknown_60 : dw $0301
+	db !spawn_command_success
 
 DATA_FF5A97:
-	%DKC3_SSS_OpF9(DATA_FF5A6F)
-	%DKC3_SSS_OpXX($60, $0401)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5A6F
+	db sprite.unknown_60 : dw $0401
+	db !spawn_command_success
 
 DATA_FF5A9E:
-	%DKC3_SSS_OpF9(DATA_FF5A6F)
-	%DKC3_SSS_OpXX($60, $0501)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5A6F
+	db sprite.unknown_60 : dw $0501
+	db !spawn_command_success
 
 DATA_FF5AA5:
-	%DKC3_SSS_OpF9(DATA_FF5A6F)
-	%DKC3_SSS_OpXX($5E, $15E6)
-	%DKC3_SSS_OpXX($60, $1E01)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5A6F
+	db sprite.unknown_5E : dw $15E6
+	db sprite.unknown_60 : dw $1E01
+	db !spawn_command_success
 
 DATA_FF5AAF:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0160)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($5C, $0016)
-	%DKC3_SSS_OpXX($5E, $15E6)
-	%DKC3_SSS_OpXX($50, $0040)
-	%DKC3_SSS_OpXX($52, $001E)
-	%DKC3_SSS_OpXX($6C, $FFFF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0160
+	db sprite.interaction_flags : dw $0000
+	db sprite.state : dw $0001
+	db sprite.unknown_5C : dw $0016
+	db sprite.unknown_5E : dw $15E6
+	db sprite.unknown_50 : dw $0040
+	db sprite.unknown_52 : dw $001E
+	db sprite.unknown_6C : dw $FFFF
+	db !spawn_command_success
 
 DATA_FF5AC8:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $0101)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $0101
+	db !spawn_command_success
 
 DATA_FF5ACF:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $0201)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $0201
+	db !spawn_command_success
 
 DATA_FF5AD6:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $0301)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $0301
+	db !spawn_command_success
 
 DATA_FF5ADD:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $1601)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $1601
+	db !spawn_command_success
 
 DATA_FF5AE4:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $0501)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($4C, $1260)
-	%DKC3_SSS_OpXX($4E, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $0501
+	db sprite.unknown_6C : dw $0005
+	db sprite.unknown_4C : dw $1260
+	db sprite.unknown_4E : dw $01C0
+	db !spawn_command_success
 
 DATA_FF5AF4:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $0601)
-	%DKC3_SSS_OpXX($6C, $000C)
-	%DKC3_SSS_OpXX($4C, $2CE0)
-	%DKC3_SSS_OpXX($4E, $0220)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $0601
+	db sprite.unknown_6C : dw $000C
+	db sprite.unknown_4C : dw $2CE0
+	db sprite.unknown_4E : dw $0220
+	db !spawn_command_success
 
 DATA_FF5B04:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $0701)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($4C, $0E00)
-	%DKC3_SSS_OpXX($4E, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $0701
+	db sprite.unknown_6C : dw $0005
+	db sprite.unknown_4C : dw $0E00
+	db sprite.unknown_4E : dw $01C0
+	db !spawn_command_success
 
 DATA_FF5B14:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $0801)
-	%DKC3_SSS_OpXX($6C, $000C)
-	%DKC3_SSS_OpXX($4C, $1340)
-	%DKC3_SSS_OpXX($4E, $01B0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $0801
+	db sprite.unknown_6C : dw $000C
+	db sprite.unknown_4C : dw $1340
+	db sprite.unknown_4E : dw $01B0
+	db !spawn_command_success
 
 DATA_FF5B24:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $0901)
-	%DKC3_SSS_OpXX($6C, $000C)
-	%DKC3_SSS_OpXX($4C, $0150)
-	%DKC3_SSS_OpXX($4E, $0390)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $0901
+	db sprite.unknown_6C : dw $000C
+	db sprite.unknown_4C : dw $0150
+	db sprite.unknown_4E : dw $0390
+	db !spawn_command_success
 
 DATA_FF5B34:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $0A01)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($4C, $0A30)
-	%DKC3_SSS_OpXX($4E, $03D0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $0A01
+	db sprite.unknown_6C : dw $0005
+	db sprite.unknown_4C : dw $0A30
+	db sprite.unknown_4E : dw $03D0
+	db !spawn_command_success
 
 DATA_FF5B44:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $0B01)
-	%DKC3_SSS_OpXX($6C, $000B)
-	%DKC3_SSS_OpXX($4C, $0390)
-	%DKC3_SSS_OpXX($4E, $0630)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $0B01
+	db sprite.unknown_6C : dw $000B
+	db sprite.unknown_4C : dw $0390
+	db sprite.unknown_4E : dw $0630
+	db !spawn_command_success
 
 DATA_FF5B54:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $0C01)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($4C, $0A88)
-	%DKC3_SSS_OpXX($4E, $0C00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $0C01
+	db sprite.unknown_6C : dw $0005
+	db sprite.unknown_4C : dw $0A88
+	db sprite.unknown_4E : dw $0C00
+	db !spawn_command_success
 
 DATA_FF5B64:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $0D01)
-	%DKC3_SSS_OpXX($6C, $000D)
-	%DKC3_SSS_OpXX($4C, $0990)
-	%DKC3_SSS_OpXX($4E, $0C20)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $0D01
+	db sprite.unknown_6C : dw $000D
+	db sprite.unknown_4C : dw $0990
+	db sprite.unknown_4E : dw $0C20
+	db !spawn_command_success
 
 DATA_FF5B74:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $0E01)
-	%DKC3_SSS_OpXX($6C, $000C)
-	%DKC3_SSS_OpXX($4C, $0330)
-	%DKC3_SSS_OpXX($4E, $0480)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $0E01
+	db sprite.unknown_6C : dw $000C
+	db sprite.unknown_4C : dw $0330
+	db sprite.unknown_4E : dw $0480
+	db !spawn_command_success
 
 DATA_FF5B84:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $0F01)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($4C, $09D0)
-	%DKC3_SSS_OpXX($4E, $0A40)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $0F01
+	db sprite.unknown_6C : dw $0005
+	db sprite.unknown_4C : dw $09D0
+	db sprite.unknown_4E : dw $0A40
+	db !spawn_command_success
 
 DATA_FF5B94:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $1001)
-	%DKC3_SSS_OpXX($6C, $000C)
-	%DKC3_SSS_OpXX($4C, $0AB0)
-	%DKC3_SSS_OpXX($4E, $0390)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $1001
+	db sprite.unknown_6C : dw $000C
+	db sprite.unknown_4C : dw $0AB0
+	db sprite.unknown_4E : dw $0390
+	db !spawn_command_success
 
 DATA_FF5BA4:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $1101)
-	%DKC3_SSS_OpXX($6C, $0009)
-	%DKC3_SSS_OpXX($4C, $1A90)
-	%DKC3_SSS_OpXX($4E, $042D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $1101
+	db sprite.unknown_6C : dw $0009
+	db sprite.unknown_4C : dw $1A90
+	db sprite.unknown_4E : dw $042D
+	db !spawn_command_success
 
 DATA_FF5BB4:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $1201)
-	%DKC3_SSS_OpXX($6C, $000E)
-	%DKC3_SSS_OpXX($4C, $1630)
-	%DKC3_SSS_OpXX($4E, $01E0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $1201
+	db sprite.unknown_6C : dw $000E
+	db sprite.unknown_4C : dw $1630
+	db sprite.unknown_4E : dw $01E0
+	db !spawn_command_success
 
 DATA_FF5BC4:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $1301)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($4C, $2DB0)
-	%DKC3_SSS_OpXX($4E, $01D0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $1301
+	db sprite.unknown_6C : dw $0005
+	db sprite.unknown_4C : dw $2DB0
+	db sprite.unknown_4E : dw $01D0
+	db !spawn_command_success
 
 DATA_FF5BD4:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $1401)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($4C, $0710)
-	%DKC3_SSS_OpXX($4E, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $1401
+	db sprite.unknown_6C : dw $0005
+	db sprite.unknown_4C : dw $0710
+	db sprite.unknown_4E : dw $0180
+	db !spawn_command_success
 
 DATA_FF5BE4:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $1501)
-	%DKC3_SSS_OpXX($6C, $000E)
-	%DKC3_SSS_OpXX($4C, $2A90)
-	%DKC3_SSS_OpXX($4E, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $1501
+	db sprite.unknown_6C : dw $000E
+	db sprite.unknown_4C : dw $2A90
+	db sprite.unknown_4E : dw $01C0
+	db !spawn_command_success
 
 DATA_FF5BF4:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $1701)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($4C, $0320)
-	%DKC3_SSS_OpXX($4E, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $1701
+	db sprite.unknown_6C : dw $0005
+	db sprite.unknown_4C : dw $0320
+	db sprite.unknown_4E : dw $0300
+	db !spawn_command_success
 
 DATA_FF5C04:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $1801)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($4C, $01F0)
-	%DKC3_SSS_OpXX($4E, $04C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $1801
+	db sprite.unknown_6C : dw $0005
+	db sprite.unknown_4C : dw $01F0
+	db sprite.unknown_4E : dw $04C0
+	db !spawn_command_success
 
 DATA_FF5C14:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $1901)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($4C, $0180)
-	%DKC3_SSS_OpXX($4E, $1940)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $1901
+	db sprite.unknown_6C : dw $0005
+	db sprite.unknown_4C : dw $0180
+	db sprite.unknown_4E : dw $1940
+	db !spawn_command_success
 
 DATA_FF5C24:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $1A01)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($4C, $0190)
-	%DKC3_SSS_OpXX($4E, $0840)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $1A01
+	db sprite.unknown_6C : dw $0005
+	db sprite.unknown_4C : dw $0190
+	db sprite.unknown_4E : dw $0840
+	db !spawn_command_success
 
 DATA_FF5C34:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $1B01)
-	%DKC3_SSS_OpXX($6C, $000C)
-	%DKC3_SSS_OpXX($4C, $03B0)
-	%DKC3_SSS_OpXX($4E, $01D0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $1B01
+	db sprite.unknown_6C : dw $000C
+	db sprite.unknown_4C : dw $03B0
+	db sprite.unknown_4E : dw $01D0
+	db !spawn_command_success
 
 DATA_FF5C44:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $1C01)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($4C, $0330)
-	%DKC3_SSS_OpXX($4E, $0820)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $1C01
+	db sprite.unknown_6C : dw $0005
+	db sprite.unknown_4C : dw $0330
+	db sprite.unknown_4E : dw $0820
+	db !spawn_command_success
 
 DATA_FF5C54:
-	%DKC3_SSS_OpF9(DATA_FF5AAF)
-	%DKC3_SSS_OpXX($60, $1D01)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpXX($4C, $01F0)
-	%DKC3_SSS_OpXX($4E, $0C40)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5AAF
+	db sprite.unknown_60 : dw $1D01
+	db sprite.unknown_6C : dw $0005
+	db sprite.unknown_4C : dw $01F0
+	db sprite.unknown_4E : dw $0C40
+	db !spawn_command_success
 
 DATA_FF5C64:
-	%DKC3_SSS_OpF9(DATA_FF79F4)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpXX($60, $0202)
-	%DKC3_SSS_OpXX($30, $0040)
-	%DKC3_SSS_OpXX($64, $0302)
-	%DKC3_SSS_OpXX($34, $0060)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79F4
+	db sprite.state : dw $0003
+	db sprite.unknown_60 : dw $0202
+	db sprite.max_x_speed : dw $0040
+	db sprite.unknown_64 : dw $0302
+	db sprite.max_y_speed : dw $0060
+	db !spawn_command_success
 
 DATA_FF5C77:
-	%DKC3_SSS_OpF9(DATA_FF7A08)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpXX($60, $4848)
-	%DKC3_SSS_OpXX($30, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A08
+	db sprite.state : dw $0003
+	db sprite.unknown_60 : dw $4848
+	db sprite.max_x_speed : dw $01C0
+	db !spawn_command_success
 
 DATA_FF5C84:
-	%DKC3_SSS_OpFF(!sprite_Rocket)
-	%DKC3_SSS_OpXX($06, DATA_FF1C0A)
-	%DKC3_SSS_OpXX($0E, $00D0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001B)
-	%DKC3_SSS_OpF3($2C, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Rocket
+	db sprite.constants_address : dw DATA_FF1C0A
+	db sprite.render_order : dw $00D0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001B
+	db !spawn_command_F3, $2C, $00
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF5C9A:
-	%DKC3_SSS_OpF9(DATA_FF5C84)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0037)
-	%DKC3_SSS_OpXX($62, $00B4)
-	%DKC3_SSS_OpXX($66, $00B4)
-	%DKC3_SSS_OpXX($6A, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5C84
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0037
+	db sprite.unknown_62 : dw $00B4
+	db sprite.unknown_66 : dw $00B4
+	db sprite.unknown_6A : dw $0080
+	db !spawn_command_success
 
 DATA_FF5CAD:
-	%DKC3_SSS_OpF9(DATA_FF5C84)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $002D)
-	%DKC3_SSS_OpXX($62, $003C)
-	%DKC3_SSS_OpXX($66, $0000)
-	%DKC3_SSS_OpXX($6A, $8040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5C84
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $002D
+	db sprite.unknown_62 : dw $003C
+	db sprite.unknown_66 : dw $0000
+	db sprite.unknown_6A : dw $8040
+	db !spawn_command_success
 
 DATA_FF5CC0:
-	%DKC3_SSS_OpFF(!sprite_FuelCan)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFA($014E)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($4A, DATA_FF5CD6)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FuelCan
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FA : dw $014E
+	db sprite.state : dw $0000
+	db sprite.unknown_4A : dw DATA_FF5CD6
+	db !spawn_command_success
 
 DATA_FF5CD6:
-	%DKC3_SSS_OpFF(!sprite_BarrelIcons)
-	%DKC3_SSS_OpF6($FE, $F8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($3A, $0100)
-	%DKC3_SSS_OpFC($0011)
-	%DKC3_SSS_OpF3($2D, $0C)
-	%DKC3_SSS_OpXX($40, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelIcons
+	db !spawn_command_F6, $FE, $F8
+	db !spawn_command_FE : dw $2000
+	db sprite.interaction_flags : dw $0100
+	db !spawn_command_FC : dw $0011
+	db !spawn_command_F3, $2D, $0C
+	db sprite.animation_id : dw $0000
+	db !spawn_command_success
 
 DATA_FF5CEC:
-	%DKC3_SSS_OpFF(!sprite_FuelCan)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($002D)
-	%DKC3_SSS_OpF3($34, $00)
-	%DKC3_SSS_OpXX($5C, $0050)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FuelCan
+	db sprite.state : dw $0001
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $002D
+	db !spawn_command_F3, $34, $00
+	db sprite.unknown_5C : dw $0050
+	db !spawn_command_success
 
 DATA_FF5D02:
-	%DKC3_SSS_OpFF(!sprite_FuelCan)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($002D)
-	%DKC3_SSS_OpF3($34, $00)
-	%DKC3_SSS_OpXX($5C, $0030)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FuelCan
+	db sprite.state : dw $0001
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $002D
+	db !spawn_command_F3, $34, $00
+	db sprite.unknown_5C : dw $0030
+	db !spawn_command_success
 
 DATA_FF5D18:
-	%DKC3_SSS_OpFF(!sprite_FuelCan)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($002D)
-	%DKC3_SSS_OpF3($34, $00)
-	%DKC3_SSS_OpXX($5C, $0010)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FuelCan
+	db sprite.state : dw $0001
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $002D
+	db !spawn_command_F3, $34, $00
+	db sprite.unknown_5C : dw $0010
+	db !spawn_command_success
 
 DATA_FF5D2E:
-	%DKC3_SSS_OpFF(!sprite_FuelCan)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($002D)
-	%DKC3_SSS_OpF3($34, $00)
-	%DKC3_SSS_OpXX($5C, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FuelCan
+	db sprite.state : dw $0001
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $002D
+	db !spawn_command_F3, $34, $00
+	db sprite.unknown_5C : dw $0080
+	db !spawn_command_success
 
 DATA_FF5D44:
-	%DKC3_SSS_OpFF(!sprite_MillPlatform)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpF3($35, $00)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFC($001B)
-	%DKC3_SSS_OpXX($0E, $00C3)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($46, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MillPlatform
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_F3, $35, $00
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FC : dw $001B
+	db sprite.render_order : dw $00C3
+	db sprite.interaction_flags : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.state : dw $0000
+	db sprite.animation_address : dw $0000
+	db !spawn_command_success
 
 DATA_FF5D66:
-	%DKC3_SSS_OpF9(DATA_FF5D44)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($5C, DATA_FF5D82)
-	%DKC3_SSS_OpXX($6A, $FFFF)
-	%DKC3_SSS_OpXX($5E, $0140)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($46, $0009)
-	%DKC3_SSS_OpXX($48, $002F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5D44
+	db sprite.movement_state : dw $0000
+	db sprite.unknown_5C : dw DATA_FF5D82
+	db sprite.unknown_6A : dw $FFFF
+	db sprite.unknown_5E : dw $0140
+	db !spawn_command_FE : dw $6000
+	db sprite.state : dw $0005
+	db sprite.animation_address : dw $0009
+	db sprite.animation_routine_pointer : dw $002F
+	db !spawn_command_success
 
 DATA_FF5D82:
 	dw $01C0
@@ -9501,200 +9501,200 @@ DATA_FF5D82:
 
 
 DATA_FF5D96:
-	%DKC3_SSS_OpF9(DATA_FF5D44)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($46, $0000)
-	%DKC3_SSS_OpXX($48, $002F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF5D44
+	db sprite.movement_state : dw $0000
+	db !spawn_command_FE : dw $6000
+	db sprite.state : dw $0005
+	db sprite.animation_address : dw $0000
+	db sprite.animation_routine_pointer : dw $002F
+	db !spawn_command_success
 
 DATA_FF5DA9:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $3C00)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $3030)
-	%DKC3_SSS_OpXX($32, $1030)
-	%DKC3_SSS_OpXX($6C, $0468)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $3C00
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $3030
+	db sprite.unknown_32 : dw $1030
+	db sprite.unknown_6C : dw $0468
+	db !spawn_command_success
 
 DATA_FF5DC2:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $3C00)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $3010)
-	%DKC3_SSS_OpXX($32, $1030)
-	%DKC3_SSS_OpXX($6C, $0468)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $3C00
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $3010
+	db sprite.unknown_32 : dw $1030
+	db sprite.unknown_6C : dw $0468
+	db !spawn_command_success
 
 DATA_FF5DDB:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $3C00)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $1030)
-	%DKC3_SSS_OpXX($32, $1020)
-	%DKC3_SSS_OpXX($6C, $0468)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $3C00
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $1030
+	db sprite.unknown_32 : dw $1020
+	db sprite.unknown_6C : dw $0468
+	db !spawn_command_success
 
 DATA_FF5DF4:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $1400)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $2020)
-	%DKC3_SSS_OpXX($32, $1020)
-	%DKC3_SSS_OpXX($6C, $0468)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $1400
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $2020
+	db sprite.unknown_32 : dw $1020
+	db sprite.unknown_6C : dw $0468
+	db !spawn_command_success
 
 DATA_FF5E0D:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $3C00)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $4040)
-	%DKC3_SSS_OpXX($32, $1020)
-	%DKC3_SSS_OpXX($6C, $0468)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $3C00
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $4040
+	db sprite.unknown_32 : dw $1020
+	db sprite.unknown_6C : dw $0468
+	db !spawn_command_success
 
 DATA_FF5E26:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0101)
-	%DKC3_SSS_OpXX($60, $3200)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $2020)
-	%DKC3_SSS_OpXX($32, $0030)
-	%DKC3_SSS_OpXX($6C, $0468)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0101
+	db sprite.unknown_60 : dw $3200
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $2020
+	db sprite.unknown_32 : dw $0030
+	db sprite.unknown_6C : dw $0468
+	db !spawn_command_success
 
 DATA_FF5E3F:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $3C00)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $3030)
-	%DKC3_SSS_OpXX($32, $3030)
-	%DKC3_SSS_OpXX($6C, $0468)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $3C00
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $3030
+	db sprite.unknown_32 : dw $3030
+	db sprite.unknown_6C : dw $0468
+	db !spawn_command_success
 
 DATA_FF5E58:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $3C00)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $1060)
-	%DKC3_SSS_OpXX($32, $1030)
-	%DKC3_SSS_OpXX($6C, $0468)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $3C00
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $1060
+	db sprite.unknown_32 : dw $1030
+	db sprite.unknown_6C : dw $0468
+	db !spawn_command_success
 
 DATA_FF5E71:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $3C00)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $3030)
-	%DKC3_SSS_OpXX($32, $2030)
-	%DKC3_SSS_OpXX($6C, $0468)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $3C00
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $3030
+	db sprite.unknown_32 : dw $2030
+	db sprite.unknown_6C : dw $0468
+	db !spawn_command_success
 
 DATA_FF5E8A:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0101)
-	%DKC3_SSS_OpXX($60, $3C00)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $3030)
-	%DKC3_SSS_OpXX($32, $2030)
-	%DKC3_SSS_OpXX($6C, $0468)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0101
+	db sprite.unknown_60 : dw $3C00
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $3030
+	db sprite.unknown_32 : dw $2030
+	db sprite.unknown_6C : dw $0468
+	db !spawn_command_success
 
 DATA_FF5EA3:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $0F00)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $3232)
-	%DKC3_SSS_OpXX($32, $0880)
-	%DKC3_SSS_OpXX($6C, $045C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $0F00
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $3232
+	db sprite.unknown_32 : dw $0880
+	db sprite.unknown_6C : dw $045C
+	db !spawn_command_success
 
 DATA_FF5EBC:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0102)
-	%DKC3_SSS_OpXX($60, $0F00)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $3232)
-	%DKC3_SSS_OpXX($32, $0880)
-	%DKC3_SSS_OpXX($6C, $045C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0102
+	db sprite.unknown_60 : dw $0F00
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $3232
+	db sprite.unknown_32 : dw $0880
+	db sprite.unknown_6C : dw $045C
+	db !spawn_command_success
 
 DATA_FF5ED5:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0101)
-	%DKC3_SSS_OpXX($60, $0F00)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $3232)
-	%DKC3_SSS_OpXX($32, $0880)
-	%DKC3_SSS_OpXX($6C, $045C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0101
+	db sprite.unknown_60 : dw $0F00
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $3232
+	db sprite.unknown_32 : dw $0880
+	db sprite.unknown_6C : dw $045C
+	db !spawn_command_success
 
 DATA_FF5EEE:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0102)
-	%DKC3_SSS_OpXX($60, $3200)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $3232)
-	%DKC3_SSS_OpXX($32, $0880)
-	%DKC3_SSS_OpXX($6C, $045C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0102
+	db sprite.unknown_60 : dw $3200
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $3232
+	db sprite.unknown_32 : dw $0880
+	db sprite.unknown_6C : dw $045C
+	db !spawn_command_success
 
 DATA_FF5F07:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $4600)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $3232)
-	%DKC3_SSS_OpXX($32, $0880)
-	%DKC3_SSS_OpXX($6C, $0464)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $4600
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $3232
+	db sprite.unknown_32 : dw $0880
+	db sprite.unknown_6C : dw $0464
+	db !spawn_command_success
 
 DATA_FF5F20:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0101)
-	%DKC3_SSS_OpXX($60, $4600)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $3232)
-	%DKC3_SSS_OpXX($32, $0880)
-	%DKC3_SSS_OpXX($6C, $046E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0101
+	db sprite.unknown_60 : dw $4600
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $3232
+	db sprite.unknown_32 : dw $0880
+	db sprite.unknown_6C : dw $046E
+	db !spawn_command_success
 
 DATA_FF5F39:
-	%DKC3_SSS_OpFF(!sprite_BarrelRespawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0102)
-	%DKC3_SSS_OpXX($60, $4600)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($2C, $3232)
-	%DKC3_SSS_OpXX($32, $0880)
-	%DKC3_SSS_OpXX($6C, $046E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelRespawner
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0102
+	db sprite.unknown_60 : dw $4600
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_2C : dw $3232
+	db sprite.unknown_32 : dw $0880
+	db sprite.unknown_6C : dw $046E
+	db !spawn_command_success
 
 DATA_FF5F52:
 	dw !null_pointer
@@ -9740,7719 +9740,7719 @@ DATA_FF60A2:
 	dw $0330,$FFFF,$0140,$0000
 
 DATA_FF60DA:
-	%DKC3_SSS_OpFF(!sprite_FloorDoor)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FloorDoor
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db !spawn_command_success
 
 DATA_FF60E7:
-	%DKC3_SSS_OpF9(DATA_FF60DA)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF60DA
+	db sprite.state : dw $0001
+	db sprite.unknown_5C : dw $0000
+	db !spawn_command_success
 
 DATA_FF60F1:
-	%DKC3_SSS_OpF9(DATA_FF60DA)
-	%DKC3_SSS_OpXX($5C, $0004)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF60DA
+	db sprite.unknown_5C : dw $0004
+	db sprite.state : dw $0002
+	db sprite.unknown_5E : dw $0001
+	db !spawn_command_success
 
 DATA_FF60FE:
-	%DKC3_SSS_OpF9(DATA_FF60DA)
-	%DKC3_SSS_OpXX($5C, $0008)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($5E, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF60DA
+	db sprite.unknown_5C : dw $0008
+	db sprite.state : dw $0002
+	db sprite.unknown_5E : dw $0002
+	db !spawn_command_success
 
 DATA_FF610B:
-	%DKC3_SSS_OpF9(DATA_FF60DA)
-	%DKC3_SSS_OpXX($5C, $000C)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($5E, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF60DA
+	db sprite.unknown_5C : dw $000C
+	db sprite.state : dw $0002
+	db sprite.unknown_5E : dw $0004
+	db !spawn_command_success
 
 DATA_FF6118:
-	%DKC3_SSS_OpF9(DATA_FF60DA)
-	%DKC3_SSS_OpXX($5C, $0010)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($5E, $0008)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF60DA
+	db sprite.unknown_5C : dw $0010
+	db sprite.state : dw $0002
+	db sprite.unknown_5E : dw $0008
+	db !spawn_command_success
 
 DATA_FF6125:
-	%DKC3_SSS_OpF9(DATA_FF60DA)
-	%DKC3_SSS_OpXX($5C, $0014)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF60DA
+	db sprite.unknown_5C : dw $0014
+	db !spawn_command_success
 
 DATA_FF612C:
-	%DKC3_SSS_OpF9(DATA_FF60DA)
-	%DKC3_SSS_OpXX($5C, $0018)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF60DA
+	db sprite.unknown_5C : dw $0018
+	db !spawn_command_success
 
 DATA_FF6133:
-	%DKC3_SSS_OpF9(DATA_FF60DA)
-	%DKC3_SSS_OpXX($5C, $001C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF60DA
+	db sprite.unknown_5C : dw $001C
+	db !spawn_command_success
 
 DATA_FF613A:
-	%DKC3_SSS_OpF9(DATA_FF60DA)
-	%DKC3_SSS_OpXX($5C, $0020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF60DA
+	db sprite.unknown_5C : dw $0020
+	db !spawn_command_success
 
 DATA_FF6141:
-	%DKC3_SSS_OpF9(DATA_FF60DA)
-	%DKC3_SSS_OpXX($5C, $0024)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF60DA
+	db sprite.unknown_5C : dw $0024
+	db !spawn_command_success
 
 DATA_FF6148:
-	%DKC3_SSS_OpFF(!sprite_BonusBCoin)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpFA($014A)
-	%DKC3_SSS_OpFC($0023)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($6C, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BonusBCoin
+	db sprite.state : dw $0000
+	db !spawn_command_FA : dw $014A
+	db !spawn_command_FC : dw $0023
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00CC
+	db sprite.interaction_flags : dw $0000
+	db sprite.unknown_6C : dw $0002
+	db !spawn_command_success
 
 DATA_FF6161:
-	%DKC3_SSS_OpFF(!sprite_BonusBCoin)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpFA($014A)
-	%DKC3_SSS_OpFC($0023)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($6C, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BonusBCoin
+	db sprite.state : dw $0003
+	db !spawn_command_FA : dw $014A
+	db !spawn_command_FC : dw $0023
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00CC
+	db sprite.interaction_flags : dw $0000
+	db sprite.unknown_6C : dw $0002
+	db !spawn_command_success
 
 DATA_FF617A:
-	%DKC3_SSS_OpFF(!sprite_BonusLevelTimer)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpXX($0E, $00F8)
-	%DKC3_SSS_OpXX($12, $1780)
-	%DKC3_SSS_OpXX($16, $1200)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpF3($2F, $00)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($64, $1E3C)
-	%DKC3_SSS_OpXX($66, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BonusLevelTimer
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FE : dw $3000
+	db sprite.render_order : dw $00F8
+	db sprite.x_position : dw $1780
+	db sprite.y_position : dw $1200
+	db sprite.visibility : dw $C000
+	db !spawn_command_F3, $2F, $00
+	db sprite.interaction_flags : dw $0000
+	db sprite.state : dw $0000
+	db sprite.unknown_64 : dw $1E3C
+	db sprite.unknown_66 : dw $0000
+	db !spawn_command_success
 
 DATA_FF619F:
-	%DKC3_SSS_OpF9(DATA_FF617A)
-	%DKC3_SSS_OpXX($62, $000A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF617A
+	db sprite.unknown_62 : dw $000A
+	db !spawn_command_success
 
 DATA_FF61A6:
-	%DKC3_SSS_OpF9(DATA_FF617A)
-	%DKC3_SSS_OpXX($62, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF617A
+	db sprite.unknown_62 : dw $000F
+	db !spawn_command_success
 
 DATA_FF61AD:
-	%DKC3_SSS_OpF9(DATA_FF617A)
-	%DKC3_SSS_OpXX($62, $0014)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF617A
+	db sprite.unknown_62 : dw $0014
+	db !spawn_command_success
 
 DATA_FF61B4:
-	%DKC3_SSS_OpF9(DATA_FF617A)
-	%DKC3_SSS_OpXX($62, $0019)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF617A
+	db sprite.unknown_62 : dw $0019
+	db !spawn_command_success
 
 DATA_FF61BB:
-	%DKC3_SSS_OpF9(DATA_FF617A)
-	%DKC3_SSS_OpXX($62, $001E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF617A
+	db sprite.unknown_62 : dw $001E
+	db !spawn_command_success
 
 DATA_FF61C2:
-	%DKC3_SSS_OpF9(DATA_FF617A)
-	%DKC3_SSS_OpXX($62, $0023)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF617A
+	db sprite.unknown_62 : dw $0023
+	db !spawn_command_success
 
 DATA_FF61C9:
-	%DKC3_SSS_OpF9(DATA_FF617A)
-	%DKC3_SSS_OpXX($62, $0028)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF617A
+	db sprite.unknown_62 : dw $0028
+	db !spawn_command_success
 
 DATA_FF61D0:
-	%DKC3_SSS_OpF9(DATA_FF617A)
-	%DKC3_SSS_OpXX($62, $002D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF617A
+	db sprite.unknown_62 : dw $002D
+	db !spawn_command_success
 
 DATA_FF61D7:
-	%DKC3_SSS_OpF9(DATA_FF617A)
-	%DKC3_SSS_OpXX($62, $0032)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF617A
+	db sprite.unknown_62 : dw $0032
+	db !spawn_command_success
 
 DATA_FF61DE:
-	%DKC3_SSS_OpF9(DATA_FF617A)
-	%DKC3_SSS_OpXX($62, $0037)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF617A
+	db sprite.unknown_62 : dw $0037
+	db !spawn_command_success
 
 DATA_FF61E5:
-	%DKC3_SSS_OpF9(DATA_FF617A)
-	%DKC3_SSS_OpXX($62, $003C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF617A
+	db sprite.unknown_62 : dw $003C
+	db !spawn_command_success
 
 DATA_FF61EC:
-	%DKC3_SSS_OpF9(DATA_FF617A)
-	%DKC3_SSS_OpXX($62, $0023)
-	%DKC3_SSS_OpXX($66, $4001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF617A
+	db sprite.unknown_62 : dw $0023
+	db sprite.unknown_66 : dw $4001
+	db !spawn_command_success
 
 DATA_FF61F6:
-	%DKC3_SSS_OpFF(!sprite_LevelEndFlagpole)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($0E, $00C4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpFC($002A)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpF3($2A, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($46, $0038)
-	%DKC3_SSS_OpXX($58, $8281)
-	%DKC3_SSS_OpXX($68, $000E)
-	%DKC3_SSS_OpXX($6A, $426E)
-	%DKC3_SSS_OpXX($6C, $2206)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0078)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_LevelEndFlagpole
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.render_order : dw $00C4
+	db sprite.state : dw $0000
+	db !spawn_command_FC : dw $002A
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_F3, $2A, $00
+	db sprite.movement_state : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.animation_address : dw $0038
+	db sprite.unknown_58 : dw $8281
+	db sprite.unknown_68 : dw $000E
+	db sprite.unknown_6A : dw $426E
+	db sprite.unknown_6C : dw $2206
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0078
+	db !spawn_command_success
 
 DATA_FF622A:
-	%DKC3_SSS_OpF9(DATA_FF61F6)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $0096)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF61F6
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $0096
+	db !spawn_command_success
 
 DATA_FF6234:
-	%DKC3_SSS_OpFF(!sprite_BearCoin)
-	%DKC3_SSS_OpFA($0148)
-	%DKC3_SSS_OpFC($00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BearCoin
+	db !spawn_command_FA : dw $0148
+	db !spawn_command_FC : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00CC
+	db sprite.interaction_flags : dw $0000
+	db sprite.unknown_6C : dw $0000
+	db !spawn_command_success
 
 DATA_FF624A:
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpFF(!sprite_BearCoin)
-	%DKC3_SSS_OpFA($0148)
-	%DKC3_SSS_OpFC($00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpEF()
+	db sprite.visibility : dw $C000
+	db !spawn_command_set_type : dw !sprite_BearCoin
+	db !spawn_command_FA : dw $0148
+	db !spawn_command_FC : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00CC
+	db sprite.interaction_flags : dw $0000
+	db sprite.unknown_6C : dw $0000
+	db !spawn_command_success
 
 DATA_FF6263:
-	%DKC3_SSS_OpFF(!sprite_BearCoin)
-	%DKC3_SSS_OpFA($0148)
-	%DKC3_SSS_OpFC($00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_set_type : dw !sprite_BearCoin
+	db !spawn_command_FA : dw $0148
+	db !spawn_command_FC : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00CC
+	db sprite.interaction_flags : dw $0000
+	db sprite.unknown_6C : dw $0000
+	db !spawn_command_F0
 
 DATA_FF6279:
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpFF(!sprite_BearCoin)
-	%DKC3_SSS_OpFA($0148)
-	%DKC3_SSS_OpFC($00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpF0()
+	db sprite.visibility : dw $C000
+	db !spawn_command_set_type : dw !sprite_BearCoin
+	db !spawn_command_FA : dw $0148
+	db !spawn_command_FC : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00CC
+	db sprite.interaction_flags : dw $0000
+	db sprite.unknown_6C : dw $0000
+	db !spawn_command_F0
 
 DATA_FF6292:
-	%DKC3_SSS_OpFF(!sprite_MillPlatform)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpF3($29, $00)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFC($0026)
-	%DKC3_SSS_OpXX($0E, $00C3)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MillPlatform
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_F3, $29, $00
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FC : dw $0026
+	db sprite.render_order : dw $00C3
+	db sprite.interaction_flags : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF62B1:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0005)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpXX($60, $1E1E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0005
+	db sprite.max_x_speed : dw $0100
+	db sprite.unknown_60 : dw $1E1E
+	db !spawn_command_success
 
 DATA_FF62BE:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $01C0)
-	%DKC3_SSS_OpXX($64, $DC50)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $01C0
+	db sprite.unknown_64 : dw $DC50
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF62CE:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $01C0)
-	%DKC3_SSS_OpXX($64, $0064)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $01C0
+	db sprite.unknown_64 : dw $0064
+	db !spawn_command_success
 
 DATA_FF62DB:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpXX($64, $FA82)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $0200
+	db sprite.unknown_64 : dw $FA82
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF62EB:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $01C0)
-	%DKC3_SSS_OpXX($64, $AA50)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $01C0
+	db sprite.unknown_64 : dw $AA50
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF62FB:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $0000
+	db sprite.unknown_64 : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF630B:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $01C0)
-	%DKC3_SSS_OpXX($64, $0AFA)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $01C0
+	db sprite.unknown_64 : dw $0AFA
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF631B:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $FE40)
-	%DKC3_SSS_OpXX($64, $5AC8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $FE40
+	db sprite.unknown_64 : dw $5AC8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF632B:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $F800)
-	%DKC3_SSS_OpXX($64, $4050)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $F800
+	db sprite.unknown_64 : dw $4050
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF633B:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $FE40)
-	%DKC3_SSS_OpXX($64, $50FA)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $FE40
+	db sprite.unknown_64 : dw $50FA
+	db !spawn_command_success
 
 DATA_FF6348:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $FE40)
-	%DKC3_SSS_OpXX($64, $3250)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $FE40
+	db sprite.unknown_64 : dw $3250
+	db !spawn_command_success
 
 DATA_FF6355:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $01C0)
-	%DKC3_SSS_OpXX($64, $C850)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $01C0
+	db sprite.unknown_64 : dw $C850
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF6365:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $FE40)
-	%DKC3_SSS_OpXX($64, $3C78)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $FE40
+	db sprite.unknown_64 : dw $3C78
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF6375:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $01C0)
-	%DKC3_SSS_OpXX($64, $783C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $01C0
+	db sprite.unknown_64 : dw $783C
+	db !spawn_command_success
 
 DATA_FF6382:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $FE40)
-	%DKC3_SSS_OpXX($64, $50C8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $FE40
+	db sprite.unknown_64 : dw $50C8
+	db !spawn_command_success
 
 DATA_FF638F:
-	%DKC3_SSS_OpF9(DATA_FF6292)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $01C0)
-	%DKC3_SSS_OpXX($64, $C850)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6292
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $01C0
+	db sprite.unknown_64 : dw $C850
+	db !spawn_command_success
 
 DATA_FF639C:
-	%DKC3_SSS_OpFF(!sprite_MurkyMillElevator)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpF3($29, $00)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFC($0026)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($34, $0680)
-	%DKC3_SSS_OpXX($5C, $08C0)
-	%DKC3_SSS_OpXX($5E, $0200)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MurkyMillElevator
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_F3, $29, $00
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FC : dw $0026
+	db sprite.render_order : dw $00D4
+	db sprite.interaction_flags : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0000
+	db sprite.max_y_speed : dw $0680
+	db sprite.unknown_5C : dw $08C0
+	db sprite.unknown_5E : dw $0200
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF63CA:
-	%DKC3_SSS_OpF9(DATA_FF639C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF639C
+	db !spawn_command_success
 
 DATA_FF63CE:
-	%DKC3_SSS_OpF9(DATA_FF639C)
-	%DKC3_SSS_OpXX($34, $F980)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF639C
+	db sprite.max_y_speed : dw $F980
+	db sprite.state : dw $0003
+	db !spawn_command_success
 
 DATA_FF63D8:
-	%DKC3_SSS_OpFF(!sprite_Bananas)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpFA($014D)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($68, $000A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Bananas
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_FA : dw $014D
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00CC
+	db sprite.interaction_flags : dw $0000
+	db sprite.state : dw $0000
+	db sprite.unknown_68 : dw $000A
+	db !spawn_command_success
 
 DATA_FF63F4:
-	%DKC3_SSS_OpF9(DATA_FF63D8)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF63D8
+	db sprite.visibility : dw $C000
+	db !spawn_command_success
 
 DATA_FF63FB:
-	%DKC3_SSS_OpF9(DATA_FF63D8)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF63D8
+	db !spawn_command_F0
 
 DATA_FF63FF:
-	%DKC3_SSS_OpF9(DATA_FF63D8)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF63D8
+	db sprite.visibility : dw $C000
+	db !spawn_command_F0
 
 DATA_FF6406:
-	%DKC3_SSS_OpFF(!sprite_ExtraLifeBalloon)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpFA($017E)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($5A, $003B)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpXX($34, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_ExtraLifeBalloon
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_FA : dw $017E
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00CC
+	db sprite.interaction_flags : dw $0000
+	db sprite.state : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.movement_state : dw $003B
+	db sprite.unknown_6C : dw $0000
+	db sprite.max_y_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF6428:
-	%DKC3_SSS_OpF9(DATA_FF6406)
-	%DKC3_SSS_OpFC($0027)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6406
+	db !spawn_command_FC : dw $0027
+	db sprite.unknown_5C : dw $0001
+	db !spawn_command_success
 
 DATA_FF6432:
-	%DKC3_SSS_OpF9(DATA_FF6406)
-	%DKC3_SSS_OpFC($0028)
-	%DKC3_SSS_OpXX($5C, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6406
+	db !spawn_command_FC : dw $0028
+	db sprite.unknown_5C : dw $0002
+	db !spawn_command_success
 
 DATA_FF643C:
-	%DKC3_SSS_OpF9(DATA_FF6406)
-	%DKC3_SSS_OpFC($0029)
-	%DKC3_SSS_OpXX($5C, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6406
+	db !spawn_command_FC : dw $0029
+	db sprite.unknown_5C : dw $0003
+	db !spawn_command_success
 
 DATA_FF6446:
-	%DKC3_SSS_OpF9(DATA_FF643C)
-	%DKC3_SSS_OpXX($6C, $8000)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF643C
+	db sprite.unknown_6C : dw $8000
+	db !spawn_command_F0
 
 DATA_FF644D:
-	%DKC3_SSS_OpF9(DATA_FF6428)
-	%DKC3_SSS_OpXX($6C, $8000)
-	%DKC3_SSS_OpXX($34, $FF80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6428
+	db sprite.unknown_6C : dw $8000
+	db sprite.max_y_speed : dw $FF80
+	db !spawn_command_success
 
 DATA_FF6457:
-	%DKC3_SSS_OpF9(DATA_FF6428)
-	%DKC3_SSS_OpXX($6C, $8000)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6428
+	db sprite.unknown_6C : dw $8000
+	db sprite.visibility : dw $C000
+	db !spawn_command_success
 
 DATA_FF6461:
-	%DKC3_SSS_OpF9(DATA_FF6428)
-	%DKC3_SSS_OpXX($34, $FF80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6428
+	db sprite.max_y_speed : dw $FF80
+	db !spawn_command_success
 
 DATA_FF6468:
-	%DKC3_SSS_OpF9(DATA_FF6432)
-	%DKC3_SSS_OpXX($6C, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6432
+	db sprite.unknown_6C : dw $8000
+	db !spawn_command_success
 
 DATA_FF646F:
-	%DKC3_SSS_OpF9(DATA_FF6432)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpXX($6C, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6432
+	db sprite.visibility : dw $C000
+	db sprite.unknown_6C : dw $8000
+	db !spawn_command_success
 
 DATA_FF6479:
-	%DKC3_SSS_OpF9(DATA_FF643C)
-	%DKC3_SSS_OpXX($6C, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF643C
+	db sprite.unknown_6C : dw $8000
+	db !spawn_command_success
 
 DATA_FF6480:
-	%DKC3_SSS_OpF9(DATA_FF643C)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpXX($6C, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF643C
+	db sprite.visibility : dw $C000
+	db sprite.unknown_6C : dw $8000
+	db !spawn_command_success
 
 DATA_FF648A:
-	%DKC3_SSS_OpFF(!sprite_SpawnedRegularBanana)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($40, $014C)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SpawnedRegularBanana
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.animation_id : dw $014C
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00CC
+	db sprite.interaction_flags : dw $0000
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF64A0:
-	%DKC3_SSS_OpFF(!sprite_KongLetters)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00CC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($58, $F818)
-	%DKC3_SSS_OpXX($5C, $F85D)
-	%DKC3_SSS_OpXX($5E, $F86F)
-	%DKC3_SSS_OpXX($60, $F881)
-	%DKC3_SSS_OpXX($62, $F893)
-	%DKC3_SSS_OpXX($6C, $0078)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KongLetters
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00CC
+	db sprite.interaction_flags : dw $0000
+	db sprite.state : dw $0000
+	db sprite.unknown_58 : dw $F818
+	db sprite.unknown_5C : dw $F85D
+	db sprite.unknown_5E : dw $F86F
+	db sprite.unknown_60 : dw $F881
+	db sprite.unknown_62 : dw $F893
+	db sprite.unknown_6C : dw $0078
+	db !spawn_command_success
 
 DATA_FF64C5:
-	%DKC3_SSS_OpF9(DATA_FF64A0)
-	%DKC3_SSS_OpFA($0144)
-	%DKC3_SSS_OpXX($64, $005C)
-	%DKC3_SSS_OpXX($66, $0001)
-	%DKC3_SSS_OpXX($68, $0710)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF64A0
+	db !spawn_command_FA : dw $0144
+	db sprite.unknown_64 : dw $005C
+	db sprite.unknown_66 : dw $0001
+	db sprite.unknown_68 : dw $0710
+	db !spawn_command_success
 
 DATA_FF64D5:
-	%DKC3_SSS_OpF9(DATA_FF64A0)
-	%DKC3_SSS_OpFA($0145)
-	%DKC3_SSS_OpXX($64, $005E)
-	%DKC3_SSS_OpXX($66, $0002)
-	%DKC3_SSS_OpXX($68, $0711)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF64A0
+	db !spawn_command_FA : dw $0145
+	db sprite.unknown_64 : dw $005E
+	db sprite.unknown_66 : dw $0002
+	db sprite.unknown_68 : dw $0711
+	db !spawn_command_success
 
 DATA_FF64E5:
-	%DKC3_SSS_OpF9(DATA_FF64A0)
-	%DKC3_SSS_OpFA($0146)
-	%DKC3_SSS_OpXX($64, $0060)
-	%DKC3_SSS_OpXX($66, $0004)
-	%DKC3_SSS_OpXX($68, $0712)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF64A0
+	db !spawn_command_FA : dw $0146
+	db sprite.unknown_64 : dw $0060
+	db sprite.unknown_66 : dw $0004
+	db sprite.unknown_68 : dw $0712
+	db !spawn_command_success
 
 DATA_FF64F5:
-	%DKC3_SSS_OpF9(DATA_FF64A0)
-	%DKC3_SSS_OpFA($0147)
-	%DKC3_SSS_OpXX($64, $0062)
-	%DKC3_SSS_OpXX($66, $0008)
-	%DKC3_SSS_OpXX($68, $0713)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF64A0
+	db !spawn_command_FA : dw $0147
+	db sprite.unknown_64 : dw $0062
+	db sprite.unknown_66 : dw $0008
+	db sprite.unknown_68 : dw $0713
+	db !spawn_command_success
 
 DATA_FF6505:
-	%DKC3_SSS_OpF9(DATA_FF64A0)
-	%DKC3_SSS_OpFA($0145)
-	%DKC3_SSS_OpXX($64, $005E)
-	%DKC3_SSS_OpXX($66, $0002)
-	%DKC3_SSS_OpXX($68, $0711)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF64A0
+	db !spawn_command_FA : dw $0145
+	db sprite.unknown_64 : dw $005E
+	db sprite.unknown_66 : dw $0002
+	db sprite.unknown_68 : dw $0711
+	db !spawn_command_F0
 
 DATA_FF6515:
-	%DKC3_SSS_OpF9(DATA_FF64A0)
-	%DKC3_SSS_OpFA($0146)
-	%DKC3_SSS_OpXX($64, $0060)
-	%DKC3_SSS_OpXX($66, $0004)
-	%DKC3_SSS_OpXX($68, $0712)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF64A0
+	db !spawn_command_FA : dw $0146
+	db sprite.unknown_64 : dw $0060
+	db sprite.unknown_66 : dw $0004
+	db sprite.unknown_68 : dw $0712
+	db !spawn_command_F0
 
 DATA_FF6525:
-	%DKC3_SSS_OpF9(DATA_FF64A0)
-	%DKC3_SSS_OpFA($0147)
-	%DKC3_SSS_OpXX($64, $0062)
-	%DKC3_SSS_OpXX($66, $0008)
-	%DKC3_SSS_OpXX($68, $0713)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF64A0
+	db !spawn_command_FA : dw $0147
+	db sprite.unknown_64 : dw $0062
+	db sprite.unknown_66 : dw $0008
+	db sprite.unknown_68 : dw $0713
+	db !spawn_command_F0
 
 DATA_FF6535:
-	%DKC3_SSS_OpFF(!sprite_ExitDoor)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($1E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_ExitDoor
+	db sprite.state : dw $0001
+	db sprite.oam_property : dw $0000
+	db !spawn_command_success
 
 DATA_FF653F:
-	%DKC3_SSS_OpFF(!sprite_ExitDoor)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($1E, $0000)
-	%DKC3_SSS_OpXX($5C, $001C)
-	%DKC3_SSS_OpXX($5E, $0008)
-	%DKC3_SSS_OpXX($60, $FFF0)
-	%DKC3_SSS_OpXX($62, $1818)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_ExitDoor
+	db sprite.state : dw $0000
+	db sprite.oam_property : dw $0000
+	db sprite.unknown_5C : dw $001C
+	db sprite.unknown_5E : dw $0008
+	db sprite.unknown_60 : dw $FFF0
+	db sprite.unknown_62 : dw $1818
+	db !spawn_command_success
 
 DATA_FF6555:
-	%DKC3_SSS_OpF9(DATA_FF653F)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF653F
+	db sprite.unknown_4C : dw $0001
+	db !spawn_command_success
 
 DATA_FF655C:
-	%DKC3_SSS_OpF9(DATA_FF653F)
-	%DKC3_SSS_OpXX($4C, $0002)
-	%DKC3_SSS_OpXX($1E, $4000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF653F
+	db sprite.unknown_4C : dw $0002
+	db sprite.oam_property : dw $4000
+	db !spawn_command_success
 
 DATA_FF6566:
-	%DKC3_SSS_OpF9(DATA_FF653F)
-	%DKC3_SSS_OpXX($4C, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF653F
+	db sprite.unknown_4C : dw $0005
+	db !spawn_command_success
 
 DATA_FF656D:
-	%DKC3_SSS_OpFF(!sprite_AnimalBuddyBox)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($3A, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_AnimalBuddyBox
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001C
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.interaction_flags : dw $0240
+	db !spawn_command_success
 
 DATA_FF6586:
-	%DKC3_SSS_OpF9(DATA_FF656D)
-	%DKC3_SSS_OpF3($30, $01)
-	%DKC3_SSS_OpXX($5C, !sprite_Ellie)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF656D
+	db !spawn_command_F3, $30, $01
+	db sprite.unknown_5C : dw !sprite_Ellie
+	db !spawn_command_success
 
 DATA_FF6590:
-	%DKC3_SSS_OpF9(DATA_FF656D)
-	%DKC3_SSS_OpF3($30, $02)
-	%DKC3_SSS_OpXX($5C, !sprite_Enguarde)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF656D
+	db !spawn_command_F3, $30, $02
+	db sprite.unknown_5C : dw !sprite_Enguarde
+	db sprite.unknown_5E : dw $0001
+	db !spawn_command_success
 
 DATA_FF659D:
-	%DKC3_SSS_OpF9(DATA_FF656D)
-	%DKC3_SSS_OpF3($30, $03)
-	%DKC3_SSS_OpXX($5C, !sprite_Squitter)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF656D
+	db !spawn_command_F3, $30, $03
+	db sprite.unknown_5C : dw !sprite_Squitter
+	db !spawn_command_success
 
 DATA_FF65A7:
-	%DKC3_SSS_OpF9(DATA_FF656D)
-	%DKC3_SSS_OpF3($30, $04)
-	%DKC3_SSS_OpXX($5C, !sprite_Squawks)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF656D
+	db !spawn_command_F3, $30, $04
+	db sprite.unknown_5C : dw !sprite_Squawks
+	db !spawn_command_success
 
 DATA_FF65B1:
-	%DKC3_SSS_OpF9(DATA_FF656D)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpF3($30, $05)
-	%DKC3_SSS_OpXX($5C, !sprite_Parry)
-	%DKC3_SSS_OpXX($60, $0070)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF656D
+	db sprite.unknown_5E : dw $0001
+	db !spawn_command_F3, $30, $05
+	db sprite.unknown_5C : dw !sprite_Parry
+	db sprite.unknown_60 : dw $0070
+	db !spawn_command_success
 
 DATA_FF65C1:
-	%DKC3_SSS_OpXX($5A, $0201)
-	%DKC3_SSS_OpXX($40, $0020)
-	%DKC3_SSS_OpFF(!sprite_BarrelCannon)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00EC)
-	%DKC3_SSS_OpXX($6C, $0004)
-	%DKC3_SSS_OpEF()
+	db sprite.movement_state : dw $0201
+	db sprite.animation_id : dw $0020
+	db !spawn_command_set_type : dw !sprite_BarrelCannon
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00EC
+	db sprite.unknown_6C : dw $0004
+	db !spawn_command_success
 
 DATA_FF65D7:
-	%DKC3_SSS_OpXX($5A, $0201)
-	%DKC3_SSS_OpF9(DATA_FF65C1)
-	%DKC3_SSS_OpXX($06, $0100)
-	%DKC3_SSS_OpXX($40, $0040)
-	%DKC3_SSS_OpEF()
+	db sprite.movement_state : dw $0201
+	db !spawn_command_F9 : dw DATA_FF65C1
+	db sprite.constants_address : dw $0100
+	db sprite.animation_id : dw $0040
+	db !spawn_command_success
 
 DATA_FF65E4:
-	%DKC3_SSS_OpF9(DATA_FF65C1)
-	%DKC3_SSS_OpXX($06, $0100)
-	%DKC3_SSS_OpXX($40, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF65C1
+	db sprite.constants_address : dw $0100
+	db sprite.animation_id : dw $0000
+	db !spawn_command_success
 
 DATA_FF65EE:
-	%DKC3_SSS_OpXX($40, $0020)
-	%DKC3_SSS_OpXX($4A, DATA_FF6617)
-	%DKC3_SSS_OpFF(!sprite_BarrelCannon)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00EC)
-	%DKC3_SSS_OpXX($06, $0100)
-	%DKC3_SSS_OpEF()
+	db sprite.animation_id : dw $0020
+	db sprite.unknown_4A : dw DATA_FF6617
+	db !spawn_command_set_type : dw !sprite_BarrelCannon
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00EC
+	db sprite.constants_address : dw $0100
+	db !spawn_command_success
 
 DATA_FF6604:
-	%DKC3_SSS_OpFF(!sprite_BarrelIcons)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00F0)
-	%DKC3_SSS_OpXX($40, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelIcons
+	db !spawn_command_F6, $00, $00
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00F0
+	db sprite.animation_id : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db !spawn_command_success
 
 DATA_FF6617:
-	%DKC3_SSS_OpF9(DATA_FF6604)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpXX($24, $0008)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6604
+	db !spawn_command_FC : dw $000F
+	db sprite.sprite_graphic : dw $0008
+	db !spawn_command_success
 
 DATA_FF6621:
-	%DKC3_SSS_OpF9(DATA_FF6604)
-	%DKC3_SSS_OpFC($0016)
-	%DKC3_SSS_OpXX($24, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6604
+	db !spawn_command_FC : dw $0016
+	db sprite.sprite_graphic : dw $0000
+	db !spawn_command_success
 
 DATA_FF662B:
-	%DKC3_SSS_OpF9(DATA_FF6604)
-	%DKC3_SSS_OpFC($0017)
-	%DKC3_SSS_OpXX($24, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6604
+	db !spawn_command_FC : dw $0017
+	db sprite.sprite_graphic : dw $0002
+	db !spawn_command_success
 
 DATA_FF6635:
-	%DKC3_SSS_OpF9(DATA_FF6604)
-	%DKC3_SSS_OpXX($24, $0004)
-	%DKC3_SSS_OpF8($0777, $0010, DATA_FF2B21, DATA_FF2B25)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6604
+	db sprite.sprite_graphic : dw $0004
+	db !spawn_command_F8 : dw $0777, $0010, DATA_FF2B21, DATA_FF2B25
+	db !spawn_command_success
 
 DATA_FF6645:
-	%DKC3_SSS_OpF9(DATA_FF6604)
-	%DKC3_SSS_OpFC($0019)
-	%DKC3_SSS_OpXX($24, $0006)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6604
+	db !spawn_command_FC : dw $0019
+	db sprite.sprite_graphic : dw $0006
+	db !spawn_command_success
 
 DATA_FF664F:
-	%DKC3_SSS_OpF9(DATA_FF6604)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFA($0183)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6604
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FA : dw $0183
+	db !spawn_command_success
 
 DATA_FF6659:
-	%DKC3_SSS_OpF9(DATA_FF6604)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFA($0184)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6604
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FA : dw $0184
+	db !spawn_command_success
 
 DATA_FF6663:
-	%DKC3_SSS_OpF9(DATA_FF6604)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFA($0185)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6604
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FA : dw $0185
+	db !spawn_command_success
 
 DATA_FF666D:
-	%DKC3_SSS_OpXX($40, $0020)
-	%DKC3_SSS_OpXX($4A, DATA_FF664F)
-	%DKC3_SSS_OpFF(!sprite_BarrelCannon)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00EC)
-	%DKC3_SSS_OpXX($06, $0100)
-	%DKC3_SSS_OpEF()
+	db sprite.animation_id : dw $0020
+	db sprite.unknown_4A : dw DATA_FF664F
+	db !spawn_command_set_type : dw !sprite_BarrelCannon
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00EC
+	db sprite.constants_address : dw $0100
+	db !spawn_command_success
 
 DATA_FF6683:
-	%DKC3_SSS_OpF4(DATA_FF666D, $08, $00, $00, $00, $00, $00, $00, $00, $FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF666D : db $08, $00, $00, $00, $00, $00, $00, $00, $FF
+	db !spawn_command_success
 
 DATA_FF6690:
-	%DKC3_SSS_OpF4(DATA_FF666D, $0C, $00, $00, $00, $00, $00, $00, $00, $FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF666D : db $0C, $00, $00, $00, $00, $00, $00, $00, $FF
+	db !spawn_command_success
 
 DATA_FF669D:
-	%DKC3_SSS_OpF9(DATA_FF6683)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6683
+	db sprite.unknown_4C : dw $0001
+	db !spawn_command_success
 
 DATA_FF66A4:
-	%DKC3_SSS_OpF9(DATA_FF6683)
-	%DKC3_SSS_OpXX($4C, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6683
+	db sprite.unknown_4C : dw $0002
+	db !spawn_command_success
 
 DATA_FF66AB:
-	%DKC3_SSS_OpF9(DATA_FF6683)
-	%DKC3_SSS_OpXX($4C, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6683
+	db sprite.unknown_4C : dw $0003
+	db !spawn_command_success
 
 DATA_FF66B2:
-	%DKC3_SSS_OpF9(DATA_FF6690)
-	%DKC3_SSS_OpXX($4C, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6690
+	db sprite.unknown_4C : dw $0002
+	db !spawn_command_success
 
 DATA_FF66B9:
-	%DKC3_SSS_OpF9(DATA_FF6690)
-	%DKC3_SSS_OpXX($4C, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6690
+	db sprite.unknown_4C : dw $0003
+	db !spawn_command_success
 
 DATA_FF66C0:
-	%DKC3_SSS_OpXX($40, $0020)
-	%DKC3_SSS_OpXX($4A, DATA_FF6659)
-	%DKC3_SSS_OpFF(!sprite_BarrelCannon)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00EC)
-	%DKC3_SSS_OpXX($06, $0D00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db sprite.animation_id : dw $0020
+	db sprite.unknown_4A : dw DATA_FF6659
+	db !spawn_command_set_type : dw !sprite_BarrelCannon
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00EC
+	db sprite.constants_address : dw $0D00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF66D9:
-	%DKC3_SSS_OpF4(DATA_FF66C0, $08, $88, $00, $00, $00, $00, $00, $00, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF66C0 : db $08, $88, $00, $00, $00, $00, $00, $00, $00
+	db !spawn_command_success
 
 DATA_FF66E6:
-	%DKC3_SSS_OpF4(DATA_FF66C0, $09, $88, $00, $00, $00, $00, $00, $00, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF66C0 : db $09, $88, $00, $00, $00, $00, $00, $00, $00
+	db !spawn_command_success
 
 DATA_FF66F3:
-	%DKC3_SSS_OpF9(DATA_FF66D9)
-	%DKC3_SSS_OpXX($1C, $0002)
-	%DKC3_SSS_OpXX($34, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF66D9
+	db sprite.terrain_attributes : dw $0002
+	db sprite.max_y_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF66FD:
-	%DKC3_SSS_OpF9(DATA_FF66D9)
-	%DKC3_SSS_OpXX($1C, $0003)
-	%DKC3_SSS_OpXX($34, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF66D9
+	db sprite.terrain_attributes : dw $0003
+	db sprite.max_y_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF6707:
-	%DKC3_SSS_OpF9(DATA_FF66E6)
-	%DKC3_SSS_OpXX($1C, $0002)
-	%DKC3_SSS_OpXX($34, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF66E6
+	db sprite.terrain_attributes : dw $0002
+	db sprite.max_y_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF6711:
-	%DKC3_SSS_OpF9(DATA_FF66E6)
-	%DKC3_SSS_OpXX($1C, $0003)
-	%DKC3_SSS_OpXX($34, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF66E6
+	db sprite.terrain_attributes : dw $0003
+	db sprite.max_y_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF671B:
-	%DKC3_SSS_OpF9(DATA_FF66D9)
-	%DKC3_SSS_OpXX($1C, $0004)
-	%DKC3_SSS_OpXX($34, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF66D9
+	db sprite.terrain_attributes : dw $0004
+	db sprite.max_y_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF6725:
-	%DKC3_SSS_OpF9(DATA_FF66E6)
-	%DKC3_SSS_OpXX($1C, $0004)
-	%DKC3_SSS_OpXX($34, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF66E6
+	db sprite.terrain_attributes : dw $0004
+	db sprite.max_y_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF672F:
-	%DKC3_SSS_OpXX($40, $0020)
-	%DKC3_SSS_OpXX($4A, DATA_FF6663)
-	%DKC3_SSS_OpFF(!sprite_BarrelCannon)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00EC)
-	%DKC3_SSS_OpXX($06, $0100)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db sprite.animation_id : dw $0020
+	db sprite.unknown_4A : dw DATA_FF6663
+	db !spawn_command_set_type : dw !sprite_BarrelCannon
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00EC
+	db sprite.constants_address : dw $0100
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6748:
-	%DKC3_SSS_OpF4(DATA_FF672F, $0C, $00, $00, $00, $00, $00, $00, $00, $FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF672F : db $0C, $00, $00, $00, $00, $00, $00, $00, $FF
+	db !spawn_command_success
 
 DATA_FF6755:
-	%DKC3_SSS_OpF9(DATA_FF6748)
-	%DKC3_SSS_OpXX($4C, $0084)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6748
+	db sprite.unknown_4C : dw $0084
+	db !spawn_command_success
 
 DATA_FF675C:
-	%DKC3_SSS_OpXX($40, $0020)
-	%DKC3_SSS_OpXX($4A, DATA_FF6663)
-	%DKC3_SSS_OpFF(!sprite_BarrelCannon)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00EC)
-	%DKC3_SSS_OpXX($06, $0D00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db sprite.animation_id : dw $0020
+	db sprite.unknown_4A : dw DATA_FF6663
+	db !spawn_command_set_type : dw !sprite_BarrelCannon
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00EC
+	db sprite.constants_address : dw $0D00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6775:
-	%DKC3_SSS_OpF4(DATA_FF675C, $08, $88, $00, $00, $00, $00, $00, $00, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF675C : db $08, $88, $00, $00, $00, $00, $00, $00, $00
+	db !spawn_command_success
 
 DATA_FF6782:
-	%DKC3_SSS_OpF9(DATA_FF6775)
-	%DKC3_SSS_OpXX($1C, $0004)
-	%DKC3_SSS_OpXX($34, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6775
+	db sprite.terrain_attributes : dw $0004
+	db sprite.max_y_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF678C:
-	%DKC3_SSS_OpF4(DATA_FF65EE, $08, $00, $00, $00, $00, $00, $C0, $20, $FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65EE : db $08, $00, $00, $00, $00, $00, $C0, $20, $FF
+	db !spawn_command_success
 
 DATA_FF6799:
-	%DKC3_SSS_OpF4(DATA_FF65EE, $0C, $00, $00, $00, $00, $00, $C0, $20, $FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65EE : db $0C, $00, $00, $00, $00, $00, $C0, $20, $FF
+	db !spawn_command_success
 
 DATA_FF67A6:
-	%DKC3_SSS_OpF9(DATA_FF678C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF678C
+	db sprite.unknown_4C : dw $0001
+	db !spawn_command_F0
 
 DATA_FF67AD:
-	%DKC3_SSS_OpF9(DATA_FF678C)
-	%DKC3_SSS_OpXX($4C, $0002)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF678C
+	db sprite.unknown_4C : dw $0002
+	db !spawn_command_F0
 
 DATA_FF67B4:
-	%DKC3_SSS_OpF9(DATA_FF678C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF678C
+	db sprite.unknown_4C : dw $0001
+	db !spawn_command_success
 
 DATA_FF67BB:
-	%DKC3_SSS_OpF9(DATA_FF678C)
-	%DKC3_SSS_OpXX($4C, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF678C
+	db sprite.unknown_4C : dw $0002
+	db !spawn_command_success
 
 DATA_FF67C2:
-	%DKC3_SSS_OpF9(DATA_FF678C)
-	%DKC3_SSS_OpXX($4C, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF678C
+	db sprite.unknown_4C : dw $0003
+	db !spawn_command_success
 
 DATA_FF67C9:
-	%DKC3_SSS_OpF9(DATA_FF6799)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6799
+	db sprite.unknown_4C : dw $0001
+	db !spawn_command_success
 
 DATA_FF67D0:
-	%DKC3_SSS_OpF9(DATA_FF6799)
-	%DKC3_SSS_OpXX($4C, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6799
+	db sprite.unknown_4C : dw $0002
+	db !spawn_command_success
 
 DATA_FF67D7:
-	%DKC3_SSS_OpXX($40, $0020)
-	%DKC3_SSS_OpXX($4A, $0000)
-	%DKC3_SSS_OpFF(!sprite_BarrelCannon)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFD($0000)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpXX($06, $0D00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($4C, $0000)
-	%DKC3_SSS_OpEF()
+	db sprite.animation_id : dw $0020
+	db sprite.unknown_4A : dw $0000
+	db !spawn_command_set_type : dw !sprite_BarrelCannon
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FD : dw $0000
+	db sprite.render_order : dw $00C0
+	db sprite.constants_address : dw $0D00
+	db sprite.movement_state : dw $0000
+	db sprite.unknown_4C : dw $0000
+	db !spawn_command_success
 
 DATA_FF67F3:
-	%DKC3_SSS_OpF4(DATA_FF67D7, $0C, $88, $00, $00, $00, $00, $40, $00, $FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF67D7 : db $0C, $88, $00, $00, $00, $00, $40, $00, $FF
+	db !spawn_command_success
 
 DATA_FF6800:
-	%DKC3_SSS_OpF4(DATA_FF67D7, $0C, $88, $00, $00, $00, $00, $40, $00, $10)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF67D7 : db $0C, $88, $00, $00, $00, $00, $40, $00, $10
+	db !spawn_command_success
 
 DATA_FF680D:
-	%DKC3_SSS_OpF4(DATA_FF67D7, $0D, $88, $00, $00, $00, $00, $40, $00, $FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF67D7 : db $0D, $88, $00, $00, $00, $00, $40, $00, $FF
+	db !spawn_command_success
 
 DATA_FF681A:
-	%DKC3_SSS_OpF9(DATA_FF67F3)
-	%DKC3_SSS_OpXX($1C, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF67F3
+	db sprite.terrain_attributes : dw $0002
+	db !spawn_command_success
 
 DATA_FF6821:
-	%DKC3_SSS_OpF9(DATA_FF67F3)
-	%DKC3_SSS_OpXX($1C, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF67F3
+	db sprite.terrain_attributes : dw $0003
+	db !spawn_command_success
 
 DATA_FF6828:
-	%DKC3_SSS_OpF9(DATA_FF67F3)
-	%DKC3_SSS_OpXX($1C, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF67F3
+	db sprite.terrain_attributes : dw $0004
+	db !spawn_command_success
 
 DATA_FF682F:
-	%DKC3_SSS_OpF9(DATA_FF680D)
-	%DKC3_SSS_OpXX($1C, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF680D
+	db sprite.terrain_attributes : dw $0002
+	db !spawn_command_success
 
 DATA_FF6836:
-	%DKC3_SSS_OpF9(DATA_FF680D)
-	%DKC3_SSS_OpXX($1C, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF680D
+	db sprite.terrain_attributes : dw $0003
+	db !spawn_command_success
 
 DATA_FF683D:
-	%DKC3_SSS_OpF9(DATA_FF680D)
-	%DKC3_SSS_OpXX($1C, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF680D
+	db sprite.terrain_attributes : dw $0004
+	db !spawn_command_success
 
 DATA_FF6844:
-	%DKC3_SSS_OpF9(DATA_FF6800)
-	%DKC3_SSS_OpXX($1C, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6800
+	db sprite.terrain_attributes : dw $0002
+	db !spawn_command_success
 
 DATA_FF684B:
-	%DKC3_SSS_OpF9(DATA_FF6800)
-	%DKC3_SSS_OpXX($1C, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6800
+	db sprite.terrain_attributes : dw $0003
+	db !spawn_command_success
 
 DATA_FF6852:
-	%DKC3_SSS_OpF9(DATA_FF6800)
-	%DKC3_SSS_OpXX($1C, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6800
+	db sprite.terrain_attributes : dw $0004
+	db !spawn_command_success
 
 DATA_FF6859:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $88, $00, $40, $40, $10, $80, $24, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $88, $00, $40, $40, $10, $80, $24, $00
+	db !spawn_command_success
 
 DATA_FF6866:
-	%DKC3_SSS_OpF9(DATA_FF6859)
-	%DKC3_SSS_OpXX($4C, $0100)
-	%DKC3_SSS_OpXX($4A, DATA_FF6621)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6859
+	db sprite.unknown_4C : dw $0100
+	db sprite.unknown_4A : dw DATA_FF6621
+	db !spawn_command_success
 
 DATA_FF6870:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $88, $00, $40, $40, $10, $10, $10, $00)
-	%DKC3_SSS_OpXX($4C, $0200)
-	%DKC3_SSS_OpXX($4A, DATA_FF662B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $88, $00, $40, $40, $10, $10, $10, $00
+	db sprite.unknown_4C : dw $0200
+	db sprite.unknown_4A : dw DATA_FF662B
+	db !spawn_command_success
 
 DATA_FF6883:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $88, $00, $40, $40, $10, $10, $10, $00)
-	%DKC3_SSS_OpXX($4C, $0300)
-	%DKC3_SSS_OpXX($4A, DATA_FF6635)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $88, $00, $40, $40, $10, $10, $10, $00
+	db sprite.unknown_4C : dw $0300
+	db sprite.unknown_4A : dw DATA_FF6635
+	db !spawn_command_success
 
 DATA_FF6896:
-	%DKC3_SSS_OpF9(DATA_FF6859)
-	%DKC3_SSS_OpXX($4C, $0400)
-	%DKC3_SSS_OpXX($4A, DATA_FF6645)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6859
+	db sprite.unknown_4C : dw $0400
+	db sprite.unknown_4A : dw DATA_FF6645
+	db !spawn_command_success
 
 DATA_FF68A0:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $88, $00, $00, $00, $00, $20, $40, $14)
-	%DKC3_SSS_OpXX($4C, $0200)
-	%DKC3_SSS_OpXX($4A, DATA_FF662B)
-	%DKC3_SSS_OpXX($06, $0208)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $88, $00, $00, $00, $00, $20, $40, $14
+	db sprite.unknown_4C : dw $0200
+	db sprite.unknown_4A : dw DATA_FF662B
+	db sprite.constants_address : dw $0208
+	db !spawn_command_success
 
 DATA_FF68B6:
-	%DKC3_SSS_OpF9(DATA_FF6859)
-	%DKC3_SSS_OpXX($4C, $0100)
-	%DKC3_SSS_OpXX($4A, DATA_FF6621)
-	%DKC3_SSS_OpXX($58, $00EC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF6859
+	db sprite.unknown_4C : dw $0100
+	db sprite.unknown_4A : dw DATA_FF6621
+	db sprite.unknown_58 : dw $00EC
+	db !spawn_command_success
 
 DATA_FF68C3:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $88, $00, $40, $40, $10, $10, $10, $00)
-	%DKC3_SSS_OpXX($4C, $0200)
-	%DKC3_SSS_OpXX($4A, DATA_FF662B)
-	%DKC3_SSS_OpXX($58, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $88, $00, $40, $40, $10, $10, $10, $00
+	db sprite.unknown_4C : dw $0200
+	db sprite.unknown_4A : dw DATA_FF662B
+	db sprite.unknown_58 : dw $0100
+	db !spawn_command_success
 
 DATA_FF68D9:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $09, $88, $00, $40, $40, $10, $10, $10, $00)
-	%DKC3_SSS_OpXX($4C, $0200)
-	%DKC3_SSS_OpXX($4A, DATA_FF662B)
-	%DKC3_SSS_OpXX($58, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $09, $88, $00, $40, $40, $10, $10, $10, $00
+	db sprite.unknown_4C : dw $0200
+	db sprite.unknown_4A : dw DATA_FF662B
+	db sprite.unknown_58 : dw $0100
+	db !spawn_command_success
 
 DATA_FF68EF:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $09, $88, $00, $40, $40, $10, $10, $10, $00)
-	%DKC3_SSS_OpXX($4C, $0300)
-	%DKC3_SSS_OpXX($4A, DATA_FF6635)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $09, $88, $00, $40, $40, $10, $10, $10, $00
+	db sprite.unknown_4C : dw $0300
+	db sprite.unknown_4A : dw DATA_FF6635
+	db !spawn_command_success
 
 DATA_FF6902:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $22, $D0, $00, $00, $00, $80, $14, $00)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpXX($58, $141E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $22, $D0, $00, $00, $00, $80, $14, $00
+	db sprite.movement_state : dw $0004
+	db sprite.unknown_58 : dw $141E
+	db !spawn_command_success
 
 DATA_FF6915:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $EE, $30, $00, $00, $00, $80, $18, $00)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpXX($58, $0AE2)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $EE, $30, $00, $00, $00, $80, $18, $00
+	db sprite.movement_state : dw $0004
+	db sprite.unknown_58 : dw $0AE2
+	db !spawn_command_success
 
 DATA_FF6928:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $88, $30, $00, $00, $00, $80, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpXX($58, $0AE2)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $88, $30, $00, $00, $00, $80, $10, $00
+	db sprite.movement_state : dw $0004
+	db sprite.unknown_58 : dw $0AE2
+	db !spawn_command_success
 
 DATA_FF693B:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $0A, $30, $00, $00, $00, $80, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $2D00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $0A, $30, $00, $00, $00, $80, $10, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $2D00
+	db !spawn_command_success
 
 DATA_FF694E:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $04, $00, $60, $00, $00, $00, $80, $0C, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $04, $00, $60, $00, $00, $00, $80, $0C, $00
+	db sprite.movement_state : dw $0000
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF6961:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $08, $60, $00, $00, $00, $70, $0A, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $08, $60, $00, $00, $00, $70, $0A, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF6974:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $06, $60, $00, $00, $00, $90, $18, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $06, $60, $00, $00, $00, $90, $18, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF6987:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $08, $60, $00, $00, $00, $90, $0C, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $08, $60, $00, $00, $00, $90, $0C, $00
+	db sprite.movement_state : dw $0001
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF699D:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $08, $30, $00, $00, $00, $80, $0E, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $2D00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $08, $30, $00, $00, $00, $80, $0E, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $2D00
+	db !spawn_command_success
 
 DATA_FF69B0:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $0E, $40, $00, $00, $00, $70, $18, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $28EC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $0E, $40, $00, $00, $00, $70, $18, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $28EC
+	db !spawn_command_success
 
 DATA_FF69C3:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $06, $A0, $00, $00, $00, $78, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $1E28)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $06, $A0, $00, $00, $00, $78, $10, $00
+	db sprite.movement_state : dw $0001
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $1E28
+	db !spawn_command_success
 
 DATA_FF69D9:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $00, $30, $00, $00, $00, $60, $08, $00)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpXX($58, $0AE2)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $00, $30, $00, $00, $00, $60, $08, $00
+	db sprite.movement_state : dw $0004
+	db sprite.unknown_58 : dw $0AE2
+	db !spawn_command_success
 
 DATA_FF69EC:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $08, $30, $00, $00, $00, $70, $0B, $00)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $08, $30, $00, $00, $00, $70, $0B, $00
+	db sprite.movement_state : dw $0004
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF69FF:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $CC, $30, $00, $00, $00, $78, $16, $00)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $CC, $30, $00, $00, $00, $78, $16, $00
+	db sprite.movement_state : dw $0004
+	db !spawn_command_success
 
 DATA_FF6A0F:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $06, $A0, $00, $00, $00, $70, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2828)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $06, $A0, $00, $00, $00, $70, $10, $00
+	db sprite.movement_state : dw $0001
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2828
+	db !spawn_command_success
 
 DATA_FF6A25:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $A6, $30, $00, $00, $00, $50, $10, $FF)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $A6, $30, $00, $00, $00, $50, $10, $FF
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FF6A35:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $00, $00, $40, $40, $10, $20, $30, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $00, $00, $40, $40, $10, $20, $30, $00
+	db !spawn_command_success
 
 DATA_FF6A42:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $88, $40, $40, $40, $10, $20, $30, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $88, $40, $40, $40, $10, $20, $30, $00
+	db !spawn_command_success
 
 DATA_FF6A4F:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $88, $40, $40, $40, $10, $20, $30, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $88, $40, $40, $40, $10, $20, $30, $00
+	db !spawn_command_success
 
 DATA_FF6A5C:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $40, $40, $00, $00, $00, $A0, $30, $00)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $40, $40, $00, $00, $00, $A0, $30, $00
+	db sprite.movement_state : dw $0004
+	db !spawn_command_success
 
 DATA_FF6A6C:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $04, $00, $00, $00, $00, $00, $80, $0C, $00)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $04, $00, $00, $00, $00, $00, $80, $0C, $00
+	db sprite.movement_state : dw $0004
+	db !spawn_command_success
 
 DATA_FF6A7C:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $00, $00, $00, $00, $00, $80, $18, $00)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $00, $00, $00, $00, $00, $80, $18, $00
+	db sprite.movement_state : dw $0004
+	db !spawn_command_success
 
 DATA_FF6A8C:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $00, $00, $00, $00, $00, $80, $60, $00)
-	%DKC3_SSS_OpXX($5A, $0004)
-	%DKC3_SSS_OpXX($58, $F600)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $00, $00, $00, $00, $00, $80, $60, $00
+	db sprite.movement_state : dw $0004
+	db sprite.unknown_58 : dw $F600
+	db !spawn_command_success
 
 DATA_FF6A9F:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $E8, $40, $00, $00, $00, $C0, $28, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $E8, $40, $00, $00, $00, $C0, $28, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FF6AAF:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $26, $C0, $00, $00, $00, $58, $0C, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $26, $C0, $00, $00, $00, $58, $0C, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FF6ABF:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $2E, $60, $00, $00, $00, $60, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $2E, $60, $00, $00, $00, $60, $10, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FF6ACF:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $E8, $C0, $00, $00, $00, $58, $08, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $E8, $C0, $00, $00, $00, $58, $08, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FF6ADF:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $26, $C0, $00, $00, $00, $5C, $08, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $26, $C0, $00, $00, $00, $5C, $08, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FF6AEF:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $EA, $40, $00, $00, $00, $90, $0C, $10)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $EA, $40, $00, $00, $00, $90, $0C, $10
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FF6AFF:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $18, $08, $40, $00, $00, $00, $80, $18, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $18, $08, $40, $00, $00, $00, $80, $18, $00
+	db sprite.movement_state : dw $0001
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF6B15:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $02, $C0, $00, $00, $00, $80, $18, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $02, $C0, $00, $00, $00, $80, $18, $00
+	db sprite.movement_state : dw $0001
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF6B2B:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $0A, $40, $00, $00, $00, $90, $20, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($1A, $000A)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $0A, $40, $00, $00, $00, $90, $20, $00
+	db sprite.movement_state : dw $0001
+	db sprite.ground_distance : dw $000A
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF6B41:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $08, $40, $00, $00, $00, $70, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $08, $40, $00, $00, $00, $70, $10, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FF6B51:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $08, $40, $00, $00, $00, $90, $20, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $08, $40, $00, $00, $00, $90, $20, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FF6B61:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $2A, $40, $00, $00, $00, $70, $1C, $40)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $2A, $40, $00, $00, $00, $70, $1C, $40
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FF6B71:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $09, $08, $40, $00, $00, $00, $80, $20, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $09, $08, $40, $00, $00, $00, $80, $20, $00
+	db sprite.movement_state : dw $0001
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF6B87:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $20, $40, $00, $00, $00, $8C, $24, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $20, $40, $00, $00, $00, $8C, $24, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FF6B97:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $09, $08, $40, $00, $00, $00, $70, $22, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpXX($1A, $0014)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $09, $08, $40, $00, $00, $00, $70, $22, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $2800
+	db sprite.ground_distance : dw $0014
+	db !spawn_command_success
 
 DATA_FF6BAD:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $0E, $40, $00, $00, $00, $70, $F0, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $F600)
-	%DKC3_SSS_OpXX($1A, $1000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $0E, $40, $00, $00, $00, $70, $F0, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $F600
+	db sprite.ground_distance : dw $1000
+	db !spawn_command_success
 
 DATA_FF6BC3:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $08, $C0, $00, $00, $00, $70, $F0, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $F600)
-	%DKC3_SSS_OpXX($1A, $1000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $08, $C0, $00, $00, $00, $70, $F0, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $F600
+	db sprite.ground_distance : dw $1000
+	db !spawn_command_success
 
 DATA_FF6BD9:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $00, $00, $00, $00, $00, $70, $18, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($58, $28EC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $00, $00, $00, $00, $00, $70, $18, $00
+	db sprite.movement_state : dw $0000
+	db sprite.unknown_58 : dw $28EC
+	db !spawn_command_success
 
 DATA_FF6BEC:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $2E, $40, $00, $00, $00, $58, $34, $FF)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $2E, $40, $00, $00, $00, $58, $34, $FF
+	db !spawn_command_success
 
 DATA_FF6BF9:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $09, $48, $C0, $00, $00, $00, $A0, $29, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $D800)
-	%DKC3_SSS_OpXX($1A, $0014)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $09, $48, $C0, $00, $00, $00, $A0, $29, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $D800
+	db sprite.ground_distance : dw $0014
+	db !spawn_command_success
 
 DATA_FF6C0F:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $09, $E8, $C0, $00, $00, $00, $50, $08, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $1400)
-	%DKC3_SSS_OpXX($1A, $0014)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $09, $E8, $C0, $00, $00, $00, $50, $08, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $1400
+	db sprite.ground_distance : dw $0014
+	db !spawn_command_success
 
 DATA_FF6C25:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $08, $40, $00, $00, $00, $60, $0C, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $08, $40, $00, $00, $00, $60, $0C, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF6C38:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $08, $40, $00, $00, $00, $40, $08, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $08, $40, $00, $00, $00, $40, $08, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF6C4B:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $28, $B0, $00, $00, $00, $40, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $28, $B0, $00, $00, $00, $40, $10, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF6C5E:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $C8, $40, $00, $00, $00, $4C, $04, $00)
-	%DKC3_SSS_OpXX($5A, $0201)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $C8, $40, $00, $00, $00, $4C, $04, $00
+	db sprite.movement_state : dw $0201
+	db !spawn_command_success
 
 DATA_FF6C6E:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $48, $C0, $00, $00, $00, $4C, $04, $00)
-	%DKC3_SSS_OpXX($5A, $0201)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $48, $C0, $00, $00, $00, $4C, $04, $00
+	db sprite.movement_state : dw $0201
+	db !spawn_command_success
 
 DATA_FF6C7E:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $48, $C0, $00, $00, $00, $58, $08, $00)
-	%DKC3_SSS_OpXX($5A, $0201)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $48, $C0, $00, $00, $00, $58, $08, $00
+	db sprite.movement_state : dw $0201
+	db !spawn_command_success
 
 DATA_FF6C8E:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $28, $B0, $00, $00, $00, $70, $01, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $28, $B0, $00, $00, $00, $70, $01, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF6CA1:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $0A, $30, $00, $00, $00, $80, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($58, $2D00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $0A, $30, $00, $00, $00, $80, $10, $00
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_58 : dw $2D00
+	db !spawn_command_success
 
 DATA_FF6CB4:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $00, $00, $00, $00, $00, $70, $18, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($58, $28EC)
-	%DKC3_SSS_OpXX($1A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $00, $00, $00, $00, $00, $70, $18, $00
+	db sprite.movement_state : dw $0000
+	db sprite.unknown_58 : dw $28EC
+	db sprite.ground_distance : dw $0001
+	db !spawn_command_success
 
 DATA_FF6CCA:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $18, $08, $40, $00, $00, $00, $70, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $18, $08, $40, $00, $00, $00, $70, $10, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FF6CDA:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $08, $40, $00, $00, $00, $80, $18, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $08, $40, $00, $00, $00, $80, $18, $00
+	db sprite.movement_state : dw $0001
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF6CF0:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $02, $C0, $00, $00, $00, $88, $40, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $02, $C0, $00, $00, $00, $88, $40, $00
+	db sprite.movement_state : dw $0001
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF6D06:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $00, $00, $40, $40, $10, $20, $30, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $00, $00, $40, $40, $10, $20, $30, $00
+	db !spawn_command_success
 
 DATA_FF6D13:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $88, $40, $40, $40, $10, $20, $30, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $88, $40, $40, $40, $10, $20, $30, $00
+	db !spawn_command_success
 
 DATA_FF6D20:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $88, $40, $40, $40, $10, $20, $30, $00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $88, $40, $40, $40, $10, $20, $30, $00
+	db !spawn_command_success
 
 DATA_FF6D2D:
-	%DKC3_SSS_OpF9(DATA_FF65C1)
-	%DKC3_SSS_OpXX($5A, $0706)
-	%DKC3_SSS_OpXX($06, $0100)
-	%DKC3_SSS_OpXX($40, $0060)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF65C1
+	db sprite.movement_state : dw $0706
+	db sprite.constants_address : dw $0100
+	db sprite.animation_id : dw $0060
+	db !spawn_command_success
 
 DATA_FF6D3A:
-	%DKC3_SSS_OpF4(DATA_FF6D2D, $0A, $00, $00, $04, $0C, $00, $80, $0C, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2B00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6D2D : db $0A, $00, $00, $04, $0C, $00, $80, $0C, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2B00
+	db !spawn_command_success
 
 DATA_FF6D4D:
-	%DKC3_SSS_OpF4(DATA_FF6D2D, $0B, $00, $00, $1B, $07, $00, $80, $0C, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2B00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6D2D : db $0B, $00, $00, $1B, $07, $00, $80, $0C, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2B00
+	db !spawn_command_success
 
 DATA_FF6D60:
-	%DKC3_SSS_OpF4(DATA_FF6D2D, $0A, $00, $00, $06, $2A, $00, $80, $0C, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2B00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6D2D : db $0A, $00, $00, $06, $2A, $00, $80, $0C, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2B00
+	db !spawn_command_success
 
 DATA_FF6D73:
-	%DKC3_SSS_OpF4(DATA_FF6D2D, $0A, $00, $00, $04, $2E, $00, $80, $0C, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2B00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6D2D : db $0A, $00, $00, $04, $2E, $00, $80, $0C, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2B00
+	db !spawn_command_success
 
 DATA_FF6D86:
-	%DKC3_SSS_OpF4(DATA_FF6D2D, $0A, $00, $00, $00, $11, $00, $80, $0C, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2B00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6D2D : db $0A, $00, $00, $00, $11, $00, $80, $0C, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2B00
+	db !spawn_command_success
 
 DATA_FF6D99:
-	%DKC3_SSS_OpF4(DATA_FF6D2D, $0B, $00, $00, $21, $02, $00, $80, $0C, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2B00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6D2D : db $0B, $00, $00, $21, $02, $00, $80, $0C, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2B00
+	db !spawn_command_success
 
 DATA_FF6DAC:
-	%DKC3_SSS_OpF4(DATA_FF6D2D, $0A, $00, $00, $1C, $03, $00, $80, $0C, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2B00)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FF6D2D : db $0A, $00, $00, $1C, $03, $00, $80, $0C, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2B00
+	db !spawn_command_F0
 
 DATA_FF6DBF:
-	%DKC3_SSS_OpF4(DATA_FF6D2D, $0B, $00, $00, $20, $02, $00, $80, $0C, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2D00)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FF6D2D : db $0B, $00, $00, $20, $02, $00, $80, $0C, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2D00
+	db !spawn_command_F0
 
 DATA_FF6DD2:
-	%DKC3_SSS_OpF4(DATA_FF6D2D, $0A, $00, $00, $01, $23, $00, $80, $0C, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2B00)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FF6D2D : db $0A, $00, $00, $01, $23, $00, $80, $0C, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2B00
+	db !spawn_command_F0
 
 DATA_FF6DE5:
-	%DKC3_SSS_OpF4(DATA_FF6D2D, $0B, $00, $00, $1C, $04, $00, $80, $0C, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2B00)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FF6D2D : db $0B, $00, $00, $1C, $04, $00, $80, $0C, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2B00
+	db !spawn_command_F0
 
 DATA_FF6DF8:
-	%DKC3_SSS_OpF4(DATA_FF6D2D, $0B, $00, $00, $22, $01, $00, $80, $0C, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2B00)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FF6D2D : db $0B, $00, $00, $22, $01, $00, $80, $0C, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2B00
+	db !spawn_command_F0
 
 DATA_FF6E0B:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $A0, $08, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $A0, $08, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6E1B:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $04, $00, $00, $00, $00, $00, $80, $05, $20)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $04, $00, $00, $00, $00, $00, $80, $05, $20
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6E2B:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $90, $06, $20)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $90, $06, $20
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6E3B:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $80, $08, $20)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $80, $08, $20
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6E4B:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $C0, $08, $20)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $C0, $08, $20
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6E5B:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $80, $07, $01)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $80, $07, $01
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6E6B:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $90, $24, $20)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $90, $24, $20
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6E7B:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $80, $10, $01)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $80, $10, $01
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6E8B:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $80, $20, $20)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $80, $20, $20
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6E9B:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $04, $00, $00, $00, $00, $00, $80, $28, $20)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $04, $00, $00, $00, $00, $00, $80, $28, $20
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6EAB:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $50, $0C, $20)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $50, $0C, $20
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6EBB:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $00, $88, $00, $00, $00, $00, $B0, $0C, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $00, $88, $00, $00, $00, $00, $B0, $0C, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6ECB:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $6C, $18, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $6C, $18, $00
+	db sprite.movement_state : dw $0000
+	db sprite.ground_distance : dw $0000
+	db !spawn_command_success
 
 DATA_FF6EDE:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $44, $00, $00, $00, $00, $D0, $08, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $44, $00, $00, $00, $00, $D0, $08, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6EEE:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $04, $00, $00, $00, $00, $00, $80, $0E, $80)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($58, $0014)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $04, $00, $00, $00, $00, $00, $80, $0E, $80
+	db sprite.movement_state : dw $0000
+	db sprite.unknown_58 : dw $0014
+	db !spawn_command_success
 
 DATA_FF6F01:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $09, $00, $00, $00, $00, $00, $A0, $08, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $09, $00, $00, $00, $00, $00, $A0, $08, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6F11:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $09, $00, $00, $00, $00, $00, $90, $06, $20)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $09, $00, $00, $00, $00, $00, $90, $06, $20
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6F21:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $09, $00, $00, $00, $00, $00, $C0, $08, $20)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $09, $00, $00, $00, $00, $00, $C0, $08, $20
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF6F31:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $9C, $08, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $9C, $08, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_F0
 
 DATA_FF6F41:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $A0, $08, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $A0, $08, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_F0
 
 DATA_FF6F51:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $09, $00, $00, $00, $00, $00, $88, $20, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $09, $00, $00, $00, $00, $00, $88, $20, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_F0
 
 DATA_FF6F61:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $09, $00, $00, $00, $00, $00, $9C, $08, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $09, $00, $00, $00, $00, $00, $9C, $08, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_F0
 
 DATA_FF6F71:
-	%DKC3_SSS_OpFF(!sprite_BarrelCannon)
-	%DKC3_SSS_OpFC($0015)
-	%DKC3_SSS_OpXX($40, $0080)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00EC)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpXX($6A, $0000)
-	%DKC3_SSS_OpXX($24, $0000)
-	%DKC3_SSS_OpXX($5A, $0A0A)
-	%DKC3_SSS_OpXX($06, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelCannon
+	db !spawn_command_FC : dw $0015
+	db sprite.animation_id : dw $0080
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00EC
+	db sprite.unknown_68 : dw $0000
+	db sprite.unknown_6A : dw $0000
+	db sprite.sprite_graphic : dw $0000
+	db sprite.movement_state : dw $0A0A
+	db sprite.constants_address : dw $0100
+	db !spawn_command_success
 
 DATA_FF6F90:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $00, $00, $00, $00, $00, $50, $0C, $00)
-	%DKC3_SSS_OpXX($46, $0080)
-	%DKC3_SSS_OpXX($6C, $1E1C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $50, $0C, $00
+	db sprite.animation_address : dw $0080
+	db sprite.unknown_6C : dw $1E1C
+	db !spawn_command_success
 
 DATA_FF6FA3:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $00, $00, $00, $00, $00, $50, $0C, $00)
-	%DKC3_SSS_OpXX($46, $0080)
-	%DKC3_SSS_OpXX($6C, $4619)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $50, $0C, $00
+	db sprite.animation_address : dw $0080
+	db sprite.unknown_6C : dw $4619
+	db !spawn_command_success
 
 DATA_FF6FB6:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $00, $00, $00, $00, $00, $85, $15, $FF)
-	%DKC3_SSS_OpXX($46, $00C9)
-	%DKC3_SSS_OpXX($6C, $1723)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $85, $15, $FF
+	db sprite.animation_address : dw $00C9
+	db sprite.unknown_6C : dw $1723
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF6FCC:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $EE, $00, $00, $00, $00, $70, $15, $00)
-	%DKC3_SSS_OpXX($46, $0055)
-	%DKC3_SSS_OpXX($6C, $1732)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $EE, $00, $00, $00, $00, $70, $15, $00
+	db sprite.animation_address : dw $0055
+	db sprite.unknown_6C : dw $1732
+	db !spawn_command_success
 
 DATA_FF6FDF:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $88, $00, $00, $00, $00, $50, $0C, $00)
-	%DKC3_SSS_OpXX($46, $0008)
-	%DKC3_SSS_OpXX($6C, $4619)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $88, $00, $00, $00, $00, $50, $0C, $00
+	db sprite.animation_address : dw $0008
+	db sprite.unknown_6C : dw $4619
+	db !spawn_command_success
 
 DATA_FF6FF2:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $01, $00, $00, $00, $00, $00, $60, $10, $00)
-	%DKC3_SSS_OpXX($46, $00E3)
-	%DKC3_SSS_OpXX($6C, $1723)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $01, $00, $00, $00, $00, $00, $60, $10, $00
+	db sprite.animation_address : dw $00E3
+	db sprite.unknown_6C : dw $1723
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF7008:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $01, $00, $00, $00, $00, $00, $80, $28, $FF)
-	%DKC3_SSS_OpXX($46, $0080)
-	%DKC3_SSS_OpXX($6C, $3246)
-	%DKC3_SSS_OpXX($58, $2800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $01, $00, $00, $00, $00, $00, $80, $28, $FF
+	db sprite.animation_address : dw $0080
+	db sprite.unknown_6C : dw $3246
+	db sprite.unknown_58 : dw $2800
+	db !spawn_command_success
 
 DATA_FF701E:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $00, $00, $00, $00, $00, $70, $2E, $FF)
-	%DKC3_SSS_OpXX($46, $00C1)
-	%DKC3_SSS_OpXX($6C, $1432)
-	%DKC3_SSS_OpXX($58, $1400)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $70, $2E, $FF
+	db sprite.animation_address : dw $00C1
+	db sprite.unknown_6C : dw $1432
+	db sprite.unknown_58 : dw $1400
+	db !spawn_command_success
 
 DATA_FF7034:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $00, $00, $00, $00, $00, $50, $0C, $00)
-	%DKC3_SSS_OpXX($46, $0080)
-	%DKC3_SSS_OpXX($6C, $3219)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $50, $0C, $00
+	db sprite.animation_address : dw $0080
+	db sprite.unknown_6C : dw $3219
+	db !spawn_command_success
 
 DATA_FF7047:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $00, $00, $00, $00, $00, $75, $15, $00)
-	%DKC3_SSS_OpXX($46, $00C1)
-	%DKC3_SSS_OpXX($6C, $142D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $75, $15, $00
+	db sprite.animation_address : dw $00C1
+	db sprite.unknown_6C : dw $142D
+	db !spawn_command_success
 
 DATA_FF705A:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $88, $00, $00, $00, $00, $9A, $15, $00)
-	%DKC3_SSS_OpXX($46, $0008)
-	%DKC3_SSS_OpXX($6C, $5A1E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $88, $00, $00, $00, $00, $9A, $15, $00
+	db sprite.animation_address : dw $0008
+	db sprite.unknown_6C : dw $5A1E
+	db !spawn_command_success
 
 DATA_FF706D:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $88, $00, $00, $00, $00, $70, $15, $00)
-	%DKC3_SSS_OpXX($46, $0008)
-	%DKC3_SSS_OpXX($6C, $321E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $88, $00, $00, $00, $00, $70, $15, $00
+	db sprite.animation_address : dw $0008
+	db sprite.unknown_6C : dw $321E
+	db !spawn_command_success
 
 DATA_FF7080:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $00, $00, $00, $00, $00, $70, $32, $FF)
-	%DKC3_SSS_OpXX($46, $0080)
-	%DKC3_SSS_OpXX($6C, $2828)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $70, $32, $FF
+	db sprite.animation_address : dw $0080
+	db sprite.unknown_6C : dw $2828
+	db !spawn_command_success
 
 DATA_FF7093:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $00, $00, $00, $00, $00, $70, $15, $FF)
-	%DKC3_SSS_OpXX($46, $00C1)
-	%DKC3_SSS_OpXX($6C, $2823)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $70, $15, $FF
+	db sprite.animation_address : dw $00C1
+	db sprite.unknown_6C : dw $2823
+	db !spawn_command_success
 
 DATA_FF70A6:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $22, $00, $00, $00, $00, $B0, $04, $00)
-	%DKC3_SSS_OpXX($58, $ECCE)
-	%DKC3_SSS_OpXX($46, $0040)
-	%DKC3_SSS_OpXX($6C, $4628)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $22, $00, $00, $00, $00, $B0, $04, $00
+	db sprite.unknown_58 : dw $ECCE
+	db sprite.animation_address : dw $0040
+	db sprite.unknown_6C : dw $4628
+	db !spawn_command_success
 
 DATA_FF70BC:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $22, $00, $00, $00, $00, $70, $12, $00)
-	%DKC3_SSS_OpXX($46, $0055)
-	%DKC3_SSS_OpXX($6C, $141E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $22, $00, $00, $00, $00, $70, $12, $00
+	db sprite.animation_address : dw $0055
+	db sprite.unknown_6C : dw $141E
+	db !spawn_command_success
 
 DATA_FF70CF:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $88, $00, $00, $00, $00, $70, $15, $00)
-	%DKC3_SSS_OpXX($46, $0008)
-	%DKC3_SSS_OpXX($6C, $3232)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $88, $00, $00, $00, $00, $70, $15, $00
+	db sprite.animation_address : dw $0008
+	db sprite.unknown_6C : dw $3232
+	db !spawn_command_success
 
 DATA_FF70E2:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $00, $00, $00, $00, $00, $70, $15, $00)
-	%DKC3_SSS_OpXX($46, $0080)
-	%DKC3_SSS_OpXX($6C, $3232)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $70, $15, $00
+	db sprite.animation_address : dw $0080
+	db sprite.unknown_6C : dw $3232
+	db !spawn_command_success
 
 DATA_FF70F5:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $00, $00, $00, $00, $00, $50, $0C, $00)
-	%DKC3_SSS_OpXX($46, $0080)
-	%DKC3_SSS_OpXX($6C, $281E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $50, $0C, $00
+	db sprite.animation_address : dw $0080
+	db sprite.unknown_6C : dw $281E
+	db !spawn_command_success
 
 DATA_FF7108:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $00, $00, $00, $00, $00, $75, $15, $00)
-	%DKC3_SSS_OpXX($46, $00C9)
-	%DKC3_SSS_OpXX($6C, $0528)
-	%DKC3_SSS_OpXX($1A, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $75, $15, $00
+	db sprite.animation_address : dw $00C9
+	db sprite.unknown_6C : dw $0528
+	db sprite.ground_distance : dw $0004
+	db !spawn_command_success
 
 DATA_FF711E:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $00, $00, $00, $00, $00, $75, $04, $00)
-	%DKC3_SSS_OpXX($46, $00C9)
-	%DKC3_SSS_OpXX($6C, $2346)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $75, $04, $00
+	db sprite.animation_address : dw $00C9
+	db sprite.unknown_6C : dw $2346
+	db !spawn_command_success
 
 DATA_FF7131:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $00, $00, $00, $00, $00, $50, $0C, $00)
-	%DKC3_SSS_OpXX($46, $0080)
-	%DKC3_SSS_OpXX($6C, $B414)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $50, $0C, $00
+	db sprite.animation_address : dw $0080
+	db sprite.unknown_6C : dw $B414
+	db !spawn_command_success
 
 DATA_FF7144:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $88, $00, $00, $00, $00, $50, $0C, $00)
-	%DKC3_SSS_OpXX($46, $0008)
-	%DKC3_SSS_OpXX($6C, $B414)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $88, $00, $00, $00, $00, $50, $0C, $00
+	db sprite.animation_address : dw $0008
+	db sprite.unknown_6C : dw $B414
+	db !spawn_command_success
 
 DATA_FF7157:
-	%DKC3_SSS_OpF4(DATA_FF6F71, $00, $88, $00, $00, $00, $00, $50, $0C, $00)
-	%DKC3_SSS_OpXX($46, $0080)
-	%DKC3_SSS_OpXX($6C, $4619)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF6F71 : db $00, $88, $00, $00, $00, $00, $50, $0C, $00
+	db sprite.animation_address : dw $0080
+	db sprite.unknown_6C : dw $4619
+	db !spawn_command_success
 
 DATA_FF716A:
-	%DKC3_SSS_OpXX($06, DATA_FF1D9C)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFB($1C0F)
-	%DKC3_SSS_OpFA($015C)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db sprite.constants_address : dw DATA_FF1D9C
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FB : dw $1C0F
+	db !spawn_command_FA : dw $015C
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF717D:
-	%DKC3_SSS_OpF9(DATA_FF716A)
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_02C8)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF716A
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_02C8
+	db sprite.interaction_flags : dw $0000
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF718A:
-	%DKC3_SSS_OpF9(DATA_FF716A)
-	%DKC3_SSS_OpFF(!sprite_DKBarrel)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF716A
+	db !spawn_command_set_type : dw !sprite_DKBarrel
+	db sprite.interaction_flags : dw $0000
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FF7197:
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpF9(DATA_FF718A)
-	%DKC3_SSS_OpEF()
+	db sprite.visibility : dw $C000
+	db !spawn_command_F9 : dw DATA_FF718A
+	db !spawn_command_success
 
 DATA_FF719E:
-	%DKC3_SSS_OpF9(DATA_FF718A)
-	%DKC3_SSS_OpXX($44, $00A0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF718A
+	db sprite.animation_speed : dw $00A0
+	db !spawn_command_success
 
 DATA_FF71A5:
-	%DKC3_SSS_OpF9(DATA_FF716A)
-	%DKC3_SSS_OpFF(!sprite_DKBarrel)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF716A
+	db !spawn_command_set_type : dw !sprite_DKBarrel
+	db sprite.interaction_flags : dw $0000
+	db sprite.movement_state : dw $0000
+	db !spawn_command_F0
 
 DATA_FF71B2:
-	%DKC3_SSS_OpF9(DATA_FF716A)
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_02CC)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $8001)
-	%DKC3_SSS_OpXX($5A, $004F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF716A
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_02CC
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $8001
+	db sprite.movement_state : dw $004F
+	db !spawn_command_success
 
 DATA_FF71C8:
-	%DKC3_SSS_OpF9(DATA_FF716A)
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_02CC)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $8001)
-	%DKC3_SSS_OpXX($5A, $004F)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF716A
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_02CC
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $8001
+	db sprite.movement_state : dw $004F
+	db !spawn_command_F0
 
 DATA_FF71DE:
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpF9(DATA_FF71B2)
-	%DKC3_SSS_OpEF()
+	db sprite.visibility : dw $C000
+	db !spawn_command_F9 : dw DATA_FF71B2
+	db !spawn_command_success
 
 DATA_FF71E5:
-	%DKC3_SSS_OpF9(DATA_FF71B2)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF71B2
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FF71EC:
-	%DKC3_SSS_OpFF(!sprite_InvincibilityBarrel)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpF3($31, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_InvincibilityBarrel
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_F3, $31, $00
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF71FF:
-	%DKC3_SSS_OpF9(DATA_FF71EC)
-	%DKC3_SSS_OpXX($5C, $0708)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF71EC
+	db sprite.unknown_5C : dw $0708
+	db !spawn_command_success
 
 DATA_FF7206:
-	%DKC3_SSS_OpF9(DATA_FF71EC)
-	%DKC3_SSS_OpXX($5C, $0258)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF71EC
+	db sprite.unknown_5C : dw $0258
+	db !spawn_command_success
 
 DATA_FF720D:
-	%DKC3_SSS_OpF9(DATA_FF71EC)
-	%DKC3_SSS_OpXX($5C, $041A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF71EC
+	db sprite.unknown_5C : dw $041A
+	db !spawn_command_success
 
 DATA_FF7214:
-	%DKC3_SSS_OpFF(!sprite_NoAnimalBuddySign)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $FC00)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0010)
-	%DKC3_SSS_OpXX($5E, $0004)
-	%DKC3_SSS_OpXX($60, $0040)
-	%DKC3_SSS_OpXX($62, $001E)
-	%DKC3_SSS_OpXX($64, $D040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_NoAnimalBuddySign
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $FC00
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0010
+	db sprite.unknown_5E : dw $0004
+	db sprite.unknown_60 : dw $0040
+	db sprite.unknown_62 : dw $001E
+	db sprite.unknown_64 : dw $D040
+	db !spawn_command_success
 
 DATA_FF7233:
-	%DKC3_SSS_OpF9(DATA_FF7214)
-	%DKC3_SSS_OpF3($28, $00)
-	%DKC3_SSS_OpXX($5C, $0234)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7214
+	db !spawn_command_F3, $28, $00
+	db sprite.unknown_5C : dw $0234
+	db !spawn_command_success
 
 DATA_FF723D:
-	%DKC3_SSS_OpF9(DATA_FF7214)
-	%DKC3_SSS_OpXX($58, $0400)
-	%DKC3_SSS_OpF3($28, $01)
-	%DKC3_SSS_OpXX($5C, $0238)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7214
+	db sprite.unknown_58 : dw $0400
+	db !spawn_command_F3, $28, $01
+	db sprite.unknown_5C : dw $0238
+	db !spawn_command_success
 
 DATA_FF724A:
-	%DKC3_SSS_OpF9(DATA_FF7214)
-	%DKC3_SSS_OpF3($28, $02)
-	%DKC3_SSS_OpXX($5C, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7214
+	db !spawn_command_F3, $28, $02
+	db sprite.unknown_5C : dw $0240
+	db !spawn_command_success
 
 DATA_FF7254:
-	%DKC3_SSS_OpF9(DATA_FF7214)
-	%DKC3_SSS_OpF3($28, $03)
-	%DKC3_SSS_OpXX($5C, $023C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7214
+	db !spawn_command_F3, $28, $03
+	db sprite.unknown_5C : dw $023C
+	db !spawn_command_success
 
 DATA_FF725E:
-	%DKC3_SSS_OpF9(DATA_FF7214)
-	%DKC3_SSS_OpF3($28, $04)
-	%DKC3_SSS_OpXX($5C, $0244)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7214
+	db !spawn_command_F3, $28, $04
+	db sprite.unknown_5C : dw $0244
+	db !spawn_command_success
 
 DATA_FF7268:
-	%DKC3_SSS_OpFF(!sprite_BarrelSwitchS)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0010)
-	%DKC3_SSS_OpF3($28, $05)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelSwitchS
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0010
+	db !spawn_command_F3, $28, $05
+	db !spawn_command_success
 
 DATA_FF7278:
-	%DKC3_SSS_OpFF(!sprite_BarrelSwitchS)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($000D)
-	%DKC3_SSS_OpF3($28, $07)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelSwitchS
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $000D
+	db !spawn_command_F3, $28, $07
+	db !spawn_command_success
 
 DATA_FF7288:
-	%DKC3_SSS_OpFF(!sprite_BarrelSwitchS)
-	%DKC3_SSS_OpXX($0E, $00C0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($000E)
-	%DKC3_SSS_OpF3($28, $06)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelSwitchS
+	db sprite.render_order : dw $00C0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $000E
+	db !spawn_command_F3, $28, $06
+	db !spawn_command_success
 
 DATA_FF7298:
-	%DKC3_SSS_OpF9(DATA_FF7233)
-	%DKC3_SSS_OpXX($5E, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7233
+	db sprite.unknown_5E : dw $0005
+	db !spawn_command_success
 
 DATA_FF729F:
-	%DKC3_SSS_OpF9(DATA_FF7233)
-	%DKC3_SSS_OpXX($5E, $0008)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7233
+	db sprite.unknown_5E : dw $0008
+	db !spawn_command_success
 
 DATA_FF72A6:
-	%DKC3_SSS_OpF9(DATA_FF7233)
-	%DKC3_SSS_OpXX($5E, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7233
+	db sprite.unknown_5E : dw $0004
+	db !spawn_command_success
 
 DATA_FF72AD:
-	%DKC3_SSS_OpF9(DATA_FF7233)
-	%DKC3_SSS_OpXX($5E, $000C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7233
+	db sprite.unknown_5E : dw $000C
+	db !spawn_command_success
 
 DATA_FF72B4:
-	%DKC3_SSS_OpF9(DATA_FF7233)
-	%DKC3_SSS_OpXX($5E, $0008)
-	%DKC3_SSS_OpXX($64, $F840)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7233
+	db sprite.unknown_5E : dw $0008
+	db sprite.unknown_64 : dw $F840
+	db !spawn_command_success
 
 DATA_FF72BE:
-	%DKC3_SSS_OpF9(DATA_FF723D)
-	%DKC3_SSS_OpXX($5E, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF723D
+	db sprite.unknown_5E : dw $0004
+	db !spawn_command_success
 
 DATA_FF72C5:
-	%DKC3_SSS_OpF9(DATA_FF723D)
-	%DKC3_SSS_OpXX($5E, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF723D
+	db sprite.unknown_5E : dw $0005
+	db !spawn_command_success
 
 DATA_FF72CC:
-	%DKC3_SSS_OpF9(DATA_FF723D)
-	%DKC3_SSS_OpXX($5E, $000C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF723D
+	db sprite.unknown_5E : dw $000C
+	db !spawn_command_success
 
 DATA_FF72D3:
-	%DKC3_SSS_OpF9(DATA_FF723D)
-	%DKC3_SSS_OpXX($5E, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF723D
+	db sprite.unknown_5E : dw $0003
+	db !spawn_command_success
 
 DATA_FF72DA:
-	%DKC3_SSS_OpF9(DATA_FF724A)
-	%DKC3_SSS_OpXX($5E, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF724A
+	db sprite.unknown_5E : dw $0005
+	db !spawn_command_success
 
 DATA_FF72E1:
-	%DKC3_SSS_OpF9(DATA_FF724A)
-	%DKC3_SSS_OpXX($5E, $0008)
-	%DKC3_SSS_OpXX($64, $F840)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF724A
+	db sprite.unknown_5E : dw $0008
+	db sprite.unknown_64 : dw $F840
+	db !spawn_command_success
 
 DATA_FF72EB:
-	%DKC3_SSS_OpF9(DATA_FF724A)
-	%DKC3_SSS_OpXX($5E, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF724A
+	db sprite.unknown_5E : dw $0004
+	db !spawn_command_success
 
 DATA_FF72F2:
-	%DKC3_SSS_OpF9(DATA_FF724A)
-	%DKC3_SSS_OpXX($5E, $0008)
-	%DKC3_SSS_OpXX($64, $FC28)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF724A
+	db sprite.unknown_5E : dw $0008
+	db sprite.unknown_64 : dw $FC28
+	db !spawn_command_success
 
 DATA_FF72FC:
-	%DKC3_SSS_OpF9(DATA_FF724A)
-	%DKC3_SSS_OpXX($5E, $000A)
-	%DKC3_SSS_OpXX($64, $F840)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF724A
+	db sprite.unknown_5E : dw $000A
+	db sprite.unknown_64 : dw $F840
+	db !spawn_command_success
 
 DATA_FF7306:
-	%DKC3_SSS_OpF9(DATA_FF724A)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF724A
+	db sprite.unknown_5E : dw $0000
+	db !spawn_command_success
 
 DATA_FF730D:
-	%DKC3_SSS_OpF9(DATA_FF724A)
-	%DKC3_SSS_OpXX($5E, $0004)
-	%DKC3_SSS_OpXX($64, $D020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF724A
+	db sprite.unknown_5E : dw $0004
+	db sprite.unknown_64 : dw $D020
+	db !spawn_command_success
 
 DATA_FF7317:
-	%DKC3_SSS_OpF9(DATA_FF7254)
-	%DKC3_SSS_OpXX($5E, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7254
+	db sprite.unknown_5E : dw $0005
+	db !spawn_command_success
 
 DATA_FF731E:
-	%DKC3_SSS_OpF9(DATA_FF7254)
-	%DKC3_SSS_OpXX($5E, $0008)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7254
+	db sprite.unknown_5E : dw $0008
+	db !spawn_command_success
 
 DATA_FF7325:
-	%DKC3_SSS_OpF9(DATA_FF7254)
-	%DKC3_SSS_OpXX($5E, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7254
+	db sprite.unknown_5E : dw $0004
+	db !spawn_command_success
 
 DATA_FF732C:
-	%DKC3_SSS_OpF9(DATA_FF7254)
-	%DKC3_SSS_OpXX($5E, $0005)
-	%DKC3_SSS_OpXX($64, $F830)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7254
+	db sprite.unknown_5E : dw $0005
+	db sprite.unknown_64 : dw $F830
+	db !spawn_command_success
 
 DATA_FF7336:
-	%DKC3_SSS_OpF9(DATA_FF7254)
-	%DKC3_SSS_OpXX($5E, $0007)
-	%DKC3_SSS_OpXX($64, $F8C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7254
+	db sprite.unknown_5E : dw $0007
+	db sprite.unknown_64 : dw $F8C0
+	db !spawn_command_success
 
 DATA_FF7340:
-	%DKC3_SSS_OpF9(DATA_FF7254)
-	%DKC3_SSS_OpXX($5E, $0008)
-	%DKC3_SSS_OpXX($64, $F840)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7254
+	db sprite.unknown_5E : dw $0008
+	db sprite.unknown_64 : dw $F840
+	db !spawn_command_success
 
 DATA_FF734A:
-	%DKC3_SSS_OpF9(DATA_FF7254)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7254
+	db sprite.unknown_5E : dw $0000
+	db !spawn_command_success
 
 DATA_FF7351:
-	%DKC3_SSS_OpF9(DATA_FF7254)
-	%DKC3_SSS_OpXX($5E, $0008)
-	%DKC3_SSS_OpXX($64, $FC28)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7254
+	db sprite.unknown_5E : dw $0008
+	db sprite.unknown_64 : dw $FC28
+	db !spawn_command_success
 
 DATA_FF735B:
-	%DKC3_SSS_OpF9(DATA_FF725E)
-	%DKC3_SSS_OpXX($5E, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF725E
+	db sprite.unknown_5E : dw $0004
+	db !spawn_command_success
 
 DATA_FF7362:
-	%DKC3_SSS_OpF9(DATA_FF725E)
-	%DKC3_SSS_OpXX($5E, $000C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF725E
+	db sprite.unknown_5E : dw $000C
+	db !spawn_command_success
 
 DATA_FF7369:
-	%DKC3_SSS_OpF9(DATA_FF725E)
-	%DKC3_SSS_OpXX($5E, $0006)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF725E
+	db sprite.unknown_5E : dw $0006
+	db !spawn_command_success
 
 DATA_FF7370:
-	%DKC3_SSS_OpF9(DATA_FF725E)
-	%DKC3_SSS_OpXX($5E, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF725E
+	db sprite.unknown_5E : dw $0003
+	db !spawn_command_success
 
 DATA_FF7377:
-	%DKC3_SSS_OpF9(DATA_FF725E)
-	%DKC3_SSS_OpXX($5E, $000E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF725E
+	db sprite.unknown_5E : dw $000E
+	db !spawn_command_success
 
 DATA_FF737E:
-	%DKC3_SSS_OpF9(DATA_FF725E)
-	%DKC3_SSS_OpXX($5E, $000D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF725E
+	db sprite.unknown_5E : dw $000D
+	db !spawn_command_success
 
 DATA_FF7385:
-	%DKC3_SSS_OpFF(!sprite_Koco)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($6A, $004A)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Koco
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.render_order : dw $00D4
+	db sprite.unknown_6A : dw $004A
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF739E:
-	%DKC3_SSS_OpF9(DATA_FF7385)
-	%DKC3_SSS_OpXX($5A, $0008)
-	%DKC3_SSS_OpXX($34, $0040)
-	%DKC3_SSS_OpXX($64, $0404)
-	%DKC3_SSS_OpFA($013E)
-	%DKC3_SSS_OpFC($007B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7385
+	db sprite.movement_state : dw $0008
+	db sprite.max_y_speed : dw $0040
+	db sprite.unknown_64 : dw $0404
+	db !spawn_command_FA : dw $013E
+	db !spawn_command_FC : dw $007B
+	db !spawn_command_success
 
 DATA_FF73B1:
-	%DKC3_SSS_OpF9(DATA_FF7385)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($34, $FFC0)
-	%DKC3_SSS_OpXX($64, $0202)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpFA($013E)
-	%DKC3_SSS_OpFC($002E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7385
+	db sprite.movement_state : dw $0007
+	db sprite.max_y_speed : dw $FFC0
+	db sprite.unknown_64 : dw $0202
+	db sprite.unknown_60 : dw $0000
+	db !spawn_command_FA : dw $013E
+	db !spawn_command_FC : dw $002E
+	db !spawn_command_success
 
 DATA_FF73C7:
-	%DKC3_SSS_OpF9(DATA_FF7385)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($34, $FFC0)
-	%DKC3_SSS_OpXX($64, $0001)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpFA($013E)
-	%DKC3_SSS_OpFC($002E)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7385
+	db sprite.movement_state : dw $0007
+	db sprite.max_y_speed : dw $FFC0
+	db sprite.unknown_64 : dw $0001
+	db sprite.unknown_60 : dw $0000
+	db !spawn_command_FA : dw $013E
+	db !spawn_command_FC : dw $002E
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_success
 
 DATA_FF73E0:
-	%DKC3_SSS_OpF9(DATA_FF7385)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($30, $FFE0)
-	%DKC3_SSS_OpXX($34, $FFC0)
-	%DKC3_SSS_OpXX($64, $0202)
-	%DKC3_SSS_OpXX($60, $0202)
-	%DKC3_SSS_OpFA($0141)
-	%DKC3_SSS_OpFC($007B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7385
+	db sprite.movement_state : dw $0007
+	db sprite.max_x_speed : dw $FFE0
+	db sprite.max_y_speed : dw $FFC0
+	db sprite.unknown_64 : dw $0202
+	db sprite.unknown_60 : dw $0202
+	db !spawn_command_FA : dw $0141
+	db !spawn_command_FC : dw $007B
+	db !spawn_command_success
 
 DATA_FF73F9:
-	%DKC3_SSS_OpF9(DATA_FF739E)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF739E
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF7403:
-	%DKC3_SSS_OpF9(DATA_FF739E)
-	%DKC3_SSS_OpXX($30, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF739E
+	db sprite.max_x_speed : dw $0080
+	db !spawn_command_success
 
 DATA_FF740A:
-	%DKC3_SSS_OpF9(DATA_FF739E)
-	%DKC3_SSS_OpXX($30, $FF80)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF739E
+	db sprite.max_x_speed : dw $FF80
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF7414:
-	%DKC3_SSS_OpF9(DATA_FF739E)
-	%DKC3_SSS_OpXX($30, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF739E
+	db sprite.max_x_speed : dw $0001
+	db !spawn_command_success
 
 DATA_FF741B:
-	%DKC3_SSS_OpF9(DATA_FF739E)
-	%DKC3_SSS_OpXX($30, $FFFF)
-	%DKC3_SSS_OpXX($34, $FFC0)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF739E
+	db sprite.max_x_speed : dw $FFFF
+	db sprite.max_y_speed : dw $FFC0
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF7428:
-	%DKC3_SSS_OpF9(DATA_FF739E)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF739E
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF742F:
-	%DKC3_SSS_OpF9(DATA_FF739E)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF739E
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF7436:
-	%DKC3_SSS_OpF9(DATA_FF739E)
-	%DKC3_SSS_OpXX($30, $FE80)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF739E
+	db sprite.max_x_speed : dw $FE80
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF7440:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $0150)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $0150
+	db sprite.unknown_60 : dw $4040
+	db !spawn_command_success
 
 DATA_FF744A:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $00C0)
-	%DKC3_SSS_OpXX($60, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $00C0
+	db sprite.unknown_60 : dw $0080
+	db !spawn_command_success
 
 DATA_FF7454:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $FF40)
-	%DKC3_SSS_OpXX($60, $7020)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $FF40
+	db sprite.unknown_60 : dw $7020
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF7461:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $0100
+	db sprite.unknown_60 : dw $2020
+	db !spawn_command_success
 
 DATA_FF746B:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $00C0)
-	%DKC3_SSS_OpXX($60, $8000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $00C0
+	db sprite.unknown_60 : dw $8000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF7478:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $00A0)
-	%DKC3_SSS_OpXX($60, $8020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $00A0
+	db sprite.unknown_60 : dw $8020
+	db !spawn_command_success
 
 DATA_FF7482:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $0280
+	db sprite.unknown_60 : dw $4040
+	db !spawn_command_success
 
 DATA_FF748C:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $FD80)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $FD80
+	db sprite.unknown_60 : dw $4040
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF7499:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $FEA0)
-	%DKC3_SSS_OpXX($60, $4848)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $FEA0
+	db sprite.unknown_60 : dw $4848
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF74A6:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $FE80)
-	%DKC3_SSS_OpXX($60, $3838)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $FE80
+	db sprite.unknown_60 : dw $3838
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF74B3:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $FE40)
-	%DKC3_SSS_OpXX($60, $C000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $FE40
+	db sprite.unknown_60 : dw $C000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF74C0:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpXX($60, $5858)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $FE00
+	db sprite.unknown_60 : dw $5858
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF74CD:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpXX($60, $6050)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $FE00
+	db sprite.unknown_60 : dw $6050
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF74DA:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $0180
+	db sprite.unknown_60 : dw $4040
+	db !spawn_command_success
 
 DATA_FF74E4:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $FE80)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $FE80
+	db sprite.unknown_60 : dw $4040
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF74F1:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpXX($60, $10B0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $0280
+	db sprite.unknown_60 : dw $10B0
+	db !spawn_command_success
 
 DATA_FF74FB:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpXX($60, $3090)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $0280
+	db sprite.unknown_60 : dw $3090
+	db !spawn_command_success
 
 DATA_FF7505:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpXX($60, $5070)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $0280
+	db sprite.unknown_60 : dw $5070
+	db !spawn_command_success
 
 DATA_FF750F:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpXX($60, $2828)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $0200
+	db sprite.unknown_60 : dw $2828
+	db !spawn_command_success
 
 DATA_FF7519:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpXX($60, $2828)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $FE00
+	db sprite.unknown_60 : dw $2828
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF7526:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $00C0)
-	%DKC3_SSS_OpXX($60, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $00C0
+	db sprite.unknown_60 : dw $0080
+	db !spawn_command_success
 
 DATA_FF7530:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $FF40)
-	%DKC3_SSS_OpXX($60, $4050)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $FF40
+	db sprite.unknown_60 : dw $4050
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF753D:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $00C0)
-	%DKC3_SSS_OpXX($60, $5040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $00C0
+	db sprite.unknown_60 : dw $5040
+	db !spawn_command_success
 
 DATA_FF7547:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $0130)
-	%DKC3_SSS_OpXX($60, $8080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $0130
+	db sprite.unknown_60 : dw $8080
+	db !spawn_command_success
 
 DATA_FF7551:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $0160)
-	%DKC3_SSS_OpXX($60, $4848)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $0160
+	db sprite.unknown_60 : dw $4848
+	db !spawn_command_success
 
 DATA_FF755B:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $00C0)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $00C0
+	db sprite.unknown_60 : dw $2020
+	db !spawn_command_success
 
 DATA_FF7565:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $0150)
-	%DKC3_SSS_OpXX($60, $5858)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $0150
+	db sprite.unknown_60 : dw $5858
+	db !spawn_command_success
 
 DATA_FF756F:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $0120)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $0120
+	db sprite.unknown_60 : dw $4040
+	db !spawn_command_success
 
 DATA_FF7579:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $FEA0)
-	%DKC3_SSS_OpXX($60, $C000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $FEA0
+	db sprite.unknown_60 : dw $C000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF7586:
-	%DKC3_SSS_OpF9(DATA_FF73C7)
-	%DKC3_SSS_OpXX($30, $0150)
-	%DKC3_SSS_OpXX($60, $1010)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73C7
+	db sprite.max_x_speed : dw $0150
+	db sprite.unknown_60 : dw $1010
+	db !spawn_command_success
 
 DATA_FF7590:
-	%DKC3_SSS_OpF9(DATA_FF73C7)
-	%DKC3_SSS_OpXX($30, $0150)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73C7
+	db sprite.max_x_speed : dw $0150
+	db sprite.unknown_60 : dw $2020
+	db !spawn_command_success
 
 DATA_FF759A:
-	%DKC3_SSS_OpF9(DATA_FF73C7)
-	%DKC3_SSS_OpXX($30, $0150)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73C7
+	db sprite.max_x_speed : dw $0150
+	db sprite.unknown_60 : dw $3030
+	db !spawn_command_success
 
 DATA_FF75A4:
-	%DKC3_SSS_OpF9(DATA_FF73E0)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73E0
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF75AB:
-	%DKC3_SSS_OpF9(DATA_FF73E0)
-	%DKC3_SSS_OpXX($34, $0040)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73E0
+	db sprite.max_y_speed : dw $0040
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF75B5:
-	%DKC3_SSS_OpFF(!sprite_Lurchin)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0065)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Lurchin
+	db sprite.render_order : dw $00D4
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0065
+	db !spawn_command_success
 
 DATA_FF75C2:
-	%DKC3_SSS_OpF9(DATA_FF75B5)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpFA($01C2)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75B5
+	db sprite.state : dw $0000
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_FA : dw $01C2
+	db !spawn_command_success
 
 DATA_FF75CF:
-	%DKC3_SSS_OpF9(DATA_FF75B5)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($68, $0001)
-	%DKC3_SSS_OpXX($6A, $0100)
-	%DKC3_SSS_OpFA($01C4)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75B5
+	db sprite.state : dw $0002
+	db sprite.unknown_68 : dw $0001
+	db sprite.unknown_6A : dw $0100
+	db !spawn_command_FA : dw $01C4
+	db !spawn_command_success
 
 DATA_FF75DF:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FE00)
-	%DKC3_SSS_OpXX($5C, $3F3F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FE00
+	db sprite.unknown_5C : dw $3F3F
+	db !spawn_command_success
 
 DATA_FF75E9:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $0200)
-	%DKC3_SSS_OpXX($5C, $3F3F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $0200
+	db sprite.unknown_5C : dw $3F3F
+	db !spawn_command_success
 
 DATA_FF75F3:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FD00)
-	%DKC3_SSS_OpXX($5C, $5469)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FD00
+	db sprite.unknown_5C : dw $5469
+	db !spawn_command_success
 
 DATA_FF75FD:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FE00)
-	%DKC3_SSS_OpXX($5C, $6915)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FE00
+	db sprite.unknown_5C : dw $6915
+	db !spawn_command_success
 
 DATA_FF7607:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $0200)
-	%DKC3_SSS_OpXX($5C, $1569)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $0200
+	db sprite.unknown_5C : dw $1569
+	db !spawn_command_success
 
 DATA_FF7611:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FC80)
-	%DKC3_SSS_OpXX($5C, $93BD)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FC80
+	db sprite.unknown_5C : dw $93BD
+	db !spawn_command_success
 
 DATA_FF761B:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FD00)
-	%DKC3_SSS_OpXX($5C, $6915)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FD00
+	db sprite.unknown_5C : dw $6915
+	db !spawn_command_success
 
 DATA_FF7625:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $0300)
-	%DKC3_SSS_OpXX($5C, $1569)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $0300
+	db sprite.unknown_5C : dw $1569
+	db !spawn_command_success
 
 DATA_FF762F:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $0400)
-	%DKC3_SSS_OpXX($5C, $6969)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $0400
+	db sprite.unknown_5C : dw $6969
+	db !spawn_command_success
 
 DATA_FF7639:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FE00)
-	%DKC3_SSS_OpXX($5C, $5454)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FE00
+	db sprite.unknown_5C : dw $5454
+	db !spawn_command_success
 
 DATA_FF7643:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $0200)
-	%DKC3_SSS_OpXX($5C, $5454)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $0200
+	db sprite.unknown_5C : dw $5454
+	db !spawn_command_success
 
 DATA_FF764D:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $0240)
-	%DKC3_SSS_OpXX($5C, $1593)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $0240
+	db sprite.unknown_5C : dw $1593
+	db !spawn_command_success
 
 DATA_FF7657:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FD80)
-	%DKC3_SSS_OpXX($5C, $2AFC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FD80
+	db sprite.unknown_5C : dw $2AFC
+	db !spawn_command_success
 
 DATA_FF7661:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $0100)
-	%DKC3_SSS_OpXX($5C, $1515)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $0100
+	db sprite.unknown_5C : dw $1515
+	db !spawn_command_success
 
 DATA_FF766B:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $0300)
-	%DKC3_SSS_OpXX($5C, $00A8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $0300
+	db sprite.unknown_5C : dw $00A8
+	db !spawn_command_success
 
 DATA_FF7675:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FD80)
-	%DKC3_SSS_OpXX($5C, $1593)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FD80
+	db sprite.unknown_5C : dw $1593
+	db !spawn_command_success
 
 DATA_FF767F:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FD00)
-	%DKC3_SSS_OpXX($5C, $1569)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FD00
+	db sprite.unknown_5C : dw $1569
+	db !spawn_command_success
 
 DATA_FF7689:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FD80)
-	%DKC3_SSS_OpXX($5C, $1569)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FD80
+	db sprite.unknown_5C : dw $1569
+	db !spawn_command_success
 
 DATA_FF7693:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $0100)
-	%DKC3_SSS_OpXX($5C, $0015)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $0100
+	db sprite.unknown_5C : dw $0015
+	db !spawn_command_success
 
 DATA_FF769D:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $0100)
-	%DKC3_SSS_OpXX($5C, $152A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $0100
+	db sprite.unknown_5C : dw $152A
+	db !spawn_command_success
 
 DATA_FF76A7:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $0300)
-	%DKC3_SSS_OpXX($5C, $A800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $0300
+	db sprite.unknown_5C : dw $A800
+	db !spawn_command_success
 
 DATA_FF76B1:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $0300)
-	%DKC3_SSS_OpXX($5C, $5454)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $0300
+	db sprite.unknown_5C : dw $5454
+	db !spawn_command_success
 
 DATA_FF76BB:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FD00)
-	%DKC3_SSS_OpXX($5C, $2A93)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FD00
+	db sprite.unknown_5C : dw $2A93
+	db !spawn_command_success
 
 DATA_FF76C5:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FD00)
-	%DKC3_SSS_OpXX($5C, $69E7)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FD00
+	db sprite.unknown_5C : dw $69E7
+	db !spawn_command_success
 
 DATA_FF76CF:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FC80)
-	%DKC3_SSS_OpXX($5C, $2A7E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FC80
+	db sprite.unknown_5C : dw $2A7E
+	db !spawn_command_success
 
 DATA_FF76D9:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $0380)
-	%DKC3_SSS_OpXX($5C, $7E2A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $0380
+	db sprite.unknown_5C : dw $7E2A
+	db !spawn_command_success
 
 DATA_FF76E3:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $FDC0)
-	%DKC3_SSS_OpXX($5C, $3F7E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $FDC0
+	db sprite.unknown_5C : dw $3F7E
+	db !spawn_command_success
 
 DATA_FF76ED:
-	%DKC3_SSS_OpF9(DATA_FF75C2)
-	%DKC3_SSS_OpXX($2E, $0280)
-	%DKC3_SSS_OpXX($5C, $00A8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75C2
+	db sprite.y_speed : dw $0280
+	db sprite.unknown_5C : dw $00A8
+	db !spawn_command_success
 
 DATA_FF76F7:
-	%DKC3_SSS_OpF9(DATA_FF75CF)
-	%DKC3_SSS_OpXX($68, $0014)
-	%DKC3_SSS_OpXX($6A, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF75CF
+	db sprite.unknown_68 : dw $0014
+	db sprite.unknown_6A : dw $0100
+	db !spawn_command_success
 
 DATA_FF7701:
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($020E)
-	%DKC3_SSS_OpEF()
+	db sprite.render_order : dw $00D8
+	db sprite.state : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $020E
+	db !spawn_command_success
 
 DATA_FF770E:
-	%DKC3_SSS_OpF9(DATA_FF7701)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7701
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF7715:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF7701)
-	%DKC3_SSS_OpXX($5C, $5001)
-	%DKC3_SSS_OpXX($5E, $02E0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF7701
+	db sprite.unknown_5C : dw $5001
+	db sprite.unknown_5E : dw $02E0
+	db !spawn_command_success
 
 DATA_FF7725:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF7701)
-	%DKC3_SSS_OpXX($5C, $5004)
-	%DKC3_SSS_OpXX($5E, $02E0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF7701
+	db sprite.unknown_5C : dw $5004
+	db sprite.unknown_5E : dw $02E0
+	db !spawn_command_success
 
 DATA_FF7735:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF7701)
-	%DKC3_SSS_OpXX($5C, $3C01)
-	%DKC3_SSS_OpXX($5E, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF7701
+	db sprite.unknown_5C : dw $3C01
+	db sprite.unknown_5E : dw $0360
+	db !spawn_command_success
 
 DATA_FF7745:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF7701)
-	%DKC3_SSS_OpXX($5C, $3C06)
-	%DKC3_SSS_OpXX($5E, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF7701
+	db sprite.unknown_5C : dw $3C06
+	db sprite.unknown_5E : dw $0360
+	db !spawn_command_success
 
 DATA_FF7755:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF7701)
-	%DKC3_SSS_OpXX($5C, $5041)
-	%DKC3_SSS_OpXX($5E, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF7701
+	db sprite.unknown_5C : dw $5041
+	db sprite.unknown_5E : dw $0360
+	db !spawn_command_success
 
 DATA_FF7765:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF7701)
-	%DKC3_SSS_OpXX($5C, $5031)
-	%DKC3_SSS_OpXX($5E, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF7701
+	db sprite.unknown_5C : dw $5031
+	db sprite.unknown_5E : dw $0360
+	db !spawn_command_success
 
 DATA_FF7775:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF7701)
-	%DKC3_SSS_OpXX($5C, $5021)
-	%DKC3_SSS_OpXX($5E, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF7701
+	db sprite.unknown_5C : dw $5021
+	db sprite.unknown_5E : dw $0360
+	db !spawn_command_success
 
 DATA_FF7785:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF7701)
-	%DKC3_SSS_OpXX($5C, $5011)
-	%DKC3_SSS_OpXX($5E, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF7701
+	db sprite.unknown_5C : dw $5011
+	db sprite.unknown_5E : dw $0360
+	db !spawn_command_success
 
 DATA_FF7795:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF7701)
-	%DKC3_SSS_OpXX($5C, $5001)
-	%DKC3_SSS_OpXX($5E, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF7701
+	db sprite.unknown_5C : dw $5001
+	db sprite.unknown_5E : dw $0360
+	db !spawn_command_success
 
 DATA_FF77A5:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF770E)
-	%DKC3_SSS_OpXX($5C, $5001)
-	%DKC3_SSS_OpXX($5E, $02E0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF770E
+	db sprite.unknown_5C : dw $5001
+	db sprite.unknown_5E : dw $02E0
+	db !spawn_command_success
 
 DATA_FF77B5:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF770E)
-	%DKC3_SSS_OpXX($5C, $5004)
-	%DKC3_SSS_OpXX($5E, $02E0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF770E
+	db sprite.unknown_5C : dw $5004
+	db sprite.unknown_5E : dw $02E0
+	db !spawn_command_success
 
 DATA_FF77C5:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF770E)
-	%DKC3_SSS_OpXX($5C, $5041)
-	%DKC3_SSS_OpXX($5E, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF770E
+	db sprite.unknown_5C : dw $5041
+	db sprite.unknown_5E : dw $0360
+	db !spawn_command_success
 
 DATA_FF77D5:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF770E)
-	%DKC3_SSS_OpXX($5C, $5031)
-	%DKC3_SSS_OpXX($5E, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF770E
+	db sprite.unknown_5C : dw $5031
+	db sprite.unknown_5E : dw $0360
+	db !spawn_command_success
 
 DATA_FF77E5:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF770E)
-	%DKC3_SSS_OpXX($5C, $5021)
-	%DKC3_SSS_OpXX($5E, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF770E
+	db sprite.unknown_5C : dw $5021
+	db sprite.unknown_5E : dw $0360
+	db !spawn_command_success
 
 DATA_FF77F5:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF770E)
-	%DKC3_SSS_OpXX($5C, $5011)
-	%DKC3_SSS_OpXX($5E, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF770E
+	db sprite.unknown_5C : dw $5011
+	db sprite.unknown_5E : dw $0360
+	db !spawn_command_success
 
 DATA_FF7805:
-	%DKC3_SSS_OpF7(!sprite_Minkey, $0056, $08)
-	%DKC3_SSS_OpF9(DATA_FF770E)
-	%DKC3_SSS_OpXX($5C, $5001)
-	%DKC3_SSS_OpXX($5E, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Minkey, $0056 : db $08
+	db !spawn_command_F9 : dw DATA_FF770E
+	db sprite.unknown_5C : dw $5001
+	db sprite.unknown_5E : dw $0360
+	db !spawn_command_success
 
 DATA_FF7815:
-	%DKC3_SSS_OpXX($0E, $00C4)
-	%DKC3_SSS_OpF3($27, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($6C, DATA_FF782E)
+	db sprite.render_order : dw $00C4
+	db !spawn_command_F3, $27, $00
+	db sprite.state : dw $0000
+	db sprite.unknown_6C : dw DATA_FF782E
 DATA_FF7821:
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $0020)
-	%DKC3_SSS_OpEF()
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.movement_state : dw $0006
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $0020
+	db !spawn_command_success
 
 DATA_FF782E:
-	%DKC3_SSS_OpF7(!sprite_BarrelShield, $0025, $06)
-	%DKC3_SSS_OpF9(DATA_FF7821)
-	%DKC3_SSS_OpF3($27, $01)
-	%DKC3_SSS_OpF6($00, $00)
-	%DKC3_SSS_OpXX($0E, $00EC)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarrelShield, $0025 : db $06
+	db !spawn_command_F9 : dw DATA_FF7821
+	db !spawn_command_F3, $27, $01
+	db !spawn_command_F6, $00, $00
+	db sprite.render_order : dw $00EC
+	db sprite.state : dw $0002
+	db !spawn_command_success
 
 DATA_FF7844:
-	%DKC3_SSS_OpF7(!sprite_BarrelShield, $0025, $06)
-	%DKC3_SSS_OpF9(DATA_FF7815)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpXX($64, $1E1E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarrelShield, $0025 : db $06
+	db !spawn_command_F9 : dw DATA_FF7815
+	db !spawn_command_FE : dw $2000
+	db sprite.max_y_speed : dw $0200
+	db sprite.unknown_64 : dw $1E1E
+	db !spawn_command_success
 
 DATA_FF7857:
-	%DKC3_SSS_OpF7(!sprite_BarrelShield, $0025, $06)
-	%DKC3_SSS_OpF9(DATA_FF7815)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpXX($64, $1E1E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarrelShield, $0025 : db $06
+	db !spawn_command_F9 : dw DATA_FF7815
+	db !spawn_command_FE : dw $6000
+	db sprite.max_y_speed : dw $0200
+	db sprite.unknown_64 : dw $1E1E
+	db !spawn_command_success
 
 DATA_FF786A:
-	%DKC3_SSS_OpF7(!sprite_BarrelShield, $0025, $06)
-	%DKC3_SSS_OpF9(DATA_FF7815)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarrelShield, $0025 : db $06
+	db !spawn_command_F9 : dw DATA_FF7815
+	db !spawn_command_FE : dw $2000
+	db sprite.max_y_speed : dw $0000
+	db sprite.unknown_64 : dw $0000
+	db !spawn_command_success
 
 DATA_FF787D:
-	%DKC3_SSS_OpF7(!sprite_BarrelShield, $0025, $06)
-	%DKC3_SSS_OpF9(DATA_FF7815)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarrelShield, $0025 : db $06
+	db !spawn_command_F9 : dw DATA_FF7815
+	db !spawn_command_FE : dw $6000
+	db sprite.max_y_speed : dw $0000
+	db sprite.unknown_64 : dw $0000
+	db !spawn_command_success
 
 DATA_FF7890:
-	%DKC3_SSS_OpF7(!sprite_BarrelShield, $0025, $06)
-	%DKC3_SSS_OpF9(DATA_FF7815)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpXX($64, $4646)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarrelShield, $0025 : db $06
+	db !spawn_command_F9 : dw DATA_FF7815
+	db !spawn_command_FE : dw $6000
+	db sprite.max_y_speed : dw $0200
+	db sprite.unknown_64 : dw $4646
+	db !spawn_command_success
 
 DATA_FF78A3:
-	%DKC3_SSS_OpF7(!sprite_BarrelShield, $0025, $06)
-	%DKC3_SSS_OpF9(DATA_FF7815)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpXX($64, $4646)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_BarrelShield, $0025 : db $06
+	db !spawn_command_F9 : dw DATA_FF7815
+	db !spawn_command_FE : dw $2000
+	db sprite.max_y_speed : dw $0200
+	db sprite.unknown_64 : dw $4646
+	db !spawn_command_success
 
 DATA_FF78B6:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0280)
-	%DKC3_SSS_OpFA($019D)
-	%DKC3_SSS_OpFC($0048)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpXX($0E, $00EC)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5E, $000C)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0280
+	db !spawn_command_FA : dw $019D
+	db !spawn_command_FC : dw $0048
+	db !spawn_command_FE : dw $2000
+	db sprite.render_order : dw $00EC
+	db sprite.interaction_flags : dw $0000
+	db sprite.unknown_5E : dw $000C
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF78CF:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0138)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0138
+	db !spawn_command_success
 
 DATA_FF78D3:
-	%DKC3_SSS_OpFF(!sprite_Sneek)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpFC($0058)
-	%DKC3_SSS_OpFA($0135)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($3A, $0240)
-	%DKC3_SSS_OpXX($6A, $004A)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0042)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Sneek
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.render_order : dw $00D4
+	db !spawn_command_FC : dw $0058
+	db !spawn_command_FA : dw $0135
+	db !spawn_command_FE : dw $6000
+	db sprite.interaction_flags : dw $0240
+	db sprite.unknown_6A : dw $004A
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0042
+	db !spawn_command_success
 
 DATA_FF78F8:
-	%DKC3_SSS_OpF9(DATA_FF78D3)
-	%DKC3_SSS_OpXX($5A, $0043)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78D3
+	db sprite.movement_state : dw $0043
+	db !spawn_command_success
 
 DATA_FF78FF:
-	%DKC3_SSS_OpF9(DATA_FF78D3)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78D3
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF7906:
-	%DKC3_SSS_OpF9(DATA_FF78D3)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78D3
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF7910:
-	%DKC3_SSS_OpF9(DATA_FF78D3)
-	%DKC3_SSS_OpXX($30, $FF40)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78D3
+	db sprite.max_x_speed : dw $FF40
+	db !spawn_command_success
 
 DATA_FF7917:
-	%DKC3_SSS_OpF9(DATA_FF78D3)
-	%DKC3_SSS_OpXX($30, $00C0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78D3
+	db sprite.max_x_speed : dw $00C0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF7921:
-	%DKC3_SSS_OpF9(DATA_FF78F8)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpXX($60, $0040)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78F8
+	db sprite.max_x_speed : dw $0100
+	db sprite.unknown_60 : dw $0040
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF792E:
-	%DKC3_SSS_OpF9(DATA_FF78F8)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpXX($60, $0090)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78F8
+	db sprite.max_x_speed : dw $0100
+	db sprite.unknown_60 : dw $0090
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF793B:
-	%DKC3_SSS_OpF9(DATA_FF78F8)
-	%DKC3_SSS_OpXX($30, $FE80)
-	%DKC3_SSS_OpXX($60, $0808)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78F8
+	db sprite.max_x_speed : dw $FE80
+	db sprite.unknown_60 : dw $0808
+	db !spawn_command_success
 
 DATA_FF7945:
-	%DKC3_SSS_OpF9(DATA_FF78F8)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78F8
+	db sprite.max_x_speed : dw $0180
+	db sprite.unknown_60 : dw $2020
+	db !spawn_command_success
 
 DATA_FF794F:
-	%DKC3_SSS_OpF9(DATA_FF78F8)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpXX($60, $4000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78F8
+	db sprite.max_x_speed : dw $FF00
+	db sprite.unknown_60 : dw $4000
+	db !spawn_command_success
 
 DATA_FF7959:
-	%DKC3_SSS_OpF9(DATA_FF78F8)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpXX($60, $9000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78F8
+	db sprite.max_x_speed : dw $FF00
+	db sprite.unknown_60 : dw $9000
+	db !spawn_command_success
 
 DATA_FF7963:
-	%DKC3_SSS_OpF9(DATA_FF78F8)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpXX($60, $1414)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78F8
+	db sprite.max_x_speed : dw $0100
+	db sprite.unknown_60 : dw $1414
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF7970:
-	%DKC3_SSS_OpF9(DATA_FF78F8)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpXX($60, $1010)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78F8
+	db sprite.max_x_speed : dw $0100
+	db sprite.unknown_60 : dw $1010
+	db !spawn_command_success
 
 DATA_FF797A:
-	%DKC3_SSS_OpF9(DATA_FF78F8)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpXX($60, $F008)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78F8
+	db sprite.max_x_speed : dw $FF00
+	db sprite.unknown_60 : dw $F008
+	db !spawn_command_success
 
 DATA_FF7984:
-	%DKC3_SSS_OpFF(!sprite_Buzz)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($06, DATA_FF1F44)
-	%DKC3_SSS_OpXX($3A, $4240)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpFC($0014)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($68, $0008)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Buzz
+	db sprite.render_order : dw $00D4
+	db sprite.constants_address : dw DATA_FF1F44
+	db sprite.interaction_flags : dw $4240
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db !spawn_command_FC : dw $0014
+	db !spawn_command_FE : dw $6000
+	db sprite.unknown_68 : dw $0008
+	db !spawn_command_success
 
 DATA_FF79A3:
-	%DKC3_SSS_OpF9(DATA_FF7984)
-	%DKC3_SSS_OpFA($0139)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7984
+	db !spawn_command_FA : dw $0139
+	db sprite.movement_state : dw $0007
+	db !spawn_command_success
 
 DATA_FF79AD:
-	%DKC3_SSS_OpF9(DATA_FF7984)
-	%DKC3_SSS_OpFA($0139)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7984
+	db !spawn_command_FA : dw $0139
+	db sprite.movement_state : dw $0006
+	db !spawn_command_success
 
 DATA_FF79B7:
-	%DKC3_SSS_OpF9(DATA_FF7984)
-	%DKC3_SSS_OpFA($013B)
-	%DKC3_SSS_OpXX($5A, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7984
+	db !spawn_command_FA : dw $013B
+	db sprite.movement_state : dw $0005
+	db !spawn_command_success
 
 DATA_FF79C1:
-	%DKC3_SSS_OpF9(DATA_FF7984)
-	%DKC3_SSS_OpFA($013B)
-	%DKC3_SSS_OpXX($5A, $000A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7984
+	db !spawn_command_FA : dw $013B
+	db sprite.movement_state : dw $000A
+	db !spawn_command_success
 
 DATA_FF79CB:
-	%DKC3_SSS_OpF9(DATA_FF7984)
-	%DKC3_SSS_OpFA($0139)
-	%DKC3_SSS_OpXX($5A, $000B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7984
+	db !spawn_command_FA : dw $0139
+	db sprite.movement_state : dw $000B
+	db !spawn_command_success
 
 DATA_FF79D5:
-	%DKC3_SSS_OpFF(!sprite_Buzz)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($06, DATA_FF1F44)
-	%DKC3_SSS_OpXX($3A, $0A40)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpFC($0013)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($68, $0008)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Buzz
+	db sprite.render_order : dw $00D4
+	db sprite.constants_address : dw DATA_FF1F44
+	db sprite.interaction_flags : dw $0A40
+	db sprite.state : dw $0001
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db !spawn_command_FC : dw $0013
+	db !spawn_command_FE : dw $6000
+	db sprite.unknown_68 : dw $0008
+	db !spawn_command_success
 
 DATA_FF79F4:
-	%DKC3_SSS_OpF9(DATA_FF79D5)
-	%DKC3_SSS_OpFA($0139)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79D5
+	db !spawn_command_FA : dw $0139
+	db sprite.movement_state : dw $0007
+	db !spawn_command_success
 
 DATA_FF79FE:
-	%DKC3_SSS_OpF9(DATA_FF79D5)
-	%DKC3_SSS_OpFA($0139)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79D5
+	db !spawn_command_FA : dw $0139
+	db sprite.movement_state : dw $0006
+	db !spawn_command_success
 
 DATA_FF7A08:
-	%DKC3_SSS_OpF9(DATA_FF79D5)
-	%DKC3_SSS_OpFA($013B)
-	%DKC3_SSS_OpXX($5A, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79D5
+	db !spawn_command_FA : dw $013B
+	db sprite.movement_state : dw $0005
+	db !spawn_command_success
 
 DATA_FF7A12:
-	%DKC3_SSS_OpF9(DATA_FF79D5)
-	%DKC3_SSS_OpFA($013B)
-	%DKC3_SSS_OpXX($5A, $000A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79D5
+	db !spawn_command_FA : dw $013B
+	db sprite.movement_state : dw $000A
+	db !spawn_command_success
 
 DATA_FF7A1C:
-	%DKC3_SSS_OpF9(DATA_FF79D5)
-	%DKC3_SSS_OpFA($013B)
-	%DKC3_SSS_OpXX($5A, $000B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79D5
+	db !spawn_command_FA : dw $013B
+	db sprite.movement_state : dw $000B
+	db !spawn_command_success
 
 DATA_FF7A26:
-	%DKC3_SSS_OpF9(DATA_FF79A3)
-	%DKC3_SSS_OpXX($60, $0101)
-	%DKC3_SSS_OpXX($30, $0030)
-	%DKC3_SSS_OpXX($64, $0202)
-	%DKC3_SSS_OpXX($34, $0040)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF79A3
+	db sprite.unknown_60 : dw $0101
+	db sprite.max_x_speed : dw $0030
+	db sprite.unknown_64 : dw $0202
+	db sprite.max_y_speed : dw $0040
+	db !spawn_command_F0
 
 DATA_FF7A36:
-	%DKC3_SSS_OpF9(DATA_FF79A3)
-	%DKC3_SSS_OpXX($60, $0101)
-	%DKC3_SSS_OpXX($30, $FFD0)
-	%DKC3_SSS_OpXX($64, $0202)
-	%DKC3_SSS_OpXX($34, $0040)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF79A3
+	db sprite.unknown_60 : dw $0101
+	db sprite.max_x_speed : dw $FFD0
+	db sprite.unknown_64 : dw $0202
+	db sprite.max_y_speed : dw $0040
+	db !spawn_command_F0
 
 DATA_FF7A46:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $5010)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $5010
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_F0
 
 DATA_FF7A50:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $5010)
-	%DKC3_SSS_OpXX($34, $0140)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $5010
+	db sprite.max_y_speed : dw $0140
+	db !spawn_command_F0
 
 DATA_FF7A5A:
-	%DKC3_SSS_OpF9(DATA_FF79A3)
-	%DKC3_SSS_OpXX($60, $0101)
-	%DKC3_SSS_OpXX($30, $0030)
-	%DKC3_SSS_OpXX($64, $0202)
-	%DKC3_SSS_OpXX($34, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79A3
+	db sprite.unknown_60 : dw $0101
+	db sprite.max_x_speed : dw $0030
+	db sprite.unknown_64 : dw $0202
+	db sprite.max_y_speed : dw $0040
+	db !spawn_command_success
 
 DATA_FF7A6A:
-	%DKC3_SSS_OpF9(DATA_FF79A3)
-	%DKC3_SSS_OpXX($60, $0101)
-	%DKC3_SSS_OpXX($30, $FFD0)
-	%DKC3_SSS_OpXX($64, $0202)
-	%DKC3_SSS_OpXX($34, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79A3
+	db sprite.unknown_60 : dw $0101
+	db sprite.max_x_speed : dw $FFD0
+	db sprite.unknown_64 : dw $0202
+	db sprite.max_y_speed : dw $0040
+	db !spawn_command_success
 
 DATA_FF7A7A:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $7020)
-	%DKC3_SSS_OpXX($34, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $7020
+	db sprite.max_y_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FF7A84:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $5040)
-	%DKC3_SSS_OpXX($34, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $5040
+	db sprite.max_y_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FF7A8E:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $3060)
-	%DKC3_SSS_OpXX($34, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $3060
+	db sprite.max_y_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FF7A98:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $9000)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $9000
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF7AA2:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $7020)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $7020
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF7AAC:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $5040)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $5040
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF7AB6:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $3030)
-	%DKC3_SSS_OpXX($34, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $3030
+	db sprite.max_y_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF7AC0:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $2020)
-	%DKC3_SSS_OpXX($34, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $2020
+	db sprite.max_y_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FF7ACA:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $6010)
-	%DKC3_SSS_OpXX($34, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $6010
+	db sprite.max_y_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FF7AD4:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $3838)
-	%DKC3_SSS_OpXX($34, $FD00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $3838
+	db sprite.max_y_speed : dw $FD00
+	db !spawn_command_success
 
 DATA_FF7ADE:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $3838)
-	%DKC3_SSS_OpXX($34, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $3838
+	db sprite.max_y_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF7AE8:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $0060)
-	%DKC3_SSS_OpXX($34, $0120)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $0060
+	db sprite.max_y_speed : dw $0120
+	db !spawn_command_success
 
 DATA_FF7AF2:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $5060)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $5060
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF7AFF:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $5050)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $5050
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF7B0C:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $6020)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $6020
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF7B19:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $A030)
-	%DKC3_SSS_OpXX($30, $0120)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $A030
+	db sprite.max_x_speed : dw $0120
+	db !spawn_command_success
 
 DATA_FF7B23:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $5050)
-	%DKC3_SSS_OpXX($30, $FEC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $5050
+	db sprite.max_x_speed : dw $FEC0
+	db !spawn_command_success
 
 DATA_FF7B2D:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($30, $FEE0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $4040
+	db sprite.max_x_speed : dw $FEE0
+	db !spawn_command_success
 
 DATA_FF7B37:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $0060)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $0060
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF7B44:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpXX($30, $0150)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $3030
+	db sprite.max_x_speed : dw $0150
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF7B51:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $2020
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF7B5E:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($30, $FEC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $2020
+	db sprite.max_x_speed : dw $FEC0
+	db !spawn_command_success
 
 DATA_FF7B68:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($30, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $2020
+	db sprite.max_x_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FF7B72:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $4040
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF7B7F:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $8000)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $8000
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF7B89:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $6020)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $6020
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF7B96:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $0080)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $0080
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF7BA3:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $0080)
-	%DKC3_SSS_OpXX($30, $0120)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $0080
+	db sprite.max_x_speed : dw $0120
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF7BB0:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $0848)
-	%DKC3_SSS_OpXX($30, $FF20)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $0848
+	db sprite.max_x_speed : dw $FF20
+	db !spawn_command_success
 
 DATA_FF7BBA:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $4000)
-	%DKC3_SSS_OpXX($62, $3000)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $4000
+	db sprite.unknown_62 : dw $3000
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF7BC7:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF7BD4:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $8000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $8000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF7BE1:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF7BEE:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $6000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $6000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF7BFB:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $A000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $A000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF7C08:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $2000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $2000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF7C15:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $4000)
-	%DKC3_SSS_OpXX($62, $3000)
-	%DKC3_SSS_OpXX($30, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $4000
+	db sprite.unknown_62 : dw $3000
+	db sprite.max_x_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF7C22:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $3000)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $3000
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF7C2F:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $6000)
-	%DKC3_SSS_OpXX($62, $3000)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $6000
+	db sprite.unknown_62 : dw $3000
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF7C3C:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $8000)
-	%DKC3_SSS_OpXX($62, $1000)
-	%DKC3_SSS_OpXX($30, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $8000
+	db sprite.unknown_62 : dw $1000
+	db sprite.max_x_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF7C49:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $C000)
-	%DKC3_SSS_OpXX($62, $1000)
-	%DKC3_SSS_OpXX($30, $FD00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $C000
+	db sprite.unknown_62 : dw $1000
+	db sprite.max_x_speed : dw $FD00
+	db !spawn_command_success
 
 DATA_FF7C56:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $4000)
-	%DKC3_SSS_OpXX($62, $3000)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $4000
+	db sprite.unknown_62 : dw $3000
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF7C63:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $D000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $D000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF7C70:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $5000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $5000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF7C7D:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF7C8A:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $6000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $6000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF7C97:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $3000)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $3000
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF7CA4:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $4000)
-	%DKC3_SSS_OpXX($62, $3000)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $4000
+	db sprite.unknown_62 : dw $3000
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_F0
 
 DATA_FF7CB1:
-	%DKC3_SSS_OpF9(DATA_FF79CB)
-	%DKC3_SSS_OpXX($60, $2000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($64, $20E0)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79CB
+	db sprite.unknown_60 : dw $2000
+	db sprite.unknown_62 : dw $4000
+	db sprite.unknown_64 : dw $20E0
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF7CC1:
-	%DKC3_SSS_OpF9(DATA_FF79CB)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($64, $E020)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79CB
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $4000
+	db sprite.unknown_64 : dw $E020
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FF7CD1:
-	%DKC3_SSS_OpF9(DATA_FF79F4)
-	%DKC3_SSS_OpXX($60, $0101)
-	%DKC3_SSS_OpXX($30, $0030)
-	%DKC3_SSS_OpXX($64, $0202)
-	%DKC3_SSS_OpXX($34, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79F4
+	db sprite.unknown_60 : dw $0101
+	db sprite.max_x_speed : dw $0030
+	db sprite.unknown_64 : dw $0202
+	db sprite.max_y_speed : dw $0040
+	db !spawn_command_success
 
 DATA_FF7CE1:
-	%DKC3_SSS_OpF9(DATA_FF79F4)
-	%DKC3_SSS_OpXX($60, $0101)
-	%DKC3_SSS_OpXX($30, $FFD0)
-	%DKC3_SSS_OpXX($64, $0202)
-	%DKC3_SSS_OpXX($34, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79F4
+	db sprite.unknown_60 : dw $0101
+	db sprite.max_x_speed : dw $FFD0
+	db sprite.unknown_64 : dw $0202
+	db sprite.max_y_speed : dw $0040
+	db !spawn_command_success
 
 DATA_FF7CF1:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $500D)
-	%DKC3_SSS_OpXX($34, $FEF0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $500D
+	db sprite.max_y_speed : dw $FEF0
+	db !spawn_command_success
 
 DATA_FF7CFB:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $500D)
-	%DKC3_SSS_OpXX($34, $0110)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $500D
+	db sprite.max_y_speed : dw $0110
+	db !spawn_command_success
 
 DATA_FF7D05:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $7070)
-	%DKC3_SSS_OpXX($34, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $7070
+	db sprite.max_y_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF7D0F:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $3838)
-	%DKC3_SSS_OpXX($34, $FD00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $3838
+	db sprite.max_y_speed : dw $FD00
+	db !spawn_command_success
 
 DATA_FF7D19:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $3838)
-	%DKC3_SSS_OpXX($34, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $3838
+	db sprite.max_y_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF7D23:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $1848)
-	%DKC3_SSS_OpXX($34, $00C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $1848
+	db sprite.max_y_speed : dw $00C0
+	db !spawn_command_success
 
 DATA_FF7D2D:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $1848)
-	%DKC3_SSS_OpXX($34, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $1848
+	db sprite.max_y_speed : dw $0080
+	db !spawn_command_success
 
 DATA_FF7D37:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $1010)
-	%DKC3_SSS_OpXX($34, $0068)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $1010
+	db sprite.max_y_speed : dw $0068
+	db !spawn_command_success
 
 DATA_FF7D41:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $1010)
-	%DKC3_SSS_OpXX($34, $FF98)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $1010
+	db sprite.max_y_speed : dw $FF98
+	db !spawn_command_success
 
 DATA_FF7D4B:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $2020)
-	%DKC3_SSS_OpXX($34, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $2020
+	db sprite.max_y_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF7D55:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $0040)
-	%DKC3_SSS_OpXX($34, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $0040
+	db sprite.max_y_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF7D5F:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $3838)
-	%DKC3_SSS_OpXX($34, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $3838
+	db sprite.max_y_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF7D69:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $2828)
-	%DKC3_SSS_OpXX($34, $FEC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $2828
+	db sprite.max_y_speed : dw $FEC0
+	db !spawn_command_success
 
 DATA_FF7D73:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $2828)
-	%DKC3_SSS_OpXX($34, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $2828
+	db sprite.max_y_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF7D7D:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $500D)
-	%DKC3_SSS_OpXX($34, $FEA0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $500D
+	db sprite.max_y_speed : dw $FEA0
+	db !spawn_command_success
 
 DATA_FF7D87:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $7070)
-	%DKC3_SSS_OpXX($34, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $7070
+	db sprite.max_y_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FF7D91:
-	%DKC3_SSS_OpF9(DATA_FF7A08)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($30, $FEA4)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A08
+	db sprite.unknown_60 : dw $4040
+	db sprite.max_x_speed : dw $FEA4
+	db !spawn_command_success
 
 DATA_FF7D9B:
-	%DKC3_SSS_OpF9(DATA_FF7A08)
-	%DKC3_SSS_OpXX($60, $0848)
-	%DKC3_SSS_OpXX($30, $FEE0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A08
+	db sprite.unknown_60 : dw $0848
+	db sprite.max_x_speed : dw $FEE0
+	db !spawn_command_success
 
 DATA_FF7DA5:
-	%DKC3_SSS_OpF9(DATA_FF7A08)
-	%DKC3_SSS_OpXX($60, $2828)
-	%DKC3_SSS_OpXX($30, $FEA0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A08
+	db sprite.unknown_60 : dw $2828
+	db sprite.max_x_speed : dw $FEA0
+	db !spawn_command_success
 
 DATA_FF7DAF:
-	%DKC3_SSS_OpF9(DATA_FF7A08)
-	%DKC3_SSS_OpXX($60, $2828)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A08
+	db sprite.unknown_60 : dw $2828
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FF7DB9:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $8000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $8000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF7DC6:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $2000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $FE50)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $2000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $FE50
+	db !spawn_command_success
 
 DATA_FF7DD3:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $A000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $FE50)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $A000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $FE50
+	db !spawn_command_success
 
 DATA_FF7DE0:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $D000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $FEC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $D000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $FEC0
+	db !spawn_command_success
 
 DATA_FF7DED:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $2000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $2000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF7DFA:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $7800)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $7800
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $01C0
+	db !spawn_command_success
 
 DATA_FF7E07:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $D000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $D000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $01C0
+	db !spawn_command_success
 
 DATA_FF7E14:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $5000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $FEC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $5000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $FEC0
+	db !spawn_command_success
 
 DATA_FF7E21:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $D000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $FDB0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $D000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $FDB0
+	db !spawn_command_success
 
 DATA_FF7E2E:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $5000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $FDB0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $5000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $FDB0
+	db !spawn_command_success
 
 DATA_FF7E3B:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $D000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $D000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FF7E48:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $D000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $D000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF7E55:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $5000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $5000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF7E62:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $D000)
-	%DKC3_SSS_OpXX($62, $3000)
-	%DKC3_SSS_OpXX($30, $0350)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $D000
+	db sprite.unknown_62 : dw $3000
+	db sprite.max_x_speed : dw $0350
+	db !spawn_command_success
 
 DATA_FF7E6F:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $5000)
-	%DKC3_SSS_OpXX($62, $3000)
-	%DKC3_SSS_OpXX($30, $0350)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $5000
+	db sprite.unknown_62 : dw $3000
+	db sprite.max_x_speed : dw $0350
+	db !spawn_command_success
 
 DATA_FF7E7C:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $D000)
-	%DKC3_SSS_OpXX($62, $2800)
-	%DKC3_SSS_OpXX($30, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $D000
+	db sprite.unknown_62 : dw $2800
+	db sprite.max_x_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FF7E89:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $D000)
-	%DKC3_SSS_OpXX($62, $3000)
-	%DKC3_SSS_OpXX($30, $FEC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $D000
+	db sprite.unknown_62 : dw $3000
+	db sprite.max_x_speed : dw $FEC0
+	db !spawn_command_success
 
 DATA_FF7E96:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $5000)
-	%DKC3_SSS_OpXX($62, $3000)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $5000
+	db sprite.unknown_62 : dw $3000
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF7EA3:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $D000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $D000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF7EB0:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $5000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $5000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF7EBD:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $D000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $D000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FF7ECA:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $5000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $5000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FF7ED7:
-	%DKC3_SSS_OpF9(DATA_FF7A12)
-	%DKC3_SSS_OpXX($60, $D000)
-	%DKC3_SSS_OpXX($62, $3800)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A12
+	db sprite.unknown_60 : dw $D000
+	db sprite.unknown_62 : dw $3800
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FF7EE4:
-	%DKC3_SSS_OpF9(DATA_FF7A1C)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $3000)
-	%DKC3_SSS_OpXX($64, $0080)
-	%DKC3_SSS_OpXX($68, $0030)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A1C
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $3000
+	db sprite.unknown_64 : dw $0080
+	db sprite.unknown_68 : dw $0030
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF7EF7:
-	%DKC3_SSS_OpFF(!sprite_Barrel)
-	%DKC3_SSS_OpXX($06, DATA_FF1D2C)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFA($014E)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $8001)
-	%DKC3_SSS_OpXX($5A, $004F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Barrel
+	db sprite.constants_address : dw DATA_FF1D2C
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FA : dw $014E
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $8001
+	db sprite.movement_state : dw $004F
+	db !spawn_command_success
 
 DATA_FF7F1C:
-	%DKC3_SSS_OpFF(!sprite_Barrel)
-	%DKC3_SSS_OpXX($06, DATA_FF1D2C)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFA($014E)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5A, $004B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Barrel
+	db sprite.constants_address : dw DATA_FF1D2C
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FA : dw $014E
+	db sprite.state : dw $0005
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.movement_state : dw $004B
+	db !spawn_command_success
 
 DATA_FF7F41:
-	%DKC3_SSS_OpFF(!sprite_Barrel)
-	%DKC3_SSS_OpXX($06, DATA_FF1D2C)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFA($014E)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $8001)
-	%DKC3_SSS_OpXX($5A, $004F)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_set_type : dw !sprite_Barrel
+	db sprite.constants_address : dw DATA_FF1D2C
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FA : dw $014E
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $8001
+	db sprite.movement_state : dw $004F
+	db !spawn_command_F0
 
 DATA_FF7F66:
-	%DKC3_SSS_OpFF(!sprite_Barrel)
-	%DKC3_SSS_OpXX($06, DATA_FF1D2C)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFA($014E)
-	%DKC3_SSS_OpXX($38, $0007)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $8001)
-	%DKC3_SSS_OpXX($5A, $004F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Barrel
+	db sprite.constants_address : dw DATA_FF1D2C
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FA : dw $014E
+	db sprite.state : dw $0007
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $8001
+	db sprite.movement_state : dw $004F
+	db !spawn_command_success
 
 DATA_FF7F8B:
-	%DKC3_SSS_OpFF(!sprite_TNTBarrel)
-	%DKC3_SSS_OpXX($06, DATA_FF1D64)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFA($0156)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $8001)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_TNTBarrel
+	db sprite.constants_address : dw DATA_FF1D64
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FA : dw $0156
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $8001
+	db sprite.movement_state : dw $0040
+	db !spawn_command_success
 
 DATA_FF7FB0:
-	%DKC3_SSS_OpFF(!sprite_TNTBarrel)
-	%DKC3_SSS_OpXX($06, DATA_FF1D64)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFA($0156)
-	%DKC3_SSS_OpXX($38, $0007)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $8001)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_TNTBarrel
+	db sprite.constants_address : dw DATA_FF1D64
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FA : dw $0156
+	db sprite.state : dw $0007
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $8001
+	db sprite.movement_state : dw $0040
+	db !spawn_command_success
 
 DATA_FF7FD5:
-	%DKC3_SSS_OpFF(!sprite_SteelKeg)
-	%DKC3_SSS_OpXX($06, DATA_FF1DD4)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001D)
-	%DKC3_SSS_OpFA($0164)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $8001)
-	%DKC3_SSS_OpXX($5A, $004F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SteelKeg
+	db sprite.constants_address : dw DATA_FF1DD4
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001D
+	db !spawn_command_FA : dw $0164
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $8001
+	db sprite.movement_state : dw $004F
+	db !spawn_command_success
 
 DATA_FF7FFA:
-	%DKC3_SSS_OpFF(!sprite_SteelKeg)
-	%DKC3_SSS_OpXX($06, DATA_FF1DD4)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001D)
-	%DKC3_SSS_OpFA($0164)
-	%DKC3_SSS_OpXX($38, $0007)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5A, $004B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SteelKeg
+	db sprite.constants_address : dw DATA_FF1DD4
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001D
+	db !spawn_command_FA : dw $0164
+	db sprite.state : dw $0007
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.movement_state : dw $004B
+	db !spawn_command_success
 
 DATA_FF801F:
-	%DKC3_SSS_OpFF(!sprite_SteelKeg)
-	%DKC3_SSS_OpXX($06, DATA_FF1DD4)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001D)
-	%DKC3_SSS_OpFA($0164)
-	%DKC3_SSS_OpXX($38, $0009)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $8001)
-	%DKC3_SSS_OpXX($5A, $004F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SteelKeg
+	db sprite.constants_address : dw DATA_FF1DD4
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001D
+	db !spawn_command_FA : dw $0164
+	db sprite.state : dw $0009
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $8001
+	db sprite.movement_state : dw $004F
+	db !spawn_command_success
 
 DATA_FF8044:
-	%DKC3_SSS_OpFF(!sprite_WoodenBox)
-	%DKC3_SSS_OpXX($06, DATA_FF1E0C)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFA($016C)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $8001)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpXX($6C, $0078)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_WoodenBox
+	db sprite.constants_address : dw DATA_FF1E0C
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FA : dw $016C
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $8001
+	db sprite.movement_state : dw $0040
+	db sprite.unknown_6C : dw $0078
+	db !spawn_command_success
 
 DATA_FF806C:
-	%DKC3_SSS_OpFF(!sprite_WoodenBox)
-	%DKC3_SSS_OpXX($06, DATA_FF1E0C)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFA($016C)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5A, $004B)
-	%DKC3_SSS_OpXX($6C, $0078)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_WoodenBox
+	db sprite.constants_address : dw DATA_FF1E0C
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FA : dw $016C
+	db sprite.state : dw $0005
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.movement_state : dw $004B
+	db sprite.unknown_6C : dw $0078
+	db !spawn_command_success
 
 DATA_FF8094:
-	%DKC3_SSS_OpFF(!sprite_CheckpointBarrel)
-	%DKC3_SSS_OpXX($0E, $00C8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFA($0143)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_CheckpointBarrel
+	db sprite.render_order : dw $00C8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FA : dw $0143
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF80A7:
-	%DKC3_SSS_OpFF(!sprite_CheckpointBarrel)
-	%DKC3_SSS_OpXX($0E, $00F0)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFA($0143)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_CheckpointBarrel
+	db sprite.render_order : dw $00F0
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FA : dw $0143
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF80BA:
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($06, DATA_FF1F2C)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($004E)
-	%DKC3_SSS_OpEF()
+	db sprite.render_order : dw $00D4
+	db sprite.constants_address : dw DATA_FF1F2C
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.visibility : dw $0000
+	db sprite.state : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $004E
+	db !spawn_command_success
 
 DATA_FF80D9:
-	%DKC3_SSS_OpFF(!sprite_FollowingKlasp)
-	%DKC3_SSS_OpF9(DATA_FF80BA)
-	%DKC3_SSS_OpXX($60, $FFA0)
-	%DKC3_SSS_OpXX($62, $0040)
-	%DKC3_SSS_OpXX($5C, $FFEC)
-	%DKC3_SSS_OpXX($5E, $0088)
-	%DKC3_SSS_OpXX($66, $0100)
-	%DKC3_SSS_OpFA($01A9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FollowingKlasp
+	db !spawn_command_F9 : dw DATA_FF80BA
+	db sprite.unknown_60 : dw $FFA0
+	db sprite.unknown_62 : dw $0040
+	db sprite.unknown_5C : dw $FFEC
+	db sprite.unknown_5E : dw $0088
+	db sprite.unknown_66 : dw $0100
+	db !spawn_command_FA : dw $01A9
+	db !spawn_command_success
 
 DATA_FF80F2:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($5C, $FF7C)
-	%DKC3_SSS_OpXX($5E, $0018)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_5C : dw $FF7C
+	db sprite.unknown_5E : dw $0018
+	db !spawn_command_success
 
 DATA_FF80FC:
-	%DKC3_SSS_OpFF(!sprite_AutoMovingKlasp)
-	%DKC3_SSS_OpF9(DATA_FF80BA)
-	%DKC3_SSS_OpXX($5A, $000C)
-	%DKC3_SSS_OpFA($01AC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_AutoMovingKlasp
+	db !spawn_command_F9 : dw DATA_FF80BA
+	db sprite.movement_state : dw $000C
+	db !spawn_command_FA : dw $01AC
+	db !spawn_command_success
 
 DATA_FF8109:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($66, $0190)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_66 : dw $0190
+	db !spawn_command_success
 
 DATA_FF8110:
-	%DKC3_SSS_OpF9(DATA_FF80F2)
-	%DKC3_SSS_OpXX($66, $0190)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80F2
+	db sprite.unknown_66 : dw $0190
+	db !spawn_command_success
 
 DATA_FF8117:
-	%DKC3_SSS_OpF9(DATA_FF80F2)
-	%DKC3_SSS_OpXX($66, $0210)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80F2
+	db sprite.unknown_66 : dw $0210
+	db !spawn_command_success
 
 DATA_FF811E:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($66, $0210)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_66 : dw $0210
+	db !spawn_command_success
 
 DATA_FF8125:
-	%DKC3_SSS_OpF9(DATA_FF80F2)
-	%DKC3_SSS_OpXX($62, $0008)
-	%DKC3_SSS_OpXX($5C, $FF10)
-	%DKC3_SSS_OpXX($5E, $0190)
-	%DKC3_SSS_OpXX($66, $02A0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80F2
+	db sprite.unknown_62 : dw $0008
+	db sprite.unknown_5C : dw $FF10
+	db sprite.unknown_5E : dw $0190
+	db sprite.unknown_66 : dw $02A0
+	db !spawn_command_success
 
 DATA_FF8135:
-	%DKC3_SSS_OpF9(DATA_FF80F2)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($66, $0160)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80F2
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_66 : dw $0160
+	db !spawn_command_success
 
 DATA_FF813F:
-	%DKC3_SSS_OpF9(DATA_FF80F2)
-	%DKC3_SSS_OpXX($62, $0042)
-	%DKC3_SSS_OpXX($66, $0160)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80F2
+	db sprite.unknown_62 : dw $0042
+	db sprite.unknown_66 : dw $0160
+	db !spawn_command_success
 
 DATA_FF8149:
-	%DKC3_SSS_OpF9(DATA_FF80F2)
-	%DKC3_SSS_OpXX($62, $0082)
-	%DKC3_SSS_OpXX($66, $0160)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80F2
+	db sprite.unknown_62 : dw $0082
+	db sprite.unknown_66 : dw $0160
+	db !spawn_command_success
 
 DATA_FF8153:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($62, $0004)
-	%DKC3_SSS_OpXX($5C, $FFF4)
-	%DKC3_SSS_OpXX($5E, $0220)
-	%DKC3_SSS_OpXX($66, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_62 : dw $0004
+	db sprite.unknown_5C : dw $FFF4
+	db sprite.unknown_5E : dw $0220
+	db sprite.unknown_66 : dw $0360
+	db !spawn_command_success
 
 DATA_FF8163:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($5C, $FE6C)
-	%DKC3_SSS_OpXX($5E, $0100)
-	%DKC3_SSS_OpXX($66, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_5C : dw $FE6C
+	db sprite.unknown_5E : dw $0100
+	db sprite.unknown_66 : dw $0360
+	db !spawn_command_success
 
 DATA_FF8173:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($62, $0005)
-	%DKC3_SSS_OpXX($66, $01F0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_62 : dw $0005
+	db sprite.unknown_66 : dw $01F0
+	db !spawn_command_success
 
 DATA_FF817D:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($62, $0045)
-	%DKC3_SSS_OpXX($66, $01F0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_62 : dw $0045
+	db sprite.unknown_66 : dw $01F0
+	db !spawn_command_success
 
 DATA_FF8187:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($62, $0085)
-	%DKC3_SSS_OpXX($66, $01F0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_62 : dw $0085
+	db sprite.unknown_66 : dw $01F0
+	db !spawn_command_success
 
 DATA_FF8191:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($62, $0060)
-	%DKC3_SSS_OpXX($5C, $FFC4)
-	%DKC3_SSS_OpXX($5E, $0040)
-	%DKC3_SSS_OpXX($66, $0260)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_62 : dw $0060
+	db sprite.unknown_5C : dw $FFC4
+	db sprite.unknown_5E : dw $0040
+	db sprite.unknown_66 : dw $0260
+	db !spawn_command_success
 
 DATA_FF81A1:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($62, $0060)
-	%DKC3_SSS_OpXX($5C, $FF8C)
-	%DKC3_SSS_OpXX($5E, $0078)
-	%DKC3_SSS_OpXX($66, $0260)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_62 : dw $0060
+	db sprite.unknown_5C : dw $FF8C
+	db sprite.unknown_5E : dw $0078
+	db sprite.unknown_66 : dw $0260
+	db !spawn_command_success
 
 DATA_FF81B1:
-	%DKC3_SSS_OpF9(DATA_FF80F2)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($66, $0260)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80F2
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_66 : dw $0260
+	db !spawn_command_success
 
 DATA_FF81BB:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($62, $0082)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_62 : dw $0082
+	db sprite.unknown_66 : dw $0200
+	db !spawn_command_success
 
 DATA_FF81C5:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($62, $0042)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_62 : dw $0042
+	db sprite.unknown_66 : dw $0200
+	db !spawn_command_success
 
 DATA_FF81CF:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($5C, $FFB4)
-	%DKC3_SSS_OpXX($5E, $0050)
-	%DKC3_SSS_OpXX($66, $0170)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_5C : dw $FFB4
+	db sprite.unknown_5E : dw $0050
+	db sprite.unknown_66 : dw $0170
+	db !spawn_command_success
 
 DATA_FF81DC:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($5C, $FFB4)
-	%DKC3_SSS_OpXX($5E, $0130)
-	%DKC3_SSS_OpXX($66, $0160)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_5C : dw $FFB4
+	db sprite.unknown_5E : dw $0130
+	db sprite.unknown_66 : dw $0160
+	db !spawn_command_success
 
 DATA_FF81E9:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($62, $0060)
-	%DKC3_SSS_OpXX($5C, $FF74)
-	%DKC3_SSS_OpXX($5E, $0090)
-	%DKC3_SSS_OpXX($66, $02E0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_62 : dw $0060
+	db sprite.unknown_5C : dw $FF74
+	db sprite.unknown_5E : dw $0090
+	db sprite.unknown_66 : dw $02E0
+	db !spawn_command_success
 
 DATA_FF81F9:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($62, $0060)
-	%DKC3_SSS_OpXX($5C, $FFB4)
-	%DKC3_SSS_OpXX($5E, $0050)
-	%DKC3_SSS_OpXX($66, $02E0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_62 : dw $0060
+	db sprite.unknown_5C : dw $FFB4
+	db sprite.unknown_5E : dw $0050
+	db sprite.unknown_66 : dw $02E0
+	db !spawn_command_success
 
 DATA_FF8209:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($5C, $FFFF)
-	%DKC3_SSS_OpXX($5E, $01C0)
-	%DKC3_SSS_OpXX($66, $0320)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_5C : dw $FFFF
+	db sprite.unknown_5E : dw $01C0
+	db sprite.unknown_66 : dw $0320
+	db !spawn_command_success
 
 DATA_FF8219:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($5C, $FED4)
-	%DKC3_SSS_OpXX($5E, $0150)
-	%DKC3_SSS_OpXX($66, $03A0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_5C : dw $FED4
+	db sprite.unknown_5E : dw $0150
+	db sprite.unknown_66 : dw $03A0
+	db !spawn_command_success
 
 DATA_FF8226:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($5C, $FFB4)
-	%DKC3_SSS_OpXX($5E, $0050)
-	%DKC3_SSS_OpXX($66, $0320)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_5C : dw $FFB4
+	db sprite.unknown_5E : dw $0050
+	db sprite.unknown_66 : dw $0320
+	db !spawn_command_success
 
 DATA_FF8233:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($5C, $FF7C)
-	%DKC3_SSS_OpXX($5E, $0088)
-	%DKC3_SSS_OpXX($66, $0360)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_5C : dw $FF7C
+	db sprite.unknown_5E : dw $0088
+	db sprite.unknown_66 : dw $0360
+	db !spawn_command_success
 
 DATA_FF8240:
-	%DKC3_SSS_OpF9(DATA_FF80F2)
-	%DKC3_SSS_OpXX($5C, $FFB4)
-	%DKC3_SSS_OpXX($5E, $0050)
-	%DKC3_SSS_OpXX($66, $01B0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80F2
+	db sprite.unknown_5C : dw $FFB4
+	db sprite.unknown_5E : dw $0050
+	db sprite.unknown_66 : dw $01B0
+	db !spawn_command_success
 
 DATA_FF824D:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($5C, $FF78)
-	%DKC3_SSS_OpXX($5E, $0088)
-	%DKC3_SSS_OpXX($66, $02D0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_5C : dw $FF78
+	db sprite.unknown_5E : dw $0088
+	db sprite.unknown_66 : dw $02D0
+	db !spawn_command_success
 
 DATA_FF825A:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($5C, $FFC4)
-	%DKC3_SSS_OpXX($5E, $00A0)
-	%DKC3_SSS_OpXX($66, $0400)
-	%DKC3_SSS_OpXX($62, $0060)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_5C : dw $FFC4
+	db sprite.unknown_5E : dw $00A0
+	db sprite.unknown_66 : dw $0400
+	db sprite.unknown_62 : dw $0060
+	db !spawn_command_success
 
 DATA_FF826A:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($5C, $FFC4)
-	%DKC3_SSS_OpXX($5E, $00A0)
-	%DKC3_SSS_OpXX($66, $0380)
-	%DKC3_SSS_OpXX($62, $0060)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_5C : dw $FFC4
+	db sprite.unknown_5E : dw $00A0
+	db sprite.unknown_66 : dw $0380
+	db sprite.unknown_62 : dw $0060
+	db !spawn_command_success
 
 DATA_FF827A:
-	%DKC3_SSS_OpF9(DATA_FF80F2)
-	%DKC3_SSS_OpXX($5C, $FF7A)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($66, $0340)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80F2
+	db sprite.unknown_5C : dw $FF7A
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_66 : dw $0340
+	db !spawn_command_success
 
 DATA_FF8287:
-	%DKC3_SSS_OpF9(DATA_FF80D9)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0086)
-	%DKC3_SSS_OpXX($66, $0340)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80D9
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0086
+	db sprite.unknown_66 : dw $0340
+	db !spawn_command_success
 
 DATA_FF8294:
-	%DKC3_SSS_OpF9(DATA_FF80F2)
-	%DKC3_SSS_OpXX($5C, $FF60)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80F2
+	db sprite.unknown_5C : dw $FF60
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_66 : dw $0200
+	db !spawn_command_success
 
 DATA_FF82A1:
-	%DKC3_SSS_OpF9(DATA_FF80FC)
-	%DKC3_SSS_OpXX($64, $6C00)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80FC
+	db sprite.unknown_64 : dw $6C00
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF82AB:
-	%DKC3_SSS_OpF9(DATA_FF80FC)
-	%DKC3_SSS_OpXX($64, $006C)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80FC
+	db sprite.unknown_64 : dw $006C
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF82B5:
-	%DKC3_SSS_OpF9(DATA_FF80FC)
-	%DKC3_SSS_OpXX($64, $0062)
-	%DKC3_SSS_OpXX($30, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80FC
+	db sprite.unknown_64 : dw $0062
+	db sprite.max_x_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF82BF:
-	%DKC3_SSS_OpF9(DATA_FF80FC)
-	%DKC3_SSS_OpXX($64, $00C4)
-	%DKC3_SSS_OpXX($30, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80FC
+	db sprite.unknown_64 : dw $00C4
+	db sprite.max_x_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF82C9:
-	%DKC3_SSS_OpF9(DATA_FF80FC)
-	%DKC3_SSS_OpXX($64, $0040)
-	%DKC3_SSS_OpXX($30, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80FC
+	db sprite.unknown_64 : dw $0040
+	db sprite.max_x_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF82D3:
-	%DKC3_SSS_OpF9(DATA_FF80FC)
-	%DKC3_SSS_OpXX($64, $4000)
-	%DKC3_SSS_OpXX($30, $FD00)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80FC
+	db sprite.unknown_64 : dw $4000
+	db sprite.max_x_speed : dw $FD00
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF82E0:
-	%DKC3_SSS_OpF9(DATA_FF80FC)
-	%DKC3_SSS_OpXX($64, $3030)
-	%DKC3_SSS_OpXX($30, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80FC
+	db sprite.unknown_64 : dw $3030
+	db sprite.max_x_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF82EA:
-	%DKC3_SSS_OpF9(DATA_FF80FC)
-	%DKC3_SSS_OpXX($64, $0060)
-	%DKC3_SSS_OpXX($30, $FD00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80FC
+	db sprite.unknown_64 : dw $0060
+	db sprite.max_x_speed : dw $FD00
+	db !spawn_command_success
 
 DATA_FF82F4:
-	%DKC3_SSS_OpF9(DATA_FF80FC)
-	%DKC3_SSS_OpXX($64, $4A4A)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80FC
+	db sprite.unknown_64 : dw $4A4A
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF8301:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_00D4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_00D4
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF8308:
-	%DKC3_SSS_OpFF(!sprite_CrankyKong)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($64, $0002)
-	%DKC3_SSS_OpXX($0E, $00E4)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($003B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_CrankyKong
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_64 : dw $0002
+	db sprite.render_order : dw $00E4
+	db sprite.interaction_flags : dw $0040
+	db sprite.state : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $003B
+	db !spawn_command_success
 
 DATA_FF8327:
-	%DKC3_SSS_OpFF(!sprite_DoorLeverHandle)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($019D)
-	%DKC3_SSS_OpXX($60, $0004)
-	%DKC3_SSS_OpXX($66, $0010)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_DoorLeverHandle
+	db sprite.render_order : dw $00D4
+	db sprite.state : dw $0003
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $019D
+	db sprite.unknown_60 : dw $0004
+	db sprite.unknown_66 : dw $0010
+	db !spawn_command_success
 
 DATA_FF8340:
-	%DKC3_SSS_OpF9(DATA_FF8327)
-	%DKC3_SSS_OpXX($68, $00E0)
-	%DKC3_SSS_OpFC($0048)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8327
+	db sprite.unknown_68 : dw $00E0
+	db !spawn_command_FC : dw $0048
+	db !spawn_command_success
 
 DATA_FF834A:
-	%DKC3_SSS_OpF9(DATA_FF8327)
-	%DKC3_SSS_OpXX($68, $0020)
-	%DKC3_SSS_OpFC($0049)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8327
+	db sprite.unknown_68 : dw $0020
+	db !spawn_command_FC : dw $0049
+	db !spawn_command_success
 
 DATA_FF8354:
-	%DKC3_SSS_OpF9(DATA_FF8327)
-	%DKC3_SSS_OpXX($68, $0020)
-	%DKC3_SSS_OpFC($0048)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8327
+	db sprite.unknown_68 : dw $0020
+	db !spawn_command_FC : dw $0048
+	db !spawn_command_success
 
 DATA_FF835E:
-	%DKC3_SSS_OpF9(DATA_FF8327)
-	%DKC3_SSS_OpXX($68, $00F0)
-	%DKC3_SSS_OpFC($0048)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8327
+	db sprite.unknown_68 : dw $00F0
+	db !spawn_command_FC : dw $0048
+	db !spawn_command_success
 
 DATA_FF8368:
-	%DKC3_SSS_OpF9(DATA_FF8327)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpFC($0048)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8327
+	db sprite.unknown_68 : dw $0000
+	db !spawn_command_FC : dw $0048
+	db !spawn_command_success
 
 DATA_FF8372:
-	%DKC3_SSS_OpFF(!sprite_LeverControlledMetalDoor)
-	%DKC3_SSS_OpXX($0E, $00D0)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0040)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($3A, $0840)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($019C)
-	%DKC3_SSS_OpFC($0049)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_LeverControlledMetalDoor
+	db sprite.render_order : dw $00D0
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0040
+	db sprite.unknown_62 : dw $0001
+	db sprite.interaction_flags : dw $0840
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $019C
+	db !spawn_command_FC : dw $0049
+	db !spawn_command_success
 
 DATA_FF8391:
-	%DKC3_SSS_OpFF(!sprite_LeverControlledMetalDoor)
-	%DKC3_SSS_OpXX($0E, $00D0)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5E, $0040)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($3A, $0840)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFA($019C)
-	%DKC3_SSS_OpFC($0048)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_LeverControlledMetalDoor
+	db sprite.render_order : dw $00D0
+	db sprite.state : dw $0000
+	db sprite.unknown_5E : dw $0040
+	db sprite.unknown_62 : dw $0001
+	db sprite.interaction_flags : dw $0840
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FA : dw $019C
+	db !spawn_command_FC : dw $0048
+	db !spawn_command_success
 
 DATA_FF83AD:
-	%DKC3_SSS_OpFF(!sprite_DoorGear)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFA($019B)
-	%DKC3_SSS_OpFC($0049)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_DoorGear
+	db sprite.render_order : dw $00D4
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FA : dw $019B
+	db !spawn_command_FC : dw $0049
+	db !spawn_command_success
 
 DATA_FF83C3:
-	%DKC3_SSS_OpFF(!sprite_DoorGear)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpFE($7000)
-	%DKC3_SSS_OpFA($019B)
-	%DKC3_SSS_OpFC($0048)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_DoorGear
+	db sprite.render_order : dw $00D4
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $0000
+	db !spawn_command_FE : dw $7000
+	db !spawn_command_FA : dw $019B
+	db !spawn_command_FC : dw $0048
+	db !spawn_command_success
 
 DATA_FF83D9:
-	%DKC3_SSS_OpFF(!sprite_SneekWheel)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0047)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SneekWheel
+	db sprite.render_order : dw $00D4
+	db sprite.state : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.unknown_64 : dw $0000
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0047
+	db !spawn_command_success
 
 DATA_FF83F5:
-	%DKC3_SSS_OpF9(DATA_FF83D9)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83D9
+	db sprite.unknown_60 : dw $0000
+	db !spawn_command_success
 
 DATA_FF83FC:
-	%DKC3_SSS_OpF9(DATA_FF83D9)
-	%DKC3_SSS_OpXX($60, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83D9
+	db sprite.unknown_60 : dw $0001
+	db !spawn_command_success
 
 DATA_FF8403:
-	%DKC3_SSS_OpFF(!sprite_SneekControlledMetalDoor)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($3A, $0840)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFC($0048)
-	%DKC3_SSS_OpFA($019C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SneekControlledMetalDoor
+	db sprite.render_order : dw $00D4
+	db sprite.state : dw $0000
+	db sprite.interaction_flags : dw $0840
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FC : dw $0048
+	db !spawn_command_FA : dw $019C
+	db !spawn_command_success
 
 DATA_FF8419:
-	%DKC3_SSS_OpFF(!sprite_SneekControlledMetalDoor)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($3A, $0840)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0049)
-	%DKC3_SSS_OpFA($019C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SneekControlledMetalDoor
+	db sprite.render_order : dw $00D4
+	db sprite.state : dw $0000
+	db sprite.interaction_flags : dw $0840
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0049
+	db !spawn_command_FA : dw $019C
+	db !spawn_command_success
 
 DATA_FF842F:
-	%DKC3_SSS_OpF9(DATA_FF8391)
-	%DKC3_SSS_OpXX($64, $00C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8391
+	db sprite.unknown_64 : dw $00C0
+	db !spawn_command_success
 
 DATA_FF8436:
-	%DKC3_SSS_OpF9(DATA_FF8391)
-	%DKC3_SSS_OpXX($64, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8391
+	db sprite.unknown_64 : dw $0040
+	db !spawn_command_success
 
 DATA_FF843D:
-	%DKC3_SSS_OpF9(DATA_FF8391)
-	%DKC3_SSS_OpXX($64, $0020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8391
+	db sprite.unknown_64 : dw $0020
+	db !spawn_command_success
 
 DATA_FF8444:
-	%DKC3_SSS_OpF9(DATA_FF8372)
-	%DKC3_SSS_OpXX($64, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8372
+	db sprite.unknown_64 : dw $0040
+	db !spawn_command_success
 
 DATA_FF844B:
-	%DKC3_SSS_OpF9(DATA_FF8372)
-	%DKC3_SSS_OpXX($64, $0060)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8372
+	db sprite.unknown_64 : dw $0060
+	db !spawn_command_success
 
 DATA_FF8452:
-	%DKC3_SSS_OpF9(DATA_FF8372)
-	%DKC3_SSS_OpXX($64, $0020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8372
+	db sprite.unknown_64 : dw $0020
+	db !spawn_command_success
 
 DATA_FF8459:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_017C)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_017C
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF8460:
-	%DKC3_SSS_OpF9(DATA_FF8459)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8459
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $0004
+	db !spawn_command_success
 
 DATA_FF846D:
-	%DKC3_SSS_OpF9(DATA_FF8459)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0006)
-	%DKC3_SSS_OpXX($60, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8459
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0006
+	db sprite.unknown_60 : dw $0004
+	db !spawn_command_success
 
 DATA_FF847A:
-	%DKC3_SSS_OpF9(DATA_FF8459)
-	%DKC3_SSS_OpXX($5C, $0002)
-	%DKC3_SSS_OpXX($5E, $000A)
-	%DKC3_SSS_OpXX($60, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8459
+	db sprite.unknown_5C : dw $0002
+	db sprite.unknown_5E : dw $000A
+	db sprite.unknown_60 : dw $0004
+	db !spawn_command_success
 
 DATA_FF8487:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF8491:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0100)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0100
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF849B:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0101)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0101
+	db sprite.unknown_62 : dw $0001
+	db !spawn_command_success
 
 DATA_FF84A5:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0102)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0102
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF84AF:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0103)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0103
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF84BC:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0104)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0104
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF84C9:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0105)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0105
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF84D6:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0200)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0200
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF84E0:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0201)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0201
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF84EA:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0202)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0202
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF84F4:
-	%DKC3_SSS_OpF9(DATA_FF83FC)
-	%DKC3_SSS_OpXX($5C, $0203)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83FC
+	db sprite.unknown_5C : dw $0203
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF84FE:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0204)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0204
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF850B:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0205)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0205
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF8518:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0206)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0206
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF8522:
-	%DKC3_SSS_OpF9(DATA_FF83FC)
-	%DKC3_SSS_OpXX($5C, $0207)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83FC
+	db sprite.unknown_5C : dw $0207
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF852C:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($66, $0100)
-	%DKC3_SSS_OpXX($5C, $0208)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_66 : dw $0100
+	db sprite.unknown_5C : dw $0208
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF853C:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0209)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0209
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF8549:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0300)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0300
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF8553:
-	%DKC3_SSS_OpF9(DATA_FF83F5)
-	%DKC3_SSS_OpXX($5C, $0300)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF83F5
+	db sprite.unknown_5C : dw $0300
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF8560:
-	%DKC3_SSS_OpF9(DATA_FF8403)
-	%DKC3_SSS_OpXX($5E, $0040)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8403
+	db sprite.unknown_5E : dw $0040
+	db sprite.unknown_60 : dw $0000
+	db !spawn_command_success
 
 DATA_FF856A:
-	%DKC3_SSS_OpF9(DATA_FF8403)
-	%DKC3_SSS_OpXX($5E, $0040)
-	%DKC3_SSS_OpXX($60, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8403
+	db sprite.unknown_5E : dw $0040
+	db sprite.unknown_60 : dw $0001
+	db !spawn_command_success
 
 DATA_FF8574:
-	%DKC3_SSS_OpF9(DATA_FF8419)
-	%DKC3_SSS_OpXX($5E, $0040)
-	%DKC3_SSS_OpXX($60, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8419
+	db sprite.unknown_5E : dw $0040
+	db sprite.unknown_60 : dw $0002
+	db !spawn_command_success
 
 DATA_FF857E:
-	%DKC3_SSS_OpF9(DATA_FF8403)
-	%DKC3_SSS_OpXX($5E, $0040)
-	%DKC3_SSS_OpXX($60, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8403
+	db sprite.unknown_5E : dw $0040
+	db sprite.unknown_60 : dw $0002
+	db !spawn_command_success
 
 DATA_FF8588:
-	%DKC3_SSS_OpFF(!sprite_SquealsOnWheelsTracker)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SquealsOnWheelsTracker
+	db sprite.unknown_5C : dw $0000
+	db !spawn_command_success
 
 DATA_FF858F:
-	%DKC3_SSS_OpFF(!sprite_SquealsOnWheelsTracker)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SquealsOnWheelsTracker
+	db sprite.unknown_5C : dw $0001
+	db !spawn_command_success
 
 DATA_FF8596:
-	%DKC3_SSS_OpFF(!sprite_SquealsOnWheelsTracker)
-	%DKC3_SSS_OpXX($5C, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SquealsOnWheelsTracker
+	db sprite.unknown_5C : dw $0002
+	db !spawn_command_success
 
 DATA_FF859D:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0188)
-	%DKC3_SSS_OpXX($5C, $0014)
-	%DKC3_SSS_OpXX($5E, $97C2)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0188
+	db sprite.unknown_5C : dw $0014
+	db sprite.unknown_5E : dw $97C2
+	db !spawn_command_success
 
 DATA_FF85A7:
-	%DKC3_SSS_OpFF(!sprite_ReKoil)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($3A, $0240)
-	%DKC3_SSS_OpFC($004D)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_ReKoil
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.render_order : dw $00D4
+	db sprite.movement_state : dw $0000
+	db sprite.visibility : dw $0000
+	db sprite.interaction_flags : dw $0240
+	db !spawn_command_FC : dw $004D
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF85C0:
-	%DKC3_SSS_OpF9(DATA_FF85A7)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpFA($01EE)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85A7
+	db sprite.state : dw $0000
+	db !spawn_command_FA : dw $01EE
+	db !spawn_command_success
 
 DATA_FF85CA:
-	%DKC3_SSS_OpF9(DATA_FF85A7)
-	%DKC3_SSS_OpXX($38, $0004)
-	%DKC3_SSS_OpFA($01EE)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85A7
+	db sprite.state : dw $0004
+	db !spawn_command_FA : dw $01EE
+	db !spawn_command_success
 
 DATA_FF85D4:
-	%DKC3_SSS_OpF9(DATA_FF85A7)
-	%DKC3_SSS_OpXX($38, $0008)
-	%DKC3_SSS_OpFA($01EE)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85A7
+	db sprite.state : dw $0008
+	db !spawn_command_FA : dw $01EE
+	db !spawn_command_success
 
 DATA_FF85DE:
-	%DKC3_SSS_OpF9(DATA_FF85C0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85C0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF85E5:
-	%DKC3_SSS_OpF9(DATA_FF85C0)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85C0
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF85EC:
-	%DKC3_SSS_OpF9(DATA_FF85D4)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85D4
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF85F3:
-	%DKC3_SSS_OpF9(DATA_FF85D4)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85D4
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF85FA:
-	%DKC3_SSS_OpF9(DATA_FF85DE)
-	%DKC3_SSS_OpXX($5C, $0050)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($66, $0050)
-	%DKC3_SSS_OpXX($6A, $0032)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85DE
+	db sprite.unknown_5C : dw $0050
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_66 : dw $0050
+	db sprite.unknown_6A : dw $0032
+	db !spawn_command_success
 
 DATA_FF860A:
-	%DKC3_SSS_OpF9(DATA_FF85E5)
-	%DKC3_SSS_OpXX($5C, $0050)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($66, $0050)
-	%DKC3_SSS_OpXX($6A, $0032)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85E5
+	db sprite.unknown_5C : dw $0050
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_66 : dw $0050
+	db sprite.unknown_6A : dw $0032
+	db !spawn_command_success
 
 DATA_FF861A:
-	%DKC3_SSS_OpF9(DATA_FF85DE)
-	%DKC3_SSS_OpXX($5C, $0060)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($66, $0040)
-	%DKC3_SSS_OpXX($6A, $0037)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85DE
+	db sprite.unknown_5C : dw $0060
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_66 : dw $0040
+	db sprite.unknown_6A : dw $0037
+	db !spawn_command_success
 
 DATA_FF862A:
-	%DKC3_SSS_OpF9(DATA_FF85E5)
-	%DKC3_SSS_OpXX($5C, $0060)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($66, $0040)
-	%DKC3_SSS_OpXX($6A, $0037)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85E5
+	db sprite.unknown_5C : dw $0060
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_66 : dw $0040
+	db sprite.unknown_6A : dw $0037
+	db !spawn_command_success
 
 DATA_FF863A:
-	%DKC3_SSS_OpF9(DATA_FF85DE)
-	%DKC3_SSS_OpXX($5C, $0060)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($66, $0075)
-	%DKC3_SSS_OpXX($6A, $0028)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85DE
+	db sprite.unknown_5C : dw $0060
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_66 : dw $0075
+	db sprite.unknown_6A : dw $0028
+	db !spawn_command_success
 
 DATA_FF864A:
-	%DKC3_SSS_OpF9(DATA_FF85CA)
-	%DKC3_SSS_OpXX($66, $0048)
-	%DKC3_SSS_OpXX($6A, $002D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85CA
+	db sprite.unknown_66 : dw $0048
+	db sprite.unknown_6A : dw $002D
+	db !spawn_command_success
 
 DATA_FF8654:
-	%DKC3_SSS_OpF9(DATA_FF85CA)
-	%DKC3_SSS_OpXX($66, $0038)
-	%DKC3_SSS_OpXX($6A, $0028)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85CA
+	db sprite.unknown_66 : dw $0038
+	db sprite.unknown_6A : dw $0028
+	db !spawn_command_success
 
 DATA_FF865E:
-	%DKC3_SSS_OpF9(DATA_FF85CA)
-	%DKC3_SSS_OpXX($66, $0038)
-	%DKC3_SSS_OpXX($6A, $002D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85CA
+	db sprite.unknown_66 : dw $0038
+	db sprite.unknown_6A : dw $002D
+	db !spawn_command_success
 
 DATA_FF8668:
-	%DKC3_SSS_OpF9(DATA_FF85CA)
-	%DKC3_SSS_OpXX($66, $004C)
-	%DKC3_SSS_OpXX($6A, $0030)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85CA
+	db sprite.unknown_66 : dw $004C
+	db sprite.unknown_6A : dw $0030
+	db !spawn_command_success
 
 DATA_FF8672:
-	%DKC3_SSS_OpF9(DATA_FF85CA)
-	%DKC3_SSS_OpXX($66, $0068)
-	%DKC3_SSS_OpXX($6A, $0023)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85CA
+	db sprite.unknown_66 : dw $0068
+	db sprite.unknown_6A : dw $0023
+	db !spawn_command_success
 
 DATA_FF867C:
-	%DKC3_SSS_OpF9(DATA_FF85CA)
-	%DKC3_SSS_OpXX($66, $0060)
-	%DKC3_SSS_OpXX($6A, $001E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85CA
+	db sprite.unknown_66 : dw $0060
+	db sprite.unknown_6A : dw $001E
+	db !spawn_command_success
 
 DATA_FF8686:
-	%DKC3_SSS_OpF9(DATA_FF85CA)
-	%DKC3_SSS_OpXX($66, $0050)
-	%DKC3_SSS_OpXX($6A, $0032)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85CA
+	db sprite.unknown_66 : dw $0050
+	db sprite.unknown_6A : dw $0032
+	db !spawn_command_success
 
 DATA_FF8690:
-	%DKC3_SSS_OpF9(DATA_FF85A7)
-	%DKC3_SSS_OpXX($38, $0006)
-	%DKC3_SSS_OpFA($01F2)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85A7
+	db sprite.state : dw $0006
+	db !spawn_command_FA : dw $01F2
+	db !spawn_command_success
 
 DATA_FF869A:
-	%DKC3_SSS_OpF9(DATA_FF85EC)
-	%DKC3_SSS_OpXX($5C, $0040)
-	%DKC3_SSS_OpXX($66, $0048)
-	%DKC3_SSS_OpXX($6A, $0037)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85EC
+	db sprite.unknown_5C : dw $0040
+	db sprite.unknown_66 : dw $0048
+	db sprite.unknown_6A : dw $0037
+	db !spawn_command_success
 
 DATA_FF86A7:
-	%DKC3_SSS_OpF9(DATA_FF85EC)
-	%DKC3_SSS_OpXX($5C, $0030)
-	%DKC3_SSS_OpXX($66, $0060)
-	%DKC3_SSS_OpXX($6A, $001E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85EC
+	db sprite.unknown_5C : dw $0030
+	db sprite.unknown_66 : dw $0060
+	db sprite.unknown_6A : dw $001E
+	db !spawn_command_success
 
 DATA_FF86B4:
-	%DKC3_SSS_OpF9(DATA_FF85F3)
-	%DKC3_SSS_OpXX($5C, $0040)
-	%DKC3_SSS_OpXX($66, $0066)
-	%DKC3_SSS_OpXX($6A, $0028)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85F3
+	db sprite.unknown_5C : dw $0040
+	db sprite.unknown_66 : dw $0066
+	db sprite.unknown_6A : dw $0028
+	db !spawn_command_success
 
 DATA_FF86C1:
-	%DKC3_SSS_OpFF(!sprite_KuffnKlout)
-	%DKC3_SSS_OpXX($2E, $0300)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($1E, $4000)
-	%DKC3_SSS_OpXX($2C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KuffnKlout
+	db sprite.y_speed : dw $0300
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0000
+	db sprite.interaction_flags : dw $0040
+	db sprite.oam_property : dw $4000
+	db sprite.unknown_2C : dw $0000
+	db !spawn_command_success
 
 DATA_FF86D7:
-	%DKC3_SSS_OpF9(DATA_FF86C1)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86C1
+	db sprite.state : dw $0000
+	db sprite.unknown_68 : dw $0000
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF86E4:
-	%DKC3_SSS_OpF9(DATA_FF86C1)
-	%DKC3_SSS_OpXX($38, $0004)
-	%DKC3_SSS_OpXX($62, $0020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86C1
+	db sprite.state : dw $0004
+	db sprite.unknown_62 : dw $0020
+	db !spawn_command_success
 
 DATA_FF86EE:
-	%DKC3_SSS_OpF9(DATA_FF86C1)
-	%DKC3_SSS_OpXX($38, $0007)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86C1
+	db sprite.state : dw $0007
+	db sprite.unknown_68 : dw $0000
+	db sprite.unknown_62 : dw $0000
+	db !spawn_command_success
 
 DATA_FF86FB:
-	%DKC3_SSS_OpF9(DATA_FF86C1)
-	%DKC3_SSS_OpXX($38, $000A)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpXX($62, $0020)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86C1
+	db sprite.state : dw $000A
+	db sprite.unknown_68 : dw $0000
+	db sprite.unknown_62 : dw $0020
+	db !spawn_command_success
 
 DATA_FF8708:
-	%DKC3_SSS_OpF9(DATA_FF86D7)
-	%DKC3_SSS_OpXX($64, $0004)
-	%DKC3_SSS_OpXX($62, $0020)
-	%DKC3_SSS_OpXX($66, $F0F0)
-	%DKC3_SSS_OpXX($6A, $1C1C)
-	%DKC3_SSS_OpXX($6C, $0110)
-	%DKC3_SSS_OpXX($1E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86D7
+	db sprite.unknown_64 : dw $0004
+	db sprite.unknown_62 : dw $0020
+	db sprite.unknown_66 : dw $F0F0
+	db sprite.unknown_6A : dw $1C1C
+	db sprite.unknown_6C : dw $0110
+	db sprite.oam_property : dw $0000
+	db !spawn_command_success
 
 DATA_FF871E:
-	%DKC3_SSS_OpF9(DATA_FF86D7)
-	%DKC3_SSS_OpXX($64, $0005)
-	%DKC3_SSS_OpXX($62, $001C)
-	%DKC3_SSS_OpXX($66, $5858)
-	%DKC3_SSS_OpXX($6A, $3030)
-	%DKC3_SSS_OpXX($6C, $0150)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86D7
+	db sprite.unknown_64 : dw $0005
+	db sprite.unknown_62 : dw $001C
+	db sprite.unknown_66 : dw $5858
+	db sprite.unknown_6A : dw $3030
+	db sprite.unknown_6C : dw $0150
+	db !spawn_command_success
 
 DATA_FF8731:
-	%DKC3_SSS_OpF9(DATA_FF86D7)
-	%DKC3_SSS_OpXX($64, $0003)
-	%DKC3_SSS_OpXX($62, $0060)
-	%DKC3_SSS_OpXX($66, $3C3C)
-	%DKC3_SSS_OpXX($6A, $3C3C)
-	%DKC3_SSS_OpXX($6C, $0120)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86D7
+	db sprite.unknown_64 : dw $0003
+	db sprite.unknown_62 : dw $0060
+	db sprite.unknown_66 : dw $3C3C
+	db sprite.unknown_6A : dw $3C3C
+	db sprite.unknown_6C : dw $0120
+	db !spawn_command_success
 
 DATA_FF8744:
-	%DKC3_SSS_OpF9(DATA_FF86D7)
-	%DKC3_SSS_OpXX($64, $0006)
-	%DKC3_SSS_OpXX($62, $0030)
-	%DKC3_SSS_OpXX($66, $6060)
-	%DKC3_SSS_OpXX($6A, $3C3C)
-	%DKC3_SSS_OpXX($6C, $0120)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86D7
+	db sprite.unknown_64 : dw $0006
+	db sprite.unknown_62 : dw $0030
+	db sprite.unknown_66 : dw $6060
+	db sprite.unknown_6A : dw $3C3C
+	db sprite.unknown_6C : dw $0120
+	db !spawn_command_success
 
 DATA_FF8757:
-	%DKC3_SSS_OpF9(DATA_FF86D7)
-	%DKC3_SSS_OpXX($64, $0006)
-	%DKC3_SSS_OpXX($62, $0028)
-	%DKC3_SSS_OpXX($66, $6C6C)
-	%DKC3_SSS_OpXX($6A, $3030)
-	%DKC3_SSS_OpXX($6C, $01D0)
-	%DKC3_SSS_OpXX($1E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86D7
+	db sprite.unknown_64 : dw $0006
+	db sprite.unknown_62 : dw $0028
+	db sprite.unknown_66 : dw $6C6C
+	db sprite.unknown_6A : dw $3030
+	db sprite.unknown_6C : dw $01D0
+	db sprite.oam_property : dw $0000
+	db !spawn_command_success
 
 DATA_FF876D:
-	%DKC3_SSS_OpF9(DATA_FF86D7)
-	%DKC3_SSS_OpXX($64, $0006)
-	%DKC3_SSS_OpXX($62, $0030)
-	%DKC3_SSS_OpXX($66, $5858)
-	%DKC3_SSS_OpXX($6A, $3030)
-	%DKC3_SSS_OpXX($6C, $01F0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86D7
+	db sprite.unknown_64 : dw $0006
+	db sprite.unknown_62 : dw $0030
+	db sprite.unknown_66 : dw $5858
+	db sprite.unknown_6A : dw $3030
+	db sprite.unknown_6C : dw $01F0
+	db !spawn_command_success
 
 DATA_FF8780:
-	%DKC3_SSS_OpF9(DATA_FF86D7)
-	%DKC3_SSS_OpXX($64, $0002)
-	%DKC3_SSS_OpXX($62, $0028)
-	%DKC3_SSS_OpXX($66, $7070)
-	%DKC3_SSS_OpXX($6A, $3030)
-	%DKC3_SSS_OpXX($6C, $0090)
-	%DKC3_SSS_OpXX($1E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86D7
+	db sprite.unknown_64 : dw $0002
+	db sprite.unknown_62 : dw $0028
+	db sprite.unknown_66 : dw $7070
+	db sprite.unknown_6A : dw $3030
+	db sprite.unknown_6C : dw $0090
+	db sprite.oam_property : dw $0000
+	db !spawn_command_success
 
 DATA_FF8796:
-	%DKC3_SSS_OpF9(DATA_FF86D7)
-	%DKC3_SSS_OpXX($64, $0002)
-	%DKC3_SSS_OpXX($62, $0028)
-	%DKC3_SSS_OpXX($66, $7070)
-	%DKC3_SSS_OpXX($6A, $3030)
-	%DKC3_SSS_OpXX($6C, $0090)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86D7
+	db sprite.unknown_64 : dw $0002
+	db sprite.unknown_62 : dw $0028
+	db sprite.unknown_66 : dw $7070
+	db sprite.unknown_6A : dw $3030
+	db sprite.unknown_6C : dw $0090
+	db !spawn_command_success
 
 DATA_FF87A9:
-	%DKC3_SSS_OpF9(DATA_FF86D7)
-	%DKC3_SSS_OpXX($64, $0003)
-	%DKC3_SSS_OpXX($62, $0060)
-	%DKC3_SSS_OpXX($66, $7070)
-	%DKC3_SSS_OpXX($6A, $3030)
-	%DKC3_SSS_OpXX($6C, $0120)
-	%DKC3_SSS_OpXX($1E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86D7
+	db sprite.unknown_64 : dw $0003
+	db sprite.unknown_62 : dw $0060
+	db sprite.unknown_66 : dw $7070
+	db sprite.unknown_6A : dw $3030
+	db sprite.unknown_6C : dw $0120
+	db sprite.oam_property : dw $0000
+	db !spawn_command_success
 
 DATA_FF87BF:
-	%DKC3_SSS_OpF9(DATA_FF86D7)
-	%DKC3_SSS_OpXX($64, $0007)
-	%DKC3_SSS_OpXX($62, $0030)
-	%DKC3_SSS_OpXX($66, $7070)
-	%DKC3_SSS_OpXX($6A, $3434)
-	%DKC3_SSS_OpXX($6C, $0160)
-	%DKC3_SSS_OpXX($1E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86D7
+	db sprite.unknown_64 : dw $0007
+	db sprite.unknown_62 : dw $0030
+	db sprite.unknown_66 : dw $7070
+	db sprite.unknown_6A : dw $3434
+	db sprite.unknown_6C : dw $0160
+	db sprite.oam_property : dw $0000
+	db !spawn_command_success
 
 DATA_FF87D5:
-	%DKC3_SSS_OpF9(DATA_FF86D7)
-	%DKC3_SSS_OpXX($64, $0002)
-	%DKC3_SSS_OpXX($62, $0028)
-	%DKC3_SSS_OpXX($66, $9898)
-	%DKC3_SSS_OpXX($6A, $2020)
-	%DKC3_SSS_OpXX($6C, $0090)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86D7
+	db sprite.unknown_64 : dw $0002
+	db sprite.unknown_62 : dw $0028
+	db sprite.unknown_66 : dw $9898
+	db sprite.unknown_6A : dw $2020
+	db sprite.unknown_6C : dw $0090
+	db !spawn_command_success
 
 DATA_FF87E8:
-	%DKC3_SSS_OpF9(DATA_FF86D7)
-	%DKC3_SSS_OpXX($64, $0002)
-	%DKC3_SSS_OpXX($62, $0028)
-	%DKC3_SSS_OpXX($66, $A0A0)
-	%DKC3_SSS_OpXX($6A, $2424)
-	%DKC3_SSS_OpXX($6C, $0088)
-	%DKC3_SSS_OpXX($1E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86D7
+	db sprite.unknown_64 : dw $0002
+	db sprite.unknown_62 : dw $0028
+	db sprite.unknown_66 : dw $A0A0
+	db sprite.unknown_6A : dw $2424
+	db sprite.unknown_6C : dw $0088
+	db sprite.oam_property : dw $0000
+	db !spawn_command_success
 
 DATA_FF87FE:
-	%DKC3_SSS_OpF9(DATA_FF86E4)
-	%DKC3_SSS_OpXX($6C, $00C0)
-	%DKC3_SSS_OpXX($32, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86E4
+	db sprite.unknown_6C : dw $00C0
+	db sprite.unknown_32 : dw $0300
+	db !spawn_command_success
 
 DATA_FF8808:
-	%DKC3_SSS_OpF9(DATA_FF86E4)
-	%DKC3_SSS_OpXX($6C, $00C0)
-	%DKC3_SSS_OpXX($32, $0480)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86E4
+	db sprite.unknown_6C : dw $00C0
+	db sprite.unknown_32 : dw $0480
+	db !spawn_command_success
 
 DATA_FF8812:
-	%DKC3_SSS_OpF9(DATA_FF86E4)
-	%DKC3_SSS_OpXX($6C, $01C0)
-	%DKC3_SSS_OpXX($32, $0500)
-	%DKC3_SSS_OpXX($1E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86E4
+	db sprite.unknown_6C : dw $01C0
+	db sprite.unknown_32 : dw $0500
+	db sprite.oam_property : dw $0000
+	db !spawn_command_success
 
 DATA_FF881F:
-	%DKC3_SSS_OpF9(DATA_FF86E4)
-	%DKC3_SSS_OpXX($6C, $0138)
-	%DKC3_SSS_OpXX($32, $0480)
-	%DKC3_SSS_OpXX($1E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86E4
+	db sprite.unknown_6C : dw $0138
+	db sprite.unknown_32 : dw $0480
+	db sprite.oam_property : dw $0000
+	db !spawn_command_success
 
 DATA_FF882C:
-	%DKC3_SSS_OpF9(DATA_FF86E4)
-	%DKC3_SSS_OpXX($6C, $0100)
-	%DKC3_SSS_OpXX($32, $0310)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86E4
+	db sprite.unknown_6C : dw $0100
+	db sprite.unknown_32 : dw $0310
+	db !spawn_command_success
 
 DATA_FF8836:
-	%DKC3_SSS_OpF9(DATA_FF86E4)
-	%DKC3_SSS_OpXX($6C, $0150)
-	%DKC3_SSS_OpXX($32, $0380)
-	%DKC3_SSS_OpXX($1E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86E4
+	db sprite.unknown_6C : dw $0150
+	db sprite.unknown_32 : dw $0380
+	db sprite.oam_property : dw $0000
+	db !spawn_command_success
 
 DATA_FF8843:
-	%DKC3_SSS_OpF9(DATA_FF86E4)
-	%DKC3_SSS_OpXX($6C, $0180)
-	%DKC3_SSS_OpXX($32, $0400)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86E4
+	db sprite.unknown_6C : dw $0180
+	db sprite.unknown_32 : dw $0400
+	db !spawn_command_success
 
 DATA_FF884D:
-	%DKC3_SSS_OpF9(DATA_FF86E4)
-	%DKC3_SSS_OpXX($6C, $0138)
-	%DKC3_SSS_OpXX($32, $0480)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86E4
+	db sprite.unknown_6C : dw $0138
+	db sprite.unknown_32 : dw $0480
+	db !spawn_command_success
 
 DATA_FF8857:
-	%DKC3_SSS_OpF9(DATA_FF86EE)
-	%DKC3_SSS_OpXX($64, $0004)
-	%DKC3_SSS_OpXX($66, $6060)
-	%DKC3_SSS_OpXX($6A, $3030)
-	%DKC3_SSS_OpXX($6C, $01A0)
-	%DKC3_SSS_OpXX($32, $0300)
-	%DKC3_SSS_OpXX($1E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86EE
+	db sprite.unknown_64 : dw $0004
+	db sprite.unknown_66 : dw $6060
+	db sprite.unknown_6A : dw $3030
+	db sprite.unknown_6C : dw $01A0
+	db sprite.unknown_32 : dw $0300
+	db sprite.oam_property : dw $0000
+	db !spawn_command_success
 
 DATA_FF886D:
-	%DKC3_SSS_OpF9(DATA_FF86EE)
-	%DKC3_SSS_OpXX($62, $0020)
-	%DKC3_SSS_OpXX($64, $0004)
-	%DKC3_SSS_OpXX($66, $6060)
-	%DKC3_SSS_OpXX($6A, $3030)
-	%DKC3_SSS_OpXX($6C, $0180)
-	%DKC3_SSS_OpXX($32, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86EE
+	db sprite.unknown_62 : dw $0020
+	db sprite.unknown_64 : dw $0004
+	db sprite.unknown_66 : dw $6060
+	db sprite.unknown_6A : dw $3030
+	db sprite.unknown_6C : dw $0180
+	db sprite.unknown_32 : dw $0300
+	db !spawn_command_success
 
 DATA_FF8883:
-	%DKC3_SSS_OpF9(DATA_FF86FB)
-	%DKC3_SSS_OpXX($64, $0004)
-	%DKC3_SSS_OpXX($66, $6060)
-	%DKC3_SSS_OpXX($6A, $3030)
-	%DKC3_SSS_OpXX($6C, $0180)
-	%DKC3_SSS_OpXX($32, $0300)
-	%DKC3_SSS_OpXX($1E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF86FB
+	db sprite.unknown_64 : dw $0004
+	db sprite.unknown_66 : dw $6060
+	db sprite.unknown_6A : dw $3030
+	db sprite.unknown_6C : dw $0180
+	db sprite.unknown_32 : dw $0300
+	db sprite.oam_property : dw $0000
+	db !spawn_command_success
 
 DATA_FF8899:
-	%DKC3_SSS_OpFF(!sprite_SkiddaAndKobble)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0043)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF1F5E)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpFC($0053)
-	%DKC3_SSS_OpFA($0203)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SkiddaAndKobble
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0043
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.visibility : dw $0000
+	db sprite.constants_address : dw DATA_FF1F5E
+	db sprite.interaction_flags : dw $0040
+	db !spawn_command_FC : dw $0053
+	db !spawn_command_FA : dw $0203
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF88BB:
-	%DKC3_SSS_OpF9(DATA_FF8899)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8899
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF88C2:
-	%DKC3_SSS_OpF9(DATA_FF8899)
-	%DKC3_SSS_OpXX($5A, $0042)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8899
+	db sprite.movement_state : dw $0042
+	db !spawn_command_success
 
 DATA_FF88C9:
-	%DKC3_SSS_OpF9(DATA_FF88BB)
-	%DKC3_SSS_OpXX($5A, $0042)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF88BB
+	db sprite.movement_state : dw $0042
+	db !spawn_command_success
 
 DATA_FF88D0:
-	%DKC3_SSS_OpF9(DATA_FF8899)
-	%DKC3_SSS_OpXX($60, $4600)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8899
+	db sprite.unknown_60 : dw $4600
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF88DA:
-	%DKC3_SSS_OpF9(DATA_FF8899)
-	%DKC3_SSS_OpXX($60, $9828)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpXX($2E, $1000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8899
+	db sprite.unknown_60 : dw $9828
+	db sprite.max_x_speed : dw $0180
+	db sprite.y_speed : dw $1000
+	db !spawn_command_success
 
 DATA_FF88E7:
-	%DKC3_SSS_OpF9(DATA_FF8899)
-	%DKC3_SSS_OpXX($60, $C000)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8899
+	db sprite.unknown_60 : dw $C000
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF88F1:
-	%DKC3_SSS_OpF9(DATA_FF88BB)
-	%DKC3_SSS_OpXX($60, $007C)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF88BB
+	db sprite.unknown_60 : dw $007C
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF88FB:
-	%DKC3_SSS_OpF9(DATA_FF8899)
-	%DKC3_SSS_OpXX($60, $7C00)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8899
+	db sprite.unknown_60 : dw $7C00
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF8905:
-	%DKC3_SSS_OpF9(DATA_FF8899)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8899
+	db sprite.unknown_60 : dw $2020
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF890F:
-	%DKC3_SSS_OpF9(DATA_FF88BB)
-	%DKC3_SSS_OpXX($60, $6030)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF88BB
+	db sprite.unknown_60 : dw $6030
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF8919:
-	%DKC3_SSS_OpF9(DATA_FF88C2)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF88C2
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF8923:
-	%DKC3_SSS_OpFF(!sprite_SkiddaAndKobble)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpXX($5A, $0043)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF1F64)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFC($0059)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFA($020B)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_SkiddaAndKobble
+	db sprite.state : dw $0003
+	db sprite.movement_state : dw $0043
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.constants_address : dw DATA_FF1F64
+	db sprite.visibility : dw $0000
+	db !spawn_command_FC : dw $0059
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FA : dw $020B
+	db sprite.interaction_flags : dw $0040
+	db !spawn_command_success
 
 DATA_FF8945:
-	%DKC3_SSS_OpF9(DATA_FF8923)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8923
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF894C:
-	%DKC3_SSS_OpF9(DATA_FF8923)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8923
+	db sprite.unknown_60 : dw $3030
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF8959:
-	%DKC3_SSS_OpF9(DATA_FF8945)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8945
+	db sprite.unknown_60 : dw $2020
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF8966:
-	%DKC3_SSS_OpF9(DATA_FF8945)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8945
+	db sprite.unknown_60 : dw $3030
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF8973:
-	%DKC3_SSS_OpF9(DATA_FF8923)
-	%DKC3_SSS_OpXX($60, $5050)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8923
+	db sprite.unknown_60 : dw $5050
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF8980:
-	%DKC3_SSS_OpF9(DATA_FF8945)
-	%DKC3_SSS_OpXX($60, $5050)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8945
+	db sprite.unknown_60 : dw $5050
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF898D:
-	%DKC3_SSS_OpFF(!sprite_LemguinSpawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpXX($60, $FD00)
-	%DKC3_SSS_OpXX($24, $2D55)
-	%DKC3_SSS_OpXX($0E, $00D8)
-	%DKC3_SSS_OpFD($2000)
-	%DKC3_SSS_OpFC($0052)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_LemguinSpawner
+	db sprite.state : dw $0000
+	db sprite.unknown_68 : dw $0000
+	db sprite.unknown_60 : dw $FD00
+	db sprite.sprite_graphic : dw $2D55
+	db sprite.render_order : dw $00D8
+	db !spawn_command_FD : dw $2000
+	db !spawn_command_FC : dw $0052
+	db !spawn_command_success
 
 DATA_FF89A6:
-	%DKC3_SSS_OpF9(DATA_FF898D)
-	%DKC3_SSS_OpXX($68, $8000)
-	%DKC3_SSS_OpFD($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF898D
+	db sprite.unknown_68 : dw $8000
+	db !spawn_command_FD : dw $6000
+	db !spawn_command_success
 
 DATA_FF89B0:
-	%DKC3_SSS_OpF9(DATA_FF898D)
-	%DKC3_SSS_OpXX($68, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF898D
+	db sprite.unknown_68 : dw $0001
+	db !spawn_command_success
 
 DATA_FF89B7:
-	%DKC3_SSS_OpF9(DATA_FF898D)
-	%DKC3_SSS_OpXX($5C, $0090)
-	%DKC3_SSS_OpXX($64, $0380)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($6A, $02EC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF898D
+	db sprite.unknown_5C : dw $0090
+	db sprite.unknown_64 : dw $0380
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_6A : dw $02EC
+	db !spawn_command_success
 
 DATA_FF89C7:
-	%DKC3_SSS_OpF9(DATA_FF898D)
-	%DKC3_SSS_OpXX($5C, $0048)
-	%DKC3_SSS_OpXX($64, $03C0)
-	%DKC3_SSS_OpXX($66, $0240)
-	%DKC3_SSS_OpXX($6A, $02C4)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF898D
+	db sprite.unknown_5C : dw $0048
+	db sprite.unknown_64 : dw $03C0
+	db sprite.unknown_66 : dw $0240
+	db sprite.unknown_6A : dw $02C4
+	db !spawn_command_success
 
 DATA_FF89D7:
-	%DKC3_SSS_OpF9(DATA_FF898D)
-	%DKC3_SSS_OpXX($5C, $0048)
-	%DKC3_SSS_OpXX($64, $0380)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($6A, $02F0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF898D
+	db sprite.unknown_5C : dw $0048
+	db sprite.unknown_64 : dw $0380
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_6A : dw $02F0
+	db !spawn_command_success
 
 DATA_FF89E7:
-	%DKC3_SSS_OpF9(DATA_FF89A6)
-	%DKC3_SSS_OpXX($5C, $0030)
-	%DKC3_SSS_OpXX($64, $0380)
-	%DKC3_SSS_OpXX($66, $02C0)
-	%DKC3_SSS_OpXX($6A, $0290)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF89A6
+	db sprite.unknown_5C : dw $0030
+	db sprite.unknown_64 : dw $0380
+	db sprite.unknown_66 : dw $02C0
+	db sprite.unknown_6A : dw $0290
+	db !spawn_command_success
 
 DATA_FF89F7:
-	%DKC3_SSS_OpF9(DATA_FF898D)
-	%DKC3_SSS_OpXX($5C, $0040)
-	%DKC3_SSS_OpXX($64, $0380)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($6A, $0290)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF898D
+	db sprite.unknown_5C : dw $0040
+	db sprite.unknown_64 : dw $0380
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_6A : dw $0290
+	db !spawn_command_success
 
 DATA_FF8A07:
-	%DKC3_SSS_OpF9(DATA_FF89A6)
-	%DKC3_SSS_OpXX($5C, $0040)
-	%DKC3_SSS_OpXX($64, $0380)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($6A, $0260)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF89A6
+	db sprite.unknown_5C : dw $0040
+	db sprite.unknown_64 : dw $0380
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_6A : dw $0260
+	db !spawn_command_success
 
 DATA_FF8A17:
-	%DKC3_SSS_OpF9(DATA_FF898D)
-	%DKC3_SSS_OpXX($5C, $0045)
-	%DKC3_SSS_OpXX($64, $0280)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($6A, $02A8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF898D
+	db sprite.unknown_5C : dw $0045
+	db sprite.unknown_64 : dw $0280
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_6A : dw $02A8
+	db !spawn_command_success
 
 DATA_FF8A27:
-	%DKC3_SSS_OpF9(DATA_FF898D)
-	%DKC3_SSS_OpXX($5C, $002C)
-	%DKC3_SSS_OpXX($64, $0300)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($6A, $02D0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF898D
+	db sprite.unknown_5C : dw $002C
+	db sprite.unknown_64 : dw $0300
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_6A : dw $02D0
+	db !spawn_command_success
 
 DATA_FF8A37:
-	%DKC3_SSS_OpF9(DATA_FF898D)
-	%DKC3_SSS_OpXX($5C, $0040)
-	%DKC3_SSS_OpXX($64, $0380)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($6A, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF898D
+	db sprite.unknown_5C : dw $0040
+	db sprite.unknown_64 : dw $0380
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_6A : dw $0240
+	db !spawn_command_success
 
 DATA_FF8A47:
-	%DKC3_SSS_OpF9(DATA_FF898D)
-	%DKC3_SSS_OpXX($5C, $0048)
-	%DKC3_SSS_OpXX($64, $0380)
-	%DKC3_SSS_OpXX($66, $0250)
-	%DKC3_SSS_OpXX($6A, $0220)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF898D
+	db sprite.unknown_5C : dw $0048
+	db sprite.unknown_64 : dw $0380
+	db sprite.unknown_66 : dw $0250
+	db sprite.unknown_6A : dw $0220
+	db !spawn_command_success
 
 DATA_FF8A57:
-	%DKC3_SSS_OpF9(DATA_FF898D)
-	%DKC3_SSS_OpXX($5C, $003C)
-	%DKC3_SSS_OpXX($64, $0280)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($6A, $0295)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF898D
+	db sprite.unknown_5C : dw $003C
+	db sprite.unknown_64 : dw $0280
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_6A : dw $0295
+	db !spawn_command_success
 
 DATA_FF8A67:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0180
+	db !spawn_command_success
 
 DATA_FF8A6B:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0190)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0190
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF8A78:
-	%DKC3_SSS_OpFF(!sprite_Knocka)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $8080)
-	%DKC3_SSS_OpXX($60, $4804)
-	%DKC3_SSS_OpXX($64, $0007)
-	%DKC3_SSS_OpXX($66, $0380)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpXX($06, DATA_FF1E44)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($005B)
-	%DKC3_SSS_OpFA($021C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Knocka
+	db sprite.state : dw $0005
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $8080
+	db sprite.unknown_60 : dw $4804
+	db sprite.unknown_64 : dw $0007
+	db sprite.unknown_66 : dw $0380
+	db sprite.visibility : dw $0000
+	db sprite.interaction_flags : dw $0040
+	db sprite.movement_state : dw $0040
+	db sprite.constants_address : dw DATA_FF1E44
+	db sprite.render_order : dw $00D4
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $005B
+	db !spawn_command_FA : dw $021C
+	db !spawn_command_success
 
 DATA_FF8AB2:
-	%DKC3_SSS_OpF9(DATA_FF8A78)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($66, $0380)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8A78
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_66 : dw $0380
+	db !spawn_command_success
 
 DATA_FF8ABC:
-	%DKC3_SSS_OpF9(DATA_FF8A78)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $A0A0)
-	%DKC3_SSS_OpXX($66, $0400)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8A78
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $A0A0
+	db sprite.unknown_66 : dw $0400
+	db !spawn_command_success
 
 DATA_FF8AC9:
-	%DKC3_SSS_OpF9(DATA_FF8A78)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $C040)
-	%DKC3_SSS_OpXX($60, $8060)
-	%DKC3_SSS_OpXX($66, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8A78
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $C040
+	db sprite.unknown_60 : dw $8060
+	db sprite.unknown_66 : dw $0300
+	db !spawn_command_success
 
 DATA_FF8AD9:
-	%DKC3_SSS_OpF9(DATA_FF8A78)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $40C0)
-	%DKC3_SSS_OpXX($60, $8060)
-	%DKC3_SSS_OpXX($66, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8A78
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $40C0
+	db sprite.unknown_60 : dw $8060
+	db sprite.unknown_66 : dw $0300
+	db !spawn_command_success
 
 DATA_FF8AE9:
-	%DKC3_SSS_OpFF(!sprite_Krimp)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($06, DATA_FF1F76)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpFC($0063)
-	%DKC3_SSS_OpFA($023B)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Krimp
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.render_order : dw $00D4
+	db sprite.constants_address : dw DATA_FF1F76
+	db sprite.visibility : dw $0000
+	db sprite.interaction_flags : dw $0040
+	db !spawn_command_FC : dw $0063
+	db !spawn_command_FA : dw $023B
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF8B08:
-	%DKC3_SSS_OpF9(DATA_FF8AE9)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5A, $0043)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8AE9
+	db sprite.state : dw $0100
+	db sprite.movement_state : dw $0043
+	db !spawn_command_success
 
 DATA_FF8B12:
-	%DKC3_SSS_OpF9(DATA_FF8B08)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B08
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF8B19:
-	%DKC3_SSS_OpF9(DATA_FF8B08)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B08
+	db !spawn_command_success
 
 DATA_FF8B1D:
-	%DKC3_SSS_OpF9(DATA_FF8AE9)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5A, $004C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8AE9
+	db sprite.state : dw $0100
+	db sprite.movement_state : dw $004C
+	db !spawn_command_success
 
 DATA_FF8B27:
-	%DKC3_SSS_OpF9(DATA_FF8B1D)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B1D
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF8B2E:
-	%DKC3_SSS_OpF9(DATA_FF8B19)
-	%DKC3_SSS_OpXX($60, $2424)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B19
+	db sprite.unknown_60 : dw $2424
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF8B38:
-	%DKC3_SSS_OpF9(DATA_FF8B12)
-	%DKC3_SSS_OpXX($60, $2424)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B12
+	db sprite.unknown_60 : dw $2424
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF8B42:
-	%DKC3_SSS_OpF9(DATA_FF8B19)
-	%DKC3_SSS_OpXX($60, $2828)
-	%DKC3_SSS_OpXX($30, $01E0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B19
+	db sprite.unknown_60 : dw $2828
+	db sprite.max_x_speed : dw $01E0
+	db !spawn_command_success
 
 DATA_FF8B4C:
-	%DKC3_SSS_OpF9(DATA_FF8B12)
-	%DKC3_SSS_OpXX($60, $3C1C)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B12
+	db sprite.unknown_60 : dw $3C1C
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF8B56:
-	%DKC3_SSS_OpF9(DATA_FF8B19)
-	%DKC3_SSS_OpXX($60, $3C1C)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B19
+	db sprite.unknown_60 : dw $3C1C
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF8B60:
-	%DKC3_SSS_OpF9(DATA_FF8B19)
-	%DKC3_SSS_OpXX($60, $FF20)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B19
+	db sprite.unknown_60 : dw $FF20
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF8B6A:
-	%DKC3_SSS_OpF9(DATA_FF8B19)
-	%DKC3_SSS_OpXX($60, $F870)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B19
+	db sprite.unknown_60 : dw $F870
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF8B74:
-	%DKC3_SSS_OpF9(DATA_FF8B19)
-	%DKC3_SSS_OpXX($60, $7030)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B19
+	db sprite.unknown_60 : dw $7030
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF8B7E:
-	%DKC3_SSS_OpF9(DATA_FF8B12)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B12
+	db sprite.unknown_60 : dw $4040
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF8B88:
-	%DKC3_SSS_OpF9(DATA_FF8B12)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B12
+	db sprite.unknown_60 : dw $3030
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF8B92:
-	%DKC3_SSS_OpF9(DATA_FF8B19)
-	%DKC3_SSS_OpXX($60, $9058)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B19
+	db sprite.unknown_60 : dw $9058
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF8B9C:
-	%DKC3_SSS_OpF9(DATA_FF8B12)
-	%DKC3_SSS_OpXX($60, $0048)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B12
+	db sprite.unknown_60 : dw $0048
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF8BA6:
-	%DKC3_SSS_OpF9(DATA_FF8B1D)
-	%DKC3_SSS_OpXX($30, $0240)
-	%DKC3_SSS_OpXX($60, $FF30)
-	%DKC3_SSS_OpXX($3A, $2040)
-	%DKC3_SSS_OpXX($5A, $0052)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B1D
+	db sprite.max_x_speed : dw $0240
+	db sprite.unknown_60 : dw $FF30
+	db sprite.interaction_flags : dw $2040
+	db sprite.movement_state : dw $0052
+	db !spawn_command_success
 
 DATA_FF8BB6:
-	%DKC3_SSS_OpF9(DATA_FF8B27)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B27
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF8BBD:
-	%DKC3_SSS_OpF9(DATA_FF8B1D)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B1D
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF8BC4:
-	%DKC3_SSS_OpF9(DATA_FF8B27)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B27
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF8BCB:
-	%DKC3_SSS_OpF9(DATA_FF8B1D)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B1D
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF8BD2:
-	%DKC3_SSS_OpF9(DATA_FF8B27)
-	%DKC3_SSS_OpXX($30, $0220)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B27
+	db sprite.max_x_speed : dw $0220
+	db !spawn_command_success
 
 DATA_FF8BD9:
-	%DKC3_SSS_OpF9(DATA_FF8B1D)
-	%DKC3_SSS_OpXX($30, $0220)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B1D
+	db sprite.max_x_speed : dw $0220
+	db !spawn_command_success
 
 DATA_FF8BE0:
-	%DKC3_SSS_OpFF(!sprite_Bristle)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF1F88)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpFC($0067)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Bristle
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.render_order : dw $00D4
+	db sprite.visibility : dw $0000
+	db sprite.constants_address : dw DATA_FF1F88
+	db sprite.interaction_flags : dw $0040
+	db !spawn_command_FC : dw $0067
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF8BFC:
-	%DKC3_SSS_OpF9(DATA_FF8BE0)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5A, $0043)
-	%DKC3_SSS_OpFA($0250)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8BE0
+	db sprite.state : dw $0100
+	db sprite.movement_state : dw $0043
+	db !spawn_command_FA : dw $0250
+	db !spawn_command_success
 
 DATA_FF8C09:
-	%DKC3_SSS_OpF9(DATA_FF8BFC)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8BFC
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF8C10:
-	%DKC3_SSS_OpF9(DATA_FF8BFC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8BFC
+	db !spawn_command_success
 
 DATA_FF8C14:
-	%DKC3_SSS_OpF9(DATA_FF8BE0)
-	%DKC3_SSS_OpXX($38, $0900)
-	%DKC3_SSS_OpXX($5A, $0043)
-	%DKC3_SSS_OpFA($0251)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8BE0
+	db sprite.state : dw $0900
+	db sprite.movement_state : dw $0043
+	db !spawn_command_FA : dw $0251
+	db !spawn_command_success
 
 DATA_FF8C21:
-	%DKC3_SSS_OpF9(DATA_FF8C14)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C14
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF8C28:
-	%DKC3_SSS_OpF9(DATA_FF8C14)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C14
+	db !spawn_command_success
 
 DATA_FF8C2C:
-	%DKC3_SSS_OpF9(DATA_FF8BE0)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5A, $004C)
-	%DKC3_SSS_OpFA($0250)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8BE0
+	db sprite.state : dw $0100
+	db sprite.movement_state : dw $004C
+	db !spawn_command_FA : dw $0250
+	db !spawn_command_success
 
 DATA_FF8C39:
-	%DKC3_SSS_OpF9(DATA_FF8C2C)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C2C
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF8C40:
-	%DKC3_SSS_OpF9(DATA_FF8BE0)
-	%DKC3_SSS_OpXX($38, $0300)
-	%DKC3_SSS_OpXX($5A, $004C)
-	%DKC3_SSS_OpFA($0251)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8BE0
+	db sprite.state : dw $0300
+	db sprite.movement_state : dw $004C
+	db !spawn_command_FA : dw $0251
+	db !spawn_command_success
 
 DATA_FF8C4D:
-	%DKC3_SSS_OpF9(DATA_FF8C40)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C40
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF8C54:
-	%DKC3_SSS_OpF9(DATA_FF8BE0)
-	%DKC3_SSS_OpXX($38, $0004)
-	%DKC3_SSS_OpXX($5A, $004C)
-	%DKC3_SSS_OpFA($0250)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8BE0
+	db sprite.state : dw $0004
+	db sprite.movement_state : dw $004C
+	db !spawn_command_FA : dw $0250
+	db !spawn_command_success
 
 DATA_FF8C61:
-	%DKC3_SSS_OpF9(DATA_FF8C40)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C40
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF8C68:
-	%DKC3_SSS_OpF9(DATA_FF8BE0)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($5A, $004C)
-	%DKC3_SSS_OpFA($0251)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8BE0
+	db sprite.state : dw $0005
+	db sprite.movement_state : dw $004C
+	db !spawn_command_FA : dw $0251
+	db !spawn_command_success
 
 DATA_FF8C75:
-	%DKC3_SSS_OpF9(DATA_FF8C40)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C40
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF8C7C:
-	%DKC3_SSS_OpF9(DATA_FF8C10)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C10
+	db sprite.unknown_60 : dw $4040
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF8C86:
-	%DKC3_SSS_OpF9(DATA_FF8C10)
-	%DKC3_SSS_OpXX($60, $8080)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C10
+	db sprite.unknown_60 : dw $8080
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF8C90:
-	%DKC3_SSS_OpF9(DATA_FF8C10)
-	%DKC3_SSS_OpXX($60, $2828)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C10
+	db sprite.unknown_60 : dw $2828
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF8C9A:
-	%DKC3_SSS_OpF9(DATA_FF8C10)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C10
+	db sprite.unknown_60 : dw $3030
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF8CA4:
-	%DKC3_SSS_OpF9(DATA_FF8C09)
-	%DKC3_SSS_OpXX($60, $7878)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C09
+	db sprite.unknown_60 : dw $7878
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF8CAE:
-	%DKC3_SSS_OpF9(DATA_FF8C09)
-	%DKC3_SSS_OpXX($60, $6868)
-	%DKC3_SSS_OpXX($30, $0140)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C09
+	db sprite.unknown_60 : dw $6868
+	db sprite.max_x_speed : dw $0140
+	db !spawn_command_success
 
 DATA_FF8CB8:
-	%DKC3_SSS_OpF9(DATA_FF8C10)
-	%DKC3_SSS_OpXX($60, $8080)
-	%DKC3_SSS_OpXX($30, $FD80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C10
+	db sprite.unknown_60 : dw $8080
+	db sprite.max_x_speed : dw $FD80
+	db !spawn_command_success
 
 DATA_FF8CC2:
-	%DKC3_SSS_OpF9(DATA_FF8C10)
-	%DKC3_SSS_OpXX($60, $8080)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF8C10
+	db sprite.unknown_60 : dw $8080
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_F0
 
 DATA_FF8CCC:
-	%DKC3_SSS_OpF9(DATA_FF8C10)
-	%DKC3_SSS_OpXX($60, $C040)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF8C10
+	db sprite.unknown_60 : dw $C040
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_F0
 
 DATA_FF8CD6:
-	%DKC3_SSS_OpF9(DATA_FF8C39)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C39
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF8CDD:
-	%DKC3_SSS_OpF9(DATA_FF8C2C)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C2C
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF8CE4:
-	%DKC3_SSS_OpF9(DATA_FF8C39)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C39
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF8CEB:
-	%DKC3_SSS_OpF9(DATA_FF8C2C)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C2C
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF8CF2:
-	%DKC3_SSS_OpF9(DATA_FF8C28)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C28
+	db sprite.unknown_60 : dw $4040
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF8CFC:
-	%DKC3_SSS_OpF9(DATA_FF8C40)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C40
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF8D03:
-	%DKC3_SSS_OpF9(DATA_FF8C54)
-	%DKC3_SSS_OpXX($5C, $003C)
-	%DKC3_SSS_OpXX($5E, $003C)
-	%DKC3_SSS_OpXX($60, $FF00)
-	%DKC3_SSS_OpXX($64, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C54
+	db sprite.unknown_5C : dw $003C
+	db sprite.unknown_5E : dw $003C
+	db sprite.unknown_60 : dw $FF00
+	db sprite.unknown_64 : dw $0100
+	db !spawn_command_success
 
 DATA_FF8D13:
-	%DKC3_SSS_OpF9(DATA_FF8C68)
-	%DKC3_SSS_OpXX($5C, $003C)
-	%DKC3_SSS_OpXX($5E, $003C)
-	%DKC3_SSS_OpXX($60, $0100)
-	%DKC3_SSS_OpXX($64, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C68
+	db sprite.unknown_5C : dw $003C
+	db sprite.unknown_5E : dw $003C
+	db sprite.unknown_60 : dw $0100
+	db sprite.unknown_64 : dw $FF00
+	db !spawn_command_success
 
 DATA_FF8D23:
-	%DKC3_SSS_OpFF(!sprite_Krumple)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($06, DATA_FF1F8E)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpFC($0069)
-	%DKC3_SSS_OpFA($0258)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Krumple
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.render_order : dw $00D4
+	db sprite.constants_address : dw DATA_FF1F8E
+	db sprite.visibility : dw $0000
+	db sprite.interaction_flags : dw $0040
+	db !spawn_command_FC : dw $0069
+	db !spawn_command_FA : dw $0258
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF8D42:
-	%DKC3_SSS_OpF9(DATA_FF8D23)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5A, $0043)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D23
+	db sprite.state : dw $0100
+	db sprite.movement_state : dw $0043
+	db !spawn_command_success
 
 DATA_FF8D4C:
-	%DKC3_SSS_OpF9(DATA_FF8D42)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D42
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF8D53:
-	%DKC3_SSS_OpF9(DATA_FF8D42)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D42
+	db !spawn_command_success
 
 DATA_FF8D57:
-	%DKC3_SSS_OpF9(DATA_FF8D23)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5A, $004C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D23
+	db sprite.state : dw $0100
+	db sprite.movement_state : dw $004C
+	db !spawn_command_success
 
 DATA_FF8D61:
-	%DKC3_SSS_OpF9(DATA_FF8D57)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D57
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF8D68:
-	%DKC3_SSS_OpF9(DATA_FF8D53)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D53
+	db sprite.unknown_60 : dw $4040
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF8D72:
-	%DKC3_SSS_OpF9(DATA_FF8D53)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($30, $FEC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D53
+	db sprite.unknown_60 : dw $4040
+	db sprite.max_x_speed : dw $FEC0
+	db !spawn_command_success
 
 DATA_FF8D7C:
-	%DKC3_SSS_OpF9(DATA_FF8D4C)
-	%DKC3_SSS_OpXX($60, $8010)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D4C
+	db sprite.unknown_60 : dw $8010
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FF8D86:
-	%DKC3_SSS_OpF9(DATA_FF8D53)
-	%DKC3_SSS_OpXX($60, $A0E0)
-	%DKC3_SSS_OpXX($30, $FE60)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D53
+	db sprite.unknown_60 : dw $A0E0
+	db sprite.max_x_speed : dw $FE60
+	db !spawn_command_success
 
 DATA_FF8D90:
-	%DKC3_SSS_OpF9(DATA_FF8D53)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($30, $FED0)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF8D53
+	db sprite.unknown_60 : dw $2020
+	db sprite.max_x_speed : dw $FED0
+	db !spawn_command_F0
 
 DATA_FF8D9A:
-	%DKC3_SSS_OpF9(DATA_FF8D4C)
-	%DKC3_SSS_OpXX($60, $30FF)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpXX($3A, $2040)
-	%DKC3_SSS_OpXX($5A, $0052)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D4C
+	db sprite.unknown_60 : dw $30FF
+	db sprite.max_x_speed : dw $0100
+	db sprite.interaction_flags : dw $2040
+	db sprite.movement_state : dw $0052
+	db !spawn_command_success
 
 DATA_FF8DAA:
-	%DKC3_SSS_OpF9(DATA_FF8D57)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D57
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF8DB1:
-	%DKC3_SSS_OpF9(DATA_FF8D61)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D61
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF8DB8:
-	%DKC3_SSS_OpF9(DATA_FF8D57)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D57
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FF8DBF:
-	%DKC3_SSS_OpF9(DATA_FF8D61)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D61
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FF8DC6:
-	%DKC3_SSS_OpF9(DATA_FF8D57)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF8D57
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_F0
 
 DATA_FF8DCD:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_01F0)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0014)
-	%DKC3_SSS_OpXX($60, $003C)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($64, $001E)
-	%DKC3_SSS_OpXX($66, $001E)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_01F0
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0014
+	db sprite.unknown_60 : dw $003C
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_64 : dw $001E
+	db sprite.unknown_66 : dw $001E
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF8DE6:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $1BD4)
-	%DKC3_SSS_OpXX($6A, $0150)
-	%DKC3_SSS_OpXX($2A, $FD00)
-	%DKC3_SSS_OpXX($64, $003C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $1BD4
+	db sprite.unknown_6A : dw $0150
+	db sprite.x_speed : dw $FD00
+	db sprite.unknown_64 : dw $003C
+	db !spawn_command_success
 
 DATA_FF8DF6:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $14D2)
-	%DKC3_SSS_OpXX($6A, $0218)
-	%DKC3_SSS_OpXX($2A, $FD00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $14D2
+	db sprite.unknown_6A : dw $0218
+	db sprite.x_speed : dw $FD00
+	db !spawn_command_success
 
 DATA_FF8E03:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $1392)
-	%DKC3_SSS_OpXX($6A, $0150)
-	%DKC3_SSS_OpXX($2A, $FD00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $1392
+	db sprite.unknown_6A : dw $0150
+	db sprite.x_speed : dw $FD00
+	db !spawn_command_success
 
 DATA_FF8E10:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $0FB2)
-	%DKC3_SSS_OpXX($6A, $0100)
-	%DKC3_SSS_OpXX($2A, $FD00)
-	%DKC3_SSS_OpXX($60, $0064)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $0FB2
+	db sprite.unknown_6A : dw $0100
+	db sprite.x_speed : dw $FD00
+	db sprite.unknown_60 : dw $0064
+	db !spawn_command_success
 
 DATA_FF8E20:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $0E32)
-	%DKC3_SSS_OpXX($6A, $02D0)
-	%DKC3_SSS_OpXX($2A, $FD00)
-	%DKC3_SSS_OpXX($60, $0064)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $0E32
+	db sprite.unknown_6A : dw $02D0
+	db sprite.x_speed : dw $FD00
+	db sprite.unknown_60 : dw $0064
+	db !spawn_command_success
 
 DATA_FF8E30:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $0DB2)
-	%DKC3_SSS_OpXX($6A, $02D0)
-	%DKC3_SSS_OpXX($2A, $FD00)
-	%DKC3_SSS_OpXX($60, $0064)
-	%DKC3_SSS_OpXX($62, $001E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $0DB2
+	db sprite.unknown_6A : dw $02D0
+	db sprite.x_speed : dw $FD00
+	db sprite.unknown_60 : dw $0064
+	db sprite.unknown_62 : dw $001E
+	db !spawn_command_success
 
 DATA_FF8E43:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $0BF2)
-	%DKC3_SSS_OpXX($6A, $0150)
-	%DKC3_SSS_OpXX($2A, $FD00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $0BF2
+	db sprite.unknown_6A : dw $0150
+	db sprite.x_speed : dw $FD00
+	db !spawn_command_success
 
 DATA_FF8E50:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $08F2)
-	%DKC3_SSS_OpXX($6A, $0200)
-	%DKC3_SSS_OpXX($2A, $FD00)
-	%DKC3_SSS_OpXX($60, $0050)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $08F2
+	db sprite.unknown_6A : dw $0200
+	db sprite.x_speed : dw $FD00
+	db sprite.unknown_60 : dw $0050
+	db !spawn_command_success
 
 DATA_FF8E60:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $0872)
-	%DKC3_SSS_OpXX($6A, $0240)
-	%DKC3_SSS_OpXX($2A, $FD00)
-	%DKC3_SSS_OpXX($60, $0050)
-	%DKC3_SSS_OpXX($62, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $0872
+	db sprite.unknown_6A : dw $0240
+	db sprite.x_speed : dw $FD00
+	db sprite.unknown_60 : dw $0050
+	db sprite.unknown_62 : dw $000F
+	db !spawn_command_success
 
 DATA_FF8E73:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $07F2)
-	%DKC3_SSS_OpXX($6A, $02E0)
-	%DKC3_SSS_OpXX($2A, $FD00)
-	%DKC3_SSS_OpXX($60, $0050)
-	%DKC3_SSS_OpXX($62, $001E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $07F2
+	db sprite.unknown_6A : dw $02E0
+	db sprite.x_speed : dw $FD00
+	db sprite.unknown_60 : dw $0050
+	db sprite.unknown_62 : dw $001E
+	db !spawn_command_success
 
 DATA_FF8E86:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $06B2)
-	%DKC3_SSS_OpXX($6A, $0208)
-	%DKC3_SSS_OpXX($2A, $FD00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $06B2
+	db sprite.unknown_6A : dw $0208
+	db sprite.x_speed : dw $FD00
+	db !spawn_command_success
 
 DATA_FF8E93:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $0452)
-	%DKC3_SSS_OpXX($6A, $0140)
-	%DKC3_SSS_OpXX($2A, $FD00)
-	%DKC3_SSS_OpXX($64, $005A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $0452
+	db sprite.unknown_6A : dw $0140
+	db sprite.x_speed : dw $FD00
+	db sprite.unknown_64 : dw $005A
+	db !spawn_command_success
 
 DATA_FF8EA3:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $0258)
-	%DKC3_SSS_OpXX($6A, $0100)
-	%DKC3_SSS_OpXX($2A, $FE00)
-	%DKC3_SSS_OpXX($62, $0096)
-	%DKC3_SSS_OpXX($60, $0118)
-	%DKC3_SSS_OpXX($66, $0032)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $0258
+	db sprite.unknown_6A : dw $0100
+	db sprite.x_speed : dw $FE00
+	db sprite.unknown_62 : dw $0096
+	db sprite.unknown_60 : dw $0118
+	db sprite.unknown_66 : dw $0032
+	db !spawn_command_success
 
 DATA_FF8EB9:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $1AFA)
-	%DKC3_SSS_OpXX($6A, $0278)
-	%DKC3_SSS_OpXX($2A, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $1AFA
+	db sprite.unknown_6A : dw $0278
+	db sprite.x_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF8EC6:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $157A)
-	%DKC3_SSS_OpXX($6A, $0348)
-	%DKC3_SSS_OpXX($2A, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $157A
+	db sprite.unknown_6A : dw $0348
+	db sprite.x_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF8ED3:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $143A)
-	%DKC3_SSS_OpXX($6A, $0358)
-	%DKC3_SSS_OpXX($2A, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $143A
+	db sprite.unknown_6A : dw $0358
+	db sprite.x_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF8EE0:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($60, $0050)
-	%DKC3_SSS_OpXX($68, $113A)
-	%DKC3_SSS_OpXX($6A, $0410)
-	%DKC3_SSS_OpXX($2A, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_60 : dw $0050
+	db sprite.unknown_68 : dw $113A
+	db sprite.unknown_6A : dw $0410
+	db sprite.x_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF8EF0:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $0A1A)
-	%DKC3_SSS_OpXX($6A, $0410)
-	%DKC3_SSS_OpXX($2A, $0300)
-	%DKC3_SSS_OpXX($64, $005A)
-	%DKC3_SSS_OpXX($60, $0028)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $0A1A
+	db sprite.unknown_6A : dw $0410
+	db sprite.x_speed : dw $0300
+	db sprite.unknown_64 : dw $005A
+	db sprite.unknown_60 : dw $0028
+	db !spawn_command_success
 
 DATA_FF8F03:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $02DA)
-	%DKC3_SSS_OpXX($6A, $0410)
-	%DKC3_SSS_OpXX($2A, $0300)
-	%DKC3_SSS_OpXX($64, $005A)
-	%DKC3_SSS_OpXX($60, $005A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $02DA
+	db sprite.unknown_6A : dw $0410
+	db sprite.x_speed : dw $0300
+	db sprite.unknown_64 : dw $005A
+	db sprite.unknown_60 : dw $005A
+	db !spawn_command_success
 
 DATA_FF8F16:
-	%DKC3_SSS_OpF9(DATA_FF8DCD)
-	%DKC3_SSS_OpXX($68, $0257)
-	%DKC3_SSS_OpXX($6A, $022F)
-	%DKC3_SSS_OpXX($2A, $0200)
-	%DKC3_SSS_OpXX($60, $0118)
-	%DKC3_SSS_OpXX($66, $0032)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8DCD
+	db sprite.unknown_68 : dw $0257
+	db sprite.unknown_6A : dw $022F
+	db sprite.x_speed : dw $0200
+	db sprite.unknown_60 : dw $0118
+	db sprite.unknown_66 : dw $0032
+	db !spawn_command_success
 
 DATA_FF8F29:
-	%DKC3_SSS_OpFF(!sprite_Swoopy)
-	%DKC3_SSS_OpXX($38, $000A)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($025D)
-	%DKC3_SSS_OpFC($006B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Swoopy
+	db sprite.state : dw $000A
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.render_order : dw $00D4
+	db sprite.movement_state : dw $0001
+	db sprite.interaction_flags : dw $0040
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $025D
+	db !spawn_command_FC : dw $006B
+	db !spawn_command_success
 
 DATA_FF8F4B:
-	%DKC3_SSS_OpF9(DATA_FF8F29)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8F29
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF8F52:
-	%DKC3_SSS_OpF9(DATA_FF8F4B)
-	%DKC3_SSS_OpXX($5C, $7F40)
-	%DKC3_SSS_OpXX($5E, $307F)
-	%DKC3_SSS_OpXX($60, $0001)
-	%DKC3_SSS_OpXX($30, $0400)
-	%DKC3_SSS_OpXX($34, $0700)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8F4B
+	db sprite.unknown_5C : dw $7F40
+	db sprite.unknown_5E : dw $307F
+	db sprite.unknown_60 : dw $0001
+	db sprite.max_x_speed : dw $0400
+	db sprite.max_y_speed : dw $0700
+	db !spawn_command_success
 
 DATA_FF8F65:
-	%DKC3_SSS_OpF9(DATA_FF8F29)
-	%DKC3_SSS_OpXX($5C, $7F7F)
-	%DKC3_SSS_OpXX($5E, $307F)
-	%DKC3_SSS_OpXX($60, $0001)
-	%DKC3_SSS_OpXX($30, $0400)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8F29
+	db sprite.unknown_5C : dw $7F7F
+	db sprite.unknown_5E : dw $307F
+	db sprite.unknown_60 : dw $0001
+	db sprite.max_x_speed : dw $0400
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF8F78:
-	%DKC3_SSS_OpF9(DATA_FF8F4B)
-	%DKC3_SSS_OpXX($5C, $F020)
-	%DKC3_SSS_OpXX($5E, $3080)
-	%DKC3_SSS_OpXX($60, $0001)
-	%DKC3_SSS_OpXX($30, $0700)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8F4B
+	db sprite.unknown_5C : dw $F020
+	db sprite.unknown_5E : dw $3080
+	db sprite.unknown_60 : dw $0001
+	db sprite.max_x_speed : dw $0700
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF8F8B:
-	%DKC3_SSS_OpF9(DATA_FF8F4B)
-	%DKC3_SSS_OpXX($5C, $F020)
-	%DKC3_SSS_OpXX($5E, $30C0)
-	%DKC3_SSS_OpXX($60, $0001)
-	%DKC3_SSS_OpXX($30, $0700)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8F4B
+	db sprite.unknown_5C : dw $F020
+	db sprite.unknown_5E : dw $30C0
+	db sprite.unknown_60 : dw $0001
+	db sprite.max_x_speed : dw $0700
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF8F9E:
-	%DKC3_SSS_OpF9(DATA_FF8F4B)
-	%DKC3_SSS_OpXX($5C, $F020)
-	%DKC3_SSS_OpXX($5E, $30FF)
-	%DKC3_SSS_OpXX($60, $0001)
-	%DKC3_SSS_OpXX($30, $0700)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8F4B
+	db sprite.unknown_5C : dw $F020
+	db sprite.unknown_5E : dw $30FF
+	db sprite.unknown_60 : dw $0001
+	db sprite.max_x_speed : dw $0700
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF8FB1:
-	%DKC3_SSS_OpF9(DATA_FF8F4B)
-	%DKC3_SSS_OpXX($5C, $F020)
-	%DKC3_SSS_OpXX($5E, $3030)
-	%DKC3_SSS_OpXX($60, $0001)
-	%DKC3_SSS_OpXX($30, $0800)
-	%DKC3_SSS_OpXX($34, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8F4B
+	db sprite.unknown_5C : dw $F020
+	db sprite.unknown_5E : dw $3030
+	db sprite.unknown_60 : dw $0001
+	db sprite.max_x_speed : dw $0800
+	db sprite.max_y_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF8FC4:
-	%DKC3_SSS_OpF9(DATA_FF8F4B)
-	%DKC3_SSS_OpXX($5C, $7F40)
-	%DKC3_SSS_OpXX($5E, $307F)
-	%DKC3_SSS_OpXX($60, $0001)
-	%DKC3_SSS_OpXX($30, $0400)
-	%DKC3_SSS_OpXX($34, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8F4B
+	db sprite.unknown_5C : dw $7F40
+	db sprite.unknown_5E : dw $307F
+	db sprite.unknown_60 : dw $0001
+	db sprite.max_x_speed : dw $0400
+	db sprite.max_y_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF8FD7:
-	%DKC3_SSS_OpF9(DATA_FF8F29)
-	%DKC3_SSS_OpXX($5C, $20F0)
-	%DKC3_SSS_OpXX($5E, $3030)
-	%DKC3_SSS_OpXX($60, $0001)
-	%DKC3_SSS_OpXX($30, $0800)
-	%DKC3_SSS_OpXX($34, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8F29
+	db sprite.unknown_5C : dw $20F0
+	db sprite.unknown_5E : dw $3030
+	db sprite.unknown_60 : dw $0001
+	db sprite.max_x_speed : dw $0800
+	db sprite.max_y_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF8FEA:
-	%DKC3_SSS_OpFF(!sprite_Kuchuka)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($5A, $0040)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF1E78)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFC($006D)
-	%DKC3_SSS_OpFA($021C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Kuchuka
+	db sprite.state : dw $0005
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.interaction_flags : dw $0000
+	db sprite.movement_state : dw $0040
+	db sprite.visibility : dw $0000
+	db sprite.constants_address : dw DATA_FF1E78
+	db sprite.render_order : dw $00D4
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FC : dw $006D
+	db !spawn_command_FA : dw $021C
+	db !spawn_command_success
 
 DATA_FF9015:
-	%DKC3_SSS_OpF9(DATA_FF8FEA)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8FEA
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF901C:
-	%DKC3_SSS_OpF9(DATA_FF8FEA)
-	%DKC3_SSS_OpXX($66, $0000)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $0064)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($6C, $0001)
-	%DKC3_SSS_OpXX($68, $0035)
-	%DKC3_SSS_OpXX($6A, $0080)
-	%DKC3_SSS_OpXX($32, $1060)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8FEA
+	db sprite.unknown_66 : dw $0000
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $0064
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_6C : dw $0001
+	db sprite.unknown_68 : dw $0035
+	db sprite.unknown_6A : dw $0080
+	db sprite.unknown_32 : dw $1060
+	db !spawn_command_success
 
 DATA_FF903B:
-	%DKC3_SSS_OpF9(DATA_FF9015)
-	%DKC3_SSS_OpXX($66, $0000)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $0064)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($6C, $0001)
-	%DKC3_SSS_OpXX($68, $0035)
-	%DKC3_SSS_OpXX($6A, $0080)
-	%DKC3_SSS_OpXX($32, $1860)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9015
+	db sprite.unknown_66 : dw $0000
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $0064
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_6C : dw $0001
+	db sprite.unknown_68 : dw $0035
+	db sprite.unknown_6A : dw $0080
+	db sprite.unknown_32 : dw $1860
+	db !spawn_command_success
 
 DATA_FF905A:
-	%DKC3_SSS_OpF9(DATA_FF8FEA)
-	%DKC3_SSS_OpXX($66, $0100)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $0064)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($6C, $000A)
-	%DKC3_SSS_OpXX($68, $0080)
-	%DKC3_SSS_OpXX($6A, $0708)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8FEA
+	db sprite.unknown_66 : dw $0100
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $0064
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_6C : dw $000A
+	db sprite.unknown_68 : dw $0080
+	db sprite.unknown_6A : dw $0708
+	db !spawn_command_success
 
 DATA_FF9076:
-	%DKC3_SSS_OpF9(DATA_FF8FEA)
-	%DKC3_SSS_OpXX($66, $0001)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $00B4)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($6C, $0010)
-	%DKC3_SSS_OpXX($68, $0040)
-	%DKC3_SSS_OpXX($6A, $0000)
-	%DKC3_SSS_OpXX($32, $482C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8FEA
+	db sprite.unknown_66 : dw $0001
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $00B4
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_6C : dw $0010
+	db sprite.unknown_68 : dw $0040
+	db sprite.unknown_6A : dw $0000
+	db sprite.unknown_32 : dw $482C
+	db !spawn_command_success
 
 DATA_FF9095:
-	%DKC3_SSS_OpF9(DATA_FF9015)
-	%DKC3_SSS_OpXX($66, $0001)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $00B4)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($6C, $0018)
-	%DKC3_SSS_OpXX($68, $0060)
-	%DKC3_SSS_OpXX($6A, $0000)
-	%DKC3_SSS_OpXX($32, $2C30)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9015
+	db sprite.unknown_66 : dw $0001
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $00B4
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_6C : dw $0018
+	db sprite.unknown_68 : dw $0060
+	db sprite.unknown_6A : dw $0000
+	db sprite.unknown_32 : dw $2C30
+	db !spawn_command_success
 
 DATA_FF90B4:
-	%DKC3_SSS_OpF9(DATA_FF8FEA)
-	%DKC3_SSS_OpXX($66, $0001)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $00B4)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($6C, $0010)
-	%DKC3_SSS_OpXX($68, $0080)
-	%DKC3_SSS_OpXX($6A, $0040)
-	%DKC3_SSS_OpXX($32, $4830)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8FEA
+	db sprite.unknown_66 : dw $0001
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $00B4
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_6C : dw $0010
+	db sprite.unknown_68 : dw $0080
+	db sprite.unknown_6A : dw $0040
+	db sprite.unknown_32 : dw $4830
+	db !spawn_command_success
 
 DATA_FF90D3:
-	%DKC3_SSS_OpF9(DATA_FF8FEA)
-	%DKC3_SSS_OpXX($66, $0001)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $0078)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($6C, $0010)
-	%DKC3_SSS_OpXX($68, $0080)
-	%DKC3_SSS_OpXX($6A, $0000)
-	%DKC3_SSS_OpXX($32, $5830)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8FEA
+	db sprite.unknown_66 : dw $0001
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $0078
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_6C : dw $0010
+	db sprite.unknown_68 : dw $0080
+	db sprite.unknown_6A : dw $0000
+	db sprite.unknown_32 : dw $5830
+	db !spawn_command_success
 
 DATA_FF90F2:
-	%DKC3_SSS_OpF9(DATA_FF9015)
-	%DKC3_SSS_OpXX($66, $0001)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $00B4)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($6C, $0010)
-	%DKC3_SSS_OpXX($68, $0040)
-	%DKC3_SSS_OpXX($6A, $0000)
-	%DKC3_SSS_OpXX($32, $482C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9015
+	db sprite.unknown_66 : dw $0001
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $00B4
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_6C : dw $0010
+	db sprite.unknown_68 : dw $0040
+	db sprite.unknown_6A : dw $0000
+	db sprite.unknown_32 : dw $482C
+	db !spawn_command_success
 
 DATA_FF9111:
-	%DKC3_SSS_OpF9(DATA_FF8FEA)
-	%DKC3_SSS_OpXX($66, $0101)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $0064)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($6C, $0018)
-	%DKC3_SSS_OpXX($68, $0080)
-	%DKC3_SSS_OpXX($6A, $0708)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8FEA
+	db sprite.unknown_66 : dw $0101
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $0064
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_6C : dw $0018
+	db sprite.unknown_68 : dw $0080
+	db sprite.unknown_6A : dw $0708
+	db !spawn_command_success
 
 DATA_FF912D:
-	%DKC3_SSS_OpFF(!sprite_FlyingKnikKnak)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($06, DATA_FF1EB4)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FlyingKnikKnak
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.render_order : dw $00D4
+	db sprite.constants_address : dw DATA_FF1EB4
+	db sprite.visibility : dw $0000
+	db sprite.interaction_flags : dw $0040
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF9146:
-	%DKC3_SSS_OpF9(DATA_FF912D)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($5A, $0043)
-	%DKC3_SSS_OpFA($022A)
-	%DKC3_SSS_OpFC($007D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF912D
+	db sprite.state : dw $0005
+	db sprite.movement_state : dw $0043
+	db !spawn_command_FA : dw $022A
+	db !spawn_command_FC : dw $007D
+	db !spawn_command_success
 
 DATA_FF9156:
-	%DKC3_SSS_OpF9(DATA_FF9146)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9146
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF915D:
-	%DKC3_SSS_OpF9(DATA_FF9146)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9146
+	db !spawn_command_success
 
 DATA_FF9161:
-	%DKC3_SSS_OpF9(DATA_FF912D)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($5A, $004C)
-	%DKC3_SSS_OpFA($022A)
-	%DKC3_SSS_OpFC($007D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF912D
+	db sprite.state : dw $0005
+	db sprite.movement_state : dw $004C
+	db !spawn_command_FA : dw $022A
+	db !spawn_command_FC : dw $007D
+	db !spawn_command_success
 
 DATA_FF9171:
-	%DKC3_SSS_OpF9(DATA_FF9161)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9161
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF9178:
-	%DKC3_SSS_OpF9(DATA_FF912D)
-	%DKC3_SSS_OpXX($38, $0905)
-	%DKC3_SSS_OpXX($5A, $004D)
-	%DKC3_SSS_OpFA($022B)
-	%DKC3_SSS_OpFC($0061)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF912D
+	db sprite.state : dw $0905
+	db sprite.movement_state : dw $004D
+	db !spawn_command_FA : dw $022B
+	db !spawn_command_FC : dw $0061
+	db !spawn_command_success
 
 DATA_FF9188:
-	%DKC3_SSS_OpF9(DATA_FF9178)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9178
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF918F:
-	%DKC3_SSS_OpF9(DATA_FF912D)
-	%DKC3_SSS_OpXX($38, $0905)
-	%DKC3_SSS_OpXX($5A, $004E)
-	%DKC3_SSS_OpFA($022B)
-	%DKC3_SSS_OpFC($0061)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF912D
+	db sprite.state : dw $0905
+	db sprite.movement_state : dw $004E
+	db !spawn_command_FA : dw $022B
+	db !spawn_command_FC : dw $0061
+	db !spawn_command_success
 
 DATA_FF919F:
-	%DKC3_SSS_OpF9(DATA_FF918F)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF918F
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF91A6:
-	%DKC3_SSS_OpF9(DATA_FF912D)
-	%DKC3_SSS_OpXX($38, $0A05)
-	%DKC3_SSS_OpXX($5A, $004D)
-	%DKC3_SSS_OpFA($022B)
-	%DKC3_SSS_OpFC($0061)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF912D
+	db sprite.state : dw $0A05
+	db sprite.movement_state : dw $004D
+	db !spawn_command_FA : dw $022B
+	db !spawn_command_FC : dw $0061
+	db !spawn_command_success
 
 DATA_FF91B6:
-	%DKC3_SSS_OpF9(DATA_FF91A6)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF91A6
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF91BD:
-	%DKC3_SSS_OpF9(DATA_FF912D)
-	%DKC3_SSS_OpXX($06, DATA_FF1FA0)
-	%DKC3_SSS_OpXX($38, $000C)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($60, $0202)
-	%DKC3_SSS_OpXX($30, $0040)
-	%DKC3_SSS_OpXX($64, $0102)
-	%DKC3_SSS_OpXX($34, $0060)
-	%DKC3_SSS_OpFA($0239)
-	%DKC3_SSS_OpFC($0061)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF912D
+	db sprite.constants_address : dw DATA_FF1FA0
+	db sprite.state : dw $000C
+	db sprite.movement_state : dw $0007
+	db sprite.unknown_60 : dw $0202
+	db sprite.max_x_speed : dw $0040
+	db sprite.unknown_64 : dw $0102
+	db sprite.max_y_speed : dw $0060
+	db !spawn_command_FA : dw $0239
+	db !spawn_command_FC : dw $0061
+	db !spawn_command_success
 
 DATA_FF91DC:
-	%DKC3_SSS_OpF9(DATA_FF912D)
-	%DKC3_SSS_OpXX($06, DATA_FF1FA0)
-	%DKC3_SSS_OpXX($38, $000C)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($60, $0202)
-	%DKC3_SSS_OpXX($30, $FFC0)
-	%DKC3_SSS_OpXX($64, $0201)
-	%DKC3_SSS_OpXX($34, $FFA0)
-	%DKC3_SSS_OpFA($0239)
-	%DKC3_SSS_OpFC($0061)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF912D
+	db sprite.constants_address : dw DATA_FF1FA0
+	db sprite.state : dw $000C
+	db sprite.movement_state : dw $0007
+	db sprite.unknown_60 : dw $0202
+	db sprite.max_x_speed : dw $FFC0
+	db sprite.unknown_64 : dw $0201
+	db sprite.max_y_speed : dw $FFA0
+	db !spawn_command_FA : dw $0239
+	db !spawn_command_FC : dw $0061
+	db !spawn_command_success
 
 DATA_FF91FB:
-	%DKC3_SSS_OpF9(DATA_FF912D)
-	%DKC3_SSS_OpXX($38, $0F05)
-	%DKC3_SSS_OpXX($5A, $004C)
-	%DKC3_SSS_OpFA($022A)
-	%DKC3_SSS_OpFC($0061)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF912D
+	db sprite.state : dw $0F05
+	db sprite.movement_state : dw $004C
+	db !spawn_command_FA : dw $022A
+	db !spawn_command_FC : dw $0061
+	db !spawn_command_success
 
 DATA_FF920B:
-	%DKC3_SSS_OpF9(DATA_FF91FB)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF91FB
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF9212:
-	%DKC3_SSS_OpF9(DATA_FF912D)
-	%DKC3_SSS_OpXX($38, $1005)
-	%DKC3_SSS_OpXX($5A, $004C)
-	%DKC3_SSS_OpFA($022A)
-	%DKC3_SSS_OpFC($0061)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF912D
+	db sprite.state : dw $1005
+	db sprite.movement_state : dw $004C
+	db !spawn_command_FA : dw $022A
+	db !spawn_command_FC : dw $0061
+	db !spawn_command_success
 
 DATA_FF9222:
-	%DKC3_SSS_OpF9(DATA_FF9212)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9212
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF9229:
-	%DKC3_SSS_OpF9(DATA_FF91BD)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF91BD
+	db !spawn_command_success
 
 DATA_FF922D:
-	%DKC3_SSS_OpF9(DATA_FF91DC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF91DC
+	db !spawn_command_success
 
 DATA_FF9231:
-	%DKC3_SSS_OpF9(DATA_FF9156)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($30, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9156
+	db sprite.unknown_60 : dw $2020
+	db sprite.max_x_speed : dw $01C0
+	db !spawn_command_success
 
 DATA_FF923B:
-	%DKC3_SSS_OpF9(DATA_FF9161)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9161
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF9242:
-	%DKC3_SSS_OpF9(DATA_FF9161)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9161
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FF9249:
-	%DKC3_SSS_OpF9(DATA_FF918F)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF918F
+	db sprite.unknown_60 : dw $4040
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FF9253:
-	%DKC3_SSS_OpF9(DATA_FF9178)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9178
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF925A:
-	%DKC3_SSS_OpF9(DATA_FF91A6)
-	%DKC3_SSS_OpXX($5C, $0032)
-	%DKC3_SSS_OpXX($5E, $001E)
-	%DKC3_SSS_OpXX($60, $020C)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF91A6
+	db sprite.unknown_5C : dw $0032
+	db sprite.unknown_5E : dw $001E
+	db sprite.unknown_60 : dw $020C
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF926A:
-	%DKC3_SSS_OpF9(DATA_FF91FB)
-	%DKC3_SSS_OpXX($5C, $0046)
-	%DKC3_SSS_OpXX($5E, $002D)
-	%DKC3_SSS_OpXX($60, $01A0)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF91FB
+	db sprite.unknown_5C : dw $0046
+	db sprite.unknown_5E : dw $002D
+	db sprite.unknown_60 : dw $01A0
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF927A:
-	%DKC3_SSS_OpF9(DATA_FF91FB)
-	%DKC3_SSS_OpXX($5C, $0050)
-	%DKC3_SSS_OpXX($5E, $002D)
-	%DKC3_SSS_OpXX($60, $01C0)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF91FB
+	db sprite.unknown_5C : dw $0050
+	db sprite.unknown_5E : dw $002D
+	db sprite.unknown_60 : dw $01C0
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF928A:
-	%DKC3_SSS_OpF9(DATA_FF91FB)
-	%DKC3_SSS_OpXX($5C, $0032)
-	%DKC3_SSS_OpXX($5E, $0028)
-	%DKC3_SSS_OpXX($60, $01C0)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF91FB
+	db sprite.unknown_5C : dw $0032
+	db sprite.unknown_5E : dw $0028
+	db sprite.unknown_60 : dw $01C0
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF929A:
-	%DKC3_SSS_OpF9(DATA_FF9212)
-	%DKC3_SSS_OpXX($5C, $0032)
-	%DKC3_SSS_OpXX($5E, $001E)
-	%DKC3_SSS_OpXX($60, $01E9)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9212
+	db sprite.unknown_5C : dw $0032
+	db sprite.unknown_5E : dw $001E
+	db sprite.unknown_60 : dw $01E9
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FF92AA:
-	%DKC3_SSS_OpFF(!sprite_BazzaSpawner)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0020)
-	%DKC3_SSS_OpXX($60, $00B4)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BazzaSpawner
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0020
+	db sprite.unknown_60 : dw $00B4
+	db sprite.unknown_62 : dw $0000
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF92BD:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $00F0)
-	%DKC3_SSS_OpXX($66, $FEA0)
-	%DKC3_SSS_OpXX($60, $00F0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $00F0
+	db sprite.unknown_66 : dw $FEA0
+	db sprite.unknown_60 : dw $00F0
+	db !spawn_command_success
 
 DATA_FF92CA:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $0260)
-	%DKC3_SSS_OpXX($66, $FEC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $0260
+	db sprite.unknown_66 : dw $FEC0
+	db !spawn_command_success
 
 DATA_FF92D4:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $0598)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $0598
+	db sprite.unknown_66 : dw $01C0
+	db !spawn_command_success
 
 DATA_FF92DE:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $06A0)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $06A0
+	db sprite.unknown_66 : dw $01C0
+	db !spawn_command_success
 
 DATA_FF92E8:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $0640)
-	%DKC3_SSS_OpXX($66, $FD60)
-	%DKC3_SSS_OpXX($60, $0046)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $0640
+	db sprite.unknown_66 : dw $FD60
+	db sprite.unknown_60 : dw $0046
+	db !spawn_command_success
 
 DATA_FF92F5:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $06F0)
-	%DKC3_SSS_OpXX($66, $FE40)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $06F0
+	db sprite.unknown_66 : dw $FE40
+	db !spawn_command_success
 
 DATA_FF92FF:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $06F8)
-	%DKC3_SSS_OpXX($66, $FE40)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $06F8
+	db sprite.unknown_66 : dw $FE40
+	db !spawn_command_success
 
 DATA_FF9309:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $07E6)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $07E6
+	db sprite.unknown_66 : dw $01C0
+	db !spawn_command_success
 
 DATA_FF9313:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $07D8)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $07D8
+	db sprite.unknown_66 : dw $01C0
+	db !spawn_command_success
 
 DATA_FF931D:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $07E6)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $07E6
+	db sprite.unknown_66 : dw $01C0
+	db !spawn_command_success
 
 DATA_FF9327:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $07E6)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $07E6
+	db sprite.unknown_66 : dw $01C0
+	db !spawn_command_success
 
 DATA_FF9331:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $07E0)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpXX($60, $0078)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $07E0
+	db sprite.unknown_66 : dw $01C0
+	db sprite.unknown_60 : dw $0078
+	db !spawn_command_success
 
 DATA_FF933E:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $02E0)
-	%DKC3_SSS_OpXX($66, $0180)
-	%DKC3_SSS_OpXX($60, $0096)
-	%DKC3_SSS_OpXX($62, $0028)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $02E0
+	db sprite.unknown_66 : dw $0180
+	db sprite.unknown_60 : dw $0096
+	db sprite.unknown_62 : dw $0028
+	db !spawn_command_success
 
 DATA_FF934E:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($5C, $0002)
-	%DKC3_SSS_OpXX($64, $0140)
-	%DKC3_SSS_OpXX($66, $FE00)
-	%DKC3_SSS_OpXX($60, $0082)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_5C : dw $0002
+	db sprite.unknown_64 : dw $0140
+	db sprite.unknown_66 : dw $FE00
+	db sprite.unknown_60 : dw $0082
+	db !spawn_command_success
 
 DATA_FF935E:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $0228)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $0228
+	db sprite.unknown_66 : dw $01C0
+	db !spawn_command_success
 
 DATA_FF9368:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $0220)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $0220
+	db sprite.unknown_66 : dw $01C0
+	db !spawn_command_success
 
 DATA_FF9372:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $0230)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $0230
+	db sprite.unknown_66 : dw $01C0
+	db !spawn_command_success
 
 DATA_FF937C:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $0230)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $0230
+	db sprite.unknown_66 : dw $01C0
+	db !spawn_command_success
 
 DATA_FF9386:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $0320)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpXX($60, $0078)
-	%DKC3_SSS_OpXX($62, $0014)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $0320
+	db sprite.unknown_66 : dw $01C0
+	db sprite.unknown_60 : dw $0078
+	db sprite.unknown_62 : dw $0014
+	db !spawn_command_success
 
 DATA_FF9396:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $0250)
-	%DKC3_SSS_OpXX($66, $FE40)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $0250
+	db sprite.unknown_66 : dw $FE40
+	db !spawn_command_success
 
 DATA_FF93A0:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $0250)
-	%DKC3_SSS_OpXX($66, $FE40)
-	%DKC3_SSS_OpXX($62, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $0250
+	db sprite.unknown_66 : dw $FE40
+	db sprite.unknown_62 : dw $000F
+	db !spawn_command_success
 
 DATA_FF93AD:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $0260)
-	%DKC3_SSS_OpXX($66, $FE40)
-	%DKC3_SSS_OpXX($62, $001E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $0260
+	db sprite.unknown_66 : dw $FE40
+	db sprite.unknown_62 : dw $001E
+	db !spawn_command_success
 
 DATA_FF93BA:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $0258)
-	%DKC3_SSS_OpXX($66, $FE40)
-	%DKC3_SSS_OpXX($62, $002D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $0258
+	db sprite.unknown_66 : dw $FE40
+	db sprite.unknown_62 : dw $002D
+	db !spawn_command_success
 
 DATA_FF93C7:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $05A0)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpXX($60, $006E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $05A0
+	db sprite.unknown_66 : dw $01C0
+	db sprite.unknown_60 : dw $006E
+	db !spawn_command_success
 
 DATA_FF93D4:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $05A8)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $05A8
+	db sprite.unknown_66 : dw $01C0
+	db !spawn_command_success
 
 DATA_FF93DE:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $05A0)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $05A0
+	db sprite.unknown_66 : dw $01C0
+	db !spawn_command_success
 
 DATA_FF93E8:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $0738)
-	%DKC3_SSS_OpXX($66, $01E0)
-	%DKC3_SSS_OpXX($60, $006E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $0738
+	db sprite.unknown_66 : dw $01E0
+	db sprite.unknown_60 : dw $006E
+	db !spawn_command_success
 
 DATA_FF93F5:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $0770)
-	%DKC3_SSS_OpXX($66, $01B0)
-	%DKC3_SSS_OpXX($60, $0096)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $0770
+	db sprite.unknown_66 : dw $01B0
+	db sprite.unknown_60 : dw $0096
+	db !spawn_command_success
 
 DATA_FF9402:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $09D8)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($60, $008C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $09D8
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_60 : dw $008C
+	db !spawn_command_success
 
 DATA_FF940F:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($60, $00C8)
-	%DKC3_SSS_OpXX($64, $0940)
-	%DKC3_SSS_OpXX($66, $FE40)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_60 : dw $00C8
+	db sprite.unknown_64 : dw $0940
+	db sprite.unknown_66 : dw $FE40
+	db !spawn_command_success
 
 DATA_FF941C:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($60, $00C8)
-	%DKC3_SSS_OpXX($64, $0940)
-	%DKC3_SSS_OpXX($66, $FE40)
-	%DKC3_SSS_OpXX($62, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_60 : dw $00C8
+	db sprite.unknown_64 : dw $0940
+	db sprite.unknown_66 : dw $FE40
+	db sprite.unknown_62 : dw $000F
+	db !spawn_command_success
 
 DATA_FF942C:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($60, $00C8)
-	%DKC3_SSS_OpXX($64, $0940)
-	%DKC3_SSS_OpXX($66, $FE40)
-	%DKC3_SSS_OpXX($62, $001E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_60 : dw $00C8
+	db sprite.unknown_64 : dw $0940
+	db sprite.unknown_66 : dw $FE40
+	db sprite.unknown_62 : dw $001E
+	db !spawn_command_success
 
 DATA_FF943C:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($60, $00C8)
-	%DKC3_SSS_OpXX($64, $0940)
-	%DKC3_SSS_OpXX($66, $FE40)
-	%DKC3_SSS_OpXX($62, $002D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_60 : dw $00C8
+	db sprite.unknown_64 : dw $0940
+	db sprite.unknown_66 : dw $FE40
+	db sprite.unknown_62 : dw $002D
+	db !spawn_command_success
 
 DATA_FF944C:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($60, $00C8)
-	%DKC3_SSS_OpXX($64, $09D8)
-	%DKC3_SSS_OpXX($66, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_60 : dw $00C8
+	db sprite.unknown_64 : dw $09D8
+	db sprite.unknown_66 : dw $01C0
+	db !spawn_command_success
 
 DATA_FF9459:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($5C, $0003)
-	%DKC3_SSS_OpXX($60, $00AA)
-	%DKC3_SSS_OpXX($64, $08D8)
-	%DKC3_SSS_OpXX($66, $0210)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_5C : dw $0003
+	db sprite.unknown_60 : dw $00AA
+	db sprite.unknown_64 : dw $08D8
+	db sprite.unknown_66 : dw $0210
+	db !spawn_command_success
 
 DATA_FF9469:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($5C, $0003)
-	%DKC3_SSS_OpXX($60, $00AA)
-	%DKC3_SSS_OpXX($64, $0800)
-	%DKC3_SSS_OpXX($66, $FDF0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_5C : dw $0003
+	db sprite.unknown_60 : dw $00AA
+	db sprite.unknown_64 : dw $0800
+	db sprite.unknown_66 : dw $FDF0
+	db !spawn_command_success
 
 DATA_FF9479:
-	%DKC3_SSS_OpF9(DATA_FF92AA)
-	%DKC3_SSS_OpXX($64, $00F0)
-	%DKC3_SSS_OpXX($66, $FE80)
-	%DKC3_SSS_OpXX($62, $006E)
-	%DKC3_SSS_OpXX($60, $00DC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF92AA
+	db sprite.unknown_64 : dw $00F0
+	db sprite.unknown_66 : dw $FE80
+	db sprite.unknown_62 : dw $006E
+	db sprite.unknown_60 : dw $00DC
+	db !spawn_command_success
 
 DATA_FF9489:
-	%DKC3_SSS_OpFF(!sprite_BountyBass)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($68, $0010)
-	%DKC3_SSS_OpXX($6A, $0101)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BountyBass
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.unknown_68 : dw $0010
+	db sprite.unknown_6A : dw $0101
+	db sprite.render_order : dw $00D4
+	db sprite.interaction_flags : dw $0040
+	db sprite.visibility : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF94AB:
-	%DKC3_SSS_OpF9(DATA_FF9489)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($64, $0102)
-	%DKC3_SSS_OpXX($34, $0100)
-	%DKC3_SSS_OpFA($026E)
-	%DKC3_SSS_OpFC($0055)
-	%DKC3_SSS_OpXX($06, DATA_FF1FA6)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9489
+	db sprite.state : dw $0100
+	db sprite.movement_state : dw $0007
+	db sprite.unknown_64 : dw $0102
+	db sprite.max_y_speed : dw $0100
+	db !spawn_command_FA : dw $026E
+	db !spawn_command_FC : dw $0055
+	db sprite.constants_address : dw DATA_FF1FA6
+	db !spawn_command_success
 
 DATA_FF94C4:
-	%DKC3_SSS_OpF9(DATA_FF94AB)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF94AB
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF94CB:
-	%DKC3_SSS_OpF9(DATA_FF9489)
-	%DKC3_SSS_OpXX($06, DATA_FF1FA6)
-	%DKC3_SSS_OpXX($38, $0600)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($60, $0202)
-	%DKC3_SSS_OpXX($30, $0040)
-	%DKC3_SSS_OpXX($64, $0102)
-	%DKC3_SSS_OpXX($34, $0060)
-	%DKC3_SSS_OpFA($0271)
-	%DKC3_SSS_OpFC($0055)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9489
+	db sprite.constants_address : dw DATA_FF1FA6
+	db sprite.state : dw $0600
+	db sprite.movement_state : dw $0007
+	db sprite.unknown_60 : dw $0202
+	db sprite.max_x_speed : dw $0040
+	db sprite.unknown_64 : dw $0102
+	db sprite.max_y_speed : dw $0060
+	db !spawn_command_FA : dw $0271
+	db !spawn_command_FC : dw $0055
+	db !spawn_command_success
 
 DATA_FF94EA:
-	%DKC3_SSS_OpF9(DATA_FF9489)
-	%DKC3_SSS_OpFF(!sprite_BootyBird)
-	%DKC3_SSS_OpXX($64, $0102)
-	%DKC3_SSS_OpXX($34, $0100)
-	%DKC3_SSS_OpXX($38, $0200)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($06, DATA_FF1FAC)
-	%DKC3_SSS_OpFA($0274)
-	%DKC3_SSS_OpFC($004F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9489
+	db !spawn_command_set_type : dw !sprite_BootyBird
+	db sprite.unknown_64 : dw $0102
+	db sprite.max_y_speed : dw $0100
+	db sprite.state : dw $0200
+	db sprite.movement_state : dw $0007
+	db sprite.constants_address : dw DATA_FF1FAC
+	db !spawn_command_FA : dw $0274
+	db !spawn_command_FC : dw $004F
+	db !spawn_command_success
 
 DATA_FF9506:
-	%DKC3_SSS_OpF9(DATA_FF94EA)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF94EA
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF950D:
-	%DKC3_SSS_OpF9(DATA_FF9489)
-	%DKC3_SSS_OpFF(!sprite_BootyBird)
-	%DKC3_SSS_OpXX($38, $0700)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($06, DATA_FF1FAC)
-	%DKC3_SSS_OpXX($60, $0202)
-	%DKC3_SSS_OpXX($30, $0040)
-	%DKC3_SSS_OpXX($64, $0102)
-	%DKC3_SSS_OpXX($34, $0060)
-	%DKC3_SSS_OpFA($0277)
-	%DKC3_SSS_OpFC($004F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9489
+	db !spawn_command_set_type : dw !sprite_BootyBird
+	db sprite.state : dw $0700
+	db sprite.movement_state : dw $0007
+	db sprite.constants_address : dw DATA_FF1FAC
+	db sprite.unknown_60 : dw $0202
+	db sprite.max_x_speed : dw $0040
+	db sprite.unknown_64 : dw $0102
+	db sprite.max_y_speed : dw $0060
+	db !spawn_command_FA : dw $0277
+	db !spawn_command_FC : dw $004F
+	db !spawn_command_success
 
 DATA_FF952F:
-	%DKC3_SSS_OpF9(DATA_FF9506)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpXX($6C, $0010)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9506
+	db sprite.unknown_60 : dw $3030
+	db sprite.max_x_speed : dw $0200
+	db sprite.unknown_6C : dw $0010
+	db !spawn_command_success
 
 DATA_FF953C:
-	%DKC3_SSS_OpF9(DATA_FF9506)
-	%DKC3_SSS_OpXX($60, $2828)
-	%DKC3_SSS_OpXX($30, $01E0)
-	%DKC3_SSS_OpXX($6C, $0012)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9506
+	db sprite.unknown_60 : dw $2828
+	db sprite.max_x_speed : dw $01E0
+	db sprite.unknown_6C : dw $0012
+	db !spawn_command_success
 
 DATA_FF9549:
-	%DKC3_SSS_OpF9(DATA_FF9506)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpXX($6C, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9506
+	db sprite.unknown_60 : dw $3030
+	db sprite.max_x_speed : dw $0200
+	db sprite.unknown_6C : dw $000F
+	db !spawn_command_success
 
 DATA_FF9556:
-	%DKC3_SSS_OpF9(DATA_FF9506)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9506
+	db sprite.unknown_60 : dw $3030
+	db sprite.max_x_speed : dw $0200
+	db sprite.unknown_6C : dw $0005
+	db !spawn_command_success
 
 DATA_FF9563:
-	%DKC3_SSS_OpF9(DATA_FF9506)
-	%DKC3_SSS_OpXX($60, $2828)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9506
+	db sprite.unknown_60 : dw $2828
+	db sprite.max_x_speed : dw $0200
+	db sprite.unknown_6C : dw $0000
+	db !spawn_command_success
 
 DATA_FF9570:
-	%DKC3_SSS_OpF9(DATA_FF94EA)
-	%DKC3_SSS_OpXX($60, $0050)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpXX($6C, $0011)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF94EA
+	db sprite.unknown_60 : dw $0050
+	db sprite.max_x_speed : dw $0200
+	db sprite.unknown_6C : dw $0011
+	db !spawn_command_success
 
 DATA_FF957D:
-	%DKC3_SSS_OpF9(DATA_FF9506)
-	%DKC3_SSS_OpXX($60, $5000)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpXX($6C, $0011)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9506
+	db sprite.unknown_60 : dw $5000
+	db sprite.max_x_speed : dw $0200
+	db sprite.unknown_6C : dw $0011
+	db !spawn_command_success
 
 DATA_FF958A:
-	%DKC3_SSS_OpF9(DATA_FF950D)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF950D
+	db sprite.unknown_6C : dw $0005
+	db !spawn_command_success
 
 DATA_FF9591:
-	%DKC3_SSS_OpF9(DATA_FF950D)
-	%DKC3_SSS_OpXX($6C, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF950D
+	db sprite.unknown_6C : dw $0004
+	db !spawn_command_success
 
 DATA_FF9598:
-	%DKC3_SSS_OpF9(DATA_FF950D)
-	%DKC3_SSS_OpXX($6C, $0003)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF950D
+	db sprite.unknown_6C : dw $0003
+	db !spawn_command_success
 
 DATA_FF959F:
-	%DKC3_SSS_OpF9(DATA_FF950D)
-	%DKC3_SSS_OpXX($6C, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF950D
+	db sprite.unknown_6C : dw $0002
+	db !spawn_command_success
 
 DATA_FF95A6:
-	%DKC3_SSS_OpF9(DATA_FF950D)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF950D
+	db sprite.unknown_6C : dw $0005
+	db !spawn_command_success
 
 DATA_FF95AD:
-	%DKC3_SSS_OpF9(DATA_FF950D)
-	%DKC3_SSS_OpXX($6C, $0012)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF950D
+	db sprite.unknown_6C : dw $0012
+	db !spawn_command_success
 
 DATA_FF95B4:
-	%DKC3_SSS_OpF9(DATA_FF950D)
-	%DKC3_SSS_OpXX($6C, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF950D
+	db sprite.unknown_6C : dw $000F
+	db !spawn_command_success
 
 DATA_FF95BB:
-	%DKC3_SSS_OpF9(DATA_FF950D)
-	%DKC3_SSS_OpXX($6C, $0010)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF950D
+	db sprite.unknown_6C : dw $0010
+	db !spawn_command_success
 
 DATA_FF95C2:
-	%DKC3_SSS_OpF9(DATA_FF950D)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF950D
+	db sprite.unknown_6C : dw $0000
+	db !spawn_command_success
 
 DATA_FF95C9:
-	%DKC3_SSS_OpF9(DATA_FF950D)
-	%DKC3_SSS_OpXX($6C, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF950D
+	db sprite.unknown_6C : dw $0001
+	db !spawn_command_success
 
 DATA_FF95D0:
-	%DKC3_SSS_OpF9(DATA_FF94C4)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpXX($6C, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF94C4
+	db sprite.unknown_60 : dw $3030
+	db sprite.max_x_speed : dw $FE00
+	db sprite.unknown_6C : dw $0004
+	db !spawn_command_success
 
 DATA_FF95DD:
-	%DKC3_SSS_OpF9(DATA_FF94C4)
-	%DKC3_SSS_OpXX($60, $1818)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpXX($6C, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF94C4
+	db sprite.unknown_60 : dw $1818
+	db sprite.max_x_speed : dw $FF00
+	db sprite.unknown_6C : dw $0004
+	db !spawn_command_success
 
 DATA_FF95EA:
-	%DKC3_SSS_OpF9(DATA_FF94C4)
-	%DKC3_SSS_OpXX($60, $1818)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpXX($6C, $0011)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF94C4
+	db sprite.unknown_60 : dw $1818
+	db sprite.max_x_speed : dw $0200
+	db sprite.unknown_6C : dw $0011
+	db !spawn_command_success
 
 DATA_FF95F7:
-	%DKC3_SSS_OpF9(DATA_FF94C4)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpXX($30, $02C0)
-	%DKC3_SSS_OpXX($6C, $0011)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF94C4
+	db sprite.unknown_60 : dw $3030
+	db sprite.max_x_speed : dw $02C0
+	db sprite.unknown_6C : dw $0011
+	db !spawn_command_success
 
 DATA_FF9604:
-	%DKC3_SSS_OpF9(DATA_FF94AB)
-	%DKC3_SSS_OpXX($60, $1818)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpXX($6C, $0011)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF94AB
+	db sprite.unknown_60 : dw $1818
+	db sprite.max_x_speed : dw $0200
+	db sprite.unknown_6C : dw $0011
+	db !spawn_command_success
 
 DATA_FF9611:
-	%DKC3_SSS_OpF9(DATA_FF94C4)
-	%DKC3_SSS_OpXX($60, $1818)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF94C4
+	db sprite.unknown_60 : dw $1818
+	db sprite.max_x_speed : dw $FF00
+	db sprite.unknown_6C : dw $0005
+	db !spawn_command_success
 
 DATA_FF961E:
-	%DKC3_SSS_OpF9(DATA_FF94CB)
-	%DKC3_SSS_OpXX($6C, $0005)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF94CB
+	db sprite.unknown_6C : dw $0005
+	db !spawn_command_success
 
 DATA_FF9625:
-	%DKC3_SSS_OpF9(DATA_FF94CB)
-	%DKC3_SSS_OpXX($6C, $0004)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF94CB
+	db sprite.unknown_6C : dw $0004
+	db !spawn_command_success
 
 DATA_FF962C:
-	%DKC3_SSS_OpF9(DATA_FF94CB)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF94CB
+	db sprite.unknown_6C : dw $0000
+	db !spawn_command_success
 
 DATA_FF9633:
-	%DKC3_SSS_OpF9(DATA_FF94CB)
-	%DKC3_SSS_OpXX($6C, $0011)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF94CB
+	db sprite.unknown_6C : dw $0011
+	db !spawn_command_success
 
 DATA_FF963A:
-	%DKC3_SSS_OpFF(!sprite_Bazuka)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($5A, $000D)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF1FB8)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($0E, $00F2)
-	%DKC3_SSS_OpXX($3A, $0240)
-	%DKC3_SSS_OpFC($0072)
-	%DKC3_SSS_OpFA($0281)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $0003)
-	%DKC3_SSS_OpXX($62, $000A)
-	%DKC3_SSS_OpXX($64, $0002)
-	%DKC3_SSS_OpXX($68, $0380)
-	%DKC3_SSS_OpXX($18, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Bazuka
+	db sprite.state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.movement_state : dw $000D
+	db sprite.unknown_6C : dw $0000
+	db sprite.constants_address : dw DATA_FF1FB8
+	db sprite.visibility : dw $0000
+	db sprite.render_order : dw $00F2
+	db sprite.interaction_flags : dw $0240
+	db !spawn_command_FC : dw $0072
+	db !spawn_command_FA : dw $0281
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $0003
+	db sprite.unknown_62 : dw $000A
+	db sprite.unknown_64 : dw $0002
+	db sprite.unknown_68 : dw $0380
+	db sprite.ground_y_position : dw $0000
+	db !spawn_command_success
 
 DATA_FF967A:
-	%DKC3_SSS_OpF9(DATA_FF963A)
-	%DKC3_SSS_OpXX($18, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF963A
+	db sprite.ground_y_position : dw $0001
+	db !spawn_command_success
 
 DATA_FF9681:
-	%DKC3_SSS_OpF9(DATA_FF963A)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF963A
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF9688:
-	%DKC3_SSS_OpF9(DATA_FF963A)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF963A
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF968F:
-	%DKC3_SSS_OpF9(DATA_FF967A)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF967A
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF9696:
-	%DKC3_SSS_OpF9(DATA_FF967A)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF967A
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF969D:
-	%DKC3_SSS_OpFF(!sprite_Bazuka)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0072)
-	%DKC3_SSS_OpFA($0280)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($60, $0014)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($2C, $0032)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Bazuka
+	db sprite.state : dw $0005
+	db sprite.render_order : dw $00D4
+	db sprite.interaction_flags : dw $0040
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0072
+	db !spawn_command_FA : dw $0280
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_60 : dw $0014
+	db sprite.unknown_62 : dw $0001
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_2C : dw $0032
+	db !spawn_command_success
 
 DATA_FF96C5:
-	%DKC3_SSS_OpF9(DATA_FF9688)
-	%DKC3_SSS_OpXX($60, $0023)
-	%DKC3_SSS_OpXX($62, $000F)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpXX($68, $01D0)
-	%DKC3_SSS_OpXX($6A, $020C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9688
+	db sprite.unknown_60 : dw $0023
+	db sprite.unknown_62 : dw $000F
+	db sprite.unknown_64 : dw $0000
+	db sprite.unknown_68 : dw $01D0
+	db sprite.unknown_6A : dw $020C
+	db !spawn_command_success
 
 DATA_FF96D8:
-	%DKC3_SSS_OpF9(DATA_FF9688)
-	%DKC3_SSS_OpXX($60, $0023)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpXX($68, $01D0)
-	%DKC3_SSS_OpXX($6A, $054C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9688
+	db sprite.unknown_60 : dw $0023
+	db sprite.unknown_64 : dw $0000
+	db sprite.unknown_68 : dw $01D0
+	db sprite.unknown_6A : dw $054C
+	db !spawn_command_success
 
 DATA_FF96E8:
-	%DKC3_SSS_OpF9(DATA_FF9681)
-	%DKC3_SSS_OpXX($60, $0016)
-	%DKC3_SSS_OpXX($68, $02C0)
-	%DKC3_SSS_OpXX($6A, $0A53)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9681
+	db sprite.unknown_60 : dw $0016
+	db sprite.unknown_68 : dw $02C0
+	db sprite.unknown_6A : dw $0A53
+	db !spawn_command_success
 
 DATA_FF96F5:
-	%DKC3_SSS_OpF9(DATA_FF9681)
-	%DKC3_SSS_OpXX($60, $0018)
-	%DKC3_SSS_OpXX($68, $02E0)
-	%DKC3_SSS_OpXX($6A, $06B3)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9681
+	db sprite.unknown_60 : dw $0018
+	db sprite.unknown_68 : dw $02E0
+	db sprite.unknown_6A : dw $06B3
+	db !spawn_command_success
 
 DATA_FF9702:
-	%DKC3_SSS_OpF9(DATA_FF9681)
-	%DKC3_SSS_OpXX($60, $00B4)
-	%DKC3_SSS_OpXX($64, $0100)
-	%DKC3_SSS_OpXX($68, $01C0)
-	%DKC3_SSS_OpXX($6A, $02B3)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9681
+	db sprite.unknown_60 : dw $00B4
+	db sprite.unknown_64 : dw $0100
+	db sprite.unknown_68 : dw $01C0
+	db sprite.unknown_6A : dw $02B3
+	db !spawn_command_success
 
 DATA_FF9712:
-	%DKC3_SSS_OpF9(DATA_FF9688)
-	%DKC3_SSS_OpXX($60, $0023)
-	%DKC3_SSS_OpXX($64, $0002)
-	%DKC3_SSS_OpXX($68, $01D0)
-	%DKC3_SSS_OpXX($6A, $046C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9688
+	db sprite.unknown_60 : dw $0023
+	db sprite.unknown_64 : dw $0002
+	db sprite.unknown_68 : dw $01D0
+	db sprite.unknown_6A : dw $046C
+	db !spawn_command_success
 
 DATA_FF9722:
-	%DKC3_SSS_OpF9(DATA_FF9688)
-	%DKC3_SSS_OpXX($60, $0023)
-	%DKC3_SSS_OpXX($68, $02C0)
-	%DKC3_SSS_OpXX($6A, $086C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9688
+	db sprite.unknown_60 : dw $0023
+	db sprite.unknown_68 : dw $02C0
+	db sprite.unknown_6A : dw $086C
+	db !spawn_command_success
 
 DATA_FF972F:
-	%DKC3_SSS_OpF9(DATA_FF9688)
-	%DKC3_SSS_OpXX($60, $0020)
-	%DKC3_SSS_OpXX($68, $02C0)
-	%DKC3_SSS_OpXX($6A, $078C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9688
+	db sprite.unknown_60 : dw $0020
+	db sprite.unknown_68 : dw $02C0
+	db sprite.unknown_6A : dw $078C
+	db !spawn_command_success
 
 DATA_FF973C:
-	%DKC3_SSS_OpF9(DATA_FF9688)
-	%DKC3_SSS_OpXX($60, $0019)
-	%DKC3_SSS_OpXX($68, $02C0)
-	%DKC3_SSS_OpXX($6A, $044C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9688
+	db sprite.unknown_60 : dw $0019
+	db sprite.unknown_68 : dw $02C0
+	db sprite.unknown_6A : dw $044C
+	db !spawn_command_success
 
 DATA_FF9749:
-	%DKC3_SSS_OpF9(DATA_FF9696)
-	%DKC3_SSS_OpXX($60, $000C)
-	%DKC3_SSS_OpXX($68, $0340)
-	%DKC3_SSS_OpXX($6A, $018C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9696
+	db sprite.unknown_60 : dw $000C
+	db sprite.unknown_68 : dw $0340
+	db sprite.unknown_6A : dw $018C
+	db !spawn_command_success
 
 DATA_FF9756:
-	%DKC3_SSS_OpF9(DATA_FF9696)
-	%DKC3_SSS_OpXX($60, $000C)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpXX($68, $0340)
-	%DKC3_SSS_OpXX($6A, $014C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9696
+	db sprite.unknown_60 : dw $000C
+	db sprite.unknown_64 : dw $0000
+	db sprite.unknown_68 : dw $0340
+	db sprite.unknown_6A : dw $014C
+	db !spawn_command_success
 
 DATA_FF9766:
-	%DKC3_SSS_OpF9(DATA_FF9688)
-	%DKC3_SSS_OpXX($60, $0012)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpXX($68, $0280)
-	%DKC3_SSS_OpXX($6A, $044C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9688
+	db sprite.unknown_60 : dw $0012
+	db sprite.unknown_62 : dw $0001
+	db sprite.unknown_64 : dw $0000
+	db sprite.unknown_68 : dw $0280
+	db sprite.unknown_6A : dw $044C
+	db !spawn_command_success
 
 DATA_FF9779:
-	%DKC3_SSS_OpF9(DATA_FF9681)
-	%DKC3_SSS_OpXX($60, $000F)
-	%DKC3_SSS_OpXX($68, $0300)
-	%DKC3_SSS_OpXX($6A, $09D3)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9681
+	db sprite.unknown_60 : dw $000F
+	db sprite.unknown_68 : dw $0300
+	db sprite.unknown_6A : dw $09D3
+	db !spawn_command_success
 
 DATA_FF9786:
-	%DKC3_SSS_OpF9(DATA_FF9688)
-	%DKC3_SSS_OpXX($60, $000F)
-	%DKC3_SSS_OpXX($68, $0300)
-	%DKC3_SSS_OpXX($6A, $08AC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9688
+	db sprite.unknown_60 : dw $000F
+	db sprite.unknown_68 : dw $0300
+	db sprite.unknown_6A : dw $08AC
+	db !spawn_command_success
 
 DATA_FF9793:
-	%DKC3_SSS_OpF9(DATA_FF9688)
-	%DKC3_SSS_OpXX($60, $0050)
-	%DKC3_SSS_OpXX($6A, $066C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9688
+	db sprite.unknown_60 : dw $0050
+	db sprite.unknown_6A : dw $066C
+	db !spawn_command_success
 
 DATA_FF979D:
-	%DKC3_SSS_OpF9(DATA_FF9688)
-	%DKC3_SSS_OpXX($60, $000A)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpXX($68, $0300)
-	%DKC3_SSS_OpXX($6A, $0E70)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9688
+	db sprite.unknown_60 : dw $000A
+	db sprite.unknown_64 : dw $0000
+	db sprite.unknown_68 : dw $0300
+	db sprite.unknown_6A : dw $0E70
+	db !spawn_command_success
 
 DATA_FF97AD:
-	%DKC3_SSS_OpF9(DATA_FF9688)
-	%DKC3_SSS_OpXX($60, $000A)
-	%DKC3_SSS_OpXX($64, $0100)
-	%DKC3_SSS_OpXX($68, $0300)
-	%DKC3_SSS_OpXX($6A, $1F68)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9688
+	db sprite.unknown_60 : dw $000A
+	db sprite.unknown_64 : dw $0100
+	db sprite.unknown_68 : dw $0300
+	db sprite.unknown_6A : dw $1F68
+	db !spawn_command_success
 
 DATA_FF97BD:
-	%DKC3_SSS_OpF9(DATA_FF9688)
-	%DKC3_SSS_OpXX($60, $0064)
-	%DKC3_SSS_OpXX($64, $8001)
-	%DKC3_SSS_OpXX($68, $02E0)
-	%DKC3_SSS_OpXX($6A, $0E72)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9688
+	db sprite.unknown_60 : dw $0064
+	db sprite.unknown_64 : dw $8001
+	db sprite.unknown_68 : dw $02E0
+	db sprite.unknown_6A : dw $0E72
+	db !spawn_command_success
 
 DATA_FF97CD:
-	%DKC3_SSS_OpF9(DATA_FF9696)
-	%DKC3_SSS_OpXX($60, $000A)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpXX($68, $0340)
-	%DKC3_SSS_OpXX($6A, $014C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9696
+	db sprite.unknown_60 : dw $000A
+	db sprite.unknown_64 : dw $0000
+	db sprite.unknown_68 : dw $0340
+	db sprite.unknown_6A : dw $014C
+	db !spawn_command_success
 
 DATA_FF97DD:
-	%DKC3_SSS_OpF9(DATA_FF969D)
-	%DKC3_SSS_OpXX($60, $0019)
-	%DKC3_SSS_OpXX($2C, $0032)
-	%DKC3_SSS_OpXX($64, $0201)
-	%DKC3_SSS_OpXX($68, $F800)
-	%DKC3_SSS_OpXX($6A, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF969D
+	db sprite.unknown_60 : dw $0019
+	db sprite.unknown_2C : dw $0032
+	db sprite.unknown_64 : dw $0201
+	db sprite.unknown_68 : dw $F800
+	db sprite.unknown_6A : dw $0180
+	db !spawn_command_success
 
 DATA_FF97F0:
-	%DKC3_SSS_OpF9(DATA_FF969D)
-	%DKC3_SSS_OpXX($60, $0050)
-	%DKC3_SSS_OpXX($64, $0202)
-	%DKC3_SSS_OpXX($68, $FC00)
-	%DKC3_SSS_OpXX($6A, $00E0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF969D
+	db sprite.unknown_60 : dw $0050
+	db sprite.unknown_64 : dw $0202
+	db sprite.unknown_68 : dw $FC00
+	db sprite.unknown_6A : dw $00E0
+	db !spawn_command_success
 
 DATA_FF9800:
-	%DKC3_SSS_OpF9(DATA_FF969D)
-	%DKC3_SSS_OpXX($60, $001E)
-	%DKC3_SSS_OpXX($64, $0001)
-	%DKC3_SSS_OpXX($68, $F800)
-	%DKC3_SSS_OpXX($6A, $0120)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF969D
+	db sprite.unknown_60 : dw $001E
+	db sprite.unknown_64 : dw $0001
+	db sprite.unknown_68 : dw $F800
+	db sprite.unknown_6A : dw $0120
+	db !spawn_command_success
 
 DATA_FF9810:
-	%DKC3_SSS_OpFF(!sprite_BarrelSwitch)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpFA($014E)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelSwitch
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $0000
+	db sprite.render_order : dw $00D4
+	db !spawn_command_FA : dw $014E
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF9826:
-	%DKC3_SSS_OpFF(!sprite_BarrelSwitch)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpFA($014E)
-	%DKC3_SSS_OpFC($001C)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelSwitch
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $0001
+	db sprite.render_order : dw $00D4
+	db !spawn_command_FA : dw $014E
+	db !spawn_command_FC : dw $001C
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF983C:
-	%DKC3_SSS_OpFF(!sprite_BarrelSwitchS)
-	%DKC3_SSS_OpXX($0E, $00D6)
-	%DKC3_SSS_OpF3($40, $18)
-	%DKC3_SSS_OpFC($000F)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BarrelSwitchS
+	db sprite.render_order : dw $00D6
+	db !spawn_command_F3, $40, $18
+	db !spawn_command_FC : dw $000F
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF984C:
-	%DKC3_SSS_OpFF(!sprite_Kopter)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF1FBE)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($6A, $0000)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($1A, $8000)
-	%DKC3_SSS_OpXX($3A, $0840)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFC($0074)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Kopter
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.constants_address : dw DATA_FF1FBE
+	db sprite.x_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.unknown_6A : dw $0000
+	db sprite.unknown_6C : dw $0000
+	db sprite.render_order : dw $00D4
+	db sprite.ground_distance : dw $8000
+	db sprite.interaction_flags : dw $0840
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FC : dw $0074
+	db !spawn_command_success
 
 DATA_FF987D:
-	%DKC3_SSS_OpF9(DATA_FF984C)
-	%DKC3_SSS_OpXX($5A, $0043)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpFA($0287)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF984C
+	db sprite.movement_state : dw $0043
+	db sprite.state : dw $0000
+	db !spawn_command_FA : dw $0287
+	db !spawn_command_success
 
 DATA_FF988A:
-	%DKC3_SSS_OpF9(DATA_FF987D)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF987D
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF9891:
-	%DKC3_SSS_OpF9(DATA_FF984C)
-	%DKC3_SSS_OpXX($5A, $004D)
-	%DKC3_SSS_OpXX($38, $0007)
-	%DKC3_SSS_OpFA($0288)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF984C
+	db sprite.movement_state : dw $004D
+	db sprite.state : dw $0007
+	db !spawn_command_FA : dw $0288
+	db !spawn_command_success
 
 DATA_FF989E:
-	%DKC3_SSS_OpF9(DATA_FF9891)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9891
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF98A5:
-	%DKC3_SSS_OpF9(DATA_FF984C)
-	%DKC3_SSS_OpXX($5A, $004D)
-	%DKC3_SSS_OpXX($38, $000A)
-	%DKC3_SSS_OpFA($0288)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF984C
+	db sprite.movement_state : dw $004D
+	db sprite.state : dw $000A
+	db !spawn_command_FA : dw $0288
+	db !spawn_command_success
 
 DATA_FF98B2:
-	%DKC3_SSS_OpF9(DATA_FF98A5)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98A5
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FF98B9:
-	%DKC3_SSS_OpF9(DATA_FF984C)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($38, $0010)
-	%DKC3_SSS_OpFA($028C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF984C
+	db sprite.movement_state : dw $0001
+	db sprite.state : dw $0010
+	db !spawn_command_FA : dw $028C
+	db !spawn_command_success
 
 DATA_FF98C6:
-	%DKC3_SSS_OpF9(DATA_FF984C)
-	%DKC3_SSS_OpXX($5A, $000D)
-	%DKC3_SSS_OpXX($38, $0011)
-	%DKC3_SSS_OpFA($028D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF984C
+	db sprite.movement_state : dw $000D
+	db sprite.state : dw $0011
+	db !spawn_command_FA : dw $028D
+	db !spawn_command_success
 
 DATA_FF98D3:
-	%DKC3_SSS_OpF9(DATA_FF987D)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($68, $0064)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF987D
+	db sprite.unknown_60 : dw $4040
+	db sprite.unknown_68 : dw $0064
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FF98E0:
-	%DKC3_SSS_OpF9(DATA_FF9891)
-	%DKC3_SSS_OpXX($62, $0100)
-	%DKC3_SSS_OpXX($64, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9891
+	db sprite.unknown_62 : dw $0100
+	db sprite.unknown_64 : dw $0200
+	db !spawn_command_success
 
 DATA_FF98EA:
-	%DKC3_SSS_OpF9(DATA_FF98B9)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98B9
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0080
+	db !spawn_command_success
 
 DATA_FF98F4:
-	%DKC3_SSS_OpF9(DATA_FF98B2)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($62, $0180)
-	%DKC3_SSS_OpXX($64, $0180)
-	%DKC3_SSS_OpXX($4C, $0028)
-	%DKC3_SSS_OpXX($4E, $08A0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98B2
+	db sprite.unknown_60 : dw $2020
+	db sprite.unknown_62 : dw $0180
+	db sprite.unknown_64 : dw $0180
+	db sprite.unknown_4C : dw $0028
+	db sprite.unknown_4E : dw $08A0
+	db !spawn_command_success
 
 DATA_FF9907:
-	%DKC3_SSS_OpF9(DATA_FF98A5)
-	%DKC3_SSS_OpXX($60, $4848)
-	%DKC3_SSS_OpXX($62, $0280)
-	%DKC3_SSS_OpXX($64, $0180)
-	%DKC3_SSS_OpXX($4C, $0028)
-	%DKC3_SSS_OpXX($4E, $0AD0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98A5
+	db sprite.unknown_60 : dw $4848
+	db sprite.unknown_62 : dw $0280
+	db sprite.unknown_64 : dw $0180
+	db sprite.unknown_4C : dw $0028
+	db sprite.unknown_4E : dw $0AD0
+	db !spawn_command_success
 
 DATA_FF991A:
-	%DKC3_SSS_OpF9(DATA_FF98B2)
-	%DKC3_SSS_OpXX($60, $4848)
-	%DKC3_SSS_OpXX($62, $0280)
-	%DKC3_SSS_OpXX($64, $0180)
-	%DKC3_SSS_OpXX($4C, $0028)
-	%DKC3_SSS_OpXX($4E, $0AD0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98B2
+	db sprite.unknown_60 : dw $4848
+	db sprite.unknown_62 : dw $0280
+	db sprite.unknown_64 : dw $0180
+	db sprite.unknown_4C : dw $0028
+	db sprite.unknown_4E : dw $0AD0
+	db !spawn_command_success
 
 DATA_FF992D:
-	%DKC3_SSS_OpF9(DATA_FF98A5)
-	%DKC3_SSS_OpXX($60, $2E2E)
-	%DKC3_SSS_OpXX($62, $0240)
-	%DKC3_SSS_OpXX($64, $0180)
-	%DKC3_SSS_OpXX($4C, $001E)
-	%DKC3_SSS_OpXX($4E, $0B00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98A5
+	db sprite.unknown_60 : dw $2E2E
+	db sprite.unknown_62 : dw $0240
+	db sprite.unknown_64 : dw $0180
+	db sprite.unknown_4C : dw $001E
+	db sprite.unknown_4E : dw $0B00
+	db !spawn_command_success
 
 DATA_FF9940:
-	%DKC3_SSS_OpF9(DATA_FF98A5)
-	%DKC3_SSS_OpXX($60, $2C2C)
-	%DKC3_SSS_OpXX($62, $0280)
-	%DKC3_SSS_OpXX($64, $0180)
-	%DKC3_SSS_OpXX($4C, $0028)
-	%DKC3_SSS_OpXX($4E, $0208)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98A5
+	db sprite.unknown_60 : dw $2C2C
+	db sprite.unknown_62 : dw $0280
+	db sprite.unknown_64 : dw $0180
+	db sprite.unknown_4C : dw $0028
+	db sprite.unknown_4E : dw $0208
+	db !spawn_command_success
 
 DATA_FF9953:
-	%DKC3_SSS_OpF9(DATA_FF98B2)
-	%DKC3_SSS_OpXX($60, $2C2C)
-	%DKC3_SSS_OpXX($62, $0280)
-	%DKC3_SSS_OpXX($64, $0180)
-	%DKC3_SSS_OpXX($4C, $0028)
-	%DKC3_SSS_OpXX($4E, $0208)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98B2
+	db sprite.unknown_60 : dw $2C2C
+	db sprite.unknown_62 : dw $0280
+	db sprite.unknown_64 : dw $0180
+	db sprite.unknown_4C : dw $0028
+	db sprite.unknown_4E : dw $0208
+	db !spawn_command_success
 
 DATA_FF9966:
-	%DKC3_SSS_OpF9(DATA_FF98A5)
-	%DKC3_SSS_OpXX($60, $2C2C)
-	%DKC3_SSS_OpXX($62, $0280)
-	%DKC3_SSS_OpXX($64, $0180)
-	%DKC3_SSS_OpXX($4C, $0028)
-	%DKC3_SSS_OpXX($4E, $0160)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98A5
+	db sprite.unknown_60 : dw $2C2C
+	db sprite.unknown_62 : dw $0280
+	db sprite.unknown_64 : dw $0180
+	db sprite.unknown_4C : dw $0028
+	db sprite.unknown_4E : dw $0160
+	db !spawn_command_success
 
 DATA_FF9979:
-	%DKC3_SSS_OpF9(DATA_FF98B2)
-	%DKC3_SSS_OpXX($60, $2C2C)
-	%DKC3_SSS_OpXX($62, $0280)
-	%DKC3_SSS_OpXX($64, $0180)
-	%DKC3_SSS_OpXX($4C, $0028)
-	%DKC3_SSS_OpXX($4E, $0160)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98B2
+	db sprite.unknown_60 : dw $2C2C
+	db sprite.unknown_62 : dw $0280
+	db sprite.unknown_64 : dw $0180
+	db sprite.unknown_4C : dw $0028
+	db sprite.unknown_4E : dw $0160
+	db !spawn_command_success
 
 DATA_FF998C:
-	%DKC3_SSS_OpF9(DATA_FF98B2)
-	%DKC3_SSS_OpXX($60, $1010)
-	%DKC3_SSS_OpXX($62, $02C0)
-	%DKC3_SSS_OpXX($64, $0200)
-	%DKC3_SSS_OpXX($4C, $0028)
-	%DKC3_SSS_OpXX($4E, $0238)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98B2
+	db sprite.unknown_60 : dw $1010
+	db sprite.unknown_62 : dw $02C0
+	db sprite.unknown_64 : dw $0200
+	db sprite.unknown_4C : dw $0028
+	db sprite.unknown_4E : dw $0238
+	db !spawn_command_success
 
 DATA_FF999F:
-	%DKC3_SSS_OpF9(DATA_FF98B2)
-	%DKC3_SSS_OpXX($60, $0808)
-	%DKC3_SSS_OpXX($62, $0280)
-	%DKC3_SSS_OpXX($64, $0200)
-	%DKC3_SSS_OpXX($4C, $0028)
-	%DKC3_SSS_OpXX($4E, $01D0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98B2
+	db sprite.unknown_60 : dw $0808
+	db sprite.unknown_62 : dw $0280
+	db sprite.unknown_64 : dw $0200
+	db sprite.unknown_4C : dw $0028
+	db sprite.unknown_4E : dw $01D0
+	db !spawn_command_success
 
 DATA_FF99B2:
-	%DKC3_SSS_OpF9(DATA_FF98B2)
-	%DKC3_SSS_OpXX($60, $1818)
-	%DKC3_SSS_OpXX($62, $0280)
-	%DKC3_SSS_OpXX($64, $0200)
-	%DKC3_SSS_OpXX($4C, $0028)
-	%DKC3_SSS_OpXX($4E, $0250)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98B2
+	db sprite.unknown_60 : dw $1818
+	db sprite.unknown_62 : dw $0280
+	db sprite.unknown_64 : dw $0200
+	db sprite.unknown_4C : dw $0028
+	db sprite.unknown_4E : dw $0250
+	db !spawn_command_success
 
 DATA_FF99C5:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0080)
-	%DKC3_SSS_OpXX($34, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0080
+	db sprite.max_y_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF99D2:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0110)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($34, $FD00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0110
+	db sprite.unknown_60 : dw $0000
+	db sprite.max_y_speed : dw $FD00
+	db !spawn_command_success
 
 DATA_FF99DF:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0020)
-	%DKC3_SSS_OpXX($60, $0020)
-	%DKC3_SSS_OpXX($34, $FD80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0020
+	db sprite.unknown_60 : dw $0020
+	db sprite.max_y_speed : dw $FD80
+	db !spawn_command_success
 
 DATA_FF99EC:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0090)
-	%DKC3_SSS_OpXX($60, $01D0)
-	%DKC3_SSS_OpXX($34, $FD80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0090
+	db sprite.unknown_60 : dw $01D0
+	db sprite.max_y_speed : dw $FD80
+	db !spawn_command_success
 
 DATA_FF99F9:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0010)
-	%DKC3_SSS_OpXX($60, $00A0)
-	%DKC3_SSS_OpXX($34, $FD80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0010
+	db sprite.unknown_60 : dw $00A0
+	db sprite.max_y_speed : dw $FD80
+	db !spawn_command_success
 
 DATA_FF9A06:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0030)
-	%DKC3_SSS_OpXX($60, $0140)
-	%DKC3_SSS_OpXX($34, $FE40)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0030
+	db sprite.unknown_60 : dw $0140
+	db sprite.max_y_speed : dw $FE40
+	db !spawn_command_success
 
 DATA_FF9A13:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $00A0)
-	%DKC3_SSS_OpXX($60, $0078)
-	%DKC3_SSS_OpXX($34, $FD80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $00A0
+	db sprite.unknown_60 : dw $0078
+	db sprite.max_y_speed : dw $FD80
+	db !spawn_command_success
 
 DATA_FF9A20:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0064)
-	%DKC3_SSS_OpXX($60, $0060)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0064
+	db sprite.unknown_60 : dw $0060
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF9A2D:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0020)
-	%DKC3_SSS_OpXX($60, $0220)
-	%DKC3_SSS_OpXX($34, $FD80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0020
+	db sprite.unknown_60 : dw $0220
+	db sprite.max_y_speed : dw $FD80
+	db !spawn_command_success
 
 DATA_FF9A3A:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0078)
-	%DKC3_SSS_OpXX($60, $00A0)
-	%DKC3_SSS_OpXX($34, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0078
+	db sprite.unknown_60 : dw $00A0
+	db sprite.max_y_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF9A47:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0040)
-	%DKC3_SSS_OpXX($34, $02C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0040
+	db sprite.max_y_speed : dw $02C0
+	db !spawn_command_success
 
 DATA_FF9A54:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0140)
-	%DKC3_SSS_OpXX($60, $00A0)
-	%DKC3_SSS_OpXX($34, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0140
+	db sprite.unknown_60 : dw $00A0
+	db sprite.max_y_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF9A61:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $00A0)
-	%DKC3_SSS_OpXX($34, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $00A0
+	db sprite.max_y_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF9A6E:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0110)
-	%DKC3_SSS_OpXX($60, $0060)
-	%DKC3_SSS_OpXX($34, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0110
+	db sprite.unknown_60 : dw $0060
+	db sprite.max_y_speed : dw $0240
+	db !spawn_command_success
 
 DATA_FF9A7B:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0060)
-	%DKC3_SSS_OpXX($34, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0060
+	db sprite.max_y_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF9A88:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0018)
-	%DKC3_SSS_OpXX($60, $0048)
-	%DKC3_SSS_OpXX($34, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0018
+	db sprite.unknown_60 : dw $0048
+	db sprite.max_y_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF9A95:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0040)
-	%DKC3_SSS_OpXX($60, $0080)
-	%DKC3_SSS_OpXX($34, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0040
+	db sprite.unknown_60 : dw $0080
+	db sprite.max_y_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF9AA2:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $00A0)
-	%DKC3_SSS_OpXX($34, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $00A0
+	db sprite.max_y_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FF9AAF:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0080)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($34, $FD00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0080
+	db sprite.unknown_60 : dw $0000
+	db sprite.max_y_speed : dw $FD00
+	db !spawn_command_success
 
 DATA_FF9ABC:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0060)
-	%DKC3_SSS_OpXX($34, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0060
+	db sprite.max_y_speed : dw $0240
+	db !spawn_command_success
 
 DATA_FF9AC9:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0080)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($34, $FE40)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0080
+	db sprite.unknown_60 : dw $0000
+	db sprite.max_y_speed : dw $FE40
+	db !spawn_command_success
 
 DATA_FF9AD6:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0040)
-	%DKC3_SSS_OpXX($60, $0080)
-	%DKC3_SSS_OpXX($34, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0040
+	db sprite.unknown_60 : dw $0080
+	db sprite.max_y_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF9AE3:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0080)
-	%DKC3_SSS_OpXX($34, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0080
+	db sprite.max_y_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF9AF0:
-	%DKC3_SSS_OpF9(DATA_FF98C6)
-	%DKC3_SSS_OpXX($5E, $0020)
-	%DKC3_SSS_OpXX($60, $0020)
-	%DKC3_SSS_OpXX($34, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98C6
+	db sprite.unknown_5E : dw $0020
+	db sprite.unknown_60 : dw $0020
+	db sprite.max_y_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FF9AFD:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0200)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0200
+	db sprite.unknown_5C : dw $0000
+	db !spawn_command_success
 
 DATA_FF9B04:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $0390)
-	%DKC3_SSS_OpXX($60, $17F0)
-	%DKC3_SSS_OpXX($62, $02A4)
-	%DKC3_SSS_OpXX($06, DATA_FF1FC4)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $0390
+	db sprite.unknown_60 : dw $17F0
+	db sprite.unknown_62 : dw $02A4
+	db sprite.constants_address : dw DATA_FF1FC4
+	db !spawn_command_success
 
 DATA_FF9B14:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $1980)
-	%DKC3_SSS_OpXX($60, $24B0)
-	%DKC3_SSS_OpXX($62, $02A4)
-	%DKC3_SSS_OpXX($06, DATA_FF1FC4)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $1980
+	db sprite.unknown_60 : dw $24B0
+	db sprite.unknown_62 : dw $02A4
+	db sprite.constants_address : dw DATA_FF1FC4
+	db !spawn_command_success
 
 DATA_FF9B24:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $0360)
-	%DKC3_SSS_OpXX($60, $03F0)
-	%DKC3_SSS_OpXX($62, $0270)
-	%DKC3_SSS_OpXX($06, DATA_FF1FEC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $0360
+	db sprite.unknown_60 : dw $03F0
+	db sprite.unknown_62 : dw $0270
+	db sprite.constants_address : dw DATA_FF1FEC
+	db !spawn_command_success
 
 DATA_FF9B34:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $0680)
-	%DKC3_SSS_OpXX($60, $0780)
-	%DKC3_SSS_OpXX($62, $0270)
-	%DKC3_SSS_OpXX($06, DATA_FF1FEC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $0680
+	db sprite.unknown_60 : dw $0780
+	db sprite.unknown_62 : dw $0270
+	db sprite.constants_address : dw DATA_FF1FEC
+	db !spawn_command_success
 
 DATA_FF9B44:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $08C0)
-	%DKC3_SSS_OpXX($60, $09C0)
-	%DKC3_SSS_OpXX($62, $0270)
-	%DKC3_SSS_OpXX($06, DATA_FF1FEC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $08C0
+	db sprite.unknown_60 : dw $09C0
+	db sprite.unknown_62 : dw $0270
+	db sprite.constants_address : dw DATA_FF1FEC
+	db !spawn_command_success
 
 DATA_FF9B54:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $0A80)
-	%DKC3_SSS_OpXX($60, $0BC0)
-	%DKC3_SSS_OpXX($62, $0270)
-	%DKC3_SSS_OpXX($06, DATA_FF1FEC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $0A80
+	db sprite.unknown_60 : dw $0BC0
+	db sprite.unknown_62 : dw $0270
+	db sprite.constants_address : dw DATA_FF1FEC
+	db !spawn_command_success
 
 DATA_FF9B64:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $0D40)
-	%DKC3_SSS_OpXX($60, $0E40)
-	%DKC3_SSS_OpXX($62, $0270)
-	%DKC3_SSS_OpXX($06, DATA_FF1FEC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $0D40
+	db sprite.unknown_60 : dw $0E40
+	db sprite.unknown_62 : dw $0270
+	db sprite.constants_address : dw DATA_FF1FEC
+	db !spawn_command_success
 
 DATA_FF9B74:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $1180)
-	%DKC3_SSS_OpXX($60, $1240)
-	%DKC3_SSS_OpXX($62, $0270)
-	%DKC3_SSS_OpXX($06, DATA_FF1FEC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $1180
+	db sprite.unknown_60 : dw $1240
+	db sprite.unknown_62 : dw $0270
+	db sprite.constants_address : dw DATA_FF1FEC
+	db !spawn_command_success
 
 DATA_FF9B84:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $1A80)
-	%DKC3_SSS_OpXX($60, $1B80)
-	%DKC3_SSS_OpXX($62, $0270)
-	%DKC3_SSS_OpXX($06, DATA_FF1FEC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $1A80
+	db sprite.unknown_60 : dw $1B80
+	db sprite.unknown_62 : dw $0270
+	db sprite.constants_address : dw DATA_FF1FEC
+	db !spawn_command_success
 
 DATA_FF9B94:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $1D00)
-	%DKC3_SSS_OpXX($60, $1E00)
-	%DKC3_SSS_OpXX($62, $0270)
-	%DKC3_SSS_OpXX($06, DATA_FF1FEC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $1D00
+	db sprite.unknown_60 : dw $1E00
+	db sprite.unknown_62 : dw $0270
+	db sprite.constants_address : dw DATA_FF1FEC
+	db !spawn_command_success
 
 DATA_FF9BA4:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $2240)
-	%DKC3_SSS_OpXX($60, $2340)
-	%DKC3_SSS_OpXX($62, $0270)
-	%DKC3_SSS_OpXX($06, DATA_FF1FEC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $2240
+	db sprite.unknown_60 : dw $2340
+	db sprite.unknown_62 : dw $0270
+	db sprite.constants_address : dw DATA_FF1FEC
+	db !spawn_command_success
 
 DATA_FF9BB4:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $2540)
-	%DKC3_SSS_OpXX($60, $26C0)
-	%DKC3_SSS_OpXX($62, $0270)
-	%DKC3_SSS_OpXX($06, DATA_FF1FEC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $2540
+	db sprite.unknown_60 : dw $26C0
+	db sprite.unknown_62 : dw $0270
+	db sprite.constants_address : dw DATA_FF1FEC
+	db !spawn_command_success
 
 DATA_FF9BC4:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $2B40)
-	%DKC3_SSS_OpXX($60, $2C80)
-	%DKC3_SSS_OpXX($62, $0270)
-	%DKC3_SSS_OpXX($06, DATA_FF1FEC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $2B40
+	db sprite.unknown_60 : dw $2C80
+	db sprite.unknown_62 : dw $0270
+	db sprite.constants_address : dw DATA_FF1FEC
+	db !spawn_command_success
 
 DATA_FF9BD4:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $01A0)
-	%DKC3_SSS_OpXX($60, $02A0)
-	%DKC3_SSS_OpXX($62, $0270)
-	%DKC3_SSS_OpXX($06, DATA_FF1FD8)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $01A0
+	db sprite.unknown_60 : dw $02A0
+	db sprite.unknown_62 : dw $0270
+	db sprite.constants_address : dw DATA_FF1FD8
+	db !spawn_command_success
 
 DATA_FF9BE4:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $0140)
-	%DKC3_SSS_OpXX($60, $0220)
-	%DKC3_SSS_OpXX($62, $02A4)
-	%DKC3_SSS_OpXX($06, DATA_FF1FC4)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $0140
+	db sprite.unknown_60 : dw $0220
+	db sprite.unknown_62 : dw $02A4
+	db sprite.constants_address : dw DATA_FF1FC4
+	db !spawn_command_success
 
 DATA_FF9BF4:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $0140)
-	%DKC3_SSS_OpXX($60, $0480)
-	%DKC3_SSS_OpXX($62, $02A4)
-	%DKC3_SSS_OpXX($06, DATA_FF1FC4)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $0140
+	db sprite.unknown_60 : dw $0480
+	db sprite.unknown_62 : dw $02A4
+	db sprite.constants_address : dw DATA_FF1FC4
+	db !spawn_command_success
 
 DATA_FF9C04:
-	%DKC3_SSS_OpF9(DATA_FF9AFD)
-	%DKC3_SSS_OpXX($5E, $01A0)
-	%DKC3_SSS_OpXX($60, $02A0)
-	%DKC3_SSS_OpXX($62, $0270)
-	%DKC3_SSS_OpXX($06, DATA_FF1FC4)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9AFD
+	db sprite.unknown_5E : dw $01A0
+	db sprite.unknown_60 : dw $02A0
+	db sprite.unknown_62 : dw $0270
+	db sprite.constants_address : dw DATA_FF1FC4
+	db !spawn_command_success
 
 DATA_FF9C14:
-	%DKC3_SSS_OpF9(DATA_FF9489)
-	%DKC3_SSS_OpFF(!sprite_GleaminBream)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($64, $0102)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpXX($6A, $0108)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpFA($026E)
-	%DKC3_SSS_OpFC($0039)
-	%DKC3_SSS_OpXX($06, DATA_FF1FA6)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9489
+	db !spawn_command_set_type : dw !sprite_GleaminBream
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0007
+	db sprite.unknown_64 : dw $0102
+	db sprite.max_x_speed : dw $0100
+	db sprite.unknown_6A : dw $0108
+	db sprite.unknown_68 : dw $0000
+	db !spawn_command_FA : dw $026E
+	db !spawn_command_FC : dw $0039
+	db sprite.constants_address : dw DATA_FF1FA6
+	db !spawn_command_success
 
 DATA_FF9C36:
-	%DKC3_SSS_OpF9(DATA_FF9C14)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C14
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FF9C3D:
-	%DKC3_SSS_OpF9(DATA_FF9489)
-	%DKC3_SSS_OpFF(!sprite_GleaminBream)
-	%DKC3_SSS_OpXX($06, DATA_FF1FA6)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($60, $0202)
-	%DKC3_SSS_OpXX($30, $0080)
-	%DKC3_SSS_OpXX($64, $0102)
-	%DKC3_SSS_OpXX($34, $0060)
-	%DKC3_SSS_OpXX($6A, $0140)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpFA($0271)
-	%DKC3_SSS_OpFC($0039)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9489
+	db !spawn_command_set_type : dw !sprite_GleaminBream
+	db sprite.constants_address : dw DATA_FF1FA6
+	db sprite.state : dw $0003
+	db sprite.movement_state : dw $0007
+	db sprite.unknown_60 : dw $0202
+	db sprite.max_x_speed : dw $0080
+	db sprite.unknown_64 : dw $0102
+	db sprite.max_y_speed : dw $0060
+	db sprite.unknown_6A : dw $0140
+	db sprite.unknown_68 : dw $0000
+	db !spawn_command_FA : dw $0271
+	db !spawn_command_FC : dw $0039
+	db !spawn_command_success
 
 DATA_FF9C65:
-	%DKC3_SSS_OpF9(DATA_FF9C36)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpXX($6C, $0320)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C36
+	db sprite.unknown_60 : dw $3030
+	db sprite.max_x_speed : dw $FF00
+	db sprite.unknown_6C : dw $0320
+	db !spawn_command_success
 
 DATA_FF9C72:
-	%DKC3_SSS_OpF9(DATA_FF9C3D)
-	%DKC3_SSS_OpXX($6C, $0320)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C3D
+	db sprite.unknown_6C : dw $0320
+	db !spawn_command_success
 
 DATA_FF9C79:
-	%DKC3_SSS_OpFF(!sprite_Koin)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($38, $0005)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($3A, $0840)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpFC($0080)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($0211)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Koin
+	db sprite.render_order : dw $00D4
+	db sprite.state : dw $0005
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.interaction_flags : dw $0840
+	db sprite.visibility : dw $0000
+	db sprite.y_speed : dw $0000
+	db !spawn_command_FC : dw $0080
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $0211
+	db !spawn_command_success
 
 DATA_FF9C9B:
-	%DKC3_SSS_OpFF(!sprite_Koin)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($38, $0006)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($62, $8030)
-	%DKC3_SSS_OpXX($66, $0000)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpXX($5A, $0044)
-	%DKC3_SSS_OpXX($06, DATA_FF2024)
-	%DKC3_SSS_OpXX($3A, $0840)
-	%DKC3_SSS_OpXX($26, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpFC($0080)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($0211)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Koin
+	db sprite.render_order : dw $00D4
+	db sprite.state : dw $0006
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_62 : dw $8030
+	db sprite.unknown_66 : dw $0000
+	db sprite.unknown_68 : dw $0000
+	db sprite.movement_state : dw $0044
+	db sprite.constants_address : dw DATA_FF2024
+	db sprite.interaction_flags : dw $0840
+	db sprite.visibility : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db !spawn_command_FC : dw $0080
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $0211
+	db !spawn_command_success
 
 DATA_FF9CCF:
-	%DKC3_SSS_OpF9(DATA_FF9C9B)
-	%DKC3_SSS_OpXX($60, $FF80)
-	%DKC3_SSS_OpXX($30, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C9B
+	db sprite.unknown_60 : dw $FF80
+	db sprite.max_x_speed : dw $0240
+	db !spawn_command_success
 
 DATA_FF9CD9:
-	%DKC3_SSS_OpF9(DATA_FF9C9B)
-	%DKC3_SSS_OpXX($60, $6800)
-	%DKC3_SSS_OpXX($30, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C9B
+	db sprite.unknown_60 : dw $6800
+	db sprite.max_x_speed : dw $0240
+	db !spawn_command_success
 
 DATA_FF9CE3:
-	%DKC3_SSS_OpF9(DATA_FF9C9B)
-	%DKC3_SSS_OpXX($60, $00FF)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C9B
+	db sprite.unknown_60 : dw $00FF
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF9CED:
-	%DKC3_SSS_OpF9(DATA_FF9C9B)
-	%DKC3_SSS_OpXX($60, $7030)
-	%DKC3_SSS_OpXX($30, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C9B
+	db sprite.unknown_60 : dw $7030
+	db sprite.max_x_speed : dw $0240
+	db !spawn_command_success
 
 DATA_FF9CF7:
-	%DKC3_SSS_OpF9(DATA_FF9C9B)
-	%DKC3_SSS_OpXX($60, $7030)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C9B
+	db sprite.unknown_60 : dw $7030
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FF9D01:
-	%DKC3_SSS_OpF9(DATA_FF9C9B)
-	%DKC3_SSS_OpXX($60, $C000)
-	%DKC3_SSS_OpXX($30, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C9B
+	db sprite.unknown_60 : dw $C000
+	db sprite.max_x_speed : dw $0240
+	db !spawn_command_success
 
 DATA_FF9D0B:
-	%DKC3_SSS_OpF9(DATA_FF9C9B)
-	%DKC3_SSS_OpXX($60, $8000)
-	%DKC3_SSS_OpXX($30, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C9B
+	db sprite.unknown_60 : dw $8000
+	db sprite.max_x_speed : dw $0240
+	db !spawn_command_success
 
 DATA_FF9D15:
-	%DKC3_SSS_OpF9(DATA_FF9C9B)
-	%DKC3_SSS_OpXX($60, $4068)
-	%DKC3_SSS_OpXX($30, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C9B
+	db sprite.unknown_60 : dw $4068
+	db sprite.max_x_speed : dw $0240
+	db !spawn_command_success
 
 DATA_FF9D1F:
-	%DKC3_SSS_OpF9(DATA_FF9C9B)
-	%DKC3_SSS_OpXX($60, $0040)
-	%DKC3_SSS_OpXX($62, $2030)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C9B
+	db sprite.unknown_60 : dw $0040
+	db sprite.unknown_62 : dw $2030
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF9D2C:
-	%DKC3_SSS_OpF9(DATA_FF9C9B)
-	%DKC3_SSS_OpXX($60, $4000)
-	%DKC3_SSS_OpXX($62, $2030)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C9B
+	db sprite.unknown_60 : dw $4000
+	db sprite.unknown_62 : dw $2030
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF9D39:
-	%DKC3_SSS_OpF9(DATA_FF9C9B)
-	%DKC3_SSS_OpXX($60, $0080)
-	%DKC3_SSS_OpXX($62, $2030)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C9B
+	db sprite.unknown_60 : dw $0080
+	db sprite.unknown_62 : dw $2030
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FF9D46:
-	%DKC3_SSS_OpF9(DATA_FF9C9B)
-	%DKC3_SSS_OpXX($60, $2088)
-	%DKC3_SSS_OpXX($62, $2030)
-	%DKC3_SSS_OpXX($30, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9C9B
+	db sprite.unknown_60 : dw $2088
+	db sprite.unknown_62 : dw $2030
+	db sprite.max_x_speed : dw $0240
+	db !spawn_command_success
 
 DATA_FF9D53:
-	%DKC3_SSS_OpFF(!sprite_Krosshair)
-	%DKC3_SSS_OpXX($06, DATA_FF2152)
-	%DKC3_SSS_OpXX($0E, $00FF)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($00ED)
-	%DKC3_SSS_OpF3($1C, $00)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $000D)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($4C, DATA_FF9DB9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Krosshair
+	db sprite.constants_address : dw DATA_FF2152
+	db sprite.render_order : dw $00FF
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $00ED
+	db !spawn_command_F3, $1C, $00
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $000D
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.unknown_4C : dw DATA_FF9DB9
+	db !spawn_command_success
 
 DATA_FF9D75:
-	%DKC3_SSS_OpF9(DATA_FF9D53)
-	%DKC3_SSS_OpXX($5E, $0170)
-	%DKC3_SSS_OpXX($60, $0100)
-	%DKC3_SSS_OpXX($18, $0028)
-	%DKC3_SSS_OpXX($1A, $001E)
-	%DKC3_SSS_OpXX($66, $0080)
-	%DKC3_SSS_OpXX($68, $0040)
-	%DKC3_SSS_OpXX($4C, DATA_FF9DB9)
-	%DKC3_SSS_OpXX($40, $0000)
-	%DKC3_SSS_OpXX($38, $0003)
-	%DKC3_SSS_OpXX($6A, $067C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9D53
+	db sprite.unknown_5E : dw $0170
+	db sprite.unknown_60 : dw $0100
+	db sprite.ground_y_position : dw $0028
+	db sprite.ground_distance : dw $001E
+	db sprite.unknown_66 : dw $0080
+	db sprite.unknown_68 : dw $0040
+	db sprite.unknown_4C : dw DATA_FF9DB9
+	db sprite.animation_id : dw $0000
+	db sprite.state : dw $0003
+	db sprite.unknown_6A : dw $067C
+	db !spawn_command_success
 
 DATA_FF9D97:
-	%DKC3_SSS_OpF9(DATA_FF9D53)
-	%DKC3_SSS_OpXX($5E, $0170)
-	%DKC3_SSS_OpXX($60, $0100)
-	%DKC3_SSS_OpXX($18, $0028)
-	%DKC3_SSS_OpXX($1A, $001E)
-	%DKC3_SSS_OpXX($66, $0080)
-	%DKC3_SSS_OpXX($68, $0040)
-	%DKC3_SSS_OpXX($4C, DATA_FF9DB9)
-	%DKC3_SSS_OpXX($40, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($6A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9D53
+	db sprite.unknown_5E : dw $0170
+	db sprite.unknown_60 : dw $0100
+	db sprite.ground_y_position : dw $0028
+	db sprite.ground_distance : dw $001E
+	db sprite.unknown_66 : dw $0080
+	db sprite.unknown_68 : dw $0040
+	db sprite.unknown_4C : dw DATA_FF9DB9
+	db sprite.animation_id : dw $0000
+	db sprite.state : dw $0000
+	db sprite.unknown_6A : dw $0000
+	db !spawn_command_success
 
 DATA_FF9DB9:
 	dw $0399
@@ -17473,17 +17473,17 @@ DATA_FF9DB9:
 
 
 DATA_FF9DD7:
-	%DKC3_SSS_OpF9(DATA_FF9D53)
-	%DKC3_SSS_OpXX($06, DATA_FF2158)
-	%DKC3_SSS_OpXX($5E, $FFFF)
-	%DKC3_SSS_OpXX($60, $FFFF)
-	%DKC3_SSS_OpXX($18, $005A)
-	%DKC3_SSS_OpXX($1A, $0028)
-	%DKC3_SSS_OpXX($66, $0000)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpXX($4C, DATA_FF9DF6)
-	%DKC3_SSS_OpXX($40, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9D53
+	db sprite.constants_address : dw DATA_FF2158
+	db sprite.unknown_5E : dw $FFFF
+	db sprite.unknown_60 : dw $FFFF
+	db sprite.ground_y_position : dw $005A
+	db sprite.ground_distance : dw $0028
+	db sprite.unknown_66 : dw $0000
+	db sprite.unknown_68 : dw $0000
+	db sprite.unknown_4C : dw DATA_FF9DF6
+	db sprite.animation_id : dw $0001
+	db !spawn_command_success
 
 DATA_FF9DF6:
 	dw $0178
@@ -17540,134 +17540,134 @@ DATA_FF9E80:
 	db $04,$FF,$FF
 
 DATA_FF9E83:
-	%DKC3_SSS_OpFF(!sprite_FriendlyNibblaHead)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($0E, $00DE)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($4C, $0000)
-	%DKC3_SSS_OpXX($4E, $0000)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFC($0054)
-	%DKC3_SSS_OpFA($01B9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_FriendlyNibblaHead
+	db sprite.state : dw $0000
+	db sprite.render_order : dw $00DE
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.movement_state : dw $0001
+	db sprite.unknown_4C : dw $0000
+	db sprite.unknown_4E : dw $0000
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FC : dw $0054
+	db !spawn_command_FA : dw $01B9
+	db !spawn_command_success
 
 DATA_FF9EA5:
-	%DKC3_SSS_OpF9(DATA_FF9E83)
-	%DKC3_SSS_OpXX($5E, $01F4)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9E83
+	db sprite.unknown_5E : dw $01F4
+	db !spawn_command_success
 
 DATA_FF9EAC:
-	%DKC3_SSS_OpFF(!sprite_Toboggan)
-	%DKC3_SSS_OpXX($0E, $00D0)
-	%DKC3_SSS_OpXX($06, DATA_FF1BF2)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0021)
-	%DKC3_SSS_OpXX($2C, $0380)
-	%DKC3_SSS_OpXX($32, $0550)
-	%DKC3_SSS_OpXX($36, $0000)
-	%DKC3_SSS_OpXX($5E, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Toboggan
+	db sprite.render_order : dw $00D0
+	db sprite.constants_address : dw DATA_FF1BF2
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0021
+	db sprite.unknown_2C : dw $0380
+	db sprite.unknown_32 : dw $0550
+	db sprite.slip_velocity : dw $0000
+	db sprite.unknown_5E : dw $0002
+	db !spawn_command_success
 
 DATA_FF9EC8:
-	%DKC3_SSS_OpF9(DATA_FF9EAC)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($34, $0400)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9EAC
+	db sprite.state : dw $0000
+	db sprite.max_y_speed : dw $0400
+	db !spawn_command_success
 
 	db $00
 
 DATA_FF9ED3:
-	%DKC3_SSS_OpF9(DATA_FF9EAC)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($34, $0400)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9EAC
+	db sprite.state : dw $0100
+	db sprite.unknown_5C : dw $0001
+	db sprite.max_y_speed : dw $0400
+	db !spawn_command_success
 
 	db $00
 
 DATA_FF9EE1:
-	%DKC3_SSS_OpF9(DATA_FF9EAC)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5C, $0003)
-	%DKC3_SSS_OpXX($34, $0400)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9EAC
+	db sprite.state : dw $0100
+	db sprite.unknown_5C : dw $0003
+	db sprite.max_y_speed : dw $0400
+	db !spawn_command_success
 
 	db $00
 
 DATA_FF9EEF:
-	%DKC3_SSS_OpF9(DATA_FF9EAC)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($34, $0400)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9EAC
+	db sprite.state : dw $0000
+	db sprite.max_y_speed : dw $0400
+	db !spawn_command_success
 
 	db $00
 
 DATA_FF9EFA:
-	%DKC3_SSS_OpFF(!sprite_Toboggan)
-	%DKC3_SSS_OpXX($0E, $00D0)
-	%DKC3_SSS_OpXX($06, DATA_FF1BFE)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0021)
-	%DKC3_SSS_OpXX($2C, $0380)
-	%DKC3_SSS_OpXX($32, $0500)
-	%DKC3_SSS_OpXX($36, $0000)
-	%DKC3_SSS_OpXX($5E, $0003)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Toboggan
+	db sprite.render_order : dw $00D0
+	db sprite.constants_address : dw DATA_FF1BFE
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0021
+	db sprite.unknown_2C : dw $0380
+	db sprite.unknown_32 : dw $0500
+	db sprite.slip_velocity : dw $0000
+	db sprite.unknown_5E : dw $0003
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FF9F19:
-	%DKC3_SSS_OpF9(DATA_FF9EFA)
-	%DKC3_SSS_OpXX($4C, DATA_FF9F6D)
-	%DKC3_SSS_OpXX($34, $0400)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9EFA
+	db sprite.unknown_4C : dw DATA_FF9F6D
+	db sprite.max_y_speed : dw $0400
+	db !spawn_command_success
 
 	db $00
 
 DATA_FF9F24:
-	%DKC3_SSS_OpF9(DATA_FF9EFA)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5C, $0001)
-	%DKC3_SSS_OpXX($4C, DATA_FF9F6D)
-	%DKC3_SSS_OpXX($34, $0400)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9EFA
+	db sprite.state : dw $0100
+	db sprite.unknown_5C : dw $0001
+	db sprite.unknown_4C : dw DATA_FF9F6D
+	db sprite.max_y_speed : dw $0400
+	db !spawn_command_success
 
 	db $00
 
 DATA_FF9F35:
-	%DKC3_SSS_OpF9(DATA_FF9EFA)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5C, $0002)
-	%DKC3_SSS_OpXX($4C, DATA_FF9F6D)
-	%DKC3_SSS_OpXX($34, $0400)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9EFA
+	db sprite.state : dw $0100
+	db sprite.unknown_5C : dw $0002
+	db sprite.unknown_4C : dw DATA_FF9F6D
+	db sprite.max_y_speed : dw $0400
+	db !spawn_command_success
 
 	db $00
 
 DATA_FF9F46:
-	%DKC3_SSS_OpF9(DATA_FF9EFA)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5C, $0003)
-	%DKC3_SSS_OpXX($4C, DATA_FF9F6D)
-	%DKC3_SSS_OpXX($34, $0400)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9EFA
+	db sprite.state : dw $0100
+	db sprite.unknown_5C : dw $0003
+	db sprite.unknown_4C : dw DATA_FF9F6D
+	db sprite.max_y_speed : dw $0400
+	db !spawn_command_success
 
 	db $00
 
 DATA_FF9F57:
-	%DKC3_SSS_OpF9(DATA_FF9EFA)
-	%DKC3_SSS_OpXX($4C, DATA_FFA09B)
-	%DKC3_SSS_OpXX($34, $0400)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9EFA
+	db sprite.unknown_4C : dw DATA_FFA09B
+	db sprite.max_y_speed : dw $0400
+	db !spawn_command_success
 
 	db $00
 
 DATA_FF9F62:
-	%DKC3_SSS_OpF9(DATA_FF9EFA)
-	%DKC3_SSS_OpXX($4C, DATA_FFA0CD)
-	%DKC3_SSS_OpXX($34, $0400)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF9EFA
+	db sprite.unknown_4C : dw DATA_FFA0CD
+	db sprite.max_y_speed : dw $0400
+	db !spawn_command_success
 
 	db $00
 
@@ -17707,2291 +17707,2291 @@ DATA_FFA0CD:
 	dw $FFFF
 
 DATA_FFA10B:
-	%DKC3_SSS_OpFF(!sprite_LargePipe)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($0E, $00D0)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFC($0020)
-	%DKC3_SSS_OpF3($32, $00)
-	%DKC3_SSS_OpXX($38, $1000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_LargePipe
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.render_order : dw $00D0
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FC : dw $0020
+	db !spawn_command_F3, $32, $00
+	db sprite.state : dw $1000
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FFA124:
-	%DKC3_SSS_OpF9(DATA_FF918F)
-	%DKC3_SSS_OpXX($60, $0040)
-	%DKC3_SSS_OpXX($30, $0250)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF918F
+	db sprite.unknown_60 : dw $0040
+	db sprite.max_x_speed : dw $0250
+	db !spawn_command_success
 
 DATA_FFA12E:
-	%DKC3_SSS_OpF9(DATA_FF918F)
-	%DKC3_SSS_OpXX($60, $4000)
-	%DKC3_SSS_OpXX($30, $FDB0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF918F
+	db sprite.unknown_60 : dw $4000
+	db sprite.max_x_speed : dw $FDB0
+	db !spawn_command_success
 
 DATA_FFA138:
-	%DKC3_SSS_OpF9(DATA_FF79CB)
-	%DKC3_SSS_OpXX($60, $A000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($64, $60A0)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79CB
+	db sprite.unknown_60 : dw $A000
+	db sprite.unknown_62 : dw $4000
+	db sprite.unknown_64 : dw $60A0
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA148:
-	%DKC3_SSS_OpF9(DATA_FF79CB)
-	%DKC3_SSS_OpXX($60, $8000)
-	%DKC3_SSS_OpXX($62, $6200)
-	%DKC3_SSS_OpXX($64, $8000)
-	%DKC3_SSS_OpXX($30, $FE60)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79CB
+	db sprite.unknown_60 : dw $8000
+	db sprite.unknown_62 : dw $6200
+	db sprite.unknown_64 : dw $8000
+	db sprite.max_x_speed : dw $FE60
+	db !spawn_command_success
 
 DATA_FFA158:
-	%DKC3_SSS_OpF9(DATA_FF79CB)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $3200)
-	%DKC3_SSS_OpXX($64, $8000)
-	%DKC3_SSS_OpXX($30, $0210)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79CB
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $3200
+	db sprite.unknown_64 : dw $8000
+	db sprite.max_x_speed : dw $0210
+	db !spawn_command_success
 
 DATA_FFA168:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $6060)
-	%DKC3_SSS_OpXX($34, $0150)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $6060
+	db sprite.max_y_speed : dw $0150
+	db !spawn_command_success
 
 DATA_FFA172:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $7000)
-	%DKC3_SSS_OpXX($34, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $7000
+	db sprite.max_y_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FFA17C:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $0070)
-	%DKC3_SSS_OpXX($34, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $0070
+	db sprite.max_y_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FFA186:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $7070)
-	%DKC3_SSS_OpXX($34, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $7070
+	db sprite.max_y_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FFA190:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $3030)
-	%DKC3_SSS_OpXX($34, $02A0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $3030
+	db sprite.max_y_speed : dw $02A0
+	db !spawn_command_success
 
 DATA_FFA19A:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $6000)
-	%DKC3_SSS_OpXX($34, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $6000
+	db sprite.max_y_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FFA1A4:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $0060)
-	%DKC3_SSS_OpXX($34, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $0060
+	db sprite.max_y_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FFA1AE:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $3030)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $3030
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA1B8:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $7070)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $7070
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA1C2:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $0090)
-	%DKC3_SSS_OpXX($34, $0250)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $0090
+	db sprite.max_y_speed : dw $0250
+	db !spawn_command_success
 
 DATA_FFA1CC:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $4040)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $4040
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA1D6:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $0050)
-	%DKC3_SSS_OpXX($34, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $0050
+	db sprite.max_y_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FFA1E0:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $5000)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $5000
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA1EA:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $0050)
-	%DKC3_SSS_OpXX($34, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $0050
+	db sprite.max_y_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA1F4:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $5000)
-	%DKC3_SSS_OpXX($34, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $5000
+	db sprite.max_y_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FFA1FE:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $0050)
-	%DKC3_SSS_OpXX($34, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $0050
+	db sprite.max_y_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FFA208:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $5050)
-	%DKC3_SSS_OpXX($34, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $5050
+	db sprite.max_y_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA212:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $5000)
-	%DKC3_SSS_OpXX($34, $0120)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $5000
+	db sprite.max_y_speed : dw $0120
+	db !spawn_command_success
 
 DATA_FFA21C:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $0050)
-	%DKC3_SSS_OpXX($34, $FD00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $0050
+	db sprite.max_y_speed : dw $FD00
+	db !spawn_command_success
 
 DATA_FFA226:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $5000)
-	%DKC3_SSS_OpXX($34, $0300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $5000
+	db sprite.max_y_speed : dw $0300
+	db !spawn_command_success
 
 DATA_FFA230:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $4020)
-	%DKC3_SSS_OpXX($34, $FF38)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $4020
+	db sprite.max_y_speed : dw $FF38
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FFA23D:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $2040)
-	%DKC3_SSS_OpXX($34, $FF38)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $2040
+	db sprite.max_y_speed : dw $FF38
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FFA24A:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $4020)
-	%DKC3_SSS_OpXX($34, $FF18)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $4020
+	db sprite.max_y_speed : dw $FF18
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FFA257:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $2040)
-	%DKC3_SSS_OpXX($34, $00E8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $2040
+	db sprite.max_y_speed : dw $00E8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FFA264:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $2040)
-	%DKC3_SSS_OpXX($34, $00E8)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $2040
+	db sprite.max_y_speed : dw $00E8
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FFA271:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $4040)
-	%DKC3_SSS_OpXX($34, $FE00)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $4040
+	db sprite.max_y_speed : dw $FE00
+	db !spawn_command_F0
 
 DATA_FFA27B:
-	%DKC3_SSS_OpF9(DATA_FF79AD)
-	%DKC3_SSS_OpXX($64, $6000)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF79AD
+	db sprite.unknown_64 : dw $6000
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_F0
 
 DATA_FFA285:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $4848)
-	%DKC3_SSS_OpXX($30, $0150)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $4848
+	db sprite.max_x_speed : dw $0150
+	db !spawn_command_success
 
 DATA_FFA28F:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($30, $0150)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $2020
+	db sprite.max_x_speed : dw $0150
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FFA29C:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $2020
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FFA2A6:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($30, $01B0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $2020
+	db sprite.max_x_speed : dw $01B0
+	db !spawn_command_success
 
 DATA_FFA2B0:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpXX($30, $0150)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $3030
+	db sprite.max_x_speed : dw $0150
+	db !spawn_command_success
 
 DATA_FFA2BA:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $3030
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA2C4:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $2020
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA2CE:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($30, $0250)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $2020
+	db sprite.max_x_speed : dw $0250
+	db !spawn_command_success
 
 DATA_FFA2D8:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $0040)
-	%DKC3_SSS_OpXX($30, $0150)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $0040
+	db sprite.max_x_speed : dw $0150
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FFA2E5:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $4000)
-	%DKC3_SSS_OpXX($30, $FEB0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $4000
+	db sprite.max_x_speed : dw $FEB0
+	db !spawn_command_success
 
 DATA_FFA2EF:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $6000)
-	%DKC3_SSS_OpXX($30, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $6000
+	db sprite.max_x_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FFA2F9:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $4040
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA303:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $4AB0)
-	%DKC3_SSS_OpXX($30, $0210)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $4AB0
+	db sprite.max_x_speed : dw $0210
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FFA310:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $3AC0)
-	%DKC3_SSS_OpXX($30, $FDF0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $3AC0
+	db sprite.max_x_speed : dw $FDF0
+	db !spawn_command_success
 
 DATA_FFA31A:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $AA50)
-	%DKC3_SSS_OpXX($30, $FDF0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $AA50
+	db sprite.max_x_speed : dw $FDF0
+	db !spawn_command_success
 
 DATA_FFA324:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $F010)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $F010
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA32E:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $D030)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $D030
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA338:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $A060)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $A060
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA342:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $6060)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $6060
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FFA34F:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $5858)
-	%DKC3_SSS_OpXX($30, $FD00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $5858
+	db sprite.max_x_speed : dw $FD00
+	db !spawn_command_success
 
 DATA_FFA359:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $4848)
-	%DKC3_SSS_OpXX($30, $FEB0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $4848
+	db sprite.max_x_speed : dw $FEB0
+	db !spawn_command_success
 
 DATA_FFA363:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $5070)
-	%DKC3_SSS_OpXX($30, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $5070
+	db sprite.max_x_speed : dw $01C0
+	db !spawn_command_success
 
 DATA_FFA36D:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $7A10)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $7A10
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA377:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $107A)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $107A
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA381:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $7010)
-	%DKC3_SSS_OpXX($30, $01A0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $7010
+	db sprite.max_x_speed : dw $01A0
+	db !spawn_command_success
 
 DATA_FFA38B:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($30, $FED0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $4040
+	db sprite.max_x_speed : dw $FED0
+	db !spawn_command_success
 
 DATA_FFA395:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $2424)
-	%DKC3_SSS_OpXX($30, $0120)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $2424
+	db sprite.max_x_speed : dw $0120
+	db !spawn_command_success
 
 DATA_FFA39F:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $9000)
-	%DKC3_SSS_OpXX($30, $FEB0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $9000
+	db sprite.max_x_speed : dw $FEB0
+	db !spawn_command_success
 
 DATA_FFA3A9:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $5050)
-	%DKC3_SSS_OpXX($30, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $5050
+	db sprite.max_x_speed : dw $01C0
+	db !spawn_command_success
 
 DATA_FFA3B3:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $5050)
-	%DKC3_SSS_OpXX($30, $FE40)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $5050
+	db sprite.max_x_speed : dw $FE40
+	db !spawn_command_success
 
 DATA_FFA3BD:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $5000)
-	%DKC3_SSS_OpXX($30, $FEE0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $5000
+	db sprite.max_x_speed : dw $FEE0
+	db !spawn_command_success
 
 DATA_FFA3C7:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpXX($30, $0120)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $3030
+	db sprite.max_x_speed : dw $0120
+	db !spawn_command_success
 
 DATA_FFA3D1:
-	%DKC3_SSS_OpF9(DATA_FF79B7)
-	%DKC3_SSS_OpXX($60, $2424)
-	%DKC3_SSS_OpXX($30, $FEE0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79B7
+	db sprite.unknown_60 : dw $2424
+	db sprite.max_x_speed : dw $FEE0
+	db !spawn_command_success
 
 DATA_FFA3DB:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $1800)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $1800
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA3E8:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $1800)
-	%DKC3_SSS_OpXX($30, $0230)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $1800
+	db sprite.max_x_speed : dw $0230
+	db !spawn_command_success
 
 DATA_FFA3F5:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $1800)
-	%DKC3_SSS_OpXX($30, $FDA0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $1800
+	db sprite.max_x_speed : dw $FDA0
+	db !spawn_command_success
 
 DATA_FFA402:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $8000)
-	%DKC3_SSS_OpXX($62, $2000)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $8000
+	db sprite.unknown_62 : dw $2000
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA40F:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FFA41C:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $6000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $6000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FFA429:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0240
+	db !spawn_command_success
 
 DATA_FFA436:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $6000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0240)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $6000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0240
+	db !spawn_command_success
 
 DATA_FFA443:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FFA450:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $6000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $6000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FFA45D:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $2000)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $2000
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA46A:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $5000)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $5000
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA477:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $2000)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $2000
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA484:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $5000)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $5000
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA491:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $6000)
-	%DKC3_SSS_OpXX($62, $5000)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $6000
+	db sprite.unknown_62 : dw $5000
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA49E:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $5000)
-	%DKC3_SSS_OpXX($30, $0220)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $5000
+	db sprite.max_x_speed : dw $0220
+	db !spawn_command_success
 
 DATA_FFA4AB:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $8000)
-	%DKC3_SSS_OpXX($62, $5000)
-	%DKC3_SSS_OpXX($30, $0220)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $8000
+	db sprite.unknown_62 : dw $5000
+	db sprite.max_x_speed : dw $0220
+	db !spawn_command_success
 
 DATA_FFA4B8:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $2000)
-	%DKC3_SSS_OpXX($62, $5000)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $2000
+	db sprite.unknown_62 : dw $5000
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA4C5:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $4000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $FDE0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $4000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $FDE0
+	db !spawn_command_success
 
 DATA_FFA4D2:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $8000)
-	%DKC3_SSS_OpXX($62, $3C00)
-	%DKC3_SSS_OpXX($30, $0260)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $8000
+	db sprite.unknown_62 : dw $3C00
+	db sprite.max_x_speed : dw $0260
+	db !spawn_command_success
 
 DATA_FFA4DF:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $2000)
-	%DKC3_SSS_OpXX($62, $7500)
-	%DKC3_SSS_OpXX($30, $018A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $2000
+	db sprite.unknown_62 : dw $7500
+	db sprite.max_x_speed : dw $018A
+	db !spawn_command_success
 
 DATA_FFA4EC:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $2000)
-	%DKC3_SSS_OpXX($62, $A000)
-	%DKC3_SSS_OpXX($30, $018A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $2000
+	db sprite.unknown_62 : dw $A000
+	db sprite.max_x_speed : dw $018A
+	db !spawn_command_success
 
 DATA_FFA4F9:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $4500)
-	%DKC3_SSS_OpXX($30, $0220)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $4500
+	db sprite.max_x_speed : dw $0220
+	db !spawn_command_success
 
 DATA_FFA506:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $2000)
-	%DKC3_SSS_OpXX($62, $4500)
-	%DKC3_SSS_OpXX($30, $FDE0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $2000
+	db sprite.unknown_62 : dw $4500
+	db sprite.max_x_speed : dw $FDE0
+	db !spawn_command_success
 
 DATA_FFA513:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $4800)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $4800
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA520:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $6000)
-	%DKC3_SSS_OpXX($62, $4800)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $6000
+	db sprite.unknown_62 : dw $4800
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA52D:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $9000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $FDE0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $9000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $FDE0
+	db !spawn_command_success
 
 DATA_FFA53A:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $4000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0260)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $4000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0260
+	db !spawn_command_success
 
 DATA_FFA547:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0260)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0260
+	db !spawn_command_success
 
 DATA_FFA554:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $8000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $8000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FFA561:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $C000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $C000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FFA56E:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $4000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0280)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $4000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0280
+	db !spawn_command_success
 
 DATA_FFA57B:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $2000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $2000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA588:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $E000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $E000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $01C0
+	db !spawn_command_success
 
 DATA_FFA595:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $6000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $6000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $01C0
+	db !spawn_command_success
 
 DATA_FFA5A2:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $A000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $A000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $01C0
+	db !spawn_command_success
 
 DATA_FFA5AF:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $2000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $2000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $01C0
+	db !spawn_command_success
 
 DATA_FFA5BC:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $8000)
-	%DKC3_SSS_OpXX($62, $1800)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $8000
+	db sprite.unknown_62 : dw $1800
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA5C9:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $9000)
-	%DKC3_SSS_OpXX($62, $3C00)
-	%DKC3_SSS_OpXX($30, $FD80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $9000
+	db sprite.unknown_62 : dw $3C00
+	db sprite.max_x_speed : dw $FD80
+	db !spawn_command_success
 
 DATA_FFA5D6:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $8000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $FD40)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $8000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $FD40
+	db !spawn_command_success
 
 DATA_FFA5E3:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $A000)
-	%DKC3_SSS_OpXX($62, $5000)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $A000
+	db sprite.unknown_62 : dw $5000
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FFA5F0:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($62, $5000)
-	%DKC3_SSS_OpXX($30, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $0000
+	db sprite.unknown_62 : dw $5000
+	db sprite.max_x_speed : dw $01C0
+	db !spawn_command_success
 
 DATA_FFA5FD:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $8000)
-	%DKC3_SSS_OpXX($62, $5000)
-	%DKC3_SSS_OpXX($30, $01C0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $8000
+	db sprite.unknown_62 : dw $5000
+	db sprite.max_x_speed : dw $01C0
+	db !spawn_command_success
 
 DATA_FFA60A:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $4000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $4000
+	db sprite.unknown_62 : dw $4000
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FFA617:
-	%DKC3_SSS_OpF9(DATA_FF79C1)
-	%DKC3_SSS_OpXX($60, $5000)
-	%DKC3_SSS_OpXX($62, $3500)
-	%DKC3_SSS_OpXX($30, $0220)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF79C1
+	db sprite.unknown_60 : dw $5000
+	db sprite.unknown_62 : dw $3500
+	db sprite.max_x_speed : dw $0220
+	db !spawn_command_F0
 
 DATA_FFA624:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $1570)
-	%DKC3_SSS_OpXX($34, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $1570
+	db sprite.max_y_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FFA62E:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $500D)
-	%DKC3_SSS_OpXX($34, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $500D
+	db sprite.max_y_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA638:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $500D)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $500D
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA642:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $6060)
-	%DKC3_SSS_OpXX($34, $0250)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $6060
+	db sprite.max_y_speed : dw $0250
+	db !spawn_command_success
 
 DATA_FFA64C:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $700D)
-	%DKC3_SSS_OpXX($34, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $700D
+	db sprite.max_y_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA656:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $700D)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $700D
+	db sprite.max_y_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA660:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $7070)
-	%DKC3_SSS_OpXX($34, $FDE0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $7070
+	db sprite.max_y_speed : dw $FDE0
+	db !spawn_command_success
 
 DATA_FFA66A:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $7070)
-	%DKC3_SSS_OpXX($34, $0220)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $7070
+	db sprite.max_y_speed : dw $0220
+	db !spawn_command_success
 
 DATA_FFA674:
-	%DKC3_SSS_OpF9(DATA_FF79FE)
-	%DKC3_SSS_OpXX($64, $601D)
-	%DKC3_SSS_OpXX($34, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF79FE
+	db sprite.unknown_64 : dw $601D
+	db sprite.max_y_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFA67E:
-	%DKC3_SSS_OpF9(DATA_FF7A1C)
-	%DKC3_SSS_OpXX($60, $4000)
-	%DKC3_SSS_OpXX($62, $4000)
-	%DKC3_SSS_OpXX($64, $0080)
-	%DKC3_SSS_OpXX($68, $0030)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A1C
+	db sprite.unknown_60 : dw $4000
+	db sprite.unknown_62 : dw $4000
+	db sprite.unknown_64 : dw $0080
+	db sprite.unknown_68 : dw $0030
+	db sprite.max_x_speed : dw $0200
+	db !spawn_command_success
 
 DATA_FFA691:
-	%DKC3_SSS_OpF9(DATA_FF7A08)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($30, $FF20)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A08
+	db sprite.unknown_60 : dw $4040
+	db sprite.max_x_speed : dw $FF20
+	db !spawn_command_success
 
 DATA_FFA69B:
-	%DKC3_SSS_OpF9(DATA_FF7A08)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($30, $0120)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF7A08
+	db sprite.unknown_60 : dw $4040
+	db sprite.max_x_speed : dw $0120
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FFA6A8:
-	%DKC3_SSS_OpF9(DATA_FF739E)
-	%DKC3_SSS_OpXX($30, $FFFF)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF739E
+	db sprite.max_x_speed : dw $FFFF
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FFA6B2:
-	%DKC3_SSS_OpF9(DATA_FF739E)
-	%DKC3_SSS_OpXX($30, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF739E
+	db sprite.max_x_speed : dw $0001
+	db !spawn_command_success
 
 DATA_FFA6B9:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $FED0)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $FED0
+	db sprite.unknown_60 : dw $4040
+	db !spawn_command_success
 
 DATA_FFA6C3:
-	%DKC3_SSS_OpF9(DATA_FF73B1)
-	%DKC3_SSS_OpXX($30, $FF40)
-	%DKC3_SSS_OpXX($60, $4000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF73B1
+	db sprite.max_x_speed : dw $FF40
+	db sprite.unknown_60 : dw $4000
+	db !spawn_command_success
 
 DATA_FFA6CD:
-	%DKC3_SSS_OpF9(DATA_FF8C10)
-	%DKC3_SSS_OpXX($60, $1925)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C10
+	db sprite.unknown_60 : dw $1925
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FFA6D7:
-	%DKC3_SSS_OpF9(DATA_FF8C09)
-	%DKC3_SSS_OpXX($60, $1925)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C09
+	db sprite.unknown_60 : dw $1925
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FFA6E1:
-	%DKC3_SSS_OpF9(DATA_FF8C10)
-	%DKC3_SSS_OpXX($60, $1925)
-	%DKC3_SSS_OpXX($30, $FEB0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C10
+	db sprite.unknown_60 : dw $1925
+	db sprite.max_x_speed : dw $FEB0
+	db !spawn_command_success
 
 DATA_FFA6EB:
-	%DKC3_SSS_OpF9(DATA_FF8C10)
-	%DKC3_SSS_OpXX($60, $B010)
-	%DKC3_SSS_OpXX($30, $FEB0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C10
+	db sprite.unknown_60 : dw $B010
+	db sprite.max_x_speed : dw $FEB0
+	db !spawn_command_success
 
 DATA_FFA6F5:
-	%DKC3_SSS_OpF9(DATA_FF8C09)
-	%DKC3_SSS_OpXX($60, $10A0)
-	%DKC3_SSS_OpXX($30, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C09
+	db sprite.unknown_60 : dw $10A0
+	db sprite.max_x_speed : dw $0100
+	db !spawn_command_success
 
 DATA_FFA6FF:
-	%DKC3_SSS_OpF9(DATA_FF8C2C)
-	%DKC3_SSS_OpXX($30, $FEE0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C2C
+	db sprite.max_x_speed : dw $FEE0
+	db !spawn_command_success
 
 DATA_FFA706:
-	%DKC3_SSS_OpF9(DATA_FF8C39)
-	%DKC3_SSS_OpXX($30, $0120)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C39
+	db sprite.max_x_speed : dw $0120
+	db !spawn_command_success
 
 DATA_FFA70D:
-	%DKC3_SSS_OpF9(DATA_FF8C39)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C39
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FFA714:
-	%DKC3_SSS_OpF9(DATA_FF8C10)
-	%DKC3_SSS_OpXX($60, $2840)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C10
+	db sprite.unknown_60 : dw $2840
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FFA71E:
-	%DKC3_SSS_OpF9(DATA_FF8C40)
-	%DKC3_SSS_OpXX($30, $FE60)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C40
+	db sprite.max_x_speed : dw $FE60
+	db !spawn_command_success
 
 DATA_FFA725:
-	%DKC3_SSS_OpF9(DATA_FF8C40)
-	%DKC3_SSS_OpXX($30, $FE10)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C40
+	db sprite.max_x_speed : dw $FE10
+	db !spawn_command_success
 
 DATA_FFA72C:
-	%DKC3_SSS_OpF9(DATA_FF8C40)
-	%DKC3_SSS_OpXX($30, $FDB0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C40
+	db sprite.max_x_speed : dw $FDB0
+	db !spawn_command_success
 
 DATA_FFA733:
-	%DKC3_SSS_OpF9(DATA_FF8C54)
-	%DKC3_SSS_OpXX($5C, $003C)
-	%DKC3_SSS_OpXX($5E, $003C)
-	%DKC3_SSS_OpXX($60, $FF00)
-	%DKC3_SSS_OpXX($64, $0100)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C54
+	db sprite.unknown_5C : dw $003C
+	db sprite.unknown_5E : dw $003C
+	db sprite.unknown_60 : dw $FF00
+	db sprite.unknown_64 : dw $0100
+	db !spawn_command_success
 
 DATA_FFA743:
-	%DKC3_SSS_OpF9(DATA_FF8C68)
-	%DKC3_SSS_OpXX($5C, $003C)
-	%DKC3_SSS_OpXX($5E, $003C)
-	%DKC3_SSS_OpXX($60, $0100)
-	%DKC3_SSS_OpXX($64, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8C68
+	db sprite.unknown_5C : dw $003C
+	db sprite.unknown_5E : dw $003C
+	db sprite.unknown_60 : dw $0100
+	db sprite.unknown_64 : dw $FF00
+	db !spawn_command_success
 
 DATA_FFA753:
-	%DKC3_SSS_OpFF(!sprite_Nid)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($3A, $0840)
-	%DKC3_SSS_OpXX($60, $0000)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $FA00)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($0279)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Nid
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.render_order : dw $00D4
+	db sprite.interaction_flags : dw $0840
+	db sprite.unknown_60 : dw $0000
+	db sprite.movement_state : dw $0000
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $FA00
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $0279
+	db !spawn_command_success
 
 DATA_FFA775:
-	%DKC3_SSS_OpF9(DATA_FFA753)
-	%DKC3_SSS_OpXX($38, $0400)
-	%DKC3_SSS_OpFC($007C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA753
+	db sprite.state : dw $0400
+	db !spawn_command_FC : dw $007C
+	db !spawn_command_success
 
 DATA_FFA77F:
-	%DKC3_SSS_OpF9(DATA_FFA753)
-	%DKC3_SSS_OpXX($38, $0400)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpFC($007C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA753
+	db sprite.state : dw $0400
+	db sprite.unknown_5E : dw $0000
+	db !spawn_command_FC : dw $007C
+	db !spawn_command_success
 
 DATA_FFA78C:
-	%DKC3_SSS_OpF9(DATA_FFA753)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpFC($0073)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA753
+	db sprite.state : dw $0100
+	db !spawn_command_FC : dw $0073
+	db !spawn_command_success
 
 DATA_FFA796:
-	%DKC3_SSS_OpF9(DATA_FFA753)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpFC($0073)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA753
+	db sprite.state : dw $0100
+	db sprite.unknown_5E : dw $0000
+	db !spawn_command_FC : dw $0073
+	db !spawn_command_success
 
 DATA_FFA7A3:
-	%DKC3_SSS_OpF9(DATA_FFA775)
-	%DKC3_SSS_OpXX($5E, $0070)
-	%DKC3_SSS_OpXX($66, $0046)
-	%DKC3_SSS_OpXX($6C, $003C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA775
+	db sprite.unknown_5E : dw $0070
+	db sprite.unknown_66 : dw $0046
+	db sprite.unknown_6C : dw $003C
+	db !spawn_command_success
 
 DATA_FFA7B0:
-	%DKC3_SSS_OpF9(DATA_FFA775)
-	%DKC3_SSS_OpXX($5E, $0070)
-	%DKC3_SSS_OpXX($66, $003C)
-	%DKC3_SSS_OpXX($6C, $0046)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA775
+	db sprite.unknown_5E : dw $0070
+	db sprite.unknown_66 : dw $003C
+	db sprite.unknown_6C : dw $0046
+	db !spawn_command_success
 
 DATA_FFA7BD:
-	%DKC3_SSS_OpF9(DATA_FFA77F)
-	%DKC3_SSS_OpXX($38, $0400)
-	%DKC3_SSS_OpXX($66, $0028)
-	%DKC3_SSS_OpXX($6C, $004B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA77F
+	db sprite.state : dw $0400
+	db sprite.unknown_66 : dw $0028
+	db sprite.unknown_6C : dw $004B
+	db !spawn_command_success
 
 DATA_FFA7CA:
-	%DKC3_SSS_OpF9(DATA_FFA77F)
-	%DKC3_SSS_OpXX($38, $0400)
-	%DKC3_SSS_OpXX($66, $0037)
-	%DKC3_SSS_OpXX($6C, $0046)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA77F
+	db sprite.state : dw $0400
+	db sprite.unknown_66 : dw $0037
+	db sprite.unknown_6C : dw $0046
+	db !spawn_command_success
 
 DATA_FFA7D7:
-	%DKC3_SSS_OpF9(DATA_FFA77F)
-	%DKC3_SSS_OpXX($38, $0400)
-	%DKC3_SSS_OpXX($66, $0035)
-	%DKC3_SSS_OpXX($6C, $0050)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA77F
+	db sprite.state : dw $0400
+	db sprite.unknown_66 : dw $0035
+	db sprite.unknown_6C : dw $0050
+	db !spawn_command_success
 
 DATA_FFA7E4:
-	%DKC3_SSS_OpF9(DATA_FFA77F)
-	%DKC3_SSS_OpXX($38, $0400)
-	%DKC3_SSS_OpXX($66, $0032)
-	%DKC3_SSS_OpXX($6C, $004B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA77F
+	db sprite.state : dw $0400
+	db sprite.unknown_66 : dw $0032
+	db sprite.unknown_6C : dw $004B
+	db !spawn_command_success
 
 DATA_FFA7F1:
-	%DKC3_SSS_OpF9(DATA_FFA77F)
-	%DKC3_SSS_OpXX($38, $0400)
-	%DKC3_SSS_OpXX($66, $0050)
-	%DKC3_SSS_OpXX($6C, $0046)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA77F
+	db sprite.state : dw $0400
+	db sprite.unknown_66 : dw $0050
+	db sprite.unknown_6C : dw $0046
+	db !spawn_command_success
 
 DATA_FFA7FE:
-	%DKC3_SSS_OpF9(DATA_FFA77F)
-	%DKC3_SSS_OpXX($38, $0400)
-	%DKC3_SSS_OpXX($66, $0024)
-	%DKC3_SSS_OpXX($6C, $004B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA77F
+	db sprite.state : dw $0400
+	db sprite.unknown_66 : dw $0024
+	db sprite.unknown_6C : dw $004B
+	db !spawn_command_success
 
 DATA_FFA80B:
-	%DKC3_SSS_OpF9(DATA_FFA77F)
-	%DKC3_SSS_OpXX($38, $0400)
-	%DKC3_SSS_OpXX($66, $003C)
-	%DKC3_SSS_OpXX($6C, $003C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA77F
+	db sprite.state : dw $0400
+	db sprite.unknown_66 : dw $003C
+	db sprite.unknown_6C : dw $003C
+	db !spawn_command_success
 
 DATA_FFA818:
-	%DKC3_SSS_OpF9(DATA_FFA78C)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5E, $0070)
-	%DKC3_SSS_OpXX($66, $0032)
-	%DKC3_SSS_OpXX($6C, $003C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA78C
+	db sprite.state : dw $0100
+	db sprite.unknown_5E : dw $0070
+	db sprite.unknown_66 : dw $0032
+	db sprite.unknown_6C : dw $003C
+	db !spawn_command_success
 
 DATA_FFA828:
-	%DKC3_SSS_OpF9(DATA_FFA78C)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5E, $FF90)
-	%DKC3_SSS_OpXX($66, $003C)
-	%DKC3_SSS_OpXX($6C, $004B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA78C
+	db sprite.state : dw $0100
+	db sprite.unknown_5E : dw $FF90
+	db sprite.unknown_66 : dw $003C
+	db sprite.unknown_6C : dw $004B
+	db !spawn_command_success
 
 DATA_FFA838:
-	%DKC3_SSS_OpF9(DATA_FFA78C)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5E, $0060)
-	%DKC3_SSS_OpXX($66, $0046)
-	%DKC3_SSS_OpXX($6C, $003C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA78C
+	db sprite.state : dw $0100
+	db sprite.unknown_5E : dw $0060
+	db sprite.unknown_66 : dw $0046
+	db sprite.unknown_6C : dw $003C
+	db !spawn_command_success
 
 DATA_FFA848:
-	%DKC3_SSS_OpF9(DATA_FFA78C)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5E, $0080)
-	%DKC3_SSS_OpXX($66, $001E)
-	%DKC3_SSS_OpXX($6C, $005A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA78C
+	db sprite.state : dw $0100
+	db sprite.unknown_5E : dw $0080
+	db sprite.unknown_66 : dw $001E
+	db sprite.unknown_6C : dw $005A
+	db !spawn_command_success
 
 DATA_FFA858:
-	%DKC3_SSS_OpF9(DATA_FFA78C)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5E, $FF90)
-	%DKC3_SSS_OpXX($66, $0034)
-	%DKC3_SSS_OpXX($6C, $0050)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA78C
+	db sprite.state : dw $0100
+	db sprite.unknown_5E : dw $FF90
+	db sprite.unknown_66 : dw $0034
+	db sprite.unknown_6C : dw $0050
+	db !spawn_command_success
 
 DATA_FFA868:
-	%DKC3_SSS_OpF9(DATA_FFA78C)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5E, $FF90)
-	%DKC3_SSS_OpXX($66, $0037)
-	%DKC3_SSS_OpXX($6C, $003C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA78C
+	db sprite.state : dw $0100
+	db sprite.unknown_5E : dw $FF90
+	db sprite.unknown_66 : dw $0037
+	db sprite.unknown_6C : dw $003C
+	db !spawn_command_success
 
 DATA_FFA878:
-	%DKC3_SSS_OpF9(DATA_FFA78C)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5E, $0070)
-	%DKC3_SSS_OpXX($66, $0035)
-	%DKC3_SSS_OpXX($6C, $005A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA78C
+	db sprite.state : dw $0100
+	db sprite.unknown_5E : dw $0070
+	db sprite.unknown_66 : dw $0035
+	db sprite.unknown_6C : dw $005A
+	db !spawn_command_success
 
 DATA_FFA888:
-	%DKC3_SSS_OpF9(DATA_FFA78C)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5E, $FF90)
-	%DKC3_SSS_OpXX($66, $003C)
-	%DKC3_SSS_OpXX($6C, $0050)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA78C
+	db sprite.state : dw $0100
+	db sprite.unknown_5E : dw $FF90
+	db sprite.unknown_66 : dw $003C
+	db sprite.unknown_6C : dw $0050
+	db !spawn_command_success
 
 DATA_FFA898:
-	%DKC3_SSS_OpF9(DATA_FFA78C)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5E, $0070)
-	%DKC3_SSS_OpXX($66, $003C)
-	%DKC3_SSS_OpXX($6C, $004B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA78C
+	db sprite.state : dw $0100
+	db sprite.unknown_5E : dw $0070
+	db sprite.unknown_66 : dw $003C
+	db sprite.unknown_6C : dw $004B
+	db !spawn_command_success
 
 DATA_FFA8A8:
-	%DKC3_SSS_OpF9(DATA_FFA78C)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($5E, $FF90)
-	%DKC3_SSS_OpXX($66, $0032)
-	%DKC3_SSS_OpXX($6C, $003C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA78C
+	db sprite.state : dw $0100
+	db sprite.unknown_5E : dw $FF90
+	db sprite.unknown_66 : dw $0032
+	db sprite.unknown_6C : dw $003C
+	db !spawn_command_success
 
 DATA_FFA8B8:
-	%DKC3_SSS_OpF9(DATA_FFA796)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($66, $0041)
-	%DKC3_SSS_OpXX($6C, $0046)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA796
+	db sprite.state : dw $0100
+	db sprite.unknown_66 : dw $0041
+	db sprite.unknown_6C : dw $0046
+	db !spawn_command_success
 
 DATA_FFA8C5:
-	%DKC3_SSS_OpF9(DATA_FFA796)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($66, $002D)
-	%DKC3_SSS_OpXX($6C, $003C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA796
+	db sprite.state : dw $0100
+	db sprite.unknown_66 : dw $002D
+	db sprite.unknown_6C : dw $003C
+	db !spawn_command_success
 
 DATA_FFA8D2:
-	%DKC3_SSS_OpF9(DATA_FFA796)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($66, $0037)
-	%DKC3_SSS_OpXX($6C, $003C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA796
+	db sprite.state : dw $0100
+	db sprite.unknown_66 : dw $0037
+	db sprite.unknown_6C : dw $003C
+	db !spawn_command_success
 
 DATA_FFA8DF:
-	%DKC3_SSS_OpF9(DATA_FFA796)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($66, $004B)
-	%DKC3_SSS_OpXX($6C, $0050)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA796
+	db sprite.state : dw $0100
+	db sprite.unknown_66 : dw $004B
+	db sprite.unknown_6C : dw $0050
+	db !spawn_command_success
 
 DATA_FFA8EC:
-	%DKC3_SSS_OpF9(DATA_FFA796)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($66, $0050)
-	%DKC3_SSS_OpXX($6C, $0050)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA796
+	db sprite.state : dw $0100
+	db sprite.unknown_66 : dw $0050
+	db sprite.unknown_6C : dw $0050
+	db !spawn_command_success
 
 DATA_FFA8F9:
-	%DKC3_SSS_OpF9(DATA_FFA796)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($66, $0021)
-	%DKC3_SSS_OpXX($6C, $008C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA796
+	db sprite.state : dw $0100
+	db sprite.unknown_66 : dw $0021
+	db sprite.unknown_6C : dw $008C
+	db !spawn_command_success
 
 DATA_FFA906:
-	%DKC3_SSS_OpF9(DATA_FFA796)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($66, $001E)
-	%DKC3_SSS_OpXX($6C, $0050)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA796
+	db sprite.state : dw $0100
+	db sprite.unknown_66 : dw $001E
+	db sprite.unknown_6C : dw $0050
+	db !spawn_command_success
 
 DATA_FFA913:
-	%DKC3_SSS_OpF9(DATA_FFA796)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($66, $0028)
-	%DKC3_SSS_OpXX($6C, $0078)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA796
+	db sprite.state : dw $0100
+	db sprite.unknown_66 : dw $0028
+	db sprite.unknown_6C : dw $0078
+	db !spawn_command_success
 
 DATA_FFA920:
-	%DKC3_SSS_OpF9(DATA_FFA796)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($66, $002F)
-	%DKC3_SSS_OpXX($6C, $005F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA796
+	db sprite.state : dw $0100
+	db sprite.unknown_66 : dw $002F
+	db sprite.unknown_6C : dw $005F
+	db !spawn_command_success
 
 DATA_FFA92D:
-	%DKC3_SSS_OpF9(DATA_FFA796)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($66, $0041)
-	%DKC3_SSS_OpXX($6C, $0050)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA796
+	db sprite.state : dw $0100
+	db sprite.unknown_66 : dw $0041
+	db sprite.unknown_6C : dw $0050
+	db !spawn_command_success
 
 DATA_FFA93A:
-	%DKC3_SSS_OpF9(DATA_FFA796)
-	%DKC3_SSS_OpXX($38, $0100)
-	%DKC3_SSS_OpXX($66, $002D)
-	%DKC3_SSS_OpXX($6C, $006E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA796
+	db sprite.state : dw $0100
+	db sprite.unknown_66 : dw $002D
+	db sprite.unknown_6C : dw $006E
+	db !spawn_command_success
 
 DATA_FFA947:
-	%DKC3_SSS_OpFF(!sprite_Karbine)
-	%DKC3_SSS_OpXX($5A, $0007)
-	%DKC3_SSS_OpXX($06, DATA_FF201E)
-	%DKC3_SSS_OpXX($60, $0101)
-	%DKC3_SSS_OpXX($64, $0203)
-	%DKC3_SSS_OpXX($30, $0030)
-	%DKC3_SSS_OpXX($34, $0040)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($2C, $0000)
-	%DKC3_SSS_OpXX($32, $0000)
-	%DKC3_SSS_OpF2($00C0)
-	%DKC3_SSS_OpFE($1000)
-	%DKC3_SSS_OpFC($007F)
-	%DKC3_SSS_OpFA($029D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Karbine
+	db sprite.movement_state : dw $0007
+	db sprite.constants_address : dw DATA_FF201E
+	db sprite.unknown_60 : dw $0101
+	db sprite.unknown_64 : dw $0203
+	db sprite.max_x_speed : dw $0030
+	db sprite.max_y_speed : dw $0040
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.unknown_2C : dw $0000
+	db sprite.unknown_32 : dw $0000
+	db !spawn_command_F2 : dw $00C0
+	db !spawn_command_FE : dw $1000
+	db !spawn_command_FC : dw $007F
+	db !spawn_command_FA : dw $029D
+	db !spawn_command_success
 
 DATA_FFA975:
-	%DKC3_SSS_OpF9(DATA_FFA947)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA947
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FFA97C:
-	%DKC3_SSS_OpF9(DATA_FFA947)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA947
+	db sprite.state : dw $0002
+	db !spawn_command_success
 
 DATA_FFA983:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0096)
-	%DKC3_SSS_OpXX($52, $0014)
-	%DKC3_SSS_OpXX($18, $0016)
-	%DKC3_SSS_OpXX($1A, $0050)
-	%DKC3_SSS_OpXX($68, $0B79)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0096
+	db sprite.unknown_52 : dw $0014
+	db sprite.ground_y_position : dw $0016
+	db sprite.ground_distance : dw $0050
+	db sprite.unknown_68 : dw $0B79
+	db !spawn_command_success
 
 DATA_FFA99C:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0096)
-	%DKC3_SSS_OpXX($52, $003C)
-	%DKC3_SSS_OpXX($18, $0016)
-	%DKC3_SSS_OpXX($1A, $0050)
-	%DKC3_SSS_OpXX($68, $0B79)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0096
+	db sprite.unknown_52 : dw $003C
+	db sprite.ground_y_position : dw $0016
+	db sprite.ground_distance : dw $0050
+	db sprite.unknown_68 : dw $0B79
+	db !spawn_command_success
 
 DATA_FFA9B5:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $000F)
-	%DKC3_SSS_OpXX($50, $0096)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $0019)
-	%DKC3_SSS_OpXX($1A, $004B)
-	%DKC3_SSS_OpXX($68, $09B9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $000F
+	db sprite.unknown_50 : dw $0096
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $0019
+	db sprite.ground_distance : dw $004B
+	db sprite.unknown_68 : dw $09B9
+	db !spawn_command_success
 
 DATA_FFA9CE:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $000F)
-	%DKC3_SSS_OpXX($50, $0096)
-	%DKC3_SSS_OpXX($52, $003D)
-	%DKC3_SSS_OpXX($18, $0019)
-	%DKC3_SSS_OpXX($1A, $004B)
-	%DKC3_SSS_OpXX($68, $09B9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $000F
+	db sprite.unknown_50 : dw $0096
+	db sprite.unknown_52 : dw $003D
+	db sprite.ground_y_position : dw $0019
+	db sprite.ground_distance : dw $004B
+	db sprite.unknown_68 : dw $09B9
+	db !spawn_command_success
 
 DATA_FFA9E7:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $000F)
-	%DKC3_SSS_OpXX($50, $0096)
-	%DKC3_SSS_OpXX($52, $0079)
-	%DKC3_SSS_OpXX($18, $0019)
-	%DKC3_SSS_OpXX($1A, $004B)
-	%DKC3_SSS_OpXX($68, $09B9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $000F
+	db sprite.unknown_50 : dw $0096
+	db sprite.unknown_52 : dw $0079
+	db sprite.ground_y_position : dw $0019
+	db sprite.ground_distance : dw $004B
+	db sprite.unknown_68 : dw $09B9
+	db !spawn_command_success
 
 DATA_FFAA00:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0082)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $0019)
-	%DKC3_SSS_OpXX($1A, $004B)
-	%DKC3_SSS_OpXX($68, $09B9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0082
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $0019
+	db sprite.ground_distance : dw $004B
+	db sprite.unknown_68 : dw $09B9
+	db !spawn_command_success
 
 DATA_FFAA19:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $008C)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $0019)
-	%DKC3_SSS_OpXX($1A, $004B)
-	%DKC3_SSS_OpXX($68, $09B9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $008C
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $0019
+	db sprite.ground_distance : dw $004B
+	db sprite.unknown_68 : dw $09B9
+	db !spawn_command_success
 
 DATA_FFAA32:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0082)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $0032)
-	%DKC3_SSS_OpXX($1A, $003C)
-	%DKC3_SSS_OpXX($68, $0A79)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0082
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $0032
+	db sprite.ground_distance : dw $003C
+	db sprite.unknown_68 : dw $0A79
+	db !spawn_command_success
 
 DATA_FFAA4B:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0082)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $0022)
-	%DKC3_SSS_OpXX($1A, $0050)
-	%DKC3_SSS_OpXX($68, $0A79)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0082
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $0022
+	db sprite.ground_distance : dw $0050
+	db sprite.unknown_68 : dw $0A79
+	db !spawn_command_success
 
 DATA_FFAA64:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $00B4)
-	%DKC3_SSS_OpXX($52, $0014)
-	%DKC3_SSS_OpXX($18, $0017)
-	%DKC3_SSS_OpXX($1A, $0046)
-	%DKC3_SSS_OpXX($68, $0799)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $00B4
+	db sprite.unknown_52 : dw $0014
+	db sprite.ground_y_position : dw $0017
+	db sprite.ground_distance : dw $0046
+	db sprite.unknown_68 : dw $0799
+	db !spawn_command_success
 
 DATA_FFAA7D:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $005A)
-	%DKC3_SSS_OpXX($52, $0014)
-	%DKC3_SSS_OpXX($18, $0037)
-	%DKC3_SSS_OpXX($1A, $003C)
-	%DKC3_SSS_OpXX($68, $0899)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $005A
+	db sprite.unknown_52 : dw $0014
+	db sprite.ground_y_position : dw $0037
+	db sprite.ground_distance : dw $003C
+	db sprite.unknown_68 : dw $0899
+	db !spawn_command_success
 
 DATA_FFAA96:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0082)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $0037)
-	%DKC3_SSS_OpXX($1A, $003C)
-	%DKC3_SSS_OpXX($68, $0819)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0082
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $0037
+	db sprite.ground_distance : dw $003C
+	db sprite.unknown_68 : dw $0819
+	db !spawn_command_success
 
 DATA_FFAAAF:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0082)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $003C)
-	%DKC3_SSS_OpXX($1A, $0032)
-	%DKC3_SSS_OpXX($68, $0819)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0082
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $003C
+	db sprite.ground_distance : dw $0032
+	db sprite.unknown_68 : dw $0819
+	db !spawn_command_success
 
 DATA_FFAAC8:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0003)
-	%DKC3_SSS_OpXX($4E, $001E)
-	%DKC3_SSS_OpXX($50, $0082)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $0050)
-	%DKC3_SSS_OpXX($1A, $0032)
-	%DKC3_SSS_OpXX($68, $05F9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0003
+	db sprite.unknown_4E : dw $001E
+	db sprite.unknown_50 : dw $0082
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $0050
+	db sprite.ground_distance : dw $0032
+	db sprite.unknown_68 : dw $05F9
+	db !spawn_command_success
 
 DATA_FFAAE1:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0069)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $0046)
-	%DKC3_SSS_OpXX($1A, $0032)
-	%DKC3_SSS_OpXX($68, $0379)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0069
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $0046
+	db sprite.ground_distance : dw $0032
+	db sprite.unknown_68 : dw $0379
+	db !spawn_command_success
 
 DATA_FFAAFA:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0078)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $001E)
-	%DKC3_SSS_OpXX($1A, $0050)
-	%DKC3_SSS_OpXX($68, $01D9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0078
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $001E
+	db sprite.ground_distance : dw $0050
+	db sprite.unknown_68 : dw $01D9
+	db !spawn_command_success
 
 DATA_FFAB13:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0064)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $0028)
-	%DKC3_SSS_OpXX($1A, $0032)
-	%DKC3_SSS_OpXX($68, $01B9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0064
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $0028
+	db sprite.ground_distance : dw $0032
+	db sprite.unknown_68 : dw $01B9
+	db !spawn_command_success
 
 DATA_FFAB2C:
-	%DKC3_SSS_OpF9(DATA_FFA975)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0064)
-	%DKC3_SSS_OpXX($52, $0032)
-	%DKC3_SSS_OpXX($18, $0028)
-	%DKC3_SSS_OpXX($1A, $0032)
-	%DKC3_SSS_OpXX($68, $01B9)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA975
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0064
+	db sprite.unknown_52 : dw $0032
+	db sprite.ground_y_position : dw $0028
+	db sprite.ground_distance : dw $0032
+	db sprite.unknown_68 : dw $01B9
+	db !spawn_command_success
 
 DATA_FFAB45:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0078)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $001E)
-	%DKC3_SSS_OpXX($1A, $0055)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpXX($6A, $0A10)
-	%DKC3_SSS_OpXX($6C, $0B4A)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0078
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $001E
+	db sprite.ground_distance : dw $0055
+	db sprite.unknown_68 : dw $0000
+	db sprite.unknown_6A : dw $0A10
+	db sprite.unknown_6C : dw $0B4A
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFAB67:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0096)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $001E)
-	%DKC3_SSS_OpXX($1A, $004B)
-	%DKC3_SSS_OpXX($68, $0B99)
-	%DKC3_SSS_OpXX($6A, $0A10)
-	%DKC3_SSS_OpXX($6C, $0B0A)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0096
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $001E
+	db sprite.ground_distance : dw $004B
+	db sprite.unknown_68 : dw $0B99
+	db sprite.unknown_6A : dw $0A10
+	db sprite.unknown_6C : dw $0B0A
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFAB89:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0096)
-	%DKC3_SSS_OpXX($52, $000A)
-	%DKC3_SSS_OpXX($18, $001E)
-	%DKC3_SSS_OpXX($1A, $004B)
-	%DKC3_SSS_OpXX($68, $0B59)
-	%DKC3_SSS_OpXX($6A, $0A10)
-	%DKC3_SSS_OpXX($6C, $0AC0)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0096
+	db sprite.unknown_52 : dw $000A
+	db sprite.ground_y_position : dw $001E
+	db sprite.ground_distance : dw $004B
+	db sprite.unknown_68 : dw $0B59
+	db sprite.unknown_6A : dw $0A10
+	db sprite.unknown_6C : dw $0AC0
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFABAB:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0096)
-	%DKC3_SSS_OpXX($52, $000A)
-	%DKC3_SSS_OpXX($18, $001E)
-	%DKC3_SSS_OpXX($1A, $0046)
-	%DKC3_SSS_OpXX($68, $0A99)
-	%DKC3_SSS_OpXX($6A, $05E0)
-	%DKC3_SSS_OpXX($6C, $09C0)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0096
+	db sprite.unknown_52 : dw $000A
+	db sprite.ground_y_position : dw $001E
+	db sprite.ground_distance : dw $0046
+	db sprite.unknown_68 : dw $0A99
+	db sprite.unknown_6A : dw $05E0
+	db sprite.unknown_6C : dw $09C0
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFABCD:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $012C)
-	%DKC3_SSS_OpXX($52, $00B5)
-	%DKC3_SSS_OpXX($18, $001E)
-	%DKC3_SSS_OpXX($1A, $0046)
-	%DKC3_SSS_OpXX($68, $0A99)
-	%DKC3_SSS_OpXX($6A, $05E0)
-	%DKC3_SSS_OpXX($6C, $07C0)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $012C
+	db sprite.unknown_52 : dw $00B5
+	db sprite.ground_y_position : dw $001E
+	db sprite.ground_distance : dw $0046
+	db sprite.unknown_68 : dw $0A99
+	db sprite.unknown_6A : dw $05E0
+	db sprite.unknown_6C : dw $07C0
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFABEF:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0096)
-	%DKC3_SSS_OpXX($52, $0046)
-	%DKC3_SSS_OpXX($18, $001C)
-	%DKC3_SSS_OpXX($1A, $0032)
-	%DKC3_SSS_OpXX($68, $08B9)
-	%DKC3_SSS_OpXX($6A, $0550)
-	%DKC3_SSS_OpXX($6C, $07F0)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0096
+	db sprite.unknown_52 : dw $0046
+	db sprite.ground_y_position : dw $001C
+	db sprite.ground_distance : dw $0032
+	db sprite.unknown_68 : dw $08B9
+	db sprite.unknown_6A : dw $0550
+	db sprite.unknown_6C : dw $07F0
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFAC11:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0082)
-	%DKC3_SSS_OpXX($52, $0014)
-	%DKC3_SSS_OpXX($18, $0037)
-	%DKC3_SSS_OpXX($1A, $0046)
-	%DKC3_SSS_OpXX($68, $0839)
-	%DKC3_SSS_OpXX($6A, $0520)
-	%DKC3_SSS_OpXX($6C, $0700)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0082
+	db sprite.unknown_52 : dw $0014
+	db sprite.ground_y_position : dw $0037
+	db sprite.ground_distance : dw $0046
+	db sprite.unknown_68 : dw $0839
+	db sprite.unknown_6A : dw $0520
+	db sprite.unknown_6C : dw $0700
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFAC33:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0082)
-	%DKC3_SSS_OpXX($52, $0041)
-	%DKC3_SSS_OpXX($18, $0037)
-	%DKC3_SSS_OpXX($1A, $0046)
-	%DKC3_SSS_OpXX($68, $0839)
-	%DKC3_SSS_OpXX($6A, $0520)
-	%DKC3_SSS_OpXX($6C, $0700)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0082
+	db sprite.unknown_52 : dw $0041
+	db sprite.ground_y_position : dw $0037
+	db sprite.ground_distance : dw $0046
+	db sprite.unknown_68 : dw $0839
+	db sprite.unknown_6A : dw $0520
+	db sprite.unknown_6C : dw $0700
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFAC55:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0003)
-	%DKC3_SSS_OpXX($4E, $001E)
-	%DKC3_SSS_OpXX($50, $0082)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $0028)
-	%DKC3_SSS_OpXX($1A, $003C)
-	%DKC3_SSS_OpXX($68, $0559)
-	%DKC3_SSS_OpXX($6A, $0450)
-	%DKC3_SSS_OpXX($6C, $04C0)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0003
+	db sprite.unknown_4E : dw $001E
+	db sprite.unknown_50 : dw $0082
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $0028
+	db sprite.ground_distance : dw $003C
+	db sprite.unknown_68 : dw $0559
+	db sprite.unknown_6A : dw $0450
+	db sprite.unknown_6C : dw $04C0
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFAC77:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0050)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $001E)
-	%DKC3_SSS_OpXX($1A, $003C)
-	%DKC3_SSS_OpXX($68, $0000)
-	%DKC3_SSS_OpXX($6A, $0450)
-	%DKC3_SSS_OpXX($6C, $04C0)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0050
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $001E
+	db sprite.ground_distance : dw $003C
+	db sprite.unknown_68 : dw $0000
+	db sprite.unknown_6A : dw $0450
+	db sprite.unknown_6C : dw $04C0
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFAC99:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0078)
-	%DKC3_SSS_OpXX($52, $001E)
-	%DKC3_SSS_OpXX($18, $0032)
-	%DKC3_SSS_OpXX($1A, $0032)
-	%DKC3_SSS_OpXX($68, $0399)
-	%DKC3_SSS_OpXX($6A, $0210)
-	%DKC3_SSS_OpXX($6C, $0330)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0078
+	db sprite.unknown_52 : dw $001E
+	db sprite.ground_y_position : dw $0032
+	db sprite.ground_distance : dw $0032
+	db sprite.unknown_68 : dw $0399
+	db sprite.unknown_6A : dw $0210
+	db sprite.unknown_6C : dw $0330
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFACBB:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0078)
-	%DKC3_SSS_OpXX($52, $0028)
-	%DKC3_SSS_OpXX($18, $0032)
-	%DKC3_SSS_OpXX($1A, $0032)
-	%DKC3_SSS_OpXX($68, $0399)
-	%DKC3_SSS_OpXX($6A, $0210)
-	%DKC3_SSS_OpXX($6C, $0330)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0078
+	db sprite.unknown_52 : dw $0028
+	db sprite.ground_y_position : dw $0032
+	db sprite.ground_distance : dw $0032
+	db sprite.unknown_68 : dw $0399
+	db sprite.unknown_6A : dw $0210
+	db sprite.unknown_6C : dw $0330
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFACDD:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0078)
-	%DKC3_SSS_OpXX($52, $0032)
-	%DKC3_SSS_OpXX($18, $0032)
-	%DKC3_SSS_OpXX($1A, $0032)
-	%DKC3_SSS_OpXX($68, $0399)
-	%DKC3_SSS_OpXX($6A, $0210)
-	%DKC3_SSS_OpXX($6C, $0330)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0078
+	db sprite.unknown_52 : dw $0032
+	db sprite.ground_y_position : dw $0032
+	db sprite.ground_distance : dw $0032
+	db sprite.unknown_68 : dw $0399
+	db sprite.unknown_6A : dw $0210
+	db sprite.unknown_6C : dw $0330
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFACFF:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0002)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $006E)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $0028)
-	%DKC3_SSS_OpXX($1A, $0037)
-	%DKC3_SSS_OpXX($68, $0359)
-	%DKC3_SSS_OpXX($6A, $0210)
-	%DKC3_SSS_OpXX($6C, $02C0)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0002
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $006E
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $0028
+	db sprite.ground_distance : dw $0037
+	db sprite.unknown_68 : dw $0359
+	db sprite.unknown_6A : dw $0210
+	db sprite.unknown_6C : dw $02C0
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFAD21:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0002)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $006E)
-	%DKC3_SSS_OpXX($52, $0038)
-	%DKC3_SSS_OpXX($18, $0028)
-	%DKC3_SSS_OpXX($1A, $0037)
-	%DKC3_SSS_OpXX($68, $0359)
-	%DKC3_SSS_OpXX($6A, $0210)
-	%DKC3_SSS_OpXX($6C, $02C0)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0002
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $006E
+	db sprite.unknown_52 : dw $0038
+	db sprite.ground_y_position : dw $0028
+	db sprite.ground_distance : dw $0037
+	db sprite.unknown_68 : dw $0359
+	db sprite.unknown_6A : dw $0210
+	db sprite.unknown_6C : dw $02C0
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFAD43:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0064)
-	%DKC3_SSS_OpXX($52, $0001)
-	%DKC3_SSS_OpXX($18, $0030)
-	%DKC3_SSS_OpXX($1A, $0032)
-	%DKC3_SSS_OpXX($68, $0319)
-	%DKC3_SSS_OpXX($6A, $0210)
-	%DKC3_SSS_OpXX($6C, $0280)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0064
+	db sprite.unknown_52 : dw $0001
+	db sprite.ground_y_position : dw $0030
+	db sprite.ground_distance : dw $0032
+	db sprite.unknown_68 : dw $0319
+	db sprite.unknown_6A : dw $0210
+	db sprite.unknown_6C : dw $0280
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFAD65:
-	%DKC3_SSS_OpF9(DATA_FFA97C)
-	%DKC3_SSS_OpXX($4C, $0001)
-	%DKC3_SSS_OpXX($4E, $0014)
-	%DKC3_SSS_OpXX($50, $0064)
-	%DKC3_SSS_OpXX($52, $0032)
-	%DKC3_SSS_OpXX($18, $0030)
-	%DKC3_SSS_OpXX($1A, $0032)
-	%DKC3_SSS_OpXX($68, $0319)
-	%DKC3_SSS_OpXX($6A, $0210)
-	%DKC3_SSS_OpXX($6C, $0280)
-	%DKC3_SSS_OpXX($1C, $0200)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFA97C
+	db sprite.unknown_4C : dw $0001
+	db sprite.unknown_4E : dw $0014
+	db sprite.unknown_50 : dw $0064
+	db sprite.unknown_52 : dw $0032
+	db sprite.ground_y_position : dw $0030
+	db sprite.ground_distance : dw $0032
+	db sprite.unknown_68 : dw $0319
+	db sprite.unknown_6A : dw $0210
+	db sprite.unknown_6C : dw $0280
+	db sprite.terrain_attributes : dw $0200
+	db !spawn_command_success
 
 DATA_FFAD87:
-	%DKC3_SSS_OpF9(DATA_FF80FC)
-	%DKC3_SSS_OpXX($64, $4A4A)
-	%DKC3_SSS_OpXX($30, $FD80)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF80FC
+	db sprite.unknown_64 : dw $4A4A
+	db sprite.max_x_speed : dw $FD80
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FFAD94:
-	%DKC3_SSS_OpF9(DATA_FF8A78)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $90A0)
-	%DKC3_SSS_OpXX($66, $0500)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8A78
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $90A0
+	db sprite.unknown_66 : dw $0500
+	db !spawn_command_success
 
 DATA_FFADA1:
-	%DKC3_SSS_OpF9(DATA_FF8A78)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $A0A0)
-	%DKC3_SSS_OpXX($66, $0500)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8A78
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $A0A0
+	db sprite.unknown_66 : dw $0500
+	db !spawn_command_success
 
 DATA_FFADAE:
-	%DKC3_SSS_OpF9(DATA_FF8A78)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5E, $A0A0)
-	%DKC3_SSS_OpXX($66, $0550)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8A78
+	db sprite.unknown_5C : dw $0000
+	db sprite.unknown_5E : dw $A0A0
+	db sprite.unknown_66 : dw $0550
+	db !spawn_command_success
 
 DATA_FFADBB:
-	%DKC3_SSS_OpF9(DATA_FF98B9)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0120)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98B9
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0120
+	db !spawn_command_success
 
 DATA_FFADC5:
-	%DKC3_SSS_OpF9(DATA_FF98B9)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $00C0)
+	db !spawn_command_F9 : dw DATA_FF98B9
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $00C0
 DATA_FFADCE:
-	%DKC3_SSS_OpF9(DATA_FF98B9)
-	%DKC3_SSS_OpXX($2A, $00C0)
-	%DKC3_SSS_OpXX($2E, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98B9
+	db sprite.x_speed : dw $00C0
+	db sprite.y_speed : dw $0080
+	db !spawn_command_success
 
 DATA_FFADD8:
-	%DKC3_SSS_OpF9(DATA_FF98B9)
-	%DKC3_SSS_OpXX($2A, $FEE0)
-	%DKC3_SSS_OpXX($2E, $0040)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98B9
+	db sprite.x_speed : dw $FEE0
+	db sprite.y_speed : dw $0040
+	db !spawn_command_success
 
 DATA_FFADE2:
-	%DKC3_SSS_OpF9(DATA_FF98B9)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0120)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98B9
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0120
+	db !spawn_command_success
 
 DATA_FFADEC:
-	%DKC3_SSS_OpF9(DATA_FF98B9)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0160)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF98B9
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0160
+	db !spawn_command_success
 
 DATA_FFADF6:
-	%DKC3_SSS_OpF9(DATA_FF8B1D)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B1D
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FFADFD:
-	%DKC3_SSS_OpF9(DATA_FF8B27)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B27
+	db sprite.max_x_speed : dw $0180
+	db !spawn_command_success
 
 DATA_FFAE04:
-	%DKC3_SSS_OpF9(DATA_FF8B27)
-	%DKC3_SSS_OpXX($30, $0120)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B27
+	db sprite.max_x_speed : dw $0120
+	db !spawn_command_success
 
 DATA_FFAE0B:
-	%DKC3_SSS_OpF9(DATA_FF8B27)
-	%DKC3_SSS_OpXX($30, $0160)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B27
+	db sprite.max_x_speed : dw $0160
+	db !spawn_command_success
 
 DATA_FFAE12:
-	%DKC3_SSS_OpF9(DATA_FF8B19)
-	%DKC3_SSS_OpXX($60, $2424)
-	%DKC3_SSS_OpXX($30, $FEC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B19
+	db sprite.unknown_60 : dw $2424
+	db sprite.max_x_speed : dw $FEC0
+	db !spawn_command_success
 
 DATA_FFAE1C:
-	%DKC3_SSS_OpF9(DATA_FF8B19)
-	%DKC3_SSS_OpXX($60, $6060)
-	%DKC3_SSS_OpXX($30, $FEC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B19
+	db sprite.unknown_60 : dw $6060
+	db sprite.max_x_speed : dw $FEC0
+	db !spawn_command_success
 
 DATA_FFAE26:
-	%DKC3_SSS_OpF9(DATA_FF8B19)
-	%DKC3_SSS_OpXX($60, $5050)
-	%DKC3_SSS_OpXX($30, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B19
+	db sprite.unknown_60 : dw $5050
+	db sprite.max_x_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FFAE30:
-	%DKC3_SSS_OpF9(DATA_FF8B12)
-	%DKC3_SSS_OpXX($60, $2060)
-	%DKC3_SSS_OpXX($30, $FE80)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8B12
+	db sprite.unknown_60 : dw $2060
+	db sprite.max_x_speed : dw $FE80
+	db !spawn_command_success
 
 DATA_FFAE3A:
-	%DKC3_SSS_OpF9(DATA_FF8D53)
-	%DKC3_SSS_OpXX($60, $9010)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D53
+	db sprite.unknown_60 : dw $9010
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FFAE44:
-	%DKC3_SSS_OpF9(DATA_FF8D53)
-	%DKC3_SSS_OpXX($60, $9898)
-	%DKC3_SSS_OpXX($30, $FE60)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D53
+	db sprite.unknown_60 : dw $9898
+	db sprite.max_x_speed : dw $FE60
+	db !spawn_command_success
 
 DATA_FFAE4E:
-	%DKC3_SSS_OpF9(DATA_FF8D53)
-	%DKC3_SSS_OpXX($60, $4040)
-	%DKC3_SSS_OpXX($30, $FE60)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D53
+	db sprite.unknown_60 : dw $4040
+	db sprite.max_x_speed : dw $FE60
+	db !spawn_command_success
 
 DATA_FFAE58:
-	%DKC3_SSS_OpF9(DATA_FF8D53)
-	%DKC3_SSS_OpXX($60, $7000)
-	%DKC3_SSS_OpXX($30, $FEC0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D53
+	db sprite.unknown_60 : dw $7000
+	db sprite.max_x_speed : dw $FEC0
+	db !spawn_command_success
 
 DATA_FFAE62:
-	%DKC3_SSS_OpF9(DATA_FF8D53)
-	%DKC3_SSS_OpXX($60, $9000)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D53
+	db sprite.unknown_60 : dw $9000
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFAE6C:
-	%DKC3_SSS_OpF9(DATA_FF8D53)
-	%DKC3_SSS_OpXX($60, $9090)
-	%DKC3_SSS_OpXX($30, $FE00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D53
+	db sprite.unknown_60 : dw $9090
+	db sprite.max_x_speed : dw $FE00
+	db !spawn_command_success
 
 DATA_FFAE76:
-	%DKC3_SSS_OpF9(DATA_FF8D53)
-	%DKC3_SSS_OpXX($60, $9010)
-	%DKC3_SSS_OpXX($30, $FE60)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D53
+	db sprite.unknown_60 : dw $9010
+	db sprite.max_x_speed : dw $FE60
+	db !spawn_command_success
 
 DATA_FFAE80:
-	%DKC3_SSS_OpF9(DATA_FF8D53)
-	%DKC3_SSS_OpXX($60, $2020)
-	%DKC3_SSS_OpXX($30, $FED0)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF8D53
+	db sprite.unknown_60 : dw $2020
+	db sprite.max_x_speed : dw $FED0
+	db !spawn_command_F0
 
 DATA_FFAE8A:
-	%DKC3_SSS_OpF9(DATA_FF8D57)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D57
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FFAE91:
-	%DKC3_SSS_OpF9(DATA_FF8D61)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF8D61
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_success
 
 DATA_FFAE98:
-	%DKC3_SSS_OpF9(DATA_FF8D57)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F9 : dw DATA_FF8D57
+	db sprite.max_x_speed : dw $FF00
+	db !spawn_command_F0
 
 DATA_FFAE9F:
-	%DKC3_SSS_OpF9(DATA_FF78F8)
-	%DKC3_SSS_OpXX($30, $FF00)
-	%DKC3_SSS_OpXX($60, $6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78F8
+	db sprite.max_x_speed : dw $FF00
+	db sprite.unknown_60 : dw $6000
+	db !spawn_command_success
 
 DATA_FFAEA9:
-	%DKC3_SSS_OpF9(DATA_FF78F8)
-	%DKC3_SSS_OpXX($30, $0180)
-	%DKC3_SSS_OpXX($60, $3030)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF78F8
+	db sprite.max_x_speed : dw $0180
+	db sprite.unknown_60 : dw $3030
+	db !spawn_command_success
 
 DATA_FFAEB3:
-	%DKC3_SSS_OpF9(DATA_FF85CA)
-	%DKC3_SSS_OpXX($66, $0030)
-	%DKC3_SSS_OpXX($6A, $0028)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85CA
+	db sprite.unknown_66 : dw $0030
+	db sprite.unknown_6A : dw $0028
+	db !spawn_command_success
 
 DATA_FFAEBD:
-	%DKC3_SSS_OpF9(DATA_FF85CA)
-	%DKC3_SSS_OpXX($66, $0055)
-	%DKC3_SSS_OpXX($6A, $0037)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85CA
+	db sprite.unknown_66 : dw $0055
+	db sprite.unknown_6A : dw $0037
+	db !spawn_command_success
 
 DATA_FFAEC7:
-	%DKC3_SSS_OpF9(DATA_FF85CA)
-	%DKC3_SSS_OpXX($66, $0050)
-	%DKC3_SSS_OpXX($6A, $0028)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85CA
+	db sprite.unknown_66 : dw $0050
+	db sprite.unknown_6A : dw $0028
+	db !spawn_command_success
 
 DATA_FFAED1:
-	%DKC3_SSS_OpF9(DATA_FF85CA)
-	%DKC3_SSS_OpXX($66, $005A)
-	%DKC3_SSS_OpXX($6A, $0028)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85CA
+	db sprite.unknown_66 : dw $005A
+	db sprite.unknown_6A : dw $0028
+	db !spawn_command_success
 
 DATA_FFAEDB:
-	%DKC3_SSS_OpF9(DATA_FF85CA)
-	%DKC3_SSS_OpXX($66, $0020)
-	%DKC3_SSS_OpXX($6A, $001E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85CA
+	db sprite.unknown_66 : dw $0020
+	db sprite.unknown_6A : dw $001E
+	db !spawn_command_success
 
 DATA_FFAEE5:
-	%DKC3_SSS_OpF9(DATA_FF85CA)
-	%DKC3_SSS_OpXX($66, $0060)
-	%DKC3_SSS_OpXX($6A, $0032)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85CA
+	db sprite.unknown_66 : dw $0060
+	db sprite.unknown_6A : dw $0032
+	db !spawn_command_success
 
 DATA_FFAEEF:
-	%DKC3_SSS_OpF9(DATA_FF85CA)
-	%DKC3_SSS_OpXX($66, $0065)
-	%DKC3_SSS_OpXX($6A, $003C)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85CA
+	db sprite.unknown_66 : dw $0065
+	db sprite.unknown_6A : dw $003C
+	db !spawn_command_success
 
 DATA_FFAEF9:
-	%DKC3_SSS_OpF9(DATA_FF85DE)
-	%DKC3_SSS_OpXX($5C, $0050)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($66, $0045)
-	%DKC3_SSS_OpXX($6A, $002D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85DE
+	db sprite.unknown_5C : dw $0050
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_66 : dw $0045
+	db sprite.unknown_6A : dw $002D
+	db !spawn_command_success
 
 DATA_FFAF09:
-	%DKC3_SSS_OpF9(DATA_FF85E5)
-	%DKC3_SSS_OpXX($5C, $0050)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($66, $0045)
-	%DKC3_SSS_OpXX($6A, $002D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85E5
+	db sprite.unknown_5C : dw $0050
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_66 : dw $0045
+	db sprite.unknown_6A : dw $002D
+	db !spawn_command_success
 
 DATA_FFAF19:
-	%DKC3_SSS_OpF9(DATA_FF85E5)
-	%DKC3_SSS_OpXX($5C, $0050)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($66, $0040)
-	%DKC3_SSS_OpXX($6A, $0032)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85E5
+	db sprite.unknown_5C : dw $0050
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_66 : dw $0040
+	db sprite.unknown_6A : dw $0032
+	db !spawn_command_success
 
 DATA_FFAF29:
-	%DKC3_SSS_OpF9(DATA_FF85E5)
-	%DKC3_SSS_OpXX($5C, $0040)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($66, $0040)
-	%DKC3_SSS_OpXX($6A, $0032)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85E5
+	db sprite.unknown_5C : dw $0040
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_66 : dw $0040
+	db sprite.unknown_6A : dw $0032
+	db !spawn_command_success
 
 DATA_FFAF39:
-	%DKC3_SSS_OpF9(DATA_FF85DE)
-	%DKC3_SSS_OpXX($5C, $0030)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($66, $0030)
-	%DKC3_SSS_OpXX($6A, $001E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85DE
+	db sprite.unknown_5C : dw $0030
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_66 : dw $0030
+	db sprite.unknown_6A : dw $001E
+	db !spawn_command_success
 
 DATA_FFAF49:
-	%DKC3_SSS_OpF9(DATA_FF85DE)
-	%DKC3_SSS_OpXX($5C, $0045)
-	%DKC3_SSS_OpXX($5E, $0001)
-	%DKC3_SSS_OpXX($66, $0035)
-	%DKC3_SSS_OpXX($6A, $002D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF85DE
+	db sprite.unknown_5C : dw $0045
+	db sprite.unknown_5E : dw $0001
+	db sprite.unknown_66 : dw $0035
+	db sprite.unknown_6A : dw $002D
+	db !spawn_command_success
 
 DATA_FFAF59:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $E6, $40, $00, $00, $00, $75, $25, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $E6, $40, $00, $00, $00, $75, $25, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFAF69:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $C0, $D0, $00, $00, $00, $75, $25, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $C0, $D0, $00, $00, $00, $75, $25, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFAF79:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0A, $26, $C0, $00, $00, $00, $61, $0F, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0A, $26, $C0, $00, $00, $00, $61, $0F, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_F0
 
 DATA_FFAF89:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0A, $EC, $60, $00, $00, $00, $75, $25, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0A, $EC, $60, $00, $00, $00, $75, $25, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_F0
 
 DATA_FFAF99:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0A, $08, $30, $00, $00, $00, $50, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0A, $08, $30, $00, $00, $00, $50, $10, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFAFA9:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0A, $C8, $60, $00, $00, $00, $B0, $20, $00)
-	%DKC3_SSS_OpXX($58, $DD14)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0A, $C8, $60, $00, $00, $00, $B0, $20, $00
+	db sprite.unknown_58 : dw $DD14
+	db sprite.movement_state : dw $0001
+	db !spawn_command_F0
 
 DATA_FFAFBC:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $20, $60, $00, $00, $00, $A0, $20, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $20, $60, $00, $00, $00, $A0, $20, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFAFCC:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $8A, $A0, $00, $00, $00, $A0, $20, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $8A, $A0, $00, $00, $00, $A0, $20, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFAFDC:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $E0, $A0, $00, $00, $00, $D4, $08, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $E0, $A0, $00, $00, $00, $D4, $08, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFAFEC:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $00, $00, $00, $00, $00, $70, $0A, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $00, $00, $00, $00, $00, $70, $0A, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFAFFC:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $40, $60, $00, $00, $00, $70, $0A, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $40, $60, $00, $00, $00, $70, $0A, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB00C:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $E8, $30, $00, $00, $00, $70, $0A, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $E8, $30, $00, $00, $00, $70, $0A, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB01C:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $20, $60, $00, $00, $00, $70, $0A, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $20, $60, $00, $00, $00, $70, $0A, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB02C:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $0C, $68, $00, $00, $00, $70, $20, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $0C, $68, $00, $00, $00, $70, $20, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB03C:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $C8, $68, $00, $00, $00, $70, $15, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $C8, $68, $00, $00, $00, $70, $15, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB04C:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $4C, $68, $00, $00, $00, $70, $0A, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $4C, $68, $00, $00, $00, $70, $0A, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB05C:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $E2, $30, $00, $00, $00, $C0, $20, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $E2, $30, $00, $00, $00, $C0, $20, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB06C:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $C4, $A0, $00, $00, $00, $D4, $20, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $C4, $A0, $00, $00, $00, $D4, $20, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB07C:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $04, $A0, $00, $00, $00, $D4, $20, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $04, $A0, $00, $00, $00, $D4, $20, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB08C:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $04, $A0, $00, $00, $00, $D4, $20, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $04, $A0, $00, $00, $00, $D4, $20, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB09C:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $C8, $A0, $00, $00, $00, $D4, $35, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $C8, $A0, $00, $00, $00, $D4, $35, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB0AC:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $2E, $60, $00, $00, $00, $A0, $20, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $2E, $60, $00, $00, $00, $A0, $20, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB0BC:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $08, $6C, $A0, $00, $00, $00, $60, $05, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpXX($06, $0508)
-	%DKC3_SSS_OpXX($1C, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $08, $6C, $A0, $00, $00, $00, $60, $05, $00
+	db sprite.movement_state : dw $0001
+	db sprite.constants_address : dw $0508
+	db sprite.terrain_attributes : dw $0000
+	db !spawn_command_success
 
 DATA_FFB0D2:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0A, $08, $30, $00, $00, $00, $50, $0C, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0A, $08, $30, $00, $00, $00, $50, $0C, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB0E2:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $40, $68, $00, $00, $00, $80, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $40, $68, $00, $00, $00, $80, $10, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB0F2:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $C0, $A0, $00, $00, $00, $40, $03, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $C0, $A0, $00, $00, $00, $40, $03, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB102:
-	%DKC3_SSS_OpF4(DATA_FF65D7, $0C, $E0, $38, $00, $00, $00, $80, $1C, $00)
-	%DKC3_SSS_OpXX($5A, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65D7 : db $0C, $E0, $38, $00, $00, $00, $80, $1C, $00
+	db sprite.movement_state : dw $0001
+	db !spawn_command_success
 
 DATA_FFB112:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $0C, $CC, $00, $00, $00, $00, $A0, $20, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $0C, $CC, $00, $00, $00, $00, $A0, $20, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFB122:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $0C, $22, $00, $00, $00, $00, $70, $0A, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $0C, $22, $00, $00, $00, $00, $70, $0A, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFB132:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $70, $0A, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $70, $0A, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFB142:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $0C, $22, $00, $00, $00, $00, $80, $13, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $0C, $22, $00, $00, $00, $00, $80, $13, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFB152:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $60, $0A, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $60, $0A, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFB162:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $22, $00, $00, $00, $00, $70, $0A, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $22, $00, $00, $00, $00, $70, $0A, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFB172:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $0C, $88, $00, $00, $00, $00, $90, $0A, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $0C, $88, $00, $00, $00, $00, $90, $0A, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFB182:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $0C, $CC, $00, $00, $00, $00, $40, $03, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $0C, $CC, $00, $00, $00, $00, $40, $03, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFB192:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $0C, $00, $00, $00, $00, $00, $90, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $0C, $00, $00, $00, $00, $00, $90, $10, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFB1A2:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $0C, $00, $00, $00, $00, $00, $90, $15, $15)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $0C, $00, $00, $00, $00, $00, $90, $15, $15
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFB1B2:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $05, $00, $00, $00, $00, $00, $A0, $18, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $05, $00, $00, $00, $00, $00, $A0, $18, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFB1C2:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $04, $00, $00, $00, $00, $00, $60, $0A, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $04, $00, $00, $00, $00, $00, $60, $0A, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFB1D2:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $0A, $00, $00, $00, $00, $00, $70, $0A, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $0A, $00, $00, $00, $00, $00, $70, $0A, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFB1E2:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $00, $00, $00, $00, $00, $80, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $80, $10, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_F0
 
 DATA_FFB1F2:
-	%DKC3_SSS_OpF4(DATA_FF65E4, $08, $EE, $00, $00, $00, $00, $80, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FF65E4 : db $08, $EE, $00, $00, $00, $00, $80, $10, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_F0
 
 DATA_FFB202:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $00, $00, $00, $00, $00, $70, $12, $00)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $00, $00, $00, $00, $00, $70, $12, $00
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFB212:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $00, $40, $00, $00, $00, $55, $10, $00)
-	%DKC3_SSS_OpXX($5A, $0404)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $00, $40, $00, $00, $00, $55, $10, $00
+	db sprite.movement_state : dw $0404
+	db !spawn_command_success
 
 DATA_FFB222:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $0C, $88, $40, $00, $00, $00, $60, $0A, $00)
-	%DKC3_SSS_OpXX($5A, $0404)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $0C, $88, $40, $00, $00, $00, $60, $0A, $00
+	db sprite.movement_state : dw $0404
+	db !spawn_command_success
 
 DATA_FFB232:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $0C, $40, $00, $00, $00, $60, $10, $00)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpXX($5A, $0404)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $0C, $40, $00, $00, $00, $60, $10, $00
+	db sprite.unknown_58 : dw $2300
+	db sprite.movement_state : dw $0404
+	db !spawn_command_success
 
 DATA_FFB245:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $08, $4E, $C0, $00, $00, $00, $90, $15, $00)
-	%DKC3_SSS_OpXX($5A, $0203)
-	%DKC3_SSS_OpXX($58, $ECEC)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $08, $4E, $C0, $00, $00, $00, $90, $15, $00
+	db sprite.movement_state : dw $0203
+	db sprite.unknown_58 : dw $ECEC
+	db !spawn_command_success
 
 DATA_FFB258:
-	%DKC3_SSS_OpF4(DATA_FF65C1, $0C, $00, $38, $00, $00, $00, $80, $1C, $00)
-	%DKC3_SSS_OpXX($5A, $0404)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FF65C1 : db $0C, $00, $38, $00, $00, $00, $80, $1C, $00
+	db sprite.movement_state : dw $0404
+	db !spawn_command_success
 
 DATA_FFB268:
-	%DKC3_SSS_OpF9(DATA_FF65C1)
-	%DKC3_SSS_OpXX($5A, $0908)
-	%DKC3_SSS_OpXX($06, $2100)
-	%DKC3_SSS_OpXX($40, $00A0)
-	%DKC3_SSS_OpXX($4A, DATA_FFB284)
-	%DKC3_SSS_OpXX($60, $FFB0)
-	%DKC3_SSS_OpXX($62, $0030)
-	%DKC3_SSS_OpXX($64, $0480)
-	%DKC3_SSS_OpXX($66, $0010)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF65C1
+	db sprite.movement_state : dw $0908
+	db sprite.constants_address : dw $2100
+	db sprite.animation_id : dw $00A0
+	db sprite.unknown_4A : dw DATA_FFB284
+	db sprite.unknown_60 : dw $FFB0
+	db sprite.unknown_62 : dw $0030
+	db sprite.unknown_64 : dw $0480
+	db sprite.unknown_66 : dw $0010
+	db !spawn_command_success
 
 DATA_FFB284:
-	%DKC3_SSS_OpFF(!sprite_RocketFlame)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpF6($00, $E8)
-	%DKC3_SSS_OpF2($00EB)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpFA($0181)
-	%DKC3_SSS_OpFC($0011)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpXX($60, $0800)
-	%DKC3_SSS_OpXX($62, $1800)
-	%DKC3_SSS_OpXX($64, $E800)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_RocketFlame
+	db sprite.state : dw $0001
+	db !spawn_command_F6, $00, $E8
+	db !spawn_command_F2 : dw $00EB
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_FA : dw $0181
+	db !spawn_command_FC : dw $0011
+	db sprite.unknown_5E : dw $0000
+	db sprite.unknown_60 : dw $0800
+	db sprite.unknown_62 : dw $1800
+	db sprite.unknown_64 : dw $E800
+	db !spawn_command_success
 
 DATA_FFB2A6:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8A, $00, $00, $3A, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8A, $00, $00, $3A, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db !spawn_command_success
 
 DATA_FFB2B6:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8A, $00, $00, $15, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8A, $00, $00, $15, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_F0
 
 DATA_FFB2C9:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8A, $00, $00, $2A, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8A, $00, $00, $2A, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_success
 
 DATA_FFB2DC:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8B, $00, $00, $12, $00, $98, $70, $0A, $05)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8B, $00, $00, $12, $00, $98, $70, $0A, $05
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_success
 
 DATA_FFB2EF:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8A, $00, $00, $16, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8A, $00, $00, $16, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_success
 
 DATA_FFB302:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8A, $00, $00, $1A, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8A, $00, $00, $1A, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_success
 
 DATA_FFB315:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8A, $00, $00, $13, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8A, $00, $00, $13, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_success
 
 DATA_FFB328:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8A, $00, $00, $1C, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8A, $00, $00, $1C, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_success
 
 DATA_FFB33B:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8A, $00, $00, $15, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8A, $00, $00, $15, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_success
 
 DATA_FFB34E:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8A, $00, $00, $2F, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8A, $00, $00, $2F, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_F0
 
 DATA_FFB361:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8A, $00, $00, $18, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8A, $00, $00, $18, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_F0
 
 DATA_FFB374:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8A, $00, $00, $11, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8A, $00, $00, $11, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_success
 
 DATA_FFB387:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8E, $00, $00, $15, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpF0()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8E, $00, $00, $15, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_F0
 
 DATA_FFB39A:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8A, $00, $00, $18, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8A, $00, $00, $18, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_success
 
 DATA_FFB3AD:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8A, $00, $00, $15, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8A, $00, $00, $15, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_success
 
 DATA_FFB3C0:
-	%DKC3_SSS_OpF4(DATA_FFB268, $8B, $00, $00, $1A, $00, $98, $70, $06, $00)
-	%DKC3_SSS_OpXX($1A, $0000)
-	%DKC3_SSS_OpXX($58, $2300)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F4 : dw DATA_FFB268 : db $8B, $00, $00, $1A, $00, $98, $70, $06, $00
+	db sprite.ground_distance : dw $0000
+	db sprite.unknown_58 : dw $2300
+	db !spawn_command_success
 
 DATA_FFB3D3:
-	%DKC3_SSS_OpF9(DATA_FF71EC)
-	%DKC3_SSS_OpXX($5C, $02D0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF71EC
+	db sprite.unknown_5C : dw $02D0
+	db !spawn_command_success
 
 DATA_FFB3DA:
-	%DKC3_SSS_OpF9(DATA_FF71EC)
-	%DKC3_SSS_OpXX($5C, $0708)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FF71EC
+	db sprite.unknown_5C : dw $0708
+	db !spawn_command_success
 
 
-;Konveyor Rope Klash rope data (main level, bonus 1, bonus 2)
-;3 words per rope (y pos, x pos, slip velocity)
+;Konveyor Rope Klash rope data (main level, bonus 1, bonus 2
+;3 words per rope (y pos, x pos, slip velocity
 ;read backwards?
 DATA_FFB3E1:
 	dw DATA_FFB3E7
@@ -20032,107 +20032,107 @@ DATA_FFB46F:
 	dw $FFFF
 
 DATA_FFB47D:
-	%DKC3_SSS_OpFF(!sprite_MillPlatform)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpF3($29, $00)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpFC($0032)
-	%DKC3_SSS_OpXX($0E, $00C3)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($46, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_MillPlatform
+	db sprite.constants_address : dw DATA_FF1BCE
+	db !spawn_command_F3, $29, $00
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_FC : dw $0032
+	db sprite.render_order : dw $00C3
+	db sprite.interaction_flags : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.state : dw $0000
+	db sprite.animation_address : dw $0000
+	db !spawn_command_success
 
 DATA_FFB49F:
-	%DKC3_SSS_OpF9(DATA_FFB47D)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB47D
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $0000
+	db sprite.unknown_64 : dw $0000
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FFB4AF:
-	%DKC3_SSS_OpF9(DATA_FFB47D)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($64, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB47D
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $0000
+	db sprite.unknown_64 : dw $0000
+	db !spawn_command_success
 
 DATA_FFB4BC:
-	%DKC3_SSS_OpF9(DATA_FFB47D)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpXX($64, $145A)
-	%DKC3_SSS_OpFE($2000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB47D
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $0200
+	db sprite.unknown_64 : dw $145A
+	db !spawn_command_FE : dw $2000
+	db !spawn_command_success
 
 DATA_FFB4CC:
-	%DKC3_SSS_OpF9(DATA_FFB47D)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $0200)
-	%DKC3_SSS_OpXX($64, $5046)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB47D
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $0200
+	db sprite.unknown_64 : dw $5046
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FFB4DC:
-	%DKC3_SSS_OpF9(DATA_FFB47D)
-	%DKC3_SSS_OpXX($5A, $0037)
-	%DKC3_SSS_OpXX($30, $0200)
-	%DKC3_SSS_OpXX($60, $008C)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB47D
+	db sprite.movement_state : dw $0037
+	db sprite.max_x_speed : dw $0200
+	db sprite.unknown_60 : dw $008C
+	db !spawn_command_FE : dw $6000
+	db !spawn_command_success
 
 DATA_FFB4EC:
-	%DKC3_SSS_OpF9(DATA_FFB47D)
-	%DKC3_SSS_OpXX($5A, $0006)
-	%DKC3_SSS_OpXX($34, $FE00)
-	%DKC3_SSS_OpXX($64, $0078)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB47D
+	db sprite.movement_state : dw $0006
+	db sprite.max_y_speed : dw $FE00
+	db sprite.unknown_64 : dw $0078
+	db !spawn_command_success
 
 DATA_FFB4F9:
-	%DKC3_SSS_OpF9(DATA_FFB47D)
-	%DKC3_SSS_OpXX($5A, $0038)
-	%DKC3_SSS_OpXX($34, $FBB0)
-	%DKC3_SSS_OpXX($60, $018B)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB47D
+	db sprite.movement_state : dw $0038
+	db sprite.max_y_speed : dw $FBB0
+	db sprite.unknown_60 : dw $018B
+	db !spawn_command_success
 
 DATA_FFB506:
-	%DKC3_SSS_OpF9(DATA_FFB47D)
-	%DKC3_SSS_OpXX($5A, $0038)
-	%DKC3_SSS_OpXX($34, $FCB0)
-	%DKC3_SSS_OpXX($60, $0082)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB47D
+	db sprite.movement_state : dw $0038
+	db sprite.max_y_speed : dw $FCB0
+	db sprite.unknown_60 : dw $0082
+	db !spawn_command_success
 
 DATA_FFB513:
-	%DKC3_SSS_OpF9(DATA_FFB47D)
-	%DKC3_SSS_OpXX($5A, $0038)
-	%DKC3_SSS_OpXX($34, $0350)
-	%DKC3_SSS_OpXX($60, $0082)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB47D
+	db sprite.movement_state : dw $0038
+	db sprite.max_y_speed : dw $0350
+	db sprite.unknown_60 : dw $0082
+	db !spawn_command_success
 
 DATA_FFB520:
-	%DKC3_SSS_OpF9(DATA_FFB47D)
-	%DKC3_SSS_OpXX($5A, $0038)
-	%DKC3_SSS_OpXX($34, $FEC0)
-	%DKC3_SSS_OpXX($60, $0280)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($48, $002F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB47D
+	db sprite.movement_state : dw $0038
+	db sprite.max_y_speed : dw $FEC0
+	db sprite.unknown_60 : dw $0280
+	db !spawn_command_FE : dw $6000
+	db sprite.state : dw $0002
+	db sprite.animation_routine_pointer : dw $002F
+	db !spawn_command_success
 
 DATA_FFB536:
-	%DKC3_SSS_OpF9(DATA_FFB47D)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($5C, DATA_FFB552)
-	%DKC3_SSS_OpXX($6A, $FFFF)
-	%DKC3_SSS_OpXX($5E, $0140)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($46, $0009)
-	%DKC3_SSS_OpXX($48, $002E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB47D
+	db sprite.movement_state : dw $0000
+	db sprite.unknown_5C : dw DATA_FFB552
+	db sprite.unknown_6A : dw $FFFF
+	db sprite.unknown_5E : dw $0140
+	db !spawn_command_FE : dw $6000
+	db sprite.state : dw $0002
+	db sprite.animation_address : dw $0009
+	db sprite.animation_routine_pointer : dw $002E
+	db !spawn_command_success
 
 DATA_FFB552:
 	dw $01C0
@@ -20148,16 +20148,16 @@ DATA_FFB552:
 
 
 DATA_FFB566:
-	%DKC3_SSS_OpF9(DATA_FFB47D)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($5C, DATA_FFB582)
-	%DKC3_SSS_OpXX($6A, $FFFF)
-	%DKC3_SSS_OpXX($5E, $0140)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($46, $FF80)
-	%DKC3_SSS_OpXX($48, $002F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB47D
+	db sprite.movement_state : dw $0000
+	db sprite.unknown_5C : dw DATA_FFB582
+	db sprite.unknown_6A : dw $FFFF
+	db sprite.unknown_5E : dw $0140
+	db !spawn_command_FE : dw $6000
+	db sprite.state : dw $0002
+	db sprite.animation_address : dw $FF80
+	db sprite.animation_routine_pointer : dw $002F
+	db !spawn_command_success
 
 DATA_FFB582:
 	dw $0200
@@ -20169,19 +20169,19 @@ DATA_FFB582:
 	dw $0000
 
 DATA_FFB590:
-	%DKC3_SSS_OpFF(!sprite_GreenBananaSpawner)
-	%DKC3_SSS_OpXX($3A, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($60, $0030)
-	%DKC3_SSS_OpXX($62, $0000)
-	%DKC3_SSS_OpXX($64, $0080)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_GreenBananaSpawner
+	db sprite.interaction_flags : dw $0000
+	db sprite.state : dw $0000
+	db sprite.unknown_60 : dw $0030
+	db sprite.unknown_62 : dw $0000
+	db sprite.unknown_64 : dw $0080
+	db !spawn_command_success
 
 DATA_FFB5A3:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB5AD)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB5AD
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFB5AD:
 	dw $013B
@@ -20217,10 +20217,10 @@ DATA_FFB5AD:
 
 
 DATA_FFB5E9:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB5F3)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB5F3
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFB5F3:
 	dw $0230
@@ -20256,10 +20256,10 @@ DATA_FFB5F3:
 
 
 DATA_FFB62F:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB639)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB639
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFB639:
 	dw $0180,$0220,$0180,$0280,$01C0,$0230,$0200,$0220
@@ -20268,10 +20268,10 @@ DATA_FFB639:
 	dw $01C0,$0230,$0200,$0220,$0200,$0280
 
 DATA_FFB675:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB67F)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB67F
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFB67F:
 	dw $0190,$0180,$01C0,$0150,$01C0,$01B8,$01F0,$0180
@@ -20280,10 +20280,10 @@ DATA_FFB67F:
 	dw $0190,$0180,$01C0,$0150,$01F0,$0180
 
 DATA_FFB6BB:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB6C5)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB6C5
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFB6C5:
 	dw $0160,$0210,$0180,$0210,$0180,$0210,$01A0,$0210
@@ -20292,10 +20292,10 @@ DATA_FFB6C5:
 	dw $01C0,$01D0,$01E0,$01D0,$01E0,$01D0
 
 DATA_FFB701:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB70B)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB70B
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFB70B:
 	dw $0170,$01F0,$0190,$01F0,$0190,$01F0,$01B0,$01F0
@@ -20304,10 +20304,10 @@ DATA_FFB70B:
 	dw $01D0,$0230,$01D0,$0230,$01F0,$0230
 
 DATA_FFB747:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB751)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB751
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFB751:
 	dw $014A,$01C0,$016A,$01C0,$018A,$01C0,$01CA,$01C0
@@ -20316,11 +20316,11 @@ DATA_FFB751:
 	dw $016A,$0145,$01AA,$0145,$01CA,$0145
 
 DATA_FFB78D:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB79A)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpXX($62, $0001)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB79A
+	db sprite.unknown_5E : dw $000F
+	db sprite.unknown_62 : dw $0001
+	db !spawn_command_success
 
 DATA_FFB79A:
 	dw $0190,$0090,$0190,$0070,$0190,$0050,$0190,$0050
@@ -20329,10 +20329,10 @@ DATA_FFB79A:
 	dw $01F0,$0050,$01F0,$0090,$01F0,$0070
 
 DATA_FFB7D6:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB7E0)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB7E0
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFB7E0:
 	dw $0148,$01B0,$0208,$01B0,$0148,$0170,$0208,$0170
@@ -20341,10 +20341,10 @@ DATA_FFB7E0:
 	dw $0148,$01B0,$0208,$01B0,$0148,$0170
 
 DATA_FFB81C:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB826)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB826
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFB826:
 	dw $0190,$01E0,$01F0,$01E0,$0190,$01E0,$01F0,$01E0
@@ -20353,10 +20353,10 @@ DATA_FFB826:
 	dw $0190,$01E0,$0190,$01E0,$01F0,$01E0
 
 DATA_FFB862:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB86C)
-	%DKC3_SSS_OpXX($5E, $0014)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB86C
+	db sprite.unknown_5E : dw $0014
+	db !spawn_command_success
 
 DATA_FFB86C:
 	dw $0160,$0220,$0180,$0220,$01A0,$0220,$0160,$0200
@@ -20366,10 +20366,10 @@ DATA_FFB86C:
 	dw $0180,$01A0,$01A0,$0190,$0160,$0190,$0180,$0190
 
 DATA_FFB8BC:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB8C6)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB8C6
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFB8C6:
 	dw $0158,$0218,$0190,$01C8,$0190,$0250,$01C8,$0218
@@ -20378,10 +20378,10 @@ DATA_FFB8C6:
 	dw $0190,$01C8,$0190,$0250,$01C8,$0218
 
 DATA_FFB902:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB90C)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB90C
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFB90C:
 	dw $01D0,$0128,$0210,$0130,$01D0,$0170,$0250,$0128
@@ -20390,10 +20390,10 @@ DATA_FFB90C:
 	dw $01D0,$0128,$0210,$0130,$01D0,$0170
 
 DATA_FFB948:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB952)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB952
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFB952:
 	dw $0148,$01A0,$0180,$01E0,$01B8,$01A0,$0148,$0210
@@ -20402,10 +20402,10 @@ DATA_FFB952:
 	dw $01B8,$01A0,$0148,$0210,$01B8,$0210
 
 DATA_FFB98E:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB998)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB998
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFB998:
 	dw $0110,$01C0,$0180,$0198,$0180,$01E0,$01F0,$01C0
@@ -20414,10 +20414,10 @@ DATA_FFB998:
 	dw $0180,$0198,$0180,$01E0,$01F0,$01C0
 
 DATA_FFB9D4:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFB9DE)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFB9DE
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFB9DE:
 	dw $01F0,$0200,$0210,$0200,$0210,$0200,$0230,$0200
@@ -20426,10 +20426,10 @@ DATA_FFB9DE:
 	dw $0250,$01C0,$0270,$01C0,$0270,$01C0
 
 DATA_FFBA1A:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFBA24)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFBA24
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFBA24:
 	dw $0160,$0200,$0185,$0200,$01CF,$0200,$01F4,$0200
@@ -20438,10 +20438,10 @@ DATA_FFBA24:
 	dw $0185,$01C0,$01CF,$01C0,$01F4,$01C0
 
 DATA_FFBA60:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFBA6A)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFBA6A
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFBA6A:
 	dw $0165,$01E5,$0190,$01E5,$01D0,$01E5,$01F5,$01E5
@@ -20450,10 +20450,10 @@ DATA_FFBA6A:
 	dw $0190,$01BA,$01D0,$01BA,$01F5,$01BA
 
 DATA_FFBAA6:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFBAB0)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFBAB0
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFBAB0:
 	dw $0165,$01C0,$0165,$01A0,$0165,$0160,$018A,$01C0
@@ -20462,10 +20462,10 @@ DATA_FFBAB0:
 	dw $01F9,$01C0,$01F9,$01A0,$01F9,$0180
 
 DATA_FFBAEC:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFBAF6)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFBAF6
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFBAF6:
 	dw $0160,$01C5,$0180,$01C5,$01A0,$01C5,$01C0,$01C5
@@ -20474,10 +20474,10 @@ DATA_FFBAF6:
 	dw $01A0,$01A0,$01C0,$01A0,$01E0,$01A0
 
 DATA_FFBB32:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFBB3C)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFBB3C
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFBB3C:
 	dw $01D0,$0220,$01F0,$0220,$0210,$0220,$0230,$0220
@@ -20486,11 +20486,11 @@ DATA_FFBB3C:
 	dw $01F0,$0220,$0210,$0220,$01D0,$0220
 
 DATA_FFBB78:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFBB85)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpXX($64, $00B0)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFBB85
+	db sprite.unknown_5E : dw $000F
+	db sprite.unknown_64 : dw $00B0
+	db !spawn_command_success
 
 DATA_FFBB85:
 	dw $0200,$01E0,$0248,$01E0,$0290,$01E0,$0200,$01E0
@@ -20499,10 +20499,10 @@ DATA_FFBB85:
 	dw $0200,$01E0,$0248,$01E0,$0290,$01E0
 
 DATA_FFBBC1:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFBBCB)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFBBCB
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFBBCB:
 	dw $01B4,$026C,$01B4,$02D4,$01D0,$026C,$01D0,$02D4
@@ -20511,10 +20511,10 @@ DATA_FFBBCB:
 	dw $01B4,$02D4,$01D0,$026C,$01D0,$02D4
 
 DATA_FFBC07:
-	%DKC3_SSS_OpF9(DATA_FFB590)
-	%DKC3_SSS_OpXX($5C, DATA_FFBC11)
-	%DKC3_SSS_OpXX($5E, $000F)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFB590
+	db sprite.unknown_5C : dw DATA_FFBC11
+	db sprite.unknown_5E : dw $000F
+	db !spawn_command_success
 
 DATA_FFBC11:
 	dw $01B0,$0120,$01B0,$0170,$01B0,$01C0,$01B0,$0170
@@ -20523,235 +20523,235 @@ DATA_FFBC11:
 	dw $01F0,$0170,$01F0,$01C0,$01F0,$01C0
 
 DATA_FFBC4D:
-	%DKC3_SSS_OpFF(!sprite_BuzzSwarmSpawner)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_BuzzSwarmSpawner
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FFBC54:
-	%DKC3_SSS_OpF9(DATA_FFBC4D)
-	%DKC3_SSS_OpXX($60, $0F12)
-	%DKC3_SSS_OpXX($62, $0250)
-	%DKC3_SSS_OpXX($64, $5050)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($68, $0200)
-	%DKC3_SSS_OpXX($6A, $0D00)
-	%DKC3_SSS_OpXX($6C, $0810)
-	%DKC3_SSS_OpXX($4C, DATA_FF1ED2)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBC4D
+	db sprite.unknown_60 : dw $0F12
+	db sprite.unknown_62 : dw $0250
+	db sprite.unknown_64 : dw $5050
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_68 : dw $0200
+	db sprite.unknown_6A : dw $0D00
+	db sprite.unknown_6C : dw $0810
+	db sprite.unknown_4C : dw DATA_FF1ED2
+	db !spawn_command_success
 
 DATA_FFBC70:
-	%DKC3_SSS_OpF9(DATA_FFBC54)
-	%DKC3_SSS_OpXX($5C, $0201)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBC54
+	db sprite.unknown_5C : dw $0201
+	db sprite.unknown_5E : dw $0000
+	db !spawn_command_success
 
 DATA_FFBC7A:
-	%DKC3_SSS_OpF9(DATA_FFBC54)
-	%DKC3_SSS_OpXX($5C, $0CFF)
-	%DKC3_SSS_OpXX($5E, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBC54
+	db sprite.unknown_5C : dw $0CFF
+	db sprite.unknown_5E : dw $8000
+	db !spawn_command_success
 
 DATA_FFBC84:
-	%DKC3_SSS_OpF9(DATA_FFBC4D)
-	%DKC3_SSS_OpXX($60, $0F12)
-	%DKC3_SSS_OpXX($62, $0250)
-	%DKC3_SSS_OpXX($64, $4040)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($68, $1020)
-	%DKC3_SSS_OpXX($6A, $1530)
-	%DKC3_SSS_OpXX($6C, $0810)
-	%DKC3_SSS_OpXX($4C, DATA_FF1EE4)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBC4D
+	db sprite.unknown_60 : dw $0F12
+	db sprite.unknown_62 : dw $0250
+	db sprite.unknown_64 : dw $4040
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_68 : dw $1020
+	db sprite.unknown_6A : dw $1530
+	db sprite.unknown_6C : dw $0810
+	db sprite.unknown_4C : dw DATA_FF1EE4
+	db !spawn_command_success
 
 DATA_FFBCA0:
-	%DKC3_SSS_OpF9(DATA_FFBC84)
-	%DKC3_SSS_OpXX($5C, $1021)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBC84
+	db sprite.unknown_5C : dw $1021
+	db sprite.unknown_5E : dw $0000
+	db !spawn_command_success
 
 DATA_FFBCAA:
-	%DKC3_SSS_OpF9(DATA_FFBC84)
-	%DKC3_SSS_OpXX($5C, $152F)
-	%DKC3_SSS_OpXX($5E, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBC84
+	db sprite.unknown_5C : dw $152F
+	db sprite.unknown_5E : dw $8000
+	db !spawn_command_success
 
 DATA_FFBCB4:
-	%DKC3_SSS_OpF9(DATA_FFBC4D)
-	%DKC3_SSS_OpXX($60, $0F12)
-	%DKC3_SSS_OpXX($62, $0250)
-	%DKC3_SSS_OpXX($64, $3030)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($68, $1800)
-	%DKC3_SSS_OpXX($6A, $1F60)
-	%DKC3_SSS_OpXX($6C, $0810)
-	%DKC3_SSS_OpXX($4C, DATA_FF1EF6)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBC4D
+	db sprite.unknown_60 : dw $0F12
+	db sprite.unknown_62 : dw $0250
+	db sprite.unknown_64 : dw $3030
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_68 : dw $1800
+	db sprite.unknown_6A : dw $1F60
+	db sprite.unknown_6C : dw $0810
+	db sprite.unknown_4C : dw DATA_FF1EF6
+	db !spawn_command_success
 
 DATA_FFBCD0:
-	%DKC3_SSS_OpF9(DATA_FFBCB4)
-	%DKC3_SSS_OpXX($5C, $1801)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBCB4
+	db sprite.unknown_5C : dw $1801
+	db sprite.unknown_5E : dw $0000
+	db !spawn_command_success
 
 DATA_FFBCDA:
-	%DKC3_SSS_OpF9(DATA_FFBCB4)
-	%DKC3_SSS_OpXX($5C, $1F5F)
-	%DKC3_SSS_OpXX($5E, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBCB4
+	db sprite.unknown_5C : dw $1F5F
+	db sprite.unknown_5E : dw $8000
+	db !spawn_command_success
 
 DATA_FFBCE4:
-	%DKC3_SSS_OpF9(DATA_FFBC4D)
-	%DKC3_SSS_OpXX($60, $0F12)
-	%DKC3_SSS_OpXX($62, $0250)
-	%DKC3_SSS_OpXX($64, $2828)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($68, $2090)
-	%DKC3_SSS_OpXX($6A, $25C0)
-	%DKC3_SSS_OpXX($6C, $0810)
-	%DKC3_SSS_OpXX($4C, DATA_FF1F08)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBC4D
+	db sprite.unknown_60 : dw $0F12
+	db sprite.unknown_62 : dw $0250
+	db sprite.unknown_64 : dw $2828
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_68 : dw $2090
+	db sprite.unknown_6A : dw $25C0
+	db sprite.unknown_6C : dw $0810
+	db sprite.unknown_4C : dw DATA_FF1F08
+	db !spawn_command_success
 
 DATA_FFBD00:
-	%DKC3_SSS_OpF9(DATA_FFBCE4)
-	%DKC3_SSS_OpXX($5C, $2091)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBCE4
+	db sprite.unknown_5C : dw $2091
+	db sprite.unknown_5E : dw $0000
+	db !spawn_command_success
 
 DATA_FFBD0A:
-	%DKC3_SSS_OpF9(DATA_FFBCE4)
-	%DKC3_SSS_OpXX($5C, $25BF)
-	%DKC3_SSS_OpXX($5E, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBCE4
+	db sprite.unknown_5C : dw $25BF
+	db sprite.unknown_5E : dw $8000
+	db !spawn_command_success
 
 DATA_FFBD14:
-	%DKC3_SSS_OpF9(DATA_FFBC4D)
-	%DKC3_SSS_OpXX($60, $0F12)
-	%DKC3_SSS_OpXX($62, $0250)
-	%DKC3_SSS_OpXX($64, $2020)
-	%DKC3_SSS_OpXX($66, $0200)
-	%DKC3_SSS_OpXX($68, $2770)
-	%DKC3_SSS_OpXX($6A, $2B30)
-	%DKC3_SSS_OpXX($6C, $0810)
-	%DKC3_SSS_OpXX($4C, DATA_FF1F1A)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBC4D
+	db sprite.unknown_60 : dw $0F12
+	db sprite.unknown_62 : dw $0250
+	db sprite.unknown_64 : dw $2020
+	db sprite.unknown_66 : dw $0200
+	db sprite.unknown_68 : dw $2770
+	db sprite.unknown_6A : dw $2B30
+	db sprite.unknown_6C : dw $0810
+	db sprite.unknown_4C : dw DATA_FF1F1A
+	db !spawn_command_success
 
 DATA_FFBD30:
-	%DKC3_SSS_OpF9(DATA_FFBD14)
-	%DKC3_SSS_OpXX($5C, $2771)
-	%DKC3_SSS_OpXX($5E, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBD14
+	db sprite.unknown_5C : dw $2771
+	db sprite.unknown_5E : dw $0000
+	db !spawn_command_success
 
 DATA_FFBD3A:
-	%DKC3_SSS_OpF9(DATA_FFBD14)
-	%DKC3_SSS_OpXX($5C, $2B2F)
-	%DKC3_SSS_OpXX($5E, $8000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F9 : dw DATA_FFBD14
+	db sprite.unknown_5C : dw $2B2F
+	db sprite.unknown_5E : dw $8000
+	db !spawn_command_success
 
 DATA_FFBD44:
-	%DKC3_SSS_OpF7(!sprite_Squirt, $000F, $17)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($26, $C000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_F7 : dw !sprite_Squirt, $000F : db $17
+	db sprite.state : dw $0000
+	db sprite.visibility : dw $C000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_success
 
 DATA_FFBD54:
-	%DKC3_SSS_OpFF(!sprite_Sneek)
-	%DKC3_SSS_OpXX($06, DATA_FF1BCE)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpFC($0058)
-	%DKC3_SSS_OpFA($0135)
-	%DKC3_SSS_OpFE($6000)
-	%DKC3_SSS_OpXX($3A, $0240)
-	%DKC3_SSS_OpXX($6A, $004A)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($5A, $0043)
-	%DKC3_SSS_OpXX($30, $FE80)
-	%DKC3_SSS_OpXX($60, $0808)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Sneek
+	db sprite.constants_address : dw DATA_FF1BCE
+	db sprite.render_order : dw $00D4
+	db !spawn_command_FC : dw $0058
+	db !spawn_command_FA : dw $0135
+	db !spawn_command_FE : dw $6000
+	db sprite.interaction_flags : dw $0240
+	db sprite.unknown_6A : dw $004A
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.state : dw $0002
+	db sprite.movement_state : dw $0043
+	db sprite.max_x_speed : dw $FE80
+	db sprite.unknown_60 : dw $0808
+	db !spawn_command_success
 
 DATA_FFBD7F:
-	%DKC3_SSS_OpFF(!sprite_StampedeTrigger)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_StampedeTrigger
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 DATA_FFBD86:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0140)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($5C, $0469)
-	%DKC3_SSS_OpXX($5E, $002D)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0140
+	db sprite.state : dw $0001
+	db sprite.unknown_5C : dw $0469
+	db sprite.unknown_5E : dw $002D
+	db !spawn_command_success
 
 DATA_FFBD93:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0140)
-	%DKC3_SSS_OpXX($38, $0001)
-	%DKC3_SSS_OpXX($5C, $064D)
-	%DKC3_SSS_OpXX($5E, $001E)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0140
+	db sprite.state : dw $0001
+	db sprite.unknown_5C : dw $064D
+	db sprite.unknown_5E : dw $001E
+	db !spawn_command_success
 
 DATA_FFBDA0:
-	%DKC3_SSS_OpFF(!sprite_unknown_sprite_0140)
-	%DKC3_SSS_OpXX($38, $0002)
-	%DKC3_SSS_OpXX($5C, $0763)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_0140
+	db sprite.state : dw $0002
+	db sprite.unknown_5C : dw $0763
+	db !spawn_command_success
 
 DATA_FFBDAA:
-	%DKC3_SSS_OpFF(!sprite_ArichHead)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($06, DATA_FF2012)
-	%DKC3_SSS_OpXX($26, $8001)
-	%DKC3_SSS_OpXX($58, $0000)
-	%DKC3_SSS_OpFE($3000)
-	%DKC3_SSS_OpFC($004A)
-	%DKC3_SSS_OpFA($01D3)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_ArichHead
+	db sprite.render_order : dw $00D4
+	db sprite.state : dw $0000
+	db sprite.interaction_flags : dw $0040
+	db sprite.movement_state : dw $0000
+	db sprite.constants_address : dw DATA_FF2012
+	db sprite.visibility : dw $8001
+	db sprite.unknown_58 : dw $0000
+	db !spawn_command_FE : dw $3000
+	db !spawn_command_FC : dw $004A
+	db !spawn_command_FA : dw $01D3
+	db !spawn_command_success
 
 DATA_FFBDCC:
-	%DKC3_SSS_OpFF(!sprite_Bleak)
-	%DKC3_SSS_OpXX($0E, $00D4)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($3A, $0040)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpFE($1000)
-	%DKC3_SSS_OpFC($0051)
-	%DKC3_SSS_OpFA($01DE)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Bleak
+	db sprite.render_order : dw $00D4
+	db sprite.state : dw $0000
+	db sprite.interaction_flags : dw $0040
+	db sprite.movement_state : dw $0000
+	db !spawn_command_FE : dw $1000
+	db !spawn_command_FC : dw $0051
+	db !spawn_command_FA : dw $01DE
+	db !spawn_command_success
 
 DATA_FFBDE5:
-	%DKC3_SSS_OpFF(!sprite_Belcha)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($6C, $0000)
-	%DKC3_SSS_OpXX($12, $0320)
-	%DKC3_SSS_OpXX($16, $0270)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Belcha
+	db sprite.state : dw $0000
+	db sprite.movement_state : dw $0000
+	db sprite.x_speed : dw $0000
+	db sprite.unknown_6C : dw $0000
+	db sprite.x_position : dw $0320
+	db sprite.y_position : dw $0270
+	db !spawn_command_success
 
 DATA_FFBDFB:
-	%DKC3_SSS_OpFF(!sprite_Barbos)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpXX($5C, $0000)
-	%DKC3_SSS_OpXX($5A, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_Barbos
+	db sprite.state : dw $0000
+	db sprite.unknown_5C : dw $0000
+	db sprite.movement_state : dw $0000
+	db !spawn_command_success
 
 DATA_FFBE08:
-	%DKC3_SSS_OpFF(!sprite_KAOS)
-	%DKC3_SSS_OpXX($16, $0168)
-	%DKC3_SSS_OpXX($2A, $0000)
-	%DKC3_SSS_OpXX($2E, $0000)
-	%DKC3_SSS_OpXX($30, $0000)
-	%DKC3_SSS_OpXX($34, $0000)
-	%DKC3_SSS_OpXX($38, $0000)
-	%DKC3_SSS_OpEF()
+	db !spawn_command_set_type : dw !sprite_KAOS
+	db sprite.y_position : dw $0168
+	db sprite.x_speed : dw $0000
+	db sprite.y_speed : dw $0000
+	db sprite.max_x_speed : dw $0000
+	db sprite.max_y_speed : dw $0000
+	db sprite.state : dw $0000
+	db !spawn_command_success
 
 ;unreferenced
 DATA_FFBE1E:
-	%DKC3_SSS_OpXX($00, $EF00)
-	%DKC3_SSS_OpEF()
+	db sprite.type : dw $EF00
+	db !spawn_command_success
 
 if !include_garbage_data == 1
 	incbin "data/garbage_data/DATA_FFBE22.bin"
