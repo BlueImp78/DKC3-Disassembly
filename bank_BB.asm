@@ -542,7 +542,7 @@ CODE_BB85BE:
 	JMP CODE_BBADD9				;$BB85BE
 
 CODE_BB85C1:
-	JMP CODE_BBB8A5				;$BB85C1
+	JMP sprite_handler			;$BB85C1
 
 CODE_BB85C4:
 	JMP CODE_BBB880				;$BB85C4
@@ -4664,7 +4664,7 @@ CODE_BBA211:
 CODE_BBA222:
 	LDA.w $05B7				;$BBA222
 	XBA					;$BBA225
-	ORA.b level_number	;$BBA226
+	ORA.b level_number			;$BBA226
 	JSL.l CODE_BB97AE			;$BBA228
 	LDA.w $195B				;$BBA22C
 	INC					;$BBA22F
@@ -7470,149 +7470,153 @@ CODE_BBB87D:
 	JML [$04F5]				;$BBB87D
 
 CODE_BBB880:
-	JSR.w CODE_BBB884			;$BBB880
-	RTL					;$BBB883
+	JSR.w CODE_BBB884			;$BBB880  \
+	RTL					;$BBB883  /
+
+
+;A = new sprite type
+;X = pointer to sprite slot where new sprite is going to spawn
+;Y = current spawn script index (not used by routine but preserved)
 
 CODE_BBB884:
-	PHB					;$BBB884
-	PHK					;$BBB885
-	PLB					;$BBB886
-	PHY					;$BBB887
-	TXY					;$BBB888
-	TAX					;$BBB889
-	STX.b DKC3_Level_SpriteDataRAM[$00].SpriteIDLo,y	;$BBB88A
-	LDA.l sprite_main_table,x		;$BBB88C
-	STA.w DKC3_Level_SpriteDataRAM[$00].RoutinePtrLo,y	;$BBB890
-	SEP.b #$20				;$BBB893
-	LDA.l sprite_main_bank,x		;$BBB895
-	STA.w DKC3_Level_SpriteDataRAM[$00].RoutinePtrBank,y	;$BBB899
-	STA.w $0005,y				;$BBB89C
-	REP.b #$20				;$BBB89F
-	TYX					;$BBB8A1
-	PLY					;$BBB8A2
-	PLB					;$BBB8A3
-	RTS					;$BBB8A4
+	PHB					;$BBB884  \> Preserve bank
+	PHK					;$BBB885   |\
+	PLB					;$BBB886   |/ Set data bank to here
+	PHY					;$BBB887   |> Preserve spawn script index
+	TXY					;$BBB888   |> Transfer sprite slot to Y
+	TAX					;$BBB889   |\ Transfer sprite type to X
+	STX sprite.type,y			;$BBB88A   |/ And store it to the new sprite slot
+	LDA.l sprite_main_table,x		;$BBB88C   |\ Get sprite main routine pointer
+	STA.w sprite.main_routine_address,y	;$BBB890   | | And store it to the sprites main pointer
+	SEP #$20				;$BBB893   | |
+	LDA.l sprite_main_bank,x		;$BBB895   | |
+	STA.w sprite.main_routine_bank,y	;$BBB899   | |
+	STA.w sprite.main_routine_bank+1,y	;$BBB89C   | |
+	REP #$20				;$BBB89F   |/
+	TYX					;$BBB8A1   |\ Transfer current sprite back into X
+	PLY					;$BBB8A2   | | Retrieve the current spawn script index
+	PLB					;$BBB8A3   | | Restore the current bank
+	RTS					;$BBB8A4  /_/ Return
 
-CODE_BBB8A5:
-	JSL.l CODE_BCE2CB			;$BBB8A5
-	LDA.w #DATA_FF1BC0>>8			;$BBB8A9
-	STA.b $6B				;$BBB8AC
-	STZ.w $0428				;$BBB8AE
-	STZ.w $042A				;$BBB8B1
-	STZ.w $042C				;$BBB8B4
-	STZ.w $042E				;$BBB8B7
-	LDA.w timestop_flags			;$BBB8BA
-	BNE.b CODE_BBB90A			;$BBB8BD
-	LDA.w #CODE_BBB8EC>>16			;$BBB8BF
-	STA.w $04F7				;$BBB8C2
-	LDA.w #CODE_BBB8EC			;$BBB8C5
-	STA.w $04F5				;$BBB8C8
-	LDY.w #$0878				;$BBB8CB
-CODE_BBB8CE:
-	LDA.w $0000,y				;$BBB8CE
-	BEQ.b CODE_BBB8EE			;$BBB8D1
-	STY.b current_sprite			;$BBB8D3
-	LDA.w $0004,y				;$BBB8D5
-	PHA					;$BBB8D8
-	PLB					;$BBB8D9
-	LDA.w $0002,y				;$BBB8DA
-	PHA					;$BBB8DD
-	LDA.w $0006,y				;$BBB8DE
-	STA.b $6A				;$BBB8E1
-	LDA.w $0038,y				;$BBB8E3
-	AND.w #$00FF				;$BBB8E6
-	ASL					;$BBB8E9
-	TAX					;$BBB8EA
-	RTL					;$BBB8EB
+sprite_handler:
+	JSL CODE_BCE2CB				;$BBB8A5  \> Initialize sprite collision
+	LDA.w #DATA_FF1BC0>>8			;$BBB8A9   |\ Write bank of sprite constants for current sprite (always FF)
+	STA $6B					;$BBB8AC   |/
+	STZ $0428				;$BBB8AE   |
+	STZ $042A				;$BBB8B1   |
+	STZ $042C				;$BBB8B4   |
+	STZ $042E				;$BBB8B7   |
+	LDA $194B				;$BBB8BA   |\ If time is currently stopped
+	BNE .time_stop_sprite_handler		;$BBB8BD   |/ Handle conditional sprite pr
+	LDA.w #<:.sprite_return			;$BBB8BF   |\ Write bank of sprite return address
+	STA $04F7				;$BBB8C2   |/
+	LDA #.sprite_return			;$BBB8C5   |\ Write sprite return pointer
+	STA $04F5				;$BBB8C8   |/
+	LDY #main_sprite_table			;$BBB8CB   | Load sprite base pointer
+.next_slot:					;	   |
+	LDA.w sprite.type,y			;$BBB8CE   |\ If the sprite doesn't exist
+	BEQ .get_next_slot			;$BBB8D1   |/ Get the next sprite
+	STY current_sprite			;$BBB8D3   |\ If the sprite was found, preserve the index
+	LDA.w sprite.main_routine_bank,y	;$BBB8D5   | | Then push its main routine as the return vector
+	PHA					;$BBB8D8   | |
+	PLB					;$BBB8D9   | |
+	LDA.w sprite.main_routine_address,y	;$BBB8DA   | |
+	PHA					;$BBB8DD   |/
+	LDA.w sprite.constants_address,y	;$BBB8DE   |\
+	STA $6A					;$BBB8E1   |/ Set constants pointer to current sprites constants
+	LDA.w sprite.state,y			;$BBB8E3   |\ Get sprites state
+	AND #$00FF				;$BBB8E6   | |
+	ASL					;$BBB8E9   | |
+	TAX					;$BBB8EA   |/ Return sprite state << 1 in X (can be used to directly index state table)
+	RTL					;$BBB8EB  /> Return into sprite main
 
-CODE_BBB8EC:
-	LDY.b current_sprite			;$BBB8EC
-CODE_BBB8EE:
-	TYA					;$BBB8EE
-	CLC					;$BBB8EF
-	ADC.w #$006E				;$BBB8F0
-	TAY					;$BBB8F3
-	CPY.w #$1480				;$BBB8F4
-	BNE.b CODE_BBB8CE			;$BBB8F7
-	JSL.l CODE_B8806C			;$BBB8F9
-	JSR.w CODE_BBBA8F			;$BBB8FD
-	JSR.w CODE_BBB9EB			;$BBB900
-	JSL.l CODE_B28015			;$BBB903
-	JMP.w CODE_BBB99A			;$BBB907
+.sprite_return:
+	LDY current_sprite			;$BBB8EC  \
+.get_next_slot:					;	   |
+	TYA					;$BBB8EE   |
+	CLC					;$BBB8EF   |
+	ADC #sizeof(sprite)			;$BBB8F0   |
+	TAY					;$BBB8F3   |
+	CPY #main_sprite_table_end		;$BBB8F4   |
+	BNE .next_slot				;$BBB8F7   |
+	JSL CODE_B8806C				;$BBB8F9   |
+	JSR process_platform_sprites		;$BBB8FD   |
+	JSR handle_kong_follow			;$BBB900   |
+	JSL CODE_B28015				;$BBB903   |> Play queued sound effect
+	JMP CODE_BBB99A				;$BBB907  /
 
-CODE_BBB90A:
-	AND.w #$0080				;$BBB90A
-	BNE.b CODE_BBB983			;$BBB90D
-	LDA.w #CODE_BBB976>>16			;$BBB90F
-	STA.w $04F7				;$BBB912
-	LDA.w #CODE_BBB976			;$BBB915
-	STA.w $04F5				;$BBB918
-CODE_BBB91B:
-	LDY.w #!RAM_DKC3_Level_SpriteDataRAM	;$BBB91B
-CODE_BBB91E:
-	LDX.b DKC3_Level_SpriteDataRAM[$00].SpriteIDLo,y	;$BBB91E
-	BEQ.b CODE_BBB978			;$BBB920
-	STY.b current_sprite			;$BBB922
-	CPY.w active_kong_sprite		;$BBB924
-	BEQ.b CODE_BBB941			;$BBB927
-	CPY.w follower_kong_sprite		;$BBB929
-	BEQ.b CODE_BBB950			;$BBB92C
-CODE_BBB92E:
-	LDA.w timestop_flags			;$BBB92E
-	AND.w #$0024				;$BBB931
-	BEQ.b CODE_BBB95F			;$BBB934
-	LDA.l sprite_timestop_flag,x		;$BBB936
-	AND.w #$0001				;$BBB93A
-	BEQ.b CODE_BBB976			;$BBB93D
-	BRA.b CODE_BBB95F			;$BBB93F
+.time_stop_sprite_handler:
+	AND #$0080				;$BBB90A  \ \
+	BNE .dont_process_any_sprites		;$BBB90D   |/ If time is stopped for all sprites then dont process any sprites
+	LDA.w #<:..sprite_return		;$BBB90F   |\ Write bank of sprite return address
+	STA $04F7				;$BBB912   |/
+	LDA #..sprite_return			;$BBB915   |\ Write sprite return pointer
+	STA $04F5				;$BBB918   |/
+	LDY #main_sprite_table			;$BBB91B   | Load sprite base pointer
+..next_slot:					;	   |
+	LDX sprite.type,y			;$BBB91E   |\ If the sprite doesn't exist
+	BEQ ..get_next_slot			;$BBB920   |/ Get the next sprite
+	STY current_sprite			;$BBB922   |> If the sprite was found, preserve the index
+	CPY active_kong_sprite			;$BBB924   |\
+	BEQ ..sprite_is_main_kong		;$BBB927   |/ If the sprite is the active kong then determine whether it processes or not
+	CPY follower_kong_sprite		;$BBB929   |\
+	BEQ ..sprite_is_follower_kong		;$BBB92C   |/ If the sprite is the inactive kong then determine whether it processes or not
+..handle_general_time_stop:			;	   |
+	LDA $194B				;$BBB92E   |\
+	AND #$0024				;$BBB931   | |
+	BEQ ..return_to_sprite_code		;$BBB934   |/ If no time stop flags are active for general sprites then process the sprite
+	LDA.l sprite_timestop_flag,x		;$BBB936   |\ Get sprite timestop flags
+	AND #$0001				;$BBB93A   | |
+	BEQ ..sprite_return			;$BBB93D   |/ If current sprite type cant run during time stop, return and move to next slot
+	BRA ..return_to_sprite_code		;$BBB93F  /> This sprite has a time stop exception and can process, return to sprite code
 
-CODE_BBB941:
-	LDA.w timestop_flags			;$BBB941
-	AND.w #$0028				;$BBB944
-	BEQ.b CODE_BBB95F			;$BBB947
-	AND.w #$0008				;$BBB949
-	BNE.b CODE_BBB976			;$BBB94C
-	BRA.b CODE_BBB92E			;$BBB94E
+..sprite_is_main_kong:
+	LDA $194B				;$BBB941  \ \
+	AND #$0028				;$BBB944   | |
+	BEQ ..return_to_sprite_code		;$BBB947   |/ If no time stop flags are active that impact active kong then process the sprite
+	AND #$0008				;$BBB949   |\
+	BNE ..sprite_return			;$BBB94C   | | If the active kong is time stopped then return and move to next slot
+	BRA ..handle_general_time_stop		;$BBB94E  / / Else the active kong sprite isnt time stopped, process it
 
-CODE_BBB950:
-	LDA.w timestop_flags			;$BBB950
-	AND.w #$0030				;$BBB953
-	BEQ.b CODE_BBB95F			;$BBB956
-	AND.w #$0010				;$BBB958
-	BNE.b CODE_BBB976			;$BBB95B
-	BRA.b CODE_BBB92E			;$BBB95D
+..sprite_is_follower_kong:
+	LDA $194B				;$BBB950  \ \
+	AND #$0030				;$BBB953   | |
+	BEQ ..return_to_sprite_code		;$BBB956   |/ If no time stop flags are active that impact inactive kong then process the sprite
+	AND #$0010				;$BBB958   |\
+	BNE ..sprite_return			;$BBB95B   | | If the inactive kong is time stopped then return and move to next slot
+	BRA ..handle_general_time_stop		;$BBB95D  / / Else the inactive kong sprite isnt time stopped, process it
 
-CODE_BBB95F:
-	LDA.w DKC3_Level_SpriteDataRAM[$00].RoutinePtrBank,y	;$BBB95F
-	PHA					;$BBB962
-	PLB					;$BBB963
-	LDA.w DKC3_Level_SpriteDataRAM[$00].RoutinePtrLo,y	;$BBB964
-	PHA					;$BBB967
-	LDA.w $0006,y				;$BBB968
-	STA.b $6A				;$BBB96B
-	LDA.w $0038,y				;$BBB96D
-	AND.w #$00FF				;$BBB970
-	ASL					;$BBB973
-	TAX					;$BBB974
-	RTL					;$BBB975
+..return_to_sprite_code:
+	LDA.w sprite.main_routine_bank,y	;$BBB95F  \ \ Push sprite main routine as the return vector
+	PHA					;$BBB962   | |
+	PLB					;$BBB963   | |
+	LDA.w sprite.main_routine_address,y	;$BBB964   | |
+	PHA					;$BBB967   |/
+	LDA.w sprite.constants_address,y	;$BBB968   |\
+	STA $6A					;$BBB96B   |/ Set constants pointer to current sprites constants
+	LDA.w sprite.state,y			;$BBB96D   |\ Get sprites state
+	AND #$00FF				;$BBB970   | |
+	ASL					;$BBB973   | |
+	TAX					;$BBB974   | |
+	RTL					;$BBB975  / / Return sprite state << 1 in X (can be used to directly index state table)
 
-CODE_BBB976:
-	LDY.b current_sprite			;$BBB976
-CODE_BBB978:
-	TYA					;$BBB978
-	CLC					;$BBB979
-	ADC.w #$006E				;$BBB97A
-	TAY					;$BBB97D
-	CPY.w #$1480				;$BBB97E
-	BNE.b CODE_BBB91E			;$BBB981
-CODE_BBB983:
-	JSL.l CODE_B8806C			;$BBB983
-	JSR.w CODE_BBBA8F			;$BBB987
-	JSR.w CODE_BBB9EB			;$BBB98A
-	JSL.l CODE_B28015			;$BBB98D
-	DEC.w timestop_timer			;$BBB991
-	BEQ.b CODE_BBB997			;$BBB994
-	RTL					;$BBB996
+..sprite_return:
+	LDY.b current_sprite			;$BBB976  \
+..get_next_slot:				;	   |
+	TYA					;$BBB978   |
+	CLC					;$BBB979   |
+	ADC #sizeof(sprite)			;$BBB97A   |
+	TAY					;$BBB97D   |
+	CPY #main_sprite_table_end		;$BBB97E   |
+	BNE ..next_slot				;$BBB981   |
+.dont_process_any_sprites:			;	   |
+	JSL CODE_B8806C				;$BBB983   |
+	JSR process_platform_sprites		;$BBB987   |
+	JSR handle_kong_follow			;$BBB98A   |
+	JSL CODE_B28015				;$BBB98D   |
+	DEC $194D				;$BBB991   |
+	BEQ CODE_BBB997				;$BBB994   |
+	RTL					;$BBB996  /
 
 CODE_BBB997:
 	STZ.w timestop_flags			;$BBB997
@@ -7662,82 +7666,83 @@ disable_timestop_direct:
 	STZ timestop_timer			;$BBB9E7
 	RTL					;$BBB9EA
 
-CODE_BBB9EB:
-	LDA.w $05AF				;$BBB9EB
-	AND.w #$0002				;$BBB9EE
-	BNE.b CODE_BBBA16			;$BBB9F1
-	LDY.w active_kong_sprite		;$BBB9F3
-	LDA.w $1917				;$BBB9F6
-	CMP.w $0012,y				;$BBB9F9
-	BNE.b CODE_BBBA1D			;$BBB9FC
-	LDA.w $1919				;$BBB9FE
-	CMP.w $0016,y				;$BBBA01
-	BNE.b CODE_BBBA1D			;$BBBA04
-	LDA.w $0028,y				;$BBBA06
-	AND.w #$1010				;$BBBA09
-	BNE.b CODE_BBBA1D			;$BBBA0C
-	LDA.w #$0004				;$BBBA0E
-	TRB.w $05AF				;$BBBA11
-	BNE.b CODE_BBBA1D			;$BBBA14
+handle_kong_follow:
+	LDA $05AF				;$BBB9EB
+	AND #$0002				;$BBB9EE
+	BNE CODE_BBBA16				;$BBB9F1
+	LDY active_kong_sprite			;$BBB9F3
+	LDA $1917				;$BBB9F6
+	CMP $0012,y				;$BBB9F9
+	BNE CODE_BBBA1D				;$BBB9FC
+	LDA $1919				;$BBB9FE
+	CMP $0016,y				;$BBBA01
+	BNE CODE_BBBA1D				;$BBBA04
+	LDA $0028,y				;$BBBA06
+	AND #$1010				;$BBBA09
+	BNE CODE_BBBA1D				;$BBBA0C
+	LDA #$0004				;$BBBA0E
+	TRB $05AF				;$BBBA11
+	BNE CODE_BBBA1D				;$BBBA14
 CODE_BBBA16:
-	LDA.w #$0006				;$BBBA16
-	TRB.w $05AF				;$BBBA19
+	LDA #$0006				;$BBBA16
+	TRB $05AF				;$BBBA19
 	RTS					;$BBBA1C
 
 CODE_BBBA1D:
-	LDA.w #$0010				;$BBBA1D
-	TRB.w $1927				;$BBBA20
-	BNE.b CODE_BBBA28			;$BBBA23
-	STZ.w $1921				;$BBBA25
+	LDA #$0010				;$BBBA1D
+	TRB $1927				;$BBBA20
+	BNE CODE_BBBA28				;$BBBA23
+	STZ $1921				;$BBBA25
 CODE_BBBA28:
-	LDX.w $1923				;$BBBA28
-	LDA.w $0012,y				;$BBBA2B
-	STA.w $1917				;$BBBA2E
-	STA.l $7E4080,x				;$BBBA31
-	LDA.w $0016,y				;$BBBA35
-	STA.w $1919				;$BBBA38
+	LDX $1923				;$BBBA28
+	LDA $0012,y				;$BBBA2B
+	STA $1917				;$BBBA2E
+	STA $7E4080,x				;$BBBA31
+	LDA $0016,y				;$BBBA35
+	STA $1919				;$BBBA38
 	CLC					;$BBBA3B
-	ADC.w $1921				;$BBBA3C
-	STA.l $7E40C0,x				;$BBBA3F
-	LDA.w $001E,y				;$BBBA43
-	AND.w #$4000				;$BBBA46
-	STA.l $7E4100,x				;$BBBA49
-	LDY.w $04FB				;$BBBA4D
-	LDA.w $0000,y				;$BBBA50
-	STA.l $7E4140,x				;$BBBA53
+	ADC $1921				;$BBBA3C
+	STA $7E40C0,x				;$BBBA3F
+	LDA $001E,y				;$BBBA43
+	AND #$4000				;$BBBA46
+	STA $7E4100,x				;$BBBA49
+	LDY $04FB				;$BBBA4D
+	LDA $0000,y				;$BBBA50
+	STA $7E4140,x				;$BBBA53
 	INX					;$BBBA57
 	INX					;$BBBA58
 	TXA					;$BBBA59
-	AND.w #$003F				;$BBBA5A
-	STA.w $1923				;$BBBA5D
-	CMP.w $1925				;$BBBA60
-	BNE.b CODE_BBBA70			;$BBBA63
-	LDA.w $1925				;$BBBA65
+	AND #$003F				;$BBBA5A
+	STA $1923				;$BBBA5D
+	CMP $1925				;$BBBA60
+	BNE CODE_BBBA70				;$BBBA63
+	LDA $1925				;$BBBA65
 	INC					;$BBBA68
 	INC					;$BBBA69
-	AND.w #$003F				;$BBBA6A
-	STA.w $1925				;$BBBA6D
+	AND #$003F				;$BBBA6A
+	STA $1925				;$BBBA6D
 CODE_BBBA70:
 	RTS					;$BBBA70
 
-CODE_BBBA71:
-	SEC					;$BBBA71
-	SBC.w #$0005				;$BBBA72
-	STA.w $17D6				;$BBBA75
-	TAY					;$BBBA78
-	LDA.w $17D8,y				;$BBBA79
-	STA.b $1A				;$BBBA7C
-	LDA.w $17DA,y				;$BBBA7E
-	STA.b $1C				;$BBBA81
-	LDX.w $17DB,y				;$BBBA83
-	STX.b current_sprite			;$BBBA86
-	PHK					;$BBBA88
-	PEA.w CODE_BBBA8F-$01			;$BBBA89
-	JMP.w [$001A]				;$BBBA8C
-CODE_BBBA8F:
-	LDA.w $17D6				;$BBBA8F
-	BNE.b CODE_BBBA71			;$BBBA92
-	RTS					;$BBBA94
+process_existing_platform_sprite:
+	SEC					;$BBBA71  \ \
+	SBC #$0005				;$BBBA72   | | Move to previous platform slot index
+	STA $17D6				;$BBBA75   |/
+	TAY					;$BBBA78   |> Transfer platform slot index to Y
+	LDA $17D8,y				;$BBBA79   |\ Copy platform logic pointer to $32
+	STA $1A					;$BBBA7C   | |
+	LDA $17DA,y				;$BBBA7E   | | Copy platform logic bank to $34
+	STA $1C					;$BBBA81   |/
+	LDX $17DB,y				;$BBBA83   |\ Get platform sprite
+	STX current_sprite			;$BBBA86   |/
+	PHK					;$BBBA88   |\
+	%return(process_platform_sprites)	;$BBBA89   |/ Set return address to logic handler so it loops through all platforms
+	JMP [$001A]				;$BBBA8C  /> Execute platform logic
+
+process_platform_sprites:
+	LDA $17D6				;$BBBA8F  \ \ Get platform slot index
+	BNE process_existing_platform_sprite	;$BBBA92   |/ If slot contains a platform then process it
+	RTS					;$BBBA94  /
 
 
 ;related to standable sprite table
