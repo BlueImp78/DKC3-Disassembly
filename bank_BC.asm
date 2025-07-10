@@ -5960,7 +5960,7 @@ CODE_BCE93B:
 	CLC					;$BCE93C
 	RTL					;$BCE93D
 
-if !include_garbage_data = 1
+if !include_garbage_data == 1
 	incbin "data/garbage_data/DATA_BCE93E.bin"
 else
 	padbyte $00 : pad $BCF800
@@ -5970,8 +5970,8 @@ CODE_BCF800:
 	STX.b $1E				;$BCF800
 	STZ.b $1A				;$BCF802
 CODE_BCF804:
-	STX.w !REGISTER_VRAMAddressLo		;$BCF804
-	LDA.w !REGISTER_ReadFromVRAMPortLo	;$BCF807
+	STX.w PPU.vram_address			;$BCF804
+	LDA.w PPU.vram_read			;$BCF807
 	EOR.w #$4000				;$BCF80A
 	STA.b $1C				;$BCF80D
 	LDA.w #$001F				;$BCF80F
@@ -5980,17 +5980,17 @@ CODE_BCF804:
 	CLC					;$BCF815
 	ADC.b $1E				;$BCF816
 	TAX					;$BCF818
-	STX.w !REGISTER_VRAMAddressLo		;$BCF819
+	STX.w PPU.vram_address			;$BCF819
 	PHX					;$BCF81C
-	LDA.w !REGISTER_ReadFromVRAMPortLo	;$BCF81D
+	LDA.w PPU.vram_read			;$BCF81D
 	EOR.w #$4000				;$BCF820
 	LDX.b $1E				;$BCF823
-	STX.w !REGISTER_VRAMAddressLo		;$BCF825
-	STA.w !REGISTER_WriteToVRAMPortLo	;$BCF828
+	STX.w PPU.vram_address			;$BCF825
+	STA.w PPU.vram_write			;$BCF828
 	PLX					;$BCF82B
-	STX.w !REGISTER_VRAMAddressLo		;$BCF82C
+	STX.w PPU.vram_address			;$BCF82C
 	LDA.b $1C				;$BCF82F
-	STA.w !REGISTER_WriteToVRAMPortLo	;$BCF831
+	STA.w PPU.vram_write			;$BCF831
 	INC.b $1E				;$BCF834
 	LDX.b $1E				;$BCF836
 	INC.b $1A				;$BCF838

@@ -285,13 +285,13 @@ CODE_ACB1F2:
 	PLA					;$ACB205
 	SEC					;$ACB206
 	SBC.w #$3679				;$ACB207
-	STA.w !REGISTER_DividendLo		;$ACB20A
+	STA.w CPU.dividen_low			;$ACB20A
 	SEP.b #$20				;$ACB20D
 	LDA.b #$05				;$ACB20F
-	STA.w !REGISTER_Divisor			;$ACB211
+	STA.w CPU.divisor			;$ACB211
 	REP.b #$20				;$ACB214
 	JSL.l CODE_B58003			;$ACB216
-	LDA.w !REGISTER_QuotientLo		;$ACB21A
+	LDA.w CPU.divide_result			;$ACB21A
 	ASL					;$ACB21D
 	TAY					;$ACB21E
 	LDA.w DATA_ACB26F+$01,y			;$ACB21F

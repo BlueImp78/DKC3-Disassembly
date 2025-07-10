@@ -4925,7 +4925,7 @@ CODE_B7B879:
 	STA.w $197D				;$B7B879
 	SEP.b #$20				;$B7B87C
 	LDA.b #$81				;$B7B87E
-	STA.w !REGISTER_VRAMAddressIncrementValue	;$B7B880
+	STA.w PPU.vram_control			;$B7B880
 	REP.b #$20				;$B7B883
 	LDA.w $196D				;$B7B885
 	LDX.w $1989				;$B7B888
@@ -4943,22 +4943,22 @@ CODE_B7B891:
 	ADC.w #$03E0				;$B7B89D
 CODE_B7B8A0:
 	ADC.w $1969				;$B7B8A0
-	STA.w !REGISTER_VRAMAddressLo		;$B7B8A3
+	STA.w PPU.vram_address			;$B7B8A3
 	LDA.w #$001A0D				;$B7B8A6
-	STA.w DMA[$00].SourceLo			;$B7B8A9
-	STA.w DMA[$00].Unused2			;$B7B8AC
+	STA.w DMA[$00].source_word		;$B7B8A9
+	STA.w DMA[$00].unused_2			;$B7B8AC
 	LDA.w #$0040				;$B7B8AF
-	STA.w DMA[$00].SizeLo			;$B7B8B2
+	STA.w DMA[$00].size			;$B7B8B2
 	LDA.w #$1801				;$B7B8B5
-	STA.w DMA[$00].Parameters		;$B7B8B8
+	STA.w DMA[$00].settings			;$B7B8B8
 	SEP.b #$20				;$B7B8BB
-	STZ.w DMA[$00].SourceBank		;$B7B8BD
+	STZ.w DMA[$00].source_bank		;$B7B8BD
 	LDA.b #$01				;$B7B8C0
-	STA.w !REGISTER_DMAEnable		;$B7B8C2
+	STA.w CPU.enable_dma			;$B7B8C2
 	REP.b #$20				;$B7B8C5
 	SEP.b #$20				;$B7B8C7
 	LDA.b #$80				;$B7B8C9
-	STA.w !REGISTER_VRAMAddressIncrementValue	;$B7B8CB
+	STA.w PPU.vram_control			;$B7B8CB
 	REP.b #$20				;$B7B8CE
 	RTL					;$B7B8D0
 
@@ -4972,7 +4972,7 @@ CODE_B7B8D1:
 CODE_B7B8DD:
 	SEP.b #$20				;$B7B8DD
 	LDA.b #$81				;$B7B8DF
-	STA.w !REGISTER_VRAMAddressIncrementValue	;$B7B8E1
+	STA.w PPU.vram_control			;$B7B8E1
 	REP.b #$20				;$B7B8E4
 	LDA.w $196D				;$B7B8E6
 	LDX.w $1989				;$B7B8E9
@@ -4990,22 +4990,22 @@ CODE_B7B8F2:
 	ADC.w #$03E0				;$B7B8FE
 CODE_B7B901:
 	ADC.w #$70C0				;$B7B901
-	STA.w !REGISTER_VRAMAddressLo		;$B7B904
+	STA.w PPU.vram_address			;$B7B904
 	LDA.w #$001A4D				;$B7B907
-	STA.w DMA[$00].SourceLo			;$B7B90A
-	STA.w DMA[$00].Unused2			;$B7B90D
+	STA.w DMA[$00].source_word		;$B7B90A
+	STA.w DMA[$00].unused_2			;$B7B90D
 	LDA.w #$000C				;$B7B910
-	STA.w DMA[$00].SizeLo			;$B7B913
+	STA.w DMA[$00].size			;$B7B913
 	LDA.w #$1801				;$B7B916
-	STA.w DMA[$00].Parameters		;$B7B919
+	STA.w DMA[$00].settings			;$B7B919
 	SEP.b #$20				;$B7B91C
-	STZ.w DMA[$00].SourceBank		;$B7B91E
+	STZ.w DMA[$00].source_bank		;$B7B91E
 	LDA.b #$01				;$B7B921
-	STA.w !REGISTER_DMAEnable		;$B7B923
+	STA.w CPU.enable_dma			;$B7B923
 	REP.b #$20				;$B7B926
 	SEP.b #$20				;$B7B928
 	LDA.b #$80				;$B7B92A
-	STA.w !REGISTER_VRAMAddressIncrementValue	;$B7B92C
+	STA.w PPU.vram_control			;$B7B92C
 	REP.b #$20				;$B7B92F
 	RTL					;$B7B931
 
@@ -5019,7 +5019,7 @@ CODE_B7B932:
 CODE_B7B93E:
 	SEP.b #$20				;$B7B93E
 	LDA.b #$81				;$B7B940
-	STA.w !REGISTER_VRAMAddressIncrementValue	;$B7B942
+	STA.w PPU.vram_control			;$B7B942
 	REP.b #$20				;$B7B945
 	LDA.w $1989				;$B7B947
 	BPL.b CODE_B7B951			;$B7B94A
@@ -5041,22 +5041,22 @@ CODE_B7B958:
 	ADC.w #$03E0				;$B7B964
 CODE_B7B967:
 	ADC.w #$7800				;$B7B967
-	STA.w !REGISTER_VRAMAddressLo		;$B7B96A
+	STA.w PPU.vram_address			;$B7B96A
 	LDA.w #$001ACD				;$B7B96D
-	STA.w DMA[$00].SourceLo			;$B7B970
-	STA.w DMA[$00].Unused2			;$B7B973
+	STA.w DMA[$00].source_word		;$B7B970
+	STA.w DMA[$00].unused_2			;$B7B973
 	LDA.w #$0040				;$B7B976
-	STA.w DMA[$00].SizeLo			;$B7B979
+	STA.w DMA[$00].size			;$B7B979
 	LDA.w #$1801				;$B7B97C
-	STA.w DMA[$00].Parameters		;$B7B97F
+	STA.w DMA[$00].settings			;$B7B97F
 	SEP.b #$20				;$B7B982
-	STZ.w DMA[$00].SourceBank		;$B7B984
+	STZ.w DMA[$00].source_bank		;$B7B984
 	LDA.b #$01				;$B7B987
-	STA.w !REGISTER_DMAEnable		;$B7B989
+	STA.w CPU.enable_dma			;$B7B989
 	REP.b #$20				;$B7B98C
 	SEP.b #$20				;$B7B98E
 	LDA.b #$80				;$B7B990
-	STA.w !REGISTER_VRAMAddressIncrementValue	;$B7B992
+	STA.w PPU.vram_control			;$B7B992
 	REP.b #$20				;$B7B995
 	RTL					;$B7B997
 
@@ -5280,34 +5280,34 @@ CODE_B7BB21:
 	CLC					;$B7BB26
 	ADC.w $1969				;$B7BB27
 	STA.b $1A				;$B7BB2A
-	STA.w !REGISTER_VRAMAddressLo		;$B7BB2C
+	STA.w PPU.vram_address			;$B7BB2C
 	LDA.w #$00198D				;$B7BB2F
-	STA.w DMA[$00].SourceLo			;$B7BB32
-	STA.w DMA[$00].Unused2			;$B7BB35
+	STA.w DMA[$00].source_word		;$B7BB32
+	STA.w DMA[$00].unused_2			;$B7BB35
 	LDA.w #$0040				;$B7BB38
-	STA.w DMA[$00].SizeLo			;$B7BB3B
+	STA.w DMA[$00].size			;$B7BB3B
 	LDA.w #$1801				;$B7BB3E
-	STA.w DMA[$00].Parameters		;$B7BB41
+	STA.w DMA[$00].settings			;$B7BB41
 	SEP.b #$20				;$B7BB44
-	STZ.w DMA[$00].SourceBank		;$B7BB46
+	STZ.w DMA[$00].source_bank		;$B7BB46
 	LDA.b #$01				;$B7BB49
-	STA.w !REGISTER_DMAEnable		;$B7BB4B
+	STA.w CPU.enable_dma			;$B7BB4B
 	REP.b #$20				;$B7BB4E
 	LDA.b $1A				;$B7BB50
 	CLC					;$B7BB52
 	ADC.w #$0400				;$B7BB53
-	STA.w !REGISTER_VRAMAddressLo		;$B7BB56
+	STA.w PPU.vram_address			;$B7BB56
 	LDA.w #$0019CD				;$B7BB59
-	STA.w DMA[$00].SourceLo			;$B7BB5C
-	STA.w DMA[$00].Unused2			;$B7BB5F
+	STA.w DMA[$00].source_word		;$B7BB5C
+	STA.w DMA[$00].unused_2			;$B7BB5F
 	LDA.w #$0040				;$B7BB62
-	STA.w DMA[$00].SizeLo			;$B7BB65
+	STA.w DMA[$00].size			;$B7BB65
 	LDA.w #$1801				;$B7BB68
-	STA.w DMA[$00].Parameters		;$B7BB6B
+	STA.w DMA[$00].settings			;$B7BB6B
 	SEP.b #$20				;$B7BB6E
-	STZ.w DMA[$00].SourceBank		;$B7BB70
+	STZ.w DMA[$00].source_bank		;$B7BB70
 	LDA.b #$01				;$B7BB73
-	STA.w !REGISTER_DMAEnable		;$B7BB75
+	STA.w CPU.enable_dma			;$B7BB75
 	REP.b #$20				;$B7BB78
 	RTL					;$B7BB7A
 
@@ -5335,34 +5335,34 @@ CODE_B7BB98:
 	CLC					;$B7BB9D
 	ADC.w #$7800				;$B7BB9E
 	STA.b $1A				;$B7BBA1
-	STA.w !REGISTER_VRAMAddressLo		;$B7BBA3
+	STA.w PPU.vram_address			;$B7BBA3
 	LDA.w #$001A4D				;$B7BBA6
-	STA.w DMA[$00].SourceLo			;$B7BBA9
-	STA.w DMA[$00].Unused2			;$B7BBAC
+	STA.w DMA[$00].source_word		;$B7BBA9
+	STA.w DMA[$00].unused_2			;$B7BBAC
 	LDA.w #$0040				;$B7BBAF
-	STA.w DMA[$00].SizeLo			;$B7BBB2
+	STA.w DMA[$00].size			;$B7BBB2
 	LDA.w #$1801				;$B7BBB5
-	STA.w DMA[$00].Parameters		;$B7BBB8
+	STA.w DMA[$00].settings			;$B7BBB8
 	SEP.b #$20				;$B7BBBB
-	STZ.w DMA[$00].SourceBank		;$B7BBBD
+	STZ.w DMA[$00].source_bank		;$B7BBBD
 	LDA.b #$01				;$B7BBC0
-	STA.w !REGISTER_DMAEnable		;$B7BBC2
+	STA.w CPU.enable_dma			;$B7BBC2
 	REP.b #$20				;$B7BBC5
 	LDA.b $1A				;$B7BBC7
 	CLC					;$B7BBC9
 	ADC.w #$0400				;$B7BBCA
-	STA.w !REGISTER_VRAMAddressLo		;$B7BBCD
+	STA.w PPU.vram_address			;$B7BBCD
 	LDA.w #$001A8D				;$B7BBD0
-	STA.w DMA[$00].SourceLo			;$B7BBD3
-	STA.w DMA[$00].Unused2			;$B7BBD6
+	STA.w DMA[$00].source_word		;$B7BBD3
+	STA.w DMA[$00].unused_2			;$B7BBD6
 	LDA.w #$0040				;$B7BBD9
-	STA.w DMA[$00].SizeLo			;$B7BBDC
+	STA.w DMA[$00].size			;$B7BBDC
 	LDA.w #$1801				;$B7BBDF
-	STA.w DMA[$00].Parameters		;$B7BBE2
+	STA.w DMA[$00].settings			;$B7BBE2
 	SEP.b #$20				;$B7BBE5
-	STZ.w DMA[$00].SourceBank		;$B7BBE7
+	STZ.w DMA[$00].source_bank		;$B7BBE7
 	LDA.b #$01				;$B7BBEA
-	STA.w !REGISTER_DMAEnable		;$B7BBEC
+	STA.w CPU.enable_dma			;$B7BBEC
 	REP.b #$20				;$B7BBEF
 	RTL					;$B7BBF1
 
@@ -10373,7 +10373,7 @@ CODE_B7DFBC:
 
 CODE_B7DFC5:
 	SEP.b #$20				;$B7DFC5
-	STA.l !REGISTER_Multiplicand		;$B7DFC7
+	STA.l CPU.multiply_A			;$B7DFC7
 	REP.b #$20				;$B7DFCB
 	LDA.w $1B5F				;$B7DFCD
 	BEQ.b CODE_B7E030			;$B7DFD0
@@ -10386,10 +10386,10 @@ CODE_B7DFD2:
 
 CODE_B7DFDB:
 	SEP.b #$20				;$B7DFDB
-	STA.l !REGISTER_Multiplier		;$B7DFDD
+	STA.l CPU.multiply_B			;$B7DFDD
 	REP.b #$20				;$B7DFE1
 	NOP #3					;$B7DFE3
-	LDA.l !REGISTER_ProductOrRemainderLo	;$B7DFE6
+	LDA.l CPU.multiply_result		;$B7DFE6
 	BMI.b CODE_B7DFF5			;$B7DFEA
 CODE_B7DFEC:
 	DEY					;$B7DFEC
@@ -10401,7 +10401,7 @@ CODE_B7DFEC:
 CODE_B7DFF4:
 	INY					;$B7DFF4
 CODE_B7DFF5:
-	STA.l !REGISTER_DividendLo		;$B7DFF5
+	STA.l CPU.dividen_low			;$B7DFF5
 	LDA.w $1B61				;$B7DFF9
 	BEQ.b CODE_B7E030			;$B7DFFC
 CODE_B7DFFE:
@@ -10413,13 +10413,13 @@ CODE_B7DFFE:
 
 CODE_B7E007:
 	SEP.b #$20				;$B7E007
-	STA.l !REGISTER_Divisor			;$B7E009
+	STA.l CPU.divisor			;$B7E009
 	REP.b #$20				;$B7E00D
 	NOP #4					;$B7E00F
 	TYA					;$B7E013
 	BEQ.b CODE_B7E022			;$B7E014
 	BPL.b CODE_B7E028			;$B7E016
-	LDA.l !REGISTER_QuotientLo		;$B7E018
+	LDA.l CPU.divide_result			;$B7E018
 CODE_B7E01C:
 	LSR					;$B7E01C
 	INY					;$B7E01D
@@ -10428,12 +10428,12 @@ CODE_B7E01C:
 	RTS					;$B7E021
 
 CODE_B7E022:
-	LDA.l !REGISTER_QuotientLo		;$B7E022
+	LDA.l CPU.divide_result			;$B7E022
 	PLY					;$B7E026
 	RTS					;$B7E027
 
 CODE_B7E028:
-	LDA.l !REGISTER_QuotientLo		;$B7E028
+	LDA.l CPU.divide_result			;$B7E028
 CODE_B7E02C:
 	ASL					;$B7E02C
 	DEY					;$B7E02D
@@ -11620,8 +11620,8 @@ CODE_B7E864:
 	LDA.b next_oam_slot			;$B7E867
 	CMP.w #$0400				;$B7E869
 	BCS.b CODE_B7E8D6			;$B7E86C
-	STA.w !REGISTER_WRAMAddressLo		;$B7E86E
-	STZ.w !REGISTER_WRAMAddressBank		;$B7E871
+	STA.w WRAM.address			;$B7E86E
+	STZ.w WRAM.bank				;$B7E871
 	SEC					;$B7E874
 	SBC.w #$0200				;$B7E875
 	LSR					;$B7E878
@@ -11889,10 +11889,10 @@ CODE_B7EA41:
 	CLC					;$B7EA43
 	ADC.w DATA_B7EF4B,y			;$B7EA44
 	SEP.b #$21				;$B7EA47
-	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EA49
+	STA.w WRAM.data				;$B7EA49
 	LDA.b $26				;$B7EA4C
 	ADC.w DATA_B7F08D,x			;$B7EA4E
-	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EA51
+	STA.w WRAM.data				;$B7EA51
 	LDA.w DATA_B7F08D,x			;$B7EA54
 	LSR					;$B7EA57
 	LSR					;$B7EA58
@@ -11900,9 +11900,9 @@ CODE_B7EA41:
 	AND.b #$0E				;$B7EA5C
 	ADC.b $2A				;$B7EA5E
 	AND.b #$EE				;$B7EA60
-	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EA62
+	STA.w WRAM.data				;$B7EA62
 	LDA.b $2B				;$B7EA65
-	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EA67
+	STA.w WRAM.data				;$B7EA67
 	XBA					;$B7EA6A
 	ASL					;$B7EA6B
 	LDA.b $32				;$B7EA6C
@@ -11945,10 +11945,10 @@ CODE_B7EAA4:
 	CLC					;$B7EAA6
 	ADC.w DATA_B7EF4B,y			;$B7EAA7
 	SEP.b #$21				;$B7EAAA
-	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EAAC
+	STA.w WRAM.data				;$B7EAAC
 	LDA.b $26				;$B7EAAF
 	ADC.w DATA_B7F18D,x			;$B7EAB1
-	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EAB4
+	STA.w WRAM.data				;$B7EAB4
 	LDA.w DATA_B7F18D,x			;$B7EAB7
 	LSR					;$B7EABA
 	LSR					;$B7EABB
@@ -11956,9 +11956,9 @@ CODE_B7EAA4:
 	AND.b #$0E				;$B7EABF
 	ADC.b $2A				;$B7EAC1
 	AND.b #$EE				;$B7EAC3
-	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EAC5
+	STA.w WRAM.data				;$B7EAC5
 	LDA.b $2B				;$B7EAC8
-	STA.w !REGISTER_ReadOrWriteToWRAMPort	;$B7EACA
+	STA.w WRAM.data				;$B7EACA
 	XBA					;$B7EACD
 	ASL					;$B7EACE
 	LDA.b $32				;$B7EACF
@@ -12435,17 +12435,17 @@ CODE_B7EDE5:
 	BMI.b CODE_B7EE51			;$B7EE00
 	SEP.b #$30				;$B7EE02
 	LDA.w $7E9783,x				;$B7EE04
-	STA.l !REGISTER_ReadOrWriteToWRAMPort	;$B7EE07
+	STA.l WRAM.data				;$B7EE07
 	LDA.w $7E9803,x				;$B7EE0B
-	STA.l !REGISTER_ReadOrWriteToWRAMPort	;$B7EE0E
+	STA.l WRAM.data				;$B7EE0E
 	LDA.b $00				;$B7EE12
 	AND.b #$0E				;$B7EE14
 	CLC					;$B7EE16
 	ADC.l $0018F7				;$B7EE17
-	STA.l !REGISTER_ReadOrWriteToWRAMPort	;$B7EE1B
+	STA.l WRAM.data				;$B7EE1B
 	LDA.l $0018F8				;$B7EE1F
 	ORA.b #$30				;$B7EE23
-	STA.l !REGISTER_ReadOrWriteToWRAMPort	;$B7EE25
+	STA.l WRAM.data				;$B7EE25
 	LDA.b $32				;$B7EE29
 	LSR					;$B7EE2B
 	SEC					;$B7EE2C

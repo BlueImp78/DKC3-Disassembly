@@ -2269,264 +2269,783 @@ DATA_FD294E:
 	dw DATA_FD3167-DATA_FD294E
 
 DATA_FD29C0:
-	db $05,$21,$09,$07,$A1,$61,$6C,$09,$21,$68,$0B,$A1,$72,$05,$01,$21
-	db $00,$2C,$A1,$13,$00,$30,$21,$00,$31,$21,$82,$33,$21,$00,$32,$21
-	db $E1,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$6C61
+	dw PPU.layer_3_tilemap_base : db $68
+	dw PPU.layer_all_tiledata_base|$8000,$0572
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0013
+	dw PPU.color_addition_logic : db $00
+	dw PPU.set_color_math : db $82
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E1
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD29E6:
-	db $05,$21,$01,$07,$A1,$70,$79,$09,$21,$74,$0B,$A1,$26,$05,$01,$21
-	db $00,$2C,$A1,$00,$16,$30,$21,$02,$31,$21,$20,$33,$21,$00,$32,$21
-	db $86,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $01
+	dw PPU.layer_1_2_tilemap_base|$8000,$7970
+	dw PPU.layer_3_tilemap_base : db $74
+	dw PPU.layer_all_tiledata_base|$8000,$0526
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$1600
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $20
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $86
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2A0C:
-	db $05,$21,$09,$07,$A1,$79,$56,$09,$21,$5C,$0B,$A1,$62,$07,$01,$21
-	db $00,$2C,$A1,$15,$02,$30,$21,$02,$31,$21,$20,$33,$21,$00,$32,$21
-	db $00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$5679
+	dw PPU.layer_3_tilemap_base : db $5C
+	dw PPU.layer_all_tiledata_base|$8000,$0762
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0215
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $20
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2A32:
-	db $05,$21,$09,$07,$A1,$59,$7C,$09,$21,$78,$0B,$A1,$62,$07,$01,$21
-	db $00,$2C,$A1,$17,$00,$33,$21,$00,$32,$21,$00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7C59
+	dw PPU.layer_3_tilemap_base : db $78
+	dw PPU.layer_all_tiledata_base|$8000,$0762
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0017
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2A52:
-	db $05,$21,$09,$07,$A1,$79,$70,$09,$21,$74,$0B,$A1,$62,$05,$01,$21
-	db $00,$2C,$A1,$15,$02,$30,$21,$02,$31,$21,$20,$33,$21,$00,$32,$21
-	db $00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7079
+	dw PPU.layer_3_tilemap_base : db $74
+	dw PPU.layer_all_tiledata_base|$8000,$0562
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0215
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $20
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2A78:
-	db $05,$21,$09,$07,$A1,$79,$74,$09,$21,$5C,$0B,$A1,$52,$06,$01,$21
-	db $00,$2C,$A1,$13,$00,$30,$21,$00,$31,$21,$00,$33,$21,$00,$32,$21
-	db $00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7479
+	dw PPU.layer_3_tilemap_base : db $5C
+	dw PPU.layer_all_tiledata_base|$8000,$0652
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0013
+	dw PPU.color_addition_logic : db $00
+	dw PPU.set_color_math : db $00
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2A9E:
-	db $05,$21,$09,$07,$A1,$79,$71,$09,$21,$6A,$2E,$21,$04,$24,$21,$03
-	db $0B,$A1,$22,$05,$01,$21,$00,$30,$21,$02,$31,$21,$64,$15,$21,$80
-	db $00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7179
+	dw PPU.layer_3_tilemap_base : db $6A
+	dw PPU.window_mask_main_screen : db $04
+	dw PPU.set_window_layer_3_4 : db $03
+	dw PPU.layer_all_tiledata_base|$8000,$0522
+	dw PPU.sprite_select : db $00
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $64
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2AC0:
-	db $05,$21,$09,$07,$A1,$74,$79,$09,$21,$70,$0B,$A1,$25,$02,$01,$21
-	db $00,$2C,$A1,$13,$06,$2E,$A1,$00,$04,$24,$21,$0A,$30,$21,$02,$31
-	db $21,$21,$33,$21,$00,$32,$21,$00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7974
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0225
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0613
+	dw PPU.window_masks|$8000,$0400
+	dw PPU.set_window_layer_3_4 : db $0A
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $21
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2AED:
-	db $05,$21,$01,$07,$A1,$72,$79,$09,$21,$6C,$0B,$A1,$25,$06,$01,$21
-	db $00,$2C,$A1,$15,$02,$2E,$A1,$00,$00,$25,$21,$30,$30,$21,$02,$31
-	db $21,$25,$33,$21,$00,$32,$21,$00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $01
+	dw PPU.layer_1_2_tilemap_base|$8000,$7972
+	dw PPU.layer_3_tilemap_base : db $6C
+	dw PPU.layer_all_tiledata_base|$8000,$0625
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0215
+	dw PPU.window_masks|$8000,$0000
+	dw PPU.set_window_sprite_color : db $30
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $25
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2B1A:
-	db $05,$21,$01,$07,$A1,$69,$78,$09,$21,$7C,$0B,$A1,$52,$07,$01,$21
-	db $00,$2C,$A1,$17,$00,$2E,$21,$06,$25,$21,$A0,$23,$A1,$A0,$0A,$30
-	db $21,$20,$31,$21,$22,$33,$21,$00,$32,$21,$44,$32,$21,$24,$15,$21
-	db $80,$00,$00
+	dw PPU.layer_mode : db $01
+	dw PPU.layer_1_2_tilemap_base|$8000,$7869
+	dw PPU.layer_3_tilemap_base : db $7C
+	dw PPU.layer_all_tiledata_base|$8000,$0752
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0017
+	dw PPU.window_mask_main_screen : db $06
+	dw PPU.set_window_sprite_color : db $A0
+	dw PPU.set_window_layer_all|$8000,$0AA0
+	dw PPU.color_addition_logic : db $20
+	dw PPU.set_color_math : db $22
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $44
+	dw PPU.fixed_color : db $24
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2B4D:
-	db $05,$21,$09,$07,$A1,$79,$74,$09,$21,$70,$0B,$A1,$62,$05,$01,$21
-	db $00,$2C,$A1,$11,$00,$2E,$A1,$04,$04,$24,$21,$0A,$2A,$21,$30,$30
-	db $21,$00,$31,$21,$00,$33,$21,$00,$32,$21,$00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7479
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0562
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0011
+	dw PPU.window_masks|$8000,$0404
+	dw PPU.set_window_layer_3_4 : db $0A
+	dw PPU.window_layer_logic : db $30
+	dw PPU.color_addition_logic : db $00
+	dw PPU.set_color_math : db $00
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2B7D:
-	db $05,$21,$09,$07,$A1,$69,$71,$09,$21,$78,$0B,$A1,$52,$04,$01,$21
-	db $00,$2C,$A1,$17,$15,$30,$21,$02,$31,$21,$62,$33,$21,$00,$32,$21
-	db $E0,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7169
+	dw PPU.layer_3_tilemap_base : db $78
+	dw PPU.layer_all_tiledata_base|$8000,$0452
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$1517
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $62
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2BA3:
-	db $05,$21,$09,$07,$A1,$79,$74,$09,$21,$70,$0B,$A1,$52,$06,$01,$21
-	db $00,$2C,$A1,$04,$13,$2E,$21,$04,$24,$21,$03,$30,$21,$02,$31,$21
-	db $24,$33,$21,$00,$32,$21,$00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7479
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0652
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$1304
+	dw PPU.window_mask_main_screen : db $04
+	dw PPU.set_window_layer_3_4 : db $03
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $24
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2BCF:
-	db $05,$21,$09,$07,$21,$6C,$09,$21,$70,$0B,$A1,$02,$00,$01,$21,$00
-	db $2C,$A1,$05,$00,$30,$21,$00,$31,$21,$81,$33,$21,$00,$32,$21,$E6
-	db $15,$21,$80,$00,$21,$0F,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_tilemap_base : db $6C
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0002
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0005
+	dw PPU.color_addition_logic : db $00
+	dw PPU.set_color_math : db $81
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E6
+	dw PPU.vram_control : db $80
+	dw PPU.screen : db $0F
+	dw $0000
 
 DATA_FD2BF7:
-	db $05,$21,$09,$07,$A1,$7C,$78,$09,$21,$74,$0B,$A1,$24,$06,$01,$21
-	db $00,$2C,$A1,$13,$00,$2E,$A1,$00,$00,$25,$21,$00,$30,$21,$00,$31
-	db $21,$00,$33,$21,$00,$32,$21,$00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$787C
+	dw PPU.layer_3_tilemap_base : db $74
+	dw PPU.layer_all_tiledata_base|$8000,$0624
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0013
+	dw PPU.window_masks|$8000,$0000
+	dw PPU.set_window_sprite_color : db $00
+	dw PPU.color_addition_logic : db $00
+	dw PPU.set_color_math : db $00
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2C24:
-	db $05,$21,$09,$07,$A1,$60,$64,$09,$21,$7C,$0B,$A1,$52,$07,$01,$21
-	db $00,$2C,$A1,$17,$02,$2E,$A1,$00,$00,$25,$21,$00,$30,$21,$02,$31
-	db $21,$21,$33,$21,$00,$32,$21,$00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$6460
+	dw PPU.layer_3_tilemap_base : db $7C
+	dw PPU.layer_all_tiledata_base|$8000,$0752
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0217
+	dw PPU.window_masks|$8000,$0000
+	dw PPU.set_window_sprite_color : db $00
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $21
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2C51:
-	db $05,$21,$01,$07,$A1,$62,$69,$09,$21,$7C,$0B,$A1,$25,$07,$01,$21
-	db $00,$2C,$A1,$17,$06,$2E,$21,$05,$25,$21,$A0,$23,$A1,$0A,$0A,$26
-	db $A1,$00,$08,$28,$A1,$F7,$FF,$30,$21,$22,$31,$21,$21,$33,$21,$00
-	db $32,$21,$E4,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $01
+	dw PPU.layer_1_2_tilemap_base|$8000,$6962
+	dw PPU.layer_3_tilemap_base : db $7C
+	dw PPU.layer_all_tiledata_base|$8000,$0725
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0617
+	dw PPU.window_mask_main_screen : db $05
+	dw PPU.set_window_sprite_color : db $A0
+	dw PPU.set_window_layer_all|$8000,$0A0A
+	dw PPU.window_1|$8000,$0800
+	dw PPU.window_2|$8000,$FFF7
+	dw PPU.color_addition_logic : db $22
+	dw PPU.set_color_math : db $21
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E4
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2C89:
-	db $05,$21,$01,$07,$A1,$79,$70,$09,$21,$74,$0B,$A1,$52,$05,$01,$21
-	db $00,$2C,$A1,$17,$00,$2E,$21,$02,$23,$21,$30,$30,$21,$00,$31,$21
-	db $00,$33,$21,$00,$32,$21,$00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $01
+	dw PPU.layer_1_2_tilemap_base|$8000,$7079
+	dw PPU.layer_3_tilemap_base : db $74
+	dw PPU.layer_all_tiledata_base|$8000,$0552
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0017
+	dw PPU.window_mask_main_screen : db $02
+	dw PPU.set_window_layer_1_2 : db $30
+	dw PPU.color_addition_logic : db $00
+	dw PPU.set_color_math : db $00
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2CB5:
-	db $05,$21,$01,$07,$A1,$70,$79,$09,$21,$74,$0B,$A1,$26,$05,$01,$21
-	db $00,$2C,$A1,$00,$17,$2F,$21,$01,$23,$21,$03,$30,$21,$02,$31,$21
-	db $20,$33,$21,$00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $01
+	dw PPU.layer_1_2_tilemap_base|$8000,$7970
+	dw PPU.layer_3_tilemap_base : db $74
+	dw PPU.layer_all_tiledata_base|$8000,$0526
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$1700
+	dw PPU.window_mask_sub_screen : db $01
+	dw PPU.set_window_layer_1_2 : db $03
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $20
+	dw PPU.video_mode : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2CDE:
-	db $05,$21,$01,$07,$A1,$78,$71,$09,$21,$7C,$0B,$A1,$26,$06,$01,$21
-	db $00,$23,$21,$03,$24,$21,$0C,$2E,$21,$05,$2F,$21,$02,$2C,$A1,$17
-	db $00,$30,$21,$10,$31,$21,$01,$33,$21,$00,$32,$21,$00,$15,$21,$80
-	db $00,$00
+	dw PPU.layer_mode : db $01
+	dw PPU.layer_1_2_tilemap_base|$8000,$7178
+	dw PPU.layer_3_tilemap_base : db $7C
+	dw PPU.layer_all_tiledata_base|$8000,$0626
+	dw PPU.sprite_select : db $00
+	dw PPU.set_window_layer_1_2 : db $03
+	dw PPU.set_window_layer_3_4 : db $0C
+	dw PPU.window_mask_main_screen : db $05
+	dw PPU.window_mask_sub_screen : db $02
+	dw PPU.screens|$8000,$0017
+	dw PPU.color_addition_logic : db $10
+	dw PPU.set_color_math : db $01
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2D10:
-	db $05,$21,$09,$07,$A1,$71,$79,$09,$21,$6C,$0B,$A1,$26,$05,$01,$21
-	db $00,$2C,$A1,$17,$00,$30,$21,$10,$31,$21,$37,$25,$21,$A0,$2B,$21
-	db $08,$33,$21,$00,$32,$21,$00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7971
+	dw PPU.layer_3_tilemap_base : db $6C
+	dw PPU.layer_all_tiledata_base|$8000,$0526
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0017
+	dw PPU.color_addition_logic : db $10
+	dw PPU.set_color_math : db $37
+	dw PPU.set_window_sprite_color : db $A0
+	dw PPU.window_sprite_color_logic : db $08
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2D3C:
-	db $00,$21,$80,$05,$21,$09,$07,$A1,$70,$71,$09,$21,$72,$0B,$A1,$66
-	db $06,$01,$21,$00,$2C,$A1,$11,$11,$23,$A1,$00,$00,$25,$21,$00,$33
-	db $21,$00,$32,$21,$00,$15,$21,$80,$00,$00
+	dw PPU.screen : db $80
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7170
+	dw PPU.layer_3_tilemap_base : db $72
+	dw PPU.layer_all_tiledata_base|$8000,$0666
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$1111
+	dw PPU.set_window_layer_all|$8000,$0000
+	dw PPU.set_window_sprite_color : db $00
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2D66:
-	db $05,$21,$09,$07,$A1,$7C,$76,$09,$21,$70,$0B,$A1,$52,$06,$23,$21
-	db $30,$2F,$21,$02,$2B,$21,$00,$25,$21,$00,$30,$21,$02,$33,$21,$00
-	db $32,$21,$E0,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$767C
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0652
+	dw PPU.set_window_layer_1_2 : db $30
+	dw PPU.window_mask_sub_screen : db $02
+	dw PPU.window_sprite_color_logic : db $00
+	dw PPU.set_window_sprite_color : db $00
+	dw PPU.color_addition_logic : db $02
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2D91:
-	db $05,$21,$09,$07,$A1,$6C,$75,$09,$21,$70,$0B,$A1,$52,$06,$23,$21
-	db $30,$25,$21,$08,$2C,$A1,$17,$06,$2E,$A1,$12,$12,$28,$A1,$80,$C0
-	db $33,$21,$00,$32,$21,$E0,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$756C
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0652
+	dw PPU.set_window_layer_1_2 : db $30
+	dw PPU.set_window_sprite_color : db $08
+	dw PPU.screens|$8000,$0617
+	dw PPU.window_masks|$8000,$1212
+	dw PPU.window_2|$8000,$C080
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2DBF:
-	db $05,$21,$09,$07,$A1,$74,$78,$09,$21,$7C,$0B,$A1,$25,$06,$25,$21
-	db $20,$33,$21,$00,$32,$21,$E4,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7874
+	dw PPU.layer_3_tilemap_base : db $7C
+	dw PPU.layer_all_tiledata_base|$8000,$0625
+	dw PPU.set_window_sprite_color : db $20
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E4
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2DDE:
-	db $05,$21,$09,$07,$A1,$6C,$75,$09,$21,$70,$0B,$A1,$52,$06,$01,$21
-	db $00,$23,$21,$00,$2C,$A1,$02,$00,$2E,$A1,$00,$00,$30,$21,$00,$31
-	db $21,$02,$33,$21,$00,$32,$21,$E0,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$756C
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0652
+	dw PPU.sprite_select : db $00
+	dw PPU.set_window_layer_1_2 : db $00
+	dw PPU.screens|$8000,$0002
+	dw PPU.window_masks|$8000,$0000
+	dw PPU.color_addition_logic : db $00
+	dw PPU.set_color_math : db $02
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2E0E:
-	db $05,$21,$09,$07,$A1,$74,$78,$09,$21,$7C,$0B,$A1,$62,$06,$23,$21
-	db $30,$25,$21,$30,$26,$A1,$00,$FF,$30,$21,$20,$33,$21,$00,$32,$21
-	db $E7,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7874
+	dw PPU.layer_3_tilemap_base : db $7C
+	dw PPU.layer_all_tiledata_base|$8000,$0662
+	dw PPU.set_window_layer_1_2 : db $30
+	dw PPU.set_window_sprite_color : db $30
+	dw PPU.window_1|$8000,$FF00
+	dw PPU.color_addition_logic : db $20
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E7
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2E37:
-	db $05,$21,$09,$07,$A1,$6C,$74,$09,$21,$70,$0B,$A1,$52,$06,$23,$21
-	db $C0,$25,$21,$02,$2C,$A1,$02,$11,$2E,$A1,$13,$11,$30,$21,$02,$31
-	db $21,$22,$33,$21,$00,$32,$21,$E0,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$746C
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0652
+	dw PPU.set_window_layer_1_2 : db $C0
+	dw PPU.set_window_sprite_color : db $02
+	dw PPU.screens|$8000,$1102
+	dw PPU.window_masks|$8000,$1113
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $22
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2E67:
-	db $05,$21,$09,$07,$A1,$7C,$74,$09,$21,$70,$0B,$A1,$52,$06,$23,$21
-	db $30,$25,$21,$80,$2C,$A1,$17,$04,$2E,$A1,$00,$02,$33,$21,$00,$32
-	db $21,$E0,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$747C
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0652
+	dw PPU.set_window_layer_1_2 : db $30
+	dw PPU.set_window_sprite_color : db $80
+	dw PPU.screens|$8000,$0417
+	dw PPU.window_masks|$8000,$0200
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2E91:
-	db $05,$21,$09,$07,$A1,$7C,$78,$09,$21,$6C,$0B,$A1,$52,$07,$23,$21
-	db $02,$2C,$A1,$13,$04,$30,$A1,$02,$92,$33,$21,$00,$32,$21,$E0,$00
-	db $21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$787C
+	dw PPU.layer_3_tilemap_base : db $6C
+	dw PPU.layer_all_tiledata_base|$8000,$0752
+	dw PPU.set_window_layer_1_2 : db $02
+	dw PPU.screens|$8000,$0413
+	dw PPU.color_addition_logic|$8000,$9202
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2EB8:
-	db $05,$21,$09,$07,$A1,$79,$6C,$09,$21,$71,$0B,$A1,$02,$06,$2C,$A1
-	db $13,$04,$30,$A1,$02,$02,$33,$21,$00,$32,$21,$20,$32,$21,$46,$32
-	db $21,$88,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$6C79
+	dw PPU.layer_3_tilemap_base : db $71
+	dw PPU.layer_all_tiledata_base|$8000,$0602
+	dw PPU.screens|$8000,$0413
+	dw PPU.color_addition_logic|$8000,$0202
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $20
+	dw PPU.fixed_color : db $46
+	dw PPU.fixed_color : db $88
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2EE2:
-	db $05,$21,$09,$07,$A1,$7C,$75,$0B,$21,$62,$2C,$A1,$11,$02,$30,$21
-	db $02,$31,$21,$91,$33,$21,$00,$32,$21,$E0,$00,$21,$80,$15,$21,$80
-	db $00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$757C
+	dw PPU.layer_1_2_tiledata_base : db $62
+	dw PPU.screens|$8000,$0211
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $91
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2F04:
-	db $05,$21,$09,$07,$A1,$6C,$74,$09,$21,$70,$0B,$A1,$52,$06,$2C,$A1
-	db $13,$04,$30,$21,$02,$31,$21,$22,$33,$21,$00,$32,$21,$45,$32,$21
-	db $8A,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$746C
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0652
+	dw PPU.screens|$8000,$0413
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $22
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $45
+	dw PPU.fixed_color : db $8A
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2F2D:
-	db $05,$21,$09,$07,$A1,$7C,$74,$09,$21,$6E,$0B,$A1,$52,$06,$2C,$21
-	db $05,$2D,$21,$16,$23,$21,$30,$2F,$21,$02,$33,$21,$00,$32,$21,$E0
-	db $00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$747C
+	dw PPU.layer_3_tilemap_base : db $6E
+	dw PPU.layer_all_tiledata_base|$8000,$0652
+	dw PPU.main_screen : db $05
+	dw PPU.sub_screen : db $16
+	dw PPU.set_window_layer_1_2 : db $30
+	dw PPU.window_mask_sub_screen : db $02
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2F55:
-	db $05,$21,$09,$07,$A1,$78,$7C,$0B,$21,$25,$2C,$21,$13,$2D,$21,$03
-	db $30,$21,$02,$31,$21,$10,$33,$21,$00,$32,$21,$E0,$00,$21,$80,$15
-	db $21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7C78
+	dw PPU.layer_1_2_tiledata_base : db $25
+	dw PPU.main_screen : db $13
+	dw PPU.sub_screen : db $03
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $10
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2F79:
-	db $05,$21,$09,$07,$A1,$7C,$78,$0B,$21,$32,$2C,$21,$13,$33,$21,$00
-	db $32,$21,$E0,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$787C
+	dw PPU.layer_1_2_tiledata_base : db $32
+	dw PPU.main_screen : db $13
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2F94:
-	db $05,$21,$09,$07,$A1,$6C,$74,$09,$21,$70,$0B,$A1,$52,$06,$2C,$A1
-	db $02,$15,$30,$21,$02,$31,$21,$22,$33,$21,$00,$32,$21,$45,$32,$21
-	db $8A,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$746C
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0652
+	dw PPU.screens|$8000,$1502
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $22
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $45
+	dw PPU.fixed_color : db $8A
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2FBD:
-	db $05,$21,$09,$07,$A1,$6C,$74,$09,$21,$70,$0B,$A1,$52,$06,$2C,$A1
-	db $13,$04,$30,$21,$02,$31,$21,$22,$33,$21,$00,$32,$21,$45,$32,$21
-	db $8A,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$746C
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0652
+	dw PPU.screens|$8000,$0413
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $22
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $45
+	dw PPU.fixed_color : db $8A
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD2FE6:
-	db $05,$21,$09,$07,$A1,$6C,$74,$09,$21,$70,$0B,$A1,$52,$06,$2C,$A1
-	db $13,$04,$30,$21,$02,$31,$21,$22,$33,$21,$00,$32,$21,$45,$32,$21
-	db $8A,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$746C
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0652
+	dw PPU.screens|$8000,$0413
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $22
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $45
+	dw PPU.fixed_color : db $8A
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD300F:
-	db $05,$21,$09,$07,$A1,$6C,$74,$09,$21,$70,$0B,$A1,$52,$06,$2C,$A1
-	db $02,$05,$30,$21,$02,$31,$21,$22,$33,$21,$00,$32,$21,$45,$32,$21
-	db $8A,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$746C
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0652
+	dw PPU.screens|$8000,$0502
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $22
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $45
+	dw PPU.fixed_color : db $8A
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD3038:
-	db $05,$21,$09,$07,$A1,$6C,$74,$09,$21,$70,$0B,$A1,$52,$06,$2C,$A1
-	db $13,$04,$2E,$21,$10,$25,$21,$02,$30,$21,$02,$31,$21,$22,$33,$21
-	db $00,$32,$21,$45,$32,$21,$8A,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$746C
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0652
+	dw PPU.screens|$8000,$0413
+	dw PPU.window_mask_main_screen : db $10
+	dw PPU.set_window_sprite_color : db $02
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $22
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $45
+	dw PPU.fixed_color : db $8A
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD3067:
-	db $05,$21,$09,$07,$A1,$74,$7A,$09,$21,$70,$0B,$A1,$42,$06,$2C,$A1
-	db $17,$02,$31,$21,$11,$33,$21,$00,$32,$21,$E0,$00,$21,$80,$15,$21
-	db $80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7A74
+	dw PPU.layer_3_tilemap_base : db $70
+	dw PPU.layer_all_tiledata_base|$8000,$0642
+	dw PPU.screens|$8000,$0217
+	dw PPU.set_color_math : db $11
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD308A:
-	db $05,$21,$09,$07,$21,$70,$08,$21,$6C,$0B,$21,$26,$2C,$21,$13,$30
-	db $21,$00,$31,$21,$00,$33,$21,$00,$32,$21,$E0,$00,$21,$80,$15,$21
-	db $80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_tilemap_base : db $70
+	dw PPU.layer_2_tilemap_base : db $6C
+	dw PPU.layer_1_2_tiledata_base : db $26
+	dw PPU.main_screen : db $13
+	dw PPU.color_addition_logic : db $00
+	dw PPU.set_color_math : db $00
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD30AD:
-	db $05,$21,$09,$07,$21,$60,$08,$21,$64,$0B,$21,$42,$2C,$21,$13,$30
-	db $21,$00,$31,$21,$00,$33,$21,$00,$32,$21,$00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_tilemap_base : db $60
+	dw PPU.layer_2_tilemap_base : db $64
+	dw PPU.layer_1_2_tiledata_base : db $42
+	dw PPU.main_screen : db $13
+	dw PPU.color_addition_logic : db $00
+	dw PPU.set_color_math : db $00
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD30CD:
-	db $05,$21,$09,$08,$21,$71,$09,$21,$78,$0B,$A1,$26,$05,$01,$21,$00
-	db $2C,$21,$12,$30,$21,$10,$31,$21,$37,$33,$21,$00,$32,$21,$00,$15
-	db $21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_2_tilemap_base : db $71
+	dw PPU.layer_3_tilemap_base : db $78
+	dw PPU.layer_all_tiledata_base|$8000,$0526
+	dw PPU.sprite_select : db $00
+	dw PPU.main_screen : db $12
+	dw PPU.color_addition_logic : db $10
+	dw PPU.set_color_math : db $37
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD30F1:
-	db $05,$21,$09,$07,$21,$7C,$0B,$21,$02,$2C,$21,$11,$33,$21,$00,$32
-	db $21,$E0,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_tilemap_base : db $7C
+	dw PPU.layer_1_2_tiledata_base : db $02
+	dw PPU.main_screen : db $11
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD310B:
-	db $05,$21,$07,$01,$21,$02,$2C,$A1,$10,$00,$33,$21,$00,$32,$21,$E0
-	db $15,$21,$80,$00,$21,$80,$00,$00
+	dw PPU.layer_mode : db $07
+	dw PPU.sprite_select : db $02
+	dw PPU.screens|$8000,$0010
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.vram_control : db $80
+	dw PPU.screen : db $80
+	dw $0000
 
 DATA_FD3123:
-	db $05,$21,$09,$07,$A1,$78,$7C,$09,$21,$74,$0B,$A1,$42,$07,$01,$21
-	db $00,$2C,$A1,$17,$00,$30,$21,$00,$31,$21,$82,$33,$21,$00,$32,$21
-	db $E6,$15,$21,$80,$00,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$7C78
+	dw PPU.layer_3_tilemap_base : db $74
+	dw PPU.layer_all_tiledata_base|$8000,$0742
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0017
+	dw PPU.color_addition_logic : db $00
+	dw PPU.set_color_math : db $82
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E6
+	dw PPU.vram_control : db $80
+	dw PPU.screen : db $80
+	dw $0000
 
 DATA_FD314C:
-	db $05,$21,$01,$07,$A1,$76,$7C,$0B,$21,$25,$2C,$21,$13,$33,$21,$00
-	db $32,$21,$E0,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $01
+	dw PPU.layer_1_2_tilemap_base|$8000,$7C76
+	dw PPU.layer_1_2_tiledata_base : db $25
+	dw PPU.main_screen : db $13
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD3167:
-	db $05,$21,$01,$07,$21,$20,$0B,$21,$00,$2C,$21,$01,$33,$21,$00,$32
-	db $21,$E0,$00,$21,$80,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $01
+	dw PPU.layer_1_tilemap_base : db $20
+	dw PPU.layer_1_2_tiledata_base : db $00
+	dw PPU.main_screen : db $01
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $E0
+	dw PPU.screen : db $80
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD3181:
-	db $05,$21,$02,$07,$A1,$7C,$74,$0B,$21,$22,$01,$21,$00,$2C,$A1,$13
-	db $00,$33,$21,$00,$32,$21,$00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $02
+	dw PPU.layer_1_2_tilemap_base|$8000,$747C
+	dw PPU.layer_1_2_tiledata_base : db $22
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$0013
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD319D:
-	db $05,$21,$01,$07,$A1,$70,$79,$09,$21,$74,$0B,$A1,$26,$05,$01,$21
-	db $00,$2C,$A1,$01,$16,$26,$21,$40,$27,$21,$C0,$2E,$21,$01,$23,$21
-	db $03,$30,$21,$02,$31,$21,$A1,$33,$21,$00,$32,$21,$94,$32,$21,$5F
-	db $32,$21,$3F,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $01
+	dw PPU.layer_1_2_tilemap_base|$8000,$7970
+	dw PPU.layer_3_tilemap_base : db $74
+	dw PPU.layer_all_tiledata_base|$8000,$0526
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$1601
+	dw PPU.window_1_left : db $40
+	dw PPU.window_1_right : db $C0
+	dw PPU.window_mask_main_screen : db $01
+	dw PPU.set_window_layer_1_2 : db $03
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $A1
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $94
+	dw PPU.fixed_color : db $5F
+	dw PPU.fixed_color : db $3F
+	dw PPU.vram_control : db $80
+	dw $0000
 
 DATA_FD31D5:
-	db $05,$21,$09,$07,$A1,$71,$6C,$09,$21,$79,$0B,$A1,$62,$05,$01,$21
-	db $00,$2C,$A1,$16,$11,$23,$21,$30,$2F,$21,$02,$30,$21,$02,$31,$21
-	db $05,$33,$21,$00,$32,$21,$00,$15,$21,$80,$00,$00
+	dw PPU.layer_mode : db $09
+	dw PPU.layer_1_2_tilemap_base|$8000,$6C71
+	dw PPU.layer_3_tilemap_base : db $79
+	dw PPU.layer_all_tiledata_base|$8000,$0562
+	dw PPU.sprite_select : db $00
+	dw PPU.screens|$8000,$1116
+	dw PPU.set_window_layer_1_2 : db $30
+	dw PPU.window_mask_sub_screen : db $02
+	dw PPU.color_addition_logic : db $02
+	dw PPU.set_color_math : db $05
+	dw PPU.video_mode : db $00
+	dw PPU.fixed_color : db $00
+	dw PPU.vram_control : db $80
+	dw $0000
 
 ;Sprite palettes
 DATA_FD3201:
@@ -2799,7 +3318,6 @@ DATA_FD3201:
 	dw DATA_FD42D3
 	dw DATA_FD42B5
 	dw DATA_FD4297
-
 
 DATA_FD341B:
 	incbin "data/palettes/Sprite_Dixie_Active.bin"

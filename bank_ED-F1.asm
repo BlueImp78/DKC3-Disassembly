@@ -1578,7 +1578,7 @@ DATA_EE078A:
 	dl DATA_F19CB0+$03	;CB
 
 
-if !include_garbage_data = 1
+if !include_garbage_data == 1
 	incbin "data/garbage_data/DKC2_DATA_EE09D9.bin"
 	incbin "data/garbage_data/DATA_EE0A80.bin"
 else

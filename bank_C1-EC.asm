@@ -3807,7 +3807,7 @@ DATA_C9FF1D:
 	db $01,$00,$02,$00,$00,$02,$10,$02,$78,$74
 	incbin "data/world_maps/objects/MapDixie_WalkSide8.bin"	; GFXSize = $80
 
-if !include_garbage_data = 1
+if !include_garbage_data == 1
 	check bankcross off
 	incbin "data/garbage_data/DKC2_DATA_C9FFA7.bin"
 	check bankcross full

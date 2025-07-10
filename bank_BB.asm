@@ -748,17 +748,17 @@ finalize_decompression:
 	LDA $1A					;$BB86D9   |\ Check if DMA should run
 	BMI .skip_DMA				;$BB86DB   |/
 	LDA $40					;$BB86DD   |\ This would be a be a DMA to VRAM
-	STA.w !REGISTER_VRAMAddressLo		;$BB86DF   | | However $32 is a constant and will always be skipped (0xFFFF)
+	STA.w PPU.vram_address			;$BB86DF   | | However $32 is a constant and will always be skipped (0xFFFF)
 	LDA $20					;$BB86E2   | |
-	STA DMA[$00].SourceLo			;$BB86E4   | |
+	STA DMA[$00].source_word		;$BB86E4   | |
 	LDA $22					;$BB86E7   | |
-	STA DMA[$00].SourceBank			;$BB86E9   | |
-	STX DMA[$00].SizeLo			;$BB86EC   | |
+	STA DMA[$00].source_bank		;$BB86E9   | |
+	STX DMA[$00].size			;$BB86EC   | |
 	LDA #$1801				;$BB86EF   | |
-	STA DMA[$00].Parameters			;$BB86F2   | |
+	STA DMA[$00].settings			;$BB86F2   | |
 	SEP #$20				;$BB86F5   | |
 	LDA #$01				;$BB86F7   | |
-	STA.w !REGISTER_DMAEnable		;$BB86F9   | |
+	STA.w CPU.enable_dma			;$BB86F9   | |
 	REP #$20				;$BB86FC   |/
 .skip_DMA:					;	   |
 	RTL					;$BB86FE  / Done with decompression
@@ -1749,14 +1749,14 @@ CODE_BB8D01:
 	ORA.b #$C0				;$BB8D10
 	STA.b $44				;$BB8D12
 	LDA.b #$7F0000>>16			;$BB8D14
-	STA.l DMA[$00].SourceBank		;$BB8D16
+	STA.l DMA[$00].source_bank		;$BB8D16
 	REP.b #$20				;$BB8D1A
 	LDA.w #$7F0000				;$BB8D1C
-	STA.l DMA[$00].SourceLo			;$BB8D1F
+	STA.l DMA[$00].source_word		;$BB8D1F
 	LDA.w DATA_FD1B03+$01,x			;$BB8D23
 	STA.b $42				;$BB8D26
 	LDA.w DATA_FD1B03+$03,x			;$BB8D28
-	STA.l !REGISTER_VRAMAddressLo		;$BB8D2B
+	STA.l PPU.vram_address			;$BB8D2B
 	PHX					;$BB8D2F
 	LDA.w DATA_FD1B03+$05,x			;$BB8D30
 	INC					;$BB8D33
@@ -1774,14 +1774,14 @@ CODE_BB8D39:
 	SEP.b #$20				;$BB8D45
 CODE_BB8D47:
 	LDA.w DATA_FD1B03+$05,x			;$BB8D47
-	STA.l DMA[$00].SizeLo			;$BB8D4A
+	STA.l DMA[$00].size_low			;$BB8D4A
 	LDA.w DATA_FD1B03+$06,x			;$BB8D4E
-	STA.l DMA[$00].SizeHi			;$BB8D51
-	LDA.b #!REGISTER_WriteToVRAMPortLo	;$BB8D55
-	STA.l DMA[$00].Destination		;$BB8D57
+	STA.l DMA[$00].size_high		;$BB8D51
+	LDA.b #PPU.vram_write_low		;$BB8D55
+	STA.l DMA[$00].destination		;$BB8D57
 	LDA.b #$01				;$BB8D5B
-	STA.l DMA[$00].Parameters		;$BB8D5D
-	STA.l !REGISTER_DMAEnable		;$BB8D61
+	STA.l DMA[$00].control			;$BB8D5D
+	STA.l CPU.enable_dma			;$BB8D61
 	REP.b #$20				;$BB8D65
 	TXA					;$BB8D67
 	CLC					;$BB8D68
@@ -1831,15 +1831,15 @@ CODE_BB8D90:
 CODE_BB8DA6:
 	SEP.b #$20				;$BB8DA6
 	LDA.w DATA_FD1B03+$03,x			;$BB8DA8
-	STA.l !REGISTER_VRAMAddressLo		;$BB8DAB
+	STA.l PPU.vram_address_low		;$BB8DAB
 	LDA.w DATA_FD1B03+$04,x			;$BB8DAF
 	AND.b #$7F0000>>16			;$BB8DB2
-	STA.l !REGISTER_VRAMAddressHi		;$BB8DB4
+	STA.l PPU.vram_address_high		;$BB8DB4
 	LDA.b #$7F0000>>16			;$BB8DB8
-	STA.l DMA[$00].SourceBank		;$BB8DBA
+	STA.l DMA[$00].source_bank		;$BB8DBA
 	REP.b #$20				;$BB8DBE
 	LDA.w #$7F0000				;$BB8DC0
-	STA.l DMA[$00].SourceLo			;$BB8DC3
+	STA.l DMA[$00].source_word		;$BB8DC3
 	SEP.b #$20				;$BB8DC7
 	BRL.w CODE_BB8D47			;$BB8DC9
 
@@ -1888,21 +1888,21 @@ CODE_BB8E11:
 	JSR.w CODE_BB8E53			;$BB8E11
 CODE_BB8E14:
 	PLA					;$BB8E14
-	STA.w DMA[$00].SourceLo			;$BB8E15
+	STA.w DMA[$00].source_word		;$BB8E15
 	TXA					;$BB8E18
 	ASL					;$BB8E19
 	ASL					;$BB8E1A
 	ASL					;$BB8E1B
-	STA.w DMA[$00].SizeLo			;$BB8E1C
+	STA.w DMA[$00].size			;$BB8E1C
 	LDA.w #$2200				;$BB8E1F
-	STA.w DMA[$00].Parameters		;$BB8E22
+	STA.w DMA[$00].settings			;$BB8E22
 	SEP.b #$20				;$BB8E25
 	LDA.b #DATA_FD341B>>16			;$BB8E27
-	STA.w DMA[$00].SourceBank		;$BB8E29
+	STA.w DMA[$00].source_bank		;$BB8E29
 	TYA					;$BB8E2C
-	STA.w !REGISTER_CGRAMAddress		;$BB8E2D
+	STA.w PPU.cgram_address			;$BB8E2D
 	LDA.b #$01				;$BB8E30
-	STA.w !REGISTER_DMAEnable		;$BB8E32
+	STA.w CPU.enable_dma			;$BB8E32
 	REP.b #$20				;$BB8E35
 	RTL					;$BB8E37
 
@@ -3771,11 +3771,11 @@ CODE_BB9B2F:
 disable_screen:
 	SEP #$20				;$BB9B42
 	LDA.b #$00				;$BB9B44
-	STA.l !REGISTER_HDMAEnable		;$BB9B46
+	STA.l CPU.enable_hdma			;$BB9B46
 	LDA.b #$01				;$BB9B4A
-	STA.l !REGISTER_IRQNMIAndJoypadEnableFlags	;$BB9B4C
+	STA.l CPU.enable_interrupts		;$BB9B4C
 	LDA.b #$8F				;$BB9B50
-	STA.l !REGISTER_ScreenDisplayRegister	;$BB9B52
+	STA.l PPU.screen			;$BB9B52
 	REP #$20				;$BB9B56
 	LDA.w #$0000				;$BB9B58
 	STA.l $0004E4				;$BB9B5B
@@ -3992,11 +3992,11 @@ CODE_BB9CD7:
 CODE_BB9CED:
 	LDA.w #$FFFF				;$BB9CED
 	STA.w $06D8				;$BB9CF0
-	STZ.w !REGISTER_VRAMAddressLo		;$BB9CF3
+	STZ.w PPU.vram_address			;$BB9CF3
 	LDX.w #$0000				;$BB9CF6
 CODE_BB9CF9:
 	LDA.l DATA_FC3720,x			;$BB9CF9
-	STA.w !REGISTER_WriteToVRAMPortLo	;$BB9CFD
+	STA.w PPU.vram_write			;$BB9CFD
 	INX					;$BB9D00
 	INX					;$BB9D01
 	CPX.w #$01E0				;$BB9D02
@@ -4055,11 +4055,11 @@ CODE_BB9D75:
 
 CODE_BB9D78:
 	LDA.w #$0400				;$BB9D78
-	STA.w !REGISTER_VRAMAddressLo		;$BB9D7B
+	STA.w PPU.vram_address			;$BB9D7B
 	LDX.w #$0000				;$BB9D7E
 CODE_BB9D81:
 	LDA.l DATA_FC3020,x			;$BB9D81
-	STA.w !REGISTER_WriteToVRAMPortLo	;$BB9D85
+	STA.w PPU.vram_write			;$BB9D85
 	INX					;$BB9D88
 	INX					;$BB9D89
 	CPX.w #$0800				;$BB9D8A
@@ -4136,7 +4136,7 @@ CODE_BB9E2C:
 	ASL					;$BB9E31
 	ASL					;$BB9E32
 	STA.b $42				;$BB9E33
-	STA.w !REGISTER_VRAMAddressLo		;$BB9E35
+	STA.w PPU.vram_address			;$BB9E35
 	LDX.w #$0000				;$BB9E38
 	LDY.w #$0030				;$BB9E3B
 	JSR.w CODE_BB9E6F			;$BB9E3E
@@ -4147,7 +4147,7 @@ CODE_BB9E2C:
 	LDA.b $42				;$BB9E4D
 	CLC					;$BB9E4F
 	ADC.w #$0100				;$BB9E50
-	STA.w !REGISTER_VRAMAddressLo		;$BB9E53
+	STA.w PPU.vram_address			;$BB9E53
 	LDY.w #$0020				;$BB9E56
 	JSR.w CODE_BB9E6F			;$BB9E59
 	LDX.w #$0040				;$BB9E5C
@@ -4155,14 +4155,14 @@ CODE_BB9E2C:
 	JSR.w CODE_BB9E6F			;$BB9E62
 	LDY.w #$0010				;$BB9E65
 CODE_BB9E68:
-	STZ.w !REGISTER_WriteToVRAMPortLo	;$BB9E68
+	STZ.w PPU.vram_write			;$BB9E68
 	DEY					;$BB9E6B
 	BNE.b CODE_BB9E68			;$BB9E6C
 	RTS					;$BB9E6E
 
 CODE_BB9E6F:
 	LDA.l DATA_C079A6,x			;$BB9E6F
-	STA.w !REGISTER_WriteToVRAMPortLo	;$BB9E73
+	STA.w PPU.vram_write			;$BB9E73
 	INX					;$BB9E76
 	INX					;$BB9E77
 	DEY					;$BB9E78
@@ -4566,23 +4566,23 @@ CODE_BBA154:
 	LDX.w #$188D				;$BBA164
 	JSR.w CODE_BB9507			;$BBA167
 	LDA.w #$00E0				;$BBA16A
-	STA.w DMA[$00].SizeLo			;$BBA16D
+	STA.w DMA[$00].size			;$BBA16D
 	LDA.w $18AB				;$BBA170
 	ASL					;$BBA173
 	ASL					;$BBA174
 	ASL					;$BBA175
 	ASL					;$BBA176
-	STA.l !REGISTER_VRAMAddressLo		;$BBA177
+	STA.l PPU.vram_address			;$BBA177
 	LDA.l DATA_C00000+$04			;$BBA17B
-	STA.l DMA[$00].SourceLo			;$BBA17F
+	STA.l DMA[$00].source_word		;$BBA17F
 	SEP.b #$20				;$BBA183
 	LDA.l DATA_C00000+$06			;$BBA185
-	STA.l DMA[$00].SourceBank		;$BBA189
-	LDA.b #!REGISTER_WriteToVRAMPortLo	;$BBA18D
-	STA.w DMA[$00].Destination		;$BBA18F
+	STA.l DMA[$00].source_bank		;$BBA189
+	LDA.b #PPU.vram_write_low		;$BBA18D
+	STA.w DMA[$00].destination		;$BBA18F
 	LDA.b #$01				;$BBA192
-	STA.l DMA[$00].Parameters		;$BBA194
-	STA.l !REGISTER_DMAEnable		;$BBA198
+	STA.l DMA[$00].control			;$BBA194
+	STA.l CPU.enable_dma			;$BBA198
 	REP.b #$20				;$BBA19C
 	RTS					;$BBA19E
 
@@ -5027,10 +5027,10 @@ CODE_BBA523:
 	LDA.w $15F4				;$BBA523
 	XBA					;$BBA526
 	ORA.w $15FA				;$BBA527
-	STA.w !REGISTER_Multiplicand		;$BBA52A
-	LDA.w !REGISTER_ProductOrRemainderLo	;$BBA52D
-	LDA.w !REGISTER_ProductOrRemainderLo	;$BBA530
-	LDA.w !REGISTER_ProductOrRemainderLo	;$BBA533
+	STA.w CPU.multiply_A			;$BBA52A
+	LDA.w CPU.multiply_result		;$BBA52D
+	LDA.w CPU.multiply_result		;$BBA530
+	LDA.w CPU.multiply_result		;$BBA533
 	CLC					;$BBA536
 	ADC.w $15EE				;$BBA537
 	ASL					;$BBA53A
@@ -5220,9 +5220,9 @@ CODE_BBA673:
 	ADC.w #$0100				;$BBA682
 CODE_BBA685:
 	ORA.w $15FA				;$BBA685
-	STA.w !REGISTER_Multiplicand		;$BBA688
-	LDA.w !REGISTER_ProductOrRemainderLo	;$BBA68B
-	LDA.w !REGISTER_ProductOrRemainderLo	;$BBA68E
+	STA.w CPU.multiply_A			;$BBA688
+	LDA.w CPU.multiply_result		;$BBA68B
+	LDA.w CPU.multiply_result		;$BBA68E
 	CLC					;$BBA691
 	ADC.b $1A				;$BBA692
 	ASL					;$BBA694
@@ -6788,10 +6788,10 @@ CODE_BBB21F:
 	BCC.b CODE_BBB22C			;$BBB227
 	LDA.w #$0063				;$BBB229
 CODE_BBB22C:
-	STA.w !REGISTER_DividendLo		;$BBB22C
+	STA.w CPU.dividen_low			;$BBB22C
 	SEP.b #$20				;$BBB22F
 	LDA.b #$0A				;$BBB231
-	STA.w !REGISTER_Divisor			;$BBB233
+	STA.w CPU.divisor			;$BBB233
 	REP.b #$20				;$BBB236
 	LDA.w $18DB				;$BBB238
 	ASL					;$BBB23B
@@ -6801,15 +6801,15 @@ CODE_BBB22C:
 	ADC.w #$F000				;$BBB23F
 	AND.w #$FF00				;$BBB242
 	STA.b $1A				;$BBB245
-	LDA.w !REGISTER_QuotientLo		;$BBB247
+	LDA.w CPU.divide_result			;$BBB247
 	BEQ.b CODE_BBB258			;$BBB24A
 	LDX.w #$00DF				;$BBB24C
 	JSR.w CODE_BBB285			;$BBB24F
-	LDA.w !REGISTER_ProductOrRemainderLo	;$BBB252
+	LDA.w CPU.divide_remainder		;$BBB252
 	JMP.w CODE_BBB285			;$BBB255
 
 CODE_BBB258:
-	LDA.w !REGISTER_ProductOrRemainderLo	;$BBB258
+	LDA.w CPU.divide_remainder		;$BBB258
 	LDX.w #$00E4				;$BBB25B
 	JMP.w CODE_BBB285			;$BBB25E
 
@@ -8108,23 +8108,23 @@ CODE_BBBD04:
 CODE_BBBD39:
 	SEP.b #$20				;$BBBD39
 	AND.b #$1F				;$BBBD3B
-	STA.l !REGISTER_Multiplicand		;$BBBD3D
+	STA.l CPU.multiply_A			;$BBBD3D
 	LDA.b $3E				;$BBBD41
-	STA.l !REGISTER_Multiplier		;$BBBD43
+	STA.l CPU.multiply_B			;$BBBD43
 	LDA.b ($00)				;$BBBD47
 	REP.b #$20				;$BBBD49
-	LDA.l !REGISTER_ProductOrRemainderLo	;$BBBD4B
+	LDA.l CPU.multiply_result		;$BBBD4B
 	STA.b $3A				;$BBBD4F
 	SEP.b #$20				;$BBBD51
 	LDA.b $40				;$BBBD53
-	STA.l !REGISTER_Multiplicand		;$BBBD55
+	STA.l CPU.multiply_A			;$BBBD55
 	TXA					;$BBBD59
 	AND.b #$1F				;$BBBD5A
-	STA.l !REGISTER_Multiplier		;$BBBD5C
+	STA.l CPU.multiply_B			;$BBBD5C
 	REP.b #$20				;$BBBD60
 	LDA.b $3A				;$BBBD62
 	CLC					;$BBBD64
-	ADC.l !REGISTER_ProductOrRemainderLo	;$BBBD65
+	ADC.l CPU.multiply_result		;$BBBD65
 	LSR					;$BBBD69
 	LSR					;$BBBD6A
 	LSR					;$BBBD6B
@@ -8410,23 +8410,23 @@ CODE_BBBF03:
 CODE_BBBF38:
 	SEP.b #$20				;$BBBF38
 	AND.b #$1F				;$BBBF3A
-	STA.l !REGISTER_Multiplicand		;$BBBF3C
+	STA.l CPU.multiply_A			;$BBBF3C
 	LDA.b $3E				;$BBBF40
-	STA.l !REGISTER_Multiplier		;$BBBF42
+	STA.l CPU.multiply_B			;$BBBF42
 	LDA.b ($00)				;$BBBF46
 	REP.b #$20				;$BBBF48
-	LDA.l !REGISTER_ProductOrRemainderLo	;$BBBF4A
+	LDA.l CPU.multiply_result		;$BBBF4A
 	STA.b $3A				;$BBBF4E
 	SEP.b #$20				;$BBBF50
 	LDA.b $40				;$BBBF52
-	STA.l !REGISTER_Multiplicand		;$BBBF54
+	STA.l CPU.multiply_A			;$BBBF54
 	TXA					;$BBBF58
 	AND.b #$1F				;$BBBF59
-	STA.l !REGISTER_Multiplier		;$BBBF5B
+	STA.l CPU.multiply_B			;$BBBF5B
 	REP.b #$20				;$BBBF5F
 	LDA.b $3A				;$BBBF61
 	CLC					;$BBBF63
-	ADC.l !REGISTER_ProductOrRemainderLo	;$BBBF64
+	ADC.l CPU.multiply_result		;$BBBF64
 	LSR					;$BBBF68
 	LSR					;$BBBF69
 	LSR					;$BBBF6A
@@ -8540,7 +8540,7 @@ CODE_BBC017:
 	BPL.b CODE_BBC002			;$BBC023
 	RTS					;$BBC025
 
-if !include_garbage_data = 1
+if !include_garbage_data == 1
 	incsrc "data/garbage_data/ADDR_BBC026.asm"
 else
 	padbyte $00 : pad $BBC800
@@ -9044,23 +9044,23 @@ CODE_BBCB43:
 CODE_BBCB7A:
 	SEP.b #$20				;$BBCB7A
 	AND.b #$1F				;$BBCB7C
-	STA.w !REGISTER_Multiplicand		;$BBCB7E
+	STA.w CPU.multiply_A			;$BBCB7E
 	LDA.b $3E				;$BBCB81
-	STA.w !REGISTER_Multiplier		;$BBCB83
+	STA.w CPU.multiply_B			;$BBCB83
 	LDA.b ($00)				;$BBCB86
 	REP.b #$20				;$BBCB88
-	LDA.w !REGISTER_ProductOrRemainderLo	;$BBCB8A
+	LDA.w CPU.multiply_result		;$BBCB8A
 	STA.b $3A				;$BBCB8D
 	SEP.b #$20				;$BBCB8F
 	LDA.b $40				;$BBCB91
-	STA.w !REGISTER_Multiplicand		;$BBCB93
+	STA.w CPU.multiply_A			;$BBCB93
 	TXA					;$BBCB96
 	AND.b #$1F				;$BBCB97
-	STA.w !REGISTER_Multiplier		;$BBCB99
+	STA.w CPU.multiply_B			;$BBCB99
 	REP.b #$20				;$BBCB9C
 	LDA.b $3A				;$BBCB9E
 	CLC					;$BBCBA0
-	ADC.w !REGISTER_ProductOrRemainderLo	;$BBCBA1
+	ADC.w CPU.multiply_result		;$BBCBA1
 	LSR					;$BBCBA4
 	LSR					;$BBCBA5
 	LSR					;$BBCBA6
@@ -10161,17 +10161,17 @@ DATA_BBD384:
 CODE_BBD38C:
 	LDX.b $60,y				;$BBD38C
 	LDA.b $00,x				;$BBD38E
-	STA.w !REGISTER_DividendLo		;$BBD390
+	STA.w CPU.dividen_low			;$BBD390
 	SEP.b #$20				;$BBD393
 	LDA.b #$0A				;$BBD395
-	STA.w !REGISTER_Divisor			;$BBD397
+	STA.w CPU.divisor			;$BBD397
 	TYX					;$BBD39A
 	STX.w $18DF				;$BBD39B
 	INC.b $38,x				;$BBD39E
 	BIT.b $00				;$BBD3A0
-	LDA.w !REGISTER_QuotientLo		;$BBD3A2
+	LDA.w CPU.divide_result_low		;$BBD3A2
 	XBA					;$BBD3A5
-	LDA.w !REGISTER_ProductOrRemainderLo	;$BBD3A6
+	LDA.w CPU.divide_remainder		;$BBD3A6
 	REP.b #$20				;$BBD3A9
 	STA.w $005E,y				;$BBD3AB
 	JML [$04F5]				;$BBD3AE
@@ -10262,7 +10262,7 @@ CODE_BBD43D:
 	PLY					;$BBD43D
 	LDX.w DATA_BBD4B7+$02,y			;$BBD43E
 	LDA.b $00,x				;$BBD441
-	STA.w !REGISTER_DividendLo		;$BBD443
+	STA.w CPU.dividen_low			;$BBD443
 	STA.b $3A				;$BBD446
 	CLC					;$BBD448
 	ADC.w DATA_BBD4B7+$04,y			;$BBD449
@@ -10273,7 +10273,7 @@ CODE_BBD454:
 	STA.b $00,x				;$BBD454
 	SEP.b #$20				;$BBD456
 	LDA.b #$0A				;$BBD458
-	STA.w !REGISTER_Divisor			;$BBD45A
+	STA.w CPU.divisor			;$BBD45A
 	REP.b #$20				;$BBD45D
 	LDA.b $00,x				;$BBD45F
 	SEC					;$BBD461
@@ -10281,9 +10281,9 @@ CODE_BBD454:
 	LDX.b current_sprite			;$BBD464
 	STA.b $60,x				;$BBD466
 	SEP.b #$20				;$BBD468
-	LDA.w !REGISTER_QuotientLo		;$BBD46A
+	LDA.w CPU.divide_result_low		;$BBD46A
 	XBA					;$BBD46D
-	LDA.w !REGISTER_ProductOrRemainderLo	;$BBD46E
+	LDA.w CPU.divide_remainder		;$BBD46E
 	REP.b #$20				;$BBD471
 	STA.b $5E,x				;$BBD473
 	LDA.w DATA_BBD4B7+$02,y			;$BBD475
@@ -10862,24 +10862,24 @@ CODE_BBD914:
 CODE_BBD915:
 	LDX.b current_sprite			;$BBD915
 	LDA.b $62,x				;$BBD917
-	STA.w !REGISTER_DividendLo		;$BBD919
+	STA.w CPU.dividen_low			;$BBD919
 	SEP.b #$20				;$BBD91C
 	LDA.b #$0A				;$BBD91E
-	STA.w !REGISTER_Divisor			;$BBD920
+	STA.w CPU.divisor			;$BBD920
 	REP.b #$20				;$BBD923
 	LDA.b ($00)				;$BBD925
 	NOP					;$BBD927
 	LDY.b $5C,x				;$BBD928
-	LDA.w !REGISTER_QuotientLo		;$BBD92A
+	LDA.w CPU.divide_result			;$BBD92A
 	ASL					;$BBD92D
 	ASL					;$BBD92E
-	ADC.w !REGISTER_QuotientLo		;$BBD92F
+	ADC.w CPU.divide_result			;$BBD92F
 	ADC.b $6C,x				;$BBD932
 	STA.b $24,x				;$BBD934
-	LDA.w !REGISTER_ProductOrRemainderLo	;$BBD936
+	LDA.w CPU.divide_remainder		;$BBD936
 	ASL					;$BBD939
 	ASL					;$BBD93A
-	ADC.w !REGISTER_ProductOrRemainderLo	;$BBD93B
+	ADC.w CPU.divide_remainder		;$BBD93B
 	ADC.b $6C,x				;$BBD93E
 	STA.w $0024,y				;$BBD940
 	RTS					;$BBD943
@@ -11702,7 +11702,7 @@ CODE_BBDF5D:
 CODE_BBDF6C:
 	JMP.w CODE_BBC827			;$BBDF6C
 
-if !include_garbage_data = 1
+if !include_garbage_data == 1
 	incbin "data/garbage_data/DKC1_DATA_BBDF6F.bin"
 	incbin "data/garbage_data/DKC2_DATA_BBE800.bin"
 else

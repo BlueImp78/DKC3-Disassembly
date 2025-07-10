@@ -20753,7 +20753,7 @@ DATA_FFBE1E:
 	%DKC3_SSS_OpXX($00, $EF00)
 	%DKC3_SSS_OpEF()
 
-if !include_garbage_data = 1
+if !include_garbage_data == 1
 	incbin "data/garbage_data/DATA_FFBE22.bin"
 else
 	padbyte $00 : pad $FFDB80

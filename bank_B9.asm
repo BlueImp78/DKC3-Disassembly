@@ -609,15 +609,15 @@ CODE_B9A393:
 	JSL.l CODE_808018			;$B9A393
 	STA.b $42				;$B9A397
 	SEP.b #$20				;$B9A399
-	STA.l !REGISTER_Multiplicand		;$B9A39B
+	STA.l CPU.multiply_A			;$B9A39B
 	LDA.w $0001,y				;$B9A39F
 	SEC					;$B9A3A2
 	SBC.w $0000,y				;$B9A3A3
-	STA.l !REGISTER_Multiplier		;$B9A3A6
+	STA.l CPU.multiply_B			;$B9A3A6
 	REP.b #$20				;$B9A3AA
 	XBA					;$B9A3AC
 	NOP					;$B9A3AD
-	LDA.l !REGISTER_ProductOrRemainderHi	;$B9A3AE
+	LDA.l CPU.multiply_result_high		;$B9A3AE
 	CLC					;$B9A3B2
 	ADC.w $0000,y				;$B9A3B3
 	AND.w #$00FF				;$B9A3B6
@@ -628,18 +628,18 @@ CODE_B9A393:
 	STA.b $42,x				;$B9A3BF
 	SEP.b #$20				;$B9A3C1
 	LDA.b $43				;$B9A3C3
-	STA.l !REGISTER_Multiplicand		;$B9A3C5
+	STA.l CPU.multiply_A			;$B9A3C5
 	LDA.w $0004,y				;$B9A3C9
-	STA.l !REGISTER_Multiplier		;$B9A3CC
+	STA.l CPU.multiply_B			;$B9A3CC
 	NOP #4					;$B9A3D0
-	LDA.l !REGISTER_ProductOrRemainderHi	;$B9A3D4
-	STA.l !REGISTER_Multiplicand		;$B9A3D8
+	LDA.l CPU.multiply_result_high		;$B9A3D4
+	STA.l CPU.multiply_A			;$B9A3D8
 	LDA.b #$05				;$B9A3DC
-	STA.l !REGISTER_Multiplier		;$B9A3DE
+	STA.l CPU.multiply_B			;$B9A3DE
 	REP.b #$20				;$B9A3E2
 	LDA.w $0002,y				;$B9A3E4
 	CLC					;$B9A3E7
-	ADC.l !REGISTER_ProductOrRemainderLo	;$B9A3E8
+	ADC.l CPU.multiply_result		;$B9A3E8
 	STA.b $24,x				;$B9A3EC
 	TYA					;$B9A3EE
 	CLC					;$B9A3EF
@@ -3715,7 +3715,7 @@ CODE_B9B90D:
 
 CODE_B9B914:
 	LDA.w #$0011				;$B9B914
-	STA.w !REGISTER_MainScreenLayers	;$B9B917
+	STA.w PPU.screens			;$B9B917
 	LDA.w #$FFF8				;$B9B91A
 	STA.w $1989				;$B9B91D
 	RTS					;$B9B920
@@ -3973,7 +3973,7 @@ CODE_B9BAAE:
 	JMP.w CODE_B9BAB7			;$B9BAB4
 
 CODE_B9BAB7:
-	STA.w !REGISTER_Multiplicand		;$B9BAB7
+	STA.w CPU.multiply_A			;$B9BAB7
 	LDA.b $5A,x				;$B9BABA
 	AND.w #$00FF				;$B9BABC
 	CMP.w #$000A				;$B9BABF
@@ -3988,12 +3988,12 @@ CODE_B9BAD1:
 	ASL					;$B9BAD1
 	ASL					;$B9BAD2
 	XBA					;$B9BAD3
-	STA.w !REGISTER_Multiplier		;$B9BAD4
+	STA.w CPU.multiply_B			;$B9BAD4
 	LDA.b $60,x				;$B9BAD7
 	CLC					;$B9BAD9
 	ADC.w #$4000				;$B9BADA
 	STA.b $3E				;$B9BADD
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B9BADF
+	LDA.w CPU.multiply_result		;$B9BADF
 	XBA					;$B9BAE2
 	LSR					;$B9BAE3
 	LSR					;$B9BAE4
@@ -4943,7 +4943,7 @@ DATA_B9C077:
 	dw $7D3B		;invalid pointer? look into
 	dw $7D3B		;invalid pointer? look into
 
-if !include_garbage_data = 1
+if !include_garbage_data == 1
 check bankcross off
 	incbin "data/garbage_data/DKC2_DATA_F9C087.bin"
 	incbin "data/garbage_data/DKC1_DATA_F9CD0C.bin"
@@ -5612,7 +5612,7 @@ CODE_B9E40A:
 
 CODE_B9E413:
 	SEP.b #$20				;$B9E413
-	STA.w !REGISTER_Multiplicand		;$B9E415
+	STA.w CPU.multiply_A			;$B9E415
 	REP.b #$20				;$B9E418
 	LDA.b $5E,x				;$B9E41A
 	AND.w #$7FFF				;$B9E41C
@@ -5625,11 +5625,11 @@ CODE_B9E41F:
 
 CODE_B9E428:
 	SEP.b #$20				;$B9E428
-	STA.w !REGISTER_Multiplier		;$B9E42A
+	STA.w CPU.multiply_B			;$B9E42A
 	REP.b #$20				;$B9E42D
 	NOP #3					;$B9E42F
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B9E432
-	STA.w !REGISTER_DividendLo		;$B9E435
+	LDA.w CPU.multiply_result		;$B9E432
+	STA.w CPU.dividen_low			;$B9E435
 	PLA					;$B9E438
 	BEQ.b CODE_B9E467			;$B9E439
 CODE_B9E43B:
@@ -5641,13 +5641,13 @@ CODE_B9E43B:
 
 CODE_B9E444:
 	SEP.b #$20				;$B9E444
-	STA.w !REGISTER_Divisor			;$B9E446
+	STA.w CPU.divisor			;$B9E446
 	REP.b #$20				;$B9E449
 	NOP #4					;$B9E44B
 	TYA					;$B9E44F
 	BEQ.b CODE_B9E45C			;$B9E450
 	BPL.b CODE_B9E460			;$B9E452
-	LDA.w !REGISTER_QuotientLo		;$B9E454
+	LDA.w CPU.divide_result			;$B9E454
 CODE_B9E457:
 	LSR					;$B9E457
 	INY					;$B9E458
@@ -5655,11 +5655,11 @@ CODE_B9E457:
 	RTS					;$B9E45B
 
 CODE_B9E45C:
-	LDA.w !REGISTER_QuotientLo		;$B9E45C
+	LDA.w CPU.divide_result			;$B9E45C
 	RTS					;$B9E45F
 
 CODE_B9E460:
-	LDA.w !REGISTER_QuotientLo		;$B9E460
+	LDA.w CPU.divide_result			;$B9E460
 CODE_B9E463:
 	ASL					;$B9E463
 	DEY					;$B9E464
@@ -5786,17 +5786,17 @@ CODE_B9E520:
 	EOR.w #$FFFF				;$B9E522
 	INC					;$B9E525
 	ORA.b $3E				;$B9E526
-	STA.w !REGISTER_Multiplicand		;$B9E528
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B9E52B
-	LDA.w !REGISTER_ProductOrRemainderHi	;$B9E52E
+	STA.w CPU.multiply_A			;$B9E528
+	LDA.w CPU.multiply_result		;$B9E52B
+	LDA.w CPU.multiply_result_high		;$B9E52E
 	AND.w #$00FF				;$B9E531
 	RTS					;$B9E534
 
 CODE_B9E535:
 	ORA.b $3E				;$B9E535
-	STA.w !REGISTER_Multiplicand		;$B9E537
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B9E53A
-	LDA.w !REGISTER_ProductOrRemainderHi	;$B9E53D
+	STA.w CPU.multiply_A			;$B9E537
+	LDA.w CPU.multiply_result		;$B9E53A
+	LDA.w CPU.multiply_result_high		;$B9E53D
 	AND.w #$00FF				;$B9E540
 	EOR.w #$FFFF				;$B9E543
 	INC					;$B9E546
@@ -6095,12 +6095,12 @@ CODE_B9E711:
 	TYA					;$B9E714
 	SEP.b #$20				;$B9E715
 	LDA.b $66,x				;$B9E717
-	STA.w !REGISTER_Multiplicand		;$B9E719
+	STA.w CPU.multiply_A			;$B9E719
 	TYA					;$B9E71C
-	STA.w !REGISTER_Multiplier		;$B9E71D
+	STA.w CPU.multiply_B			;$B9E71D
 	REP.b #$20				;$B9E720
 	NOP					;$B9E722
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B9E723
+	LDA.w CPU.multiply_result		;$B9E723
 	LSR					;$B9E726
 	EOR.w #$FFFF				;$B9E727
 	INC					;$B9E72A
@@ -6113,26 +6113,26 @@ CODE_B9E711:
 	EOR.w #$FFFF				;$B9E735
 	INC					;$B9E738
 CODE_B9E739:
-	STA.w !REGISTER_DividendLo		;$B9E739
+	STA.w CPU.dividen_low			;$B9E739
 	SEP.b #$20				;$B9E73C
 	LDA.b $6A,x				;$B9E73E
 	TAY					;$B9E740
-	STA.w !REGISTER_Divisor			;$B9E741
+	STA.w CPU.divisor			;$B9E741
 	REP.b #$20				;$B9E744
 	JSL.l CODE_B58003			;$B9E746
-	LDA.w !REGISTER_QuotientLo		;$B9E74A
+	LDA.w CPU.divide_result			;$B9E74A
 	XBA					;$B9E74D
 	PHA					;$B9E74E
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B9E74F
+	LDA.w CPU.divide_remainder		;$B9E74F
 	XBA					;$B9E752
-	STA.w !REGISTER_DividendLo		;$B9E753
+	STA.w CPU.dividen_low			;$B9E753
 	SEP.b #$20				;$B9E756
 	TYA					;$B9E758
-	STA.w !REGISTER_Divisor			;$B9E759
+	STA.w CPU.divisor			;$B9E759
 	REP.b #$20				;$B9E75C
 	JSL.l CODE_B58003			;$B9E75E
 	PLA					;$B9E762
-	ORA.w !REGISTER_QuotientLo		;$B9E763
+	ORA.w CPU.divide_result			;$B9E763
 	PLP					;$B9E766
 	BPL.b CODE_B9E76D			;$B9E767
 	EOR.w #$FFFF				;$B9E769
@@ -6152,26 +6152,26 @@ CODE_B9E773:
 	EOR.w #$FFFF				;$B9E77B
 	INC					;$B9E77E
 CODE_B9E77F:
-	STA.w !REGISTER_DividendLo		;$B9E77F
+	STA.w CPU.dividen_low			;$B9E77F
 	SEP.b #$20				;$B9E782
 	LDA.b $6A,x				;$B9E784
 	TAY					;$B9E786
-	STA.w !REGISTER_Divisor			;$B9E787
+	STA.w CPU.divisor			;$B9E787
 	REP.b #$20				;$B9E78A
 	JSL.l CODE_B58003			;$B9E78C
-	LDA.w !REGISTER_QuotientLo		;$B9E790
+	LDA.w CPU.divide_result			;$B9E790
 	XBA					;$B9E793
 	PHA					;$B9E794
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B9E795
+	LDA.w CPU.divide_remainder		;$B9E795
 	XBA					;$B9E798
-	STA.w !REGISTER_DividendLo		;$B9E799
+	STA.w CPU.dividen_low			;$B9E799
 	SEP.b #$20				;$B9E79C
 	TYA					;$B9E79E
-	STA.w !REGISTER_Divisor			;$B9E79F
+	STA.w CPU.divisor			;$B9E79F
 	REP.b #$20				;$B9E7A2
 	JSL.l CODE_B58003			;$B9E7A4
 	PLA					;$B9E7A8
-	ORA.w !REGISTER_QuotientLo		;$B9E7A9
+	ORA.w CPU.divide_result			;$B9E7A9
 	PLP					;$B9E7AC
 	BPL.b CODE_B9E7B3			;$B9E7AD
 	EOR.w #$FFFF				;$B9E7AF
@@ -6327,12 +6327,12 @@ CODE_B9E883:
 	TYA					;$B9E886
 	SEP.b #$20				;$B9E887
 	LDA.b $66,x				;$B9E889
-	STA.w !REGISTER_Multiplicand		;$B9E88B
+	STA.w CPU.multiply_A			;$B9E88B
 	TYA					;$B9E88E
-	STA.w !REGISTER_Multiplier		;$B9E88F
+	STA.w CPU.multiply_B			;$B9E88F
 	REP.b #$20				;$B9E892
 	NOP					;$B9E894
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B9E895
+	LDA.w CPU.multiply_result		;$B9E895
 	LSR					;$B9E898
 	STA.b $2E,x				;$B9E899
 	LDA.b $64,x				;$B9E89B
@@ -6343,26 +6343,26 @@ CODE_B9E883:
 	EOR.w #$FFFF				;$B9E8A3
 	INC					;$B9E8A6
 CODE_B9E8A7:
-	STA.w !REGISTER_DividendLo		;$B9E8A7
+	STA.w CPU.dividen_low			;$B9E8A7
 	SEP.b #$20				;$B9E8AA
 	LDA.b $6A,x				;$B9E8AC
 	TAY					;$B9E8AE
-	STA.w !REGISTER_Divisor			;$B9E8AF
+	STA.w CPU.divisor			;$B9E8AF
 	REP.b #$20				;$B9E8B2
 	JSL.l CODE_B58003			;$B9E8B4
-	LDA.w !REGISTER_QuotientLo		;$B9E8B8
+	LDA.w CPU.divide_result			;$B9E8B8
 	XBA					;$B9E8BB
 	PHA					;$B9E8BC
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B9E8BD
+	LDA.w CPU.divide_remainder		;$B9E8BD
 	XBA					;$B9E8C0
-	STA.w !REGISTER_DividendLo		;$B9E8C1
+	STA.w CPU.dividen_low			;$B9E8C1
 	SEP.b #$20				;$B9E8C4
 	TYA					;$B9E8C6
-	STA.w !REGISTER_Divisor			;$B9E8C7
+	STA.w CPU.divisor			;$B9E8C7
 	REP.b #$20				;$B9E8CA
 	JSL.l CODE_B58003			;$B9E8CC
 	PLA					;$B9E8D0
-	ORA.w !REGISTER_QuotientLo		;$B9E8D1
+	ORA.w CPU.divide_result			;$B9E8D1
 	PLP					;$B9E8D4
 	BPL.b CODE_B9E8DB			;$B9E8D5
 	EOR.w #$FFFF				;$B9E8D7

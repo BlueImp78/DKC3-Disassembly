@@ -53,16 +53,16 @@ CODE_B48021:
 	STA $0541				;$B48054
 	STZ current_animal_type			;$B48057
 	LDA #$000200				;$B48059
-	STA DMA[$00].SourceLo			;$B4805C
-	STA DMA[$00].Unused2			;$B4805F
+	STA DMA[$00].source_word		;$B4805C
+	STA DMA[$00].unused_2			;$B4805F
 	LDA #$0220				;$B48062
-	STA DMA[$00].SizeLo			;$B48065
+	STA DMA[$00].size			;$B48065
 	LDA #$0400				;$B48068
-	STA DMA[$00].Parameters			;$B4806B
+	STA DMA[$00].settings			;$B4806B
 	SEP #$20				;$B4806E
-	STZ DMA[$00].SourceBank			;$B48070
+	STZ DMA[$00].source_bank		;$B48070
 	LDA #$01				;$B48073
-	STA.w !REGISTER_DMAEnable		;$B48075
+	STA.w CPU.enable_dma			;$B48075
 	REP #$20				;$B48078
 	RTS					;$B4807A
 
@@ -149,7 +149,7 @@ CODE_B4813A:
 	LDA.w $04E4				;$B4813C
 	AND.w #$0001				;$B4813F
 	ORA.w #$7E00				;$B48142
-	STA.w !REGISTER_DMAEnable		;$B48145
+	STA.w CPU.enable_dma_hdma		;$B48145
 	JSL.l CODE_B38006			;$B48148
 	JSL.l CODE_80801E			;$B4814C
 	LDX.w #$72E0				;$B48150
@@ -164,7 +164,7 @@ CODE_B48164:
 	JSR.w CODE_B4B00B			;$B48167
 	SEP.b #$20				;$B4816A
 	LDA.w screen_brightness			;$B4816C
-	STA.w !REGISTER_ScreenDisplayRegister	;$B4816F
+	STA.w PPU.screen			;$B4816F
 	REP.b #$20				;$B48172
 	STZ.w $1560				;$B48174
 	STZ.w $155E				;$B48177
@@ -683,18 +683,18 @@ CODE_B485C8:
 	RTS					;$B485D4
 
 CODE_B485D5:
-	STA.w !REGISTER_DividendLo		;$B485D5
+	STA.w CPU.dividen_low			;$B485D5
 	LDA.w #$000A				;$B485D8
-	STA.w !REGISTER_Divisor			;$B485DB
+	STA.w CPU.divisor			;$B485DB
 	LDY.w #$0000				;$B485DE
 	LDY.w #$0000				;$B485E1
 	LDA.b ($00)				;$B485E4
 	LDA.b ($00)				;$B485E6
-	LDA.w !REGISTER_QuotientLo		;$B485E8
+	LDA.w CPU.divide_result			;$B485E8
 	CLC					;$B485EB
 	ADC.w #$0030				;$B485EC
 	XBA					;$B485EF
-	ORA.w !REGISTER_ProductOrRemainderLo	;$B485F0
+	ORA.w CPU.divide_remainder		;$B485F0
 	CLC					;$B485F3
 	ADC.w #$0030				;$B485F4
 	XBA					;$B485F7
@@ -790,7 +790,7 @@ CODE_B486BC:
 	AND.w #$0003				;$B486C8
 	TAX					;$B486CB
 	LDA.w #$2010				;$B486CC
-	STA.w !REGISTER_VRAMAddressLo		;$B486CF
+	STA.w PPU.vram_address			;$B486CF
 	LDA.w #$FF60				;$B486D2
 CODE_B486D5:
 	CLC					;$B486D5
@@ -853,13 +853,13 @@ CODE_B4874E:
 	LDA.w $04E4				;$B48750
 	AND.w #$0001				;$B48753
 	ORA.w #$FE00				;$B48756
-	STA.w !REGISTER_DMAEnable		;$B48759
+	STA.w CPU.enable_dma_hdma		;$B48759
 	JSL.l CODE_B38006			;$B4875C
 	JSL.l CODE_80801E			;$B48760
 	JSR.w CODE_B488DA			;$B48764
 	SEP.b #$20				;$B48767
 	LDA.w screen_brightness			;$B48769
-	STA.w !REGISTER_ScreenDisplayRegister	;$B4876C
+	STA.w PPU.screen			;$B4876C
 	REP.b #$20				;$B4876F
 	STZ.w $1560				;$B48771
 	STZ.w $155E				;$B48774
@@ -1023,16 +1023,16 @@ CODE_B488CE:
 CODE_B488DA:
 	SEP.b #$20				;$B488DA
 	LDA.b #$5C				;$B488DC
-	STA.w !REGISTER_CGRAMAddress		;$B488DE
+	STA.w PPU.cgram_address			;$B488DE
 	REP.b #$20				;$B488E1
 	LDX.w #$0000				;$B488E3
 	LDY.w #$0003				;$B488E6
 CODE_B488E9:
 	LDA.l $7EA1AB,x				;$B488E9
 	SEP.b #$20				;$B488ED
-	STA.w !REGISTER_WriteToCGRAMPort	;$B488EF
+	STA.w PPU.cgram_write			;$B488EF
 	XBA					;$B488F2
-	STA.w !REGISTER_WriteToCGRAMPort	;$B488F3
+	STA.w PPU.cgram_write			;$B488F3
 	REP.b #$20				;$B488F6
 	INX					;$B488F8
 	INX					;$B488F9
@@ -1045,14 +1045,14 @@ CODE_B488E9:
 	BPL.b CODE_B4890D			;$B48908
 	LDY.w #$0000				;$B4890A
 CODE_B4890D:
-	STY.w !REGISTER_BG3And4WindowMaskSettings	;$B4890D
+	STY.w PPU.set_window_layer_3_4		;$B4890D
 	LDX.w #$72E0				;$B48910
 	JSR.w CODE_B4A82A			;$B48913
 	SEP.b #$20				;$B48916
 	LDA.w $1C37				;$B48918
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B4891B
+	STA.w PPU.layer_2_scroll_x		;$B4891B
 	LDA.w $1C38				;$B4891E
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B48921
+	STA.w PPU.layer_2_scroll_x		;$B48921
 	LDA.l $7EA171				;$B48924
 	CMP.b #$D3				;$B48928
 	BNE.b CODE_B48932			;$B4892A
@@ -1580,7 +1580,7 @@ CODE_B48D82:
 	PLB					;$B48D83
 	LDA.w $04E4				;$B48D84
 	AND.w #$FF01				;$B48D87
-	STA.w !REGISTER_DMAEnable		;$B48D8A
+	STA.w CPU.enable_dma_hdma		;$B48D8A
 	JSL.l CODE_B38006			;$B48D8D
 	JSL.l CODE_80801E			;$B48D91
 	LDX.w #$7EE0				;$B48D95
@@ -1593,7 +1593,7 @@ CODE_B48DA6:
 	JSR.w CODE_B49FAA			;$B48DA6
 	SEP.b #$20				;$B48DA9
 	LDA.w screen_brightness			;$B48DAB
-	STA.w !REGISTER_ScreenDisplayRegister	;$B48DAE
+	STA.w PPU.screen			;$B48DAE
 	REP.b #$20				;$B48DB1
 	STZ.w $1560				;$B48DB3
 	STZ.w $155E				;$B48DB6
@@ -3038,7 +3038,7 @@ CODE_B49930:
 	LDA.w $04E4				;$B49932
 	AND.w #$0001				;$B49935
 	ORA.w #$FE00				;$B49938
-	STA.w !REGISTER_DMAEnable		;$B4993B
+	STA.w CPU.enable_dma_hdma		;$B4993B
 	JSL.l CODE_B38006			;$B4993E
 	JSL.l CODE_80801E			;$B49942
 	LDX.w #$72E0				;$B49946
@@ -3047,7 +3047,7 @@ CODE_B49930:
 	JSR.w CODE_B4B00B			;$B4994F
 	SEP.b #$20				;$B49952
 	LDA.w screen_brightness			;$B49954
-	STA.w !REGISTER_ScreenDisplayRegister	;$B49957
+	STA.w PPU.screen			;$B49957
 	REP.b #$20				;$B4995A
 	STZ.w $1560				;$B4995C
 	STZ.w $155E				;$B4995F
@@ -3451,13 +3451,13 @@ CODE_B49CD3:
 	PHK					;$B49CD3
 	PLB					;$B49CD4
 	LDA.w $04E4				;$B49CD5
-	STA.w !REGISTER_DMAEnable		;$B49CD8
+	STA.w CPU.enable_dma_hdma		;$B49CD8
 	JSL.l CODE_B38006			;$B49CDB
 	JSL.l CODE_80801E			;$B49CDF
 	JSR.w CODE_B49D54			;$B49CE3
 	SEP.b #$20				;$B49CE6
 	LDA.w screen_brightness			;$B49CE8
-	STA.w !REGISTER_ScreenDisplayRegister	;$B49CEB
+	STA.w PPU.screen			;$B49CEB
 	REP.b #$20				;$B49CEE
 	STZ.w $1560				;$B49CF0
 	STZ.w $155E				;$B49CF3
@@ -3511,7 +3511,7 @@ CODE_B49D54:
 	STA.b $1A				;$B49D5F
 	SEP.b #$20				;$B49D61
 	LDA.b #$02				;$B49D63
-	STA.w !REGISTER_CGRAMAddress		;$B49D65
+	STA.w PPU.cgram_address			;$B49D65
 	REP.b #$20				;$B49D68
 	LDA.w #$0003				;$B49D6A
 	JSR.w CODE_B49DBF			;$B49D6D
@@ -3574,9 +3574,9 @@ CODE_B49DDE:
 	ASL					;$B49DEA
 	ORA.b $1C				;$B49DEB
 	SEP.b #$20				;$B49DED
-	STA.w !REGISTER_WriteToCGRAMPort	;$B49DEF
+	STA.w PPU.cgram_write			;$B49DEF
 	XBA					;$B49DF2
-	STA.w !REGISTER_WriteToCGRAMPort	;$B49DF3
+	STA.w PPU.cgram_write			;$B49DF3
 	REP.b #$20				;$B49DF6
 	RTS					;$B49DF8
 
@@ -3689,16 +3689,16 @@ CODE_B49ED0:
 	PHK					;$B49ED0
 	PLB					;$B49ED1
 	LDA.w $04E4				;$B49ED2
-	STA.w !REGISTER_DMAEnable		;$B49ED5
+	STA.w CPU.enable_dma_hdma		;$B49ED5
 	JSL.l CODE_B38006			;$B49ED8
 	JSL.l CODE_80801E			;$B49EDC
 	JSR.w CODE_B4C6F7			;$B49EE0
 	SEP.b #$20				;$B49EE3
-	STA.w !REGISTER_BG2VertScrollOffset	;$B49EE5
+	STA.w PPU.layer_2_scroll_y		;$B49EE5
 	XBA					;$B49EE8
-	STA.w !REGISTER_BG2VertScrollOffset	;$B49EE9
+	STA.w PPU.layer_2_scroll_y		;$B49EE9
 	LDA.w screen_brightness			;$B49EEC
-	STA.w !REGISTER_ScreenDisplayRegister	;$B49EEF
+	STA.w PPU.screen			;$B49EEF
 	REP.b #$20				;$B49EF2
 	STZ.w $1560				;$B49EF4
 	STZ.w $155E				;$B49EF7
@@ -3798,12 +3798,12 @@ CODE_B49FC4:
 	SBC.l $7EA163				;$B49FCE
 	STA.l $7EA18C				;$B49FD2
 	LDA.b #$E7				;$B49FD6
-	STA.w !REGISTER_FixedColorData		;$B49FD8
+	STA.w PPU.fixed_color			;$B49FD8
 	LDA.l $7EA163				;$B49FDB
 	STA.l $7EA190				;$B49FDF
 	REP.b #$20				;$B49FE3
 	LDA.l $7EA19C				;$B49FE5
-	STA.w !REGISTER_Window1LeftPositionDesignation	;$B49FE9
+	STA.w PPU.window_1			;$B49FE9
 CODE_B49FEC:
 	LDA.w #$2000				;$B49FEC
 	TRB.w $061F				;$B49FEF
@@ -3820,9 +3820,9 @@ CODE_B49FFE:
 	LDA.w #$0007				;$B4A004
 	STA.w $1973				;$B4A007
 	SEP.b #$20				;$B4A00A
-	STA.w !REGISTER_BG1VertScrollOffset	;$B4A00C
+	STA.w PPU.layer_1_scroll_y		;$B4A00C
 	XBA					;$B4A00F
-	STA.w !REGISTER_BG1VertScrollOffset	;$B4A010
+	STA.w PPU.layer_1_scroll_y		;$B4A010
 	REP.b #$20				;$B4A013
 	RTS					;$B4A015
 
@@ -3835,18 +3835,18 @@ CODE_B4A016:
 	LDA.w DATA_B4A043,x			;$B4A020
 	STA.w $1973				;$B4A023
 	SEP.b #$20				;$B4A026
-	STA.w !REGISTER_BG1VertScrollOffset	;$B4A028
+	STA.w PPU.layer_1_scroll_y		;$B4A028
 	XBA					;$B4A02B
-	STA.w !REGISTER_BG1VertScrollOffset	;$B4A02C
+	STA.w PPU.layer_1_scroll_y		;$B4A02C
 	XBA					;$B4A02F
 	REP.b #$20				;$B4A030
 	SEC					;$B4A032
 	SBC.w #$0004				;$B4A033
 	ASL					;$B4A036
 	SEP.b #$20				;$B4A037
-	STA.w !REGISTER_BG2VertScrollOffset	;$B4A039
+	STA.w PPU.layer_2_scroll_y		;$B4A039
 	XBA					;$B4A03C
-	STA.w !REGISTER_BG2VertScrollOffset	;$B4A03D
+	STA.w PPU.layer_2_scroll_y		;$B4A03D
 	REP.b #$20				;$B4A040
 CODE_B4A042:
 	RTS					;$B4A042
@@ -4267,7 +4267,7 @@ CODE_B4A3DB:
 	LDY.w #$0800				;$B4A3FC
 CODE_B4A3FF:
 	LDX.w #$7400				;$B4A3FF
-	STX.w !REGISTER_VRAMAddressLo		;$B4A402
+	STX.w PPU.vram_address			;$B4A402
 	LDA.w #$7EF000				;$B4A405
 	LDX.w #$7EF000>>16			;$B4A408
 	JSL.l CODE_808054			;$B4A40B
@@ -4308,7 +4308,7 @@ CODE_B4A447:
 	LDY.w #$0007				;$B4A466
 	JSR.w CODE_B4A498			;$B4A469
 	LDA.w #$7400				;$B4A46C
-	STA.w !REGISTER_VRAMAddressLo		;$B4A46F
+	STA.w PPU.vram_address			;$B4A46F
 	LDA.w #$7EF000				;$B4A472
 	LDY.w #$1000				;$B4A475
 	LDX.w #$7EF000>>16			;$B4A478
@@ -4318,8 +4318,8 @@ CODE_B4A447:
 	STA.l $7EA199				;$B4A486
 	LDA.w #$0004				;$B4A48A
 	SEP.b #$20				;$B4A48D
-	STA.w !REGISTER_BG2VertScrollOffset	;$B4A48F
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B4A492
+	STA.w PPU.layer_2_scroll_y		;$B4A48F
+	STZ.w PPU.layer_2_scroll_y		;$B4A492
 	REP.b #$20				;$B4A495
 	RTS					;$B4A497
 
@@ -4778,14 +4778,14 @@ CODE_B4A7C9:
 	LDY.w #$0010				;$B4A7C9
 	LDA.w $0000,x				;$B4A7CC
 CODE_B4A7CF:
-	STA.w HDMA[$01].Parameters-$10,y	;$B4A7CF
+	STA.w HDMA[$00].settings,y		;$B4A7CF
 	LDA.w $0002,x				;$B4A7D2
-	STA.w HDMA[$01].SourceLo-$10,y		;$B4A7D5
+	STA.w HDMA[$00].source_word,y		;$B4A7D5
 	LDA.w $0004,x				;$B4A7D8
 	SEP.b #$20				;$B4A7DB
-	STA.w HDMA[$01].SourceBank-$10,y	;$B4A7DD
+	STA.w HDMA[$00].source_bank,y		;$B4A7DD
 	XBA					;$B4A7E0
-	STA.w HDMA[$01].IndirectSourceBank-$10,y	;$B4A7E1
+	STA.w HDMA[$00].indirect_source_bank,y	;$B4A7E1
 	REP.b #$20				;$B4A7E4
 	TYA					;$B4A7E6
 	CLC					;$B4A7E7
@@ -4816,7 +4816,7 @@ CODE_B4A80C:
 CODE_B4A812:
 	SEP.b #$20				;$B4A812
 	LDA.b #$E0				;$B4A814
-	STA.w !REGISTER_FixedColorData		;$B4A816
+	STA.w PPU.fixed_color			;$B4A816
 	REP.b #$20				;$B4A819
 	LDA.l $7EA160				;$B4A81B
 	AND.w #$FF00				;$B4A81F
@@ -4825,41 +4825,41 @@ CODE_B4A812:
 	RTS					;$B4A829
 
 CODE_B4A82A:
-	STX.w !REGISTER_VRAMAddressLo		;$B4A82A
+	STX.w PPU.vram_address			;$B4A82A
 	LDA #$7EF5C0				;$B4A82D
-	STA DMA[$00].SourceLo			;$B4A830
-	STA DMA[$00].Unused2			;$B4A833
+	STA DMA[$00].source_word		;$B4A830
+	STA DMA[$00].unused_2			;$B4A833
 	LDA #$0100				;$B4A836
-	STA DMA[$00].SizeLo			;$B4A839
+	STA DMA[$00].size			;$B4A839
 	LDA #$1801				;$B4A83C
-	STA DMA[$00].Parameters			;$B4A83F
+	STA DMA[$00].settings			;$B4A83F
 	SEP #$20				;$B4A842
 	LDA #$7EF5C0>>16			;$B4A844
-	STA DMA[$00].SourceBank			;$B4A846
+	STA DMA[$00].source_bank		;$B4A846
 	REP #$20				;$B4A849
 	SEP #$20				;$B4A84B
 	LDA $04E4				;$B4A84D
 	AND #$02				;$B4A850
 	LSR					;$B4A852
-	STA.w !REGISTER_DMAEnable		;$B4A853
+	STA.w CPU.enable_dma			;$B4A853
 	REP #$20				;$B4A856
 	RTS					;$B4A858
 
 CODE_B4A859:
 	LDA #$7F20				;$B4A859
-	STA.w !REGISTER_VRAMAddressLo		;$B4A85C
+	STA.w PPU.vram_address			;$B4A85C
 	LDA #$7EF000				;$B4A85F
-	STA DMA[$00].SourceLo			;$B4A862
-	STA DMA[$00].Unused2			;$B4A865
+	STA DMA[$00].source_word		;$B4A862
+	STA DMA[$00].unused_2			;$B4A865
 	LDA #$0080				;$B4A868
-	STA DMA[$00].SizeLo			;$B4A86B
+	STA DMA[$00].size			;$B4A86B
 	LDA #$1801				;$B4A86E
-	STA DMA[$00].Parameters			;$B4A871
+	STA DMA[$00].settings			;$B4A871
 	SEP #$20				;$B4A874
 	LDA #$7EF000>>16			;$B4A876
-	STA DMA[$00].SourceBank			;$B4A878
+	STA DMA[$00].source_bank		;$B4A878
 	LDA #$01				;$B4A87B
-	STA.w !REGISTER_DMAEnable		;$B4A87D
+	STA.w CPU.enable_dma			;$B4A87D
 	REP #$20				;$B4A880
 	RTS					;$B4A882
 
@@ -4910,15 +4910,15 @@ CODE_B4A8C6:
 	LDX #$2000				;$B4A8C6
 	JSR CODE_B4A6B6				;$B4A8C9
 	LDA #$7EF000				;$B4A8CC
-	STA DMA[$00].SourceLo			;$B4A8CF
-	STA DMA[$00].Unused2			;$B4A8D2
+	STA DMA[$00].source_word		;$B4A8CF
+	STA DMA[$00].unused_2			;$B4A8D2
 	LDA #$0800				;$B4A8D5
-	STA DMA[$00].SizeLo			;$B4A8D8
+	STA DMA[$00].size			;$B4A8D8
 	LDA #$1801				;$B4A8DB
-	STA DMA[$00].Parameters			;$B4A8DE
+	STA DMA[$00].settings			;$B4A8DE
 	SEP #$20				;$B4A8E1
 	LDA #$7EF000>>16			;$B4A8E3
-	STA DMA[$00].SourceBank			;$B4A8E5
+	STA DMA[$00].source_bank		;$B4A8E5
 	REP #$20				;$B4A8E8
 	LDA #$0003				;$B4A8EA
 	STA $04E4				;$B4A8ED
@@ -4991,19 +4991,19 @@ CODE_B4A991:
 	LDY #$000A				;$B4A9A2
 	JSR CODE_B4A498				;$B4A9A5
 	LDX #$7000				;$B4A9A8
-	STX.w !REGISTER_VRAMAddressLo		;$B4A9AB
+	STX.w PPU.vram_address			;$B4A9AB
 	LDA #$7EF000				;$B4A9AE
-	STA DMA[$00].SourceLo			;$B4A9B1
-	STA DMA[$00].Unused2			;$B4A9B4
+	STA DMA[$00].source_word		;$B4A9B1
+	STA DMA[$00].unused_2			;$B4A9B4
 	LDA #$0400				;$B4A9B7
-	STA DMA[$00].SizeLo			;$B4A9BA
+	STA DMA[$00].size			;$B4A9BA
 	LDA #$1801				;$B4A9BD
-	STA DMA[$00].Parameters			;$B4A9C0
+	STA DMA[$00].settings			;$B4A9C0
 	SEP #$20				;$B4A9C3
 	LDA #$7EF000>>16			;$B4A9C5
-	STA DMA[$00].SourceBank			;$B4A9C7
+	STA DMA[$00].source_bank		;$B4A9C7
 	LDA #$01				;$B4A9CA
-	STA.w !REGISTER_DMAEnable		;$B4A9CC
+	STA.w CPU.enable_dma			;$B4A9CC
 	REP #$20				;$B4A9CF
 	JSR CODE_B4A812				;$B4A9D1
 	LDA #$FFFF				;$B4A9D4
@@ -5089,19 +5089,19 @@ CODE_B4AA03:
 	LDY #$0008				;$B4AAAA
 	JSR CODE_B4A498				;$B4AAAD
 	LDX #$7000				;$B4AAB0
-	STX.w !REGISTER_VRAMAddressLo		;$B4AAB3
+	STX.w PPU.vram_address			;$B4AAB3
 	LDA #$7EF000				;$B4AAB6
-	STA DMA[$00].SourceLo			;$B4AAB9
-	STA DMA[$00].Unused2			;$B4AABC
+	STA DMA[$00].source_word		;$B4AAB9
+	STA DMA[$00].unused_2			;$B4AABC
 	LDA #$0800				;$B4AABF
-	STA DMA[$00].SizeLo			;$B4AAC2
+	STA DMA[$00].size			;$B4AAC2
 	LDA #$1801				;$B4AAC5
-	STA DMA[$00].Parameters			;$B4AAC8
+	STA DMA[$00].settings			;$B4AAC8
 	SEP #$20				;$B4AACB
 	LDA #$7EF000>>16			;$B4AACD
-	STA DMA[$00].SourceBank			;$B4AACF
+	STA DMA[$00].source_bank		;$B4AACF
 	LDA #$01				;$B4AAD2
-	STA.w !REGISTER_DMAEnable		;$B4AAD4
+	STA.w CPU.enable_dma			;$B4AAD4
 	REP #$20				;$B4AAD7
 	JSR CODE_B4A812				;$B4AAD9
 	LDA #$FFFF				;$B4AADC
@@ -5476,17 +5476,17 @@ CODE_B4AE66:
 	TAX					;$B4AE74
 	SEP.b #$20				;$B4AE75
 	LDA.b #$11				;$B4AE77
-	STA.w !REGISTER_CGRAMAddress		;$B4AE79
+	STA.w PPU.cgram_address			;$B4AE79
 	LDA.b #$FF				;$B4AE7C
-	STA.w !REGISTER_WriteToCGRAMPort	;$B4AE7E
+	STA.w PPU.cgram_write			;$B4AE7E
 	LDA.b #$03				;$B4AE81
-	STA.w !REGISTER_WriteToCGRAMPort	;$B4AE83
+	STA.w PPU.cgram_write			;$B4AE83
 	LDA.b #$01				;$B4AE86
-	STA.w !REGISTER_CGRAMAddress		;$B4AE88
+	STA.w PPU.cgram_address			;$B4AE88
 	LDA.w DATA_B4AECF,x			;$B4AE8B
-	STA.w !REGISTER_WriteToCGRAMPort	;$B4AE8E
+	STA.w PPU.cgram_write			;$B4AE8E
 	LDA.w DATA_B4AECF+$01,x			;$B4AE91
-	STA.w !REGISTER_WriteToCGRAMPort	;$B4AE94
+	STA.w PPU.cgram_write			;$B4AE94
 	REP.b #$20				;$B4AE97
 	LDY.w $1C61				;$B4AE99
 	LDA.w $0004,y				;$B4AE9C
@@ -5547,10 +5547,10 @@ CODE_B4AF0A:
 	BNE.b CODE_B4AF27			;$B4AF0E
 CODE_B4AF10:
 	LDA.b $26				;$B4AF10
-	STA.w !REGISTER_VRAMAddressLo		;$B4AF12
+	STA.w PPU.vram_address			;$B4AF12
 	LDA.b [$22]				;$B4AF15
 	ORA.b $1C				;$B4AF17
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B4AF19
+	STA.w PPU.vram_write			;$B4AF19
 	INC.b $22				;$B4AF1C
 	INC.b $22				;$B4AF1E
 	INC.b $26				;$B4AF20
@@ -5562,11 +5562,11 @@ CODE_B4AF27:
 	TXA					;$B4AF27
 	CLC					;$B4AF28
 	ADC.b $26				;$B4AF29
-	STA.w !REGISTER_VRAMAddressLo		;$B4AF2B
+	STA.w PPU.vram_address			;$B4AF2B
 	LDA.b [$22]				;$B4AF2E
 	EOR.w #$4000				;$B4AF30
 	ORA.b $1C				;$B4AF33
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B4AF35
+	STA.w PPU.vram_write			;$B4AF35
 	INC.b $22				;$B4AF38
 	INC.b $22				;$B4AF3A
 	DEX					;$B4AF3C
@@ -5839,13 +5839,13 @@ CODE_B4B179:
 	PHK					;$B4B179
 	PLB					;$B4B17A
 	LDA.w $04E4				;$B4B17B
-	STA.w !REGISTER_DMAEnable		;$B4B17E
+	STA.w CPU.enable_dma_hdma		;$B4B17E
 	JSL.l CODE_B38006			;$B4B181
 	JSL.l CODE_80801E			;$B4B185
 	JSR.w CODE_B4BBF7			;$B4B189
 	SEP.b #$20				;$B4B18C
 	LDA.w screen_brightness			;$B4B18E
-	STA.w !REGISTER_ScreenDisplayRegister	;$B4B191
+	STA.w PPU.screen			;$B4B191
 	REP.b #$20				;$B4B194
 	STZ.w $1560				;$B4B196
 	STZ.w $155E				;$B4B199
@@ -7649,13 +7649,13 @@ CODE_B4BFAB:
 	LDA.w #$064A				;$B4BFE1
 	STA.b $5C,x				;$B4BFE4
 	LDA.w #$78C0				;$B4BFE6
-	STA.w !REGISTER_VRAMAddressLo		;$B4BFE9
+	STA.w PPU.vram_address			;$B4BFE9
 	LDX.w #$0000				;$B4BFEC
 CODE_B4BFEF:
 	LDA.l DATA_EA98D9,x			;$B4BFEF
 	CLC					;$B4BFF3
 	ADC.w #$0047				;$B4BFF4
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B4BFF7
+	STA.w PPU.vram_write			;$B4BFF7
 	INX					;$B4BFFA
 	INX					;$B4BFFB
 	CPX.w #$0200				;$B4BFFC
@@ -7715,12 +7715,12 @@ CODE_B4C066:
 	STA.b $1A				;$B4C085
 CODE_B4C087:						; Note: This adds the rope to the Mekanos layer 2 tilemap.
 	LDA.b $1A				;$B4C087
-	STA.w !REGISTER_VRAMAddressLo		;$B4C089
+	STA.w PPU.vram_address			;$B4C089
 	CLC					;$B4C08C
 	ADC.w #$0020				;$B4C08D
 	STA.b $1A				;$B4C090
 	LDA.w #$3447				;$B4C092
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B4C095
+	STA.w PPU.vram_write			;$B4C095
 	DEX					;$B4C098
 	BPL.b CODE_B4C087			;$B4C099
 	JSR.w CODE_B4C440			;$B4C09B
@@ -7781,10 +7781,10 @@ CODE_B4C102:
 	SEP.b #$20				;$B4C11B
 	LDA.b #$FF				;$B4C11D
 	STA.l $7EA26E				;$B4C11F
-	STA.w !REGISTER_BG1VertScrollOffset	;$B4C123
-	STA.w !REGISTER_BG1VertScrollOffset	;$B4C126
-	STA.w !REGISTER_BG2VertScrollOffset	;$B4C129
-	STA.w !REGISTER_BG2VertScrollOffset	;$B4C12C
+	STA.w PPU.layer_1_scroll_y		;$B4C123
+	STA.w PPU.layer_1_scroll_y		;$B4C126
+	STA.w PPU.layer_2_scroll_y		;$B4C129
+	STA.w PPU.layer_2_scroll_y		;$B4C12C
 	REP.b #$20				;$B4C12F
 	LDX.w #DATA_B4DFA0			;$B4C131
 	JSR.w CODE_B4A7C9			;$B4C134
@@ -7926,13 +7926,13 @@ CODE_B4C273:
 	LDA.w #$1E01				;$B4C298
 	STA.w $04E4				;$B4C29B
 	LDA.w #$76C0				;$B4C29E
-	STA.w !REGISTER_VRAMAddressLo		;$B4C2A1
+	STA.w PPU.vram_address			;$B4C2A1
 	LDX.w #$0000				;$B4C2A4
 CODE_B4C2A7:
 	LDA.l DATA_EC88B8,x			;$B4C2A7
 	CLC					;$B4C2AB
 	ADC.w #$0047				;$B4C2AC
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B4C2AF
+	STA.w PPU.vram_write			;$B4C2AF
 	INX					;$B4C2B2
 	INX					;$B4C2B3
 	CPX.w #$00C0				;$B4C2B4
@@ -7973,10 +7973,10 @@ CODE_B4C2F9:
 	STA.w $06E0				;$B4C30B
 	LDX.w #$0000				;$B4C30E
 	LDA.w #$0800				;$B4C311
-	STA.w !REGISTER_VRAMAddressLo		;$B4C314
+	STA.w PPU.vram_address			;$B4C314
 CODE_B4C317:
 	LDA.l DATA_C07A66,x			;$B4C317
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B4C31B
+	STA.w PPU.vram_write			;$B4C31B
 	INX					;$B4C31E
 	INX					;$B4C31F
 	CPX.w #$0300				;$B4C320
@@ -8028,9 +8028,9 @@ CODE_B4C38E:
 	JSL.l CODE_BB856D			;$B4C397
 	SEP.b #$20				;$B4C39B
 	LDA.b #$E0				;$B4C39D
-	STA.w !REGISTER_FixedColorData		;$B4C39F
+	STA.w PPU.fixed_color			;$B4C39F
 	LDA.b #$2F				;$B4C3A2
-	STA.w !REGISTER_FixedColorData		;$B4C3A4
+	STA.w PPU.fixed_color			;$B4C3A4
 	REP.b #$20				;$B4C3A7
 	BRA.b CODE_B4C37D			;$B4C3A9
 
@@ -8283,13 +8283,13 @@ CODE_B4C597:
 	SEC					;$B4C5EC
 	SBC.w #$0100				;$B4C5ED
 	SEP.b #$20				;$B4C5F0
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B4C5F2
+	STA.w PPU.layer_1_scroll_x		;$B4C5F2
 	XBA					;$B4C5F5
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B4C5F6
+	STA.w PPU.layer_1_scroll_x		;$B4C5F6
 	XBA					;$B4C5F9
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B4C5FA
+	STA.w PPU.layer_3_scroll_x		;$B4C5FA
 	XBA					;$B4C5FD
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B4C5FE
+	STA.w PPU.layer_3_scroll_x		;$B4C5FE
 	REP.b #$20				;$B4C601
 	LDA.w $196D				;$B4C603
 	STA.l $7EA1BA				;$B4C606
@@ -8307,17 +8307,17 @@ CODE_B4C597:
 	SEC					;$B4C62C
 	SBC.w #$0100				;$B4C62D
 	SEP.b #$20				;$B4C630
-	STA.w !REGISTER_BG1VertScrollOffset	;$B4C632
+	STA.w PPU.layer_1_scroll_y		;$B4C632
 	XBA					;$B4C635
-	STA.w !REGISTER_BG1VertScrollOffset	;$B4C636
+	STA.w PPU.layer_1_scroll_y		;$B4C636
 	XBA					;$B4C639
-	STA.w !REGISTER_BG2VertScrollOffset	;$B4C63A
+	STA.w PPU.layer_2_scroll_y		;$B4C63A
 	XBA					;$B4C63D
-	STA.w !REGISTER_BG2VertScrollOffset	;$B4C63E
+	STA.w PPU.layer_2_scroll_y		;$B4C63E
 	XBA					;$B4C641
-	STA.w !REGISTER_BG3VertScrollOffset	;$B4C642
+	STA.w PPU.layer_3_scroll_y		;$B4C642
 	XBA					;$B4C645
-	STA.w !REGISTER_BG3VertScrollOffset	;$B4C646
+	STA.w PPU.layer_3_scroll_y		;$B4C646
 	REP.b #$20				;$B4C649
 	LDA.w #$0080				;$B4C64B
 	BIT.w $05FB				;$B4C64E
@@ -8352,7 +8352,7 @@ CODE_B4C685:
 	JSR.w CODE_B4C699			;$B4C688
 	SEP.b #$20				;$B4C68B
 	LDA.l $0004EC				;$B4C68D
-	STA.l !REGISTER_ScreenDisplayRegister	;$B4C691
+	STA.l PPU.screen			;$B4C691
 	REP.b #$20				;$B4C695
 	PLB					;$B4C697
 	RTL					;$B4C698
@@ -8367,13 +8367,13 @@ CODE_B4C699:
 	TAX					;$B4C6A8
 	SEP.b #$20				;$B4C6A9
 	LDA.b #$01				;$B4C6AB
-	STA.w !REGISTER_CGRAMAddress		;$B4C6AD
+	STA.w PPU.cgram_address			;$B4C6AD
 	LDY.w #$0008				;$B4C6B0
 CODE_B4C6B3:
 	LDA.w $0002,x				;$B4C6B3
-	STA.w !REGISTER_WriteToCGRAMPort	;$B4C6B6
+	STA.w PPU.cgram_write			;$B4C6B6
 	LDA.w $0003,x				;$B4C6B9
-	STA.w !REGISTER_WriteToCGRAMPort	;$B4C6BC
+	STA.w PPU.cgram_write			;$B4C6BC
 	INX					;$B4C6BF
 	INX					;$B4C6C0
 	INX					;$B4C6C1
@@ -8422,9 +8422,9 @@ CODE_B4C6F7:
 	STA.w $1973				;$B4C708
 	DEC					;$B4C70B
 	SEP.b #$20				;$B4C70C
-	STA.w !REGISTER_BG1VertScrollOffset	;$B4C70E
+	STA.w PPU.layer_1_scroll_y		;$B4C70E
 	XBA					;$B4C711
-	STA.w !REGISTER_BG1VertScrollOffset	;$B4C712
+	STA.w PPU.layer_1_scroll_y		;$B4C712
 	XBA					;$B4C715
 	REP.b #$20				;$B4C716
 CODE_B4C718:
@@ -8456,34 +8456,34 @@ CODE_B4C739:
 	AND #$000E				;$B4C755
 	TAX					;$B4C758
 	LDA.l DATA_B4C7AE,x			;$B4C759
-	STA DMA[$00].SourceLo			;$B4C75D
-	STA DMA[$00].Unused2			;$B4C760
+	STA DMA[$00].source_word		;$B4C75D
+	STA DMA[$00].unused_2			;$B4C760
 	LDA #$0300				;$B4C763
-	STA DMA[$00].SizeLo			;$B4C766
+	STA DMA[$00].size			;$B4C766
 	LDA #$5480				;$B4C769
-	STA.w !REGISTER_VRAMAddressLo		;$B4C76C
+	STA.w PPU.vram_address			;$B4C76C
 	LDA #$1801				;$B4C76F
-	STA DMA[$00].Parameters			;$B4C772
+	STA DMA[$00].settings			;$B4C772
 	SEP #$20				;$B4C775
 	LDA #DATA_F40000>>16			;$B4C777
-	STA DMA[$00].SourceBank			;$B4C779
+	STA DMA[$00].source_bank		;$B4C779
 	LDA #$01				;$B4C77C
-	STA.w !REGISTER_DMAEnable		;$B4C77E
+	STA.w CPU.enable_dma			;$B4C77E
 	REP #$20				;$B4C781
 	LDA.l DATA_B4C7BE,x			;$B4C783
-	STA DMA[$00].SourceLo			;$B4C787
-	STA DMA[$00].Unused2			;$B4C78A
+	STA DMA[$00].source_word		;$B4C787
+	STA DMA[$00].unused_2			;$B4C78A
 	LDA #$0300				;$B4C78D
-	STA DMA[$00].SizeLo			;$B4C790
+	STA DMA[$00].size			;$B4C790
 	LDA #$5600				;$B4C793
-	STA.w !REGISTER_VRAMAddressLo		;$B4C796
+	STA.w PPU.vram_address			;$B4C796
 	LDA #$1801				;$B4C799
-	STA DMA[$00].Parameters			;$B4C79C
+	STA DMA[$00].settings			;$B4C79C
 	SEP #$20				;$B4C79F
 	LDA #DATA_F41800>>16			;$B4C7A1
-	STA DMA[$00].SourceBank			;$B4C7A3
+	STA DMA[$00].source_bank		;$B4C7A3
 	LDA #$01				;$B4C7A6
-	STA.w !REGISTER_DMAEnable		;$B4C7A8
+	STA.w CPU.enable_dma			;$B4C7A8
 	REP #$20				;$B4C7AB
 CODE_B4C7AD:
 	RTS					;$B4C7AD
@@ -8519,19 +8519,19 @@ CODE_B4C7D2:
 	AND #$000E				;$B4C7D9
 	TAX					;$B4C7DC
 	LDA.l DATA_F36023,x			;$B4C7DD
-	STA DMA[$00].SourceLo			;$B4C7E1
-	STA DMA[$00].Unused2			;$B4C7E4
+	STA DMA[$00].source_word		;$B4C7E1
+	STA DMA[$00].unused_2			;$B4C7E4
 	LDA #$02C0				;$B4C7E7
-	STA DMA[$00].SizeLo			;$B4C7EA
+	STA DMA[$00].size			;$B4C7EA
 	LDA #$5470				;$B4C7ED
-	STA.w !REGISTER_VRAMAddressLo		;$B4C7F0
+	STA.w PPU.vram_address			;$B4C7F0
 	LDA #$1801				;$B4C7F3
-	STA DMA[$00].Parameters			;$B4C7F6
+	STA DMA[$00].settings			;$B4C7F6
 	SEP #$20				;$B4C7F9
 	LDA #DATA_F36033>>16			;$B4C7FB
-	STA DMA[$00].SourceBank			;$B4C7FD
+	STA DMA[$00].source_bank		;$B4C7FD
 	LDA #$01				;$B4C800
-	STA.w !REGISTER_DMAEnable		;$B4C802
+	STA.w CPU.enable_dma			;$B4C802
 	REP #$20				;$B4C805
 .return:
 	RTS					;$B4C807
@@ -8540,9 +8540,9 @@ CODE_B4C808:
 	JSR CODE_B4C8E5				;$B4C808
 	LDA #$FBFE				;$B4C80B
 	SEP #$20				;$B4C80E
-	STA.w !REGISTER_BG2VertScrollOffset	;$B4C810
+	STA.w PPU.layer_2_scroll_y		;$B4C810
 	XBA					;$B4C813
-	STA.w !REGISTER_BG2VertScrollOffset	;$B4C814
+	STA.w PPU.layer_2_scroll_y		;$B4C814
 	REP.b #$20				;$B4C817
 	RTS					;$B4C819
 
@@ -8563,19 +8563,19 @@ CODE_B4C81A:
 	AND #$000E				;$B4C83C
 	TAX					;$B4C83F
 	LDA.l DATA_B4C873,x			;$B4C840
-	STA DMA[$00].SourceLo			;$B4C844
-	STA DMA[$00].Unused2			;$B4C847
+	STA DMA[$00].source_word		;$B4C844
+	STA DMA[$00].unused_2			;$B4C847
 	LDA #$0240				;$B4C84A
-	STA DMA[$00].SizeLo			;$B4C84D
+	STA DMA[$00].size			;$B4C84D
 	LDA #$5480				;$B4C850
-	STA.w !REGISTER_VRAMAddressLo		;$B4C853
+	STA.w PPU.vram_address			;$B4C853
 	LDA #$1801				;$B4C856
-	STA DMA[$00].Parameters			;$B4C859
+	STA DMA[$00].settings			;$B4C859
 	SEP #$20				;$B4C85C
 	LDA #DATA_EC8978>>16			;$B4C85E
-	STA DMA[$00].SourceBank			;$B4C860
+	STA DMA[$00].source_bank		;$B4C860
 	LDA #$01				;$B4C863
-	STA.w !REGISTER_DMAEnable		;$B4C865
+	STA.w CPU.enable_dma			;$B4C865
 	REP.b #$20				;$B4C868
 .return:
 	RTS					;$B4C86A
@@ -8611,30 +8611,30 @@ CODE_B4C893:
 	TRB $05FD				;$B4C896
 	BEQ CODE_B4C8DC				;$B4C899
 	LDA #$2200				;$B4C89B
-	STA DMA[$00].Parameters			;$B4C89E
+	STA DMA[$00].settings			;$B4C89E
 	LDA $15E8				;$B4C8A1
-	STA DMA[$00].SizeLo			;$B4C8A4
+	STA DMA[$00].size			;$B4C8A4
 	LDA #$7E2F80				;$B4C8A7
-	STA DMA[$00].SourceLo			;$B4C8AA
+	STA DMA[$00].source_word		;$B4C8AA
 	SEP #$20				;$B4C8AD
 	LDA #$7E2F80>>16			;$B4C8AF
-	STA DMA[$00].SourceBank			;$B4C8B1
+	STA DMA[$00].source_bank		;$B4C8B1
 	LDA #$00				;$B4C8B4
-	STA.w !REGISTER_CGRAMAddress		;$B4C8B6
+	STA.w PPU.cgram_address			;$B4C8B6
 	LDA #$01				;$B4C8B9
-	STA.w !REGISTER_DMAEnable		;$B4C8BB
+	STA.w CPU.enable_dma			;$B4C8BB
 	LDA $15E4				;$B4C8BE
 	ORA #$80				;$B4C8C1
-	STA.w !REGISTER_FixedColorData		;$B4C8C3
+	STA.w PPU.fixed_color			;$B4C8C3
 	LDA $15E4				;$B4C8C6
 	LSR					;$B4C8C9
 	ORA #$40				;$B4C8CA
-	STA.w !REGISTER_FixedColorData		;$B4C8CC
+	STA.w PPU.fixed_color			;$B4C8CC
 	LDA #$0F				;$B4C8CF
 	SEC					;$B4C8D1
 	SBC $15E4				;$B4C8D2
 	ORA #$20				;$B4C8D5
-	STA.w !REGISTER_FixedColorData		;$B4C8D7
+	STA.w PPU.fixed_color			;$B4C8D7
 	REP.b #$20				;$B4C8DA
 CODE_B4C8DC:
 	RTS					;$B4C8DC
@@ -8703,13 +8703,13 @@ CODE_B4C93B:
 	LDA.w #$0000				;$B4C941
 	JSL.l CODE_BB857C			;$B4C944
 	LDA.w #$6C00				;$B4C948
-	STA.w !REGISTER_VRAMAddressLo		;$B4C94B
+	STA.w PPU.vram_address			;$B4C94B
 	LDX.w #$0000				;$B4C94E
 CODE_B4C951:
 	LDA.l $7F0000,x				;$B4C951
 	CLC					;$B4C955
 	ADC.w #$006B				;$B4C956
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B4C959
+	STA.w PPU.vram_write			;$B4C959
 	INX					;$B4C95C
 	INX					;$B4C95D
 	CPX.w #$0800				;$B4C95E
@@ -8849,7 +8849,7 @@ CODE_B4CA9B:
 	AND #$03E0				;$B4CAA4
 	CLC					;$B4CAA7
 	ADC $20					;$B4CAA8
-	STA.w !REGISTER_VRAMAddressLo		;$B4CAAA
+	STA.w PPU.vram_address			;$B4CAAA
 	CLC					;$B4CAAD
 	ADC #$0400				;$B4CAAE
 	TAX					;$B4CAB1
@@ -8858,26 +8858,26 @@ CODE_B4CA9B:
 	AND #$0FC0				;$B4CAB5
 	CLC					;$B4CAB8
 	ADC $22					;$B4CAB9
-	STA DMA[$00].SourceLo			;$B4CABB
-	STA DMA[$00].Unused2			;$B4CABE
+	STA DMA[$00].source_word		;$B4CABB
+	STA DMA[$00].unused_2			;$B4CABE
 	ADC #$1000				;$B4CAC1
-	STA DMA[$07].SourceLo			;$B4CAC4
-	STA DMA[$07].Unused2			;$B4CAC7
+	STA DMA[$07].source_word		;$B4CAC4
+	STA DMA[$07].unused_2			;$B4CAC7
 	LDA #$0040				;$B4CACA
-	STA DMA[$00].SizeLo			;$B4CACD
-	STA DMA[$07].SizeLo			;$B4CAD0
+	STA DMA[$00].size			;$B4CACD
+	STA DMA[$07].size			;$B4CAD0
 	LDA #$1801				;$B4CAD3
-	STA DMA[$00].Parameters			;$B4CAD6
-	STA DMA[$07].Parameters			;$B4CAD9
+	STA DMA[$00].settings			;$B4CAD6
+	STA DMA[$07].settings			;$B4CAD9
 	SEP #$20				;$B4CADC
 	LDA #$7E4180>>16			;$B4CADE
-	STA DMA[$00].SourceBank			;$B4CAE0
-	STA DMA[$07].SourceBank			;$B4CAE3
+	STA DMA[$00].source_bank		;$B4CAE0
+	STA DMA[$07].source_bank		;$B4CAE3
 	LDA #$01				;$B4CAE6
-	STA.w !REGISTER_DMAEnable		;$B4CAE8
-	STX.w !REGISTER_VRAMAddressLo		;$B4CAEB
+	STA.w CPU.enable_dma			;$B4CAE8
+	STX.w PPU.vram_address			;$B4CAEB
 	LDA #$80				;$B4CAEE
-	STA.w !REGISTER_DMAEnable		;$B4CAF0
+	STA.w CPU.enable_dma			;$B4CAF0
 	REP #$20				;$B4CAF3
 	RTS					;$B4CAF5
 

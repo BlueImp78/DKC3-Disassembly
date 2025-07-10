@@ -9,7 +9,7 @@ DATA_F90000:
 	db $08,$08,$08,$08,$09,$09,$09,$09,$09,$09,$09,$09,$09,$09,$09,$09
 	db $09,$09,$01,$01,$01,$01,$03,$03,$04,$01,$01,$01,$01,$17,$00,$00
 
-if !include_garbage_data = 1
+if !include_garbage_data == 1
 	incsrc "data/garbage_data/DKC2_DATA_F90080.asm"
 else
 	padbyte $00 : pad $F90100

@@ -76,7 +76,7 @@ CODE_B38076:
 	TAX					;$B38079
 	JSR.w (DATA_B380AC,x)			;$B3807A
 	SEP.b #$20				;$B3807D
-	LDA.w !REGISTER_HVBlankFlagsAndJoypadStatus	;$B3807F
+	LDA.w CPU.ppu_status			;$B3807F
 	REP.b #$20				;$B38082
 	BMI.b CODE_B38086			;$B38084
 CODE_B38086:
@@ -88,14 +88,14 @@ CODE_B38086:
 	JMP.w (DATA_B3A62E,x)			;$B38090
 
 CODE_B38093:
-	STA.w DMA[$00].SourceLo			;$B38093
-	STY.w DMA[$00].SizeLo			;$B38096
+	STA.w DMA[$00].source_word		;$B38093
+	STY.w DMA[$00].size			;$B38096
 	LDA.w #$1801				;$B38099
-	STA.w DMA[$00].Parameters		;$B3809C
+	STA.w DMA[$00].settings			;$B3809C
 	SEP.b #$30				;$B3809F
-	STX.w DMA[$00].SourceBank		;$B380A1
+	STX.w DMA[$00].source_bank		;$B380A1
 	LDA.b #$01				;$B380A4
-	STA.w !REGISTER_DMAEnable		;$B380A6
+	STA.w CPU.enable_dma			;$B380A6
 	REP.b #$30				;$B380A9
 	RTS					;$B380AB
 
@@ -139,11 +139,11 @@ DATA_B380AC:
 
 CODE_B380F4:
 	LDA $04E4				;$B380F4
-	STA.w !REGISTER_DMAEnable		;$B380F7
-	JSL CODE_B3D843			;$B380FA
-	JSL CODE_B7B00F			;$B380FE
-	JSL CODE_B7B012			;$B38102
-	JSL CODE_80801E			;$B38106
+	STA.w CPU.enable_dma_hdma		;$B380F7
+	JSL CODE_B3D843				;$B380FA
+	JSL CODE_B7B00F				;$B380FE
+	JSL CODE_B7B012				;$B38102
+	JSL CODE_80801E				;$B38106
 	RTS					;$B3810A
 
 CODE_B3810B:
@@ -151,19 +151,19 @@ CODE_B3810B:
 	LDA $196D				;$B3810E
 	LSR					;$B38111
 	SEP #$20				;$B38112
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B38114
-	STZ.w !REGISTER_BG3HorizScrollOffset	;$B38117
+	STA.w PPU.layer_3_scroll_x		;$B38114
+	STZ.w PPU.layer_3_scroll_x		;$B38117
 	LDA $196D				;$B3811A
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B3811D
+	STA.w PPU.layer_2_scroll_x		;$B3811D
 	LDA $196E				;$B38120
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B38123
+	STA.w PPU.layer_2_scroll_x		;$B38123
 	LDA $1975				;$B38126
-	STA.w !REGISTER_BG2VertScrollOffset	;$B38129
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B3812C
-	STZ.w !REGISTER_BG3VertScrollOffset	;$B3812F
-	STZ.w !REGISTER_BG3VertScrollOffset	;$B38132
+	STA.w PPU.layer_2_scroll_y		;$B38129
+	STZ.w PPU.layer_2_scroll_y		;$B3812C
+	STZ.w PPU.layer_3_scroll_y		;$B3812F
+	STZ.w PPU.layer_3_scroll_y		;$B38132
 	LDA screen_brightness			;$B38135
-	STA.w !REGISTER_ScreenDisplayRegister	;$B38138
+	STA.w PPU.screen			;$B38138
 	REP #$20				;$B3813B
 	RTS					;$B3813D
 
@@ -172,10 +172,10 @@ CODE_B3813E:
 	JSR.w CODE_B38158			;$B38141
 	SEP.b #$20				;$B38144
 	LDA.w $1975				;$B38146
-	STA.w !REGISTER_BG2VertScrollOffset	;$B38149
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B3814C
+	STA.w PPU.layer_2_scroll_y		;$B38149
+	STZ.w PPU.layer_2_scroll_y		;$B3814C
 	LDA.w screen_brightness			;$B3814F
-	STA.w !REGISTER_ScreenDisplayRegister	;$B38152
+	STA.w PPU.screen			;$B38152
 	REP.b #$20				;$B38155
 	RTS					;$B38157
 
@@ -290,9 +290,9 @@ CODE_B38201:
 	SEC					;$B38249
 	SBC.w #$0121				;$B3824A
 	SEP.b #$20				;$B3824D
-	STA.w !REGISTER_BG3VertScrollOffset	;$B3824F
+	STA.w PPU.layer_3_scroll_y		;$B3824F
 	XBA					;$B38252
-	STA.w !REGISTER_BG3VertScrollOffset	;$B38253
+	STA.w PPU.layer_3_scroll_y		;$B38253
 	REP.b #$20				;$B38256
 	RTS					;$B38258
 
@@ -303,22 +303,22 @@ CODE_B38259:
 	CLC					;$B38260
 	ADC.w #$0040				;$B38261
 	SEP.b #$20				;$B38264
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B38266
-	STZ.w !REGISTER_BG2HorizScrollOffset	;$B38269
+	STA.w PPU.layer_2_scroll_x		;$B38266
+	STZ.w PPU.layer_2_scroll_x		;$B38269
 	REP.b #$20				;$B3826C
 	STA.l $7EA15B				;$B3826E
 	STA.l $7EA160				;$B38272
 	LSR					;$B38276
 	SEP.b #$20				;$B38277
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B38279
-	STZ.w !REGISTER_BG3HorizScrollOffset	;$B3827C
+	STA.w PPU.layer_3_scroll_x		;$B38279
+	STZ.w PPU.layer_3_scroll_x		;$B3827C
 	LDA.w $196D				;$B3827F
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B38282
+	STA.w PPU.layer_1_scroll_x		;$B38282
 	LDA.w $196E				;$B38285
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B38288
+	STA.w PPU.layer_1_scroll_x		;$B38288
 	LDA.w $1975				;$B3828B
-	STA.w !REGISTER_BG1VertScrollOffset	;$B3828E
-	STA.w !REGISTER_BG1VertScrollOffset	;$B38291
+	STA.w PPU.layer_1_scroll_y		;$B3828E
+	STA.w PPU.layer_1_scroll_y		;$B38291
 	REP.b #$20				;$B38294
 	LDA.w $18A1				;$B38296
 	CLC					;$B38299
@@ -342,15 +342,15 @@ CODE_B38259:
 	STA.l $7EA15D				;$B382C8
 	STA.l $7EA162				;$B382CC
 	SEP.b #$20				;$B382D0
-	STA.w !REGISTER_BG2VertScrollOffset	;$B382D2
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B382D5
+	STA.w PPU.layer_2_scroll_y		;$B382D2
+	STZ.w PPU.layer_2_scroll_y		;$B382D5
 	REP.b #$20				;$B382D8
 	LSR					;$B382DA
 	SEP.b #$20				;$B382DB
-	STA.w !REGISTER_BG3VertScrollOffset	;$B382DD
-	STZ.w !REGISTER_BG3VertScrollOffset	;$B382E0
+	STA.w PPU.layer_3_scroll_y		;$B382DD
+	STZ.w PPU.layer_3_scroll_y		;$B382E0
 	LDA.w screen_brightness			;$B382E3
-	STA.w !REGISTER_ScreenDisplayRegister	;$B382E6
+	STA.w PPU.screen			;$B382E6
 	REP.b #$20				;$B382E9
 	RTS					;$B382EB
 
@@ -364,21 +364,21 @@ CODE_B382EC:
 	LSR					;$B382F9
 	LSR					;$B382FA
 	SEP.b #$20				;$B382FB
-	STA.w !REGISTER_BG3VertScrollOffset	;$B382FD
-	STZ.w !REGISTER_BG3VertScrollOffset	;$B38300
+	STA.w PPU.layer_3_scroll_y		;$B382FD
+	STZ.w PPU.layer_3_scroll_y		;$B38300
 	REP.b #$20				;$B38303
 	LDA.w $196D				;$B38305
 	LSR					;$B38308
 	LSR					;$B38309
 	SEP.b #$20				;$B3830A
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B3830C
-	STZ.w !REGISTER_BG3HorizScrollOffset	;$B3830F
+	STA.w PPU.layer_3_scroll_x		;$B3830C
+	STZ.w PPU.layer_3_scroll_x		;$B3830F
 	REP.b #$20				;$B38312
 	LDA.w $196D				;$B38314
 	LSR					;$B38317
 	SEP.b #$20				;$B38318
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B3831A
-	STZ.w !REGISTER_BG2HorizScrollOffset	;$B3831D
+	STA.w PPU.layer_2_scroll_x		;$B3831A
+	STZ.w PPU.layer_2_scroll_x		;$B3831D
 	REP.b #$20				;$B38320
 	LDA.w $1973				;$B38322
 	SEC					;$B38325
@@ -386,17 +386,17 @@ CODE_B382EC:
 	LSR					;$B38329
 	LSR					;$B3832A
 	SEP.b #$20				;$B3832B
-	STA.w !REGISTER_BG2VertScrollOffset	;$B3832D
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B38330
+	STA.w PPU.layer_2_scroll_y		;$B3832D
+	STZ.w PPU.layer_2_scroll_y		;$B38330
 	LDA.w $196D				;$B38333
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B38336
+	STA.w PPU.layer_1_scroll_x		;$B38336
 	LDA.w $196E				;$B38339
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3833C
+	STA.w PPU.layer_1_scroll_x		;$B3833C
 	LDA.w $1975				;$B3833F
-	STA.w !REGISTER_BG1VertScrollOffset	;$B38342
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B38345
+	STA.w PPU.layer_1_scroll_y		;$B38342
+	STZ.w PPU.layer_1_scroll_y		;$B38345
 	LDA.w screen_brightness			;$B38348
-	STA.w !REGISTER_ScreenDisplayRegister	;$B3834B
+	STA.w PPU.screen			;$B3834B
 	REP.b #$20				;$B3834E
 	RTS					;$B38350
 
@@ -415,11 +415,11 @@ CODE_B38351:
 CODE_B3836D:
 	SEP.b #$20				;$B3836D
 	LDA.b $5C,x				;$B3836F
-	STA.w !REGISTER_CGRAMAddress		;$B38371
+	STA.w PPU.cgram_address			;$B38371
 	LDX.w #$0000				;$B38374
 CODE_B38377:
 	LDA.l $7E2F80,x				;$B38377
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3837B
+	STA.w PPU.cgram_write			;$B3837B
 	INX					;$B3837E
 	CPX.w #$0010				;$B3837F
 	BCC.b CODE_B38377			;$B38382
@@ -429,15 +429,15 @@ CODE_B38377:
 CODE_B38388:
 	SEP.b #$20				;$B38388
 	LDA.b $5C,x				;$B3838A
-	STA.w !REGISTER_CGRAMAddress		;$B3838C
+	STA.w PPU.cgram_address			;$B3838C
 	REP.b #$20				;$B3838F
 	LDX.w #$0000				;$B38391
 	TYA					;$B38394
 	SEP.b #$20				;$B38395
 CODE_B38397:
-	STA.w !REGISTER_WriteToCGRAMPort	;$B38397
+	STA.w PPU.cgram_write			;$B38397
 	XBA					;$B3839A
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3839B
+	STA.w PPU.cgram_write			;$B3839B
 	XBA					;$B3839E
 	INX					;$B3839F
 	INX					;$B383A0
@@ -451,8 +451,8 @@ CODE_B383A8:
 	LSR					;$B383AF
 	LSR					;$B383B0
 	SEP.b #$20				;$B383B1
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B383B3
-	STZ.w !REGISTER_BG3HorizScrollOffset	;$B383B6
+	STA.w PPU.layer_3_scroll_x		;$B383B3
+	STZ.w PPU.layer_3_scroll_x		;$B383B6
 	REP.b #$20				;$B383B9
 	LDA.w $1975				;$B383BB
 	ASL					;$B383BE
@@ -460,24 +460,24 @@ CODE_B383A8:
 	LSR					;$B383C2
 	LSR					;$B383C3
 	SEP.b #$20				;$B383C4
-	STA.w !REGISTER_BG3VertScrollOffset	;$B383C6
-	STZ.w !REGISTER_BG3VertScrollOffset	;$B383C9
+	STA.w PPU.layer_3_scroll_y		;$B383C6
+	STZ.w PPU.layer_3_scroll_y		;$B383C9
 	REP.b #$20				;$B383CC
 	LDA.b $00				;$B383CE
 	LSR					;$B383D0
 	LSR					;$B383D1
 	SEP.b #$20				;$B383D2
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B383D4
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B383D7
+	STA.w PPU.layer_2_scroll_x		;$B383D4
+	STA.w PPU.layer_2_scroll_x		;$B383D7
 	LDA.w $196D				;$B383DA
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B383DD
+	STA.w PPU.layer_1_scroll_x		;$B383DD
 	LDA.w $196E				;$B383E0
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B383E3
+	STA.w PPU.layer_1_scroll_x		;$B383E3
 	LDA.w $1975				;$B383E6
-	STA.w !REGISTER_BG1VertScrollOffset	;$B383E9
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B383EC
+	STA.w PPU.layer_1_scroll_y		;$B383E9
+	STZ.w PPU.layer_1_scroll_y		;$B383EC
 	LDA.w screen_brightness			;$B383EF
-	STA.w !REGISTER_ScreenDisplayRegister	;$B383F2
+	STA.w PPU.screen			;$B383F2
 	REP.b #$20				;$B383F5
 	RTS					;$B383F7
 
@@ -490,36 +490,36 @@ CODE_B383F8:
 	BIT.w #$0001				;$B38405
 	BEQ.b CODE_B38436			;$B38408
 	LDX.w #$A15A				;$B3840A
-	STX.w HDMA[$01].SourceLo		;$B3840D
+	STX.w HDMA[$01].source_word		;$B3840D
 	LDX.w #$A17A				;$B38410
-	STX.w HDMA[$02].SourceLo		;$B38413
+	STX.w HDMA[$02].source_word		;$B38413
 	LDX.w #$A16A				;$B38416
-	STX.w HDMA[$03].SourceLo		;$B38419
+	STX.w HDMA[$03].source_word		;$B38419
 	LDX.w #$A18A				;$B3841C
-	STX.w HDMA[$04].SourceLo		;$B3841F
+	STX.w HDMA[$04].source_word		;$B3841F
 	LDX.w #$A19A				;$B38422
-	STX.w HDMA[$05].SourceLo		;$B38425
+	STX.w HDMA[$05].source_word		;$B38425
 	LDX.w #$A28A				;$B38428
-	STX.w HDMA[$06].SourceLo		;$B3842B
+	STX.w HDMA[$06].source_word		;$B3842B
 	LDX.w #$A38A				;$B3842E
-	STX.w HDMA[$07].SourceLo		;$B38431
+	STX.w HDMA[$07].source_word		;$B38431
 	BRA.b CODE_B38460			;$B38434
 
 CODE_B38436:
 	LDX.w #$A45A				;$B38436
-	STX.w HDMA[$01].SourceLo		;$B38439
+	STX.w HDMA[$01].source_word		;$B38439
 	LDX.w #$A47A				;$B3843C
-	STX.w HDMA[$02].SourceLo		;$B3843F
+	STX.w HDMA[$02].source_word		;$B3843F
 	LDX.w #$A46A				;$B38442
-	STX.w HDMA[$03].SourceLo		;$B38445
+	STX.w HDMA[$03].source_word		;$B38445
 	LDX.w #$A48A				;$B38448
-	STX.w HDMA[$04].SourceLo		;$B3844B
+	STX.w HDMA[$04].source_word		;$B3844B
 	LDX.w #$A49A				;$B3844E
-	STX.w HDMA[$05].SourceLo		;$B38451
+	STX.w HDMA[$05].source_word		;$B38451
 	LDX.w #$A58A				;$B38454
-	STX.w HDMA[$06].SourceLo		;$B38457
+	STX.w HDMA[$06].source_word		;$B38457
 	LDX.w #$A68A				;$B3845A
-	STX.w HDMA[$07].SourceLo		;$B3845D
+	STX.w HDMA[$07].source_word		;$B3845D
 CODE_B38460:
 	LDA.w $1975				;$B38460
 	SEC					;$B38463
@@ -527,32 +527,32 @@ CODE_B38460:
 	CLC					;$B38467
 	ADC.w #$0020				;$B38468
 	SEP.b #$20				;$B3846B
-	STA.w !REGISTER_BG3VertScrollOffset	;$B3846D
-	STZ.w !REGISTER_BG3VertScrollOffset	;$B38470
+	STA.w PPU.layer_3_scroll_y		;$B3846D
+	STZ.w PPU.layer_3_scroll_y		;$B38470
 	REP.b #$20				;$B38473
 CODE_B38475:
 	LDA.w $196D				;$B38475
 	LSR					;$B38478
 	SEP.b #$20				;$B38479
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B3847B
-	STZ.w !REGISTER_BG2HorizScrollOffset	;$B3847E
+	STA.w PPU.layer_2_scroll_x		;$B3847B
+	STZ.w PPU.layer_2_scroll_x		;$B3847E
 	LDA.w $196D				;$B38481
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B38484
+	STA.w PPU.layer_1_scroll_x		;$B38484
 	LDA.w $196E				;$B38487
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3848A
+	STA.w PPU.layer_1_scroll_x		;$B3848A
 	REP.b #$20				;$B3848D
 	LDA.w $1975				;$B3848F
 	LSR					;$B38492
 	SEP.b #$20				;$B38493
-	STA.w !REGISTER_BG2VertScrollOffset	;$B38495
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B38498
+	STA.w PPU.layer_2_scroll_y		;$B38495
+	STZ.w PPU.layer_2_scroll_y		;$B38498
 	LDA.w $1975				;$B3849B
-	STA.w !REGISTER_BG1VertScrollOffset	;$B3849E
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B384A1
+	STA.w PPU.layer_1_scroll_y		;$B3849E
+	STZ.w PPU.layer_1_scroll_y		;$B384A1
 	REP.b #$20				;$B384A4
 	SEP.b #$20				;$B384A6
 	LDA.w screen_brightness			;$B384A8
-	STA.w !REGISTER_ScreenDisplayRegister	;$B384AB
+	STA.w PPU.screen			;$B384AB
 	REP.b #$20				;$B384AE
 	RTS					;$B384B0
 
@@ -573,39 +573,39 @@ CODE_B384B5:
 	SEC					;$B384CB
 	SBC.b $1A				;$B384CC
 	SEP.b #$20				;$B384CE
-	STA.w !REGISTER_BG2VertScrollOffset	;$B384D0
+	STA.w PPU.layer_2_scroll_y		;$B384D0
 	XBA					;$B384D3
-	STA.w !REGISTER_BG2VertScrollOffset	;$B384D4
+	STA.w PPU.layer_2_scroll_y		;$B384D4
 	REP.b #$20				;$B384D7
 	LDA.w $196D				;$B384D9
 	LSR					;$B384DC
 	LSR					;$B384DD
 	SEP.b #$20				;$B384DE
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B384E0
-	STZ.w !REGISTER_BG2HorizScrollOffset	;$B384E3
+	STA.w PPU.layer_2_scroll_x		;$B384E0
+	STZ.w PPU.layer_2_scroll_x		;$B384E3
 	REP.b #$20				;$B384E6
 	LDA.w $196D				;$B384E8
 	LSR					;$B384EB
 	SEP.b #$20				;$B384EC
 	CLC					;$B384EE
 	ADC.b #$80				;$B384EF
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B384F1
-	STZ.w !REGISTER_BG3HorizScrollOffset	;$B384F4
+	STA.w PPU.layer_3_scroll_x		;$B384F1
+	STZ.w PPU.layer_3_scroll_x		;$B384F4
 	REP.b #$20				;$B384F7
 	LDA.w $1975				;$B384F9
 	LSR					;$B384FC
 	SEP.b #$20				;$B384FD
-	STA.w !REGISTER_BG3VertScrollOffset	;$B384FF
-	STZ.w !REGISTER_BG3VertScrollOffset	;$B38502
+	STA.w PPU.layer_3_scroll_y		;$B384FF
+	STZ.w PPU.layer_3_scroll_y		;$B38502
 	LDA.w $196D				;$B38505
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B38508
+	STA.w PPU.layer_1_scroll_x		;$B38508
 	LDA.w $196E				;$B3850B
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3850E
+	STA.w PPU.layer_1_scroll_x		;$B3850E
 	LDA.w $1975				;$B38511
-	STA.w !REGISTER_BG1VertScrollOffset	;$B38514
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B38517
+	STA.w PPU.layer_1_scroll_y		;$B38514
+	STZ.w PPU.layer_1_scroll_y		;$B38517
 	LDA.w screen_brightness			;$B3851A
-	STA.w !REGISTER_ScreenDisplayRegister	;$B3851D
+	STA.w PPU.screen			;$B3851D
 	REP.b #$20				;$B38520
 	RTS					;$B38522
 
@@ -636,29 +636,29 @@ CODE_B3853C:
 	SEC					;$B38549
 	SBC.w #$001C				;$B3854A
 	SEP.b #$30				;$B3854D
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B3854F
+	STA.w PPU.layer_3_scroll_x		;$B3854F
 	XBA					;$B38552
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B38553
+	STA.w PPU.layer_3_scroll_x		;$B38553
 	LDA.w $196D				;$B38556
 	LDX.w $196E				;$B38559
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3855C
-	STX.w !REGISTER_BG1HorizScrollOffset	;$B3855F
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B38562
-	STX.w !REGISTER_BG2HorizScrollOffset	;$B38565
+	STA.w PPU.layer_1_scroll_x		;$B3855C
+	STX.w PPU.layer_1_scroll_x		;$B3855F
+	STA.w PPU.layer_2_scroll_x		;$B38562
+	STX.w PPU.layer_2_scroll_x		;$B38565
 	LDA.w $1975				;$B38568
 	LDX.w $1976				;$B3856B
-	STA.w !REGISTER_BG1VertScrollOffset	;$B3856E
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B38571
+	STA.w PPU.layer_1_scroll_y		;$B3856E
+	STZ.w PPU.layer_1_scroll_y		;$B38571
 	REP.b #$20				;$B38574
 	LDA.w $1975				;$B38576
 	CLC					;$B38579
 	ADC.w #$0030				;$B3857A
 	SEP.b #$20				;$B3857D
-	STA.w !REGISTER_BG3VertScrollOffset	;$B3857F
+	STA.w PPU.layer_3_scroll_y		;$B3857F
 	XBA					;$B38582
-	STA.w !REGISTER_BG3VertScrollOffset	;$B38583
+	STA.w PPU.layer_3_scroll_y		;$B38583
 	LDA.w screen_brightness			;$B38586
-	STA.w !REGISTER_ScreenDisplayRegister	;$B38589
+	STA.w PPU.screen			;$B38589
 	REP.b #$30				;$B3858C
 	RTS					;$B3858E
 
@@ -674,15 +674,15 @@ CODE_B3858F:
 	SEC					;$B385A2
 	ADC.w $196D				;$B385A3
 	SEP.b #$30				;$B385A6
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B385A8
+	STA.w PPU.layer_3_scroll_x		;$B385A8
 	XBA					;$B385AB
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B385AC
+	STA.w PPU.layer_3_scroll_x		;$B385AC
 	LDA.w $196D				;$B385AF
 	LDX.w $196E				;$B385B2
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B385B5
-	STX.w !REGISTER_BG1HorizScrollOffset	;$B385B8
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B385BB
-	STX.w !REGISTER_BG2HorizScrollOffset	;$B385BE
+	STA.w PPU.layer_1_scroll_x		;$B385B5
+	STX.w PPU.layer_1_scroll_x		;$B385B8
+	STA.w PPU.layer_2_scroll_x		;$B385BB
+	STX.w PPU.layer_2_scroll_x		;$B385BE
 	REP.b #$30				;$B385C1
 	LDA.w $1975				;$B385C3
 	LSR					;$B385C6
@@ -692,14 +692,14 @@ CODE_B3858F:
 	SEC					;$B385CC
 	ADC.w $1975				;$B385CD
 	SEP.b #$20				;$B385D0
-	STA.w !REGISTER_BG3VertScrollOffset	;$B385D2
+	STA.w PPU.layer_3_scroll_y		;$B385D2
 	XBA					;$B385D5
-	STA.w !REGISTER_BG3VertScrollOffset	;$B385D6
+	STA.w PPU.layer_3_scroll_y		;$B385D6
 	LDA.w $1975				;$B385D9
-	STA.w !REGISTER_BG1VertScrollOffset	;$B385DC
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B385DF
+	STA.w PPU.layer_1_scroll_y		;$B385DC
+	STZ.w PPU.layer_1_scroll_y		;$B385DF
 	LDA.w screen_brightness			;$B385E2
-	STA.w !REGISTER_ScreenDisplayRegister	;$B385E5
+	STA.w PPU.screen			;$B385E5
 	REP.b #$20				;$B385E8
 	RTS					;$B385EA
 
@@ -728,7 +728,7 @@ CODE_B38609:
 CODE_B38615:
 	SEP.b #$20				;$B38615
 	LDA.b #$81				;$B38617
-	STA.w !REGISTER_VRAMAddressIncrementValue	;$B38619
+	STA.w PPU.vram_control			;$B38619
 	REP.b #$20				;$B3861C
 	LDA.w $196D				;$B3861E
 	LDX.w $1989				;$B38621
@@ -747,7 +747,7 @@ CODE_B3862A:
 	ADC.w #$03E0				;$B38638
 CODE_B3863B:
 	ADC.w #$7000				;$B3863B
-	STA.w !REGISTER_VRAMAddressLo		;$B3863E
+	STA.w PPU.vram_address			;$B3863E
 	LDA.b $1A				;$B38641
 	SEC					;$B38643
 	SBC.w #$0100				;$B38644
@@ -780,19 +780,19 @@ CODE_B3863B:
 CODE_B38671:
 	CLC					;$B38671
 	ADC.w #DATA_B387B6			;$B38672
-	STA.w DMA[$07].SourceLo			;$B38675
-	STA.w DMA[$07].Unused2			;$B38678
+	STA.w DMA[$07].source_word		;$B38675
+	STA.w DMA[$07].unused_2			;$B38678
 	LDA.w #$0040				;$B3867B
-	STA.w DMA[$07].SizeLo			;$B3867E
+	STA.w DMA[$07].size			;$B3867E
 	LDA.w #$1801				;$B38681
-	STA.w DMA[$07].Parameters		;$B38684
+	STA.w DMA[$07].settings			;$B38684
 	SEP.b #$20				;$B38687
 	LDA.b #DATA_B387B6>>16			;$B38689
-	STA.w DMA[$07].SourceBank		;$B3868B
+	STA.w DMA[$07].source_bank		;$B3868B
 	LDA.b #$80				;$B3868E
-	STA.w !REGISTER_DMAEnable		;$B38690
+	STA.w CPU.enable_dma			;$B38690
 	LDA.b #$80				;$B38693
-	STA.w !REGISTER_VRAMAddressIncrementValue	;$B38695
+	STA.w PPU.vram_control			;$B38695
 	REP.b #$20				;$B38698
 	RTL					;$B3869A
 
@@ -863,17 +863,17 @@ CODE_B38EFC:
 	ASL					;$B38F0E
 	TAX					;$B38F0F
 	SEP.b #$20				;$B38F10
-	STZ.w !REGISTER_CGRAMAddress		;$B38F12
+	STZ.w PPU.cgram_address			;$B38F12
 	LDA.l DATA_B38F59,x			;$B38F15
-	STA.w !REGISTER_WriteToCGRAMPort	;$B38F19
+	STA.w PPU.cgram_write			;$B38F19
 	LDA.l DATA_B38F59+$01,x			;$B38F1C
-	STA.w !REGISTER_WriteToCGRAMPort	;$B38F20
+	STA.w PPU.cgram_write			;$B38F20
 	LDA.b #$11				;$B38F23
-	STA.w !REGISTER_CGRAMAddress		;$B38F25
+	STA.w PPU.cgram_address			;$B38F25
 	LDY.w #$001E				;$B38F28
 CODE_B38F2B:
 	LDA.l DATA_B38F59+$02,x			;$B38F2B
-	STA.w !REGISTER_WriteToCGRAMPort	;$B38F2F
+	STA.w PPU.cgram_write			;$B38F2F
 	INX					;$B38F32
 	DEY					;$B38F33
 	BNE.b CODE_B38F2B			;$B38F34
@@ -882,13 +882,13 @@ CODE_B38F36:
 	LDA.w $196D				;$B38F38
 	SEC					;$B38F3B
 	SBC.l $001B77				;$B38F3C
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B38F40
-	STZ.w !REGISTER_BG1HorizScrollOffset	;$B38F43
+	STA.w PPU.layer_1_scroll_x		;$B38F40
+	STZ.w PPU.layer_1_scroll_x		;$B38F43
 	LDA.w $1975				;$B38F46
 	SEC					;$B38F49
 	SBC.l $001B79				;$B38F4A
-	STA.w !REGISTER_BG1VertScrollOffset	;$B38F4E
-	STA.w !REGISTER_BG1VertScrollOffset	;$B38F51
+	STA.w PPU.layer_1_scroll_y		;$B38F4E
+	STA.w PPU.layer_1_scroll_y		;$B38F51
 	REP.b #$20				;$B38F54
 	JMP.w CODE_B39F1C			;$B38F56
 
@@ -903,8 +903,8 @@ CODE_B39359:
 	LSR					;$B39363
 	LSR					;$B39364
 	SEP.b #$20				;$B39365
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B39367
-	STZ.w !REGISTER_BG2HorizScrollOffset	;$B3936A
+	STA.w PPU.layer_2_scroll_x		;$B39367
+	STZ.w PPU.layer_2_scroll_x		;$B3936A
 	REP.b #$20				;$B3936D
 	LDA.w $1975				;$B3936F
 	ASL					;$B39372
@@ -912,23 +912,23 @@ CODE_B39359:
 	LSR					;$B39376
 	LSR					;$B39377
 	SEP.b #$20				;$B39378
-	STA.w !REGISTER_BG2VertScrollOffset	;$B3937A
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B3937D
+	STA.w PPU.layer_2_scroll_y		;$B3937A
+	STZ.w PPU.layer_2_scroll_y		;$B3937D
 	LDA.w $196D				;$B39380
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B39383
+	STA.w PPU.layer_1_scroll_x		;$B39383
 	LDA.w $196E				;$B39386
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B39389
+	STA.w PPU.layer_1_scroll_x		;$B39389
 	LDA.w $1975				;$B3938C
-	STA.w !REGISTER_BG1VertScrollOffset	;$B3938F
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B39392
+	STA.w PPU.layer_1_scroll_y		;$B3938F
+	STZ.w PPU.layer_1_scroll_y		;$B39392
 	LDA.w screen_brightness			;$B39395
-	STA.w !REGISTER_ScreenDisplayRegister	;$B39398
+	STA.w PPU.screen			;$B39398
 	REP.b #$20				;$B3939B
 	RTS					;$B3939D
 
 CODE_B3939E:
 	LDA.w $04E4				;$B3939E
-	STA.w !REGISTER_DMAEnable		;$B393A1
+	STA.w CPU.enable_dma_hdma		;$B393A1
 	JSL.l CODE_B3D843			;$B393A4
 	JSL.l CODE_B7B8D1			;$B393A8
 	JSL.l CODE_B7B00F			;$B393AC
@@ -1064,7 +1064,7 @@ CODE_B394EB:
 	ADC.b #$00				;$B394F0
 	STA.l $7EA35D				;$B394F2
 	LDA.w screen_brightness			;$B394F6
-	STA.w !REGISTER_ScreenDisplayRegister	;$B394F9
+	STA.w PPU.screen			;$B394F9
 	REP.b #$20				;$B394FC
 	RTS					;$B394FE
 
@@ -1083,7 +1083,7 @@ CODE_B394FF:
 	STA.b $1A				;$B39510
 	SEP.b #$20				;$B39512
 	LDA.l $0004EC				;$B39514
-	STA.l !REGISTER_ScreenDisplayRegister	;$B39518
+	STA.l PPU.screen			;$B39518
 	REP.b #$20				;$B3951C
 	PLB					;$B3951E
 	RTL					;$B3951F
@@ -1108,11 +1108,11 @@ CODE_B3952F:
 	TAX					;$B3953C
 	SEP.b #$20				;$B3953D
 	LDA.b #$05				;$B3953F
-	STA.w !REGISTER_CGRAMAddress		;$B39541
+	STA.w PPU.cgram_address			;$B39541
 	LDY.w #$0016				;$B39544
 CODE_B39547:
 	LDA.l DATA_B39555,x			;$B39547
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3954B
+	STA.w PPU.cgram_write			;$B3954B
 	INX					;$B3954E
 	DEY					;$B3954F
 	BNE.b CODE_B39547			;$B39550
@@ -1130,8 +1130,8 @@ CODE_B39637:
 	JSR.w CODE_B380F4			;$B39637
 	LDX.w #$0000				;$B3963A
 	LDA.w #$00FF				;$B3963D
-	STA.w !REGISTER_Window1LeftPositionDesignation	;$B39640
-	STA.w !REGISTER_Window2LeftPositionDesignation	;$B39643
+	STA.w PPU.window_1			;$B39640
+	STA.w PPU.window_2			;$B39643
 	LDA.w $1973				;$B39646
 	SEC					;$B39649
 	SBC.w $050F				;$B3964A
@@ -1218,14 +1218,14 @@ CODE_B39702:
 	STA.l $7EA4EB				;$B3971F
 	LDA.w $196D				;$B39723
 	SEP.b #$20				;$B39726
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B39728
+	STA.w PPU.layer_1_scroll_x		;$B39728
 	XBA					;$B3972B
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3972C
+	STA.w PPU.layer_1_scroll_x		;$B3972C
 	LDA.w $1975				;$B3972F
-	STA.w !REGISTER_BG1VertScrollOffset	;$B39732
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B39735
+	STA.w PPU.layer_1_scroll_y		;$B39732
+	STZ.w PPU.layer_1_scroll_y		;$B39735
 	LDA.w screen_brightness			;$B39738
-	STA.w !REGISTER_ScreenDisplayRegister	;$B3973B
+	STA.w PPU.screen			;$B3973B
 	REP.b #$20				;$B3973E
 	RTS					;$B39740
 
@@ -1248,7 +1248,7 @@ CODE_B39753:
 	LDA.w #$0000				;$B3975B
 CODE_B3975E:
 	SEP.b #$20				;$B3975E
-	STA.w !REGISTER_Window1LeftPositionDesignation,x	;$B39760
+	STA.w PPU.window_1_left,x		;$B39760
 	REP.b #$20				;$B39763
 	LDA.b $1A				;$B39765
 	CLC					;$B39767
@@ -1260,7 +1260,7 @@ CODE_B3975E:
 	LDA.w #$00FF				;$B39774
 CODE_B39777:
 	SEP.b #$20				;$B39777
-	STA.w !REGISTER_Window1RightPositionDesignation,x	;$B39779
+	STA.w PPU.window_1_right,x		;$B39779
 	REP.b #$20				;$B3977C
 	INX					;$B3977E
 	INX					;$B3977F
@@ -1270,56 +1270,56 @@ CODE_B39781:
 	JSR.w CODE_B380F4			;$B39781
 	LDA.w $196D				;$B39784
 	SEP.b #$20				;$B39787
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B39789
+	STA.w PPU.layer_1_scroll_x		;$B39789
 	XBA					;$B3978C
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3978D
+	STA.w PPU.layer_1_scroll_x		;$B3978D
 	LDA.w $1975				;$B39790
-	STA.w !REGISTER_BG1VertScrollOffset	;$B39793
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B39796
+	STA.w PPU.layer_1_scroll_y		;$B39793
+	STZ.w PPU.layer_1_scroll_y		;$B39796
 	LDA.w screen_brightness			;$B39799
-	STA.w !REGISTER_ScreenDisplayRegister	;$B3979C
+	STA.w PPU.screen			;$B3979C
 	REP.b #$20				;$B3979F
 	RTS					;$B397A1
 
 CODE_B397A2:
 	LDA.w $04E4				;$B397A2
-	STA.w !REGISTER_DMAEnable		;$B397A5
+	STA.w CPU.enable_dma_hdma		;$B397A5
 	JSL.l CODE_B3D843			;$B397A8
 	JSL.l CODE_80801E			;$B397AC
 	LDA.w #$0004				;$B397B0
 	TRB.w $1B7D				;$B397B3
 	BEQ.b CODE_B397E9			;$B397B6
 	LDX.w #$76E0				;$B397B8
-	STX.w !REGISTER_VRAMAddressLo		;$B397BB
+	STX.w PPU.vram_address			;$B397BB
 	LDA.w #$7EF5C0				;$B397BE
-	STA.w DMA[$00].SourceLo			;$B397C1
-	STA.w DMA[$00].Unused2			;$B397C4
+	STA.w DMA[$00].source_word		;$B397C1
+	STA.w DMA[$00].unused_2			;$B397C4
 	LDA.w #$0100				;$B397C7
-	STA.w DMA[$00].SizeLo			;$B397CA
+	STA.w DMA[$00].size			;$B397CA
 	LDA.w #$1801				;$B397CD
-	STA.w DMA[$00].Parameters		;$B397D0
+	STA.w DMA[$00].settings			;$B397D0
 	SEP.b #$20				;$B397D3
 	LDA.b #$7EF5C0>>16			;$B397D5
-	STA.w DMA[$00].SourceBank		;$B397D7
+	STA.w DMA[$00].source_bank		;$B397D7
 	LDA.b #$01				;$B397DA
-	STA.w !REGISTER_DMAEnable		;$B397DC
+	STA.w CPU.enable_dma			;$B397DC
 	REP.b #$20				;$B397DF
 	LDA.w #$0017				;$B397E1
-	STA.w !REGISTER_MainScreenLayers	;$B397E4
+	STA.w PPU.screens			;$B397E4
 	REP.b #$20				;$B397E7
 CODE_B397E9:
 	LDA.w #$0032				;$B397E9
 	SEP.b #$20				;$B397EC
-	STA.w !REGISTER_BG3VertScrollOffset	;$B397EE
-	STZ.w !REGISTER_BG3VertScrollOffset	;$B397F1
+	STA.w PPU.layer_3_scroll_y		;$B397EE
+	STZ.w PPU.layer_3_scroll_y		;$B397F1
 	LDA.b #$FB				;$B397F4
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B397F6
-	STZ.w !REGISTER_BG1HorizScrollOffset	;$B397F9
+	STA.w PPU.layer_1_scroll_x		;$B397F6
+	STZ.w PPU.layer_1_scroll_x		;$B397F9
 	LDA.b #$02				;$B397FC
-	STA.w !REGISTER_BG1VertScrollOffset	;$B397FE
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B39801
+	STA.w PPU.layer_1_scroll_y		;$B397FE
+	STZ.w PPU.layer_1_scroll_y		;$B39801
 	LDA.w screen_brightness			;$B39804
-	STA.w !REGISTER_ScreenDisplayRegister	;$B39807
+	STA.w PPU.screen			;$B39807
 	REP.b #$20				;$B3980A
 	LDA.w #$0100				;$B3980C
 	STA.w $196D				;$B3980F
@@ -1334,28 +1334,28 @@ CODE_B39816:
 	ADC.w #$0040				;$B3981E
 	LSR					;$B39821
 	SEP.b #$20				;$B39822
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B39824
-	STZ.w !REGISTER_BG3HorizScrollOffset	;$B39827
+	STA.w PPU.layer_3_scroll_x		;$B39824
+	STZ.w PPU.layer_3_scroll_x		;$B39827
 	LDA.w $196D				;$B3982A
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B3982D
+	STA.w PPU.layer_2_scroll_x		;$B3982D
 	LDA.w $196E				;$B39830
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B39833
+	STA.w PPU.layer_2_scroll_x		;$B39833
 	LDA.w $1975				;$B39836
-	STA.w !REGISTER_BG2VertScrollOffset	;$B39839
-	STA.w !REGISTER_BG2VertScrollOffset	;$B3983C
+	STA.w PPU.layer_2_scroll_y		;$B39839
+	STA.w PPU.layer_2_scroll_y		;$B3983C
 	REP.b #$20				;$B3983F
 	LDA.w $1973				;$B39841
 	LSR					;$B39844
 	LSR					;$B39845
 	SEP.b #$20				;$B39846
-	STA.w !REGISTER_BG3VertScrollOffset	;$B39848
-	STZ.w !REGISTER_BG3VertScrollOffset	;$B3984B
+	STA.w PPU.layer_3_scroll_y		;$B39848
+	STZ.w PPU.layer_3_scroll_y		;$B3984B
 	LDA.w $1B79				;$B3984E
-	STA.w !REGISTER_BG1VertScrollOffset	;$B39851
+	STA.w PPU.layer_1_scroll_y		;$B39851
 	LDA.w $1B7A				;$B39854
-	STA.w !REGISTER_BG1VertScrollOffset	;$B39857
+	STA.w PPU.layer_1_scroll_y		;$B39857
 	LDA.w screen_brightness			;$B3985A
-	STA.w !REGISTER_ScreenDisplayRegister	;$B3985D
+	STA.w PPU.screen			;$B3985D
 	REP.b #$20				;$B39860
 	RTS					;$B39862
 
@@ -1365,24 +1365,24 @@ CODE_B39863:
 	BIT.w #$0001				;$B39868
 	BNE.b CODE_B39887			;$B3986B
 	LDX.w #$7EA55A				;$B3986D
-	STX.w HDMA[$01].SourceLo		;$B39870
+	STX.w HDMA[$01].source_word		;$B39870
 	LDX.w #$7EA57A				;$B39873
-	STX.w HDMA[$02].SourceLo		;$B39876
+	STX.w HDMA[$02].source_word		;$B39876
 	LDX.w #$7EA59A				;$B39879
-	STX.w HDMA[$03].SourceLo		;$B3987C
+	STX.w HDMA[$03].source_word		;$B3987C
 	LDX.w #$7EA5BA				;$B3987F
-	STX.w HDMA[$04].SourceLo		;$B39882
+	STX.w HDMA[$04].source_word		;$B39882
 	BRA.b CODE_B3989F			;$B39885
 
 CODE_B39887:
 	LDX.w #$7EA15A				;$B39887
-	STX.w HDMA[$01].SourceLo		;$B3988A
+	STX.w HDMA[$01].source_word		;$B3988A
 	LDX.w #$7EA17A				;$B3988D
-	STX.w HDMA[$02].SourceLo		;$B39890
+	STX.w HDMA[$02].source_word		;$B39890
 	LDX.w #$7EA19A				;$B39893
-	STX.w HDMA[$03].SourceLo		;$B39896
+	STX.w HDMA[$03].source_word		;$B39896
 	LDX.w #$7EA1BA				;$B39899
-	STX.w HDMA[$04].SourceLo		;$B3989C
+	STX.w HDMA[$04].source_word		;$B3989C
 CODE_B3989F:
 	LDA.b $00				;$B3989F
 	LSR					;$B398A1
@@ -1487,8 +1487,8 @@ CODE_B3997A:
 	LSR					;$B3998A
 	LSR					;$B3998B
 	SEP.b #$20				;$B3998C
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B3998E
-	STZ.w !REGISTER_BG2HorizScrollOffset	;$B39991
+	STA.w PPU.layer_2_scroll_x		;$B3998E
+	STZ.w PPU.layer_2_scroll_x		;$B39991
 	REP.b #$20				;$B39994
 	LDA.w $1973				;$B39996
 	ASL					;$B39999
@@ -1496,17 +1496,17 @@ CODE_B3997A:
 	LSR					;$B3999D
 	LSR					;$B3999E
 	SEP.b #$20				;$B3999F
-	STA.w !REGISTER_BG2VertScrollOffset	;$B399A1
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B399A4
+	STA.w PPU.layer_2_scroll_y		;$B399A1
+	STZ.w PPU.layer_2_scroll_y		;$B399A4
 	LDA.w $196D				;$B399A7
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B399AA
+	STA.w PPU.layer_1_scroll_x		;$B399AA
 	LDA.w $196E				;$B399AD
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B399B0
+	STA.w PPU.layer_1_scroll_x		;$B399B0
 	LDA.w $1975				;$B399B3
-	STA.w !REGISTER_BG1VertScrollOffset	;$B399B6
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B399B9
+	STA.w PPU.layer_1_scroll_y		;$B399B6
+	STZ.w PPU.layer_1_scroll_y		;$B399B9
 	LDA.w screen_brightness			;$B399BC
-	STA.w !REGISTER_ScreenDisplayRegister	;$B399BF
+	STA.w PPU.screen			;$B399BF
 	REP.b #$20				;$B399C2
 	RTS					;$B399C4
 
@@ -1526,20 +1526,20 @@ CODE_B39BB5:
 	LSR					;$B39BB8
 	LSR					;$B39BB9
 	SEP.b #$20				;$B39BBA
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B39BBC
-	STZ.w !REGISTER_BG1HorizScrollOffset	;$B39BBF
+	STA.w PPU.layer_1_scroll_x		;$B39BBC
+	STZ.w PPU.layer_1_scroll_x		;$B39BBF
 	LDA.w $196D				;$B39BC2
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B39BC5
+	STA.w PPU.layer_2_scroll_x		;$B39BC5
 	LDA.w $196E				;$B39BC8
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B39BCB
+	STA.w PPU.layer_2_scroll_x		;$B39BCB
 	LDA.w $1975				;$B39BCE
-	STA.w !REGISTER_BG2VertScrollOffset	;$B39BD1
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B39BD4
+	STA.w PPU.layer_2_scroll_y		;$B39BD1
+	STZ.w PPU.layer_2_scroll_y		;$B39BD4
 	LDA.l $7EA358				;$B39BD7
-	STA.w !REGISTER_BG3VertScrollOffset	;$B39BDB
-	STZ.w !REGISTER_BG3VertScrollOffset	;$B39BDE
+	STA.w PPU.layer_3_scroll_y		;$B39BDB
+	STZ.w PPU.layer_3_scroll_y		;$B39BDE
 	LDA.w screen_brightness			;$B39BE1
-	STA.w !REGISTER_ScreenDisplayRegister	;$B39BE4
+	STA.w PPU.screen			;$B39BE4
 	REP.b #$20				;$B39BE7
 	RTS					;$B39BE9
 
@@ -1600,10 +1600,10 @@ CODE_B39C49:
 	LDY.w #$000A				;$B39C49
 	SEP.b #$20				;$B39C4C
 	LDA.b #$1B				;$B39C4E
-	STA.w !REGISTER_CGRAMAddress		;$B39C50
+	STA.w PPU.cgram_address			;$B39C50
 CODE_B39C53:
 	LDA.l DATA_B399C5,x			;$B39C53
-	STA.w !REGISTER_WriteToCGRAMPort	;$B39C57
+	STA.w PPU.cgram_write			;$B39C57
 	INX					;$B39C5A
 	DEY					;$B39C5B
 	BPL.b CODE_B39C53			;$B39C5C
@@ -1643,7 +1643,7 @@ CODE_B39C96:
 	STA.b $1A				;$B39C99
 	SEP.b #$20				;$B39C9B
 	LDA.b #$04				;$B39C9D
-	STA.w !REGISTER_CGRAMAddress		;$B39C9F
+	STA.w PPU.cgram_address			;$B39C9F
 	REP.b #$20				;$B39CA2
 	LDA.w #$0008				;$B39CA4
 	JSR.w CODE_B39E49			;$B39CA7
@@ -1693,20 +1693,20 @@ CODE_B39CE2:
 
 CODE_B39CF8:
 	LDA.w #$0613				;$B39CF8
-	STA.w !REGISTER_MainScreenLayers	;$B39CFB
+	STA.w PPU.screens			;$B39CFB
 	LDA.w #$0400				;$B39CFE
-	STA.w !REGISTER_MainScreenWindowMask	;$B39D01
+	STA.w PPU.window_masks			;$B39D01
 	SEP.b #$20				;$B39D04
 	LDA.b #$00				;$B39D06
-	STA.w !REGISTER_BGWindowLogicSettings	;$B39D08
+	STA.w PPU.window_layer_logic		;$B39D08
 	LDA.b #$01				;$B39D0B
-	STA.w !REGISTER_CGRAMAddress		;$B39D0D
-	STZ.w !REGISTER_WriteToCGRAMPort	;$B39D10
-	STZ.w !REGISTER_WriteToCGRAMPort	;$B39D13
-	STZ.w !REGISTER_WriteToCGRAMPort	;$B39D16
-	STZ.w !REGISTER_WriteToCGRAMPort	;$B39D19
-	STZ.w !REGISTER_WriteToCGRAMPort	;$B39D1C
-	STZ.w !REGISTER_WriteToCGRAMPort	;$B39D1F
+	STA.w PPU.cgram_address			;$B39D0D
+	STZ.w PPU.cgram_write			;$B39D10
+	STZ.w PPU.cgram_write			;$B39D13
+	STZ.w PPU.cgram_write			;$B39D16
+	STZ.w PPU.cgram_write			;$B39D19
+	STZ.w PPU.cgram_write			;$B39D1C
+	STZ.w PPU.cgram_write			;$B39D1F
 	REP.b #$20				;$B39D22
 	LDA.w #$8004				;$B39D24
 	STA.w $15EA				;$B39D27
@@ -1715,7 +1715,7 @@ CODE_B39CF8:
 CODE_B39D2B:
 	SEP.b #$20				;$B39D2B
 	LDA.b #$30				;$B39D2D
-	STA.w !REGISTER_BGWindowLogicSettings	;$B39D2F
+	STA.w PPU.window_layer_logic		;$B39D2F
 	REP.b #$20				;$B39D32
 	RTS					;$B39D34
 
@@ -1736,7 +1736,7 @@ CODE_B39D4B:
 	STA.b $1A				;$B39D4B
 	SEP.b #$20				;$B39D4D
 	LDA.b #$01				;$B39D4F
-	STA.w !REGISTER_CGRAMAddress		;$B39D51
+	STA.w PPU.cgram_address			;$B39D51
 	REP.b #$20				;$B39D54
 	LDA.w #$0004				;$B39D56
 	JSR.w CODE_B39E49			;$B39D59
@@ -1749,24 +1749,24 @@ CODE_B39D4B:
 CODE_B39D69:
 	BNE.b CODE_B39DA4			;$B39D69
 	LDA.w #$0217				;$B39D6B
-	STA.w !REGISTER_MainScreenLayers	;$B39D6E
+	STA.w PPU.screens			;$B39D6E
 	LDA.w #$0007				;$B39D71
-	STA.w !REGISTER_MainScreenWindowMask	;$B39D74
+	STA.w PPU.window_masks			;$B39D74
 	SEP.b #$20				;$B39D77
 	LDA.b #$01				;$B39D79
-	STA.w !REGISTER_CGRAMAddress		;$B39D7B
+	STA.w PPU.cgram_address			;$B39D7B
 	LDA.b #$18				;$B39D7E
-	STA.w !REGISTER_WriteToCGRAMPort	;$B39D80
+	STA.w PPU.cgram_write			;$B39D80
 	LDA.b #$63				;$B39D83
-	STA.w !REGISTER_WriteToCGRAMPort	;$B39D85
+	STA.w PPU.cgram_write			;$B39D85
 	LDA.b #$9C				;$B39D88
-	STA.w !REGISTER_WriteToCGRAMPort	;$B39D8A
+	STA.w PPU.cgram_write			;$B39D8A
 	LDA.b #$73				;$B39D8D
-	STA.w !REGISTER_WriteToCGRAMPort	;$B39D8F
+	STA.w PPU.cgram_write			;$B39D8F
 	LDA.b #$FF				;$B39D92
-	STA.w !REGISTER_WriteToCGRAMPort	;$B39D94
+	STA.w PPU.cgram_write			;$B39D94
 	LDA.b #$7F				;$B39D97
-	STA.w !REGISTER_WriteToCGRAMPort	;$B39D99
+	STA.w PPU.cgram_write			;$B39D99
 	REP.b #$20				;$B39D9C
 	LDA.w #$0004				;$B39D9E
 	STA.w $15EA				;$B39DA1
@@ -1858,32 +1858,32 @@ CODE_B39E51:
 	ASL					;$B39E5B
 	ORA.b $1C				;$B39E5C
 	SEP.b #$20				;$B39E5E
-	STA.w !REGISTER_WriteToCGRAMPort	;$B39E60
+	STA.w PPU.cgram_write			;$B39E60
 	XBA					;$B39E63
-	STA.w !REGISTER_WriteToCGRAMPort	;$B39E64
+	STA.w PPU.cgram_write			;$B39E64
 	REP.b #$20				;$B39E67
 	RTS					;$B39E69
 
 CODE_B39E6A:
 	LDA.w $04E4				;$B39E6A
-	STA.w !REGISTER_DMAEnable		;$B39E6D
+	STA.w CPU.enable_dma_hdma		;$B39E6D
 	JSL.l CODE_B3D843			;$B39E70
 	JSL.l CODE_80801E			;$B39E74
 	SEP.b #$20				;$B39E78
 	LDA.l $7EA69A				;$B39E7A
-	STA.w !REGISTER_CGRAMAddress		;$B39E7E
+	STA.w PPU.cgram_address			;$B39E7E
 	LDA.l $7EA69C				;$B39E81
-	STA.w !REGISTER_WriteToCGRAMPort	;$B39E85
+	STA.w PPU.cgram_write			;$B39E85
 	LDA.l $7EA69D				;$B39E88
-	STA.w !REGISTER_WriteToCGRAMPort	;$B39E8C
+	STA.w PPU.cgram_write			;$B39E8C
 	SEP.b #$20				;$B39E8F
 	LDA.b #$FF				;$B39E91
-	STA.w !REGISTER_BG1VertScrollOffset	;$B39E93
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B39E96
-	STA.w !REGISTER_BG2VertScrollOffset	;$B39E99
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B39E9C
+	STA.w PPU.layer_1_scroll_y		;$B39E93
+	STZ.w PPU.layer_1_scroll_y		;$B39E96
+	STA.w PPU.layer_2_scroll_y		;$B39E99
+	STZ.w PPU.layer_2_scroll_y		;$B39E9C
 	LDA.w screen_brightness			;$B39E9F
-	STA.w !REGISTER_ScreenDisplayRegister	;$B39EA2
+	STA.w PPU.screen			;$B39EA2
 	REP.b #$20				;$B39EA5
 	LDA.w #$0100				;$B39EA7
 	STA.w $196D				;$B39EAA
@@ -1898,8 +1898,8 @@ CODE_B39EB1:
 	LSR					;$B39EBB
 	LSR					;$B39EBC
 	SEP.b #$20				;$B39EBD
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B39EBF
-	STZ.w !REGISTER_BG3HorizScrollOffset	;$B39EC2
+	STA.w PPU.layer_3_scroll_x		;$B39EBF
+	STZ.w PPU.layer_3_scroll_x		;$B39EC2
 	REP.b #$20				;$B39EC5
 	LDA.b $00				;$B39EC7
 	ASL					;$B39EC9
@@ -1908,30 +1908,30 @@ CODE_B39EB1:
 	EOR.w #$0200				;$B39ECE
 	CLC					;$B39ED1
 	ADC.w #$A17A				;$B39ED2
-	STA.w HDMA[$02].SourceLo		;$B39ED5
+	STA.w HDMA[$02].source_word		;$B39ED5
 	LDA.w $1973				;$B39ED8
 	ASL					;$B39EDB
 	ADC.w $1973				;$B39EDC
 	LSR					;$B39EDF
 	LSR					;$B39EE0
 	SEP.b #$20				;$B39EE1
-	STA.w !REGISTER_BG3VertScrollOffset	;$B39EE3
-	STZ.w !REGISTER_BG3VertScrollOffset	;$B39EE6
+	STA.w PPU.layer_3_scroll_y		;$B39EE3
+	STZ.w PPU.layer_3_scroll_y		;$B39EE6
 	LDA.w $1B77				;$B39EE9
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B39EEC
-	STZ.w !REGISTER_BG2HorizScrollOffset	;$B39EEF
+	STA.w PPU.layer_2_scroll_x		;$B39EEC
+	STZ.w PPU.layer_2_scroll_x		;$B39EEF
 	LDA.w $1B79				;$B39EF2
-	STA.w !REGISTER_BG2VertScrollOffset	;$B39EF5
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B39EF8
+	STA.w PPU.layer_2_scroll_y		;$B39EF5
+	STZ.w PPU.layer_2_scroll_y		;$B39EF8
 	LDA.w $196D				;$B39EFB
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B39EFE
+	STA.w PPU.layer_1_scroll_x		;$B39EFE
 	LDA.w $196E				;$B39F01
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B39F04
+	STA.w PPU.layer_1_scroll_x		;$B39F04
 	LDA.w $1975				;$B39F07
-	STA.w !REGISTER_BG1VertScrollOffset	;$B39F0A
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B39F0D
+	STA.w PPU.layer_1_scroll_y		;$B39F0A
+	STZ.w PPU.layer_1_scroll_y		;$B39F0D
 	LDA.w screen_brightness			;$B39F10
-	STA.w !REGISTER_ScreenDisplayRegister	;$B39F13
+	STA.w PPU.screen			;$B39F13
 	REP.b #$20				;$B39F16
 	RTS					;$B39F18
 
@@ -1945,10 +1945,10 @@ CODE_B39F1C:
 	EOR.w #$0200				;$B39F23
 	CLC					;$B39F26
 	ADC.w #$A15A				;$B39F27
-	STA.w HDMA[$01].SourceLo		;$B39F2A
+	STA.w HDMA[$01].source_word		;$B39F2A
 	CLC					;$B39F2D
 	ADC.w #$0020				;$B39F2E
-	STA.w HDMA[$02].SourceLo		;$B39F31
+	STA.w HDMA[$02].source_word		;$B39F31
 CODE_B39F34:
 	SEP.b #$20				;$B39F34
 	LDA.b global_frame_counter		;$B39F36
@@ -2082,16 +2082,16 @@ CODE_B39F34:
 	LDA.w $1975				;$B3A098
 	LSR					;$B3A09B
 	SEP.b #$20				;$B3A09C
-	STA.w !REGISTER_BG3VertScrollOffset	;$B3A09E
-	STZ.w !REGISTER_BG3VertScrollOffset	;$B3A0A1
+	STA.w PPU.layer_3_scroll_y		;$B3A09E
+	STZ.w PPU.layer_3_scroll_y		;$B3A0A1
 	LDA.w screen_brightness			;$B3A0A4
-	STA.w !REGISTER_ScreenDisplayRegister	;$B3A0A7
+	STA.w PPU.screen			;$B3A0A7
 	REP.b #$20				;$B3A0AA
 	RTS					;$B3A0AC
 
 CODE_B3A0AD:
 	LDA.w $04E4				;$B3A0AD
-	STA.w !REGISTER_DMAEnable		;$B3A0B0
+	STA.w CPU.enable_dma_hdma		;$B3A0B0
 	JSL.l CODE_B3D843			;$B3A0B3
 	JSL.l CODE_80801E			;$B3A0B7
 	JSL.l CODE_80801E			;$B3A0BB
@@ -2104,25 +2104,25 @@ CODE_B3A0AD:
 CODE_B3A0D0:
 	CLC					;$B3A0D0
 	ADC.w #$A19A				;$B3A0D1
-	STA.w HDMA[$02].SourceLo		;$B3A0D4
+	STA.w HDMA[$02].source_word		;$B3A0D4
 	LDA.w $15E6				;$B3A0D7
 	BNE.b CODE_B3A109			;$B3A0DA
 	LDA.w $1B77				;$B3A0DC
 	SEP.b #$20				;$B3A0DF
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3A0E1
+	STA.w PPU.layer_1_scroll_x		;$B3A0E1
 	XBA					;$B3A0E4
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3A0E5
+	STA.w PPU.layer_1_scroll_x		;$B3A0E5
 	LDA.w $1B79				;$B3A0E8
-	STA.w !REGISTER_BG1VertScrollOffset	;$B3A0EB
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B3A0EE
+	STA.w PPU.layer_1_scroll_y		;$B3A0EB
+	STZ.w PPU.layer_1_scroll_y		;$B3A0EE
 	LDA.w $196D				;$B3A0F1
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B3A0F4
+	STA.w PPU.layer_2_scroll_x		;$B3A0F4
 	LDA.w $196E				;$B3A0F7
 	DEC					;$B3A0FA
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B3A0FB
+	STA.w PPU.layer_2_scroll_x		;$B3A0FB
 	LDA.w $1975				;$B3A0FE
-	STA.w !REGISTER_BG2VertScrollOffset	;$B3A101
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B3A104
+	STA.w PPU.layer_2_scroll_y		;$B3A101
+	STZ.w PPU.layer_2_scroll_y		;$B3A104
 	REP.b #$20				;$B3A107
 CODE_B3A109:
 	LDA.w $15E4				;$B3A109
@@ -2130,16 +2130,16 @@ CODE_B3A109:
 	BNE.b CODE_B3A135			;$B3A10F
 	SEP.b #$20				;$B3A111
 	LDA.b #$17				;$B3A113
-	STA.w !REGISTER_MainScreenLayers	;$B3A115
+	STA.w PPU.main_screen			;$B3A115
 	REP.b #$20				;$B3A118
 	LDA.w #$0626				;$B3A11A
-	STA.w !REGISTER_BG1And2TileDataDesignation	;$B3A11D
+	STA.w PPU.layer_all_tiledata_base	;$B3A11D
 	LDA.w #$7178				;$B3A120
-	STA.w !REGISTER_BG1AddressAndSize	;$B3A123
+	STA.w PPU.layer_1_2_tilemap_base	;$B3A123
 	LDA.w #$0110				;$B3A126
-	STA.w !REGISTER_ColorMathInitialSettings	;$B3A129
+	STA.w PPU.color_math			;$B3A129
 	LDA.w #$0C03				;$B3A12C
-	STA.w !REGISTER_BG1And2WindowMaskSettings	;$B3A12F
+	STA.w PPU.set_window_layer_all		;$B3A12F
 	INC.w $15E4				;$B3A132
 CODE_B3A135:
 	LDA.w $15E4				;$B3A135
@@ -2147,19 +2147,19 @@ CODE_B3A135:
 	BNE.b CODE_B3A16A			;$B3A13B
 	SEP.b #$20				;$B3A13D
 	LDA.b #$15				;$B3A13F
-	STA.w !REGISTER_MainScreenLayers	;$B3A141
+	STA.w PPU.main_screen			;$B3A141
 	REP.b #$20				;$B3A144
 	LDA.w $04E4				;$B3A146
 	EOR.w #$0600				;$B3A149
 	STA.w $04E4				;$B3A14C
 	LDA.w #$0662				;$B3A14F
-	STA.w !REGISTER_BG1And2TileDataDesignation	;$B3A152
+	STA.w PPU.layer_all_tiledata_base	;$B3A152
 	LDA.w #$7C71				;$B3A155
-	STA.w !REGISTER_BG1AddressAndSize	;$B3A158
+	STA.w PPU.layer_1_2_tilemap_base	;$B3A158
 	LDA.w #$2102				;$B3A15B
-	STA.w !REGISTER_ColorMathInitialSettings	;$B3A15E
+	STA.w PPU.color_math			;$B3A15E
 	LDA.w #$0C30				;$B3A161
-	STA.w !REGISTER_BG1And2WindowMaskSettings	;$B3A164
+	STA.w PPU.set_window_layer_all		;$B3A164
 	INC.w $15E4				;$B3A167
 CODE_B3A16A:
 	LDA.w #$014B				;$B3A16A
@@ -2169,8 +2169,8 @@ CODE_B3A16A:
 	LDA.w #$0000				;$B3A173
 CODE_B3A176:
 	SEP.b #$20				;$B3A176
-	STA.w !REGISTER_Window2LeftPositionDesignation	;$B3A178
-	STA.w !REGISTER_Window1LeftPositionDesignation	;$B3A17B
+	STA.w PPU.window_2_left			;$B3A178
+	STA.w PPU.window_1_left			;$B3A17B
 	REP.b #$20				;$B3A17E
 	LDA.w #$02B4				;$B3A180
 	SEC					;$B3A183
@@ -2180,7 +2180,7 @@ CODE_B3A176:
 	LDA.w #$00FF				;$B3A18C
 CODE_B3A18F:
 	SEP.b #$20				;$B3A18F
-	STA.w !REGISTER_Window1RightPositionDesignation	;$B3A191
+	STA.w PPU.window_1_right		;$B3A191
 	REP.b #$20				;$B3A194
 	LDA.w #$025C				;$B3A196
 	SEC					;$B3A199
@@ -2190,7 +2190,7 @@ CODE_B3A18F:
 	LDA.w #$00FF				;$B3A1A2
 CODE_B3A1A5:
 	SEP.b #$20				;$B3A1A5
-	STA.w !REGISTER_Window2RightPositionDesignation	;$B3A1A7
+	STA.w PPU.window_2_right		;$B3A1A7
 	REP.b #$20				;$B3A1AA
 	LDA.w $15E4				;$B3A1AC
 	CMP.w #$0003				;$B3A1AF
@@ -2200,7 +2200,7 @@ CODE_B3A1A5:
 	BIT.b #$40				;$B3A1B9
 	BNE.b CODE_B3A1D8			;$B3A1BB
 	LDA.b #$E0				;$B3A1BD
-	STA.w !REGISTER_FixedColorData		;$B3A1BF
+	STA.w PPU.fixed_color			;$B3A1BF
 	LDA.w $15E6				;$B3A1C2
 	BIT.b #$02				;$B3A1C5
 	BEQ.b CODE_B3A1D8			;$B3A1C7
@@ -2209,7 +2209,7 @@ CODE_B3A1A5:
 	SEP.b #$20				;$B3A1CF
 	AND.b #$01				;$B3A1D1
 	ORA.b #$C0				;$B3A1D3
-	STA.w !REGISTER_FixedColorData		;$B3A1D5
+	STA.w PPU.fixed_color			;$B3A1D5
 CODE_B3A1D8:
 	LDA.b $00				;$B3A1D8
 	ASL					;$B3A1DA
@@ -2223,34 +2223,34 @@ CODE_B3A1D8:
 	SBC.b $00				;$B3A1E5
 	CLC					;$B3A1E7
 	ADC.w $196D				;$B3A1E8
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B3A1EB
-	STZ.w !REGISTER_BG2HorizScrollOffset	;$B3A1EE
+	STA.w PPU.layer_2_scroll_x		;$B3A1EB
+	STZ.w PPU.layer_2_scroll_x		;$B3A1EE
 	LDA.w $15E6				;$B3A1F1
 	AND.b #$12				;$B3A1F4
 	STA.l $7EA17F				;$B3A1F6
 	LDA.w $1975				;$B3A1FA
 	SEC					;$B3A1FD
 	SBC.b #$0C				;$B3A1FE
-	STA.w !REGISTER_BG2VertScrollOffset	;$B3A200
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B3A203
+	STA.w PPU.layer_2_scroll_y		;$B3A200
+	STZ.w PPU.layer_2_scroll_y		;$B3A203
 	LDA.w $196D				;$B3A206
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3A209
+	STA.w PPU.layer_1_scroll_x		;$B3A209
 	LDA.w $196E				;$B3A20C
 	DEC					;$B3A20F
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3A210
+	STA.w PPU.layer_1_scroll_x		;$B3A210
 	LDA.w $1975				;$B3A213
-	STA.w !REGISTER_BG1VertScrollOffset	;$B3A216
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B3A219
+	STA.w PPU.layer_1_scroll_y		;$B3A216
+	STZ.w PPU.layer_1_scroll_y		;$B3A219
 	REP.b #$20				;$B3A21C
 CODE_B3A21E:
 	SEP.b #$20				;$B3A21E
 	LDA.w $196D				;$B3A220
 	CLC					;$B3A223
 	ADC.l $7EA35A				;$B3A224
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B3A228
-	STZ.w !REGISTER_BG3HorizScrollOffset	;$B3A22B
+	STA.w PPU.layer_3_scroll_x		;$B3A228
+	STZ.w PPU.layer_3_scroll_x		;$B3A22B
 	LDA.w screen_brightness			;$B3A22E
-	STA.w !REGISTER_ScreenDisplayRegister	;$B3A231
+	STA.w PPU.screen			;$B3A231
 	REP.b #$20				;$B3A234
 	RTS					;$B3A236
 
@@ -2259,19 +2259,19 @@ CODE_B3A237:
 	LDA.l $7EA69A				;$B3A23A
 	BEQ.b CODE_B3A277			;$B3A23E
 	SEP.b #$20				;$B3A240
-	STA.w !REGISTER_CGRAMAddress		;$B3A242
+	STA.w PPU.cgram_address			;$B3A242
 	LDA.l $7EA69C				;$B3A245
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3A249
+	STA.w PPU.cgram_write			;$B3A249
 	LDA.l $7EA69D				;$B3A24C
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3A250
+	STA.w PPU.cgram_write			;$B3A250
 	LDA.l $7EA69E				;$B3A253
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3A257
+	STA.w PPU.cgram_write			;$B3A257
 	LDA.l $7EA69F				;$B3A25A
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3A25E
+	STA.w PPU.cgram_write			;$B3A25E
 	LDA.l $7EA6A0				;$B3A261
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3A265
+	STA.w PPU.cgram_write			;$B3A265
 	LDA.l $7EA6A1				;$B3A268
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3A26C
+	STA.w PPU.cgram_write			;$B3A26C
 	LDA.b #$00				;$B3A26F
 	STA.l $7EA69A				;$B3A271
 	REP.b #$20				;$B3A275
@@ -2365,66 +2365,66 @@ CODE_B3A357:
 	LDA.w $196D				;$B3A357
 	LSR					;$B3A35A
 	SEP.b #$20				;$B3A35B
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B3A35D
-	STZ.w !REGISTER_BG3HorizScrollOffset	;$B3A360
+	STA.w PPU.layer_3_scroll_x		;$B3A35D
+	STZ.w PPU.layer_3_scroll_x		;$B3A360
 	REP.b #$20				;$B3A363
 	LDA.w $1975				;$B3A365
 	LSR					;$B3A368
 	SEP.b #$20				;$B3A369
-	STA.w !REGISTER_BG3VertScrollOffset	;$B3A36B
-	STZ.w !REGISTER_BG3VertScrollOffset	;$B3A36E
+	STA.w PPU.layer_3_scroll_y		;$B3A36B
+	STZ.w PPU.layer_3_scroll_y		;$B3A36E
 	LDA.w $1B77				;$B3A371
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3A374
+	STA.w PPU.layer_1_scroll_x		;$B3A374
 	LDA.w $1B78				;$B3A377
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3A37A
+	STA.w PPU.layer_1_scroll_x		;$B3A37A
 	LDA.w $1B79				;$B3A37D
-	STA.w !REGISTER_BG1VertScrollOffset	;$B3A380
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B3A383
+	STA.w PPU.layer_1_scroll_y		;$B3A380
+	STZ.w PPU.layer_1_scroll_y		;$B3A383
 	LDA.w $196D				;$B3A386
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B3A389
+	STA.w PPU.layer_2_scroll_x		;$B3A389
 	LDA.w $196E				;$B3A38C
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B3A38F
+	STA.w PPU.layer_2_scroll_x		;$B3A38F
 	LDA.w $1975				;$B3A392
-	STA.w !REGISTER_BG2VertScrollOffset	;$B3A395
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B3A398
+	STA.w PPU.layer_2_scroll_y		;$B3A395
+	STZ.w PPU.layer_2_scroll_y		;$B3A398
 	LDA.w screen_brightness			;$B3A39B
-	STA.w !REGISTER_ScreenDisplayRegister	;$B3A39E
+	STA.w PPU.screen			;$B3A39E
 	REP.b #$20				;$B3A3A1
 	RTS					;$B3A3A3
 
 CODE_B3A3A4:
 	LDA.w $04E4				;$B3A3A4
-	STA.w !REGISTER_DMAEnable		;$B3A3A7
+	STA.w CPU.enable_dma_hdma		;$B3A3A7
 	JSL.l CODE_B3D843			;$B3A3AA
 	JSL.l CODE_80801E			;$B3A3AE
 	SEP.b #$20				;$B3A3B2
 	LDA.w screen_brightness			;$B3A3B4
-	STA.w !REGISTER_ScreenDisplayRegister	;$B3A3B7
+	STA.w PPU.screen			;$B3A3B7
 	REP.b #$20				;$B3A3BA
 	RTS					;$B3A3BC
 
 CODE_B3A3BD:
 	LDA.w $04E4				;$B3A3BD
-	STA.w !REGISTER_DMAEnable		;$B3A3C0
+	STA.w CPU.enable_dma_hdma		;$B3A3C0
 	JSL.l CODE_B3D843			;$B3A3C3
 	JSL.l CODE_80801E			;$B3A3C7
 	JSR.w CODE_B38158			;$B3A3CB
 	LDA.w $1C49				;$B3A3CE
 	SEP.b #$20				;$B3A3D1
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B3A3D3
+	STA.w PPU.layer_2_scroll_x		;$B3A3D3
 	XBA					;$B3A3D6
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B3A3D7
+	STA.w PPU.layer_2_scroll_x		;$B3A3D7
 	LDA.w $1C4B				;$B3A3DA
-	STA.w !REGISTER_BG2VertScrollOffset	;$B3A3DD
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B3A3E0
+	STA.w PPU.layer_2_scroll_y		;$B3A3DD
+	STZ.w PPU.layer_2_scroll_y		;$B3A3E0
 	LDA.w screen_brightness			;$B3A3E3
-	STA.w !REGISTER_ScreenDisplayRegister	;$B3A3E6
+	STA.w PPU.screen			;$B3A3E6
 	REP.b #$20				;$B3A3E9
 	RTS					;$B3A3EB
 
 CODE_B3A3EC:
 	LDA.w $04E4				;$B3A3EC
-	STA.w !REGISTER_DMAEnable		;$B3A3EF
+	STA.w CPU.enable_dma_hdma		;$B3A3EF
 	JSL.l CODE_B3D843			;$B3A3F2
 	JSL.l CODE_80801E			;$B3A3F6
 	JSL.l CODE_80801E			;$B3A3FA
@@ -2518,7 +2518,7 @@ CODE_B3A4C4:
 	SBC.w $1973				;$B3A4C9
 	STA.l $7EA23A				;$B3A4CC
 	LDA.b #$E0				;$B3A4D0
-	STA.w !REGISTER_FixedColorData		;$B3A4D2
+	STA.w PPU.fixed_color			;$B3A4D2
 	REP.b #$20				;$B3A4D5
 	LDA.w $05AF				;$B3A4D7
 	BIT.w #$0040				;$B3A4DA
@@ -2534,14 +2534,14 @@ CODE_B3A4F1:
 	SEP.b #$20				;$B3A4F5
 	AND.b #$01				;$B3A4F7
 	ORA.b #$C0				;$B3A4F9
-	STA.w !REGISTER_FixedColorData		;$B3A4FB
+	STA.w PPU.fixed_color			;$B3A4FB
 	REP.b #$20				;$B3A4FE
 CODE_B3A500:
 	SEP.b #$20				;$B3A500
 	LDA.w $15E6				;$B3A502
 	AND.b #$10				;$B3A505
 	ORA.b #$01				;$B3A507
-	STA.w !REGISTER_SubScreenLayers		;$B3A509
+	STA.w PPU.sub_screen			;$B3A509
 	LDA.b #$54				;$B3A50C
 	SEC					;$B3A50E
 	SBC.w $1973				;$B3A50F
@@ -2631,9 +2631,9 @@ CODE_B3A5C8:
 	CLC					;$B3A5DA
 	ADC.w $196D				;$B3A5DB
 	SEP.b #$20				;$B3A5DE
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B3A5E0
+	STA.w PPU.layer_3_scroll_x		;$B3A5E0
 	XBA					;$B3A5E3
-	STA.w !REGISTER_BG3HorizScrollOffset	;$B3A5E4
+	STA.w PPU.layer_3_scroll_x		;$B3A5E4
 	LDA.b $00				;$B3A5E7
 	ASL					;$B3A5E9
 	STA.b $1A				;$B3A5EA
@@ -2652,16 +2652,16 @@ CODE_B3A5C8:
 	ADC.l $7EA254				;$B3A602
 	STA.l $7EA24B				;$B3A606
 	LDA.w $196D				;$B3A60A
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3A60D
+	STA.w PPU.layer_1_scroll_x		;$B3A60D
 	LDA.w $196E				;$B3A610
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3A613
+	STA.w PPU.layer_1_scroll_x		;$B3A613
 	LDA.w $1975				;$B3A616
-	STA.w !REGISTER_BG2VertScrollOffset	;$B3A619
-	STZ.w !REGISTER_BG2VertScrollOffset	;$B3A61C
-	STA.w !REGISTER_BG1VertScrollOffset	;$B3A61F
-	STZ.w !REGISTER_BG1VertScrollOffset	;$B3A622
+	STA.w PPU.layer_2_scroll_y		;$B3A619
+	STZ.w PPU.layer_2_scroll_y		;$B3A61C
+	STA.w PPU.layer_1_scroll_y		;$B3A61F
+	STZ.w PPU.layer_1_scroll_y		;$B3A622
 	LDA.w screen_brightness			;$B3A625
-	STA.w !REGISTER_ScreenDisplayRegister	;$B3A628
+	STA.w PPU.screen			;$B3A628
 	REP.b #$20				;$B3A62B
 	RTS					;$B3A62D
 
@@ -3185,14 +3185,14 @@ CODE_B3AA74:
 	SEC					;$B3AAFE
 	SBC.w $1B65				;$B3AAFF
 	XBA					;$B3AB02
-	STA.w !REGISTER_DividendLo		;$B3AB03
+	STA.w CPU.dividen_low			;$B3AB03
 	LDA.w $1B65				;$B3AB06
 	SEC					;$B3AB09
 	SBC.w $1975				;$B3AB0A
 	SEC					;$B3AB0D
 	SBC.w #$003A				;$B3AB0E
 	AND.w #$007F				;$B3AB11
-	STA.w !REGISTER_Divisor			;$B3AB14
+	STA.w CPU.divisor			;$B3AB14
 	LDA.w $196D				;$B3AB17
 	LSR					;$B3AB1A
 	LSR					;$B3AB1B
@@ -3225,7 +3225,7 @@ CODE_B3AB52:
 	ASL					;$B3AB54
 	ASL					;$B3AB55
 	STA.b $20				;$B3AB56
-	LDA.w !REGISTER_QuotientLo		;$B3AB58
+	LDA.w CPU.divide_result			;$B3AB58
 	AND.w #$FFFE				;$B3AB5B
 	STA.b $1A				;$B3AB5E
 	PEA.w (($7EA52C&$FF0000)>>16)|((CODE_B3A8E4&$FF0000)>>8)	;$B3AB60
@@ -5253,7 +5253,7 @@ CODE_B3BF00:
 CODE_B3BF12:
 	SEP.b #$20				;$B3BF12
 	LDA.b #$30				;$B3BF14
-	STA.w !REGISTER_BGWindowLogicSettings	;$B3BF16
+	STA.w PPU.window_layer_logic		;$B3BF16
 	REP.b #$20				;$B3BF19
 	INC.w $15E2				;$B3BF1B
 	LDA.w $15E2				;$B3BF1E
@@ -5265,7 +5265,7 @@ CODE_B3BF12:
 CODE_B3BF29:
 	SEP.b #$20				;$B3BF29
 	LDA.b #$00				;$B3BF2B
-	STA.w !REGISTER_BGWindowLogicSettings	;$B3BF2D
+	STA.w PPU.window_layer_logic		;$B3BF2D
 	REP.b #$20				;$B3BF30
 	INC.w $15E2				;$B3BF32
 	LDA.w $15E2				;$B3BF35
@@ -5553,7 +5553,7 @@ CODE_B3C15D:
 	LDA.w #$0000				;$B3C165
 CODE_B3C168:
 	SEP.b #$20				;$B3C168
-	STA.w !REGISTER_Window1LeftPositionDesignation	;$B3C16A
+	STA.w PPU.window_1_left			;$B3C16A
 	REP.b #$20				;$B3C16D
 	LDA.b $1C				;$B3C16F
 	SEC					;$B3C171
@@ -5566,7 +5566,7 @@ CODE_B3C17A:
 	LDA.w #$00FF				;$B3C17F
 CODE_B3C182:
 	SEP.b #$20				;$B3C182
-	STA.w !REGISTER_Window1RightPositionDesignation	;$B3C184
+	STA.w PPU.window_1_right		;$B3C184
 	REP.b #$20				;$B3C187
 	LDA.b $1E				;$B3C189
 	SEC					;$B3C18B
@@ -5579,7 +5579,7 @@ CODE_B3C194:
 	LDA.w #$00FF				;$B3C199
 CODE_B3C19C:
 	SEP.b #$20				;$B3C19C
-	STA.w !REGISTER_Window2LeftPositionDesignation	;$B3C19E
+	STA.w PPU.window_2_left			;$B3C19E
 	REP.b #$20				;$B3C1A1
 	LDA.b $20				;$B3C1A3
 	SEC					;$B3C1A5
@@ -5589,7 +5589,7 @@ CODE_B3C19C:
 	LDA.w #$00FF				;$B3C1AE
 CODE_B3C1B1:
 	SEP.b #$20				;$B3C1B1
-	STA.w !REGISTER_Window2RightPositionDesignation	;$B3C1B3
+	STA.w PPU.window_2_right		;$B3C1B3
 	REP.b #$20				;$B3C1B6
 	LDA.w $0760				;$B3C1B8
 	AND.w #$007F				;$B3C1BB
@@ -7175,11 +7175,11 @@ CODE_B3CFC4:
 	SEC					;$B3CFE4
 	SBC.w $15E6				;$B3CFE5
 	SEP.b #$20				;$B3CFE8
-	STA.w !REGISTER_Mode7MatrixParameterA	;$B3CFEA
+	STA.w PPU.fixed_point_mul_A		;$B3CFEA
 	XBA					;$B3CFED
-	STA.w !REGISTER_Mode7MatrixParameterA	;$B3CFEE
+	STA.w PPU.fixed_point_mul_A		;$B3CFEE
 	LDA.b #$2F				;$B3CFF1
-	STA.w !REGISTER_Mode7MatrixParameterB	;$B3CFF3
+	STA.w PPU.fixed_point_mul_B		;$B3CFF3
 	REP.b #$20				;$B3CFF6
 	LDA.w $15E4				;$B3CFF8
 	SEC					;$B3CFFB
@@ -7190,7 +7190,7 @@ CODE_B3CFC4:
 	CLC					;$B3D005
 	ADC.b $1A				;$B3D006
 	CLC					;$B3D008
-	ADC.w !REGISTER_PPUMultiplicationProductMid	;$B3D009
+	ADC.w PPU.multiply_result_mid		;$B3D009
 	STA.b $1C				;$B3D00C
 	LDA.b $1C				;$B3D00E
 	CLC					;$B3D010
@@ -7221,11 +7221,11 @@ CODE_B3D02C:
 	SEC					;$B3D040
 	SBC.w $15E4				;$B3D041
 	SEP.b #$20				;$B3D044
-	STA.w !REGISTER_Mode7MatrixParameterA	;$B3D046
+	STA.w PPU.fixed_point_mul_A		;$B3D046
 	XBA					;$B3D049
-	STA.w !REGISTER_Mode7MatrixParameterA	;$B3D04A
+	STA.w PPU.fixed_point_mul_A		;$B3D04A
 	LDA.b #$0D				;$B3D04D
-	STA.w !REGISTER_Mode7MatrixParameterB	;$B3D04F
+	STA.w PPU.fixed_point_mul_B		;$B3D04F
 	REP.b #$20				;$B3D052
 	LDA.w $15E6				;$B3D054
 	SEC					;$B3D057
@@ -7233,7 +7233,7 @@ CODE_B3D02C:
 	CMP.w #$8000				;$B3D05B
 	ROR					;$B3D05E
 	CLC					;$B3D05F
-	ADC.w !REGISTER_PPUMultiplicationProductMid	;$B3D060
+	ADC.w PPU.multiply_result_mid		;$B3D060
 	CLC					;$B3D063
 	ADC.w $15E4				;$B3D064
 	XBA					;$B3D067
@@ -7294,11 +7294,11 @@ CODE_B3D0BA:
 	SEC					;$B3D0CE
 	SBC.w $15E4				;$B3D0CF
 	SEP.b #$20				;$B3D0D2
-	STA.w !REGISTER_Mode7MatrixParameterA	;$B3D0D4
+	STA.w PPU.fixed_point_mul_A		;$B3D0D4
 	XBA					;$B3D0D7
-	STA.w !REGISTER_Mode7MatrixParameterA	;$B3D0D8
+	STA.w PPU.fixed_point_mul_A		;$B3D0D8
 	LDA.b #$0D				;$B3D0DB
-	STA.w !REGISTER_Mode7MatrixParameterB	;$B3D0DD
+	STA.w PPU.fixed_point_mul_B		;$B3D0DD
 	REP.b #$20				;$B3D0E0
 	LDA.w $15E6				;$B3D0E2
 	SEC					;$B3D0E5
@@ -7306,7 +7306,7 @@ CODE_B3D0BA:
 	CMP.w #$8000				;$B3D0E9
 	ROR					;$B3D0EC
 	CLC					;$B3D0ED
-	ADC.w !REGISTER_PPUMultiplicationProductMid	;$B3D0EE
+	ADC.w PPU.multiply_result_mid		;$B3D0EE
 	CLC					;$B3D0F1
 	ADC.w $15E4				;$B3D0F2
 	XBA					;$B3D0F5
@@ -7666,10 +7666,10 @@ CODE_B3D3BE:
 	SEC					;$B3D3DB
 	SBC.b $5C				;$B3D3DC
 	XBA					;$B3D3DE
-	STA.w !REGISTER_DividendLo		;$B3D3DF
+	STA.w CPU.dividen_low			;$B3D3DF
 	SEP.b #$20				;$B3D3E2
 	LDA.b $5C				;$B3D3E4
-	STA.w !REGISTER_Divisor			;$B3D3E6
+	STA.w CPU.divisor			;$B3D3E6
 	REP.b #$20				;$B3D3E9
 	LDA.b $5C				;$B3D3EB
 	BNE.b CODE_B3D3F0			;$B3D3ED
@@ -7681,7 +7681,7 @@ CODE_B3D3F0:
 	ADC.b $26				;$B3D3F3
 	STA.b $28				;$B3D3F5
 	LDX.b $26				;$B3D3F7
-	LDA.w !REGISTER_QuotientLo		;$B3D3F9
+	LDA.w CPU.divide_result			;$B3D3F9
 	STA.b $1C				;$B3D3FC
 	LDA.b $89				;$B3D3FE
 CODE_B3D400:
@@ -7706,25 +7706,25 @@ CODE_B3D400:
 	BPL.b CODE_B3D444			;$B3D423
 	EOR.w #$FFFF				;$B3D425
 	INC					;$B3D428
-	STA.w !REGISTER_DividendLo		;$B3D429
+	STA.w CPU.dividen_low			;$B3D429
 	SEP.b #$20				;$B3D42C
 	LDA.b $5C				;$B3D42E
-	STA.w !REGISTER_Divisor			;$B3D430
+	STA.w CPU.divisor			;$B3D430
 	REP.b #$20				;$B3D433
 	NOP #6					;$B3D435
-	LDA.w !REGISTER_QuotientLo		;$B3D43B
+	LDA.w CPU.divide_result			;$B3D43B
 	EOR.w #$FFFF				;$B3D43E
 	INC					;$B3D441
 	BRA.b CODE_B3D459			;$B3D442
 
 CODE_B3D444:
-	STA.w !REGISTER_DividendLo		;$B3D444
+	STA.w CPU.dividen_low			;$B3D444
 	SEP.b #$20				;$B3D447
 	LDA.b $5C				;$B3D449
-	STA.w !REGISTER_Divisor			;$B3D44B
+	STA.w CPU.divisor			;$B3D44B
 	REP.b #$20				;$B3D44E
 	NOP #6					;$B3D450
-	LDA.w !REGISTER_QuotientLo		;$B3D456
+	LDA.w CPU.divide_result			;$B3D456
 CODE_B3D459:
 	STA.b $1A				;$B3D459
 	LDX.b $26				;$B3D45B
@@ -7747,7 +7747,7 @@ CODE_B3D462:
 	STA.l $7EA2DA,x				;$B3D478
 	LDA.w $15E6				;$B3D47C
 	SEP.b #$20				;$B3D47F
-	STA.w !REGISTER_Mode7MatrixParameterB	;$B3D481
+	STA.w PPU.fixed_point_mul_B		;$B3D481
 	REP.b #$20				;$B3D484
 	ASL					;$B3D486
 	ASL					;$B3D487
@@ -7762,16 +7762,16 @@ CODE_B3D462:
 	INC					;$B3D49A
 CODE_B3D49B:
 	SEP.b #$20				;$B3D49B
-	STA.w !REGISTER_Mode7MatrixParameterA	;$B3D49D
+	STA.w PPU.fixed_point_mul_A		;$B3D49D
 	XBA					;$B3D4A0
-	STA.w !REGISTER_Mode7MatrixParameterA	;$B3D4A1
+	STA.w PPU.fixed_point_mul_A		;$B3D4A1
 	REP.b #$20				;$B3D4A4
-	LDA.w !REGISTER_PPUMultiplicationProductMid	;$B3D4A6
+	LDA.w PPU.multiply_result_mid		;$B3D4A6
 	ASL					;$B3D4A9
 	SEP.b #$20				;$B3D4AA
-	STA.w !REGISTER_Mode7MatrixParameterA	;$B3D4AC
+	STA.w PPU.fixed_point_mul_A		;$B3D4AC
 	XBA					;$B3D4AF
-	STA.w !REGISTER_Mode7MatrixParameterA	;$B3D4B0
+	STA.w PPU.fixed_point_mul_A		;$B3D4B0
 	REP.b #$20				;$B3D4B3
 	LDA.b $26				;$B3D4B5
 	BEQ.b CODE_B3D4DE			;$B3D4B7
@@ -7779,9 +7779,9 @@ CODE_B3D49B:
 CODE_B3D4BC:
 	SEP.b #$20				;$B3D4BC
 	LDA.l DATA_B3D502,x			;$B3D4BE
-	STA.w !REGISTER_Mode7MatrixParameterB	;$B3D4C2
+	STA.w PPU.fixed_point_mul_B		;$B3D4C2
 	REP.b #$20				;$B3D4C5
-	LDA.w !REGISTER_PPUMultiplicationProductMid	;$B3D4C7
+	LDA.w PPU.multiply_result_mid		;$B3D4C7
 	CLC					;$B3D4CA
 	ADC.l $7EA3DE,x				;$B3D4CB
 	STA.l $7EA3DE,x				;$B3D4CF
@@ -7798,9 +7798,9 @@ CODE_B3D4DE:
 CODE_B3D4E1:
 	SEP.b #$20				;$B3D4E1
 	LDA.l DATA_B3D502,x			;$B3D4E3
-	STA.w !REGISTER_Mode7MatrixParameterB	;$B3D4E7
+	STA.w PPU.fixed_point_mul_B		;$B3D4E7
 	REP.b #$20				;$B3D4EA
-	LDA.w !REGISTER_PPUMultiplicationProductMid	;$B3D4EC
+	LDA.w PPU.multiply_result_mid		;$B3D4EC
 	CLC					;$B3D4EF
 	ADC.l $7EA1DE,x				;$B3D4F0
 	STA.l $7EA1DE,x				;$B3D4F4
@@ -8064,13 +8064,13 @@ CODE_B3D788:
 	AND.w #$00FF				;$B3D793
 	CLC					;$B3D796
 	ADC.w $196D				;$B3D797
-	STA.w !REGISTER_DividendLo		;$B3D79A
+	STA.w CPU.dividen_low			;$B3D79A
 	SEP.b #$20				;$B3D79D
 	LDA.b #$2B				;$B3D79F
-	STA.w !REGISTER_Divisor			;$B3D7A1
+	STA.w CPU.divisor			;$B3D7A1
 	REP.b #$20				;$B3D7A4
 	NOP #8					;$B3D7A6
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B3D7AE
+	LDA.w CPU.divide_remainder		;$B3D7AE
 	SEC					;$B3D7B1
 	SBC.w #$0016				;$B3D7B2
 	STA.b $1E				;$B3D7B5
@@ -8156,22 +8156,22 @@ CODE_B3D840:
 
 CODE_B3D843:
 	LDA.w #$1801				;$B3D843
-	STA.w DMA[$00].Parameters		;$B3D846
+	STA.w DMA[$00].settings			;$B3D846
 	SEP.b #$10				;$B3D849
 	LDY.b #$01				;$B3D84B
 	LDX.b #$00				;$B3D84D
 CODE_B3D84F:
 	LDA.w $1568,x				;$B3D84F
 	BPL.b CODE_B3D877			;$B3D852
-	STA.w DMA[$00].SourceBank		;$B3D854
+	STA.w DMA[$00].source_bank		;$B3D854
 	LDA.w $1562,x				;$B3D857
-	STA.w DMA[$00].SizeLo			;$B3D85A
+	STA.w DMA[$00].size			;$B3D85A
 	LDA.w $1564,x				;$B3D85D
-	STA.w !REGISTER_VRAMAddressLo		;$B3D860
+	STA.w PPU.vram_address			;$B3D860
 	LDA.w $1566,x				;$B3D863
-	STA.w DMA[$00].SourceLo			;$B3D866
+	STA.w DMA[$00].source_word		;$B3D866
 	STZ.w $1568,x				;$B3D869
-	STY.w !REGISTER_DMAEnable		;$B3D86C
+	STY.w CPU.enable_dma			;$B3D86C
 	TXA					;$B3D86F
 	CLC					;$B3D870
 	ADC.w #$0008				;$B3D871
@@ -8624,22 +8624,22 @@ CODE_B3DBCB:
 	STA.b $40				;$B3DBCD
 	SEP.b #$20				;$B3DBCF
 	LDA.b $3E				;$B3DBD1
-	STA.w !REGISTER_Multiplicand		;$B3DBD3
+	STA.w CPU.multiply_A			;$B3DBD3
 	LDA.b $40				;$B3DBD6
-	STA.w !REGISTER_Multiplier		;$B3DBD8
+	STA.w CPU.multiply_B			;$B3DBD8
 	REP.b #$20				;$B3DBDB
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B3DBDD
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B3DBE0
+	LDA.w CPU.multiply_result		;$B3DBDD
+	LDA.w CPU.multiply_result		;$B3DBE0
 	STA.b $1A				;$B3DBE3
 	STZ.b $1C				;$B3DBE5
 	SEP.b #$20				;$B3DBE7
 	LDA.b $3F				;$B3DBE9
-	STA.w !REGISTER_Multiplicand		;$B3DBEB
+	STA.w CPU.multiply_A			;$B3DBEB
 	LDA.b $40				;$B3DBEE
-	STA.w !REGISTER_Multiplier		;$B3DBF0
+	STA.w CPU.multiply_B			;$B3DBF0
 	REP.b #$20				;$B3DBF3
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B3DBF5
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B3DBF8
+	LDA.w CPU.multiply_result		;$B3DBF5
+	LDA.w CPU.multiply_result		;$B3DBF8
 	CLC					;$B3DBFB
 	ADC.b $1B				;$B3DBFC
 	STA.b $1B				;$B3DBFE
@@ -8648,12 +8648,12 @@ CODE_B3DBCB:
 	STA.b $1D				;$B3DC06
 	SEP.b #$20				;$B3DC08
 	LDA.b $3E				;$B3DC0A
-	STA.w !REGISTER_Multiplicand		;$B3DC0C
+	STA.w CPU.multiply_A			;$B3DC0C
 	LDA.b $41				;$B3DC0F
-	STA.w !REGISTER_Multiplier		;$B3DC11
+	STA.w CPU.multiply_B			;$B3DC11
 	REP.b #$20				;$B3DC14
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B3DC16
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B3DC19
+	LDA.w CPU.multiply_result		;$B3DC16
+	LDA.w CPU.multiply_result		;$B3DC19
 	CLC					;$B3DC1C
 	ADC.b $1B				;$B3DC1D
 	STA.b $1B				;$B3DC1F
@@ -8662,12 +8662,12 @@ CODE_B3DBCB:
 	STA.b $1D				;$B3DC27
 	SEP.b #$20				;$B3DC29
 	LDA.b $3F				;$B3DC2B
-	STA.w !REGISTER_Multiplicand		;$B3DC2D
+	STA.w CPU.multiply_A			;$B3DC2D
 	LDA.b $41				;$B3DC30
-	STA.w !REGISTER_Multiplier		;$B3DC32
+	STA.w CPU.multiply_B			;$B3DC32
 	REP.b #$20				;$B3DC35
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B3DC37
-	LDA.w !REGISTER_ProductOrRemainderLo	;$B3DC3A
+	LDA.w CPU.multiply_result		;$B3DC37
+	LDA.w CPU.multiply_result		;$B3DC3A
 	CLC					;$B3DC3D
 	ADC.b $1C				;$B3DC3E
 	STA.b $1C				;$B3DC40
@@ -8676,7 +8676,7 @@ CODE_B3DBCB:
 CODE_B3DC43:
 	JSR.w CODE_B3E0C6			;$B3DC43
 	LDA.w #$7400				;$B3DC46
-	STA.w !REGISTER_VRAMAddressLo		;$B3DC49
+	STA.w PPU.vram_address			;$B3DC49
 	LDY.w #$0000				;$B3DC4C
 CODE_B3DC4F:
 	TYA					;$B3DC4F
@@ -8685,7 +8685,7 @@ CODE_B3DC4F:
 	LDA.l DATA_F6254B+$80,x			;$B3DC54
 	CLC					;$B3DC58
 	ADC.w #$0200				;$B3DC59
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DC5C
+	STA.w PPU.vram_write			;$B3DC5C
 	INY					;$B3DC5F
 	INY					;$B3DC60
 	CPY.w #$0200				;$B3DC61
@@ -8694,11 +8694,11 @@ CODE_B3DC4F:
 
 CODE_B3DC67:
 	LDA.w #$6C00				;$B3DC67
-	STA.w !REGISTER_VRAMAddressLo		;$B3DC6A
+	STA.w PPU.vram_address			;$B3DC6A
 	LDX.w #$0400				;$B3DC6D
 	LDA.w #$0122				;$B3DC70
 CODE_B3DC73:
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DC73
+	STA.w PPU.vram_write			;$B3DC73
 	DEX					;$B3DC76
 	BNE.b CODE_B3DC73			;$B3DC77
 	JSR.w CODE_B3E0C6			;$B3DC79
@@ -8717,54 +8717,54 @@ CODE_B3DC82:
 
 CODE_B3DC99:
 	LDA.w #$6000				;$B3DC99
-	STA.w !REGISTER_VRAMAddressLo		;$B3DC9C
+	STA.w PPU.vram_address			;$B3DC9C
 	LDA.w #$005F				;$B3DC9F
 	LDX.w #$0800				;$B3DCA2
 CODE_B3DCA5:
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DCA5
+	STA.w PPU.vram_write			;$B3DCA5
 	DEX					;$B3DCA8
 	BPL.b CODE_B3DCA5			;$B3DCA9
 	LDA.w #$7800				;$B3DCAB
-	STA.w !REGISTER_VRAMAddressLo		;$B3DCAE
+	STA.w PPU.vram_address			;$B3DCAE
 	LDA.w #$005F				;$B3DCB1
 	LDX.w #$0400				;$B3DCB4
 CODE_B3DCB7:
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DCB7
+	STA.w PPU.vram_write			;$B3DCB7
 	DEX					;$B3DCBA
 	BPL.b CODE_B3DCB7			;$B3DCBB
 	SEP.b #$20				;$B3DCBD
 	LDA.b #$81				;$B3DCBF
-	STA.w !REGISTER_VRAMAddressIncrementValue	;$B3DCC1
+	STA.w PPU.vram_control			;$B3DCC1
 	REP.b #$20				;$B3DCC4
 	LDA.w #$614F				;$B3DCC6
-	STA.w !REGISTER_VRAMAddressLo		;$B3DCC9
+	STA.w PPU.vram_address			;$B3DCC9
 	LDX.w #$001E				;$B3DCCC
 	LDA.w #$3C60				;$B3DCCF
 CODE_B3DCD2:
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DCD2
+	STA.w PPU.vram_write			;$B3DCD2
 	DEX					;$B3DCD5
 	BPL.b CODE_B3DCD2			;$B3DCD6
 	SEP.b #$20				;$B3DCD8
 	LDA.b #$80				;$B3DCDA
-	STA.w !REGISTER_VRAMAddressIncrementValue	;$B3DCDC
+	STA.w PPU.vram_control			;$B3DCDC
 	REP.b #$20				;$B3DCDF
 	LDA.w #$790D				;$B3DCE1
-	STA.w !REGISTER_VRAMAddressLo		;$B3DCE4
+	STA.w PPU.vram_address			;$B3DCE4
 	LDX.w #$01CC				;$B3DCE7
 CODE_B3DCEA:
 	LDA.l DATA_E98550+$8A,x			;$B3DCEA
 	EOR.w #$C000				;$B3DCEE
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DCF1
+	STA.w PPU.vram_write			;$B3DCF1
 	DEX					;$B3DCF4
 	DEX					;$B3DCF5
 	BPL.b CODE_B3DCEA			;$B3DCF6
 	LDA.w #$7A0D				;$B3DCF8
-	STA.w !REGISTER_VRAMAddressLo		;$B3DCFB
+	STA.w PPU.vram_address			;$B3DCFB
 	LDX.w #$0088				;$B3DCFE
 CODE_B3DD01:
 	LDA.l DATA_E98550,x			;$B3DD01
 	EOR.w #$C000				;$B3DD05
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DD08
+	STA.w PPU.vram_write			;$B3DD08
 	DEX					;$B3DD0B
 	DEX					;$B3DD0C
 	BPL.b CODE_B3DD01			;$B3DD0D
@@ -8777,21 +8777,21 @@ CODE_B3DD01:
 
 CODE_B3DD20:
 	LDA.w #$7000				;$B3DD20
-	STA.w !REGISTER_VRAMAddressLo		;$B3DD23
+	STA.w PPU.vram_address			;$B3DD23
 	LDA.w #$0172				;$B3DD26
 	LDX.w #$0400				;$B3DD29
 CODE_B3DD2C:
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DD2C
+	STA.w PPU.vram_write			;$B3DD2C
 	DEX					;$B3DD2F
 	BPL.b CODE_B3DD2C			;$B3DD30
 	LDA.w #$7000				;$B3DD32
-	STA.w !REGISTER_VRAMAddressLo		;$B3DD35
+	STA.w PPU.vram_address			;$B3DD35
 	LDX.w #$0000				;$B3DD38
 CODE_B3DD3B:
 	LDA.l DATA_DEFED4+$40,x			;$B3DD3B
 	CLC					;$B3DD3F
 	ADC.w #$0172				;$B3DD40
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DD43
+	STA.w PPU.vram_write			;$B3DD43
 	INX					;$B3DD46
 	INX					;$B3DD47
 	CPX.w #$05C0				;$B3DD48
@@ -8810,7 +8810,7 @@ CODE_B3DD5F:
 	STA.w $15E6				;$B3DD62
 	STA.w $15E4				;$B3DD65
 	LDA.w #$7000				;$B3DD68
-	STA.w !REGISTER_VRAMAddressLo		;$B3DD6B
+	STA.w PPU.vram_address			;$B3DD6B
 	LDX.w #$0000				;$B3DD6E
 CODE_B3DD71:
 	TXA					;$B3DD71
@@ -8823,16 +8823,16 @@ CODE_B3DD71:
 	LSR					;$B3DD7D
 	ORA.b $1A				;$B3DD7E
 	ORA.w #$2000				;$B3DD80
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DD83
+	STA.w PPU.vram_write			;$B3DD83
 	INX					;$B3DD86
 	CPX.w #$0400				;$B3DD87
 	BNE.b CODE_B3DD71			;$B3DD8A
 	JSR.w CODE_B3E0C6			;$B3DD8C
 	LDA.w #$2000				;$B3DD8F
-	STA.w !REGISTER_VRAMAddressLo		;$B3DD92
+	STA.w PPU.vram_address			;$B3DD92
 	LDX.w #$0200				;$B3DD95
 CODE_B3DD98:
-	STZ.w !REGISTER_WriteToVRAMPortLo	;$B3DD98
+	STZ.w PPU.vram_write			;$B3DD98
 	DEX					;$B3DD9B
 	BNE.b CODE_B3DD98			;$B3DD9C
 	LDA.w $15E8				;$B3DD9E
@@ -8860,10 +8860,10 @@ CODE_B3DDD1:
 	LDY.w #$000A				;$B3DDD1
 	SEP.b #$20				;$B3DDD4
 	LDA.b #$1B				;$B3DDD6
-	STA.w !REGISTER_CGRAMAddress		;$B3DDD8
+	STA.w PPU.cgram_address			;$B3DDD8
 CODE_B3DDDB:
 	LDA.l DATA_B399C5,x			;$B3DDDB
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3DDDF
+	STA.w PPU.cgram_write			;$B3DDDF
 	INX					;$B3DDE2
 	DEY					;$B3DDE3
 	BPL.b CODE_B3DDDB			;$B3DDE4
@@ -8874,46 +8874,46 @@ CODE_B3DDE8:
 	BCC.b CODE_B3DE17			;$B3DDEE
 	SEP.b #$20				;$B3DDF0
 	LDA.b #$04				;$B3DDF2
-	STA.w !REGISTER_CGRAMAddress		;$B3DDF4
+	STA.w PPU.cgram_address			;$B3DDF4
 	LDA.b #$08				;$B3DDF7
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3DDF9
+	STA.w PPU.cgram_write			;$B3DDF9
 	LDA.b #$21				;$B3DDFC
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3DDFE
+	STA.w PPU.cgram_write			;$B3DDFE
 	LDA.b #$10				;$B3DE01
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3DE03
+	STA.w PPU.cgram_write			;$B3DE03
 	LDA.b #$42				;$B3DE06
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3DE08
+	STA.w PPU.cgram_write			;$B3DE08
 	LDA.b #$18				;$B3DE0B
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3DE0D
+	STA.w PPU.cgram_write			;$B3DE0D
 	LDA.b #$63				;$B3DE10
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3DE12
+	STA.w PPU.cgram_write			;$B3DE12
 	REP.b #$20				;$B3DE15
 CODE_B3DE17:
 	LDA.w $15E8				;$B3DE17
 	CMP.w #$0005				;$B3DE1A
 	BCC.b CODE_B3DE88			;$B3DE1D
 	LDA.w #$0217				;$B3DE1F
-	STA.w !REGISTER_MainScreenLayers	;$B3DE22
+	STA.w PPU.screens			;$B3DE22
 	LDA.w #$0007				;$B3DE25
-	STA.w !REGISTER_MainScreenWindowMask	;$B3DE28
+	STA.w PPU.window_masks			;$B3DE28
 	SEP.b #$20				;$B3DE2B
 	LDA.b #$01				;$B3DE2D
-	STA.w !REGISTER_CGRAMAddress		;$B3DE2F
+	STA.w PPU.cgram_address			;$B3DE2F
 	LDA.b #$18				;$B3DE32
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3DE34
+	STA.w PPU.cgram_write			;$B3DE34
 	LDA.b #$63				;$B3DE37
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3DE39
+	STA.w PPU.cgram_write			;$B3DE39
 	LDA.b #$9C				;$B3DE3C
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3DE3E
+	STA.w PPU.cgram_write			;$B3DE3E
 	LDA.b #$73				;$B3DE41
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3DE43
+	STA.w PPU.cgram_write			;$B3DE43
 	LDA.b #$FF				;$B3DE46
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3DE48
+	STA.w PPU.cgram_write			;$B3DE48
 	LDA.b #$7F				;$B3DE4B
-	STA.w !REGISTER_WriteToCGRAMPort	;$B3DE4D
+	STA.w PPU.cgram_write			;$B3DE4D
 	REP.b #$20				;$B3DE50
 	LDA.w #$7000				;$B3DE52
-	STA.w !REGISTER_VRAMAddressLo		;$B3DE55
+	STA.w PPU.vram_address			;$B3DE55
 	LDX.w #DATA_F6644B>>16			;$B3DE58
 	LDA.w #DATA_F6644B			;$B3DE5B
 	LDY.w #$0200				;$B3DE5E
@@ -8957,32 +8957,32 @@ CODE_B3DEA1:
 
 CODE_B3DEB6:
 	LDA.w #$6800				;$B3DEB6
-	STA.w !REGISTER_VRAMAddressLo		;$B3DEB9
+	STA.w PPU.vram_address			;$B3DEB9
 	LDA.w #$01EA				;$B3DEBC
 	LDX.w #$0800				;$B3DEBF
 CODE_B3DEC2:
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DEC2
+	STA.w PPU.vram_write			;$B3DEC2
 	DEX					;$B3DEC5
 	BNE.b CODE_B3DEC2			;$B3DEC6
 	JMP.w CODE_B3E0C6			;$B3DEC8
 
 CODE_B3DECB:
 	LDA.w #$6800				;$B3DECB
-	STA.w !REGISTER_VRAMAddressLo		;$B3DECE
+	STA.w PPU.vram_address			;$B3DECE
 	LDA.w #$00EA				;$B3DED1
 	LDX.w #$0800				;$B3DED4
 CODE_B3DED7:
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DED7
+	STA.w PPU.vram_write			;$B3DED7
 	DEX					;$B3DEDA
 	BNE.b CODE_B3DED7			;$B3DEDB
 	LDA.w #$6800				;$B3DEDD
-	STA.w !REGISTER_VRAMAddressLo		;$B3DEE0
+	STA.w PPU.vram_address			;$B3DEE0
 	LDX.w #$0000				;$B3DEE3
 CODE_B3DEE6:
 	LDA.l DATA_E8A634,x			;$B3DEE6
 	SEC					;$B3DEEA
 	SBC.w #$0100				;$B3DEEB
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DEEE
+	STA.w PPU.vram_write			;$B3DEEE
 	INX					;$B3DEF1
 	INX					;$B3DEF2
 	CPX.w #$0240				;$B3DEF3
@@ -8991,11 +8991,11 @@ CODE_B3DEE6:
 
 CODE_B3DEFB:
 	LDA.w #$7000				;$B3DEFB
-	STA.w !REGISTER_VRAMAddressLo		;$B3DEFE
+	STA.w PPU.vram_address			;$B3DEFE
 	LDX.w #$0400				;$B3DF01
 	LDA.w #$00F2				;$B3DF04
 CODE_B3DF07:
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DF07
+	STA.w PPU.vram_write			;$B3DF07
 	DEX					;$B3DF0A
 	BNE.b CODE_B3DF07			;$B3DF0B
 	JSR.w CODE_B3E0C6			;$B3DF0D
@@ -9011,11 +9011,11 @@ CODE_B3DF07:
 
 CODE_B3DF2B:
 	LDA.w #$7000				;$B3DF2B
-	STA.w !REGISTER_VRAMAddressLo		;$B3DF2E
+	STA.w PPU.vram_address			;$B3DF2E
 	LDX.w #$0400				;$B3DF31
 	LDA.w #$00F2				;$B3DF34
 CODE_B3DF37:
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DF37
+	STA.w PPU.vram_write			;$B3DF37
 	DEX					;$B3DF3A
 	BNE.b CODE_B3DF37			;$B3DF3B
 	JSR.w CODE_B3E0C6			;$B3DF3D
@@ -9023,18 +9023,18 @@ CODE_B3DF37:
 
 CODE_B3DF41:
 	LDA.w #$7000				;$B3DF41
-	STA.w !REGISTER_VRAMAddressLo		;$B3DF44
+	STA.w PPU.vram_address			;$B3DF44
 	LDA.w #$01D8				;$B3DF47
 	LDX.w #$0400				;$B3DF4A
 CODE_B3DF4D:
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DF4D
+	STA.w PPU.vram_write			;$B3DF4D
 	DEX					;$B3DF50
 	BNE.b CODE_B3DF4D			;$B3DF51
 	LDX.w #$0000				;$B3DF53
 CODE_B3DF56:
 	LDA.l DATA_EA7D8A,x			;$B3DF56
 	ORA.w #$2000				;$B3DF5A
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DF5D
+	STA.w PPU.vram_write			;$B3DF5D
 	INX					;$B3DF60
 	INX					;$B3DF61
 	CPX.w #$0800				;$B3DF62
@@ -9052,11 +9052,11 @@ CODE_B3DF6B:
 
 CODE_B3DF7C:
 	LDA.w #$7800				;$B3DF7C
-	STA.w !REGISTER_VRAMAddressLo		;$B3DF7F
+	STA.w PPU.vram_address			;$B3DF7F
 	LDX.w #$0800				;$B3DF82
 	LDA.w #$0150				;$B3DF85
 CODE_B3DF88:
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3DF88
+	STA.w PPU.vram_write			;$B3DF88
 	DEX					;$B3DF8B
 	BNE.b CODE_B3DF88			;$B3DF8C
 	JSR.w CODE_B3E0C6			;$B3DF8E
@@ -9067,7 +9067,7 @@ CODE_B3DF92:
 	STZ.w $1973				;$B3DF95
 	LDA.w #$0031				;$B3DF98
 	JSL.l set_PPU_registers_global		;$B3DF9B
-	STZ.w !REGISTER_MainScreenLayers	;$B3DF9F
+	STZ.w PPU.screens			;$B3DF9F
 	LDA.b $BE				;$B3DFA2
 	CMP.w #$0006				;$B3DFA4
 	BCS.b CODE_B3DFDB			;$B3DFA7
@@ -9114,19 +9114,19 @@ CODE_B3DFF8:
 	LDA.w #$0005				;$B3E002
 	STA.b $1E				;$B3E005
 	LDA.w #$6D46				;$B3E007
-	STA.w !REGISTER_VRAMAddressLo		;$B3E00A
+	STA.w PPU.vram_address			;$B3E00A
 	STA.b $1A				;$B3E00D
 	JSR.w CODE_B3E01F			;$B3E00F
 	LDA.w #$0007				;$B3E012
 	STA.b $1C				;$B3E015
 	LDA.w #$6D55				;$B3E017
-	STA.w !REGISTER_VRAMAddressLo		;$B3E01A
+	STA.w PPU.vram_address			;$B3E01A
 	STA.b $1A				;$B3E01D
 CODE_B3E01F:
 	LDY.b $1E				;$B3E01F
 CODE_B3E021:
 	LDA.l $7F0000,x				;$B3E021
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3E025
+	STA.w PPU.vram_write			;$B3E025
 	INX					;$B3E028
 	INX					;$B3E029
 	DEY					;$B3E02A
@@ -9135,7 +9135,7 @@ CODE_B3E021:
 	CLC					;$B3E02F
 	ADC.w #$0020				;$B3E030
 	STA.b $1A				;$B3E033
-	STA.w !REGISTER_VRAMAddressLo		;$B3E035
+	STA.w PPU.vram_address			;$B3E035
 	DEC.b $1C				;$B3E038
 	BNE.b CODE_B3E01F			;$B3E03A
 	RTS					;$B3E03C
@@ -9152,7 +9152,7 @@ CODE_B3E049:
 	LDA.w #$000C				;$B3E053
 	STA.b $1E				;$B3E056
 	LDA.w #$6D0A				;$B3E058
-	STA.w !REGISTER_VRAMAddressLo		;$B3E05B
+	STA.w PPU.vram_address			;$B3E05B
 	STA.b $1A				;$B3E05E
 	JSR.w CODE_B3E01F			;$B3E060
 	RTS					;$B3E063
@@ -9163,32 +9163,32 @@ DATA_B3E064:
 CODE_B3E072:
 	LDA.w #$FFE0				;$B3E072
 	SEP.b #$20				;$B3E075
-	STA.w !REGISTER_BG1VertScrollOffset	;$B3E077
+	STA.w PPU.layer_1_scroll_y		;$B3E077
 	XBA					;$B3E07A
-	STA.w !REGISTER_BG1VertScrollOffset	;$B3E07B
+	STA.w PPU.layer_1_scroll_y		;$B3E07B
 	XBA					;$B3E07E
-	STA.w !REGISTER_BG2VertScrollOffset	;$B3E07F
+	STA.w PPU.layer_2_scroll_y		;$B3E07F
 	XBA					;$B3E082
-	STA.w !REGISTER_BG2VertScrollOffset	;$B3E083
+	STA.w PPU.layer_2_scroll_y		;$B3E083
 	LDA.b #$FB				;$B3E086
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3E088
+	STA.w PPU.layer_1_scroll_x		;$B3E088
 	XBA					;$B3E08B
 	LDA.b #$FF				;$B3E08C
-	STA.w !REGISTER_BG1HorizScrollOffset	;$B3E08E
+	STA.w PPU.layer_1_scroll_x		;$B3E08E
 	XBA					;$B3E091
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B3E092
+	STA.w PPU.layer_2_scroll_x		;$B3E092
 	XBA					;$B3E095
-	STA.w !REGISTER_BG2HorizScrollOffset	;$B3E096
+	STA.w PPU.layer_2_scroll_x		;$B3E096
 	REP.b #$20				;$B3E099
 	JMP.w CODE_B3E0C6			;$B3E09B
 
 CODE_B3E09E:
 	LDA.w #$6C00				;$B3E09E
-	STA.w !REGISTER_VRAMAddressLo		;$B3E0A1
+	STA.w PPU.vram_address			;$B3E0A1
 	LDX.w #$0400				;$B3E0A4
 	LDA.w #$0122				;$B3E0A7
 CODE_B3E0AA:
-	STA.w !REGISTER_WriteToVRAMPortLo	;$B3E0AA
+	STA.w PPU.vram_write			;$B3E0AA
 	DEX					;$B3E0AD
 	BNE.b CODE_B3E0AA			;$B3E0AE
 	JSR.w CODE_B3E0C6			;$B3E0B0
@@ -9227,17 +9227,17 @@ CODE_B3E0EF:
 	CPX.w #$002D				;$B3E100
 	BNE.b CODE_B3E0EF			;$B3E103
 	LDA.w #$1113				;$B3E105
-	STA.w !REGISTER_MainScreenLayers	;$B3E108
+	STA.w PPU.screens			;$B3E108
 	LDA.w #$0202				;$B3E10B
-	STA.w !REGISTER_ColorMathInitialSettings	;$B3E10E
+	STA.w PPU.color_math			;$B3E10E
 	SEP.b #$20				;$B3E111
 	LDX.w #$0F43 				;$B3E113
-	STX.w HDMA[$03].Parameters		;$B3E116
+	STX.w HDMA[$03].settings		;$B3E116
 	LDX.w #$7EA4EA				;$B3E119
-	STX.w HDMA[$03].SourceLo		;$B3E11C
+	STX.w HDMA[$03].source_word		;$B3E11C
 	LDA.b #$7EA4EA>>16			;$B3E11F
-	STA.w HDMA[$03].SourceBank		;$B3E121
-	STA.w HDMA[$03].IndirectSourceBank	;$B3E124
+	STA.w HDMA[$03].source_bank		;$B3E121
+	STA.w HDMA[$03].indirect_source_bank	;$B3E124
 	REP.b #$20				;$B3E127
 	LDA.w #$0801				;$B3E129
 	STA.w $04E4				;$B3E12C
@@ -9258,33 +9258,33 @@ CODE_B3E136:
 	BNE CODE_B3E136				;$B3E14A
 	SEP #$20				;$B3E14C
 	LDX #$2C01				;$B3E14E
-	STX HDMA[$01].Parameters		;$B3E151
+	STX HDMA[$01].settings			;$B3E151
 	LDX #$7EA15A				;$B3E154
-	STX HDMA[$01].SourceLo			;$B3E157
+	STX HDMA[$01].source_word		;$B3E157
 	LDA #$7EA15A>>16			;$B3E15A
-	STA HDMA[$01].SourceBank		;$B3E15C
-	STA HDMA[$01].IndirectSourceBank	;$B3E15F
+	STA HDMA[$01].source_bank		;$B3E15C
+	STA HDMA[$01].indirect_source_bank	;$B3E15F
 	LDX #$3001				;$B3E162
-	STX HDMA[$02].Parameters		;$B3E165
+	STX HDMA[$02].settings			;$B3E165
 	LDX #$7EA1DA				;$B3E168
-	STX HDMA[$02].SourceLo			;$B3E16B
+	STX HDMA[$02].source_word		;$B3E16B
 	LDA #$7EA1DA>>16			;$B3E16E
-	STA HDMA[$02].SourceBank		;$B3E170
-	STA HDMA[$02].IndirectSourceBank	;$B3E173
+	STA HDMA[$02].source_bank		;$B3E170
+	STA HDMA[$02].indirect_source_bank	;$B3E173
 	LDX #$0F43 				;$B3E176
-	STX HDMA[$03].Parameters		;$B3E179
+	STX HDMA[$03].settings			;$B3E179
 	LDX #$7EA4EA				;$B3E17C
-	STX HDMA[$03].SourceLo			;$B3E17F
+	STX HDMA[$03].source_word		;$B3E17F
 	LDA #$7EA4EA>>16			;$B3E182
-	STA HDMA[$03].SourceBank		;$B3E184
-	STA HDMA[$03].IndirectSourceBank	;$B3E187
+	STA HDMA[$03].source_bank		;$B3E184
+	STA HDMA[$03].indirect_source_bank	;$B3E187
 	LDX #$1143 				;$B3E18A
-	STX HDMA[$04].Parameters		;$B3E18D
+	STX HDMA[$04].settings			;$B3E18D
 	LDX #$7EA4EA				;$B3E190
-	STX HDMA[$04].SourceLo			;$B3E193
+	STX HDMA[$04].source_word		;$B3E193
 	LDA #$7EA4EA>>16			;$B3E196
-	STA HDMA[$04].SourceBank		;$B3E198
-	STA HDMA[$04].IndirectSourceBank	;$B3E19B
+	STA HDMA[$04].source_bank		;$B3E198
+	STA HDMA[$04].indirect_source_bank	;$B3E19B
 	REP #$20				;$B3E19E
 	LDA #$1E01				;$B3E1A0
 	STA $04E4				;$B3E1A3
@@ -9313,26 +9313,26 @@ CODE_B3E1A7:
 	STA $7EA1DD				;$B3E1E8
 	SEP #$20				;$B3E1EC
 	LDX #$2D00 				;$B3E1EE
-	STX HDMA[$01].Parameters		;$B3E1F1
+	STX HDMA[$01].settings			;$B3E1F1
 	LDX #$7EA17A				;$B3E1F4
-	STX HDMA[$01].SourceLo			;$B3E1F7
+	STX HDMA[$01].source_word		;$B3E1F7
 	LDA #$7EA17A>>16			;$B3E1FA
-	STA HDMA[$01].SourceBank		;$B3E1FC
-	STA HDMA[$01].IndirectSourceBank	;$B3E1FF
+	STA HDMA[$01].source_bank		;$B3E1FC
+	STA HDMA[$01].indirect_source_bank	;$B3E1FF
 	LDX #$2601				;$B3E202
-	STX HDMA[$02].Parameters		;$B3E205
+	STX HDMA[$02].settings			;$B3E205
 	LDX #$7EA19A				;$B3E208
-	STX HDMA[$02].SourceLo			;$B3E20B
+	STX HDMA[$02].source_word		;$B3E20B
 	LDA #$7EA19A>>16			;$B3E20E
-	STA HDMA[$02].SourceBank		;$B3E210
-	STA HDMA[$02].IndirectSourceBank	;$B3E213
+	STA HDMA[$02].source_bank		;$B3E210
+	STA HDMA[$02].indirect_source_bank	;$B3E213
 	LDX #$2103				;$B3E216
-	STX HDMA[$03].Parameters		;$B3E219
+	STX HDMA[$03].settings			;$B3E219
 	LDX #$7EA1DA				;$B3E21C
-	STX HDMA[$03].SourceLo			;$B3E21F
+	STX HDMA[$03].source_word		;$B3E21F
 	LDA #$7EA1DA>>16			;$B3E222
-	STA HDMA[$03].SourceBank		;$B3E224
-	STA HDMA[$03].IndirectSourceBank	;$B3E227
+	STA HDMA[$03].source_bank		;$B3E224
+	STA HDMA[$03].indirect_source_bank	;$B3E227
 	REP #$20				;$B3E22A
 	LDA #$0C01				;$B3E22C
 	STA $04E4				;$B3E22F
@@ -9373,48 +9373,48 @@ CODE_B3E279:
 	BPL CODE_B3E279				;$B3E29B
 	SEP #$20				;$B3E29D
 	LDX #$2640				;$B3E29F
-	STX HDMA[$01].Parameters		;$B3E2A2
+	STX HDMA[$01].settings			;$B3E2A2
 	LDX #$7EA17A				;$B3E2A5
-	STX HDMA[$01].SourceLo			;$B3E2A8
+	STX HDMA[$01].source_word		;$B3E2A8
 	LDA #$7EA17A>>16			;$B3E2AB
-	STA HDMA[$01].SourceBank		;$B3E2AD
-	STA HDMA[$01].IndirectSourceBank	;$B3E2B0
+	STA HDMA[$01].source_bank		;$B3E2AD
+	STA HDMA[$01].indirect_source_bank	;$B3E2B0
 	LDX #$2740				;$B3E2B3
-	STX HDMA[$02].Parameters		;$B3E2B6
+	STX HDMA[$02].settings			;$B3E2B6
 	LDX #$7EA18A				;$B3E2B9
-	STX HDMA[$02].SourceLo			;$B3E2BC
+	STX HDMA[$02].source_word		;$B3E2BC
 	LDA #$7EA18A>>16			;$B3E2BF
-	STA HDMA[$02].SourceBank		;$B3E2C1
-	STA HDMA[$02].IndirectSourceBank	;$B3E2C4
+	STA HDMA[$02].source_bank		;$B3E2C1
+	STA HDMA[$02].indirect_source_bank	;$B3E2C4
 	LDX #$2840				;$B3E2C7
-	STX HDMA[$03].Parameters		;$B3E2CA
+	STX HDMA[$03].settings			;$B3E2CA
 	LDX #$7EA19A				;$B3E2CD
-	STX HDMA[$03].SourceLo			;$B3E2D0
+	STX HDMA[$03].source_word		;$B3E2D0
 	LDA #$7EA19A>>16			;$B3E2D3
-	STA HDMA[$03].SourceBank		;$B3E2D5
-	STA HDMA[$03].IndirectSourceBank	;$B3E2D8
+	STA HDMA[$03].source_bank		;$B3E2D5
+	STA HDMA[$03].indirect_source_bank	;$B3E2D8
 	LDX #$2940				;$B3E2DB
-	STX HDMA[$04].Parameters		;$B3E2DE
+	STX HDMA[$04].settings			;$B3E2DE
 	LDX #$7EA1AA				;$B3E2E1
-	STX HDMA[$04].SourceLo			;$B3E2E4
+	STX HDMA[$04].source_word		;$B3E2E4
 	LDA #$7EA1AA>>16			;$B3E2E7
-	STA HDMA[$04].SourceBank		;$B3E2E9
-	STA HDMA[$04].IndirectSourceBank	;$B3E2EC
+	STA HDMA[$04].source_bank		;$B3E2E9
+	STA HDMA[$04].indirect_source_bank	;$B3E2EC
 	LDX #$3240				;$B3E2EF
-	STX HDMA[$05].Parameters		;$B3E2F2
+	STX HDMA[$05].settings			;$B3E2F2
 	LDX #$7EA16A				;$B3E2F5
-	STX HDMA[$05].SourceLo			;$B3E2F8
+	STX HDMA[$05].source_word		;$B3E2F8
 	LDA #$7EA16A>>16			;$B3E2FB
-	STA HDMA[$05].SourceBank		;$B3E2FD
+	STA HDMA[$05].source_bank		;$B3E2FD
 	LDA #DATA_B3E322>>16			;$B3E300
-	STA HDMA[$05].IndirectSourceBank	;$B3E302
+	STA HDMA[$05].indirect_source_bank	;$B3E302
 	LDX #$2C00 				;$B3E305
-	STX HDMA[$06].Parameters		;$B3E308
+	STX HDMA[$06].settings			;$B3E308
 	LDX #$7EA1BA				;$B3E30B
-	STX HDMA[$06].SourceLo			;$B3E30E
+	STX HDMA[$06].source_word		;$B3E30E
 	LDA #$7EA1BA>>16			;$B3E311
-	STA HDMA[$06].SourceBank		;$B3E313
-	STA HDMA[$06].IndirectSourceBank	;$B3E316
+	STA HDMA[$06].source_bank		;$B3E313
+	STA HDMA[$06].indirect_source_bank	;$B3E316
 	REP #$20				;$B3E319
 	LDA #$7E01				;$B3E31B
 	STA $04E4				;$B3E31E
@@ -9516,48 +9516,48 @@ CODE_B3E5AE:
 	STA $7EA252				;$B3E649
 	SEP #$20				;$B3E64D
 	LDX #$2143				;$B3E64F
-	STX HDMA[$01].Parameters		;$B3E652
+	STX HDMA[$01].settings			;$B3E652
 	LDX #$7EA25A				;$B3E655
-	STX HDMA[$01].SourceLo			;$B3E658
+	STX HDMA[$01].source_word		;$B3E658
 	LDA #$7EA25A>>16			;$B3E65B
-	STA HDMA[$01].SourceBank		;$B3E65D
+	STA HDMA[$01].source_bank		;$B3E65D
 	LDA #DATA_B3E6D2>>16			;$B3E660
-	STA HDMA[$01].IndirectSourceBank	;$B3E662
+	STA HDMA[$01].indirect_source_bank	;$B3E662
 	LDX #$1142				;$B3E665
-	STX HDMA[$02].Parameters		;$B3E668
+	STX HDMA[$02].settings			;$B3E668
 	LDX #$7EA15A				;$B3E66B
-	STX HDMA[$02].SourceLo			;$B3E66E
+	STX HDMA[$02].source_word		;$B3E66E
 	LDA #$7EA15A>>16			;$B3E671
-	STA HDMA[$02].SourceBank		;$B3E673
-	STA HDMA[$02].IndirectSourceBank	;$B3E676
+	STA HDMA[$02].source_bank		;$B3E673
+	STA HDMA[$02].indirect_source_bank	;$B3E676
 	LDX #$2641				;$B3E679
-	STX HDMA[$03].Parameters		;$B3E67C
+	STX HDMA[$03].settings			;$B3E67C
 	LDX #$7EA1EA				;$B3E67F
-	STX HDMA[$03].SourceLo			;$B3E682
+	STX HDMA[$03].source_word		;$B3E682
 	LDA #$7EA1EA>>16			;$B3E685
-	STA HDMA[$03].SourceBank		;$B3E687
-	STA HDMA[$03].IndirectSourceBank	;$B3E68A
+	STA HDMA[$03].source_bank		;$B3E687
+	STA HDMA[$03].indirect_source_bank	;$B3E68A
 	LDX #$1202				;$B3E68D
-	STX HDMA[$04].Parameters		;$B3E690
+	STX HDMA[$04].settings			;$B3E690
 	LDX #$7EA26A				;$B3E693
-	STX HDMA[$04].SourceLo			;$B3E696
+	STX HDMA[$04].source_word		;$B3E696
 	LDA #$7EA26A>>16			;$B3E699
-	STA HDMA[$04].SourceBank		;$B3E69B
-	STA HDMA[$04].IndirectSourceBank	;$B3E69E
+	STA HDMA[$04].source_bank		;$B3E69B
+	STA HDMA[$04].indirect_source_bank	;$B3E69E
 	LDX #$2C01				;$B3E6A1
-	STX HDMA[$05].Parameters		;$B3E6A4
+	STX HDMA[$05].settings			;$B3E6A4
 	LDX #$7EA23A				;$B3E6A7
-	STX HDMA[$05].SourceLo			;$B3E6AA
+	STX HDMA[$05].source_word		;$B3E6AA
 	LDA #$7EA23A>>16			;$B3E6AD
-	STA HDMA[$05].SourceBank		;$B3E6AF
-	STA HDMA[$05].IndirectSourceBank	;$B3E6B2
+	STA HDMA[$05].source_bank		;$B3E6AF
+	STA HDMA[$05].indirect_source_bank	;$B3E6B2
 	LDX #$0F02 				;$B3E6B5
-	STX HDMA[$06].Parameters		;$B3E6B8
+	STX HDMA[$06].settings			;$B3E6B8
 	LDX #$7EA24A				;$B3E6BB
-	STX HDMA[$06].SourceLo			;$B3E6BE
+	STX HDMA[$06].source_word		;$B3E6BE
 	LDA #$7EA24A>>16			;$B3E6C1
-	STA HDMA[$06].SourceBank		;$B3E6C3
-	STA HDMA[$06].IndirectSourceBank	;$B3E6C6
+	STA HDMA[$06].source_bank		;$B3E6C3
+	STA HDMA[$06].indirect_source_bank	;$B3E6C6
 	REP #$20				;$B3E6C9
 	LDA #$7E01				;$B3E6CB
 	STA $04E4				;$B3E6CE
@@ -9608,54 +9608,54 @@ CODE_B3E750:
 	BNE CODE_B3E750				;$B3E79B
 	SEP #$20				;$B3E79D
 	LDX #$2C01 				;$B3E79F
-	STX HDMA[$01].Parameters		;$B3E7A2
+	STX HDMA[$01].settings			;$B3E7A2
 	LDX #$7EA15A				;$B3E7A5
-	STX HDMA[$01].SourceLo			;$B3E7A8
+	STX HDMA[$01].source_word		;$B3E7A8
 	LDA #$7EA15A>>16			;$B3E7AB
-	STA HDMA[$01].SourceBank		;$B3E7AD
-	STA HDMA[$01].IndirectSourceBank	;$B3E7B0
+	STA HDMA[$01].source_bank		;$B3E7AD
+	STA HDMA[$01].indirect_source_bank	;$B3E7B0
 	LDX #$2103				;$B3E7B3
-	STX HDMA[$02].Parameters		;$B3E7B6
+	STX HDMA[$02].settings			;$B3E7B6
 	LDX #$7EA17A				;$B3E7B9
-	STX HDMA[$02].SourceLo			;$B3E7BC
+	STX HDMA[$02].source_word		;$B3E7BC
 	LDA #$7EA17A>>16			;$B3E7BF
-	STA HDMA[$02].SourceBank		;$B3E7C1
-	STA HDMA[$02].IndirectSourceBank	;$B3E7C4
+	STA HDMA[$02].source_bank		;$B3E7C1
+	STA HDMA[$02].indirect_source_bank	;$B3E7C4
 	LDX #$3001				;$B3E7C7
-	STX HDMA[$03].Parameters		;$B3E7CA
+	STX HDMA[$03].settings			;$B3E7CA
 	LDX #$7EA16A				;$B3E7CD
-	STX HDMA[$03].SourceLo			;$B3E7D0
+	STX HDMA[$03].source_word		;$B3E7D0
 	LDA #$7EA16A>>16			;$B3E7D3
-	STA HDMA[$03].SourceBank		;$B3E7D5
-	STA HDMA[$03].IndirectSourceBank	;$B3E7D8
+	STA HDMA[$03].source_bank		;$B3E7D5
+	STA HDMA[$03].indirect_source_bank	;$B3E7D8
 	LDX #$1142				;$B3E7DB
-	STX HDMA[$04].Parameters		;$B3E7DE
+	STX HDMA[$04].settings			;$B3E7DE
 	LDX #$7EA18A				;$B3E7E1
-	STX HDMA[$04].SourceLo			;$B3E7E4
+	STX HDMA[$04].source_word		;$B3E7E4
 	LDA #$7EA18A>>16			;$B3E7E7
-	STA HDMA[$04].SourceBank		;$B3E7E9
-	STA HDMA[$04].IndirectSourceBank	;$B3E7EC
+	STA HDMA[$04].source_bank		;$B3E7E9
+	STA HDMA[$04].indirect_source_bank	;$B3E7EC
 	LDX #$0D42				;$B3E7EF
-	STX HDMA[$05].Parameters		;$B3E7F2
+	STX HDMA[$05].settings			;$B3E7F2
 	LDX #$7EA19A				;$B3E7F5
-	STX HDMA[$05].SourceLo			;$B3E7F8
+	STX HDMA[$05].source_word		;$B3E7F8
 	LDA #$7EA19A>>16			;$B3E7FB
-	STA HDMA[$05].SourceBank		;$B3E7FD
-	STA HDMA[$05].IndirectSourceBank	;$B3E800
+	STA HDMA[$05].source_bank		;$B3E7FD
+	STA HDMA[$05].indirect_source_bank	;$B3E800
 	LDX #$0F42				;$B3E803
-	STX HDMA[$06].Parameters		;$B3E806
+	STX HDMA[$06].settings			;$B3E806
 	LDX #$7EA28A				;$B3E809
-	STX HDMA[$06].SourceLo			;$B3E80C
+	STX HDMA[$06].source_word		;$B3E80C
 	LDA #$7EA28A>>16			;$B3E80F
-	STA HDMA[$06].SourceBank		;$B3E811
-	STA HDMA[$06].IndirectSourceBank	;$B3E814
+	STA HDMA[$06].source_bank		;$B3E811
+	STA HDMA[$06].indirect_source_bank	;$B3E814
 	LDX #$0E42				;$B3E817
-	STX HDMA[$07].Parameters		;$B3E81A
+	STX HDMA[$07].settings			;$B3E81A
 	LDX #$7EA38A				;$B3E81D
-	STX HDMA[$07].SourceLo			;$B3E820
+	STX HDMA[$07].source_word		;$B3E820
 	LDA #$7EA38A>>16			;$B3E823
-	STA HDMA[$07].SourceBank		;$B3E825
-	STA HDMA[$07].IndirectSourceBank	;$B3E828
+	STA HDMA[$07].source_bank		;$B3E825
+	STA HDMA[$07].indirect_source_bank	;$B3E828
 	REP #$20				;$B3E82B
 	LDA #$FE01				;$B3E82D
 	STA $04E4				;$B3E830
@@ -9740,47 +9740,47 @@ CODE_B3E8C6:
 CODE_B3E8D5:
 	SEP #$20				;$B3E8D5
 	LDX #$0D43				;$B3E8D7
-	STX HDMA[$01].Parameters		;$B3E8DA
+	STX HDMA[$01].settings			;$B3E8DA
 	LDX #$7EA15A				;$B3E8DD
-	STX HDMA[$01].SourceLo			;$B3E8E0
+	STX HDMA[$01].source_word		;$B3E8E0
 	LDA #$7EA15A>>16			;$B3E8E3
-	STA HDMA[$01].SourceBank		;$B3E8E5
-	STA HDMA[$01].IndirectSourceBank	;$B3E8E8
+	STA HDMA[$01].source_bank		;$B3E8E5
+	STA HDMA[$01].indirect_source_bank	;$B3E8E8
 	LDX #$2601				;$B3E8EB
-	STX HDMA[$02].Parameters		;$B3E8EE
+	STX HDMA[$02].settings			;$B3E8EE
 	LDX #$7EA17A				;$B3E8F1
-	STX HDMA[$02].SourceLo			;$B3E8F4
+	STX HDMA[$02].source_word		;$B3E8F4
 	LDA #$7EA17A>>16			;$B3E8F7
-	STA HDMA[$02].SourceBank		;$B3E8F9
-	STA HDMA[$02].IndirectSourceBank	;$B3E8FC
+	STA HDMA[$02].source_bank		;$B3E8F9
+	STA HDMA[$02].indirect_source_bank	;$B3E8FC
 	LDX #$0F42				;$B3E8FF
-	STX HDMA[$03].Parameters		;$B3E902
+	STX HDMA[$03].settings			;$B3E902
 	LDX #$7EA4EA				;$B3E905
-	STX HDMA[$03].SourceLo			;$B3E908
+	STX HDMA[$03].source_word		;$B3E908
 	LDA #$7EA4EA>>16			;$B3E90B
-	STA HDMA[$03].SourceBank		;$B3E90D
-	STA HDMA[$03].IndirectSourceBank	;$B3E910
+	STA HDMA[$03].source_bank		;$B3E90D
+	STA HDMA[$03].indirect_source_bank	;$B3E910
 	LDX #$1142				;$B3E913
-	STX HDMA[$04].Parameters		;$B3E916
+	STX HDMA[$04].settings			;$B3E916
 	LDX #$7EA55A				;$B3E919
-	STX HDMA[$04].SourceLo			;$B3E91C
+	STX HDMA[$04].source_word		;$B3E91C
 	LDA #$7EA55A>>16			;$B3E91F
-	STA HDMA[$04].SourceBank		;$B3E921
-	STA HDMA[$04].IndirectSourceBank	;$B3E924
+	STA HDMA[$04].source_bank		;$B3E921
+	STA HDMA[$04].indirect_source_bank	;$B3E924
 	LDX #$3200				;$B3E927
-	STX HDMA[$05].Parameters		;$B3E92A
+	STX HDMA[$05].settings			;$B3E92A
 	LDX #$7EA19A				;$B3E92D
-	STX HDMA[$05].SourceLo			;$B3E930
+	STX HDMA[$05].source_word		;$B3E930
 	LDA #$7EA19A>>16			;$B3E933
-	STA HDMA[$05].SourceBank		;$B3E935
-	STA HDMA[$05].IndirectSourceBank	;$B3E938
+	STA HDMA[$05].source_bank		;$B3E935
+	STA HDMA[$05].indirect_source_bank	;$B3E938
 	LDX #$1042				;$B3E93B
-	STX HDMA[$06].Parameters		;$B3E93E
+	STX HDMA[$06].settings			;$B3E93E
 	LDX #$7EA5BA				;$B3E941
-	STX HDMA[$06].SourceLo			;$B3E944
+	STX HDMA[$06].source_word		;$B3E944
 	LDA #$7EA5BA>>16			;$B3E947
-	STA HDMA[$06].SourceBank		;$B3E949
-	STA HDMA[$06].IndirectSourceBank	;$B3E94C
+	STA HDMA[$06].source_bank		;$B3E949
+	STA HDMA[$06].indirect_source_bank	;$B3E94C
 	REP #$20				;$B3E94F
 	LDA #$7E01				;$B3E951
 	STA $04E4				;$B3E954
@@ -9843,12 +9843,12 @@ CODE_B3EA30:
 	BNE CODE_B3EA30				;$B3EA52
 	SEP #$20				;$B3EA54
 	LDX #$1042				;$B3EA56
-	STX HDMA[$01].Parameters		;$B3EA59
+	STX HDMA[$01].settings			;$B3EA59
 	LDX #$7EA15A				;$B3EA5C
-	STX HDMA[$01].SourceLo			;$B3EA5F
+	STX HDMA[$01].source_word		;$B3EA5F
 	LDA #$7EA15A>>16			;$B3EA62
-	STA HDMA[$01].SourceBank		;$B3EA64
-	STA HDMA[$01].IndirectSourceBank	;$B3EA67
+	STA HDMA[$01].source_bank		;$B3EA64
+	STA HDMA[$01].indirect_source_bank	;$B3EA67
 	REP #$20				;$B3EA6A
 	LDA #$0201				;$B3EA6C
 	STA $04E4				;$B3EA6F
@@ -9875,7 +9875,7 @@ CODE_B3EA79:
 	CPX.w #$0020				;$B3EAAB
 	BNE.b CODE_B3EA79			;$B3EAAE
 	LDA.w #$2010				;$B3EAB0
-	STA.w !REGISTER_VRAMAddressLo		;$B3EAB3
+	STA.w PPU.vram_address			;$B3EAB3
 	LDX.w #$7EA15A>>16			;$B3EAB6
 	LDA.w #$7EA15A				;$B3EAB9
 	LDY.w #$0140				;$B3EABC
@@ -9888,12 +9888,12 @@ CODE_B3EAC9:
 	JSR CODE_B3ECB9				;$B3EAC9
 	SEP #$20				;$B3EACC
 	LDX #$2601				;$B3EACE
-	STX HDMA[$02].Parameters		;$B3EAD1
+	STX HDMA[$02].settings			;$B3EAD1
 	LDX #$7EA17A				;$B3EAD4
-	STX HDMA[$02].SourceLo			;$B3EAD7
+	STX HDMA[$02].source_word		;$B3EAD7
 	LDA #$7EA17A>>16			;$B3EADA
-	STA HDMA[$02].SourceBank		;$B3EADC
-	STA HDMA[$02].IndirectSourceBank	;$B3EADF
+	STA HDMA[$02].source_bank		;$B3EADC
+	STA HDMA[$02].indirect_source_bank	;$B3EADF
 	REP #$20				;$B3EAE2
 	LDA #$0401				;$B3EAE4
 	STA $04E4				;$B3EAE7
@@ -9978,54 +9978,54 @@ CODE_B3EB91:
 	STA $7EA1A1				;$B3EBC4
 	SEP #$20				;$B3EBC8
 	LDX #$0F43				;$B3EBCA
-	STX HDMA[$01].Parameters		;$B3EBCD
+	STX HDMA[$01].settings			;$B3EBCD
 	LDX #$7EA15A				;$B3EBD0
-	STX HDMA[$01].SourceLo			;$B3EBD3
+	STX HDMA[$01].source_word		;$B3EBD3
 	LDA #$7EA15A>>16			;$B3EBD6
-	STA HDMA[$01].SourceBank		;$B3EBD8
-	STA HDMA[$01].IndirectSourceBank	;$B3EBDB
+	STA HDMA[$01].source_bank		;$B3EBD8
+	STA HDMA[$01].indirect_source_bank	;$B3EBDB
 	LDX #$2601				;$B3EBDE
-	STX HDMA[$02].Parameters		;$B3EBE1
+	STX HDMA[$02].settings			;$B3EBE1
 	LDX #$7EA19A				;$B3EBE4
-	STX HDMA[$02].SourceLo			;$B3EBE7
+	STX HDMA[$02].source_word		;$B3EBE7
 	LDA #$7EA19A>>16			;$B3EBEA
-	STA HDMA[$02].SourceBank		;$B3EBEC
-	STA HDMA[$02].IndirectSourceBank	;$B3EBEF
+	STA HDMA[$02].source_bank		;$B3EBEC
+	STA HDMA[$02].indirect_source_bank	;$B3EBEF
 	LDX #$3100				;$B3EBF2
-	STX HDMA[$03].Parameters		;$B3EBF5
+	STX HDMA[$03].settings			;$B3EBF5
 	LDX #$7EA17A				;$B3EBF8
-	STX HDMA[$03].SourceLo			;$B3EBFB
+	STX HDMA[$03].source_word		;$B3EBFB
 	LDA #$7EA17A>>16			;$B3EBFE
-	STA HDMA[$03].SourceBank		;$B3EC00
-	STA HDMA[$03].IndirectSourceBank	;$B3EC03
+	STA HDMA[$03].source_bank		;$B3EC00
+	STA HDMA[$03].indirect_source_bank	;$B3EC03
 	LDX #$1143 				;$B3EC06
-	STX HDMA[$04].Parameters		;$B3EC09
+	STX HDMA[$04].settings			;$B3EC09
 	LDX #$7EA55A				;$B3EC0C
-	STX HDMA[$04].SourceLo			;$B3EC0F
+	STX HDMA[$04].source_word		;$B3EC0F
 	LDA #$7EA55A>>16			;$B3EC12
-	STA HDMA[$04].SourceBank		;$B3EC14
-	STA HDMA[$04].IndirectSourceBank	;$B3EC17
+	STA HDMA[$04].source_bank		;$B3EC14
+	STA HDMA[$04].indirect_source_bank	;$B3EC17
 	LDX #$0D43				;$B3EC1A
-	STX HDMA[$05].Parameters		;$B3EC1D
+	STX HDMA[$05].settings			;$B3EC1D
 	LDX #$7EA35A				;$B3EC20
-	STX HDMA[$05].SourceLo			;$B3EC23
+	STX HDMA[$05].source_word		;$B3EC23
 	LDA #$7EA35A>>16			;$B3EC26
-	STA HDMA[$05].SourceBank		;$B3EC28
-	STA HDMA[$05].IndirectSourceBank	;$B3EC2B
+	STA HDMA[$05].source_bank		;$B3EC28
+	STA HDMA[$05].indirect_source_bank	;$B3EC2B
 	LDX #$2103				;$B3EC2E
-	STX HDMA[$06].Parameters		;$B3EC31
+	STX HDMA[$06].settings			;$B3EC31
 	LDX #$7EA45A				;$B3EC34
-	STX HDMA[$06].SourceLo			;$B3EC37
+	STX HDMA[$06].source_word		;$B3EC37
 	LDA #$7EA45A>>16			;$B3EC3A
-	STA HDMA[$06].SourceBank		;$B3EC3C
-	STA HDMA[$06].IndirectSourceBank	;$B3EC3F
+	STA HDMA[$06].source_bank		;$B3EC3C
+	STA HDMA[$06].indirect_source_bank	;$B3EC3F
 	LDX #$2C01 				;$B3EC42
-	STX HDMA[$07].Parameters		;$B3EC45
+	STX HDMA[$07].settings			;$B3EC45
 	LDX #$7EA4DA				;$B3EC48
-	STX HDMA[$07].SourceLo			;$B3EC4B
+	STX HDMA[$07].source_word		;$B3EC4B
 	LDA #$7EA4DA>>16			;$B3EC4E
-	STA HDMA[$07].SourceBank		;$B3EC50
-	STA HDMA[$07].IndirectSourceBank	;$B3EC53
+	STA HDMA[$07].source_bank		;$B3EC50
+	STA HDMA[$07].indirect_source_bank	;$B3EC53
 	REP #$20				;$B3EC56
 	LDA #$FE01				;$B3EC58
 	STA $04E4				;$B3EC5B
@@ -10167,54 +10167,54 @@ CODE_B3ED3B:
 	LDA #$20				;$B3EDF2
 	STA $7EA219				;$B3EDF4
 	LDX #$3200				;$B3EDF8
-	STX HDMA[$01].Parameters		;$B3EDFB
+	STX HDMA[$01].settings			;$B3EDFB
 	LDX #$7EA46A				;$B3EDFE
-	STX HDMA[$01].SourceLo		;$B3EE01
+	STX HDMA[$01].source_word		;$B3EE01
 	LDA #$7EA46A>>16			;$B3EE04
-	STA HDMA[$01].SourceBank		;$B3EE06
-	STA HDMA[$01].IndirectSourceBank	;$B3EE09
+	STA HDMA[$01].source_bank		;$B3EE06
+	STA HDMA[$01].indirect_source_bank	;$B3EE09
 	LDX #$0F42 				;$B3EE0C
-	STX HDMA[$02].Parameters		;$B3EE0F
+	STX HDMA[$02].settings			;$B3EE0F
 	LDX #$7EA15A				;$B3EE12
-	STX HDMA[$02].SourceLo		;$B3EE15
+	STX HDMA[$02].source_word		;$B3EE15
 	LDA #$7EA15A>>16			;$B3EE18
-	STA HDMA[$02].SourceBank		;$B3EE1A
-	STA HDMA[$02].IndirectSourceBank	;$B3EE1D
+	STA HDMA[$02].source_bank		;$B3EE1A
+	STA HDMA[$02].indirect_source_bank	;$B3EE1D
 	LDX #$1142				;$B3EE20
-	STX HDMA[$03].Parameters		;$B3EE23
+	STX HDMA[$03].settings			;$B3EE23
 	LDX #$7EA19A				;$B3EE26
-	STX HDMA[$03].SourceLo		;$B3EE29
+	STX HDMA[$03].source_word		;$B3EE29
 	LDA #$7EA19A>>16			;$B3EE2C
-	STA HDMA[$03].SourceBank		;$B3EE2E
-	STA HDMA[$03].IndirectSourceBank	;$B3EE31
+	STA HDMA[$03].source_bank		;$B3EE2E
+	STA HDMA[$03].indirect_source_bank	;$B3EE31
 	LDX #$2C01 				;$B3EE34
-	STX HDMA[$04].Parameters		;$B3EE37
+	STX HDMA[$04].settings			;$B3EE37
 	LDX #$7EA478				;$B3EE3A
-	STX HDMA[$04].SourceLo		;$B3EE3D
+	STX HDMA[$04].source_word		;$B3EE3D
 	LDA #$7EA478>>16			;$B3EE40
-	STA HDMA[$04].SourceBank		;$B3EE42
-	STA HDMA[$04].IndirectSourceBank	;$B3EE45
+	STA HDMA[$04].source_bank		;$B3EE42
+	STA HDMA[$04].indirect_source_bank	;$B3EE45
 	LDX #$3001				;$B3EE48
-	STX HDMA[$05].Parameters		;$B3EE4B
+	STX HDMA[$05].settings			;$B3EE4B
 	LDX #$7EA48C				;$B3EE4E
-	STX HDMA[$05].SourceLo		;$B3EE51
+	STX HDMA[$05].source_word		;$B3EE51
 	LDA #$7EA48C>>16			;$B3EE54
-	STA HDMA[$05].SourceBank		;$B3EE56
-	STA HDMA[$05].IndirectSourceBank	;$B3EE59
+	STA HDMA[$05].source_bank		;$B3EE56
+	STA HDMA[$05].indirect_source_bank	;$B3EE59
 	LDX #$2103				;$B3EE5C
-	STX HDMA[$06].Parameters		;$B3EE5F
+	STX HDMA[$06].settings			;$B3EE5F
 	LDX #$7EA49C				;$B3EE62
-	STX HDMA[$06].SourceLo		;$B3EE65
+	STX HDMA[$06].source_word		;$B3EE65
 	LDA #$7EA49C>>16			;$B3EE68
-	STA HDMA[$06].SourceBank		;$B3EE6A
-	STA HDMA[$06].IndirectSourceBank	;$B3EE6D
+	STA HDMA[$06].source_bank		;$B3EE6A
+	STA HDMA[$06].indirect_source_bank	;$B3EE6D
 	LDX #$0D43 				;$B3EE70
-	STX HDMA[$07].Parameters		;$B3EE73
+	STX HDMA[$07].settings			;$B3EE73
 	LDX #$7EA20A				;$B3EE76
-	STX HDMA[$07].SourceLo		;$B3EE79
+	STX HDMA[$07].source_word		;$B3EE79
 	LDA #$7EA20A>>16			;$B3EE7C
-	STA HDMA[$07].SourceBank		;$B3EE7E
-	STA HDMA[$07].IndirectSourceBank	;$B3EE81
+	STA HDMA[$07].source_bank		;$B3EE7E
+	STA HDMA[$07].indirect_source_bank	;$B3EE81
 	REP #$20				;$B3EE84
 	LDA #$FE01				;$B3EE86
 	STA $04E4				;$B3EE89
@@ -10246,7 +10246,7 @@ CODE_B3EECF:
 	LDA #$0004				;$B3EEEF
 	STA $7EA17B				;$B3EEF2
 	LDA #$2020				;$B3EEF6
-	STA.w !REGISTER_ColorMathInitialSettings	;$B3EEF9
+	STA.w PPU.color_math			;$B3EEF9
 	STA $7EA173				;$B3EEFC
 	STA $7EA178				;$B3EF00
 	LDA #$2220				;$B3EF04
@@ -10270,33 +10270,33 @@ CODE_B3EECF:
 	DEC					;$B3EF42
 	STA $7EA169				;$B3EF43
 	LDX #$0F03				;$B3EF47
-	STX HDMA[$01].Parameters		;$B3EF4A
+	STX HDMA[$01].settings			;$B3EF4A
 	LDX #$7EA15A				;$B3EF4D
-	STX HDMA[$01].SourceLo			;$B3EF50
+	STX HDMA[$01].source_word		;$B3EF50
 	LDA #$7EA15A>>16			;$B3EF53
-	STA HDMA[$01].SourceBank		;$B3EF55
-	STA HDMA[$01].IndirectSourceBank	;$B3EF58
+	STA HDMA[$01].source_bank		;$B3EF55
+	STA HDMA[$01].indirect_source_bank	;$B3EF58
 	LDX #$0800				;$B3EF5B
-	STX HDMA[$02].Parameters		;$B3EF5E
+	STX HDMA[$02].settings			;$B3EF5E
 	LDX #$7EA16A				;$B3EF61
-	STX HDMA[$02].SourceLo			;$B3EF64
+	STX HDMA[$02].source_word		;$B3EF64
 	LDA #$7EA16A>>16			;$B3EF67
-	STA HDMA[$02].SourceBank		;$B3EF69
-	STA HDMA[$02].IndirectSourceBank	;$B3EF6C
+	STA HDMA[$02].source_bank		;$B3EF69
+	STA HDMA[$02].indirect_source_bank	;$B3EF6C
 	LDX #$2E04				;$B3EF6F
-	STX HDMA[$03].Parameters		;$B3EF72
+	STX HDMA[$03].settings			;$B3EF72
 	LDX #$7EA170				;$B3EF75
-	STX HDMA[$03].SourceLo			;$B3EF78
+	STX HDMA[$03].source_word		;$B3EF78
 	LDA #$7EA170>>16			;$B3EF7B
-	STA HDMA[$03].SourceBank		;$B3EF7D
-	STA HDMA[$03].IndirectSourceBank	;$B3EF80
+	STA HDMA[$03].source_bank		;$B3EF7D
+	STA HDMA[$03].indirect_source_bank	;$B3EF80
 	LDX #$3200				;$B3EF83
-	STX HDMA[$04].Parameters		;$B3EF86
+	STX HDMA[$04].settings			;$B3EF86
 	LDX #$7EA18A				;$B3EF89
-	STX HDMA[$04].SourceLo			;$B3EF8C
+	STX HDMA[$04].source_word		;$B3EF8C
 	LDA #$7EA18A>>16			;$B3EF8F
-	STA HDMA[$04].SourceBank		;$B3EF91
-	STA HDMA[$04].IndirectSourceBank	;$B3EF94
+	STA HDMA[$04].source_bank		;$B3EF91
+	STA HDMA[$04].indirect_source_bank	;$B3EF94
 	REP #$20				;$B3EF97
 	LDA #$1E01				;$B3EF99
 	STA $04E4				;$B3EF9C
@@ -10315,7 +10315,7 @@ CODE_B3EFA0:
 	LDA #$0004				;$B3EFC0
 	STA $7EA17B				;$B3EFC3
 	LDA #$2020				;$B3EFC7
-	STA.w !REGISTER_ColorMathInitialSettings	;$B3EFCA
+	STA.w PPU.color_math			;$B3EFCA
 	STA $7EA173				;$B3EFCD
 	STA $7EA178				;$B3EFD1
 	LDA #$2220				;$B3EFD5
@@ -10339,33 +10339,33 @@ CODE_B3EFA0:
 	DEC					;$B3F013
 	STA $7EA169				;$B3F014
 	LDX #$0F03				;$B3F018
-	STX HDMA[$01].Parameters		;$B3F01B
+	STX HDMA[$01].settings			;$B3F01B
 	LDX #$7EA15A				;$B3F01E
-	STX HDMA[$01].SourceLo			;$B3F021
+	STX HDMA[$01].source_word		;$B3F021
 	LDA #$7EA15A>>16			;$B3F024
-	STA HDMA[$01].SourceBank		;$B3F026
-	STA HDMA[$01].IndirectSourceBank	;$B3F029
+	STA HDMA[$01].source_bank		;$B3F026
+	STA HDMA[$01].indirect_source_bank	;$B3F029
 	LDX #$0800				;$B3F02C
-	STX HDMA[$02].Parameters		;$B3F02F
+	STX HDMA[$02].settings			;$B3F02F
 	LDX #$7EA16A				;$B3F032
-	STX HDMA[$02].SourceLo			;$B3F035
+	STX HDMA[$02].source_word		;$B3F035
 	LDA #$7EA16A>>16			;$B3F038
-	STA HDMA[$02].SourceBank		;$B3F03A
-	STA HDMA[$02].IndirectSourceBank	;$B3F03D
+	STA HDMA[$02].source_bank		;$B3F03A
+	STA HDMA[$02].indirect_source_bank	;$B3F03D
 	LDX #$2E04				;$B3F040
-	STX HDMA[$03].Parameters		;$B3F043
+	STX HDMA[$03].settings			;$B3F043
 	LDX #$7EA170				;$B3F046
-	STX HDMA[$03].SourceLo			;$B3F049
+	STX HDMA[$03].source_word		;$B3F049
 	LDA #$7EA170>>16			;$B3F04C
-	STA HDMA[$03].SourceBank		;$B3F04E
-	STA HDMA[$03].IndirectSourceBank	;$B3F051
+	STA HDMA[$03].source_bank		;$B3F04E
+	STA HDMA[$03].indirect_source_bank	;$B3F051
 	LDX #$3200				;$B3F054
-	STX HDMA[$04].Parameters		;$B3F057
+	STX HDMA[$04].settings			;$B3F057
 	LDX #$7EA18A				;$B3F05A
-	STX HDMA[$04].SourceLo			;$B3F05D
+	STX HDMA[$04].source_word		;$B3F05D
 	LDA #$7EA18A>>16			;$B3F060
-	STA HDMA[$04].SourceBank		;$B3F062
-	STA HDMA[$04].IndirectSourceBank	;$B3F065
+	STA HDMA[$04].source_bank		;$B3F062
+	STA HDMA[$04].indirect_source_bank	;$B3F065
 	REP #$20				;$B3F068
 	LDA #$0001				;$B3F06A
 	STA $04E4				;$B3F06D
@@ -10435,34 +10435,34 @@ CODE_B3F0FE:
 	STA $7EA79C				;$B3F123
 	SEP #$20				;$B3F127
 	LDX #$2C40				;$B3F129
-	STX HDMA[$01].Parameters		;$B3F12C
+	STX HDMA[$01].settings			;$B3F12C
 	LDX #DATA_B3F1A4			;$B3F12F
-	STX HDMA[$01].SourceLo			;$B3F132
+	STX HDMA[$01].source_word		;$B3F132
 	LDA #DATA_B3F1A4>>16			;$B3F135
-	STA HDMA[$01].SourceBank		;$B3F137
+	STA HDMA[$01].source_bank		;$B3F137
 	LDA #$7EA15A>>16			;$B3F13A
-	STA HDMA[$01].IndirectSourceBank	;$B3F13C
+	STA HDMA[$01].indirect_source_bank	;$B3F13C
 	LDX #$3100				;$B3F13F
-	STX HDMA[$02].Parameters		;$B3F142
+	STX HDMA[$02].settings			;$B3F142
 	LDX #$7EA37A				;$B3F145
-	STX HDMA[$02].SourceLo			;$B3F148
+	STX HDMA[$02].source_word		;$B3F148
 	LDA #$7EA37A>>16			;$B3F14B
-	STA HDMA[$02].SourceBank		;$B3F14D
-	STA HDMA[$02].IndirectSourceBank	;$B3F150
+	STA HDMA[$02].source_bank		;$B3F14D
+	STA HDMA[$02].indirect_source_bank	;$B3F150
 	LDX #$2143				;$B3F153
-	STX HDMA[$03].Parameters		;$B3F156
+	STX HDMA[$03].settings			;$B3F156
 	LDX #$7EA38A				;$B3F159
-	STX HDMA[$03].SourceLo			;$B3F15C
+	STX HDMA[$03].source_word		;$B3F15C
 	LDA #$7EA38A>>16			;$B3F15F
-	STA HDMA[$03].SourceBank		;$B3F161
-	STA HDMA[$03].IndirectSourceBank	;$B3F164
+	STA HDMA[$03].source_bank		;$B3F161
+	STA HDMA[$03].indirect_source_bank	;$B3F164
 	LDX #$0D42 				;$B3F167
-	STX HDMA[$04].Parameters		;$B3F16A
+	STX HDMA[$04].settings			;$B3F16A
 	LDX #$7EA16A				;$B3F16D
-	STX HDMA[$04].SourceLo			;$B3F170
+	STX HDMA[$04].source_word		;$B3F170
 	LDA #$7EA16A>>16			;$B3F173
-	STA HDMA[$04].SourceBank		;$B3F175
-	STA HDMA[$04].IndirectSourceBank	;$B3F178
+	STA HDMA[$04].source_bank		;$B3F175
+	STA HDMA[$04].indirect_source_bank	;$B3F178
 	REP #$20				;$B3F17B
 	LDA #$1E01				;$B3F17D
 	STA $04E4				;$B3F180
@@ -10495,42 +10495,42 @@ CODE_B3F1B6:
 	BNE CODE_B3F1B6				;$B3F1CA
 	SEP #$20				;$B3F1CC
 	LDX #$2143				;$B3F1CE
-	STX HDMA[$01].Parameters		;$B3F1D1
+	STX HDMA[$01].settings			;$B3F1D1
 	LDX #$7EA15A				;$B3F1D4
-	STX HDMA[$01].SourceLo			;$B3F1D7
+	STX HDMA[$01].source_word		;$B3F1D7
 	LDA #$7EA15A>>16			;$B3F1DA
-	STA HDMA[$01].SourceBank		;$B3F1DC
+	STA HDMA[$01].source_bank		;$B3F1DC
 	LDA #DATA_B3F23F>>16			;$B3F1DF
-	STA HDMA[$01].IndirectSourceBank	;$B3F1E1
+	STA HDMA[$01].indirect_source_bank	;$B3F1E1
 	LDX #$2143				;$B3F1E4
-	STX HDMA[$02].Parameters		;$B3F1E7
+	STX HDMA[$02].settings			;$B3F1E7
 	LDX #$7EA17A				;$B3F1EA
-	STX HDMA[$02].SourceLo			;$B3F1ED
+	STX HDMA[$02].source_word		;$B3F1ED
 	LDA #$7EA17A>>16			;$B3F1F0
-	STA HDMA[$02].SourceBank		;$B3F1F2
+	STA HDMA[$02].source_bank		;$B3F1F2
 	LDA #DATA_B3F527>>16			;$B3F1F5
-	STA HDMA[$02].IndirectSourceBank	;$B3F1F7
+	STA HDMA[$02].indirect_source_bank	;$B3F1F7
 	LDX #$2641				;$B3F1FA
-	STX HDMA[$03].Parameters		;$B3F1FD
+	STX HDMA[$03].settings			;$B3F1FD
 	LDX #$7EA19A				;$B3F200
-	STX HDMA[$03].SourceLo			;$B3F203
+	STX HDMA[$03].source_word		;$B3F203
 	LDA #$7EA19A>>16			;$B3F206
-	STA HDMA[$03].SourceBank		;$B3F208
-	STA HDMA[$03].IndirectSourceBank	;$B3F20B
+	STA HDMA[$03].source_bank		;$B3F208
+	STA HDMA[$03].indirect_source_bank	;$B3F20B
 	LDX #$1142				;$B3F20E
-	STX HDMA[$04].Parameters		;$B3F211
+	STX HDMA[$04].settings			;$B3F211
 	LDX #$7EA1BA				;$B3F214
-	STX HDMA[$04].SourceLo			;$B3F217
+	STX HDMA[$04].source_word		;$B3F217
 	LDA #$7EA1BA>>16			;$B3F21A
-	STA HDMA[$04].SourceBank		;$B3F21C
-	STA HDMA[$04].IndirectSourceBank	;$B3F21F
+	STA HDMA[$04].source_bank		;$B3F21C
+	STA HDMA[$04].indirect_source_bank	;$B3F21F
 	LDX #$1242				;$B3F222
-	STX HDMA[$05].Parameters		;$B3F225
+	STX HDMA[$05].settings			;$B3F225
 	LDX #$7EA4CA				;$B3F228
-	STX HDMA[$05].SourceLo			;$B3F22B
+	STX HDMA[$05].source_word		;$B3F22B
 	LDA #$7EA4CA>>16			;$B3F22E
-	STA HDMA[$05].SourceBank		;$B3F230
-	STA HDMA[$05].IndirectSourceBank	;$B3F233
+	STA HDMA[$05].source_bank		;$B3F230
+	STA HDMA[$05].indirect_source_bank	;$B3F233
 	REP #$20				;$B3F236
 	LDA #$3E01				;$B3F238
 	STA $04E4				;$B3F23B
@@ -10708,26 +10708,26 @@ CODE_B3F8C3:
 	BNE CODE_B3F8C3				;$B3F8E0
 	SEP #$20				;$B3F8E2
 	LDX #$2644				;$B3F8E4
-	STX HDMA[$01].Parameters		;$B3F8E7
+	STX HDMA[$01].settings			;$B3F8E7
 	LDX #$7EA15A				;$B3F8EA
-	STX HDMA[$01].SourceLo			;$B3F8ED
+	STX HDMA[$01].source_word		;$B3F8ED
 	LDA #$7EA15A>>16			;$B3F8F0
-	STA HDMA[$01].SourceBank		;$B3F8F2
-	STA HDMA[$01].IndirectSourceBank	;$B3F8F5
+	STA HDMA[$01].source_bank		;$B3F8F2
+	STA HDMA[$01].indirect_source_bank	;$B3F8F5
 	LDX #$2440				;$B3F8F8
-	STX HDMA[$02].Parameters		;$B3F8FB
+	STX HDMA[$02].settings			;$B3F8FB
 	LDX #$7EA1EA				;$B3F8FE
-	STX HDMA[$02].SourceLo			;$B3F901
+	STX HDMA[$02].source_word		;$B3F901
 	LDA #$7EA1EA>>16			;$B3F904
-	STA HDMA[$02].SourceBank		;$B3F906
-	STA HDMA[$02].IndirectSourceBank	;$B3F909
+	STA HDMA[$02].source_bank		;$B3F906
+	STA HDMA[$02].indirect_source_bank	;$B3F909
 	LDX #$1142				;$B3F90C
-	STX HDMA[$03].Parameters		;$B3F90F
+	STX HDMA[$03].settings			;$B3F90F
 	LDX #$7EA21A				;$B3F912
-	STX HDMA[$03].SourceLo			;$B3F915
+	STX HDMA[$03].source_word		;$B3F915
 	LDA #$7EA21A>>16			;$B3F918
-	STA HDMA[$03].SourceBank		;$B3F91A
-	STA HDMA[$03].IndirectSourceBank	;$B3F91D
+	STA HDMA[$03].source_bank		;$B3F91A
+	STA HDMA[$03].indirect_source_bank	;$B3F91D
 	REP #$20				;$B3F920
 	LDA #$0E01				;$B3F922
 	STA $04E4				;$B3F925

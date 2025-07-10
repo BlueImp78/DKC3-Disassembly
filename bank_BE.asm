@@ -1996,14 +1996,14 @@ CODE_BECDB1:
 	INC					;$BECDB9
 CODE_BECDBA:
 	PHA					;$BECDBA
-	STA.w !REGISTER_DividendLo		;$BECDBB
+	STA.w CPU.dividen_low			;$BECDBB
 	TYA					;$BECDBE
 	BPL.b CODE_BECDC5			;$BECDBF
 	EOR.w #$FFFF				;$BECDC1
 	INC					;$BECDC4
 CODE_BECDC5:
 	SEP.b #$20				;$BECDC5
-	STA.w !REGISTER_Divisor			;$BECDC7
+	STA.w CPU.divisor			;$BECDC7
 	REP.b #$20				;$BECDCA
 	PLA					;$BECDCC
 	LSR					;$BECDCD
@@ -2011,14 +2011,14 @@ CODE_BECDC5:
 	LSR					;$BECDCF
 	LSR					;$BECDD0
 	SEP.b #$20				;$BECDD1
-	STA.w !REGISTER_Multiplicand		;$BECDD3
-	LDA.w !REGISTER_QuotientLo		;$BECDD6
+	STA.w CPU.multiply_A			;$BECDD3
+	LDA.w CPU.divide_result_low		;$BECDD6
 CODE_BECDD9:
 	INC					;$BECDD9
-	STA.w !REGISTER_Multiplier		;$BECDDA
+	STA.w CPU.multiply_B			;$BECDDA
 	REP.b #$20				;$BECDDD
 	LDA.b ($00)				;$BECDDF
-	LDA.w !REGISTER_ProductOrRemainderLo	;$BECDE1
+	LDA.w CPU.multiply_result		;$BECDE1
 	LSR					;$BECDE4
 	LSR					;$BECDE5
 	LSR					;$BECDE6
@@ -5441,14 +5441,14 @@ CODE_BEE7D4:
 	TXA					;$BEE7F9
 	SEC					;$BEE7FA
 	SBC.w #aux_sprite_table			;$BEE7FB
-	STA.w !REGISTER_DividendLo		;$BEE7FE
+	STA.w CPU.dividen_low			;$BEE7FE
 	SEP.b #$20				;$BEE801
 	LDA.b #$6E				;$BEE803
-	STA.w !REGISTER_Divisor			;$BEE805
+	STA.w CPU.divisor			;$BEE805
 	REP.b #$20				;$BEE808
 	LDA.b [$00]				;$BEE80A
 	LDA.b ($00)				;$BEE80C
-	LDA.w !REGISTER_QuotientLo		;$BEE80E
+	LDA.w CPU.divide_result			;$BEE80E
 	XBA					;$BEE811
 	ORA.w #$000F				;$BEE812
 	STA.w $000A,y				;$BEE815
