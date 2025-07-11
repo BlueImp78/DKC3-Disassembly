@@ -635,7 +635,7 @@ CODE_808417:
 	STZ.w $05B7				;$808423
 	LDA.w $053B				;$808426
 	STA.w $06A1				;$808429
-	LDA.w #!Define_DKC3_LevelID_LakesideLimbo_Main	;$80842C
+	LDA.w #!level_lakeside_limbo		;$80842C
 	STA.b level_number			;$80842F
 	STA.w parent_level_number		;$808431
 	LDA.w #$0000				;$808434
@@ -798,7 +798,7 @@ CODE_808550:
 	ORA.w #$0C00				;$808593
 	STA.b $1E,x				;$808596
 	LDA level_number			;$808598
-	CMP.w #!Define_DKC3_LevelID_BossPhotos	;$80859A
+	CMP.w #!level_bosses_photo_album	;$80859A
 	BNE.b CODE_8085A7			;$80859D
 	LDA.b $16,x				;$80859F
 	CLC					;$8085A1
@@ -1121,9 +1121,9 @@ CODE_80882A:
 	LDA.w #$2000				;$80882A
 	TSB.w $05B1				;$80882D
 	LDA level_number			;$808830
-	CMP.w #!Define_DKC3_LevelID_BrothersBearPhotos	;$808832
+	CMP.w #!level_brothers_bear_photo_album	;$808832
 	BEQ.b CODE_808898			;$808835
-	CMP.w #!Define_DKC3_LevelID_BossPhotos	;$808837
+	CMP.w #!level_bosses_photo_album	;$808837
 	BEQ.b CODE_808898			;$80883A
 	LDA.w #$CCCC				;$80883C
 	STA.w PPU.set_window_layer_1_2		;$80883F
@@ -2075,7 +2075,7 @@ CODE_80901E:
 	JMP.w CODE_80839D			;$80903D
 
 CODE_809040:
-	LDA.w #!Define_DKC3_MusicID_BananaBirdQueenChase	;$809040
+	LDA.w #!music_mama_bird_chase		;$809040
 	JSL.l CODE_B28009			;$809043
 	LDA.w #$1000				;$809047
 	TSB.w $05FD				;$80904A
@@ -2126,7 +2126,7 @@ CODE_8090C3:
 	LDA.w #$1000				;$8090C9
 	TRB.w $05FD				;$8090CC
 	STZ.w $0523				;$8090CF
-	LDA.w #!Define_DKC3_LevelID_CloseupOfKRoolDrivingHovercraft	;$8090D2
+	LDA.w #!level_krool_hovercraft_ending	;$8090D2
 	STA.b level_number			;$8090D5
 	STA.w parent_level_number		;$8090D7
 	STZ.w $05B7				;$8090DA
@@ -2144,7 +2144,7 @@ CODE_8090F4:
 	LDA.l $7E2AF9				;$8090F7
 	AND.w #$0003				;$8090FB
 	STA.w $04C4				;$8090FE
-	CMP.w #$0002				;$809101
+	CMP.w #!gamemode_2_player_contest	;$809101
 	BEQ.b CODE_80911E			;$809104
 	JSR.w CODE_8092F2			;$809106
 CODE_809109:
@@ -2311,7 +2311,7 @@ CODE_80920D:
 	STA.b [$84],y				;$80922B
 	REP.b #$20				;$80922D
 	LDA.w $04C4				;$80922F
-	CMP.w #$0002				;$809232
+	CMP.w #!gamemode_2_player_contest	;$809232
 	BNE.b CODE_809241			;$809235
 	LDA.w $04C6				;$809237
 	BEQ.b CODE_809241			;$80923A
@@ -2615,7 +2615,7 @@ CODE_809489:
 	LDA.w #$0020				;$80948E
 	TRB.w $05B1				;$809491
 	BNE.b CODE_80949D			;$809494
-	LDA.w #!Define_DKC3_MusicID_CrazyCalypso	;$809496
+	LDA.w #!music_crazy_calypso		;$809496
 	JSL.l CODE_B28009			;$809499
 CODE_80949D:
 	SEP.b #$20				;$80949D
@@ -5530,7 +5530,7 @@ CODE_80AC14:
 	LDA.w #$0001				;$80AC17
 	STA.w $05B3				;$80AC1A
 	LDA.w $04C4				;$80AC1D
-	CMP.w #$0002				;$80AC20
+	CMP.w #!gamemode_2_player_contest	;$80AC20
 	BEQ.b CODE_80AC2D			;$80AC23
 	LDX.w #$0005				;$80AC25
 	JSR.w CODE_80AC48			;$80AC28
@@ -5911,7 +5911,7 @@ CODE_80AF3E:
 	STZ.w $1CC8				;$80AF56
 	LDA.w $04C4				;$80AF59
 	BEQ.b CODE_80AFA9			;$80AF5C
-	CMP.w #$0002				;$80AF5E
+	CMP.w #!gamemode_2_player_contest	;$80AF5E
 	BEQ.b CODE_80AF7A			;$80AF61
 	LDX.w #$05D9				;$80AF63
 	JSR.w CODE_80B054			;$80AF66
@@ -6420,7 +6420,7 @@ CODE_80B378:
 	LDA.w #$1000				;$80B3D0
 	TSB.w $05B1				;$80B3D3
 	BNE.b CODE_80B413			;$80B3D6
-	LDA.w #!Define_DKC3_MusicID_BaddiesOnParade	;$80B3D8
+	LDA.w #!music_baddies_on_parade		;$80B3D8
 	JSL.l CODE_B28009			;$80B3DB
 	LDA.w #$8000				;$80B3DF
 	TSB.w $05AF				;$80B3E2
@@ -6623,7 +6623,7 @@ CODE_80B593:
 	PHK					;$80B593
 	PLB					;$80B594
 	JSR.w CODE_809437			;$80B595
-	LDA.w #!Define_DKC3_MusicID_DixieBeat	;$80B598
+	LDA.w #!music_dixie_beat		;$80B598
 	JSL.l CODE_B28009			;$80B59B
 	LDA.w #$000F				;$80B59F
 	JSL.l CODE_BB859A			;$80B5A2
@@ -6759,7 +6759,7 @@ CODE_80B6F0:
 
 CODE_80B6F3:
 	LDA.w $04C4				;$80B6F3
-	CMP.w #$0002				;$80B6F6
+	CMP.w #!gamemode_2_player_contest	;$80B6F6
 	BNE.b CODE_80B711			;$80B6F9
 	LDA.w $061D				;$80B6FB
 	AND.w #$4000				;$80B6FE
@@ -7120,7 +7120,7 @@ CODE_80BA29:
 	DEY					;$80BA2D
 	JSR.w CODE_809F29			;$80BA2E
 	LDA.w $04C4				;$80BA31
-	CMP.w #$0001				;$80BA34
+	CMP.w #!gamemode_2_player_team		;$80BA34
 	BNE.b CODE_80BA40			;$80BA37
 	LDA.w #$0053				;$80BA39
 	STA.l $7E0000,x				;$80BA3C
@@ -8022,7 +8022,7 @@ CODE_80C181:
 	TRB.w $05AF				;$80C190
 	LDA.w #$0200				;$80C193
 	JSL.l set_fade				;$80C196
-	LDA.w #!Define_DKC3_MusicID_DefeatedBoss	;$80C19A
+	LDA.w #!music_defeated_boss		;$80C19A
 	JSL.l CODE_B28009			;$80C19D
 	LDA.w #CODE_80C1AA			;$80C1A1
 	LDX.w #CODE_80C1AA>>16			;$80C1A4
@@ -8338,60 +8338,60 @@ DATA_80C650:
 	db $35,$36,$37,$38,$39,$20,$88,$89,$5F
 
 DATA_80C679:
-	dw !null_pointer,$039A : db $00,$FF : dw $0000
-	dw DATA_80C829,$03A2 : db !Define_DKC3_LevelID_DoorstopDash_PhotoAlbum,$01 : dw $008A
-	dw DATA_80C879,$03A8 : db !Define_DKC3_LevelID_SquealsOnWheels_PhotoAlbum,$00 : dw $0080
-	dw DATA_80C84F,$03C0 : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $0087
-	dw DATA_80C873,$03A6 : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $0093
-	dw DATA_80C836,$039E : db !Define_DKC3_LevelID_LemguinLunge_PhotoAlbum,$00 : dw $007A
-	dw DATA_80C85D,$03BE : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $00AE
-	dw DATA_80C865,$03BC : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $00AB
-	dw DATA_80C8B8,$039A : db !Define_DKC3_LevelID_SkiddasRow_PhotoAlbum,$00 : dw $0100
-	dw DATA_80C86C,$03BA : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $0070
-	dw DATA_80C881,$03CC : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $0100
-	dw DATA_80C889,$03D0 : db !Define_DKC3_LevelID_LemguinLunge_PhotoAlbum,$00 : dw $0120
-	dw DATA_80C88E,$83AA : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $00A8
-	dw DATA_80C830,$039C : db !Define_DKC3_LevelID_DoorstopDash_PhotoAlbum,$02 : dw $00B0
-	dw DATA_80C83C,$03B8 : db !Define_DKC3_LevelID_SquealsOnWheels_PhotoAlbum,$00 : dw $00B8
-	dw DATA_80C846,$03C2 : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $00C2
-	dw DATA_80C8B4,$03CE : db !Define_DKC3_LevelID_SquealsOnWheels_PhotoAlbum,$00 : dw $008C
-	dw DATA_80C8AC,$03AC : db !Define_DKC3_LevelID_LemguinLunge_PhotoAlbum,$00 : dw $00D0
-	dw DATA_80C8A5,$C3C4 : db !Define_DKC3_LevelID_SquealsOnWheels_PhotoAlbum,$00 : dw $009A
-	dw DATA_80C8BF,$03A0 : db !Define_DKC3_LevelID_SquealsOnWheels_PhotoAlbum,$03 : dw $00AE
-	dw DATA_80C8C4,$03C6 : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $0094
-	dw DATA_80C8CB,$03C8 : db !Define_DKC3_LevelID_SquealsOnWheels_PhotoAlbum,$00 : dw $009E
-	dw DATA_80C89D,$03CA : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $00B3
-	dw DATA_80C8D6,$03A4 : db !Define_DKC3_LevelID_BazzasBlockade_PhotoAlbum,$04 : dw $008D
-	dw DATA_80C8DB,$03B6 : db !Define_DKC3_LevelID_BazzasBlockade_PhotoAlbum,$00 : dw $0110
-	dw DATA_80C8E3,$83AE : db !Define_DKC3_LevelID_BazzasBlockade_PhotoAlbum,$00 : dw $0065
-	dw DATA_80C8EA,$03B0 : db !Define_DKC3_LevelID_BazzasBlockade_PhotoAlbum,$00 : dw $0100
-	dw DATA_80C8F6,$83B2 : db !Define_DKC3_LevelID_BazzasBlockade_PhotoAlbum,$00 : dw $00DC
-	dw DATA_80C8FC,$03B4 : db !Define_DKC3_LevelID_BazzasBlockade_PhotoAlbum,$00 : dw $0100
-	dw DATA_80C90B,$03A0 : db !Define_DKC3_LevelID_BossPhotos,$05 : dw $0006
-	dw DATA_80C912,$03A1 : db !Define_DKC3_LevelID_BossPhotos,$00 : dw $0006
-	dw DATA_80C918,$03A2 : db !Define_DKC3_LevelID_BossPhotos,$00 : dw $0006
-	dw DATA_80C91F,$03A3 : db !Define_DKC3_LevelID_BossPhotos,$00 : dw $0006
-	dw DATA_80C924,$03A4 : db !Define_DKC3_LevelID_BossPhotos,$00 : dw $0006
-	dw DATA_80C92A,$03A5 : db !Define_DKC3_LevelID_BossPhotos,$00 : dw $0006
-	dw DATA_80C931,$A3E8 : db !Define_DKC3_LevelID_KastleKAOS_PhotoAlbum,$00 : dw $0347
-	dw DATA_80C95F,$03D2 : db !Define_DKC3_LevelID_DoorstopDash_PhotoAlbum,$06 : dw $0085
-	dw DATA_80C956,$03D8 : db !Define_DKC3_LevelID_DoorstopDash_PhotoAlbum,$00 : dw $00A1
-	dw DATA_80C965,$03DA : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $00B2
-	dw DATA_80C945,$03D6 : db !Define_DKC3_LevelID_BazzasBlockade_PhotoAlbum,$00 : dw $00D0
-	dw DATA_80C94E,$03D4 : db !Define_DKC3_LevelID_RopeyRumpus_PhotoAlbum,$00 : dw $0100
-	dw DATA_80C96B,$039A : db !Define_DKC3_LevelID_BrothersBearPhotos,$07 : dw $0006
-	dw DATA_80C984,$039B : db !Define_DKC3_LevelID_BrothersBearPhotos,$00 : dw $0006
-	dw DATA_80C99D,$039C : db !Define_DKC3_LevelID_BrothersBearPhotos,$00 : dw $0006
-	dw DATA_80C9B6,$039D : db !Define_DKC3_LevelID_BrothersBearPhotos,$00 : dw $0006
-	dw DATA_80C9CD,$039E : db !Define_DKC3_LevelID_BrothersBearPhotos,$00 : dw $0006
-	dw DATA_80C9E8,$039F : db !Define_DKC3_LevelID_BrothersBearPhotos,$00 : dw $0006
-	dw DATA_80CA15,$03DC : db !Define_DKC3_LevelID_DoorstopDash_PhotoAlbum,$08 : dw $00E3
-	dw DATA_80CA2D,$A3E0 : db !Define_DKC3_LevelID_DoorstopDash_PhotoAlbum,$00 : dw $0100
-	dw DATA_80CA20,$03DE : db !Define_DKC3_LevelID_DoorstopDash_PhotoAlbum,$00 : dw $0100
-	dw DATA_80CA39,$03E2 : db !Define_DKC3_LevelID_SwankysSideshow_PhotoAlbum,$00 : dw $0100
-	dw DATA_80CA0A,$03E4 : db !Define_DKC3_LevelID_KiddysPhotoAlbumArea,$00 : dw $0278
-	dw DATA_80C9FF,$03E6 : db !Define_DKC3_LevelID_DixiesPhotoAlbumArea,$00 : dw $02D0
-	dw !null_pointer,$0000 : db $00,$00 : dw $FFFF
+	dw !null_pointer, $039A : db $00, $FF : dw $0000
+	dw DATA_80C829, $03A2 : db !level_doorstop_dash_photo_album, $01 : dw $008A
+	dw DATA_80C879, $03A8 : db !level_squeals_on_wheels_photo_album, $00 : dw $0080
+	dw DATA_80C84F, $03C0 : db !level_ropey_rumpus_photo_album, $00 : dw $0087
+	dw DATA_80C873, $03A6 : db !level_ropey_rumpus_photo_album, $00 : dw $0093
+	dw DATA_80C836, $039E : db !level_lemguin_lunge_photo_album, $00 : dw $007A
+	dw DATA_80C85D, $03BE : db !level_ropey_rumpus_photo_album, $00 : dw $00AE
+	dw DATA_80C865, $03BC : db !level_ropey_rumpus_photo_album, $00 : dw $00AB
+	dw DATA_80C8B8, $039A : db !level_skiddas_row_photo_album, $00 : dw $0100
+	dw DATA_80C86C, $03BA : db !level_ropey_rumpus_photo_album, $00 : dw $0070
+	dw DATA_80C881, $03CC : db !level_ropey_rumpus_photo_album, $00 : dw $0100
+	dw DATA_80C889, $03D0 : db !level_lemguin_lunge_photo_album, $00 : dw $0120
+	dw DATA_80C88E, $83AA : db !level_ropey_rumpus_photo_album, $00 : dw $00A8
+	dw DATA_80C830, $039C : db !level_doorstop_dash_photo_album, $02 : dw $00B0
+	dw DATA_80C83C, $03B8 : db !level_squeals_on_wheels_photo_album, $00 : dw $00B8
+	dw DATA_80C846, $03C2 : db !level_ropey_rumpus_photo_album, $00 : dw $00C2
+	dw DATA_80C8B4, $03CE : db !level_squeals_on_wheels_photo_album, $00 : dw $008C
+	dw DATA_80C8AC, $03AC : db !level_lemguin_lunge_photo_album, $00 : dw $00D0
+	dw DATA_80C8A5, $C3C4 : db !level_squeals_on_wheels_photo_album, $00 : dw $009A
+	dw DATA_80C8BF, $03A0 : db !level_squeals_on_wheels_photo_album, $03 : dw $00AE
+	dw DATA_80C8C4, $03C6 : db !level_ropey_rumpus_photo_album, $00 : dw $0094
+	dw DATA_80C8CB, $03C8 : db !level_squeals_on_wheels_photo_album, $00 : dw $009E
+	dw DATA_80C89D, $03CA : db !level_ropey_rumpus_photo_album, $00 : dw $00B3
+	dw DATA_80C8D6, $03A4 : db !level_bazzas_blockade_photo_album, $04 : dw $008D
+	dw DATA_80C8DB, $03B6 : db !level_bazzas_blockade_photo_album, $00 : dw $0110
+	dw DATA_80C8E3, $83AE : db !level_bazzas_blockade_photo_album, $00 : dw $0065
+	dw DATA_80C8EA, $03B0 : db !level_bazzas_blockade_photo_album, $00 : dw $0100
+	dw DATA_80C8F6, $83B2 : db !level_bazzas_blockade_photo_album, $00 : dw $00DC
+	dw DATA_80C8FC, $03B4 : db !level_bazzas_blockade_photo_album, $00 : dw $0100
+	dw DATA_80C90B, $03A0 : db !level_bosses_photo_album, $05 : dw $0006
+	dw DATA_80C912, $03A1 : db !level_bosses_photo_album, $00 : dw $0006
+	dw DATA_80C918, $03A2 : db !level_bosses_photo_album, $00 : dw $0006
+	dw DATA_80C91F, $03A3 : db !level_bosses_photo_album, $00 : dw $0006
+	dw DATA_80C924, $03A4 : db !level_bosses_photo_album, $00 : dw $0006
+	dw DATA_80C92A, $03A5 : db !level_bosses_photo_album, $00 : dw $0006
+	dw DATA_80C931, $A3E8 : db !level_kastle_kaos_photo_album, $00 : dw $0347
+	dw DATA_80C95F, $03D2 : db !level_doorstop_dash_photo_album, $06 : dw $0085
+	dw DATA_80C956, $03D8 : db !level_doorstop_dash_photo_album, $00 : dw $00A1
+	dw DATA_80C965, $03DA : db !level_ropey_rumpus_photo_album, $00 : dw $00B2
+	dw DATA_80C945, $03D6 : db !level_bazzas_blockade_photo_album, $00 : dw $00D0
+	dw DATA_80C94E, $03D4 : db !level_ropey_rumpus_photo_album, $00 : dw $0100
+	dw DATA_80C96B, $039A : db !level_brothers_bear_photo_album, $07 : dw $0006
+	dw DATA_80C984, $039B : db !level_brothers_bear_photo_album, $00 : dw $0006
+	dw DATA_80C99D, $039C : db !level_brothers_bear_photo_album, $00 : dw $0006
+	dw DATA_80C9B6, $039D : db !level_brothers_bear_photo_album, $00 : dw $0006
+	dw DATA_80C9CD, $039E : db !level_brothers_bear_photo_album, $00 : dw $0006
+	dw DATA_80C9E8, $039F : db !level_brothers_bear_photo_album, $00 : dw $0006
+	dw DATA_80CA15, $03DC : db !level_doorstop_dash_photo_album, $08 : dw $00E3
+	dw DATA_80CA2D, $A3E0 : db !level_doorstop_dash_photo_album, $00 : dw $0100
+	dw DATA_80CA20, $03DE : db !level_doorstop_dash_photo_album, $00 : dw $0100
+	dw DATA_80CA39, $03E2 : db !level_swankys_sideshow_photo_album, $00 : dw $0100
+	dw DATA_80CA0A, $03E4 : db !level_kiddy_kong_photo_album, $00 : dw $0278
+	dw DATA_80C9FF, $03E6 : db !level_dixie_kong_photo_album, $00 : dw $02D0
+	dw !null_pointer, $0000 : db $00, $00 : dw $FFFF
 
 DATA_80C829:
 	db "KOBBLE", $00

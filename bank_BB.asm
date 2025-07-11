@@ -3171,7 +3171,7 @@ CODE_BB9667:
 CODE_BB968A:
 	LDY.w #$0000				;$BB968A
 	LDA.w $04C4				;$BB968D
-	CMP.w #$0002				;$BB9690
+	CMP.w #!gamemode_2_player_contest	;$BB9690
 	BNE.b CODE_BB969F			;$BB9693
 	LDA.w $04C6				;$BB9695
 	BEQ.b CODE_BB96AA			;$BB9698
@@ -4723,7 +4723,7 @@ CODE_BBA27B:
 CODE_BBA299:
 	LDA.w $04C4				;$BBA299
 	BEQ.b CODE_BBA2B1			;$BBA29C
-	CMP.w #$0001				;$BBA29E
+	CMP.w #!gamemode_2_player_team		;$BBA29E
 	BNE.b CODE_BBA2AB			;$BBA2A1
 	EOR.w current_kong			;$BBA2A3
 	STA.w current_kong			;$BBA2A6
@@ -4844,7 +4844,7 @@ CODE_BBA3A3:
 	PLP					;$BBA3BA
 	BNE.b CODE_BBA3CB			;$BBA3BB
 	LDA.w $04C4				;$BBA3BD
-	CMP.w #$0002				;$BBA3C0
+	CMP.w #!gamemode_2_player_contest	;$BBA3C0
 	BNE.b CODE_BBA3CB			;$BBA3C3
 	LDY.w #CODE_808084			;$BBA3C5
 	LDX.w #CODE_808084>>16			;$BBA3C8
@@ -7506,7 +7506,7 @@ sprite_handler:
 	STZ $042A				;$BBB8B1   |
 	STZ $042C				;$BBB8B4   |
 	STZ $042E				;$BBB8B7   |
-	LDA $194B				;$BBB8BA   |\ If time is currently stopped
+	LDA timestop_flags			;$BBB8BA   |\ If time is currently stopped
 	BNE .time_stop_sprite_handler		;$BBB8BD   |/ Handle conditional sprite pr
 	LDA.w #<:.sprite_return			;$BBB8BF   |\ Write bank of sprite return address
 	STA $04F7				;$BBB8C2   |/
@@ -7562,7 +7562,7 @@ sprite_handler:
 	CPY follower_kong_sprite		;$BBB929   |\
 	BEQ ..sprite_is_follower_kong		;$BBB92C   |/ If the sprite is the inactive kong then determine whether it processes or not
 ..handle_general_time_stop:			;	   |
-	LDA $194B				;$BBB92E   |\
+	LDA timestop_flags			;$BBB92E   |\
 	AND #$0024				;$BBB931   | |
 	BEQ ..return_to_sprite_code		;$BBB934   |/ If no time stop flags are active for general sprites then process the sprite
 	LDA.l sprite_timestop_flag,x		;$BBB936   |\ Get sprite timestop flags
@@ -7571,7 +7571,7 @@ sprite_handler:
 	BRA ..return_to_sprite_code		;$BBB93F  /> This sprite has a time stop exception and can process, return to sprite code
 
 ..sprite_is_main_kong:
-	LDA $194B				;$BBB941  \ \
+	LDA timestop_flags			;$BBB941  \ \
 	AND #$0028				;$BBB944   | |
 	BEQ ..return_to_sprite_code		;$BBB947   |/ If no time stop flags are active that impact active kong then process the sprite
 	AND #$0008				;$BBB949   |\
@@ -7579,7 +7579,7 @@ sprite_handler:
 	BRA ..handle_general_time_stop		;$BBB94E  / / Else the active kong sprite isnt time stopped, process it
 
 ..sprite_is_follower_kong:
-	LDA $194B				;$BBB950  \ \
+	LDA timestop_flags			;$BBB950  \ \
 	AND #$0030				;$BBB953   | |
 	BEQ ..return_to_sprite_code		;$BBB956   |/ If no time stop flags are active that impact inactive kong then process the sprite
 	AND #$0010				;$BBB958   |\
@@ -7614,7 +7614,7 @@ sprite_handler:
 	JSR process_platform_sprites		;$BBB987   |
 	JSR handle_kong_follow			;$BBB98A   |
 	JSL CODE_B28015				;$BBB98D   |
-	DEC $194D				;$BBB991   |
+	DEC timestop_timer			;$BBB991   |
 	BEQ CODE_BBB997				;$BBB994   |
 	RTL					;$BBB996  /
 
@@ -7641,11 +7641,11 @@ CODE_BBB9B0:
 	LDA.w #CODE_BBB9DC			;$BBB9BB
 	STA.w $04F5				;$BBB9BE
 	STY.b current_sprite			;$BBB9C1
-	LDA.w DKC3_Level_SpriteDataRAM[$00].SpriteIDLo,y	;$BBB9C3
-	LDA.w DKC3_Level_SpriteDataRAM[$00].RoutinePtrBank,y	;$BBB9C6
+	LDA.w sprite.type,y			;$BBB9C3
+	LDA.w sprite.main_routine_bank,y	;$BBB9C6
 	PHA					;$BBB9C9
 	PLB					;$BBB9CA
-	LDA.w DKC3_Level_SpriteDataRAM[$00].RoutinePtrLo,y	;$BBB9CB
+	LDA.w sprite.main_routine_address,y	;$BBB9CB
 	PHA					;$BBB9CE
 	LDA.w $0006,y				;$BBB9CF
 	STA.b $6A				;$BBB9D2
@@ -8874,7 +8874,7 @@ CODE_BBCA3F:
 	LDA.w $0060,y				;$BBCA3F
 	STZ.b $46				;$BBCA42
 	LDY.w $04C4				;$BBCA44
-	CPY.w #$0002				;$BBCA47
+	CPY.w #!gamemode_2_player_contest	;$BBCA47
 	BNE.b CODE_BBCA58			;$BBCA4A
 	LDY.w $04C6				;$BBCA4C
 	BEQ.b CODE_BBCA67			;$BBCA4F

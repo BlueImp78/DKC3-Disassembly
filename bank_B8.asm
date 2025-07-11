@@ -728,7 +728,7 @@ CODE_B88533:
 CODE_B88557:
 	LDA.b current_animal_type		;$B88557
 	SEC					;$B88559
-	SBC.w #$0234				;$B8855A
+	SBC.w #!animal_sprite_type_range_start 	;$B8855A
 	STA.b $3E				;$B8855D
 	LDY.w #$0010				;$B8855F
 	LDA.w current_kong			;$B88562
@@ -768,7 +768,7 @@ CODE_B8856B:
 	JSR.w CODE_B88721			;$B885B5
 	LDA.b current_animal_type		;$B885B8
 	SEC					;$B885BA
-	SBC.w #$0234				;$B885BB
+	SBC.w #!animal_sprite_type_range_start 	;$B885BB
 	LSR					;$B885BE
 	TAX					;$B885BF
 	JSR.w (DATA_B885CD,x)			;$B885C0
@@ -1517,7 +1517,7 @@ CODE_B88C2D:
 
 CODE_B88C4C:
 	SEC					;$B88C4C
-	SBC.w #$0234				;$B88C4D
+	SBC.w #!animal_sprite_type_range_start 	;$B88C4D
 	TAX					;$B88C50
 	BEQ.b CODE_B88C5E			;$B88C51
 	CMP.w #$000C				;$B88C53
@@ -2607,7 +2607,7 @@ CODE_B89585:
 	JSL.l CODE_B88557			;$B895C3
 	JSR.w CODE_B8C5A0			;$B895C7
 	LDA.w $04C4				;$B895CA
-	CMP.w #$0001				;$B895CD
+	CMP.w #!gamemode_2_player_team		;$B895CD
 	BNE.b CODE_B895DF			;$B895D0
 	LDX.w active_kong_sprite		;$B895D2
 	LDA.b $38,x				;$B895D5
@@ -2663,7 +2663,7 @@ CODE_B89617:
 	LDA.w #$0100				;$B8963D
 	STA.b $3A,x				;$B89640
 	LDA.w $04C4				;$B89642
-	CMP.w #$0001				;$B89645
+	CMP.w #!gamemode_2_player_team		;$B89645
 	BNE.b CODE_B8965D			;$B89648
 	LDX.w active_kong_sprite		;$B8964A
 	LDA.b $38,x				;$B8964D
@@ -2737,7 +2737,7 @@ CODE_B896B4:
 	JSL.l set_anim_handle_kiddy		;$B896ED
 	LDA.w #$0058				;$B896F1
 	LDY.w $04C4				;$B896F4
-	CPY.w #$0001				;$B896F7
+	CPY.w #!gamemode_2_player_team		;$B896F7
 	BNE.b CODE_B89702			;$B896FA
 	STA.w $189D				;$B896FC
 	LDA.w #$005B				;$B896FF
@@ -3554,7 +3554,7 @@ CODE_B89E05:
 	JSL.l CODE_B7D7FB			;$B89E16
 	LDA.b current_animal_type		;$B89E1A
 	SEC					;$B89E1C
-	SBC.w #$0234				;$B89E1D
+	SBC.w #!animal_sprite_type_range_start 	;$B89E1D
 	TAX					;$B89E20
 	LDA.l DATA_B89E33,x			;$B89E21
 	LDY.b current_sprite			;$B89E25
@@ -4321,7 +4321,7 @@ CODE_B8A4C9:
 	BEQ.b CODE_B8A50F			;$B8A4CF
 	LDX.w #$0002				;$B8A4D1
 	LDA level_number			;$B8A4D4
-	CMP.w #!Define_DKC3_LevelID_KonveyorRopeKlash_Bonus1	;$B8A4D6
+	CMP #!level_konveyor_rope_klash_bonus_1	;$B8A4D6
 	BEQ.b CODE_B8A4E3			;$B8A4D9
 	LDX.w #$0000				;$B8A4DB
 	BCC.b CODE_B8A4E3			;$B8A4DE
@@ -5746,7 +5746,7 @@ CODE_B8B004:
 	STA.b $2E,x				;$B8B068
 CODE_B8B06A:
 	LDA.w $04C4				;$B8B06A
-	CMP.w #$0001				;$B8B06D
+	CMP.w #!gamemode_2_player_team		;$B8B06D
 	BNE.b CODE_B8B083			;$B8B070
 	LDA.w #$005A				;$B8B072
 	STA.b $38,x				;$B8B075
@@ -7631,9 +7631,9 @@ CODE_B8BF59:
 	LDA.w #$0004				;$B8BF61
 	TRB.w $05B1				;$B8BF64
 	LDA level_number			;$B8BF67
-	CMP.w #!Define_DKC3_LevelID_BelchasBarn	;$B8BF69
+	CMP.w #!boss_level_type_range_start	;$B8BF69
 	BCC.b CODE_B8BF79			;$B8BF6C
-	CMP.w #!Define_DKC3_LevelID_LakesideLimbo_Main	;$B8BF6E
+	CMP.w #!boss_level_type_range_end	;$B8BF6E
 	BCS.b CODE_B8BF79			;$B8BF71
 	JSL.l CODE_B89BC3			;$B8BF73
 	BRA.b CODE_B8BF7C			;$B8BF77
@@ -11260,7 +11260,7 @@ CODE_B8D971:
 CODE_B8D97C:
 	LDA.b current_animal_type		;$B8D97C
 	SEC					;$B8D97E
-	SBC.w #$0234				;$B8D97F
+	SBC.w #!animal_sprite_type_range_start 	;$B8D97F
 	LSR					;$B8D982
 	TAX					;$B8D983
 	JMP.w (DATA_B8D987,x)			;$B8D984
@@ -12294,7 +12294,7 @@ CODE_B8E0FE:
 	CPX.w follower_kong_sprite		;$B8E102
 	BEQ.b CODE_B8E138			;$B8E105
 	LDA level_number			;$B8E107
-	CMP.w #!Define_DKC3_LevelID_SpringinSpiders_Bonus1	;$B8E109
+	CMP.w #!level_springin_spiders_bonus_1	;$B8E109
 	BNE.b CODE_B8E122			;$B8E10C
 	LDA.w $196D				;$B8E10E
 	CLC					;$B8E111
@@ -13517,7 +13517,7 @@ CODE_B8E996:
 
 CODE_B8E99D:
 	LDA level_number			;$B8E99D
-	CMP.w #!Define_DKC3_LevelID_CreepyCaverns_Main	;$B8E99F
+	CMP.w #!level_creepy_caverns		;$B8E99F
 	BNE.b CODE_B8E9B9			;$B8E9A2
 	LDA.w $0016,y				;$B8E9A4
 	SBC.w #$0400				;$B8E9A7
@@ -13860,7 +13860,7 @@ CODE_B8EC24:
 	LDA.w $0016,y				;$B8EC36
 	STA.b $20				;$B8EC39
 	LDA level_number			;$B8EC3B
-	CMP.w #!Define_DKC3_LevelID_SquealsOnWheels_Main	;$B8EC3D
+	CMP.w #!level_squeals_on_wheels		;$B8EC3D
 	BEQ.b CODE_B8EC53			;$B8EC40
 	LDA.w $050F				;$B8EC42
 	BMI.b CODE_B8EC52			;$B8EC45
@@ -13994,7 +13994,7 @@ CODE_B8ED11:
 CODE_B8ED26:
 	LDA.b current_animal_type		;$B8ED26
 	SEC					;$B8ED28
-	SBC.w #$0234				;$B8ED29
+	SBC.w #!animal_sprite_type_range_start 	;$B8ED29
 	LSR					;$B8ED2C
 	ADC.w #$0040				;$B8ED2D
 	TAY					;$B8ED30
@@ -14259,7 +14259,7 @@ CODE_B8EF42:
 
 CODE_B8EF45:
 	SEC					;$B8EF45
-	SBC.w #$0234				;$B8EF46
+	SBC.w #!animal_sprite_type_range_start 	;$B8EF46
 	LSR					;$B8EF49
 	CLC					;$B8EF4A
 	ADC.w #$0060				;$B8EF4B
@@ -14960,7 +14960,7 @@ CODE_B8F5B9:
 	JMP.w CODE_B8F3CB			;$B8F5C3
 
 CODE_B8F5C6:
-	LDA.w #!Define_DKC3_MusicID_BaddiesOnParade	;$B8F5C6
+	LDA.w #!music_baddies_on_parade		;$B8F5C6
 	JSL.l CODE_B28009			;$B8F5C9
 	LDA.w #$0004				;$B8F5CD
 	JMP.w CODE_B8F3CB			;$B8F5D0

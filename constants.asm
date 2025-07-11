@@ -112,7 +112,7 @@ includeonce
 !music_northern_kremisphere_2		= $0024
 !music_northern_kremisphere_3		= $0025
 !music_nuts_and_bolts_2			= $0026
-!music_northern_kremisphere_2		= $0027
+!music_big_boss_blues_2 		= $0027
 !music_boss_boogie_3			= $0028
 !music_cavern_caprice_2			= $0029
 !music_mama_bird_chase			= $002A
@@ -295,6 +295,8 @@ includeonce
 !level_stampede_sprint_bonus_3	        = $009F
 !level_stampede_sprint_bonus_1		= $00A0
 
+!boss_level_type_range_start		= $001D
+!boss_level_type_range_end		= $0025
 
 
 !sprite_null_sprite			= $0000
@@ -611,7 +613,7 @@ includeonce
 !sprite_swanky_kong_prize 		= $04DC
 
 
-!animal_sprite_type_range_start		= $0234
+!animal_sprite_type_range_start         = $0234
 !animal_sprite_type_range_end		= $0240
 
 

@@ -9304,10 +9304,10 @@ CODE_B7D7F2:
 	RTS					;$B7D7FA
 
 CODE_B7D7FB:
-	LDA.b $7E				;$B7D7FB
+	LDA.b current_animal_type		;$B7D7FB
 	BEQ.b CODE_B7D813			;$B7D7FD
 	SEC					;$B7D7FF
-	SBC.w #$0234				;$B7D800
+	SBC.w #!animal_sprite_type_range_start 	;$B7D800
 	LSR					;$B7D803
 	LSR					;$B7D804
 	CLC					;$B7D805

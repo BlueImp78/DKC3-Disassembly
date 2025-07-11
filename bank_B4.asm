@@ -958,7 +958,7 @@ CODE_B48841:
 	STZ.w $0543				;$B48847
 	LDA.w $1C49				;$B4884A
 	BEQ.b CODE_B48867			;$B4884D
-	LDX.w #!Define_DKC3_LevelID_SwankysSideshowInTent	;$B4884F
+	LDX.w #!level_swankys_sideshow_inside	;$B4884F
 	STX.b level_number			;$B48852
 	LSR					;$B48854
 	LSR					;$B48855
@@ -3471,7 +3471,7 @@ CODE_B49CD3:
 	LDA.w screen_brightness			;$B49D07
 	BNE.b CODE_B49D3C			;$B49D0A
 	LDA.w $04C4				;$B49D0C
-	CMP.w #$0002				;$B49D0F
+	CMP.w #!gamemode_2_player_contest	;$B49D0F
 	BNE.b CODE_B49D38			;$B49D12
 	LDA.b $C2				;$B49D14
 	PHA					;$B49D16
@@ -4931,7 +4931,7 @@ CODE_B4A8F1:
 	AND #$8000				;$B4A8FA
 	STA $044A				;$B4A8FD
 	BMI CODE_B4A909				;$B4A900
-	LDA #!Define_DKC3_MusicID_HanginAtFunkys	;$B4A902
+	LDA #!music_hangin_at_funkys	;$B4A902
 	JSL CODE_B28009				;$B4A905
 CODE_B4A909:
 	LDA #$0611				;$B4A909
@@ -5024,7 +5024,7 @@ CODE_B4A9F1:
 	AND #$8000				;$B4A9F4
 	STA $044A				;$B4A9F7
 	BMI CODE_B4AA03				;$B4A9FA
-	LDA #!Define_DKC3_MusicID_SwankysSideshow	;$B4A9FC
+	LDA #!music_swankys_sideshow	;$B4A9FC
 	JSL CODE_B28009				;$B4A9FF
 CODE_B4AA03:
 	LDA #$0613				;$B4AA03
@@ -5211,7 +5211,7 @@ CODE_B4ABD2:
 	BNE.b CODE_B4ABF1			;$B4ABE5
 	LDA.b $3E				;$B4ABE7
 	XBA					;$B4ABE9
-	ORA.w #!Define_DKC3_MusicID_GetFitAGoGo	;$B4ABEA
+	ORA.w #!music_get_fit_a_gogo		;$B4ABEA
 	JSL.l CODE_B2800C			;$B4ABED
 CODE_B4ABF1:
 	LDA.w $05FD				;$B4ABF1
@@ -5360,7 +5360,7 @@ CODE_B4AD50:
 	JSR.w CODE_B4A7C9			;$B4AD53
 	LDX.w #DATA_B4F924			;$B4AD56
 	JSR.w CODE_B4A159			;$B4AD59
-	LDA.w #!Define_DKC3_MusicID_GameOver	;$B4AD5C
+	LDA.w #!music_game_over			;$B4AD5C
 	JSL.l CODE_B28009			;$B4AD5F
 	LDA.w #$7EA8DE				;$B4AD63
 	STA.b $46				;$B4AD66
@@ -5393,12 +5393,12 @@ CODE_B4AD89:
 	LDA.w #$0010				;$B4ADA8
 	BIT.w $0621				;$B4ADAB
 	BNE.b CODE_B4ADB9			;$B4ADAE
-	LDA.w #!Define_DKC3_MusicID_BrothersBearBlues	;$B4ADB0
+	LDA.w #!music_brothers_bear_blues	;$B4ADB0
 	JSL.l CODE_B2800C			;$B4ADB3
 	BRA.b CODE_B4ADC0			;$B4ADB7
 
 CODE_B4ADB9:
-	LDA.w #!Define_DKC3_MusicID_BrothersBear	;$B4ADB9
+	LDA.w #!music_brothers_bear		;$B4ADB9
 	JSL.l CODE_B28009			;$B4ADBC
 CODE_B4ADC0:
 	JSL.l CODE_BCF888			;$B4ADC0
@@ -5625,7 +5625,7 @@ CODE_B4AF94:
 	AND.w #$8000				;$B4AF97
 	STA.w $044A				;$B4AF9A
 	BMI.b CODE_B4AFA6			;$B4AF9D
-	LDA.w #!Define_DKC3_MusicID_CrystalChasm	;$B4AF9F
+	LDA.w #!music_crystal_chasm		;$B4AF9F
 	JSL.l CODE_B28009			;$B4AFA2
 CODE_B4AFA6:
 	LDA.w #$1400				;$B4AFA6
@@ -5753,10 +5753,10 @@ CODE_B4B087:
 	BRA.b CODE_B4B0B1			;$B4B0A4
 
 CODE_B4B0A6:
-	LDA.w #!Define_DKC3_MusicID_KrematoaKoncerto	;$B4B0A6
+	LDA.w #!music_krematoa_koncerto		;$B4B0A6
 	CPX.w #$0008				;$B4B0A9
 	BEQ.b CODE_B4B0B1			;$B4B0AC
-	LDA.w #!Define_DKC3_MusicID_SubmapShuffle	;$B4B0AE
+	LDA.w #!music_submap_shuffle		;$B4B0AE
 CODE_B4B0B1:
 	JSL.l CODE_B28009			;$B4B0B1
 CODE_B4B0B5:
@@ -5830,10 +5830,10 @@ CODE_B4B161:
 	JML.l CODE_808003			;$B4B171
 
 DATA_B4B175:
-	db !Define_DKC3_MusicID_Copy2OfNorthernKremisphere
-	db !Define_DKC3_MusicID_NorthernKremisphere
-	db !Define_DKC3_MusicID_Copy2OfNorthernKremisphere
-	db !Define_DKC3_MusicID_Copy1OfNorthernKremisphere
+	db !music_northern_kremisphere_3
+	db !music_northern_kremisphere
+	db !music_northern_kremisphere_3
+	db !music_northern_kremisphere_2
 
 CODE_B4B179:
 	PHK					;$B4B179
@@ -6524,7 +6524,7 @@ CODE_B4B6AE:
 	JSR.w CODE_B4B906			;$B4B6D4
 	LDA.w $04C4				;$B4B6D7
 	BEQ.b CODE_B4B6EF			;$B4B6DA
-	CMP.w #$0001				;$B4B6DC
+	CMP.w #!gamemode_2_player_team		;$B4B6DC
 	BNE.b CODE_B4B6E9			;$B4B6DF
 	EOR.w current_kong			;$B4B6E1
 	STA.w current_kong			;$B4B6E4
@@ -6786,7 +6786,7 @@ CODE_B4B89D:
 	BCS.b CODE_B4B905			;$B4B8A4
 	LDX.b alternate_sprite			;$B4B8A6
 	LDA.w $04C4				;$B4B8A8
-	CMP.w #$0002				;$B4B8AB
+	CMP.w #!gamemode_2_player_contest	;$B4B8AB
 	BNE.b CODE_B4B8BC			;$B4B8AE
 	LDY.w $04C6				;$B4B8B0
 	BEQ.b CODE_B4B8BC			;$B4B8B3

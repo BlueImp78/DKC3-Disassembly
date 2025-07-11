@@ -34,7 +34,7 @@ CODE_B9A01E:
 	LDY.b current_sprite			;$B9A020
 	LDA.w $0000,y				;$B9A022
 	SEC					;$B9A025
-	SBC.w #$0234				;$B9A026
+	SBC.w #!animal_sprite_type_range_start 	;$B9A026
 	LSR					;$B9A029
 	TAX					;$B9A02A
 	LDA.l DATA_B9B1BB,x			;$B9A02B
@@ -56,7 +56,7 @@ CODE_B9A035:
 	STY.b current_sprite			;$B9A047
 	LDA.w $0000,y				;$B9A049
 	SEC					;$B9A04C
-	SBC.w #$0234				;$B9A04D
+	SBC.w #!animal_sprite_type_range_start 	;$B9A04D
 	LSR					;$B9A050
 	TAX					;$B9A051
 	LDA.l DATA_B9B1B3,x			;$B9A052
@@ -76,7 +76,7 @@ CODE_B9A067:
 	TAY					;$B9A067
 	LDA.b current_animal_type		;$B9A068
 	SEC					;$B9A06A
-	SBC.w #$0234				;$B9A06B
+	SBC.w #!animal_sprite_type_range_start 	;$B9A06B
 	LSR					;$B9A06E
 	TAX					;$B9A06F
 	TYA					;$B9A070
@@ -1142,7 +1142,7 @@ CODE_B9A729:
 	TXY					;$B9A72E
 	LDA.b current_animal_type		;$B9A72F
 	SEC					;$B9A731
-	SBC.w #$0234				;$B9A732
+	SBC.w #!animal_sprite_type_range_start 	;$B9A732
 	TAX					;$B9A735
 	LDA.l DATA_B9A753,x			;$B9A736
 	STA.w $0038,y				;$B9A73A
@@ -1194,7 +1194,7 @@ CODE_B9A79A:
 	TXY					;$B9A79F
 	LDA.b current_animal_type		;$B9A7A0
 	SEC					;$B9A7A2
-	SBC.w #$0234				;$B9A7A3
+	SBC.w #!animal_sprite_type_range_start 	;$B9A7A3
 	TAX					;$B9A7A6
 	LDA.l DATA_B9A7C4,x			;$B9A7A7
 	STA.w $0038,y				;$B9A7AB
@@ -1237,7 +1237,7 @@ CODE_B9A7F9:
 	TXY					;$B9A7FE
 	LDA.b current_animal_type		;$B9A7FF
 	SEC					;$B9A801
-	SBC.w #$0234				;$B9A802
+	SBC.w #!animal_sprite_type_range_start 	;$B9A802
 	TAX					;$B9A805
 	LDA.l DATA_B9A823,x			;$B9A806
 	STA.w $0038,y				;$B9A80A
@@ -8273,7 +8273,7 @@ CODE_B9F66B:
 CODE_B9F66E:
 	STA.b $1C				;$B9F66E
 	LDA level_number			;$B9F670
-	CMP.w #!Define_DKC3_LevelID_Knautilus	;$B9F672
+	CMP.w #!level_knautilus			;$B9F672
 	BEQ.b CODE_B9F612			;$B9F675
 	LDX.b current_sprite			;$B9F677
 	LDA.b $28,x				;$B9F679

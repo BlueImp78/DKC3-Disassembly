@@ -3233,7 +3233,7 @@ CODE_B6971D:
 
 ripsaw_rage_controller_main:
 	LDA level_number			;$B69735
-	CMP #!Define_DKC3_LevelID_RipsawRage_Main	;$B69737
+	CMP #!level_ripsaw_rage			;$B69737
 	BEQ .main_level				;$B6973A
 	JMP CODE_B6979A				;$B6973C
 
@@ -8216,7 +8216,7 @@ CODE_B6BC58:
 	INC.b $38,x				;$B6BC5C
 	STX.w $1B6B				;$B6BC5E
 	LDA level_number			;$B6BC61
-	CMP.w #!Define_DKC3_LevelID_CrissKrossCliffs_Main	;$B6BC63
+	CMP.w #!level_criss_kross_cliffs	;$B6BC63
 	BNE.b CODE_B6BC6F			;$B6BC66
 	LDA.w $054F				;$B6BC68
 	BEQ.b CODE_B6BC6F			;$B6BC6B
@@ -8293,7 +8293,7 @@ CODE_B6BCF8:
 
 CODE_B6BCFB:
 	LDA level_number			;$B6BCFB
-	CMP.w #!Define_DKC3_LevelID_CrissKrossCliffs_Main	;$B6BCFD
+	CMP.w #!level_criss_kross_cliffs	;$B6BCFD
 	BNE.b CODE_B6BD07			;$B6BD00
 	LDA.b $64,x				;$B6BD02
 	STA.w $054F				;$B6BD04
@@ -14172,7 +14172,7 @@ CODE_B6E8A7:
 	LDY.w $1B6B				;$B6E8AD
 	LDA.w #$0205				;$B6E8B0
 	LDX.b level_number			;$B6E8B3
-	CPX.w #!Define_DKC3_LevelID_KAOSKarnage	;$B6E8B5
+	CPX.w #!level_kaos_karnage		;$B6E8B5
 	BEQ.b CODE_B6E8BD			;$B6E8B8
 	LDA.w #$017E				;$B6E8BA
 CODE_B6E8BD:
@@ -14240,7 +14240,7 @@ DATA_B6E935:
 CODE_B6E939:
 	LDA.w #$0259				;$B6E939
 	LDX.b level_number			;$B6E93C
-	CPX.w #!Define_DKC3_LevelID_KAOSKarnage	;$B6E93E
+	CPX.w #!level_kaos_karnage		;$B6E93E
 	PHP					;$B6E941
 	BEQ.b CODE_B6E947			;$B6E942
 	LDA.w #$01D2				;$B6E944
@@ -14443,7 +14443,7 @@ CODE_B6EA8C:
 	TYX					;$B6EAB5
 	STZ.b $3A,x				;$B6EAB6
 	LDA level_number			;$B6EAB8
-	CMP.w #!Define_DKC3_LevelID_Knautilus	;$B6EABA
+	CMP.w #!level_knautilus			;$B6EABA
 	BNE.b CODE_B6EAC8			;$B6EABD
 	LDY.w $1BBD				;$B6EABF
 	LDA.w #$0010				;$B6EAC2

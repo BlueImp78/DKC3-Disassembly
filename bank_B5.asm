@@ -91,7 +91,7 @@ CODE_B58066:
 	LDA.w #$0019				;$B58066
 	STA.w $054D				;$B58069
 	LDA level_number			;$B5806C
-	CMP.w #!Define_DKC3_LevelID_SwankysSideshowInTent	;$B5806E
+	CMP.w #!level_swankys_sideshow_inside	;$B5806E
 	BNE.b CODE_B58087			;$B58071
 	LDA.w #$0006				;$B58073
 	STA.b $38,x				;$B58076
@@ -106,7 +106,7 @@ CODE_B58087:
 	JSL.l set_sprite_animation		;$B5808A
 	LDA.w $04C4				;$B5808E
 	BEQ.b CODE_B580B0			;$B58091
-	CMP.w #$0001				;$B58093
+	CMP.w #!gamemode_2_player_team		;$B58093
 	BNE.b CODE_B580B0			;$B58096
 	LDA.w $054B				;$B58098
 	BEQ.b CODE_B580B0			;$B5809B
@@ -8427,7 +8427,7 @@ CODE_B5C210:
 CODE_B5C22F:
 	JSR.w CODE_B5C2C9			;$B5C22F
 	LDA level_number			;$B5C232
-	CMP.w #!Define_DKC3_LevelID_KAOSKarnage	;$B5C234
+	CMP.w #!level_kaos_karnage		;$B5C234
 	BEQ.b CODE_B5C23C			;$B5C237
 	JMP.w CODE_B5C2C6			;$B5C239
 
@@ -8546,7 +8546,7 @@ CODE_B5C2F7:
 
 CODE_B5C30E:
 	LDA level_number			;$B5C30E
-	CMP.w #!Define_DKC3_LevelID_KAOSKarnage	;$B5C310
+	CMP.w #!level_kaos_karnage		;$B5C310
 	BNE.b CODE_B5C332			;$B5C313
 	LDA.w $1B75				;$B5C315
 	CMP.w #$0004				;$B5C318
@@ -8590,7 +8590,7 @@ CODE_B5C350:
 
 CODE_B5C355:
 	LDA level_number			;$B5C355
-	CMP.w #!Define_DKC3_LevelID_KAOSKarnage	;$B5C357
+	CMP.w #!level_kaos_karnage		;$B5C357
 	BNE.b CODE_B5C35D			;$B5C35A
 	RTS					;$B5C35C
 
@@ -8652,7 +8652,7 @@ CODE_B5C3BD:
 	ASL					;$B5C3C2
 	TAX					;$B5C3C3
 	LDA level_number			;$B5C3C4
-	CMP.w #!Define_DKC3_LevelID_KAOSKarnage	;$B5C3C6
+	CMP.w #!level_kaos_karnage		;$B5C3C6
 	BEQ.b CODE_B5C3D4			;$B5C3C9
 	JMP.w (DATA_B5C3CE,x)			;$B5C3CB
 
@@ -9984,7 +9984,7 @@ CODE_B5CE01:
 
 CODE_B5CE02:
 	LDA level_number			;$B5CE02
-	CMP.w #!Define_DKC3_LevelID_KAOSKarnage	;$B5CE04
+	CMP.w #!level_kaos_karnage		;$B5CE04
 	BEQ.b CODE_B5CE14			;$B5CE07
 	LDA.w #$0038				;$B5CE09
 	JSL.l CODE_BEC006			;$B5CE0C
@@ -10061,7 +10061,7 @@ CODE_B5CE8E:
 CODE_B5CE93:
 	LDA.w #DATA_B5D03A			;$B5CE93
 	LDY.b level_number			;$B5CE96
-	CPY.w #!Define_DKC3_LevelID_KAOSKarnage	;$B5CE98
+	CPY.w #!level_kaos_karnage		;$B5CE98
 	BEQ.b CODE_B5CEA0			;$B5CE9B
 	LDA.w #DATA_B5D1EF			;$B5CE9D
 CODE_B5CEA0:
@@ -10545,7 +10545,7 @@ CODE_B5D38B:
 	STA.b $38,x				;$B5D392
 CODE_B5D394:
 	LDA level_number			;$B5D394
-	CMP.w #!Define_DKC3_LevelID_KastleKAOS	;$B5D396
+	CMP.w #!level_kastle_kaos		;$B5D396
 	BEQ.b CODE_B5D39E			;$B5D399
 	JMP.w CODE_B5D838			;$B5D39B
 
@@ -13554,7 +13554,7 @@ CODE_B5EBDD:
 	ASL					;$B5EBE0
 	TAY					;$B5EBE1
 	LDA level_number			;$B5EBE2
-	CMP.w #!Define_DKC3_LevelID_KastleKAOS	;$B5EBE4
+	CMP.w #!level_kastle_kaos		;$B5EBE4
 	BNE.b CODE_B5EBEE			;$B5EBE7
 	LDA.w DATA_B5EBF3-$02,y			;$B5EBE9
 	TAY					;$B5EBEC
@@ -13676,7 +13676,7 @@ CODE_B5ED38:
 	ASL					;$B5ED3D
 	TAX					;$B5ED3E
 	LDA level_number			;$B5ED3F
-	CMP.w #!Define_DKC3_LevelID_KastleKAOS	;$B5ED41
+	CMP.w #!level_kastle_kaos		;$B5ED41
 	BEQ.b CODE_B5ED5F			;$B5ED44
 	JMP.w (DATA_B5ED49,x)			;$B5ED46
 
@@ -14771,7 +14771,7 @@ CODE_B5F511:
 	PLB					;$B5F513
 	LDX.b current_sprite			;$B5F514
 	LDA level_number			;$B5F516
-	CMP.w #!Define_DKC3_LevelID_BleaksHouse	;$B5F518
+	CMP.w #!level_bleaks_house		;$B5F518
 	BEQ.b CODE_B5F57E			;$B5F51B
 	LDA.b $00,x				;$B5F51D
 	CMP.w #$04C4				;$B5F51F

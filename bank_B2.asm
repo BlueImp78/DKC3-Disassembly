@@ -968,7 +968,7 @@ CODE_B286A5:
 	LDA.w #$01B0				;$B28721
 	STA.b $5E				;$B28724
 	STA.b $5C				;$B28726
-	LDA.w #!Define_DKC3_MusicID_Fanfare	;$B28728
+	LDA.w #!music_fanfare			;$B28728
 	JSL.l CODE_B28009			;$B2872B
 	LDA.w #$0002				;$B2872F
 	TRB.w $06AB				;$B28732
@@ -1542,7 +1542,7 @@ CODE_B28CFF:
 	TRB.w $06AB				;$B28D5F
 	JSR.w CODE_B28D82			;$B28D62
 	JSR.w CODE_B28521			;$B28D65
-	LDA.w #!Define_DKC3_MusicID_DixieBeat	;$B28D68
+	LDA.w #!music_dixie_beat		;$B28D68
 	JSL.l CODE_B28009			;$B28D6B
 	PHK					;$B28D6F
 	PLB					;$B28D70
@@ -2252,7 +2252,7 @@ CODE_B29355:
 	JML [$04F5]				;$B29359
 
 CODE_B2935C:
-	LDA.w #!Define_DKC3_MusicID_BonusTime	;$B2935C
+	LDA.w #!music_bonus_time		;$B2935C
 	JSL.l CODE_B2800C			;$B2935F
 	JSR.w CODE_B289D3			;$B29363
 	LDA.w #$7000				;$B29366
@@ -2538,7 +2538,7 @@ CODE_B29578:
 	JSL.l CODE_BB856D			;$B295D0
 	LDX.w #$0033				;$B295D4
 	LDA.w $04C4				;$B295D7
-	CMP.w #$0002				;$B295DA
+	CMP.w #!gamemode_2_player_contest	;$B295DA
 	BNE.b CODE_B295E9			;$B295DD
 	LDA.w $04C6				;$B295DF
 	BEQ.b CODE_B295F4			;$B295E2
@@ -2913,7 +2913,7 @@ CODE_B29952:
 	JSL CODE_80800C				;$B29969
 	JSL CODE_80801B				;$B2996D
 	JSL CODE_BB857F				;$B29971
-	LDA #!Define_DKC3_MusicID_MamaBird	;$B29975
+	LDA #!music_mama_bird			;$B29975
 	JSL CODE_B28009				;$B29978
 	LDA #$0047				;$B2997C
 	LDY #$0000				;$B2997F
@@ -11036,7 +11036,7 @@ CODE_B2E49A:
 	BEQ.b CODE_B2E4FA			;$B2E4B5
 	LDA.w #$00CF				;$B2E4B7
 	LDY.w $04C4				;$B2E4BA
-	CPY.w #$0002				;$B2E4BD
+	CPY.w #!gamemode_2_player_contest	;$B2E4BD
 	BNE.b CODE_B2E4CA			;$B2E4C0
 	LDY.w $04C6				;$B2E4C2
 	BEQ.b CODE_B2E4CA			;$B2E4C5

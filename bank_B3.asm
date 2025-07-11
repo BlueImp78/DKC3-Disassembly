@@ -3837,7 +3837,7 @@ CODE_B3B055:
 	STA.l $7EA3F6,x				;$B3B15C
 	STA.l $7EA3F8,x				;$B3B160
 	LDA level_number			;$B3B164
-	CMP.w #!Define_DKC3_LevelID_PotHolePanic_Main	;$B3B166
+	CMP.w #!level_pothole_panic		;$B3B166
 	BNE.b CODE_B3B174			;$B3B169
 	LDA.w $196D				;$B3B16B
 	SEC					;$B3B16E
@@ -5507,12 +5507,12 @@ CODE_B3C0F4:
 	LDA.w #$03A7				;$B3C103
 	STA.b $20				;$B3C106
 	LDA level_number			;$B3C108
-	CMP.w #!Define_DKC3_LevelID_SwoopySalvo_Main	;$B3C10A
+	CMP.w #!level_swoopy_salvo		;$B3C10A
 	BEQ.b CODE_B3C149			;$B3C10D
-	CMP.w #!Define_DKC3_LevelID_SwoopySalvo_Bonus2	;$B3C10F
+	CMP.w #!level_swoopy_salvo_bonus_2	;$B3C10F
 	BEQ.b CODE_B3C133			;$B3C112
 	SEC					;$B3C114
-	SBC.w #!Define_DKC3_LevelID_SwoopySalvo_Bonus3	;$B3C115
+	SBC.w #!level_swoopy_salvo_bonus_3	;$B3C115
 	CMP.w #$0003				;$B3C118
 	BCS.b CODE_B3C15D			;$B3C11B
 	LDA.w #$0078				;$B3C11D

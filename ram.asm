@@ -10,7 +10,8 @@ NMI_pointer = $4A
 ;game_logic_pointer = $58
 global_frame_counter = $5A
 
-sprite_contants_pointer = $6A
+sprite_contants_address = $6A
+sprite_constants_bank = $6B
 
 current_sprite = $70
 current_kong_control_variables = $72
