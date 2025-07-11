@@ -78,12 +78,13 @@ CODE_BEC048:
 CODE_BEC04B:
 	JMP.w CODE_BEC2DD			;$BEC04B
 
+;This is probably checking for a sprite range
 CODE_BEC04E:
 	LDX.b current_sprite			;$BEC04E
 	LDY.b $00,x				;$BEC050
-	CPY.w #$0210				;$BEC052
+	CPY.w #!sprite_nintendo_presents_kongs	;$BEC052
 	BCS.b CODE_BEC062			;$BEC055
-	CPY.w #$0128				;$BEC057
+	CPY.w #!sprite_unknown_0128		;$BEC057
 	BCC.b CODE_BEC062			;$BEC05A
 CODE_BEC05C:
 	JSL.l CODE_BCE43C			;$BEC05C
@@ -1714,7 +1715,7 @@ CODE_BECBDF:
 	LDX.b $4A,y				;$BECBE1
 	BEQ.b CODE_BECBF6			;$BECBE3
 	LDA.b $00,x				;$BECBE5
-	CMP.w #$02F0				;$BECBE7
+	CMP.w #!sprite_rocket_flame		;$BECBE7
 	BEQ.b CODE_BECBF6			;$BECBEA
 	LDA.w $0012,y				;$BECBEC
 	STA.b $12,x				;$BECBEF
@@ -2991,7 +2992,7 @@ CODE_BED516:
 	STZ.w current_held_sprite		;$BED51D
 CODE_BED520:
 	LDA.b $00,x				;$BED520
-	CMP.w #$02CC				;$BED522
+	CMP.w #!sprite_unknown_02CC		;$BED522
 	BEQ.b CODE_BED52D			;$BED525
 	JSR.w CODE_BEDADB			;$BED527
 	JML [$04F5]				;$BED52A

@@ -1068,7 +1068,7 @@ CODE_B587BB:
 	BNE.b CODE_B58824			;$B587BE
 	LDX.w $1B7F				;$B587C0
 	LDA.b $00,x				;$B587C3
-	CMP.w #$04C4				;$B587C5
+	CMP.w #!sprite_cranky_kong		;$B587C5
 	BEQ.b CODE_B587E0			;$B587C8
 	LDA.b $5C,x				;$B587CA
 	BEQ.b CODE_B587E0			;$B587CC
@@ -1433,7 +1433,7 @@ CODE_B58A8E:
 	LDX.w $1B7F				;$B58ABB
 	LDA.b $00,x				;$B58ABE
 	LDY.w #$0001				;$B58AC0
-	CMP.w #$04C4				;$B58AC3
+	CMP.w #!sprite_cranky_kong		;$B58AC3
 	BEQ.b CODE_B58ACB			;$B58AC6
 	LDY.w #$0000				;$B58AC8
 CODE_B58ACB:
@@ -1543,7 +1543,7 @@ CODE_B58B6C:
 	BEQ.b CODE_B58B8E			;$B58B8C
 CODE_B58B8E:
 	LDY.b $00,x				;$B58B8E
-	CPY.w #$04C4				;$B58B90
+	CPY.w #!sprite_cranky_kong		;$B58B90
 	BEQ.b CODE_B58B9D			;$B58B93
 	CLC					;$B58B95
 	ADC.b $5C,x				;$B58B96
@@ -1587,7 +1587,7 @@ CODE_B58BC7:
 	BEQ.b CODE_B58BE9			;$B58BE7
 CODE_B58BE9:
 	LDY.b $00,x				;$B58BE9
-	CPY.w #$04C4				;$B58BEB
+	CPY.w #!sprite_cranky_kong		;$B58BEB
 	BEQ.b CODE_B58BF8			;$B58BEE
 	CLC					;$B58BF0
 	ADC.b $5C,x				;$B58BF1
@@ -1629,7 +1629,7 @@ CODE_B58C22:
 	STX.b alternate_sprite			;$B58C3B
 	PLA					;$B58C3D
 	LDY.b $00,x				;$B58C3E
-	CPY.w #$04C4				;$B58C40
+	CPY.w #!sprite_cranky_kong		;$B58C40
 	BEQ.b CODE_B58C4D			;$B58C43
 	CLC					;$B58C45
 	ADC.b $5C,x				;$B58C46
@@ -3190,7 +3190,7 @@ CODE_B5983B:
 
 CODE_B5984A:
 	LDA.b $00,x				;$B5984A
-	CMP.w #$02C0				;$B5984C
+	CMP.w #!sprite_barrel			;$B5984C
 	BEQ.b CODE_B5987F			;$B5984F
 	LDA.w #$003C				;$B59851
 	STA.w $1B93				;$B59854
@@ -8618,7 +8618,7 @@ CODE_B5C38C:
 
 CODE_B5C390:
 	LDA.b $00,x				;$B5C390
-	CMP.w #$02C0				;$B5C392
+	CMP.w #!sprite_barrel			;$B5C392
 	BEQ.b CODE_B5C3A1			;$B5C395
 	STZ.w $1BB1				;$B5C397
 	LDA.w #$0014				;$B5C39A
@@ -12073,7 +12073,7 @@ CODE_B5DFB2:
 CODE_B5DFB9:
 	LDX.w $1BB1				;$B5DFB9
 	LDA.b $00,x				;$B5DFBC
-	CMP.w #$02C0				;$B5DFBE
+	CMP.w #!sprite_barrel			;$B5DFBE
 	BEQ.b CODE_B5DFC7			;$B5DFC1
 	STZ.w $1BB1				;$B5DFC3
 CODE_B5DFC6:
@@ -12378,7 +12378,7 @@ CODE_B5E266:
 	LDX.w $1BB1				;$B5E266
 	BEQ.b CODE_B5E272			;$B5E269
 	LDA.b $00,x				;$B5E26B
-	CMP.w #$04B8				;$B5E26D
+	CMP.w #!sprite_bg_steel_keg		;$B5E26D
 	BEQ.b CODE_B5E275			;$B5E270
 CODE_B5E272:
 	STZ.w $1BEB				;$B5E272
@@ -12587,7 +12587,7 @@ CODE_B5E3FB:
 
 CODE_B5E3FC:
 	LDA.b $00,x				;$B5E3FC
-	CMP.w #$02D4				;$B5E3FE
+	CMP.w #!sprite_steel_keg		;$B5E3FE
 	BEQ.b CODE_B5E41B			;$B5E401
 	STZ.w $1BB1				;$B5E403
 	JSL.l CODE_B5E40B			;$B5E406
@@ -14774,7 +14774,7 @@ CODE_B5F511:
 	CMP.w #!level_bleaks_house		;$B5F518
 	BEQ.b CODE_B5F57E			;$B5F51B
 	LDA.b $00,x				;$B5F51D
-	CMP.w #$04C4				;$B5F51F
+	CMP.w #!sprite_cranky_kong		;$B5F51F
 	BNE.b CODE_B5F52B			;$B5F522
 	LDA.b $38,x				;$B5F524
 	CMP.w #$000D				;$B5F526

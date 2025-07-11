@@ -521,10 +521,10 @@ CODE_B68364:
 	LDY.b $00,x 				;$B6836E / Get sprite id	
 	LDX.b current_sprite			;$B68370 / Get platform sprite
 	LDA.w #$0600				;$B68372
-	CPY.w #$022C 				;$B68375 / Check if sprite riding platform is dixie
+	CPY.w #!sprite_dixie_kong 		;$B68375 / Check if sprite riding platform is dixie
 	BEQ.b CODE_B68387			;$B68378
 	LDA.w #$0A00				;$B6837A
-	CPY.w #$0230 				;$B6837D / Else check if kiddy
+	CPY.w #!sprite_kiddy_kong 		;$B6837D / Else check if kiddy
 	BEQ.b CODE_B68387			;$B68380
 	LDA.w #$0800				;$B68382
 	BRA.b CODE_B68391			;$B68385
@@ -7777,7 +7777,7 @@ CODE_B6B90C:
 	AND.w #$BFFF				;$B6B916
 	STA.w $001E,y				;$B6B919
 	LDA.b $00,x				;$B6B91C
-	CMP.w #$0430				;$B6B91E
+	CMP.w #!sprite_bounty_bass		;$B6B91E
 	BEQ.b CODE_B6B92F			;$B6B921
 	LDA.w #$0015				;$B6B923
 	BIT.b $1E,x				;$B6B926
@@ -9280,7 +9280,7 @@ CODE_B6C3FF:
 	LDY.b $00,x				;$B6C41A
 	LDX.b current_sprite			;$B6C41C
 	LDA.w #$0600				;$B6C41E
-	CPY.w #$022C				;$B6C421
+	CPY.w #!sprite_dixie_kong		;$B6C421
 	BEQ.b CODE_B6C429			;$B6C424
 	LDA.w #$0A00				;$B6C426
 CODE_B6C429:
@@ -14911,10 +14911,10 @@ CODE_B6EE09:
 	LDY.b $00,x				;$B6EE17
 	LDX.b current_sprite			;$B6EE19
 	LDA.w #$0600				;$B6EE1B
-	CPY.w #$022C				;$B6EE1E
+	CPY.w #!sprite_dixie_kong		;$B6EE1E
 	BEQ.b CODE_B6EE30			;$B6EE21
 	LDA.w #$0A00				;$B6EE23
-	CPY.w #$0230				;$B6EE26
+	CPY.w #!sprite_kiddy_kong		;$B6EE26
 	BEQ.b CODE_B6EE30			;$B6EE29
 	LDA.w #$0800				;$B6EE2B
 	BRA.b CODE_B6EE3A			;$B6EE2E

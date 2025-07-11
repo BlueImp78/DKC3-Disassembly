@@ -8282,7 +8282,7 @@ CODE_B8C476:
 CODE_B8C483:
 	LDX.b current_sprite			;$B8C483
 	LDA.b $00,x				;$B8C485
-	CMP.w #$0230				;$B8C487
+	CMP.w #!sprite_kiddy_kong		;$B8C487
 	BNE.b CODE_B8C4F7			;$B8C48A
 	DEC.w $1929				;$B8C48C
 	BNE.b CODE_B8C4F7			;$B8C48F
@@ -10917,7 +10917,7 @@ CODE_B8D6B9:
 	CMP.b $16,x				;$B8D6C9
 	BCS.b CODE_B8D6F9 			;$B8D6CB / if not within distance, branch and do something lol
 	LDA.b $00,x 				;$B8D6CD / get sprite ID
-	CMP.w #$0230 				;$B8D6CF / check if its Kiddy
+	CMP.w #!sprite_kiddy_kong 		;$B8D6CF / check if its Kiddy
 	BNE.b CODE_B8D6F9 			;$B8D6D2 / if not, branch and do something lol
 	LDA.b $4A,x				;$B8D6D4
 	AND.w #$1000				;$B8D6D6
@@ -12207,13 +12207,13 @@ CODE_B8E07F:
 	RTS					;$B8E07F
 
 CODE_B8E080:
-	LDX.w #!RAM_DKC3_Level_SpriteDataRAM	;$B8E080
+	LDX.w #main_sprite_table		;$B8E080
 	STZ.b $1A				;$B8E083
 	STZ.b $1C				;$B8E085
 	STZ.b $1E				;$B8E087
 CODE_B8E089:
-	LDA.b DKC3_Level_SpriteDataRAM[$00].SpriteIDLo,x	;$B8E089
-	CMP.w #!sprite_WebPlatform		;$B8E08B
+	LDA.b sprite.type,x 			;$B8E089
+	CMP.w #!sprite_web_platform		;$B8E08B
 	BNE.b CODE_B8E0A0			;$B8E08E
 	INC.b $1A				;$B8E090
 	LDA.b $5E,x				;$B8E092
@@ -14023,7 +14023,7 @@ no_animal_buddy_sign_main:
 
 CODE_B8ED5F:
 	LDA.w $005C,y				;$B8ED5F
-	LDX.b $7A				;$B8ED62
+	LDX.b parry_index			;$B8ED62
 	BEQ.b CODE_B8ED6D			;$B8ED64
 	CMP.b $00,x				;$B8ED66
 	BNE.b CODE_B8ED6D			;$B8ED68
@@ -14176,16 +14176,16 @@ DATA_B8EE8B:
 CODE_B8EE91:
 	TYX					;$B8EE91
 	INC.b $38,x				;$B8EE92
-	LDA.w #!RAM_DKC3_Level_SpriteDataRAM	;$B8EE94
+	LDA.w #main_sprite_table		;$B8EE94
 CODE_B8EE97:
 	TAY					;$B8EE97
-	LDA.w DKC3_Level_SpriteDataRAM[$00].SpriteIDLo,y	;$B8EE98
+	LDA.w sprite.type,y 			;$B8EE98
 	CMP.b $5C,x				;$B8EE9B
 	BEQ.b CODE_B8EEAD			;$B8EE9D
 	TYA					;$B8EE9F
 	CLC					;$B8EEA0
-	ADC.w #$006E				;$B8EEA1
-	CMP.w #$1480				;$B8EEA4
+	ADC.w #sizeof(sprite)			;$B8EEA1
+	CMP.w #main_sprite_table_end		;$B8EEA4
 	BCC.b CODE_B8EE97			;$B8EEA7
 	STZ.b $60,x				;$B8EEA9
 	BRA.b CODE_B8EEC1			;$B8EEAB

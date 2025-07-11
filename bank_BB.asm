@@ -2876,17 +2876,17 @@ CODE_BB94A6:
 
 CODE_BB94B2:
 	STA.b $1A				;$BB94B2
-	LDX.w #!RAM_DKC3_Level_SpriteDataRAM	;$BB94B4
+	LDX.w #main_sprite_table		;$BB94B4
 CODE_BB94B7:
 	LDA.b $1A				;$BB94B7
-	CMP.b DKC3_Level_SpriteDataRAM[$00].SpriteIDLo,x	;$BB94B9
+	CMP.b sprite.type,x 			;$BB94B9
 	BEQ.b CODE_BB94D1			;$BB94BB
 CODE_BB94BD:
 	TXA					;$BB94BD
 	CLC					;$BB94BE
-	ADC.w #$006E				;$BB94BF
+	ADC.w #sizeof(sprite)			;$BB94BF
 	TAX					;$BB94C2
-	CPX.w #$1480				;$BB94C3
+	CPX.w #main_sprite_table_end		;$BB94C3
 	BNE.b CODE_BB94B7			;$BB94C6
 	LDA.b $1A				;$BB94C8
 	CMP.w #$00D0				;$BB94CA
@@ -4032,10 +4032,10 @@ CODE_BB9D41:
 CODE_BB9D44:
 	LDA level_number			;$BB9D44
 	LDY #$005A				;$BB9D46
-	CMP #!Define_DKC3_LevelID_RipsawRage_Main	;$BB9D49
+	CMP #!level_ripsaw_rage			;$BB9D49
 	BEQ CODE_BB9D59				;$BB9D4C
 	LDY #$005C				;$BB9D4E
-	CMP #!Define_DKC3_LevelID_RipsawRage_Bonus1	;$BB9D51
+	CMP #!level_ripsaw_rage_bonus_1		;$BB9D51
 	BEQ CODE_BB9D59				;$BB9D54
 	LDY #$005E				;$BB9D56
 CODE_BB9D59:
@@ -4254,7 +4254,7 @@ CODE_BB9F1F:
 	BNE CODE_BB9F3F				;$BB9F28
 	LDY #DATA_BB9F72			;$BB9F2A
 	LDA level_number			;$BB9F2D
-	CMP #!Define_DKC3_LevelID_SwoopySalvo_Main	;$BB9F2F
+	CMP #!level_swoopy_salvo		;$BB9F2F
 	BEQ CODE_BB9F3F				;$BB9F32
 	LDY #DATA_BB9F7C			;$BB9F34
 	CMP #$0097				;$BB9F37
@@ -4798,7 +4798,7 @@ CODE_BBA32A:
 	STZ $80					;$BBA347
 	STZ parry_index				;$BBA349
 	LDA level_number			;$BBA34B
-	CMP #!Define_DKC3_LevelID_KastleKAOS	;$BBA34D
+	CMP #!level_kastle_kaos			;$BBA34D
 	BEQ CODE_BBA3A3				;$BBA350
 	LDA map_node_number			;$BBA352
 	ORA #$8000				;$BBA355

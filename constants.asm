@@ -373,6 +373,9 @@ includeonce
 !sprite_krool_curtain			= $011C
 !sprite_mama_bird_egg			= $0120
 !sprite_level_end_flagpole		= $0124
+
+
+;This block might be a range
 !sprite_unknown_0128			= $0128
 !sprite_unknown_012C			= $012C
 !sprite_sprite_marker			= $0130
@@ -432,6 +435,8 @@ includeonce
 !sprite_unknown_0208			= $0208
 !sprite_unknown_020C			= $020C
 !sprite_nintendo_presents_kongs		= $0210
+
+
 !sprite_rotating_cylinder_handle	= $0214
 !sprite_rare_logo_kiddy			= $0218
 !sprite_rare_logo_dixie			= $021C

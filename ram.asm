@@ -146,6 +146,7 @@ timestop_timer = $194D
 boss_hit_points = $1B75
 
 
+;Swanky minigame RAM/$1Bxx range looks like is also used by bosses
 swanky_race_to_25_player_score = $1BAF
 swanky_race_to_25_cranky_score = $1BB1
 swanky_minigame_transition_timer = $1BC3

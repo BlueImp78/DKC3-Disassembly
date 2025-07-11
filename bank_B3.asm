@@ -8707,7 +8707,7 @@ CODE_B3DC73:
 	RTS					;$B3DC81
 
 CODE_B3DC82:
-	LDX.w #!RAM_DKC3_Level_SpriteDataRAM	;$B3DC82
+	LDX.w #main_sprite_table		;$B3DC82
 	LDA.w #$0128				;$B3DC85
 	JSL.l CODE_BB85C4			;$B3DC88
 	LDX.w #$08E6				;$B3DC8C

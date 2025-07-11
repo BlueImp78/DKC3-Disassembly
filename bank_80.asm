@@ -140,13 +140,11 @@ CODE_808087:
 CODE_80808A:
 	JMP.w CODE_8087D5			;$80808A
 
-if !Define_DKC3_Global_DisableCopyDetection == !FALSE
 rare_string:
 	db $F4,$92,$72,$EE,$77,$A6,$E7,$8A
 
 piracy_string:
 	db "(c) 1996"
-endif
 
 display_error_message:
 ;$80809D
@@ -177,7 +175,6 @@ RESET_start:
 	CLC					;$8080D6
 	XCE					;$8080D7
 	REP.b #$30				;$8080D8
-if !Define_DKC3_Global_DisableCopyDetection == !FALSE
 	TDC					;$8080DA
 	ADC.w #$FFFF				;$8080DB
 	BEQ.b .anti_piracy_test			;$8080DE
@@ -209,14 +206,12 @@ if !Define_DKC3_Global_DisableCopyDetection == !FALSE
 	BNE.b .prepare_anti_piracy		;$808112
 	DEC					;$808114
 	STA.l sram_base				;$808115
-endif
 	LDY.w #$0011				;$808119
 	LDA.w PPU.status_ppu2			;$80811C
 	AND.w #$0010				;$80811F
 	BNE.b .prepare_message			;$808122
 	BRA.b .final_piracy_test		;$808124
 
-if !Define_DKC3_Global_DisableCopyDetection == !FALSE
 .jmp_test:
 	REP.b #$20				;$808126
 	LDA.w $0001,y				;$808128
@@ -282,7 +277,6 @@ if !Define_DKC3_Global_DisableCopyDetection == !FALSE
 
 .prepare_anti_piracy:
 	LDY.w #$0010				;$80818E
-endif
 .prepare_message:
 	LDA.w #$0000				;$808191
 	TCD					;$808194
@@ -295,7 +289,6 @@ endif
 .final_piracy_test:
 	PHK					;$80819B
 	PLB					;$80819C
-if !Define_DKC3_Global_DisableCopyDetection == !FALSE
 	LDX.w #$0006				;$80819D
 -:
 	LDA.w piracy_string_result,x		;$8081A0
@@ -309,13 +302,11 @@ if !Define_DKC3_Global_DisableCopyDetection == !FALSE
 .prepare_logo:
 	LDA.w #$0000				;$8081AE
 	STA.l sram_base				;$8081B1
-endif
 	LDX.w #stack				;$8081B5
 	TXS					;$8081B8
 	%return(start_engine)
 	%return(clear_VRAM)
 init_registers:
-;$8081C5
 	SEP.b #$30				;$8081C5
 	LDX.b #$00				;$8081C7
 .clear_ppu:
@@ -402,13 +393,10 @@ clear_VRAM:
 	RTS					;$808281
 
 clear_vram_global:
-;$808282
 	JSR.w clear_VRAM			;$808282
 	RTL					;$808285
 
 start_engine:
-;$808286
-if !Define_DKC3_Global_DisableCopyDetection == !FALSE
 	LDX.w #$0006				;$808286
 CODE_808289:
 	LDA.w piracy_string_result,x		;$808289
@@ -419,7 +407,6 @@ CODE_808289:
 	BPL.b CODE_808289			;$808293
 CODE_808295:
 	CPX.w #$8000				;$808295
-endif
 	STZ.b $00				;$808298
 	LDX.w #$0000				;$80829A
 	LDY.w #$0001				;$80829D
@@ -431,7 +418,6 @@ endif
 	MVN $7F,$7E				;$8082AD
 	PHK					;$8082B0
 	PLB					;$8082B1
-if !Define_DKC3_Global_DisableCopyDetection == !FALSE
 	TDC					;$8082B2
 	ROL					;$8082B3
 	STA.w $06AB				;$8082B4
@@ -442,7 +428,6 @@ CODE_8082BA:
 	DEX					;$8082C0
 	DEX					;$8082C1
 	BPL.b CODE_8082BA			;$8082C2
-endif
 	LDA.w #$3127				;$8082C4
 	STA.b $02				;$8082C7
 	STA.b $04				;$8082C9
@@ -495,7 +480,6 @@ CODE_80832B:
 	JMP.w [$0052]				;$80832F
 
 nmi_return:
-;$808332
 	PLY					;$808332
 	PLX					;$808333
 	PLA					;$808334
@@ -4473,40 +4457,24 @@ CODE_80A465:
 	LDX.w #$1C41				;$80A467
 	LDY.b next_oam_slot			;$80A46A
 CODE_80A46C:
-if !Define_DKC3_Global_RemappedBank80 == !TRUE
-	LDA.w $0000,x				;$80A46C
-else
-	LDA.b $00,x				;$80A46F
-endif
-	BEQ.b CODE_80A495			;$80A471
-	STA.b $1A				;$80A473
-	AND.w #$FF00				;$80A475
-	CMP.w #$D400				;$80A478
-	BEQ.b CODE_80A48F			;$80A47B
-if !Define_DKC3_Global_RemappedBank80 == !TRUE
-	LDA.w $0002,x				;$80A47D
-else
-	LDA.b $02,x				;$80A480
-endif
-	PHX					;$80A482
-	TAX					;$80A483
+	LDA.b $00,x				;$80A46C
+	BEQ.b CODE_80A495			;$80A46E
+	STA.b $1A				;$80A470
+	AND.w #$FF00				;$80A472
+	CMP.w #$D400				;$80A475
+	BEQ.b CODE_80A48F			;$80A478
+	LDA.b $02,x				;$80A47A
+	PHX					;$80A47C
+	TAX					;$80A47D
 CODE_80A47E:
-if !Define_DKC3_Global_RemappedBank80 == !TRUE
-	LDA.w $0000,x				;$80A47E
-else
-	LDA.b $00,x				;$80A481
-endif
-	AND.w #$007F				;$80A483
-	JSR.w CODE_80A498			;$80A486
-if !Define_DKC3_Global_RemappedBank80 == !TRUE
-	LDA.w $0000,x				;$80A489
-else
-	LDA.b $00,x				;$80A48C
-endif
-	INX					;$80A48E
-	BIT #$0080				;$80A48F
-	BEQ CODE_80A47E				;$80A492
-	PLX					;$80A494
+	LDA.b $00,x				;$80A47E
+	AND.w #$007F				;$80A480
+	JSR.w CODE_80A498			;$80A483
+	LDA.b $00,x				;$80A486
+	INX					;$80A488
+	BIT #$0080				;$80A489
+	BEQ CODE_80A47E				;$80A48C
+	PLX					;$80A48E
 CODE_80A48F:
 	INX					;$80A48F
 	INX					;$80A490
@@ -4615,26 +4583,18 @@ CODE_80A515:
 CODE_80A52C:
 	STY.b $1A				;$80A52C
 	LDY.b next_oam_slot			;$80A52E
-if !Define_DKC3_Global_RemappedBank80 == !TRUE
-	LDA.w $0000,x				;$80A530
-else
-	LDA.b $00,x				;$80A533
-endif
-	AND.w #$00FF				;$80A535
+	LDA.b $00,x				;$80A530
+	AND.w #$00FF				;$80A532
 CODE_80A535:
 	SEC					;$80A535
 	SBC.w #$0020				;$80A536
 	JSR.w CODE_80A498			;$80A539
 	INX					;$80A53C
-if !Define_DKC3_Global_RemappedBank80 == !TRUE
-	LDA.w $0000,x				;$80A53D
-else
-	LDA.b $00,x				;$80A540
-endif
-	AND.w #$00FF				;$80A542
-	BNE.b CODE_80A535			;$80A545
-	STY.b next_oam_slot			;$80A547
-	RTS					;$80A549
+	LDA.b $00,x				;$80A53D
+	AND.w #$00FF				;$80A53F
+	BNE.b CODE_80A535			;$80A542
+	STY.b next_oam_slot			;$80A544
+	RTS					;$80A546
 
 CODE_80A547:
 	LDA.w $1CAE				;$80A547
@@ -4646,29 +4606,21 @@ CODE_80A547:
 	ADC.b $36				;$80A550
 	STA.b $42				;$80A552
 CODE_80A554:
-if !Define_DKC3_Global_RemappedBank80 == !TRUE
-	LDA.w $0000,x				;$80A554
-else
-	LDA.b $00,x				;$80A557
-endif
-	AND.w #$007F				;$80A559
-	CMP.w #$005F				;$80A55C
-	BNE.b CODE_80A561			;$80A55F
-	LDA.w #$003E				;$80A561
+	LDA.b $00,x				;$80A554
+	AND.w #$007F				;$80A556
+	CMP.w #$005F				;$80A559
+	BNE.b CODE_80A561			;$80A55C
+	LDA.w #$003E				;$80A56E
 CODE_80A561:
 	SEC					;$80A561
 	SBC.w #$0021				;$80A562
 	JSR.w CODE_80A4F8			;$80A565
-if !Define_DKC3_Global_RemappedBank80 == !TRUE
-	LDA.w $0000,x				;$80A568
-else
-	LDA.b $00,x				;$80A56B
-endif
-	AND.w #$00FF				;$80A56D
-	CMP.w #$005E				;$80A570
-	BNE.b CODE_80A578			;$80A573
-	LDY.w #$3400				;$80A575
-	STY.w $1CAE				;$80A578
+	LDA.b $00,x				;$80A568
+	AND.w #$00FF				;$80A56A
+	CMP.w #$005E				;$80A56D
+	BNE.b CODE_80A578			;$80A570
+	LDY.w #$3400				;$80A572
+	STY.w $1CAE				;$80A575
 CODE_80A578:
 	INX					;$80A578
 	BIT.w #$0080				;$80A579

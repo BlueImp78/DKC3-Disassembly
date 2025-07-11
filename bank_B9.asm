@@ -1742,7 +1742,7 @@ CODE_B9AB2F:
 	LDX.w $18DF				;$B9AB2F
 	BEQ.b CODE_B9AB3D			;$B9AB32
 	LDA.b $00,x				;$B9AB34
-	CMP.w #$028C				;$B9AB36
+	CMP.w #!sprite_bonus_coin		;$B9AB36
 	BNE.b CODE_B9AB3D			;$B9AB39
 	CLC					;$B9AB3B
 	RTS					;$B9AB3C
@@ -3400,6 +3400,8 @@ CODE_B9B6DC:
 	ADC.w $0040,y				;$B9B6E3
 	RTS					;$B9B6E6
 
+
+;Graphic ID's? Referenced by animal buddy box and floor door
 DATA_B9B6E7:
 	dw $8005
 	dw $2738
