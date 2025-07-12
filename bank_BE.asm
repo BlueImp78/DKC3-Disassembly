@@ -1,82 +1,81 @@
 CODE_BEC000:
-	JMP.w CODE_BEC1B1			;$BEC000
+	JMP CODE_BEC1B1				;$BEC000
 
 CODE_BEC003:
-	JMP.w CODE_BEC25E			;$BEC003
+	JMP CODE_BEC25E				;$BEC003
 
-;check throwable collision
-CODE_BEC006:
-	JMP.w CODE_BEC2A3			;$BEC006
+check_throwable_collision:
+	JMP check_throwable_collision_direct	;$BEC006
 
 ;check complex player collision?
 CODE_BEC009:
-	JMP.w CODE_BEC2F9			;$BEC009
+	JMP CODE_BEC2F9				;$BEC009
 
 CODE_BEC00C:
-	JMP.w CODE_BEC2FA			;$BEC00C
+	JMP CODE_BEC2FA				;$BEC00C
 
 CODE_BEC00F:
-	JMP.w CODE_BEC122			;$BEC00F
+	JMP CODE_BEC122				;$BEC00F
 
 CODE_BEC012:
-	JMP.w CODE_BEC176			;$BEC012
+	JMP CODE_BEC176				;$BEC012
 
 CODE_BEC015:
-	JMP.w CODE_BEC237			;$BEC015
+	JMP CODE_BEC237				;$BEC015
 
 CODE_BEC018:
-	JMP.w CODE_BEC04E			;$BEC018
+	JMP CODE_BEC04E				;$BEC018
 
 CODE_BEC01B:
-	JMP.w CODE_BEC05C			;$BEC01B
+	JMP CODE_BEC05C				;$BEC01B
 
 CODE_BEC01E:
-	JMP.w CODE_BEC062			;$BEC01E
+	JMP CODE_BEC062				;$BEC01E
 
 CODE_BEC021:
-	JMP.w CODE_BEC1E0			;$BEC021
+	JMP CODE_BEC1E0				;$BEC021
 
 CODE_BEC024:
-	JMP.w CODE_BEC2FB			;$BEC024
+	JMP CODE_BEC2FB				;$BEC024
 
 CODE_BEC027:
-	JMP.w CODE_BEC379			;$BEC027
+	JMP CODE_BEC379				;$BEC027
 
 CODE_BEC02A:
-	JMP.w CODE_BEC161			;$BEC02A
+	JMP CODE_BEC161				;$BEC02A
 
 CODE_BEC02D:
-	JMP.w CODE_BEDBB8			;$BEC02D
+	JMP CODE_BEDBB8				;$BEC02D
 
 CODE_BEC030:
-	JMP.w CODE_BEDAF7			;$BEC030
+	JMP CODE_BEDAF7				;$BEC030
 
 CODE_BEC033:
-	JMP.w CODE_BEDB73			;$BEC033
+	JMP CODE_BEDB73				;$BEC033
 
 CODE_BEC036:
-	JMP.w CODE_BED903			;$BEC036
+	JMP CODE_BED903				;$BEC036
 
 CODE_BEC039:
-	JMP.w CODE_BEDB1B			;$BEC039
+	JMP CODE_BEDB1B				;$BEC039
 
 CODE_BEC03C:
-	JMP.w CODE_BEDB37			;$BEC03C
+	JMP CODE_BEDB37				;$BEC03C
 
 CODE_BEC03F:
-	JMP.w CODE_BEDB53			;$BEC03F
+	JMP CODE_BEDB53				;$BEC03F
 
 CODE_BEC042:
-	JMP.w CODE_BEC0CB			;$BEC042
+	JMP CODE_BEC0CB				;$BEC042
 
 CODE_BEC045:
-	JMP.w CODE_BECDAD			;$BEC045
+	JMP CODE_BECDAD				;$BEC045
 
 CODE_BEC048:
-	JMP.w CODE_BEE919			;$BEC048
+	JMP CODE_BEE919				;$BEC048
 
 CODE_BEC04B:
-	JMP.w CODE_BEC2DD			;$BEC04B
+	JMP CODE_BEC2DD				;$BEC04B
 
 ;This is probably checking for a sprite range
 CODE_BEC04E:
@@ -403,7 +402,7 @@ CODE_BEC29E:
 	LDY.b $78				;$BEC2A0
 	RTL					;$BEC2A2
 
-CODE_BEC2A3:
+check_throwable_collision_direct:
 	STA.b $40				;$BEC2A3
 	LDX.b current_sprite			;$BEC2A5
 	LDA.b $3C,x				;$BEC2A7
@@ -1303,7 +1302,7 @@ barrel_shield_main:
 .state_2:
 	LDX.b $6C,y				;$BEC8BD  \
 	BNE.b ..return				;$BEC8BF   |
-	JSL.l CODE_BB8591			;$BEC8C1  /
+	JSL.l delete_sprite_handle_deallocation	;$BEC8C1  /
 ..return:
 	JML [$04F5]				;$BEC8C5  |>
 
@@ -1311,7 +1310,7 @@ barrel_shield_main:
 barrel_icons_main:
 	LDA $004A,y				;$BEC8C8  \
 	BNE .CODE_BEC8D4			;$BEC8CB   |
-	JSL CODE_BB8591				;$BEC8CD   |
+	JSL delete_sprite_handle_deallocation	;$BEC8CD   |
 	JMP [$04F5]				;$BEC8D1  /
 
 .CODE_BEC8D4:
@@ -1347,7 +1346,7 @@ CODE_BEC8FD:
 	LDA.w $001C,y				;$BEC905
 	CMP.w $05B7				;$BEC908
 	BEQ.b CODE_BEC914			;$BEC90B
-	JSL.l CODE_BB8591			;$BEC90D
+	JSL.l delete_sprite_handle_deallocation	;$BEC90D
 	JML [$04F5]				;$BEC911
 
 CODE_BEC914:
@@ -1365,7 +1364,7 @@ CODE_BEC914:
 	ADC.w #$0230				;$BEC92B
 	CMP.b current_animal_type		;$BEC92E
 	BNE.b CODE_BEC939			;$BEC930
-	JSL.l CODE_BB8591			;$BEC932
+	JSL.l delete_sprite_handle_deallocation	;$BEC932
 	JML [$04F5]				;$BEC936
 
 CODE_BEC939:
@@ -1645,7 +1644,7 @@ CODE_BECB5E:
 CODE_BECB61:
 	JSR.w CODE_BECF85			;$BECB61
 	TYX					;$BECB64
-	LDA.b $00				;$BECB65
+	LDA.b active_frame_counter		;$BECB65
 	LSR					;$BECB67
 	BCS.b CODE_BECB76			;$BECB68
 	DEC.b $42,x				;$BECB6A
@@ -2575,7 +2574,7 @@ kaos_head_explosion_spawner_main:
 	BPL.b CODE_BED1DC			;$BED1D2
 	DEC.b $62,x				;$BED1D4
 	BNE.b CODE_BED1DF			;$BED1D6
-	JSL.l CODE_BB8591			;$BED1D8
+	JSL.l delete_sprite_handle_deallocation	;$BED1D8
 CODE_BED1DC:
 	JML [$04F5]				;$BED1DC
 
@@ -2727,7 +2726,7 @@ CODE_BED2F7:
 
 
 dk_barrel_main:
-	JMP.w (.state_table,x)			;$BED2FE
+	JMP (.state_table,x)			;$BED2FE
 
 .state_table:
 	dw .state_0
@@ -2748,7 +2747,6 @@ dk_barrel_main:
 	JMP CODE_BEE182				;$BED323  / Return and handle despawn
 
 unknown_sprite_02CC_main:
-;$BED326
 	JSR.w CODE_BED907			;$BED326
 	BCS.b CODE_BED33C			;$BED329
 	JMP.w (DATA_BED32E,x)			;$BED32B
@@ -2804,7 +2802,6 @@ CODE_BED36D:
 	JML [$04F5]				;$BED397
 
 barrel_main:
-;$BED39A
 	JSR.w CODE_BED907			;$BED39A
 	BCS.b CODE_BED3A2			;$BED39D
 	JMP.w (DATA_BED3A5,x)			;$BED39F
@@ -3015,7 +3012,6 @@ CODE_BED52D:
 	JML [$04F5]				;$BED555
 
 tnt_barrel_main:
-;$BED558
 	JSR.w CODE_BED907			;$BED558
 	BCS.b CODE_BED570			;$BED55B
 	JMP.w (DATA_BED560,x)			;$BED55D
@@ -3158,7 +3154,6 @@ CODE_BED664:
 	JML [$04F5]				;$BED688
 
 steel_keg_main:
-;$BED68B
 	JSR.w CODE_BED907			;$BED68B
 	BCS.b CODE_BED6A9			;$BED68E
 	JMP.w (DATA_BED693,x)			;$BED690
@@ -3568,7 +3563,6 @@ CODE_BED9B5:
 	RTS					;$BED9B5
 
 wooden_box_main:
-;$BED9B6
 	JSR.w CODE_BED907			;$BED9B6
 	BCS.b CODE_BED9D0			;$BED9B9
 	JMP.w (DATA_BED9BE,x)			;$BED9BB
@@ -4022,7 +4016,7 @@ CODE_BEDD30:
 
 CODE_BEDD39:
 	TAY					;$BEDD39
-	LDA.b $00				;$BEDD3A
+	LDA.b active_frame_counter		;$BEDD3A
 	LSR					;$BEDD3C
 	BCS.b CODE_BEDD4E			;$BEDD3D
 	CPY.w #$0006				;$BEDD3F
@@ -4050,7 +4044,6 @@ CODE_BEDD5C:
 	RTS					;$BEDD60
 
 rocket_main:
-;$BEDD61
 	JMP.w (DATA_BEDD64,x)			;$BEDD61
 
 DATA_BEDD64:
@@ -4068,7 +4061,7 @@ CODE_BEDD76:
 	LDA.w $005C,y				;$BEDD76
 	CMP.w $05B7				;$BEDD79
 	BEQ.b CODE_BEDD85			;$BEDD7C
-	JSL.l CODE_BB8591			;$BEDD7E
+	JSL.l delete_sprite_handle_deallocation	;$BEDD7E
 	JML [$04F5]				;$BEDD82
 
 CODE_BEDD85:
@@ -4273,7 +4266,6 @@ CODE_BEDEF7:
 	RTS					;$BEDF22
 
 unknown_sprite_005C_main:
-;$BEDF23
 	LDX.b $5C,y				;$BEDF23
 	LDA.w $001E,y				;$BEDF25
 	AND.w #$4000				;$BEDF28
@@ -4313,7 +4305,6 @@ CODE_BEDF6F:
 	JML [$04F5]				;$BEDF6F
 
 rocket_flame_main:
-;$BEDF72
 	JMP.w (DATA_BEDF75,x)			;$BEDF72
 
 DATA_BEDF75:
@@ -4453,7 +4444,6 @@ CODE_BEE080:
 	RTS					;$BEE085
 
 rocket_eyes_main:
-;$BEE086
 	LDY.b current_sprite			;$BEE086
 	LDX.b $5C,y				;$BEE088
 	JSR.w CODE_BEE05D			;$BEE08A
@@ -4510,7 +4500,6 @@ DATA_BEE0CD:
 	dw $0028
 
 fuel_can_main:
-;$BEE0E3
 	LDA.w $0039,y				;$BEE0E3
 	AND.w #$00FF				;$BEE0E6
 	ASL					;$BEE0E9
@@ -4556,7 +4545,7 @@ CODE_BEE125:
 	LDY.b current_sprite			;$BEE125
 	LDX.b $4A,y				;$BEE127
 	JSL.l CODE_BB85E8			;$BEE129
-	JSL.l CODE_BB8591			;$BEE12D
+	JSL.l delete_sprite_handle_deallocation	;$BEE12D
 	INC.b $00,x				;$BEE131
 	JSL.l CODE_BEDAF7			;$BEE133
 	LDX.b current_sprite			;$BEE137
@@ -4588,11 +4577,10 @@ CODE_BEE16A:
 	STA.w $18EB				;$BEE16A
 	LDA.w #$0767				;$BEE16D
 	JSL.l CODE_B28012			;$BEE170
-	JSL.l CODE_BB8591			;$BEE174
+	JSL.l delete_sprite_handle_deallocation	;$BEE174
 	JML [$04F5]				;$BEE178
 
 kong_water_splash_main:
-;$BEE17B
 	JSL.l process_sprite_animation		;$BEE17B
 	JML [$04F5]				;$BEE17F
 
@@ -4601,7 +4589,6 @@ CODE_BEE182:
 	JML [$04F5]				;$BEE186
 
 vertical_autoscroll_main:
-;$BEE189
 	JMP.w (DATA_BEE18C,x)			;$BEE189
 
 DATA_BEE18C:
@@ -4765,7 +4752,6 @@ DATA_BEE2BD:
 	dw $0000
 
 waterfall_barrel_spawner_main:
-;$BEE2C7
 	JMP.w (DATA_BEE2CA,x)			;$BEE2C7
 
 DATA_BEE2CA:
@@ -5117,7 +5103,6 @@ CODE_BEE58B:
 	RTS					;$BEE58B
 
 waterfall_barrel_main:
-;$BEE58C
 	JMP.w (DATA_BEE58F,x)			;$BEE58C
 
 DATA_BEE58F:
@@ -5165,7 +5150,7 @@ CODE_BEE5DC:
 	TYX					;$BEE5EE
 	STZ.b $26,x				;$BEE5EF
 	JSL.l CODE_BEDAF7			;$BEE5F1
-	JSL.l CODE_BB8591			;$BEE5F5
+	JSL.l delete_sprite_handle_deallocation	;$BEE5F5
 	JML [$04F5]				;$BEE5F9
 
 CODE_BEE5FC:
@@ -5173,7 +5158,7 @@ CODE_BEE5FC:
 	LDX.b $5C,y				;$BEE5FE
 	LDA.w #$0000				;$BEE600
 	STA.l $7E9908,x				;$BEE603
-	JSL.l CODE_BB8591			;$BEE607
+	JSL.l delete_sprite_handle_deallocation	;$BEE607
 	JML [$04F5]				;$BEE60B
 
 CODE_BEE60E:
@@ -5212,7 +5197,6 @@ CODE_BEE64D:
 	RTS					;$BEE64E
 
 barrel_respawner_main:
-;$BEE64F
 	JMP.w (DATA_BEE652,x)			;$BEE64F
 
 DATA_BEE652:
@@ -5407,7 +5391,7 @@ CODE_BEE7A1:
 	LDA.w $005E,y				;$BEE7B0
 	CMP.w #$0100				;$BEE7B3
 	BCC.b CODE_BEE7C2			;$BEE7B6
-	LDA.b $00				;$BEE7B8
+	LDA.b active_frame_counter		;$BEE7B8
 	AND.w #$000F				;$BEE7BA
 	CMP.w #$0006				;$BEE7BD
 	BCC.b CODE_BEE7CB			;$BEE7C0
@@ -5481,7 +5465,6 @@ CODE_BEE83D:
 	JML.l CODE_B28018			;$BEE840
 
 unknown_sprite_0174_main:
-;$BEE844
 	LDA.w $0060,y				;$BEE844
 	BEQ.b CODE_BEE855			;$BEE847
 	STA.b $1A				;$BEE849

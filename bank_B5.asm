@@ -115,7 +115,7 @@ CODE_B58087:
 	JSR.w CODE_B58120			;$B580A3
 	CLC					;$B580A6
 	JSR.w CODE_B5817C			;$B580A7
-	JSL.l CODE_BB8591			;$B580AA
+	JSL.l delete_sprite_handle_deallocation	;$B580AA
 	BRA.b CODE_B580B3			;$B580AE
 
 CODE_B580B0:
@@ -706,7 +706,6 @@ CODE_B584F5:
 	RTS					;$B584F5
 
 timer_digit_main:
-;$B584F6
 	JML [$04F5]				;$B584F6
 
 CODE_B584F9:
@@ -2087,7 +2086,6 @@ CODE_B58F9E:
 	RTS					;$B58FBC
 
 swanky_minigame_kong_main:
-;$B58FBD
 	JMP.w (DATA_B58FC0,x)			;$B58FBD
 
 DATA_B58FC0:
@@ -2293,7 +2291,6 @@ CODE_B59112:
 	RTS					;$B59123
 
 arich_head_main:
-;$B59124
 	JMP.w (DATA_B59127,x)			;$B59124
 
 DATA_B59127:
@@ -2773,7 +2770,7 @@ DATA_B59516:
 
 CODE_B59526:
 	LDA.w #$0038				;$B59526
-	JSL.l CODE_BEC006			;$B59529
+	JSL.l check_throwable_collision		;$B59529
 	BCS.b CODE_B5954F			;$B5952D
 	JSL.l populate_sprite_clipping		;$B5952F
 	LDY.w active_kong_sprite		;$B59533
@@ -3137,7 +3134,7 @@ CODE_B597DA:
 	RTS					;$B597EB
 
 CODE_B597EC:
-	LDA.b $00				;$B597EC
+	LDA.b active_frame_counter		;$B597EC
 	LSR					;$B597EE
 	LSR					;$B597EF
 	LSR					;$B597F0
@@ -3335,7 +3332,6 @@ CODE_B5994F:
 	RTS					;$B5995F
 
 arich_pupil_main:
-;$B59960
 	TYX					;$B59960
 	LDY.w #$0006				;$B59961
 	LDA.b $1E,x				;$B59964
@@ -3441,7 +3437,6 @@ DATA_B59AC3:
 	db $00,$D2,$E1,$F0,$FF
 
 bleak_main:
-;$B59AC8
 	PHY					;$B59AC8
 	PHX					;$B59AC9
 	JSR.w CODE_B5A38B			;$B59ACA
@@ -4255,7 +4250,6 @@ DATA_B5A16A:
 	dw $0000,$0010,$0000,$0010,$0010,$0000,$0000
 
 bleak_snowball_main:
-;$B5A178
 	JSL.l CODE_B9E000			;$B5A178
 	LDA.b $16,x				;$B5A17C
 	CMP.w #$01F0				;$B5A17E
@@ -4266,7 +4260,6 @@ CODE_B5A186:
 	JMP.w CODE_B5F164			;$B5A186
 
 bleak_fight_kong_main:
-;$B5A189
 	JMP.w (DATA_B5A18C,x)			;$B5A189
 
 DATA_B5A18C:
@@ -4354,7 +4347,7 @@ CODE_B5A218:
 	BNE.b CODE_B5A26A			;$B5A21D
 	LDA.w #$0100				;$B5A21F
 	TSB.w $05AF				;$B5A222
-	DEC.b $00				;$B5A225
+	DEC.b active_frame_counter		;$B5A225
 	LDA.w #$0002				;$B5A227
 	STA.w timestop_timer			;$B5A22A
 	INC.b $4C,x				;$B5A22D
@@ -4454,7 +4447,6 @@ CODE_B5A2CC:
 	RTS					;$B5A2E2
 
 unknown_sprite_03E8_main:
-;$B5A2E3
 	LDY.w $1BB9				;$B5A2E3
 	JSL.l CODE_BEC003			;$B5A2E6
 	BCC.b CODE_B5A341			;$B5A2EA
@@ -4488,7 +4480,7 @@ CODE_B5A31D:
 	CLC					;$B5A32A
 	ADC.w #$0195				;$B5A32B
 	JSL.l set_alt_sprite_animation		;$B5A32E
-	JSL.l CODE_BB8591			;$B5A332
+	JSL.l delete_sprite_handle_deallocation	;$B5A332
 	LDA.w #$060C				;$B5A336
 	JSL.l CODE_B28012			;$B5A339
 	JSL.l CODE_BEC030			;$B5A33D
@@ -4496,12 +4488,11 @@ CODE_B5A341:
 	JMP.w CODE_B5F164			;$B5A341
 
 bleak_fight_cursor_main:
-;$B5A344
-	LDA.w $1B6F				;$B5A344  \
+	LDA $1B6F				;$B5A344  \
 	ASL					;$B5A347   |
 	TAX					;$B5A348   |
-	LDA.w .screen_y_positions,x		;$B5A349   |
-	STA.w $0016,y				;$B5A34C   |
+	LDA .screen_y_positions,x		;$B5A349   |
+	STA.w sprite.y_position,y		;$B5A34C   |
 	JML [$04F5]				;$B5A34F  /
 
 .screen_y_positions:
@@ -4509,7 +4500,6 @@ bleak_fight_cursor_main:
 	dw $016C
 
 thrown_snowball_main:
-;$B5A356
 	JSL.l CODE_B9E000			;$B5A356
 	LDA.b $2E,x				;$B5A35A
 	BMI.b CODE_B5A368			;$B5A35C
@@ -4528,7 +4518,7 @@ CODE_B5A38B:
 	LDX.b current_sprite			;$B5A38B
 	LDA.b $4C,x				;$B5A38D
 	BNE.b CODE_B5A3AA			;$B5A38F
-	LDA.b $00				;$B5A391
+	LDA.b active_frame_counter		;$B5A391
 	ASL					;$B5A393
 	ASL					;$B5A394
 	AND.w #$003F				;$B5A395
@@ -4747,7 +4737,6 @@ DATA_B5A4F9:
 
 
 barbos_main:
-;$B5A511
 	LDA.w timestop_flags			;$B5A511
 	BIT.w #$0004				;$B5A514
 	BNE.b CODE_B5A548			;$B5A517
@@ -5737,7 +5726,6 @@ CODE_B5ACD1:
 	RTS					;$B5ACF6
 
 barbos_eye_main:
-;$B5ACF7
 	JMP.w (DATA_B5ACFA,x)			;$B5ACF7
 
 DATA_B5ACFA:
@@ -5871,7 +5859,6 @@ DATA_B5ADD7:
 	dw $0398
 
 barbos_pupil_main:
-;$B5ADE9
 	JMP.w (DATA_B5ADEC,x)			;$B5ADE9
 
 DATA_B5ADEC:
@@ -6107,7 +6094,6 @@ DATA_B5AFAF:
 	db $02,$00,$02,$01,$02,$02,$02,$03,$00,$04,$01,$04,$02,$04,$02,$03
 
 purple_lurchin_main:
-;$B5AFBF
 	JMP.w (DATA_B5AFC2,x)			;$B5AFBF
 
 DATA_B5AFC2:
@@ -6336,7 +6322,6 @@ CODE_B5B188:
 	RTS					;$B5B193
 
 barbos_green_lurchin_main:
-;$B5B194
 	JMP.w (DATA_B5B197,x)			;$B5B194
 
 DATA_B5B197:
@@ -6406,7 +6391,7 @@ CODE_B5B213:
 	LDA.w $0016,y				;$B5B213
 	CMP.w #$0200				;$B5B216
 	BCS.b CODE_B5B222			;$B5B219
-	JSL.l CODE_BB8591			;$B5B21B
+	JSL.l delete_sprite_handle_deallocation	;$B5B21B
 	JML [$04F5]				;$B5B21F
 
 CODE_B5B222:
@@ -6432,7 +6417,7 @@ CODE_B5B241:
 	CMP.w #$0300				;$B5B249
 	BCC.b CODE_B5B255			;$B5B24C
 CODE_B5B24E:
-	JSL.l CODE_BB8591			;$B5B24E
+	JSL.l delete_sprite_handle_deallocation	;$B5B24E
 	JML [$04F5]				;$B5B252
 
 CODE_B5B255:
@@ -6672,7 +6657,6 @@ CODE_B5B425:
 	RTS					;$B5B42D
 
 barbos_spike_projectile_main:
-;$B5B42E
 	JMP.w (DATA_B5B431,x)			;$B5B42E
 
 DATA_B5B431:
@@ -6695,12 +6679,11 @@ CODE_B5B440:
 	JSL.l CODE_B9E000			;$B5B451
 	JSL.l CODE_B68051			;$B5B455
 	BCC.b CODE_B5B45F			;$B5B459
-	JSL.l CODE_BB8591			;$B5B45B
+	JSL.l delete_sprite_handle_deallocation	;$B5B45B
 CODE_B5B45F:
 	JML [$04F5]				;$B5B45F
 
 seashell_missle_main:
-;$B5B462
 	JMP.w (DATA_B5B465,x)			;$B5B462
 
 DATA_B5B465:
@@ -7023,7 +7006,7 @@ CODE_B5B6D8:
 	CMP.w #$0340				;$B5B6F5
 	BCC.b CODE_B5B701			;$B5B6F8
 CODE_B5B6FA:
-	JSL.l CODE_BB8591			;$B5B6FA
+	JSL.l delete_sprite_handle_deallocation	;$B5B6FA
 	JML [$04F5]				;$B5B6FE
 
 CODE_B5B701:
@@ -7456,7 +7439,6 @@ DATA_B5BA9F:
 	dw $0012,$000F,$000F,$000B,$0007
 
 kaos_main:
-;$B5BAA9
 	LDA.w timestop_flags			;$B5BAA9
 	BIT.w #$0004				;$B5BAAC
 	BNE.b CODE_B5BB10			;$B5BAAF
@@ -9189,7 +9171,6 @@ CODE_B5C7CC:
 	JMP.w CODE_B5C6AB			;$B5C7E0
 
 kaos_laser_head_main:
-;$B5C7E3
 	JSR.w CODE_B5CACF			;$B5C7E3
 	JMP.w (DATA_B5C7E9,x)			;$B5C7E6
 
@@ -9776,7 +9757,6 @@ CODE_B5CC64:
 	RTS					;$B5CC64
 
 kaos_skull_head_main:
-;$B5CC65
 	JMP.w (DATA_B5CC68,x)			;$B5CC65
 
 DATA_B5CC68:
@@ -9987,7 +9967,7 @@ CODE_B5CE02:
 	CMP.w #!level_kaos_karnage		;$B5CE04
 	BEQ.b CODE_B5CE14			;$B5CE07
 	LDA.w #$0038				;$B5CE09
-	JSL.l CODE_BEC006			;$B5CE0C
+	JSL.l check_throwable_collision		;$B5CE0C
 	BCS.b CODE_B5CE27			;$B5CE10
 	BRA.b CODE_B5CE26			;$B5CE12
 
@@ -10078,7 +10058,6 @@ CODE_B5CEA0:
 	RTS					;$B5CEAF
 
 kaos_cylinder_head_main:
-;$B5CEB0
 	JMP.w (DATA_B5CEB3,x)			;$B5CEB0
 
 DATA_B5CEB3:
@@ -10208,7 +10187,7 @@ CODE_B5CFA2:
 
 CODE_B5CFAB:
 	LDA.w #$0038				;$B5CFAB
-	JSL.l CODE_BEC006			;$B5CFAE
+	JSL.l check_throwable_collision		;$B5CFAE
 	BCS.b CODE_B5CFB5			;$B5CFB2
 	RTS					;$B5CFB4
 
@@ -10353,7 +10332,6 @@ DATA_B5D1F3:
 	db $08,$32,$1E,$30,$01,$D0,$02,$00,$02,$68,$01,$8C,$01
 
 krool_main:
-;$B5D210
 	NOP #4					;$B5D210
 	LDA.w $0016,y				;$B5D214
 	SEC					;$B5D217
@@ -11996,7 +11974,7 @@ CODE_B5DEB7:
 	STA.w $17C8				;$B5DF1B
 CODE_B5DF1E:
 	LDA.w #$0018				;$B5DF1E
-	JSL.l CODE_BEC006			;$B5DF21
+	JSL.l check_throwable_collision		;$B5DF21
 	BCC.b CODE_B5DF6E			;$B5DF25
 	LDA.w #$0476				;$B5DF27
 	JSL.l CODE_B28012			;$B5DF2A
@@ -12237,7 +12215,7 @@ CODE_B5E0E6:
 	STX.b current_sprite			;$B5E13F
 CODE_B5E141:
 	LDA.w #$0018				;$B5E141
-	JSL.l CODE_BEC006			;$B5E144
+	JSL.l check_throwable_collision		;$B5E144
 	BCS.b CODE_B5E14D			;$B5E148
 	JMP.w CODE_B5E1DD			;$B5E14A
 
@@ -14212,7 +14190,7 @@ CODE_B5F164:
 	JML [$04F5]				;$B5F168
 
 CODE_B5F16B:
-	JSL.l CODE_BB8591			;$B5F16B
+	JSL.l delete_sprite_handle_deallocation	;$B5F16B
 	JML [$04F5]				;$B5F16F
 
 CODE_B5F172:
@@ -14761,7 +14739,7 @@ CODE_B5F502:
 	LDA.w $005C,y				;$B5F505
 	STA.w $1BBF				;$B5F508
 CODE_B5F50B:
-	JSL.l CODE_BB8591			;$B5F50B
+	JSL.l delete_sprite_handle_deallocation	;$B5F50B
 	PLB					;$B5F50F
 	RTL					;$B5F510
 
@@ -14944,7 +14922,7 @@ CODE_B5F676:
 	TYX					;$B5F676
 	LDA.b $62,x				;$B5F677
 	STA.w $1BBF				;$B5F679
-	JSL.l CODE_BB8591			;$B5F67C
+	JSL.l delete_sprite_handle_deallocation	;$B5F67C
 	RTL					;$B5F680
 
 CODE_B5F681:
@@ -15537,7 +15515,7 @@ CODE_B5FB18:
 	BCC.b CODE_B5FB28			;$B5FB1F
 	TYX					;$B5FB21
 	INC.b $3C,x				;$B5FB22
-	JSL.l CODE_BB8591			;$B5FB24
+	JSL.l delete_sprite_handle_deallocation	;$B5FB24
 CODE_B5FB28:
 	RTL					;$B5FB28
 

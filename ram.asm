@@ -5,6 +5,47 @@ active_frame_counter = $00
 spc_transaction = $06
 current_song = $08
 
+temp_1A = $1A
+temp_1B = $1B
+temp_1C = $1C
+temp_1D = $1D
+temp_1E = $1E
+temp_1F = $1F
+temp_20 = $20
+temp_21 = $21
+temp_22 = $22
+temp_23 = $23
+temp_24 = $24
+temp_25 = $25
+temp_26 = $26
+temp_27 = $27
+temp_28 = $28
+temp_29 = $29
+temp_2A = $2A
+temp_2B = $2B
+temp_2C = $2C
+temp_2D = $2D
+temp_2E = $2E
+temp_2F = $2F
+temp_30 = $30
+temp_31 = $31
+temp_32 = $32
+temp_33 = $33
+temp_34 = $34
+temp_35 = $35
+temp_36 = $36
+temp_37 = $37
+temp_38 = $38
+temp_39 = $39
+temp_3A = $3A
+temp_3B = $3B
+temp_3C = $3C
+temp_3D = $3D
+temp_3E = $3E
+temp_3F = $3F
+temp_40 = $40
+
+
 NMI_pointer = $4A
 
 ;game_logic_pointer = $58
@@ -15,7 +56,9 @@ sprite_constants_bank = $6B
 
 current_sprite = $70
 current_kong_control_variables = $72
+alternate_kong_control_variables = $74
 alternate_sprite = $76
+current_colliding_sprite = $78
 parry_index = $7A
 current_mount = $7C
 current_animal_type = $7E
@@ -86,7 +129,7 @@ kong_letter_flags = $05D7
 
 current_world = $05E5
 map_node_number = $05E7
-current_boat = $05EB
+current_map_vehicle = $05EB
 inventory_flags = $0609
 bazaar_store_products_flags = $0615
 
@@ -99,10 +142,16 @@ banana_bird_cave_flags = $0635
 piracy_string_result = $06A3
 intro_cutscene_flags = $06AB
 
+
 language_select = $06D6
 
 
+sprite_vram_allocation_table = $06D8
+active_sprite_palettes_table = $073C
+sprite_palette_reference_count = $074C
+
 palette_upload_ring_buffer = $06FC
+
 
 
 aux_sprite_table = $080A

@@ -167,7 +167,7 @@ includeonce
 !level_squirts_showdown 		= $001F
 !level_kaos_karnage             	= $0020
 !level_bleaks_house			= $0021
-!level_barbos_barrier           	= $0022
+!level_barbos_barrier			= $0022
 !level_kastle_kaos			= $0023
 !level_knautilus			= $0024
 !level_lakeside_limbo			= $0025
@@ -620,6 +620,12 @@ includeonce
 
 !animal_sprite_type_range_start         = $0234
 !animal_sprite_type_range_end		= $0240
+
+
+!vehicle_motorboat			= $0000
+!vehicle_hovercraft			= $0001
+!vehicle_turbo_ski			= $0002
+!vehicle_gyrocopter			= $0003
 
 
 !gamemode_1_player = $0000

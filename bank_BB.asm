@@ -493,8 +493,8 @@ CODE_BB858B:
 CODE_BB858E:
 	JMP CODE_BB8FF1				;$BB858E
 
-CODE_BB8591:
-	JMP CODE_BB9482				;$BB8591
+delete_sprite_handle_deallocation:
+	JMP delete_sprite_handle_dealloc_direct	;$BB8591
 
 CODE_BB8594:
 	JMP CODE_BB9497				;$BB8594
@@ -506,7 +506,7 @@ CODE_BB859A:
 	JMP request_palette_direct_global	;$BB859A
 
 CODE_BB859D:
-	JMP CODE_BB9722				;$BB859D
+	JMP dereference_sprite_palette_global	;$BB859D
 
 CODE_BB85A0:
 	JMP CODE_BB9785				;$BB85A0
@@ -541,8 +541,8 @@ CODE_BB85BB:
 CODE_BB85BE:
 	JMP CODE_BBADD9				;$BB85BE
 
-CODE_BB85C1:
-	JMP sprite_handler			;$BB85C1
+sprite_handler:
+	JMP sprite_handler_direct		;$BB85C1
 
 CODE_BB85C4:
 	JMP CODE_BBB880				;$BB85C4
@@ -569,7 +569,7 @@ CODE_BB85D9:
 	JMP CODE_BB9592				;$BB85D9
 
 CODE_BB85DC:
-	JMP CODE_BB9722				;$BB85DC
+	JMP dereference_sprite_palette_global	;$BB85DC
 
 CODE_BB85DF:
 	JMP CODE_BB8A6F				;$BB85DF
@@ -584,7 +584,7 @@ CODE_BB85E8:
 	JMP CODE_BB9474				;$BB85E8
 
 CODE_BB85EB:
-	JMP CODE_BB9573				;$BB85EB
+	JMP deallocate_sprite_vram_slot_global	;$BB85EB
 
 CODE_BB85EE:
 	JMP CODE_BB9503				;$BB85EE
@@ -2120,10 +2120,10 @@ CODE_BB8F8B:
 	LDX #main_sprite_table			;$BB8F8B
 	CLC					;$BB8F8E
 CODE_BB8F8F:
-	LDA.b DKC3_Level_SpriteDataRAM[$00].SpriteIDLo,x	;$BB8F8F
+	LDA sprite.type,x 			;$BB8F8F
 	BEQ CODE_BB8FA1				;$BB8F91
 	TXA					;$BB8F93
-	ADC #$006E				;$BB8F94
+	ADC #sizeof(sprite)			;$BB8F94
 	TAX					;$BB8F97
 	CPX #main_sprite_table_end		;$BB8F98
 	BCC CODE_BB8F8F				;$BB8F9B
@@ -2573,11 +2573,11 @@ CODE_BB9244:
 	BRA.b CODE_BB9288			;$BB9283
 
 CODE_BB9285:
-	JSR.w CODE_BB9577			;$BB9285
+	JSR.w deallocate_sprite_vram_slot	;$BB9285
 CODE_BB9288:
 	LDX.b alternate_sprite			;$BB9288
 	LDA.b $1E,x				;$BB928A
-	JSR.w CODE_BB9726			;$BB928C
+	JSR.w dereference_sprite_palette	;$BB928C
 	BCS.b CODE_BB9299			;$BB928F
 	LDA.b $E8				;$BB9291
 	DEC					;$BB9293
@@ -2836,90 +2836,90 @@ CODE_BB9463:
 	JMP.w initscript_next			;$BB9471
 
 CODE_BB9474:
-	LDA.b current_sprite			;$BB9474
+	LDA current_sprite			;$BB9474
 	PHA					;$BB9476
-	STX.b current_sprite			;$BB9477
-	JSL.l CODE_BB9482			;$BB9479
+	STX current_sprite			;$BB9477
+	JSL delete_sprite_handle_dealloc_direct	;$BB9479
 	PLA					;$BB947D
-	STA.b current_sprite			;$BB947E
+	STA current_sprite			;$BB947E
 	TAX					;$BB9480
 	RTL					;$BB9481
 
-CODE_BB9482:
-	LDX.b current_sprite			;$BB9482
-	LDA.b DKC3_Level_SpriteDataRAM[$00].SpriteIDLo,x	;$BB9484
-	BEQ.b CODE_BB949B			;$BB9486
-	CMP.w #$0210				;$BB9488
-	BCC.b CODE_BB949C			;$BB948B
+delete_sprite_handle_dealloc_direct:
+	LDX current_sprite			;$BB9482
+	LDA sprite.type,x			;$BB9484
+	BEQ CODE_BB949B				;$BB9486
+	CMP #$0210				;$BB9488
+	BCC CODE_BB949C				;$BB948B
 CODE_BB948D:
-	LDX.b current_sprite			;$BB948D
-	JSR.w CODE_BB9726			;$BB948F
-	LDX.b current_sprite			;$BB9492
-	JSR.w CODE_BB9577			;$BB9494
+	LDX current_sprite			;$BB948D
+	JSR dereference_sprite_palette		;$BB948F
+	LDX current_sprite			;$BB9492
+	JSR deallocate_sprite_vram_slot		;$BB9494
 CODE_BB9497:
-	LDX.b current_sprite			;$BB9497
-	STZ.b DKC3_Level_SpriteDataRAM[$00].SpriteIDLo,x	;$BB9499
+	LDX current_sprite			;$BB9497
+	STZ sprite.type,x			;$BB9499
 CODE_BB949B:
 	RTL					;$BB949B
 
 CODE_BB949C:
-	CMP.w #$0128				;$BB949C
-	BCS.b CODE_BB9497			;$BB949F
-	CMP.w #$00F0				;$BB94A1
-	BCC.b CODE_BB94B2			;$BB94A4
+	CMP #$0128				;$BB949C
+	BCS CODE_BB9497				;$BB949F
+	CMP #$00F0				;$BB94A1
+	BCC CODE_BB94B2				;$BB94A4
 CODE_BB94A6:
-	LDX.b current_sprite			;$BB94A6
-	JSR.w CODE_BB9726			;$BB94A8
-	LDX.b current_sprite			;$BB94AB
-	JSR.w CODE_BB9596			;$BB94AD
-	BRA.b CODE_BB9497			;$BB94B0
+	LDX current_sprite			;$BB94A6
+	JSR dereference_sprite_palette		;$BB94A8
+	LDX current_sprite			;$BB94AB
+	JSR CODE_BB9596				;$BB94AD
+	BRA CODE_BB9497				;$BB94B0
 
 CODE_BB94B2:
-	STA.b $1A				;$BB94B2
-	LDX.w #main_sprite_table		;$BB94B4
+	STA $1A					;$BB94B2
+	LDX #main_sprite_table			;$BB94B4
 CODE_BB94B7:
-	LDA.b $1A				;$BB94B7
-	CMP.b sprite.type,x 			;$BB94B9
-	BEQ.b CODE_BB94D1			;$BB94BB
+	LDA $1A					;$BB94B7
+	CMP sprite.type,x 			;$BB94B9
+	BEQ CODE_BB94D1				;$BB94BB
 CODE_BB94BD:
 	TXA					;$BB94BD
 	CLC					;$BB94BE
-	ADC.w #sizeof(sprite)			;$BB94BF
+	ADC #sizeof(sprite)			;$BB94BF
 	TAX					;$BB94C2
-	CPX.w #main_sprite_table_end		;$BB94C3
-	BNE.b CODE_BB94B7			;$BB94C6
-	LDA.b $1A				;$BB94C8
-	CMP.w #$00D0				;$BB94CA
-	BCS.b CODE_BB94A6			;$BB94CD
-	BRA.b CODE_BB948D			;$BB94CF
+	CPX #main_sprite_table_end		;$BB94C3
+	BNE CODE_BB94B7				;$BB94C6
+	LDA $1A					;$BB94C8
+	CMP #$00D0				;$BB94CA
+	BCS CODE_BB94A6				;$BB94CD
+	BRA CODE_BB948D				;$BB94CF
 
 CODE_BB94D1:
-	CPX.b current_sprite			;$BB94D1
-	BEQ.b CODE_BB94BD			;$BB94D3
-	LDA.b $1E,x				;$BB94D5
-	AND.w #$01E0				;$BB94D7
+	CPX current_sprite			;$BB94D1
+	BEQ CODE_BB94BD				;$BB94D3
+	LDA sprite.oam_property,x		;$BB94D5
+	AND #$01E0				;$BB94D7
 	LSR					;$BB94DA
 	LSR					;$BB94DB
 	LSR					;$BB94DC
 	LSR					;$BB94DD
 	TAY					;$BB94DE
-	LDA.w $06DA,y				;$BB94DF
-	CMP.w $06D8,y				;$BB94E2
-	BNE.b CODE_BB94F7			;$BB94E5
-	LDA.w $06DC,y				;$BB94E7
-	CMP.w $06D8,y				;$BB94EA
-	BNE.b CODE_BB94F3			;$BB94ED
+	LDA $06DA,y				;$BB94DF
+	CMP $06D8,y				;$BB94E2
+	BNE CODE_BB94F7				;$BB94E5
+	LDA $06DC,y				;$BB94E7
+	CMP $06D8,y				;$BB94EA
+	BNE CODE_BB94F3				;$BB94ED
 	TXA					;$BB94EF
-	STA.w $06DC,y				;$BB94F0
+	STA $06DC,y				;$BB94F0
 CODE_BB94F3:
 	TXA					;$BB94F3
-	STA.w $06DA,y				;$BB94F4
+	STA $06DA,y				;$BB94F4
 CODE_BB94F7:
 	TXA					;$BB94F7
-	STA.w $06D8,y				;$BB94F8
-	LDX.b current_sprite			;$BB94FB
-	JSR.w CODE_BB9726			;$BB94FD
-	BRL.w CODE_BB9497			;$BB9500
+	STA $06D8,y				;$BB94F8
+	LDX current_sprite			;$BB94FB
+	JSR dereference_sprite_palette		;$BB94FD
+	BRL CODE_BB9497				;$BB9500
 
 CODE_BB9503:
 	JSR.w CODE_BB9507			;$BB9503
@@ -3008,26 +3008,27 @@ CODE_BB9569:
 	CLC					;$BB9571
 	RTS					;$BB9572
 
-CODE_BB9573:
-	JSR.w CODE_BB9577			;$BB9573
+deallocate_sprite_vram_slot_global:
+	JSR deallocate_sprite_vram_slot		;$BB9573
 	RTL					;$BB9576
 
-CODE_BB9577:
-	LDA.b $1E,x				;$BB9577
-	AND.w #$01E0				;$BB9579
+deallocate_sprite_vram_slot:
+	LDA sprite.oam_property,x		;$BB9577
+	AND #$01E0				;$BB9579
 	LSR					;$BB957C
 	LSR					;$BB957D
 	LSR					;$BB957E
 	LSR					;$BB957F
 	TAY					;$BB9580
-	LDA.w #$0000				;$BB9581
-	STA.w $06D8,y				;$BB9584
+	LDA #$0000				;$BB9581
+	STA $06D8,y				;$BB9584
 	RTS					;$BB9587
 
+;unreferenced
 CODE_BB9588:
-	LDA.w #$0000				;$BB9588
-	STA.w $06D8,y				;$BB958B
-	STA.w $06DA,y				;$BB958E
+	LDA #$0000				;$BB9588
+	STA $06D8,y				;$BB958B
+	STA $06DA,y				;$BB958E
 	RTS					;$BB9591
 
 CODE_BB9592:
@@ -3252,11 +3253,11 @@ CODE_BB9712:
 	STA.w $04F1				;$BB971E
 	RTS					;$BB9721
 
-CODE_BB9722:
-	JSR.w CODE_BB9726			;$BB9722
+dereference_sprite_palette_global:
+	JSR.w dereference_sprite_palette	;$BB9722
 	RTL					;$BB9725
 
-CODE_BB9726:
+dereference_sprite_palette:
 	LDA.b $26,x				;$BB9726
 	BPL.b CODE_BB9747			;$BB9728
 	AND.w #$800F				;$BB972A
@@ -4250,7 +4251,7 @@ CODE_BB9F15:
 CODE_BB9F1F:
 	LDY #DATA_BB9F68			;$BB9F1F
 	LDA parent_level_number			;$BB9F22
-	CMP #$0031				;$BB9F25
+	CMP #!level_swoopy_salvo		;$BB9F25
 	BNE CODE_BB9F3F				;$BB9F28
 	LDY #DATA_BB9F72			;$BB9F2A
 	LDA level_number			;$BB9F2D
@@ -5852,7 +5853,7 @@ CODE_BBAB13:
 	AND.w #$E000				;$BBAB1C
 	STA.l $7E6180,x				;$BBAB1F
 CODE_BBAB23:
-	JSL.l CODE_BB9482			;$BBAB23
+	JSL delete_sprite_handle_dealloc_direct ;$BBAB23
 	SEC					;$BBAB27
 	RTL					;$BBAB28
 
@@ -5889,7 +5890,7 @@ CODE_BBAB46:
 	RTL					;$BBAB4B
 
 CODE_BBAB4C:
-	JSL CODE_BB9482				;$BBAB4C
+	JSL delete_sprite_handle_dealloc_direct	;$BBAB4C
 	SEC					;$BBAB50
 	RTL					;$BBAB51
 
@@ -5921,7 +5922,7 @@ CODE_BBAB6C:
 	RTL					;$BBAB78
 
 CODE_BBAB79:
-	JSL.l CODE_BB9482			;$BBAB79
+	JSL delete_sprite_handle_dealloc_direct	;$BBAB79
 	SEC					;$BBAB7D
 	RTL					;$BBAB7E
 
@@ -5991,25 +5992,24 @@ CODE_BBABC1:
 	LDA.l $7E6180,x				;$BBABD3
 	AND.w #$E000				;$BBABD7
 	STA.l $7E6180,x				;$BBABDA
-	JSL.l CODE_BB9482			;$BBABDE
+	JSL delete_sprite_handle_dealloc_direct	;$BBABDE
 	SEC					;$BBABE2
 	RTL					;$BBABE3
 
 CODE_BBABE4:
-	JSL.l CODE_BB9482			;$BBABE4
-	LDX.b current_sprite			;$BBABE8
-	LDA.w #$0260				;$BBABEA
-	JSR.w CODE_BBB884			;$BBABED
-	STZ.b $24,x				;$BBABF0
-	STZ.b $20,x				;$BBABF2
-	STZ.b $12,x				;$BBABF4
-	STZ.b $16,x				;$BBABF6
-	STZ.b $38,x				;$BBABF8
+	JSL delete_sprite_handle_dealloc_direct	;$BBABE4
+	LDX current_sprite			;$BBABE8
+	LDA #$0260				;$BBABEA
+	JSR CODE_BBB884				;$BBABED
+	STZ $24,x				;$BBABF0
+	STZ $20,x				;$BBABF2
+	STZ $12,x				;$BBABF4
+	STZ $16,x				;$BBABF6
+	STZ $38,x				;$BBABF8
 	SEC					;$BBABFA
 	RTL					;$BBABFB
 
 unknown_sprite_0260_main:
-;$BBABFC
 	LDY.b current_sprite			;$BBABFC
 	LDA.w $0038,y				;$BBABFE
 	BEQ.b CODE_BBAC0A			;$BBAC01
@@ -6153,7 +6153,7 @@ CODE_BBACD0:
 	LDA.l $7E6180,x				;$BBACE6
 	AND.w #$E000				;$BBACEA
 	STA.l $7E6180,x				;$BBACED
-	JSL.l CODE_BB9482			;$BBACF1
+	JSL delete_sprite_handle_dealloc_direct	;$BBACF1
 CODE_BBACF5:
 	PLX					;$BBACF5
 	INX					;$BBACF6
@@ -7498,7 +7498,7 @@ CODE_BBB884:
 	PLB					;$BBB8A3   | | Restore the current bank
 	RTS					;$BBB8A4  /_/ Return
 
-sprite_handler:
+sprite_handler_direct:
 	JSL CODE_BCE2CB				;$BBB8A5  \> Initialize sprite collision
 	LDA.w #DATA_FF1BC0>>8			;$BBB8A9   |\ Write bank of sprite constants for current sprite (always FF)
 	STA $6B					;$BBB8AC   |/
@@ -8596,7 +8596,6 @@ CODE_BBC827:
 	JML [$04F5]				;$BBC82B
 
 level_end_flagpole_main:
-;$BBC82E
 	LDA.w $0039,y				;$BBC82E
 	AND.w #$00FF				;$BBC831
 	ASL					;$BBC834
@@ -8650,7 +8649,7 @@ CODE_BBC88A:
 
 CODE_BBC897:
 	LDA.w parent_level_number		;$BBC897
-	CMP.w #$0032				;$BBC89A
+	CMP.w #!level_riverside_race		;$BBC89A
 	BNE.b CODE_BBC8C7			;$BBC89D
 	LDA.w $0630				;$BBC89F
 	CMP.w $0536				;$BBC8A2
@@ -8841,7 +8840,6 @@ CODE_BBC9E4:
 	RTS					;$BBCA0C
 
 level_end_flag_main:
-;$BBCA0D
 	JMP.w (DATA_BBCA10,x)			;$BBCA0D
 
 DATA_BBCA10:
@@ -8861,7 +8859,7 @@ CODE_BBCA21:
 	JML [$04F5]				;$BBCA29
 
 CODE_BBCA2C:
-	JSL.l CODE_BB8591			;$BBCA2C
+	JSL.l delete_sprite_handle_deallocation	;$BBCA2C
 	JML [$04F5]				;$BBCA30
 
 CODE_BBCA33:
@@ -9078,7 +9076,6 @@ CODE_BBCBB1:
 	RTS					;$BBCBB1
 
 exit_door_main:
-;$BBCBB2
 	JMP.w (DATA_BBCBB5,x)			;$BBCBB2
 
 DATA_BBCBB5:
@@ -9656,7 +9653,6 @@ DATA_BBCFB0:
 	db $5C,$10,$12,$64,$5E,$14,$16,$66,$60,$2A,$2C,$58,$62,$30,$32,$5A
 
 banana_main:
-;$BBCFC0
 	JMP.w (DATA_BBCFC3,x)			;$BBCFC0
 
 DATA_BBCFC3:
@@ -9695,7 +9691,7 @@ CODE_BBCFF3:
 	JSL.l CODE_B7E4A2			;$BBD006
 	LDX.b current_sprite			;$BBD00A
 	STZ.b $1E,x				;$BBD00C
-	JSL.l CODE_BB8591			;$BBD00E
+	JSL.l delete_sprite_handle_deallocation	;$BBD00E
 	JML [$04F5]				;$BBD012
 
 bananas_main:
@@ -9751,7 +9747,6 @@ CODE_BBD073:
 	JML [$04F5]				;$BBD077
 
 green_banana_spawner_main:
-;$BBD07A
 	JMP.w (DATA_BBD07D,x)			;$BBD07A
 
 DATA_BBD07D:
@@ -9819,7 +9814,7 @@ CODE_BBD0F9:
 	JML [$04F5]				;$BBD0F9
 
 CODE_BBD0FC:
-	JSL.l CODE_BB8591			;$BBD0FC
+	JSL.l delete_sprite_handle_deallocation	;$BBD0FC
 CODE_BBD100:
 	JML [$04F5]				;$BBD100
 
@@ -9832,7 +9827,6 @@ CODE_BBD103:
 	JML [$04F5]				;$BBD10D
 
 green_banana_main:
-;$BBD110
 	JMP.w (DATA_BBD113,x)			;$BBD110
 
 DATA_BBD113:
@@ -9862,7 +9856,7 @@ CODE_BBD132:
 	LDA.w $06AF,x				;$BBD142
 	EOR.w #$0080				;$BBD145
 	STA.w $06AF,x				;$BBD148
-	JSL.l CODE_BB8591			;$BBD14B
+	JSL.l delete_sprite_handle_deallocation	;$BBD14B
 	JML [$04F5]				;$BBD14F
 
 CODE_BBD152:
@@ -9906,7 +9900,7 @@ CODE_BBD189:
 CODE_BBD1A0:
 	STA.w $05D3				;$BBD1A0
 	CLD					;$BBD1A3
-	JSL.l CODE_BB8591			;$BBD1A4
+	JSL.l delete_sprite_handle_deallocation	;$BBD1A4
 	JML [$04F5]				;$BBD1A8
 
 CODE_BBD1AB:
@@ -9919,7 +9913,6 @@ CODE_BBD1AB:
 	RTS					;$BBD1B8
 
 extra_life_balloon_main:
-;$BBD1B9
 	JMP.w (DATA_BBD1BC,x)			;$BBD1B9
 
 DATA_BBD1BC:
@@ -10019,7 +10012,7 @@ CODE_BBD27B:
 	ASL					;$BBD285
 	ASL					;$BBD286
 	TAX					;$BBD287
-	LDA.l DATA_B8A191+$02,x			;$BBD288
+	LDA.l kong_state_flags,x		;$BBD288
 	AND.w #$0080				;$BBD28C
 	BNE.b CODE_BBD294			;$BBD28F
 	JML [$04F5]				;$BBD291
@@ -10031,7 +10024,6 @@ CODE_BBD294:
 	JML [$04F5]				;$BBD29C
 
 unknown_sprite_02A4_main:
-;$BBD29F
 	JMP.w (DATA_BBD2A2,x)			;$BBD29F
 
 DATA_BBD2A2:
@@ -10098,7 +10090,7 @@ CODE_BBD302:
 	ASL					;$BBD30C
 	ASL					;$BBD30D
 	TAX					;$BBD30E
-	LDA.l DATA_B8A191+$02,x			;$BBD30F
+	LDA.l kong_state_flags,x		;$BBD30F
 	AND.w #$0080				;$BBD313
 	BNE.b CODE_BBD31B			;$BBD316
 	JML [$04F5]				;$BBD318
@@ -10154,7 +10146,6 @@ CODE_BBD373:
 	JML [$04F5]				;$BBD37E
 
 collectable_cog_main:
-;$BBD381
 	JMP.w (DATA_BBD384,x)			;$BBD381
 
 DATA_BBD384:
@@ -10577,7 +10568,6 @@ CODE_BBD6CF:
 	RTS					;$BBD6CF
 
 bonus_timer_main:
-;$BBD6D0
 	JMP.w (DATA_BBD6D3,x)			;$BBD6D0
 
 DATA_BBD6D3:
@@ -10927,7 +10917,6 @@ CODE_BBD974:
 	RTS					;$BBD97D
 
 floor_door_main:
-;$BBD97E
 	JMP.w (DATA_BBD981,x)			;$BBD97E
 
 DATA_BBD981:
@@ -11130,7 +11119,6 @@ CODE_BBDAFA:
 	RTS					;$BBDB0F
 
 kongfused_cliffs_rope_main:
-;$BBDB10
 	TYX					;$BBDB10
 	LDA.b $4C,x				;$BBDB11
 	STA.b $1A				;$BBDB13
@@ -11212,7 +11200,6 @@ CODE_BBDBA2:
 	JML [$04F5]				;$BBDBA2
 
 kongfused_cliffs_autoscroll_main:
-;$BBDBA5
 	JMP.w (DATA_BBDBA8,x)			;$BBDBA5
 
 DATA_BBDBA8:
@@ -11307,7 +11294,7 @@ CODE_BBDC53:
 	LDY.b $4E,x				;$BBDC55
 	LDA.w #$0000				;$BBDC57
 	STA.w $004E,y				;$BBDC5A
-	JSL.l CODE_BB8591			;$BBDC5D
+	JSL.l delete_sprite_handle_deallocation	;$BBDC5D
 	JML [$04F5]				;$BBDC61
 
 CODE_BBDC64:
@@ -11455,9 +11442,9 @@ rope_fire_main:
 	LDA #$0000				;$BBDD6A   | Get collision flags (hurt always)
 	JSL CODE_BEC009				;$BBDD6D   | Check collision with kong
 	LDX current_sprite			;$BBDD71   | Get fire sprite
-	LDA $4E,x				;$BBDD73   |
+	LDA sprite.unknown_4E,x			;$BBDD73   |
 	BNE ..return				;$BBDD75   |
-	INC $38,x				;$BBDD77  / Set state 1
+	INC sprite.state,x			;$BBDD77  / Set state 1
 ..return:
 	JSL process_sprite_animation		;$BBDD79  \ Process animation
 	JMP [$04F5]				;$BBDD7D  / Return
@@ -11488,7 +11475,7 @@ CODE_BBDDA5:
 	LDX.b $5E,y				;$BBDDA7
 	LDA.w $0060,y				;$BBDDA9
 	JSR.w CODE_BBDE63			;$BBDDAC
-	JSL.l CODE_BB8591			;$BBDDAF
+	JSL.l delete_sprite_handle_deallocation	;$BBDDAF
 	JML [$04F5]				;$BBDDB3
 
 CODE_BBDDB6:
@@ -11512,14 +11499,14 @@ CODE_BBDDC3:
 	JSL.l CODE_BB8585			;$BBDDDB
 	LDA.w #$060C				;$BBDDDF
 	JSL.l CODE_B28012			;$BBDDE2
-	JSL.l CODE_BB8591			;$BBDDE6
+	JSL.l delete_sprite_handle_deallocation	;$BBDDE6
 	JML [$04F5]				;$BBDDEA
 
 CODE_BBDDED:
 	JSR.w CODE_BBDDFE			;$BBDDED
 	LDA.w #$060C				;$BBDDF0
 	JSL.l CODE_B28012			;$BBDDF3
-	JSL.l CODE_BB8591			;$BBDDF7
+	JSL.l delete_sprite_handle_deallocation	;$BBDDF7
 	JML [$04F5]				;$BBDDFB
 
 CODE_BBDDFE:
@@ -11673,7 +11660,7 @@ DATA_BBDF20:
 CODE_BBDF28:
 	LDA.w $005C,y				;$BBDF28
 	JSL.l CODE_B28012			;$BBDF2B
-	JSL.l CODE_BB8591			;$BBDF2F
+	JSL.l delete_sprite_handle_deallocation	;$BBDF2F
 	JML [$04F5]				;$BBDF33
 
 CODE_BBDF36:

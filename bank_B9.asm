@@ -45,7 +45,7 @@ CODE_B9A01E:
 CODE_B9A035:
 	STA.b $3E				;$B9A035
 	LDX.w $04FB				;$B9A037
-	STX.b $72				;$B9A03A
+	STX current_kong_control_variables	;$B9A03A
 	LDA.b $00,x				;$B9A03C
 	PHX					;$B9A03E
 	PHA					;$B9A03F
@@ -95,29 +95,29 @@ CODE_B9A078:
 	RTL					;$B9A088
 
 CODE_B9A089:
-	LDY.b $72				;$B9A089
+	LDY current_kong_control_variables	;$B9A089
 	CMP.w $0000,y				;$B9A08B
 	BNE.b set_anim_handle_kiddy_direct	;$B9A08E
 	RTL					;$B9A090
 
 CODE_B9A091:
 	LDX.b current_sprite			;$B9A091
-	LDY.b $72				;$B9A093
+	LDY current_kong_control_variables	;$B9A093
 	PHX					;$B9A095
 	PHY					;$B9A096
 	LDX.w follower_kong_sprite		;$B9A097
 	LDY.w $04FF				;$B9A09A
 	STX.b current_sprite			;$B9A09D
-	STY.b $72				;$B9A09F
+	STY current_kong_control_variables	;$B9A09F
 	JSL.l set_anim_handle_kiddy_direct	;$B9A0A1
 	PLY					;$B9A0A5
 	PLX					;$B9A0A6
 	STX.b current_sprite			;$B9A0A7
-	STY.b $72				;$B9A0A9
+	STY current_kong_control_variables	;$B9A0A9
 	RTL					;$B9A0AB
 
 set_anim_handle_kiddy_direct:
-	LDY.b $72				;$B9A0AC
+	LDY current_kong_control_variables	;$B9A0AC
 	STA.w $0000,y				;$B9A0AE
 	CPY.w #$1480				;$B9A0B1
 	BEQ.b CODE_B9A0BA			;$B9A0B4
@@ -851,7 +851,7 @@ CODE_B9A589:
 	PLB					;$B9A589
 	LDX.b current_sprite			;$B9A58A
 	STZ.b $48,x				;$B9A58C
-	JSL.l CODE_BB8591			;$B9A58E
+	JSL.l delete_sprite_handle_deallocation	;$B9A58E
 	JMP.w CODE_B9A13B			;$B9A592
 
 CODE_B9A595:
@@ -1024,7 +1024,7 @@ CODE_B9A672:
 	RTS					;$B9A672
 
 CODE_B9A673:
-	LDY.b $72				;$B9A673
+	LDY current_kong_control_variables	;$B9A673
 	LDA.w $0006,y				;$B9A675
 	AND.w #$0004				;$B9A678
 	BNE.b CODE_B9A680			;$B9A67B
@@ -1069,7 +1069,7 @@ DATA_B9A6AD:
 	dw CODE_B9A6B9
 
 CODE_B9A6B9:
-	LDY.b $72				;$B9A6B9
+	LDY current_kong_control_variables	;$B9A6B9
 	LDA.w $0006,y				;$B9A6BB
 	AND.w #$0004				;$B9A6BE
 	BEQ.b CODE_B9A6C6			;$B9A6C1
@@ -1095,7 +1095,7 @@ DATA_B9A6D4:
 	dw CODE_B9A6E0
 
 CODE_B9A6E0:
-	LDY.b $72				;$B9A6E0
+	LDY current_kong_control_variables	;$B9A6E0
 	LDA.w $0006,y				;$B9A6E2
 	AND.w #$0004				;$B9A6E5
 	BNE.b CODE_B9A6ED			;$B9A6E8
@@ -1347,7 +1347,7 @@ CODE_B9A8C6:
 	JMP.w CODE_B9A6F2			;$B9A8C6
 
 CODE_B9A8C9:
-	LDY.b $72				;$B9A8C9
+	LDY current_kong_control_variables	;$B9A8C9
 	LDA.w $0006,y				;$B9A8CB
 	AND.w #$0004				;$B9A8CE
 	BNE.b CODE_B9A8D6			;$B9A8D1
@@ -1631,7 +1631,7 @@ CODE_B9AA81:
 	BRL.w CODE_B9A1B7			;$B9AA81
 
 CODE_B9AA84:
-	LDY.b $72				;$B9AA84
+	LDY current_kong_control_variables	;$B9AA84
 	LDA.w $000E,y				;$B9AA86
 	BIT.b $1E,x				;$B9AA89
 	BVC.b CODE_B9AA91			;$B9AA8B
@@ -1660,7 +1660,7 @@ CODE_B9AAA4:
 	BEQ.b CODE_B9AACC			;$B9AAA9
 	LDA.b $30,x				;$B9AAAB
 	BEQ.b CODE_B9AACC			;$B9AAAD
-	LDY.b $72				;$B9AAAF
+	LDY current_kong_control_variables	;$B9AAAF
 	LDA.w $0004,y				;$B9AAB1
 	AND.w #$4000				;$B9AAB4
 	BEQ.b CODE_B9AACC			;$B9AAB7
@@ -1705,7 +1705,7 @@ CODE_B9AAFA:
 	LDA.b $28,x				;$B9AAFA
 	AND.w #$0101				;$B9AAFC
 	BNE.b CODE_B9AB0F			;$B9AAFF
-	LDY.b $72				;$B9AB01
+	LDY current_kong_control_variables	;$B9AB01
 	LDA.w $0004,y				;$B9AB03
 	AND.w #$4000				;$B9AB06
 	BEQ.b CODE_B9AB0C			;$B9AB09
@@ -1933,7 +1933,7 @@ CODE_B9AC50:
 	RTS					;$B9AC67
 
 CODE_B9AC68:
-	LDY.b $72				;$B9AC68
+	LDY current_kong_control_variables	;$B9AC68
 	LDA.w $0006,y				;$B9AC6A
 	LDY.w #$0108				;$B9AC6D
 	AND.w #$0004				;$B9AC70
@@ -2203,7 +2203,7 @@ CODE_B9AE11:
 	JSL.l CODE_B9A078			;$B9AE25
 	LDX.w current_held_sprite		;$B9AE29
 	JSL.l CODE_B9E021			;$B9AE2C
-	LDY.b $72				;$B9AE30
+	LDY current_kong_control_variables	;$B9AE30
 	LDA.w $0004,y				;$B9AE32
 	LDX.b current_animal_type		;$B9AE35
 	BEQ.b CODE_B9AE4C			;$B9AE37
@@ -3587,7 +3587,7 @@ CODE_B9B84B:
 	RTS					;$B9B84B
 
 CODE_B9B84C:
-	JSL.l CODE_BB8591			;$B9B84C
+	JSL.l delete_sprite_handle_deallocation	;$B9B84C
 	STZ.b $48,x				;$B9B850
 	INC.b $46,x				;$B9B852
 	RTS					;$B9B854
@@ -6764,7 +6764,7 @@ CODE_B9EB4F:
 
 CODE_B9EB50:
 	TYX					;$B9EB50
-	LDY.b $72				;$B9EB51
+	LDY current_kong_control_variables	;$B9EB51
 	LDA.w $0008,y				;$B9EB53
 	CLC					;$B9EB56
 	ADC.b $2E,x				;$B9EB57
@@ -8246,7 +8246,7 @@ CODE_B9F62E:
 	LDA.b $1A,x				;$B9F640
 	BNE.b CODE_B9F65B			;$B9F642
 	LDA.w parent_level_number		;$B9F644
-	CMP.w #$0042				;$B9F647
+	CMP.w #!level_kongfused_cliffs		;$B9F647
 	BEQ.b CODE_B9F651			;$B9F64A
 	LDA.w #DATA_B9F79A			;$B9F64C
 	BRA.b CODE_B9F66E			;$B9F64F

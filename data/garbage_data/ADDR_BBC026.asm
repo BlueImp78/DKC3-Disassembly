@@ -60,7 +60,7 @@ ADDR_BBC08A:
 
 ADDR_BBC097:
 	LDA.w parent_level_number
-	CMP.w #$0032
+	CMP.w #!level_riverside_race
 	BNE.b ADDR_BBC0C7
 	LDA.w $0630
 	CMP.w $0536

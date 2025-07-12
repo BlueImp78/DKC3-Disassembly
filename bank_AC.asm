@@ -1,5 +1,4 @@
 krool_fight_bg_decorations_main:
-;$ACB000
 	JMP.w (DATA_ACB003,x)			;$ACB000
 
 DATA_ACB003:
@@ -10,7 +9,7 @@ CODE_ACB007:
 	JMP.w CODE_ACB28C			;$ACB007
 
 CODE_ACB00A:
-	LDA.b $00				;$ACB00A
+	LDA.b active_frame_counter		;$ACB00A
 	BIT.w #$0003				;$ACB00C
 	BNE.b CODE_ACB056			;$ACB00F
 	LDX.b current_sprite			;$ACB011
@@ -91,7 +90,6 @@ DATA_ACB073:
 	dw $0040
 
 bg_steel_keg_main:
-;$ACB0A1
 	JMP.w (DATA_ACB0A4,x)			;$ACB0A1
 
 DATA_ACB0A4:
@@ -171,7 +169,6 @@ CODE_ACB131:
 	JML [$04F5]				;$ACB131
 
 kaos_blade_main:
-;$ACB134
 	JMP.w (DATA_ACB137,x)			;$ACB134
 
 DATA_ACB137:
@@ -349,7 +346,7 @@ DATA_ACB26F:
 	dw $ECD8
 
 CODE_ACB285:
-	JSL.l CODE_BB8591			;$ACB285
+	JSL.l delete_sprite_handle_deallocation	;$ACB285
 	JML [$04F5]				;$ACB289
 
 CODE_ACB28C:

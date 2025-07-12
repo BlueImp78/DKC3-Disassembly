@@ -11849,7 +11849,7 @@ CODE_B7EA03:
 	LDA.l $7E678A,x				;$B7EA05
 	STA.b $21				;$B7EA09
 CODE_B7EA0B:
-	LDA.b $00				;$B7EA0B
+	LDA.b active_frame_counter		;$B7EA0B
 	ASL					;$B7EA0D
 	ADC.l $7E6780,x				;$B7EA0E
 	CLC					;$B7EA12
@@ -12438,7 +12438,7 @@ CODE_B7EDE5:
 	STA.l WRAM.data				;$B7EE07
 	LDA.w $7E9803,x				;$B7EE0B
 	STA.l WRAM.data				;$B7EE0E
-	LDA.b $00				;$B7EE12
+	LDA.b active_frame_counter		;$B7EE12
 	AND.b #$0E				;$B7EE14
 	CLC					;$B7EE16
 	ADC.l $0018F7				;$B7EE17
