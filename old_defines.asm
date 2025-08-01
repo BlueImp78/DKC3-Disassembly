@@ -283,7 +283,7 @@ includeonce
 !sprite_PlayModeText = $0068
 !sprite_unknown_sprite_006C = $006C
 !sprite_BananaBirdCaveCover = $0070
-!sprite_unknown_sprite_0074 = $0074
+!sprite_banana_bird_crystal_shards = $0074
 !sprite_EllieHorizontalWaterShot = $0078
 !sprite_EllieDiagonalWaterShot = $007C
 !sprite_SquawksEgg = $0080

@@ -2,6 +2,11 @@ includeonce
 
 active_frame_counter = $00
 
+rng_result = $02
+;rng_seed_1 = $03
+;rng_seed_2 = $04
+;rng_seed_3 = $05
+
 spc_transaction = $06
 current_song = $08
 
@@ -68,6 +73,7 @@ next_oam_slot = $82
 level_number = $C0
 invincibility_timer = $CA
 
+
 stack_end = $0100
 stack = $01FF
 
@@ -110,15 +116,16 @@ follower_kong_sprite = $04FD
 follower_kong_control_variables = $04FF
 
 
-
+water_bubbles_x_speed = $0509
 water_level = $050F
+riverside_race_timer = $0535
 active_cheats = $053B
 current_kong = $05B5
 parent_level_number = $05B9
 
 
 bear_coin_count = $05C9
-bonu_coin_count = $05CB
+bonus_coin_count = $05CB
 banana_bird_count = $05CD
 dk_coin_count = $05CF
 krematoa_gear_count = $05D1
@@ -143,18 +150,20 @@ piracy_string_result = $06A3
 intro_cutscene_flags = $06AB
 
 
+
 language_select = $06D6
 
 
 sprite_vram_allocation_table = $06D8
+palette_upload_ring_buffer = $06FC
+
 active_sprite_palettes_table = $073C
 sprite_palette_reference_count = $074C
 
-palette_upload_ring_buffer = $06FC
 
 
 
-aux_sprite_table = $080A
+aux_sprite_slot = $080A
 main_sprite_table = $0878
 main_sprite_table_end = $1480
 ;main_sprite_table_end = $0878+(sizeof(sprite)*24)
@@ -184,7 +193,7 @@ hud_lives_count = $18D1
 hud_lives_to_add = $18D3
 hud_lives_display_timer = $18D5
 
-
+bonus_timer_index = $18E1
 rocket_rush_fuel_amount = $18E9
 
 
@@ -223,3 +232,26 @@ wram_base = $7E0000
 wram_base_high = $7F0000
 
 sram_base = $B06000
+
+
+;SPECULATIVE
+
+;sprite placement parameter from level ddata = $EA
+;sprite x position from level data = $EC
+;sprite y position from level data = $EE
+
+;bash_the_baddies_enemy_count = $051D (Could be used for other bonus things)
+
+;squals on wheels alive rats = $0557
+
+;debug_flags = $059B
+
+;owned inventory item flags = $0609
+
+;DKC2 $0515 equivalent = $075C
+;used to index a table in bonus_timer_main = $075E
+
+;x pos of bonus coin when touched = $195F
+;y pos of bonus coin when touched = $1961
+
+;sprite level data? = $7E6180

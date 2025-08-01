@@ -3047,279 +3047,279 @@ DATA_FD31D5:
 	dw PPU.vram_control : db $80
 	dw $0000
 
-;Sprite palettes
-DATA_FD3201:
-	dw !null_pointer
-	dw DATA_FD341B
-	dw DATA_FD34CF
-	dw DATA_FD341B
-	dw DATA_FD34CF
-	dw DATA_FD39D9
-	dw DATA_FD3A15
-	dw DATA_FD434B
-	dw DATA_FD430F
-	dw DATA_FD4387
-	dw DATA_FD43C3
-	dw DATA_FD341B
-	dw DATA_FD34CF
-	dw DATA_FD388F
-	dw DATA_FD38AD
-	dw DATA_FD38CB
-	dw DATA_FD3871
-	dw DATA_FD3B05
-	dw DATA_FD3A8D
-	dw DATA_FD3673
-	dw DATA_FD3691
-	dw DATA_FD42F1
-	dw DATA_FD35BF
-	dw DATA_FD35DD
-	dw DATA_FD3619
-	dw DATA_FD35FB
-	dw DATA_FD3655
-	dw DATA_FD3AE7
-	dw DATA_FD3AAB
-	dw DATA_FD3AC9
-	dw DATA_FD3637
-	dw DATA_FD54A7
-	dw DATA_FD441D
-	dw DATA_FD43FF
-	dw DATA_FD3BD7
-	dw DATA_FD3B7D
-	dw DATA_FD38E9
-	dw DATA_FD4747
-	dw DATA_FD3943
-	dw DATA_FD397F
-	dw DATA_FD399D
-	dw DATA_FD39BB
-	dw DATA_FD3A51
-	dw DATA_FD3A6F
-	dw DATA_FD3B41
-	dw DATA_FD3B41
-	dw DATA_FD3709
-	dw DATA_FD3B23
-	dw DATA_FD546B
-	dw DATA_FD5489
-	dw DATA_FD3961
-	dw DATA_FD35A1
-	dw DATA_FD3583
-	dw DATA_FD54C5
-	dw DATA_FD3907
-	dw DATA_FD3925
-	dw DATA_FD443B
-	dw DATA_FD3745
-	dw DATA_FD3565
-	dw DATA_FD4177
-	dw DATA_FD4459
-	dw DATA_FD4477
-	dw DATA_FD4495
-	dw DATA_FD4729
-	dw DATA_FD4585
-	dw DATA_FD3FF1
-	dw DATA_FD3FD3
-	dw DATA_FD44B3
-	dw DATA_FD44D1
-	dw DATA_FD44EF
-	dw DATA_FD450D
-	dw DATA_FD452B
-	dw DATA_FD4549
-	dw DATA_FD4567
-	dw DATA_FD45A3
-	dw DATA_FD45C1
-	dw DATA_FD45DF
-	dw DATA_FD36AF
-	dw DATA_FD3BF5
-	dw DATA_FD37F9
-	dw DATA_FD3C13
-	dw DATA_FD3C31
-	dw DATA_FD3C4F
-	dw DATA_FD3C6D
-	dw DATA_FD3C8B
-	dw DATA_FD3763
-	dw DATA_FD3CA9
-	dw DATA_FD36CD
-	dw DATA_FD36EB
-	dw DATA_FD3CC7
-	dw DATA_FD3CE5
-	dw DATA_FD3D03
-	dw DATA_FD3D21
-	dw DATA_FD3D3F
-	dw DATA_FD3D5D
-	dw DATA_FD45FD
-	dw DATA_FD461B
-	dw DATA_FD37BD
-	dw DATA_FD4639
-	dw DATA_FD3D7B
-	dw DATA_FD3D99
-	dw DATA_FD3781
-	dw DATA_FD379F
-	dw DATA_FD3DB7
-	dw DATA_FD3DD5
-	dw DATA_FD3DF3
-	dw DATA_FD3E11
-	dw DATA_FD3E2F
-	dw DATA_FD4657
-	dw DATA_FD3E4D
-	dw DATA_FD3E6B
-	dw DATA_FD3E89
-	dw DATA_FD4675
-	dw DATA_FD3B5F
-	dw DATA_FD3817
-	dw DATA_FD3835
-	dw DATA_FD3853
-	dw DATA_FD400F
-	dw DATA_FD402D
-	dw DATA_FD3EA7
-	dw DATA_FD46B1
-	dw DATA_FD46CF
-	dw DATA_FD46ED
-	dw DATA_FD3727
-	dw DATA_FD3EC5
-	dw DATA_FD37DB
-	dw DATA_FD470B
-	dw DATA_FD3EE3
-	dw DATA_FD3F01
-	dw DATA_FD3F1F
-	dw DATA_FD404B
-	dw DATA_FD3F3D
-	dw DATA_FD3F5B
-	dw DATA_FD3F79
-	dw DATA_FD3F97
-	dw DATA_FD3FB5
-	dw DATA_FD4069
-	dw DATA_FD4087
-	dw DATA_FD40A5
-	dw DATA_FD40C3
-	dw DATA_FD4857+$02
-	dw DATA_FD40E1
-	dw DATA_FD4877
-	dw DATA_FD40FF
-	dw DATA_FD4837+$02
-	dw DATA_FD4387
-	dw DATA_FD4895
-	dw DATA_FD48B3
-	dw DATA_FD4857
-	dw DATA_FD4837
-	dw DATA_FD4FBB
-	dw DATA_FD4967
-	dw DATA_FD490D
-	dw DATA_FD48D1
-	dw DATA_FD48EF
-	dw DATA_FD4949
-	dw DATA_FD4985
-	dw DATA_FD49A3
-	dw DATA_FD49C1
-	dw DATA_FD4A57
-	dw DATA_FD4D09
-	dw DATA_FD413B
-	dw DATA_FD4C19
-	dw DATA_FD4E17
-	dw DATA_FD4E35
-	dw DATA_FD4E53
-	dw DATA_FD4E71
-	dw DATA_FD4E8F
-	dw DATA_FD4EAD
-	dw DATA_FD4DBD
-	dw DATA_FD4DDB
-	dw DATA_FD4A1B
-	dw DATA_FD4A39
-	dw DATA_FD4A75
-	dw DATA_FD4A93
-	dw DATA_FD4AB1
-	dw DATA_FD411D
-	dw DATA_FD49FD
-	dw DATA_FD4ACF
-	dw DATA_FD4AED
-	dw DATA_FD4B0B
-	dw DATA_FD4B29
-	dw DATA_FD4B47
-	dw DATA_FD4B65
-	dw DATA_FD4B83
-	dw DATA_FD4BA1
-	dw DATA_FD4BBF
-	dw DATA_FD4BDD
-	dw DATA_FD4BFB
-	dw DATA_FD4C37
-	dw DATA_FD4C55
-	dw DATA_FD4C73
-	dw DATA_FD4C91
-	dw DATA_FD4CAF
-	dw DATA_FD4CCD
-	dw DATA_FD4CEB
-	dw DATA_FD4D27
-	dw DATA_FD492B
-	dw DATA_FD4D63
-	dw DATA_FD4D81
-	dw DATA_FD3B9B
-	dw DATA_FD341B
-	dw DATA_FD4ECB
-	dw DATA_FD4EE9
-	dw DATA_FD4D9F
-	dw DATA_FD3BB9
-	dw DATA_FD4F07
-	dw DATA_FD4F25
-	dw DATA_FD4F43
-	dw DATA_FD4F61
-	dw DATA_FD4F7F
-	dw DATA_FD4F9D
-	dw DATA_FD4DF9
-	dw DATA_FD4FD9
-	dw DATA_FD5015
-	dw DATA_FD5033
-	dw DATA_FD5051
-	dw DATA_FD4FF7
-	dw DATA_FD508D
-	dw DATA_FD50AB
-	dw DATA_FD50C9
-	dw DATA_FD506F
-	dw DATA_FD50E7
-	dw DATA_FD5105
-	dw DATA_FD5123
-	dw DATA_FD4159
-	dw DATA_FD5141
-	dw DATA_FD5213
-	dw DATA_FD515F
-	dw DATA_FD517D
-	dw DATA_FD51B9
-	dw DATA_FD51D7
-	dw DATA_FD51F5
-	dw DATA_FD5231
-	dw DATA_FD524F
-	dw DATA_FD526D
-	dw DATA_FD528B
-	dw DATA_FD52A9
-	dw DATA_FD52C7
-	dw DATA_FD52E5
-	dw DATA_FD5303
-	dw DATA_FD5321
-	dw DATA_FD533F
-	dw DATA_FD535D
-	dw DATA_FD537B
-	dw DATA_FD5399
-	dw DATA_FD53B7
-	dw DATA_FD53D5
-	dw DATA_FD53F3
-	dw DATA_FD4195
-	dw DATA_FD41B3
-	dw DATA_FD41B7
-	dw DATA_FD41BB
-	dw DATA_FD41BF
-	dw DATA_FD41C3
-	dw DATA_FD5411
-	dw DATA_FD542F
-	dw DATA_FD544D
-	dw DATA_FD4765
-	dw DATA_FD4783
-	dw DATA_FD47A1
-	dw DATA_FD47BF
-	dw DATA_FD47DD
-	dw DATA_FD4819
-	dw DATA_FD47FB
-	dw DATA_FD38CB
-	dw DATA_FD42D3
-	dw DATA_FD42B5
-	dw DATA_FD4297
 
-DATA_FD341B:
+sprite_palette_table:
+	dw !null_pointer				;0000
+	dw dixie_sprite_palettes			;0001
+	dw kiddy_sprite_palettes			;0002
+	dw dixie_sprite_palettes			;0003
+	dw kiddy_sprite_palettes			;0004
+	dw dixie_flagpole_flag_sprite_palettes		;0005
+	dw kiddy_flagpole_flag_sprite_palettes		;0006
+	dw dixie_target_shoot_kongs_sprite_palettes	;0007
+	dw kiddy_target_shoot_kongs_sprite_palettes	;0008
+	dw map_kongs_sprite_palettes			;0009
+	dw map_kong_flags_sprite_palettes		;000A
+	dw dixie_sprite_palettes			;000B
+	dw kiddy_sprite_palettes			;000C
+	dw caution_sign_sprite_palette			;000D
+	dw no_krosshair_sprite_palette			;000E
+	dw hud_numbers_sprite_palette			;000F
+	dw no_animal_buddy_sign_sprite_palette		;0010
+	dw rocket_fire_sprite_palette			;0011
+	dw waterfall_barrel_sprite_palette		;0012
+	dw red_buzz_sprite_palette			;0013
+	dw green_buzz_sprite_palette			;0014
+	dw ghost_barrel_sprite_palette			;0015
+	dw ellie_sprite_palette				;0016
+	dw enguarde_sprite_palette			;0017
+	dw green_squawks_sprite_palette			;0018
+	dw squitter_sprite_palette			;0019
+	dw parry_sprite_palette				;001A
+	dw rocket_sprite_palette			;001B
+	dw barrel_sprite_palette			;001C
+	dw steel_keg_sprite_palette			;001D
+	dw purple_squawks_sprite_palette		;001E
+	dw lava_smoke_sprite_palette			;001F
+	dw large_pipe_sprite_palette			;0020
+	dw toboggan_sprite_palette			;0021
+	dw water_splash_sprite_palette			;0022
+	dw bonus_coin_sprite_palette			;0023
+	dw green_banana_sprite_palette			;0024
+	dw barrel_shield_sprite_palette			;0025
+	dw mill_platform_sprite_palette			;0026
+	dw red_extra_life_balloon_sprite_palette	;0027
+	dw green_extra_life_balloon_sprite_palette	;0028
+	dw blue_extra_life_balloon_sprite_palette	;0029
+	dw level_end_flagpole_sprite_palette		;002A
+	dw white_flag_sprite_palette			;002B
+	dw fuel_tank_sprite_palette			;002C
+	dw fuel_tank_sprite_palette			;002D
+	dw red_koco_sprite_palette			;002E
+	dw roasted_buzz_sprite_palette			;002F
+	dw unknown_sprite_palette_13			;0030
+	dw kongfused_cliffs_sprite_palette		;0031
+	dw factory_platform_sprite_palette		;0032
+	dw diddy_kong_sprite_palette			;0033
+	dw donkey_kong_sprite_palette			;0034
+	dw kplat_unused_sprite_palette			;0035
+	dw christmas_present_sprite_palette		;0036
+	dw christmas_ornament_sprite_palette		;0037
+	dw head_to_head_dots_sprite_palette		;0038
+	dw gleaming_bream_sprite_palette		;0039
+	dw kiddy_zapped_sprite_palette			;003A
+	dw cranky_kong_sprite_palette			;003B
+	dw unknown_sprite_palette_4			;003C
+	dw target_shoot_targets_sprite_palette		;003D
+	dw unknown_sprite_palette_5			;003E
+	dw head_to_head_faces_sprite_palette		;003F
+	dw arich_legs_sprite_palette			;0040
+	dw squirts_eyelids_sprite_palette		;0041
+	dw electric_spark_ball_sprite_palette		;0042
+	dw pink_timer_numbers_sprite_palette		;0043
+	dw unknown_sprite_palette_6			;0044
+	dw red_text_sprite_palette			;0045
+	dw blue_text_sprite_palette			;0046
+	dw sneek_wheel_sprite_palette			;0047
+	dw right_wall_metal_door_sprite_palette		;0048
+	dw left_wall_metal_door_sprite_palette		;0049
+	dw arich_face_sprite_palette			;004A
+	dw arich_spit_sprite_palette			;004B
+	dw unknown_sprite_palette_7			;004C
+	dw rekoil_sprite_palette			;004D
+	dw klasp_sprite_palette				;004E
+	dw booty_bird_sprite_palette			;004F
+	dw kuff_n_klout_sprite_palette			;0050
+	dw bleak_sprite_palette				;0051
+	dw lemguin_sprite_palette			;0052
+	dw kobble_sprite_palette			;0053
+	dw red_nibbla_sprite_palette			;0054
+	dw bounty_bass_sprite_palette			;0055
+	dw minkey_sprite_palette			;0056
+	dw koin_sprite_palette				;0057
+	dw sneek_sprite_palette				;0058
+	dw skidda_sprite_palette			;0059
+	dw banana_bird_sprite_palette			;005A
+	dw knocka_sprite_palette			;005B
+	dw kracka_unused_sprite_palette			;005C
+	dw green_barrel_sprite_palette			;005D
+	dw red_tnt_barrel_unused_sprite_palette		;005E
+	dw belchas_teeth_sprite_palette			;005F
+	dw side_of_belchas_mouth_sprite_palette		;0060
+	dw red_knik_knak_sprite_palette			;0061
+	dw belchas_eye_sprite_palette			;0062
+	dw krimp_sprite_palette				;0063
+	dw barbos_eyes_and_mouth_sprite_palette		;0064
+	dw green_lurchin_sprite_palette			;0065
+	dw purple_lurchin_sprite_palette		;0066
+	dw bristles_sprite_palette			;0067
+	dw barbos_spike_projectile_sprite_palette	;0068
+	dw krumple_sprite_palette			;0069
+	dw purple_seashell_missile_sprite_palette	;006A
+	dw swoopy_sprite_palette			;006B
+	dw squirts_water_stream_sprite_palette		;006C
+	dw kuchuka_sprite_palette			;006D
+	dw bazza_sprite_palette				;006E
+	dw purple_barrel_unused_sprite_palette		;006F
+	dw buzz_swarm_sprite_palette			;0070
+	dw fire_and_explosions_sprite_palette		;0071
+	dw bazuka_sprite_palette			;0072
+	dw purple_nid_sprite_palette			;0073
+	dw kopter_sprite_palette			;0074
+	dw squirts_mouth_sprite_palette			;0075
+	dw squirts_eyeballs_sprite_palette		;0076
+	dw karbines_fireball_sprite_palette		;0077
+	dw kaos_laser_head_sprite_palette		;0078
+	dw kaos_skull_head_sprite_palette		;0079
+	dw kaos_cylinder_head_sprite_palette		;007A
+	dw green_koco_sprite_palette			;007B
+	dw yellow_nid_sprite_palette			;007C
+	dw yellow_knik_knak_sprite_palette		;007D
+	dw kaos_boxing_glove_sprite_palette		;007E
+	dw karbine_sprite_palette			;007F
+	dw koindozer_sprite_palette			;0080
+	dw krool_sprite_palette				;0081
+	dw yellow_seashell_missile_sprite_palette	;0082
+	dw electric_node_sprite_palette			;0083
+	dw kaos_chain_sprite_palette			;0084
+	dw knautilus_fireball_shooter_sprite_palette	;0085
+	dw kastle_kaos_bg_elements_sprite_palette	;0086
+	dw krool_curtain_sprite_palette			;0087
+	dw blue_nibbla_sprite_palette			;0088
+	dw blueish_purple_nibbla_sprite_palette		;0089
+	dw reddish_purple_nibbla_sprite_palette		;008A
+	dw bright_red_nibbla_sprite_palette		;008B
+	dw unknown_sprite_palette_8+2			;008C
+	dw funky_kong_sprite_palette			;008D
+	dw funkys_rentals_pool_sprite_palette		;008E
+	dw swanky_kong_sprite_palette			;008F
+	dw DKC2_map_kongs_and_text_sprite_palette+2	;0090
+	dw map_kongs_sprite_palettes			;0091
+	dw motor_boat_sprite_palette			;0092
+	dw hover_craft_sprite_palette			;0093
+	dw unknown_sprite_palette_8			;0094
+	dw DKC2_map_kongs_and_text_sprite_palette	;0095
+	dw turbo_ski_sprite_palette			;0096
+	dw wrinklys_save_cave_sprite_palette		;0097
+	dw glacial_grotto_cover_sprite_palette		;0098
+	dw bleaks_house_face_sprite_palette		;0099
+	dw cotton_top_cove_waterfalls_sprite_palette	;009A
+	dw kremling_map_flag_sprite_palette		;009B
+	dw arich_ambush_face_unused_sprite_palette	;009C
+	dw brashs_cabin_smoke_sprite_palette		;009D
+	dw arichs_hoard_sprite_palette			;009E
+	dw bramble_sprite_palette			;009F
+	dw boomers_fan_sprite_palette			;00A0
+	dw wrinkly_kong_sprite_palette			;00A1
+	dw blizzard_sprite_palette			;00A2
+	dw game_over_blocks_G				;00A3
+	dw game_over_blocks_AM				;00A4
+	dw game_over_blocks_E				;00A5
+	dw game_over_blocks_O				;00A6
+	dw game_over_blocks_V				;00A7
+	dw game_over_blocks_ER				;00A8
+	dw main_map_ctc_waterfall_sprite_palette	;00A9
+	dw main_map_wide_waterfalls_sprite_palette	;00AA
+	dw bazaar_sprite_palette			;00AB
+	dw bazaar_accessories_sprite_palette		;00AC
+	dw brambles_accessories_sprite_palette		;00AD
+	dw brash_sprite_palette				;00AE
+	dw blunder_sprite_palette			;00AF
+	dw funky_kong_accessories_sprite_palette	;00B0
+	dw double_trouble_sign_sprite_palette		;00B1
+	dw blizzards_accessories_sprite_palette		;00B2
+	dw brashs_accessories_sprite_palette		;00B3
+	dw blunders_accessories_sprite_palette		;00B4
+	dw bazooka_sprite_palette			;00B5
+	dw boomer_sprite_palette			;00B6
+	dw baffle_sprite_palette			;00B7
+	dw barnacle_sprite_palette			;00B8
+	dw barter_sprite_palette			;00B9
+	dw benny_sprite_palette				;00BA
+	dw bjorn_sprite_palette				;00BB
+	dw blue_bear_sprite_palette			;00BC
+	dw bazookas_accessories_sprite_palette		;00BD
+	dw boomers_accessories_sprite_palette		;00BE
+	dw baffles_accessories_sprite_palette		;00BF
+	dw barnacles_accessories_sprite_palette		;00C0
+	dw barters_accessories_sprite_palette		;00C1
+	dw bennys_accessories_sprite_palette		;00C2
+	dw bjorns_accessories_sprite_palette		;00C3
+	dw unknown_sprite_palette_9			;00C4
+	dw smugglers_cove_cover_sprite_palette		;00C5
+	dw file_select_options_text_sprite_palette	;00C6
+	dw file_select_timer_text_sprite_palette	;00C7
+	dw bear_coin_sprite_palette			;00C8
+	dw dixie_sprite_palettes			;00C9
+	dw unknown_sprite_palette_10			;00CA
+	dw unknown_sprite_palette_11			;00CB
+	dw brashs_cabin_digital_display_sprite_palette	;00CC
+	dw save_screen_bonus_coin_sprite_palette	;00CD
+	dw brambles_vase_sprite_palette			;00CE
+	dw area_name_font_sprite_palette		;00CF
+	dw used_inventory_items_sprite_palette		;00D0
+	dw used_inventory_items_2_sprite_palette	;00D1
+	dw main_map_rocks_sprite_palette		;00D2
+	dw gyrocopter_sprite_palette			;00D3
+	dw nintendo64_sprite_palette			;00D4
+	dw area_name_font_p2_sprite_palette		;00D5
+	dw green_crystal_sprite_palette			;00D6
+	dw red_crystal_sprite_palette			;00D7
+	dw yellow_crystal_sprite_palette		;00D8
+	dw blue_crystal_sprite_palette			;00D9
+	dw glowing_green_crystal_sprite_palette		;00DA
+	dw glowing_red_crystal_sprite_palette		;00DB
+	dw glowing_yellow_crystal_sprite_palette	;00DC
+	dw glowing_blue_crystal_sprite_palette		;00DD
+	dw music_test_notes_sprite_palette		;00DE
+	dw unknown_sprite_palette_12			;00DF
+	dw music_test_sign_sprite_palette		;00E0
+	dw sitting_wrinkly_kong_sprite_palette		;00E1
+	dw bounty_bay_cover_sprite_palette		;00E2
+	dw sewer_stockpile_cover_sprite_palette		;00E3
+	dw crystal_shards_sprite_palette		;00E4
+	dw kremwood_forest_log_sprite_palette		;00E5
+	dw map_cannon_sprite_palette			;00E6
+	dw chairlifts_sprite_palette			;00E7
+	dw boomers_fuse_sprite_palette			;00E8
+	dw sky_high_secret_rock_sprite_palette		;00E9
+	dw rock_pile_sprite_palette			;00EA
+	dw clifftop_cache_cover_sprite_palette		;00EB
+	dw razor_ridge_pipe_sprite_palette		;00EC
+	dw krosshair_sprite_palette			;00ED
+	dw knautilus_sprite_palette			;00EE
+	dw krematoa_bridge_sprite_palette		;00EF
+	dw mama_bird_sprite_palette			;00F0
+	dw map_krool_sprite_palette			;00F1
+	dw ending_krool_eyes_sprite_palette		;00F2
+	dw mama_bird_giant_egg_sprite_palette		;00F3
+	dw mama_bird_barrier_sprite_palette		;00F4
+	dw mama_bird_barrier_lights_sprite_palette	;00F5
+	dw ending_krool_head_sprite_palette		;00F6
+	dw map_mama_bird_sprite_palette			;00F7
+	dw ending_funky_kong_sprite_palette		;00F8
+	dw swanky_credits_barrel_sprite_palette		;00F9
+	dw kaos_purple_text_sprite_palette		;00FA
+	dw dixie_yellow_text_sprite_palette		;00FB
+	dw donkey_orange_text_sprite_palette		;00FC
+	dw diddy_red_text_sprite_palette		;00FD
+	dw cranky_white_text_sprite_palette		;00FE
+	dw cranky_trophy_sprite_palette			;00FF
+	dw photo_album_edges_sprite_palette		;0100
+	dw photo_album_section_name_sprite_palette	;0101
+	dw rotating_cylinder_pegs_sprite_palette	;0102
+	dw rotating_cylinder_blue_keys_sprite_palette	;0103
+	dw rotating_cylinder_green_keys_sprite_palette	;0104
+	dw rotating_cylinder_red_keys_sprite_palette	;0105
+	dw rotating_cylinder_yellow_keys_sprite_palette	;0106
+	dw rare_logo_sprite_palette			;0107
+	dw rotating_cylinder_crank_sprite_palette	;0108
+	dw hud_numbers_sprite_palette			;0109
+	dw unknown_sprite_palette_3			;010A
+	dw unknown_sprite_palette_2			;010B
+	dw unknown_sprite_palette			;010C
+
+dixie_sprite_palettes:
 	incbin "data/palettes/Sprite_Dixie_Active.bin"
 	incbin "data/palettes/Sprite_Dixie_InActive.bin"
 	incbin "data/palettes/Sprite_Dixie_P2Active.bin"
@@ -3327,337 +3327,338 @@ DATA_FD341B:
 	incbin "data/palettes/Sprite_Dixie_Invincible.bin"
 	incbin "data/palettes/Sprite_Dixie_Zapped.bin"
 
-DATA_FD34CF:
+kiddy_sprite_palettes:
 	incbin "data/palettes/Sprite_Kiddy_Active.bin"
 	incbin "data/palettes/Sprite_Kiddy_InActive.bin"
 	incbin "data/palettes/Sprite_Kiddy_P2Active.bin"
 	incbin "data/palettes/Sprite_Kiddy_P2InActive.bin"
 	incbin "data/palettes/Sprite_Kiddy_Invincible.bin"
 
-DATA_FD3565:
-	incbin "data/palettes/Sprite_Kiddy_Zapped.bin"					; Note: Also used by K. Rool when he is zapped.
+;Also used by zapped krool
+kiddy_zapped_sprite_palette:
+	incbin "data/palettes/Sprite_Kiddy_Zapped.bin"
 
-DATA_FD3583:
+donkey_kong_sprite_palette:
 	incbin "data/palettes/Sprite_DonkeyKong.bin"
 
-DATA_FD35A1:
+diddy_kong_sprite_palette:
 	incbin "data/palettes/Sprite_DiddyKong.bin"
 
-DATA_FD35BF:
+ellie_sprite_palette:
 	incbin "data/palettes/Sprite_Ellie.bin"
 
-DATA_FD35DD:
+enguarde_sprite_palette:
 	incbin "data/palettes/Sprite_Enguarde.bin"
 
-DATA_FD35FB:
+squitter_sprite_palette:
 	incbin "data/palettes/Sprite_Squitter.bin"
 
-DATA_FD3619:
+green_squawks_sprite_palette:
 	incbin "data/palettes/Sprite_GreenSquawks.bin"
 
-DATA_FD3637:
+purple_squawks_sprite_palette:
 	incbin "data/palettes/Sprite_PurpleSquawks.bin"
 
-DATA_FD3655:
+parry_sprite_palette:
 	incbin "data/palettes/Sprite_Parry.bin"
 
-DATA_FD3673:
+red_buzz_sprite_palette:
 	incbin "data/palettes/Sprite_RedBuzz.bin"
 
-DATA_FD3691:
+green_buzz_sprite_palette:
 	incbin "data/palettes/Sprite_GreenBuzz.bin"
 
-DATA_FD36AF:
+rekoil_sprite_palette:
 	incbin "data/palettes/Sprite_ReKoil.bin"
 
-DATA_FD36CD:
+koin_sprite_palette:
 	incbin "data/palettes/Sprite_Koin.bin"
 
-DATA_FD36EB:
+sneek_sprite_palette:
 	incbin "data/palettes/Sprite_Sneek.bin"
 
-DATA_FD3709:
+red_koco_sprite_palette:
 	incbin "data/palettes/Sprite_RedKoco.bin"
 
-DATA_FD3727:
+green_koco_sprite_palette:
 	incbin "data/palettes/Sprite_GreenKoco.bin"
 
-DATA_FD3745:
+gleaming_bream_sprite_palette:
 	incbin "data/palettes/Sprite_GleaminBream.bin"
 
-DATA_FD3763:
+bounty_bass_sprite_palette:
 	incbin "data/palettes/Sprite_BountyBass.bin"
 
-DATA_FD3781:
+green_lurchin_sprite_palette:
 	incbin "data/palettes/Sprite_GreenLurchin.bin"
 
-DATA_FD379F:
+purple_lurchin_sprite_palette:
 	incbin "data/palettes/Sprite_PurpleLurchin.bin"
 
-DATA_FD37BD:
+red_knik_knak_sprite_palette:
 	incbin "data/palettes/Sprite_RedKnikKnak.bin"
 
-DATA_FD37DB:
+yellow_knik_knak_sprite_palette:
 	incbin "data/palettes/Sprite_YellowKnikKnak.bin"
 
-DATA_FD37F9:
+booty_bird_sprite_palette:
 	incbin "data/palettes/Sprite_BootyBird.bin"
 
-DATA_FD3817:
+bazuka_sprite_palette:
 	incbin "data/palettes/Sprite_Bazuka.bin"
 
-DATA_FD3835:
+purple_nid_sprite_palette:
 	incbin "data/palettes/Sprite_PurpleNid.bin"
 
-DATA_FD3853:
+kopter_sprite_palette:
 	incbin "data/palettes/Sprite_Kopter.bin"
 
-DATA_FD3871:
+no_animal_buddy_sign_sprite_palette:
 	incbin "data/palettes/Sprite_NoAnimalBuddySign.bin"
 
-DATA_FD388F:
+caution_sign_sprite_palette:
 	incbin "data/palettes/Sprite_WarningSign.bin"
 
-DATA_FD38AD:
+no_krosshair_sprite_palette:
 	incbin "data/palettes/Sprite_NoKrosshairSign.bin"
 
-DATA_FD38CB:
+hud_numbers_sprite_palette:
 	incbin "data/palettes/Sprite_HUDNumbers.bin"
 
-DATA_FD38E9:
+green_banana_sprite_palette:
 	incbin "data/palettes/Sprite_GreenBananas.bin"
 
-DATA_FD3907:
+christmas_present_sprite_palette:
 	incbin "data/palettes/Sprite_ChristmasPresents.bin"
 
-DATA_FD3925:
+christmas_ornament_sprite_palette:
 	incbin "data/palettes/Sprite_ChristmasOrnaments.bin"
 
-DATA_FD3943:
+mill_platform_sprite_palette:
 	incbin "data/palettes/Sprite_MillPlatform.bin"
 
-DATA_FD3961:
+factory_platform_sprite_palette:
 	incbin "data/palettes/Sprite_FactoryPlatform.bin"
 
-DATA_FD397F:
+red_extra_life_balloon_sprite_palette:
 	incbin "data/palettes/Sprite_RedExtraLifeBalloon.bin"
 
-DATA_FD399D:
+green_extra_life_balloon_sprite_palette:
 	incbin "data/palettes/Sprite_GreenExtraLifeBalloon.bin"
 
-DATA_FD39BB:
+blue_extra_life_balloon_sprite_palette:
 	incbin "data/palettes/Sprite_BlueExtraLifeBalloon.bin"
 
-DATA_FD39D9:
+dixie_flagpole_flag_sprite_palettes:
 	incbin "data/palettes/Sprite_PinkFlag.bin"
 	incbin "data/palettes/Sprite_PurpleFlag.bin"
 
-DATA_FD3A15:
+kiddy_flagpole_flag_sprite_palettes:
 	incbin "data/palettes/Sprite_BlueFlag.bin"
 	incbin "data/palettes/Sprite_GreenFlag.bin"
 
-DATA_FD3A51:
+level_end_flagpole_sprite_palette:
 	incbin "data/palettes/Sprite_LevelEndFlagpole.bin"
 
-DATA_FD3A6F:
+white_flag_sprite_palette:
 	incbin "data/palettes/Sprite_WhiteFlag.bin"
 
-DATA_FD3A8D:
+waterfall_barrel_sprite_palette:
 	incbin "data/palettes/Sprite_WaterfallBarrel.bin"
 
-DATA_FD3AAB:
+barrel_sprite_palette:
 	incbin "data/palettes/Sprite_Barrel.bin"
 
-DATA_FD3AC9:
+steel_keg_sprite_palette:
 	incbin "data/palettes/Sprite_SteelKeg.bin"
 
-DATA_FD3AE7:
+rocket_sprite_palette:
 	incbin "data/palettes/Sprite_Rocket.bin"
 
-DATA_FD3B05:
+rocket_fire_sprite_palette:
 	incbin "data/palettes/Sprite_RocketFire.bin"
 
-DATA_FD3B23:
+roasted_buzz_sprite_palette:
 	incbin "data/palettes/Sprite_RoastedBuzz.bin"
 
-DATA_FD3B41:
+fuel_tank_sprite_palette:
 	incbin "data/palettes/Sprite_FuelTank.bin"
 
-DATA_FD3B5F:
+fire_and_explosions_sprite_palette:
 	incbin "data/palettes/Sprite_FireAndExplosions.bin"
 
-DATA_FD3B7D:
+bonus_coin_sprite_palette:
 	incbin "data/palettes/Sprite_GoldCoins.bin"
 
-DATA_FD3B9B:
+bear_coin_sprite_palette:
 	incbin "data/palettes/Sprite_BearCoin.bin"
 
-DATA_FD3BB9:												; Note: Also used by the Karate Cranky trophy base
+save_screen_bonus_coin_sprite_palette:												; Note: Also used by the Karate Cranky trophy base
 	incbin "data/palettes/Sprite_SaveScreenBonusBCoin.bin"
 
-DATA_FD3BD7:
+water_splash_sprite_palette:
 	incbin "data/palettes/Sprite_WaterSplash.bin"
 
-DATA_FD3BF5:
+klasp_sprite_palette:
 	incbin "data/palettes/Sprite_Klasp.bin"
 
-DATA_FD3C13:
+kuff_n_klout_sprite_palette:
 	incbin "data/palettes/Sprite_KuffNKlout.bin"
 
-DATA_FD3C31:
+bleak_sprite_palette:
 	incbin "data/palettes/Sprite_Bleak.bin"
 
-DATA_FD3C4F:
+lemguin_sprite_palette:
 	incbin "data/palettes/Sprite_Lemguin.bin"
 
-DATA_FD3C6D:
+kobble_sprite_palette:
 	incbin "data/palettes/Sprite_Kobble.bin"
 
-DATA_FD3C8B:
+red_nibbla_sprite_palette:
 	incbin "data/palettes/Sprite_RedNibbla.bin"
 
-DATA_FD3CA9:
+minkey_sprite_palette:
 	incbin "data/palettes/Sprite_Minkey.bin"
 
-DATA_FD3CC7:
+skidda_sprite_palette:
 	incbin "data/palettes/Sprite_Skidda.bin"
 
-DATA_FD3CE5:
+banana_bird_sprite_palette:
 	incbin "data/palettes/Sprite_BananaBirds.bin"
 
-DATA_FD3D03:
+knocka_sprite_palette:
 	incbin "data/palettes/Sprite_Knocka.bin"
 
-DATA_FD3D21:										; Note: Unused
+kracka_unused_sprite_palette:
 	incbin "data/palettes/Sprite_Kracka.bin"
 
-DATA_FD3D3F:
+green_barrel_sprite_palette:
 	incbin "data/palettes/Sprite_GreenBarrel.bin"
 
-DATA_FD3D5D:										; Note: Unused
+red_tnt_barrel_unused_sprite_palette:
 	incbin "data/palettes/Sprite_RedTNTBarrel.bin"
 
-DATA_FD3D7B:
+krimp_sprite_palette:
 	incbin "data/palettes/Sprite_Krimp.bin"
 
-DATA_FD3D99:
+barbos_eyes_and_mouth_sprite_palette:
 	incbin "data/palettes/Sprite_BarbosEyesAndMouth.bin"
 
-DATA_FD3DB7:
+bristles_sprite_palette:
 	incbin "data/palettes/Sprite_Bristles.bin"
 
-DATA_FD3DD5:
+barbos_spike_projectile_sprite_palette:
 	incbin "data/palettes/Sprite_BarbosSpikeProjectiles.bin"
 
-DATA_FD3DF3:
+krumple_sprite_palette:
 	incbin "data/palettes/Sprite_Krumple.bin"
 
-DATA_FD3E11:
+purple_seashell_missile_sprite_palette:
 	incbin "data/palettes/Sprite_PurpleSeashellMissle.bin"
 
-DATA_FD3E2F:
+swoopy_sprite_palette:
 	incbin "data/palettes/Sprite_Swoopy.bin"
 
-DATA_FD3E4D:
+kuchuka_sprite_palette:
 	incbin "data/palettes/Sprite_Kuchuka.bin"
 
-DATA_FD3E6B:
+bazza_sprite_palette:
 	incbin "data/palettes/Sprite_Bazza.bin"
 
-DATA_FD3E89:										; Note: Unused
+purple_barrel_unused_sprite_palette:
 	incbin "data/palettes/Sprite_PurpleBarrel.bin"
 
-DATA_FD3EA7:
+karbines_fireball_sprite_palette:
 	incbin "data/palettes/Sprite_KarbinesFireball.bin"
 
-DATA_FD3EC5:
+yellow_nid_sprite_palette:
 	incbin "data/palettes/Sprite_YellowNid.bin"
 
-DATA_FD3EE3:
+karbine_sprite_palette:
 	incbin "data/palettes/Sprite_Karbine.bin"
 
-DATA_FD3F01:
+koindozer_sprite_palette:
 	incbin "data/palettes/Sprite_Koindozer.bin"
 
-DATA_FD3F1F:
+krool_sprite_palette:
 	incbin "data/palettes/Sprite_KRool.bin"
 
-DATA_FD3F3D:
+electric_node_sprite_palette:
 	incbin "data/palettes/Sprite_ElectricNode.bin"
 
-DATA_FD3F5B:
+kaos_chain_sprite_palette:
 	incbin "data/palettes/Sprite_CraneThatCarriesKAOS.bin"
 
-DATA_FD3F79:
+knautilus_fireball_shooter_sprite_palette:
 	incbin "data/palettes/Sprite_KnautilusFireballShooter.bin"
 
-DATA_FD3F97:
+kastle_kaos_bg_elements_sprite_palette:
 	incbin "data/palettes/Sprite_KastleKaosBGElements.bin"
 
-DATA_FD3FB5:
+krool_curtain_sprite_palette:
 	incbin "data/palettes/Sprite_KRoolCurtain.bin"
 
-DATA_FD3FD3:
+electric_spark_ball_sprite_palette:
 	incbin "data/palettes/Sprite_ElectricSparkBall.bin"
 
-DATA_FD3FF1:
+squirts_eyelids_sprite_palette:
 	incbin "data/palettes/Sprite_SquirtsEyelids.bin"
 
-DATA_FD400F:
+squirts_mouth_sprite_palette:
 	incbin "data/palettes/Sprite_SquirtsMouth.bin"
 
-DATA_FD402D:
+squirts_eyeballs_sprite_palette:
 	incbin "data/palettes/Sprite_SquirtsEyeballs.bin"
 
-DATA_FD404B:
+yellow_seashell_missile_sprite_palette:
 	incbin "data/palettes/Sprite_YellowSeashellMissle.bin"
 
-DATA_FD4069:
+blue_nibbla_sprite_palette:
 	incbin "data/palettes/Sprite_BlueNibbla.bin"
 
-DATA_FD4087:
+blueish_purple_nibbla_sprite_palette:
 	incbin "data/palettes/Sprite_BluishPurpleNibbla.bin"
 
-DATA_FD40A5:
+reddish_purple_nibbla_sprite_palette:
 	incbin "data/palettes/Sprite_ReddishPurpleNibbla.bin"
 
-DATA_FD40C3:
+bright_red_nibbla_sprite_palette:
 	incbin "data/palettes/Sprite_BrightRedNibbla.bin"
 
-DATA_FD40E1:
+funky_kong_sprite_palette:
 	incbin "data/palettes/Sprite_FunkyKong.bin"
 
-DATA_FD40FF:
+swanky_kong_sprite_palette:
 	incbin "data/palettes/Sprite_SwankyKong.bin"
 
-DATA_FD411D:
+funky_kong_accessories_sprite_palette:
 	incbin "data/palettes/Sprite_FunkysKongsBandanaAndBelt.bin"
 
-DATA_FD413B:
+wrinkly_kong_sprite_palette:
 	incbin "data/palettes/Sprite_WrinklyKong.bin"
 
-DATA_FD4159:
+sitting_wrinkly_kong_sprite_palette:
 	incbin "data/palettes/Sprite_SittingWrinklyKong.bin"
 
-DATA_FD4177:
+cranky_kong_sprite_palette:
 	incbin "data/palettes/Sprite_CrankyKong.bin"
 
-DATA_FD4195:
+swanky_credits_barrel_sprite_palette:
 	incbin "data/palettes/Sprite_SwankyKongsBarrelInEnding.bin"
 
-DATA_FD41B3:
+kaos_purple_text_sprite_palette:
 	incbin "data/palettes/Sprite_KAOSPurpleText.bin"
 
-DATA_FD41B7:
+dixie_yellow_text_sprite_palette:
 	incbin "data/palettes/Sprite_DixieYellowText.bin"
 
-DATA_FD41BB:
+donkey_orange_text_sprite_palette:
 	incbin "data/palettes/Sprite_DonkeyKongLightOrangeText.bin"
 
-DATA_FD41BF:
+diddy_red_text_sprite_palette:
 	incbin "data/palettes/Sprite_DiddyKongOrangeText.bin"
 
-DATA_FD41C3:
+cranky_white_text_sprite_palette:
 	incbin "data/palettes/Sprite_CrankyKongWhiteText.bin"
 
 DATA_FD41C7:
@@ -3680,454 +3681,454 @@ DATA_FD41EC:
 	db $3E,$DD,$3E,$DD,$3E,$FE,$42,$FE,$42,$FE,$42,$1F,$47,$1F,$47,$1F
 	db $47,$3F,$4B,$3F,$4B,$3F,$4B,$3F,$4B,$3F,$4B
 
-DATA_FD4297:
+unknown_sprite_palette:
 	incbin "data/palettes/Sprite_Unknown1.bin"
 
-DATA_FD42B5:
+unknown_sprite_palette_2:
 	incbin "data/palettes/Sprite_Unknown2.bin"
 
-DATA_FD42D3:										; Note: A varient of HUDNumbers, but with darker whites
+unknown_sprite_palette_3:					; Note: A varient of HUDNumbers, but with darker whites
 	incbin "data/palettes/Sprite_Unknown3.bin"
 
-DATA_FD42F1:
+ghost_barrel_sprite_palette:
 	incbin "data/palettes/Sprite_GhostBarrel.bin"
 
-DATA_FD430F:
+kiddy_target_shoot_kongs_sprite_palettes:
 	incbin "data/palettes/Sprite_Kiddy_TargetShoot.bin"
 	incbin "data/palettes/Sprite_Kiddy_P2TargetShoot.bin"
 
-DATA_FD434B:
+dixie_target_shoot_kongs_sprite_palettes:
 	incbin "data/palettes/Sprite_Dixie_TargetShoot.bin"
 	incbin "data/palettes/Sprite_Dixie_P2TargetShoot.bin"
 
-DATA_FD4387:
+map_kongs_sprite_palettes:
 	incbin "data/palettes/Sprite_MapDixieAndKiddy_P1.bin"
 	incbin "data/palettes/Sprite_MapDixieAndKiddy_P2.bin"
 
-DATA_FD43C3:
+map_kong_flags_sprite_palettes:
 	incbin "data/palettes/Sprite_PinkAndBlueMapFlags.bin"
 	incbin "data/palettes/Sprite_PurpleAndGreenMapFlags.bin"
 
-DATA_FD43FF:
+toboggan_sprite_palette:
 	incbin "data/palettes/Sprite_Toboggan.bin"
 
-DATA_FD441D:
+large_pipe_sprite_palette:
 	incbin "data/palettes/Sprite_LargePipe.bin"
 
-DATA_FD443B:
+head_to_head_dots_sprite_palette:
 	incbin "data/palettes/Sprite_HeadToHeadDots.bin"
 
-DATA_FD4459:
+unknown_sprite_palette_4:
 	incbin "data/palettes/Sprite_Unknown4.bin"
 
-DATA_FD4477:
+target_shoot_targets_sprite_palette:
 	incbin "data/palettes/Sprite_TargetShootTargets.bin"
 
-DATA_FD4495:										; Note: A varient of HUDNumbers, but with blueish white colors
+unknown_sprite_palette_5:								; Note: A varient of HUDNumbers, but with blueish white colors
 	incbin "data/palettes/Sprite_Unknown5.bin"
 
-DATA_FD44B3:
+pink_timer_numbers_sprite_palette:
 	incbin "data/palettes/Sprite_PinkTimerNumbers.bin"
 
-DATA_FD44D1:										; Note: A varient of HUDNumbers, but with light green instead of white colors
+unknown_sprite_palette_6:								; Note: A varient of HUDNumbers, but with light green instead of white colors
 	incbin "data/palettes/Sprite_Unknown6.bin"
 
-DATA_FD44EF:
+red_text_sprite_palette:
 	incbin "data/palettes/Sprite_RedText.bin"
 
-DATA_FD450D:
+blue_text_sprite_palette:
 	incbin "data/palettes/Sprite_BlueText.bin"
 
-DATA_FD452B:
+sneek_wheel_sprite_palette:
 	incbin "data/palettes/Sprite_SneekWheel.bin"
 
-DATA_FD4549:
+right_wall_metal_door_sprite_palette:
 	incbin "data/palettes/Sprite_RightWallMetalDoor.bin"
 
-DATA_FD4567:
+left_wall_metal_door_sprite_palette:
 	incbin "data/palettes/Sprite_LeftWallMetalDoor.bin"
 
-DATA_FD4585:
+arich_legs_sprite_palette:
 	incbin "data/palettes/Sprite_ArichLegs.bin"
 
-DATA_FD45A3:
+arich_face_sprite_palette:
 	incbin "data/palettes/Sprite_ArichFace.bin"
 
-DATA_FD45C1:
+arich_spit_sprite_palette:
 	incbin "data/palettes/Sprite_ArichBouncingSpit.bin"
 
-DATA_FD45DF:
+unknown_sprite_palette_7:
 	incbin "data/palettes/Sprite_Unknown7.bin"
 
-DATA_FD45FD:
+belchas_teeth_sprite_palette:
 	incbin "data/palettes/Sprite_BelchasTeeth.bin"
 
-DATA_FD461B:
+side_of_belchas_mouth_sprite_palette:
 	incbin "data/palettes/Sprite_SideOfBelchasMouth.bin"
 
-DATA_FD4639:
+belchas_eye_sprite_palette:
 	incbin "data/palettes/Sprite_BelchasEye.bin"
 
-DATA_FD4657:
+squirts_water_stream_sprite_palette:
 	incbin "data/palettes/Sprite_SquirtsWaterStream.bin"
 
-DATA_FD4675:
+buzz_swarm_sprite_palette:
 	incbin "data/palettes/Sprite_BuzzSwarm.bin"
 
-DATA_FD46B1:
+kaos_laser_head_sprite_palette:
 	incbin "data/palettes/Sprite_KAOSLaserHead.bin"
 
-DATA_FD46CF:
+kaos_skull_head_sprite_palette:
 	incbin "data/palettes/Sprite_KAOSSkullHead.bin"
 
-DATA_FD46ED:
+kaos_cylinder_head_sprite_palette:
 	incbin "data/palettes/Sprite_KAOSCylinderHead.bin"
 
-DATA_FD470B:
+kaos_boxing_glove_sprite_palette:
 	incbin "data/palettes/Sprite_KAOSBoxingGlove.bin"
 
-DATA_FD4729:
+head_to_head_faces_sprite_palette:
 	incbin "data/palettes/Sprite_HeadToHeadCharacterHeads.bin"
 
-DATA_FD4747:
+barrel_shield_sprite_palette:
 	incbin "data/palettes/Sprite_BarrelShield.bin"
 
-DATA_FD4765:
+rotating_cylinder_pegs_sprite_palette:
 	incbin "data/palettes/Sprite_RotatingCylinderPegs.bin"
 
-DATA_FD4783:
+rotating_cylinder_blue_keys_sprite_palette:
 	incbin "data/palettes/Sprite_RotatingCylinderBlueKeys.bin"
 
-DATA_FD47A1:
+rotating_cylinder_green_keys_sprite_palette:
 	incbin "data/palettes/Sprite_RotatingCylinderGreenKeys.bin"
 
-DATA_FD47BF:
+rotating_cylinder_red_keys_sprite_palette:
 	incbin "data/palettes/Sprite_RotatingCylinderRedKeys.bin"
 
-DATA_FD47DD:
+rotating_cylinder_yellow_keys_sprite_palette:
 	incbin "data/palettes/Sprite_RotatingCylinderYellowKeys.bin"
 
-DATA_FD47FB:
+rotating_cylinder_crank_sprite_palette:
 	incbin "data/palettes/Sprite_RotatingCylinderCrank.bin"
 
-DATA_FD4819:
+rare_logo_sprite_palette:
 	incbin "data/palettes/Sprite_RareLogo.bin"
 
-DATA_FD4837:												; Note: Unused?
+DKC2_map_kongs_and_text_sprite_palette:
 	incbin "data/palettes/Sprite_DKC2MapDiddyDixieTextAndLevelIcons.bin"
 
-DATA_FD4857:
+unknown_sprite_palette_8:
 	incbin "data/palettes/Sprite_Unknown8.bin"
 
-DATA_FD4877:
+funkys_rentals_pool_sprite_palette:
 	incbin "data/palettes/Sprite_FunkysRentalsPool.bin"
 
-DATA_FD4895:
+motor_boat_sprite_palette:
 	incbin "data/palettes/Sprite_MotorBoat.bin"
 
-DATA_FD48B3:
+hover_craft_sprite_palette:
 	incbin "data/palettes/Sprite_Hovercraft.bin"
 
-DATA_FD48D1:
+bleaks_house_face_sprite_palette:
 	incbin "data/palettes/Sprite_BleaksHouseFace.bin"
 
-DATA_FD48EF:
+cotton_top_cove_waterfalls_sprite_palette:
 	incbin "data/palettes/Sprite_CottonTopCoveWaterfalls.bin"
 
-DATA_FD490D:
+glacial_grotto_cover_sprite_palette:
 	incbin "data/palettes/Sprite_GlacialGrottoCover.bin"
 
-DATA_FD492B:
+smugglers_cove_cover_sprite_palette:
 	incbin "data/palettes/Sprite_SmugglersCoveCover.bin"
 
-DATA_FD4949:
+kremling_map_flag_sprite_palette:
 	incbin "data/palettes/Sprite_KMapFlags.bin"
 
-DATA_FD4967:
+wrinklys_save_cave_sprite_palette:
 	incbin "data/palettes/Sprite_WrinklysSaveCave.bin"
 
-DATA_FD4985:									; Note: Unused
+arich_ambush_face_unused_sprite_palette:
 	incbin "data/palettes/Sprite_ArichAmbushFace.bin"
 
-DATA_FD49A3:
+brashs_cabin_smoke_sprite_palette:
 	incbin "data/palettes/Sprite_BrashsCabinSmoke.bin"
 
-DATA_FD49C1:
+arichs_hoard_sprite_palette:
 	incbin "data/palettes/Sprite_ArichsHoardCover.bin"
 
-DATA_FD49FD:
+double_trouble_sign_sprite_palette:
 	incbin "data/palettes/Sprite_DoubleTroubleSign.bin"
 
-DATA_FD4A1B:
+bazaar_sprite_palette:
 	incbin "data/palettes/Sprite_Bazaar.bin"
 
-DATA_FD4A39:
+bazaar_accessories_sprite_palette:
 	incbin "data/palettes/Sprite_BazaarsAccessories.bin"
 
-DATA_FD4A57:
+bramble_sprite_palette:
 	incbin "data/palettes/Sprite_Bramble.bin"
 
-DATA_FD4A75:
+brambles_accessories_sprite_palette:
 	incbin "data/palettes/Sprite_BramblesAccessories.bin"
 
-DATA_FD4A93:
+brash_sprite_palette:
 	incbin "data/palettes/Sprite_Brash.bin"
 
-DATA_FD4AB1:
+blunder_sprite_palette:
 	incbin "data/palettes/Sprite_Blunder.bin"
 
-DATA_FD4ACF:
+blizzards_accessories_sprite_palette:
 	incbin "data/palettes/Sprite_BlizzardsAccessories.bin"
 
-DATA_FD4AED:
+brashs_accessories_sprite_palette:
 	incbin "data/palettes/Sprite_BrashsAccessories.bin"
 
-DATA_FD4B0B:
+blunders_accessories_sprite_palette:
 	incbin "data/palettes/Sprite_BlundersAccessories.bin"
 
-DATA_FD4B29:
+bazooka_sprite_palette:
 	incbin "data/palettes/Sprite_Bazooka.bin"
 
-DATA_FD4B47:
+boomer_sprite_palette:
 	incbin "data/palettes/Sprite_Boomer.bin"
 
-DATA_FD4B65:
+baffle_sprite_palette:
 	incbin "data/palettes/Sprite_Baffle.bin"
 
-DATA_FD4B83:
+barnacle_sprite_palette:
 	incbin "data/palettes/Sprite_Barnacle.bin"
 
-DATA_FD4BA1:
+barter_sprite_palette:
 	incbin "data/palettes/Sprite_Barter.bin"
 
-DATA_FD4BBF:
+benny_sprite_palette:
 	incbin "data/palettes/Sprite_Benny.bin"
 
-DATA_FD4BDD:
+bjorn_sprite_palette:
 	incbin "data/palettes/Sprite_Bjorn.bin"
 
-DATA_FD4BFB:
+blue_bear_sprite_palette:
 	incbin "data/palettes/Sprite_Blue.bin"
 
-DATA_FD4C19:
+blizzard_sprite_palette:
 	incbin "data/palettes/Sprite_Blizzard.bin"
 
-DATA_FD4C37:
+bazookas_accessories_sprite_palette:
 	incbin "data/palettes/Sprite_BazookasAccessories.bin"
 
-DATA_FD4C55:
+boomers_accessories_sprite_palette:
 	incbin "data/palettes/Sprite_BoomersAccessories.bin"
 
-DATA_FD4C73:
+baffles_accessories_sprite_palette:
 	incbin "data/palettes/Sprite_BafflesAccessories.bin"
 
-DATA_FD4C91:
+barnacles_accessories_sprite_palette:
 	incbin "data/palettes/Sprite_BarnaclesAccessories.bin"
 
-DATA_FD4CAF:
+barters_accessories_sprite_palette:
 	incbin "data/palettes/Sprite_BartersAccessories.bin"
 
-DATA_FD4CCD:
+bennys_accessories_sprite_palette:
 	incbin "data/palettes/Sprite_BennysAccessories.bin"
 
-DATA_FD4CEB:
+bjorns_accessories_sprite_palette:
 	incbin "data/palettes/Sprite_BjornsAccessories.bin"
 
-DATA_FD4D09:
+boomers_fan_sprite_palette:
 	incbin "data/palettes/Sprite_BoomersFan.bin"
 
-DATA_FD4D27:
+unknown_sprite_palette_9:
 	incbin "data/palettes/Sprite_Unknown9.bin"
 
-DATA_FD4D63:
+file_select_options_text_sprite_palette:
 	incbin "data/palettes/Sprite_FileSelectOptionsText.bin"
 
-DATA_FD4D81:
+file_select_timer_text_sprite_palette:
 	incbin "data/palettes/Sprite_FileSelectDigitalDisplayText.bin"
 
-DATA_FD4D9F:
+brashs_cabin_digital_display_sprite_palette:
 	incbin "data/palettes/Sprite_BrashesCabinDigitalDisplay.bin"
 
-DATA_FD4DBD:
+main_map_ctc_waterfall_sprite_palette:
 	incbin "data/palettes/Sprite_MainMapWaterFallByCottonTopCove.bin"
 
-DATA_FD4DDB:
+main_map_wide_waterfalls_sprite_palette:
 	incbin "data/palettes/Sprite_MainMapWideWaterfalls.bin"
 
-DATA_FD4DF9:
+nintendo64_sprite_palette:
 	incbin "data/palettes/Sprite_Nintendo64.bin"
 
-DATA_FD4E17:
+game_over_blocks_G:
 	incbin "data/palettes/Sprite_GameOverBlocks_G.bin"
 
-DATA_FD4E35:
+game_over_blocks_AM:
 	incbin "data/palettes/Sprite_GameOverBlocks_AM.bin"
 
-DATA_FD4E53:
+game_over_blocks_E:
 	incbin "data/palettes/Sprite_GameOverBlocks_E.bin"
 
-DATA_FD4E71:
+game_over_blocks_O:
 	incbin "data/palettes/Sprite_GameOverBlocks_O.bin"
 
-DATA_FD4E8F:
+game_over_blocks_V:
 	incbin "data/palettes/Sprite_GameOverBlocks_V.bin"
 
-DATA_FD4EAD:
+game_over_blocks_ER:
 	incbin "data/palettes/Sprite_GameOverBlocks_ER.bin"
 
-DATA_FD4ECB:											; Note: Looks sort of like the invincibility palette for Dixie
+unknown_sprite_palette_10:							; Note: Looks sort of like the invincibility palette for Dixie
 	incbin "data/palettes/Sprite_Unknown10.bin"
 
-DATA_FD4EE9:											; Note: Looks sort of like the invincibility palette for Kiddy
+unknown_sprite_palette_11:							; Note: Looks sort of like the invincibility palette for Kiddy
 	incbin "data/palettes/Sprite_Unknown11.bin"
 
-DATA_FD4F07:
+brambles_vase_sprite_palette:
 	incbin "data/palettes/Sprite_BramblesVase.bin"
 
-DATA_FD4F25:
+area_name_font_sprite_palette:
 	incbin "data/palettes/Sprite_AreaNameFont.bin"
 
-DATA_FD4F43:
+used_inventory_items_sprite_palette:
 	incbin "data/palettes/Sprite_UsedInventoryItems1.bin"
 
-DATA_FD4F61:
+used_inventory_items_2_sprite_palette:
 	incbin "data/palettes/Sprite_UsedInventoryItems2.bin"
 
-DATA_FD4F7F:
+main_map_rocks_sprite_palette:
 	incbin "data/palettes/Sprite_MainMapRocksAndWaterTrails.bin"
 
-DATA_FD4F9D:
+gyrocopter_sprite_palette:
 	incbin "data/palettes/Sprite_Gyrocopter.bin"
 
-DATA_FD4FBB:
+turbo_ski_sprite_palette:
 	incbin "data/palettes/Sprite_TurboSki.bin"
 
-DATA_FD4FD9:
+area_name_font_p2_sprite_palette:
 	incbin "data/palettes/Sprite_P2AreaNameFont.bin"
 
-DATA_FD4FF7:
+blue_crystal_sprite_palette:
 	incbin "data/palettes/Sprite_BlueCrystal.bin"
 
-DATA_FD5015:
+green_crystal_sprite_palette:
 	incbin "data/palettes/Sprite_GreenCrystal.bin"
 
-DATA_FD5033:
+red_crystal_sprite_palette:
 	incbin "data/palettes/Sprite_RedCrystal.bin"
 
-DATA_FD5051:
+yellow_crystal_sprite_palette:
 	incbin "data/palettes/Sprite_YellowCrystal.bin"
 
-DATA_FD506F:
+glowing_blue_crystal_sprite_palette:
 	incbin "data/palettes/Sprite_GlowingBlueCrystal.bin"
 
-DATA_FD508D:
+glowing_green_crystal_sprite_palette:
 	incbin "data/palettes/Sprite_GlowingGreenCrystal.bin"
 
-DATA_FD50AB:
+glowing_red_crystal_sprite_palette:
 	incbin "data/palettes/Sprite_GlowingRedCrystal.bin"
 
-DATA_FD50C9:
+glowing_yellow_crystal_sprite_palette:
 	incbin "data/palettes/Sprite_GlowingYellowCrystal.bin"
 
-DATA_FD50E7:
+music_test_notes_sprite_palette:
 	incbin "data/palettes/Sprite_MusicTestNotes.bin"
 
-DATA_FD5105:
+unknown_sprite_palette_12:
 	incbin "data/palettes/Sprite_Unknown12.bin"
 
-DATA_FD5123:
+music_test_sign_sprite_palette:
 	incbin "data/palettes/Sprite_MusicTestSign.bin"
 
-DATA_FD5141:
+bounty_bay_cover_sprite_palette:
 	incbin "data/palettes/Sprite_BountyBayCover.bin"
 
-DATA_FD515F:
+crystal_shards_sprite_palette:
 	incbin "data/palettes/Sprite_CrystalShards.bin"
 
-DATA_FD517D:
+kremwood_forest_log_sprite_palette:
 	incbin "data/palettes/Sprite_KremwoodForestLog.bin"
 
-DATA_FD51B9:
+map_cannon_sprite_palette:
 	incbin "data/palettes/Sprite_MapCannon.bin"
 
-DATA_FD51D7:
+chairlifts_sprite_palette:
 	incbin "data/palettes/Sprite_Chairlifts.bin"
 
-DATA_FD51F5:
+boomers_fuse_sprite_palette:
 	incbin "data/palettes/Sprite_BoomersFuse.bin"
 
-DATA_FD5213:
+sewer_stockpile_cover_sprite_palette:
 	incbin "data/palettes/Sprite_SewerStockpileCover.bin"
 
-DATA_FD5231:
+sky_high_secret_rock_sprite_palette:
 	incbin "data/palettes/Sprite_SkyHighSecretRock.bin"
 
-DATA_FD524F:
+rock_pile_sprite_palette:
 	incbin "data/palettes/Sprite_Rockpile.bin"
 
-DATA_FD526D:
+clifftop_cache_cover_sprite_palette:
 	incbin "data/palettes/Sprite_ClifftopCacheCover.bin"
 
-DATA_FD528B:
+razor_ridge_pipe_sprite_palette:
 	incbin "data/palettes/Sprite_RazorRidgePipeAndWhirlpool.bin"
 
-DATA_FD52A9:
+krosshair_sprite_palette:
 	incbin "data/palettes/Sprite_Krosshair.bin"
 
-DATA_FD52C7:
+knautilus_sprite_palette:
 	incbin "data/palettes/Sprite_Knautilus.bin"
 
-DATA_FD52E5:
+krematoa_bridge_sprite_palette:
 	incbin "data/palettes/Sprite_KremtoaBridge.bin"
 
-DATA_FD5303:
+mama_bird_sprite_palette:
 	incbin "data/palettes/Sprite_BananaBirdQueenHead.bin"
 
-DATA_FD5321:
+map_krool_sprite_palette:
 	incbin "data/palettes/Sprite_MapKRool.bin"
 
-DATA_FD533F:
+ending_krool_eyes_sprite_palette:
 	incbin "data/palettes/Sprite_KRoolsEyes.bin"
 
-DATA_FD535D:
+mama_bird_giant_egg_sprite_palette:
 	incbin "data/palettes/Sprite_GiantBananaBirdQueenEgg.bin"
 
-DATA_FD537B:
+mama_bird_barrier_sprite_palette:
 	incbin "data/palettes/Sprite_RedGemInBananaBirdQueenBarrier.bin"
 
-DATA_FD5399:
+mama_bird_barrier_lights_sprite_palette:
 	incbin "data/palettes/Sprite_LightsOnBananaBirdQueenBarrier.bin"
 
-DATA_FD53B7:
+ending_krool_head_sprite_palette:
 	incbin "data/palettes/Sprite_KRoolHead.bin"
 
-DATA_FD53D5:
+map_mama_bird_sprite_palette:
 	incbin "data/palettes/Sprite_MapBananaBirdQueen.bin"
 
-DATA_FD53F3:
+ending_funky_kong_sprite_palette:
 	incbin "data/palettes/Sprite_FunkyKongDrivingBoat.bin"
 
-DATA_FD5411:
+cranky_trophy_sprite_palette:
 	incbin "data/palettes/Sprite_KarateCrankyTrophy.bin"
 
-DATA_FD542F:
+photo_album_edges_sprite_palette:
 	incbin "data/palettes/Sprite_PhotoEdges.bin"
 
-DATA_FD544D:
+photo_album_section_name_sprite_palette:
 	incbin "data/palettes/Sprite_PhotoAlbumSectionNames.bin"
 
-DATA_FD546B:
+unknown_sprite_palette_13:
 	incbin "data/palettes/Sprite_Unknown13.bin"
 
-DATA_FD5489:
+kongfused_cliffs_sprite_palette:
 	incbin "data/palettes/Sprite_KongFusedCliffsFire.bin"
 
-DATA_FD54A7:
+lava_smoke_sprite_palette:
 	incbin "data/palettes/Sprite_LavaSmoke.bin"
 
 
 ;unused platform ("KPlat") palette?
-DATA_FD54C5:
+kplat_unused_sprite_palette:
 	incbin "data/palettes/Sprite_Unknown14.bin"
 
 DATA_FD54E3:

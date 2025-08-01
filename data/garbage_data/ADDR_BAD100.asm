@@ -16,7 +16,7 @@ ADDR_BAD100:
 	ADC.w #$0003
 	AND.w #$FFF8
 	STA.w $0820
-	LDA.w #aux_sprite_table
+	LDA.w #aux_sprite_slot
 	STA.w $04A4
 	LDA.w #$8000
 	STA.w $04A6

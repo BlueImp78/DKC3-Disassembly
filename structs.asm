@@ -27,38 +27,41 @@ struct sprite $0000
 	.visibility:			skip 2  	;26,x
 	.terrain_interaction:		skip 2  	;28,x
 	.x_speed:			skip 2  	;2A,x
-	.unknown_2C:			skip 2  	;2C,x
+	.unknown_2C:			skip 1  	;2C,x
+	.unknown_2D:			skip 1		;2D,x
 	.y_speed:			skip 2  	;2E,x
 	.max_x_speed:			skip 2  	;30,x
-	.unknown_32:			skip 2  	;32,x
+	.unknown_32:			skip 1  	;32,x
+	.unknown_33:			skip 1  	;33,x
 	.max_y_speed:			skip 2  	;34,x
 	.slip_velocity:			skip 2  	;36,x
-	.state:				skip 2  	;38,x
+	.state:				skip 1  	;38,x
+	.sub_state:			skip 1  	;39,x
 	.interaction_flags:		skip 2  	;3A,x
 	.carry_or_defeated_flags:	skip 2  	;3C,x
-	.unknown_3E:			skip 2  	;3E,x
+	.unknown_3E:			skip 2  	;3E,x   34,x in DKC2
 	.animation_id:			skip 2  	;40,x
 	.animation_timer:		skip 2  	;42,x
 	.animation_speed:		skip 2  	;44,x
 	.animation_address:		skip 2  	;46,x
 	.animation_routine_pointer:	skip 2  	;48,x
-	.unknown_4A:			skip 2  	;4A,x
-	.unknown_4C:			skip 2  	;4C,x
-	.unknown_4E:			skip 2  	;4E,x
-	.unknown_50:			skip 2  	;50,x
-	.unknown_52:			skip 2  	;52,x
-	.unknown_54:			skip 2  	;54,x 	copy of X position
-	.unknown_56:			skip 2  	;56,x   copy of Y position
-	.unknown_58:			skip 2  	;58,x
+	.animation_flags:		skip 2  	;4A,x
+	.general_purpose_4C:		skip 2  	;4C,x
+	.general_purpose_4E:		skip 2  	;4E,x
+	.general_purpose_50:		skip 2  	;50,x
+	.general_purpose_52:		skip 2  	;52,x
+	.unknown_54:			skip 2  	;54,x   sometimes copy of X position
+	.unknown_56:			skip 2  	;56,x   sometimes copy of Y position
+	.unknown_58:			skip 2  	;58,x   standable sprite related?
 	.movement_state:		skip 1  	;5A,x
 	.movement_sub_state:		skip 1  	;5B,x
-	.unknown_5C:			skip 2  	;5C,x   general purpose, movement behavior: home X position
-	.unknown_5E:			skip 2  	;5E,x   general purpose, movement behavior: home Y position
-	.unknown_60:			skip 2  	;60,x   general purpose, movement behavior: horizontal deviation distance
-	.unknown_62:			skip 2  	;62,x   general purpose, movement behavior: X velocity 
-	.unknown_64:			skip 2  	;64,x   general purpose, movement behavior: vertical deviation distance
-	.unknown_66:			skip 2  	;66,x   general purpose, movement behavior: Y velocity
-	.unknown_68:			skip 2  	;68,x   general purpose?
-	.unknown_6A:			skip 2  	;6A,x   general purpose?
-	.unknown_6C:			skip 2  	;6C,x   general purpose?
+	.general_purpose_5C:		skip 2  	;5C,x   movement behavior: home X position
+	.general_purpose_5E:		skip 2  	;5E,x   movement behavior: home Y position
+	.general_purpose_60:		skip 2  	;60,x   movement behavior: horizontal deviation distance
+	.general_purpose_62:		skip 2  	;62,x   movement behavior: X velocity 
+	.general_purpose_64:		skip 2  	;64,x   movement behavior: vertical deviation distance
+	.general_purpose_66:		skip 2  	;66,x   movement behavior: Y velocity
+	.general_purpose_68:		skip 2  	;68,x   movement behavior?
+	.general_purpose_6A:		skip 2  	;6A,x   movement behavior?
+	.general_purpose_6C:		skip 2  	;6C,x   movement behavior?
 endstruct

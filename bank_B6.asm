@@ -2,25 +2,25 @@ CODE_B68000:
 	JMP.w !null_pointer			;$B68000
 
 CODE_B68003:
-	JMP.w CODE_B6F359			;$B68003
+	JMP CODE_B6F359				;$B68003
 
 CODE_B68006:
-	JMP.w CODE_B69232			;$B68006
+	JMP CODE_B69232				;$B68006
 
 CODE_B68009:
-	JMP.w CODE_B6F3DA			;$B68009
+	JMP CODE_B6F3DA				;$B68009
 
 CODE_B6800C:
-	JMP.w CODE_B6F3E7			;$B6800C
+	JMP CODE_B6F3E7				;$B6800C
 
 CODE_B6800F:
-	JMP.w CODE_B6F3F8			;$B6800F
+	JMP CODE_B6F3F8				;$B6800F
 
 CODE_B68012:
-	JMP.w CODE_B6F3AB			;$B68012
+	JMP CODE_B6F3AB				;$B68012
 
 CODE_B68015:
-	JMP.w CODE_B6840E			;$B68015
+	JMP CODE_B6840E				;$B68015 platform sprite related?
 
 CODE_B68018:
 	JMP.w !null_pointer			;$B68018
@@ -29,13 +29,13 @@ CODE_B6801B:
 	JMP.w !null_pointer			;$B6801B
 
 CODE_B6801E:
-	JMP.w defeat_sprite_using_anim_global	;$B6801E
+	JMP defeat_sprite_using_anim_global	;$B6801E
 
 CODE_B68021:
-	JMP.w CODE_B680A5			;$B68021
+	JMP CODE_B680A5				;$B68021
 
 CODE_B68024:
-	JMP.w CODE_B680C9			;$B68024
+	JMP CODE_B680C9				;$B68024
 
 CODE_B68027:
 	JMP.w !null_pointer			;$B68027
@@ -44,48 +44,50 @@ CODE_B6802A:
 	JMP.w !null_pointer			;$B6802A
 
 CODE_B6802D:
-	JMP.w CODE_B6F2AD			;$B6802D
+	JMP CODE_B6F2AD				;$B6802D X speed related
 
 CODE_B68030:
-	JMP.w CODE_B6F2C5			;$B68030
+	JMP CODE_B6F2C5				;$B68030 Y speed related
 
 CODE_B68033:
-	JMP.w CODE_B6AFB5			;$B68033
+	JMP CODE_B6AFB5				;$B68033
 
 CODE_B68036:
-	JMP.w CODE_B6B3C6			;$B68036
+	JMP CODE_B6B3C6				;$B68036 Sets an animation
 
 CODE_B68039:
-	JMP.w CODE_B68360			;$B68039
+	JMP CODE_B68360				;$B68039 Generic platform sprite routine
 
 CODE_B6803C:
-	JMP.w CODE_B683AF			;$B6803C
+	JMP CODE_B683AF				;$B6803C
 
 CODE_B6803F:
-	JMP.w CODE_B6F1EA			;$B6803F
+	JMP CODE_B6F1EA				;$B6803F
 
 CODE_B68042:
-	JMP.w CODE_B6F0C6			;$B68042
+	JMP CODE_B6F0C6				;$B68042 Sprite palette related
 
 CODE_B68045:
-	JMP.w CODE_B6F532			;$B68045
+	JMP CODE_B6F532				;$B68045
 
 CODE_B68048:
-	JMP.w CODE_B6F4E0			;$B68048
+	JMP CODE_B6F4E0				;$B68048
 
 CODE_B6804B:
-	JMP.w CODE_B6F108			;$B6804B
+	JMP CODE_B6F108				;$B6804B
 
 CODE_B6804E:
-	JMP.w CODE_B6DFF9			;$B6804E
+	JMP CODE_B6DFF9				;$B6804E
 
 CODE_B68051:
-	JMP.w CODE_B6F186			;$B68051
+	JMP CODE_B6F186				;$B68051
 
 CODE_B68054:
-	JMP.w CODE_B6F272			;$B68054
+	JMP CODE_B6F272				;$B68054 Moves sprite in Y to sprite in X
 
 
+;unknown_sprite_0128_main does nothing...
+;...but without it neither the player nor cranky are able to hit the targets in the swanky minigame.
 null_sprite_main:
 unknown_sprite_0128_main:
 	JML [$04F5]				;$B68057
@@ -93,20 +95,18 @@ unknown_sprite_0128_main:
 
 unknown_sprite_0138_main:
 barrel_switch_s_main:
-CODE_B6805A:
+return_handle_despawn:
 	JSL.l CODE_BBAB52			;$B6805A
 	JML [$04F5]				;$B6805E
 
 
 water_splash_main:
 smoke_puff_main:
-	JSL.l CODE_B9E000			;$B68061
-
-
+	JSL.l process_current_movement		;$B68061
 fireball_landing_particles_main:
 burst_effect_main:
 	JSL.l process_sprite_animation		;$B68065
-	JMP.w CODE_B6805A			;$B68069
+	JMP.w return_handle_despawn		;$B68069
 
 
 bottom_of_right_cotton_top_cove_waterfall_main:
@@ -191,14 +191,14 @@ sneek_main:
 
 .idle:
 	TYX					;$B680E9  \ Get Sneek sprite
-	INC sprite.unknown_6A,x			;$B680EA   | Increase sound effect timer
-	LDA sprite.unknown_6A,x			;$B680EC   |
+	INC sprite.general_purpose_6A,x		;$B680EA   | Increase sound effect timer
+	LDA sprite.general_purpose_6A,x		;$B680EC   |
 	CMP #$004B				;$B680EE   |
-	BNE ..sound_done			;$B680F1   | If timer not done, 
-	STZ sprite.unknown_6A,x			;$B680F3   | Else reset timer
+	BNE ..no_sound				;$B680F1   | If timer not done, dont play sound 
+	STZ sprite.general_purpose_6A,x		;$B680F3   | Else reset timer
 	LDA #$063D				;$B680F5   | 
-	JSL CODE_B28012				;$B680F8  / Queue Sneek idle sound effect
-..sound_done:
+	JSL queue_sound_effect			;$B680F8  / Queue Sneek idle sound effect
+..no_sound:
 	LDA #$0038				;$B680FC  \ Get collision flags
 	JSL check_throwable_collision		;$B680FF   | Check throwable collision
 	BCS ..throwable_collision_happened	;$B68103   |
@@ -210,8 +210,8 @@ sneek_main:
 	BEQ ..defeated_in_kong_collision	;$B68115  / If yes load normal defeat sound and defeat sneek
 ..failed_defeat_or_no_collision:
 	JSL process_sprite_animation		;$B68117  \ Process animation
-	JSL CODE_B9E000				;$B6811B   | Process current movement
-	JMP CODE_B6805A				;$B6811F  / Return and handle despawn
+	JSL process_current_movement		;$B6811B   | Process current movement
+	JMP return_handle_despawn		;$B6811F  / Return and handle despawn
 
 ..throwable_collision_happened:
 	LDA #$063C				;$B68122  \ Get defeated by throwable sound effect
@@ -220,15 +220,15 @@ sneek_main:
 ..defeated_in_kong_collision:
 	LDA #$063B				;$B68127  |> Get defeated by kong sound effect
 ..defeat_sprite:
-	JSL CODE_B28012				;$B6812A  \  Play defeated sound
+	JSL queue_sound_effect			;$B6812A  \  Play defeated sound
 	LDA #$0137				;$B6812E   |
 	JSR defeat_sprite_using_animation	;$B68131   | Set sneek death animation
 	JSR CODE_B680A9				;$B68134   | Make him fall offscreen
 	INC sprite.state,x			;$B68137   | Set defeated state
-	JMP CODE_B6805A				;$B68139  /
+	JMP return_handle_despawn		;$B68139  /
 
 .defeated:
-	JSL CODE_B9E000				;$B6813C  \ Process current movement
+	JSL process_current_movement		;$B6813C  \ Process current movement
 	JSL process_sprite_animation		;$B68140   | Process animation
 	JMP CODE_B680C9				;$B68144  / Return and handle despawn
 
@@ -237,101 +237,101 @@ sneek_main:
 	LDA sprite.state,x			;$B6814A   | Get kong state
 	CMP #$006B				;$B6814C   | Check if in state 6B (Ellie scared)
 	BEQ ..set_scare_animation		;$B6814F   | If yes set scare Ellie animation
-	JSL CODE_B9E000				;$B68151   | Else process current movement
+	JSL process_current_movement		;$B68151   | Else process current movement
 	JSL process_sprite_animation		;$B68155   | Process animation
-	JMP CODE_B6805A				;$B68159  / Return and handle despawn
+	JMP return_handle_despawn		;$B68159  / Return and handle despawn
 
 ..set_scare_animation:
 	TYX					;$B6815C  \ Get sneek sprite
 	INC sprite.state,x			;$B6815D   | Set dummy state
 	LDA #$0138				;$B6815F   |
 	JSL set_sprite_animation		;$B68162   | Set sneek scare Ellie animation
-	JMP CODE_B6805A				;$B68166  / Return and handle despawn
+	JMP return_handle_despawn		;$B68166  / Return and handle despawn
 
 .dummy:
 	JSL process_sprite_animation		;$B68169  \ Process animation
-	JMP CODE_B6805A				;$B6816D  / Return and handle despawn
+	JMP return_handle_despawn		;$B6816D  / Return and handle despawn
 
 
 buzz_main:
-	JMP.w (DATA_B68173,x)			;$B68170
+	JMP (.state_table,x)			;$B68170  |>
 
-DATA_B68173:
-	dw CODE_B6817B
-	dw CODE_B681A1
-	dw CODE_B681BD
-	dw CODE_B681C8
+.state_table:
+	dw .state_0
+	dw .state_1
+	dw .defeated
+	dw .state_3
 
-CODE_B6817B:
-	LDA.w #$0038				;$B6817B
-	JSL.l check_throwable_collision		;$B6817E
-	BCS.b CODE_B681AC			;$B68182
-CODE_B68184:
-	JSL.l populate_sprite_clipping		;$B68184
-	LDA.w #$0000				;$B68188
-	JSL.l CODE_BEC009			;$B6818B
-	BCC.b CODE_B68193			;$B6818F
-	BNE.b CODE_B681AC			;$B68191
-CODE_B68193:
-	JSL.l process_sprite_animation		;$B68193
-	JSL.l CODE_B9E000			;$B68197
-	JSR.w CODE_B68212			;$B6819B
-	JMP.w CODE_B6805A			;$B6819E
+.state_0:
+	LDA #$0038				;$B6817B  \
+	JSL check_throwable_collision		;$B6817E   |
+	BCS .CODE_B681AC			;$B68182  /
+.CODE_B68184:
+	JSL populate_sprite_clipping		;$B68184  \
+	LDA #$0000				;$B68188   |
+	JSL CODE_BEC009				;$B6818B   |
+	BCC .CODE_B68193			;$B6818F   |
+	BNE .CODE_B681AC			;$B68191  /
+.CODE_B68193:
+	JSL process_sprite_animation		;$B68193  \
+	JSL process_current_movement		;$B68197   |
+	JSR CODE_B68212				;$B6819B   |
+	JMP return_handle_despawn		;$B6819E  /
 
-CODE_B681A1:
-	LDA.w #$0020				;$B681A1
-	JSL.l check_throwable_collision		;$B681A4
-	BCC.b CODE_B68184			;$B681A8
-	BNE.b CODE_B68184			;$B681AA
-CODE_B681AC:
-	LDA.w #$013D				;$B681AC
-	JSR.w defeat_sprite_using_animation	;$B681AF
-	JSR.w CODE_B680A9			;$B681B2
-	LDA.w #$0002				;$B681B5
-	STA.b $38,x				;$B681B8
-	JMP.w CODE_B6805A			;$B681BA
+.state_1:
+	LDA #$0020				;$B681A1  \
+	JSL check_throwable_collision		;$B681A4   |
+	BCC .CODE_B68184			;$B681A8   |
+	BNE .CODE_B68184			;$B681AA  /
+.CODE_B681AC:
+	LDA #$013D				;$B681AC  \
+	JSR defeat_sprite_using_animation	;$B681AF   |
+	JSR CODE_B680A9				;$B681B2   |
+	LDA #$0002				;$B681B5   |
+	STA sprite.state,x			;$B681B8   |
+	JMP return_handle_despawn		;$B681BA  /
 
-CODE_B681BD:
-	JSL.l CODE_B9E000			;$B681BD
-	JSL.l process_sprite_animation		;$B681C1
-	JMP.w CODE_B680C9			;$B681C5
+.defeated:
+	JSL process_current_movement		;$B681BD  \
+	JSL process_sprite_animation		;$B681C1   |
+	JMP CODE_B680C9				;$B681C5  /
 
-CODE_B681C8:
-	LDA.w #$0120				;$B681C8
-	JSL.l check_throwable_collision		;$B681CB
-	BCS.b CODE_B681F3			;$B681CF
-	LDA.w $18E9				;$B681D1
-	DEC					;$B681D4
-	BEQ.b CODE_B681E5			;$B681D5
-	JSL.l populate_sprite_clipping		;$B681D7
-	INC.w $1860				;$B681DB
-	LDA.w #$0055				;$B681DE
-	JSL.l CODE_BEC009			;$B681E1
-CODE_B681E5:
-	JSL.l process_sprite_animation		;$B681E5
-	JSL.l CODE_B9E000			;$B681E9
-	JSR.w CODE_B68212			;$B681ED
-	JMP.w CODE_B6805A			;$B681F0
+.state_3:
+	LDA #$0120				;$B681C8  \
+	JSL check_throwable_collision		;$B681CB   |
+	BCS .CODE_B681F3			;$B681CF   |
+	LDA $18E9				;$B681D1   |
+	DEC					;$B681D4   |
+	BEQ .CODE_B681E5			;$B681D5   |
+	JSL populate_sprite_clipping		;$B681D7   |
+	INC $1860				;$B681DB   |
+	LDA #$0055				;$B681DE   |
+	JSL CODE_BEC009				;$B681E1  /
+.CODE_B681E5:
+	JSL process_sprite_animation		;$B681E5  \
+	JSL process_current_movement		;$B681E9   |
+	JSR CODE_B68212				;$B681ED   |
+	JMP return_handle_despawn		;$B681F0  /
 
-CODE_B681F3:
-	LDX.b current_sprite			;$B681F3
-	LDA.w #$002F				;$B681F5
-	JSL.l CODE_BB85A0			;$B681F8
-	LDA.w #$013D				;$B681FC
-	JSR.w defeat_sprite_using_animation	;$B681FF
-	JSR.w CODE_B680A9			;$B68202
-	LDA.w #$FF80				;$B68205
-	STA.b $2E,x				;$B68208
-	LDA.w #$0002				;$B6820A
-	STA.b $38,x				;$B6820D
-	JMP.w CODE_B6805A			;$B6820F
+.CODE_B681F3:
+	LDX current_sprite			;$B681F3  \
+	LDA #$002F				;$B681F5   |
+	JSL CODE_BB85A0				;$B681F8   |
+	LDA #$013D				;$B681FC   |
+	JSR defeat_sprite_using_animation	;$B681FF   |
+	JSR CODE_B680A9				;$B68202   |
+	LDA #$FF80				;$B68205   |
+	STA sprite.y_speed,x			;$B68208   |
+	LDA #$0002				;$B6820A   |
+	STA sprite.state,x			;$B6820D   |
+	JMP return_handle_despawn		;$B6820F  /
 
 CODE_B68212:
-	LDA.w #$0644				;$B68212
-	JSL.l CODE_B28024			;$B68215
-	LDA.w #$0545				;$B68219
-	JSL.l CODE_B28024			;$B6821C
-	RTS					;$B68220
+	LDA #$0644				;$B68212  \
+	JSL CODE_B28024				;$B68215   |
+	LDA #$0545				;$B68219   |
+	JSL CODE_B28024				;$B6821C   |
+	RTS					;$B68220  /
 
 
 ;Koco variables:
@@ -355,25 +355,25 @@ koco_main:
 	BEQ ..defeated_in_kong_collision	;$B6823E  / If yes, defeat Koco
 ..failed_defeat_or_no_collision:
 	JSR CODE_B68CF3				;$B68240  \ Else handle Fish Food Frenzy related things
-	INC sprite.unknown_6A,x			;$B68243   | Increase a timer
-	LDA sprite.unknown_6A,x			;$B68245   |
+	INC sprite.general_purpose_6A,x		;$B68243   | Increase a timer
+	LDA sprite.general_purpose_6A,x		;$B68245   |
 	CMP #$004B				;$B68247   | Check if timer is done
 	BNE ..return				;$B6824A   | If not, return
-	STZ sprite.unknown_6A,x			;$B6824C  / Else reset timer
+	STZ sprite.general_purpose_6A,x		;$B6824C  / Else reset timer
 ..return:
 	JSL process_sprite_animation		;$B6824E  \
-	JSL CODE_B9E000				;$B68252   | Process current movement
-	JMP CODE_B6805A				;$B68256  / Return and handle despawn
+	JSL process_current_movement		;$B68252   | Process current movement
+	JMP return_handle_despawn		;$B68256  / Return and handle despawn
 
 ..defeated_in_kong_collision:
 	LDA #$0140				;$B68259  \
 	JSR defeat_sprite_using_animation	;$B6825C   | Set Koco defeated animation
 	JSR CODE_B680A9				;$B6825F   | Make him fall offscreen
 	INC sprite.state,x			;$B68262   | Set defeated state
-	JMP CODE_B6805A				;$B68264  / Return and handle despawn
+	JMP return_handle_despawn		;$B68264  / Return and handle despawn
 
 .defeated:
-	JSL CODE_B9E000				;$B68267  \ Process current movement
+	JSL process_current_movement		;$B68267  \ Process current movement
 	JSL process_sprite_animation		;$B6826B   |
 	JMP CODE_B680C9				;$B6826F  / Return and handle despawn
 
@@ -393,11 +393,11 @@ DATA_B68275:
 CODE_B68283:
 	JSR.w CODE_B6834B			;$B68283
 CODE_B68286:
-	JSR.w CODE_B68429 			;$B68286 / set_standable_hitbox_pos
+	JSR.w set_platform_hitbox_position 	;$B68286 / set_standable_hitbox_pos
 	JSR.w CODE_B683B3			;$B68289 / set_standable_hitbox_range?
 	LDA.w #CODE_B68360			;$B6828C
 	JSL.l CODE_BB85D6			;$B6828F
-	JMP.w CODE_B6805A			;$B68293
+	JMP.w return_handle_despawn		;$B68293
 
 CODE_B68296:
 	TYX					;$B68296
@@ -419,7 +419,7 @@ CODE_B682AB:
 	STA.b $5A,x				;$B682B6
 	STZ.b $46,x				;$B682B8
 CODE_B682BA:
-	JSR.w CODE_B68429			;$B682BA
+	JSR.w set_platform_hitbox_position	;$B682BA
 	JSR.w CODE_B683B3			;$B682BD
 	JSR.w CODE_B682E8			;$B682C0
 	LDA.w #CODE_B68356			;$B682C3
@@ -474,7 +474,7 @@ CODE_B68313:
 	STA.b $5A,x				;$B6831F
 	STZ.b $46,x				;$B68321
 CODE_B68323:
-	JSR.w CODE_B68429			;$B68323
+	JSR.w set_platform_hitbox_position	;$B68323
 	JSR.w CODE_B682E8			;$B68326
 	LDA.w #CODE_B68356			;$B68329
 	JSL.l CODE_BB85D6			;$B6832C
@@ -537,7 +537,7 @@ CODE_B68391:
 	BCC.b CODE_B6839E			;$B68393
 	STA.b $6A,x				;$B68395
 	LDA.w #$0763				;$B68397
-	JSL.l CODE_B28012 			;$B6839A / Play platform sound effect
+	JSL.l queue_sound_effect 		;$B6839A / Play platform sound effect
 CODE_B6839E:
 	RTL					;$B6839E
 
@@ -630,25 +630,25 @@ CODE_B6840E:
 	STZ.b $58,x				;$B68426
 	RTL					;$B68428
 
-CODE_B68429:
-	LDX.b current_sprite			;$B68429
-	LDA.b $12,x				;$B6842B
-	STA.b $54,x				;$B6842D
-	LDA.b $16,x				;$B6842F
-	STA.b $56,x				;$B68431
-	LDA.b $2C,x				;$B68433
-	STA.b $12,x				;$B68435
-	LDA.b $32,x				;$B68437
-	STA.b $16,x				;$B68439
-	JSL.l CODE_B9E000 			;$B6843B / Process current movement
-	LDA.b $2C,x				;$B6843F
-	LDY.b $12,x				;$B68441
-	STA.b $12,x				;$B68443
-	STY.b $2C,x				;$B68445
-	LDA.b $32,x				;$B68447
-	LDY.b $16,x				;$B68449
-	STA.b $16,x				;$B6844B
-	STY.b $32,x				;$B6844D
+set_platform_hitbox_position:
+	LDX current_sprite			;$B68429
+	LDA $12,x				;$B6842B
+	STA $54,x				;$B6842D
+	LDA $16,x				;$B6842F
+	STA $56,x				;$B68431
+	LDA $2C,x				;$B68433
+	STA $12,x				;$B68435
+	LDA $32,x				;$B68437
+	STA $16,x				;$B68439
+	JSL process_current_movement 		;$B6843B
+	LDA $2C,x				;$B6843F
+	LDY $12,x				;$B68441
+	STA $12,x				;$B68443
+	STY $2C,x				;$B68445
+	LDA $32,x				;$B68447
+	LDY $16,x				;$B68449
+	STA $16,x				;$B6844B
+	STY $32,x				;$B6844D
 	RTS					;$B6844F
 
 CODE_B68450:
@@ -661,7 +661,7 @@ CODE_B68450:
 	STA.b $12,x				;$B6845A
 	LDA.b $32,x				;$B6845C
 	STA.b $16,x				;$B6845E
-	JSL.l CODE_B9E000			;$B68460
+	JSL.l process_current_movement		;$B68460
 	LDA.b $2C,x				;$B68464
 	LDY.b $12,x				;$B68466
 	STA.b $12,x				;$B68468
@@ -736,7 +736,7 @@ CODE_B684F9:
 	LDA.w #$0002				;$B684FE
 	STA.w $0038,y				;$B68501
 CODE_B68504:
-	JMP.w CODE_B6805A			;$B68504
+	JMP.w return_handle_despawn		;$B68504
 
 buzz_swarm_main:
 	LDA.w #$0562				;$B68507
@@ -787,7 +787,7 @@ CODE_B6854D:
 	CMP.b $6A,x				;$B68558
 	BCC.b CODE_B6857D			;$B6855A
 	JSR.w CODE_B6860E			;$B6855C
-	JSL.l CODE_B9E000			;$B6855F
+	JSL.l process_current_movement		;$B6855F
 	BRA.b CODE_B685C7			;$B68563
 
 CODE_B68565:
@@ -798,7 +798,7 @@ CODE_B68565:
 	CLC					;$B6856E
 	ADC.w #$0010				;$B6856F
 	STA.b $5E,x				;$B68572
-	JSL.l CODE_B9E000			;$B68574
+	JSL.l process_current_movement		;$B68574
 	PLA					;$B68578
 	STA.b $5E,x				;$B68579
 	BRA.b CODE_B685C7			;$B6857B
@@ -895,9 +895,9 @@ CODE_B6861C:
 	LDA.b $30,x				;$B68621
 	PHA					;$B68623
 	LDA.w #$000E				;$B68624
-	JSL.l CODE_B9E003			;$B68627
+	JSL.l process_alternate_movement	;$B68627
 	LDA.w #$000D				;$B6862B
-	JSL.l CODE_B9E003			;$B6862E
+	JSL.l process_alternate_movement	;$B6862E
 	LDX.b current_sprite			;$B68632
 	PLA					;$B68634
 	STA.b $30,x				;$B68635
@@ -924,29 +924,29 @@ klasp_follow_main:
 	TYX					;$B68644  \ Get Klasp sprite
 	INC sprite.state,x			;$B68645   | Set idle state
 	LDA sprite.x_position,x			;$B68647   | 
-	STA sprite.unknown_64,x			;$B68649   | Store mirror of X position
+	STA sprite.general_purpose_64,x	;$B68649   | Store mirror of X position
 	CLC					;$B6864B   |
-	ADC sprite.unknown_5C,x			;$B6864C   | Add home X position
-	STA sprite.unknown_5C,x			;$B6864E   | Update home X position
-	LDA sprite.unknown_5E,x			;$B68650   |
+	ADC sprite.general_purpose_5C,x		;$B6864C   | Add home X position
+	STA sprite.general_purpose_5C,x		;$B6864E   | Update home X position
+	LDA sprite.general_purpose_5E,x		;$B68650   |
 	CLC					;$B68652   |
 	ADC sprite.x_position,x			;$B68653   |
-	STA sprite.unknown_5E,x			;$B68655   |
-	LDA sprite.unknown_60,x			;$B68657   |
+	STA sprite.general_purpose_5E,x		;$B68655   |
+	LDA sprite.general_purpose_60,x	;$B68657   |
 	CLC					;$B68659   |
 	ADC sprite.y_position,x			;$B6865A   |
-	STA sprite.unknown_60,x			;$B6865C   |
-	LDA sprite.unknown_62,x			;$B6865E   |
+	STA sprite.general_purpose_60,x	;$B6865C   |
+	LDA sprite.general_purpose_62,x		;$B6865E   |
 	CLC					;$B68660   |
 	ADC sprite.y_position,x			;$B68661   |
-	STA sprite.unknown_62,x			;$B68663  /
+	STA sprite.general_purpose_62,x		;$B68663  /
 .following_klasp_idle:
 	JSR .handle_collision			;$B68665  \ Handle collision
 	LDY active_kong_sprite			;$B68668   | Get kong sprite
 	LDA.w sprite.y_position,y		;$B6866B   | Get kong Y position
-	CMP sprite.unknown_60,x			;$B6866E   |
+	CMP sprite.general_purpose_60,x	;$B6866E   |
 	BCC ..CODE_B686AD			;$B68670   |
-	CMP sprite.unknown_62,x			;$B68672   |
+	CMP sprite.general_purpose_62,x		;$B68672   |
 	BCS ..CODE_B686AD			;$B68674   |
 	LDA.w sprite.x_position,y		;$B68676   |
 	SEC					;$B68679   |
@@ -972,7 +972,7 @@ klasp_follow_main:
 
 ..CODE_B6869C:
 	LDX current_sprite			;$B6869C  \
-	LDY sprite.unknown_66,x			;$B6869E   |
+	LDY sprite.general_purpose_66,x		;$B6869E   |
 	PLP					;$B686A0   |
 	BPL ..CODE_B686A9			;$B686A1   |
 	TYA					;$B686A3   |
@@ -986,13 +986,13 @@ klasp_follow_main:
 ..CODE_B686AD:
 	LDA sprite.x_position,x			;$B686AD  \
 	SEC					;$B686AF   |
-	SBC sprite.unknown_64,x			;$B686B0   |
+	SBC sprite.general_purpose_64,x	;$B686B0   |
 	BPL ..CODE_B686B8			;$B686B2   |
 	EOR #$FFFF				;$B686B4   |
 	INC					;$B686B7  /
 ..CODE_B686B8:
 	STA $1C17				;$B686B8  \
-	LDA sprite.unknown_66,x			;$B686BB   |
+	LDA sprite.general_purpose_66,x		;$B686BB   |
 	LSR					;$B686BD   |
 	LSR					;$B686BE   |
 	LSR					;$B686BF   |
@@ -1003,35 +1003,35 @@ klasp_follow_main:
 	STZ sprite.max_x_speed,x		;$B686C7  /
 .CODE_B686C9:
 	LDA #$000D				;$B686C9  \
-	JSL CODE_B9E003				;$B686CC   | Process alternate movement
-	LDA sprite.unknown_5C,x			;$B686D0   |
+	JSL process_alternate_movement		;$B686CC   | Process alternate movement
+	LDA sprite.general_purpose_5C,x		;$B686D0   |
 	CMP sprite.x_position,x			;$B686D2   |
 	BCS ..CODE_B686E0			;$B686D4   |
-	LDA sprite.unknown_5E,x			;$B686D6   |
+	LDA sprite.general_purpose_5E,x		;$B686D6   |
 	CMP sprite.x_position,x			;$B686D8   |
 	INC					;$B686DA   |
 	BCC ..CODE_B686E0			;$B686DB   |
-	JMP process_anim_handle_despawn		;$B686DD  / Return and handle despawn
+	JMP return_handle_anim_and_despawn	;$B686DD  / Return and handle despawn
 
 ..CODE_B686E0:
 	STA sprite.x_position,x			;$B686E0  \
 	SEC					;$B686E2   |
-	SBC sprite.unknown_64,x			;$B686E3   |
+	SBC sprite.general_purpose_64,x	;$B686E3   |
 	EOR sprite.max_x_speed,x		;$B686E5   |
 	BMI ..CODE_B686ED			;$B686E7   |
 	STZ sprite.max_x_speed,x		;$B686E9   | Clear target X speed
 	STZ sprite.x_speed,x			;$B686EB  / Clear current X speed
 ..CODE_B686ED:
-	JMP process_anim_handle_despawn		;$B686ED  |> Return and handle despawn
+	JMP return_handle_anim_and_despawn	;$B686ED  |> Return and handle despawn
 
 .explode:
 	TYX					;$B686F0  \ Get Klasp sprite
-	DEC sprite.unknown_6A,x			;$B686F1   | Decrease time until explosions
+	DEC sprite.general_purpose_6A,x		;$B686F1   | Decrease time until explosions
 	BNE ..return				;$B686F3   | If not done yet return
 	LDA #$060E				;$B686F5   |
-	JSL CODE_B28012				;$B686F8   | Else play explosion sound 1
+	JSL queue_sound_effect			;$B686F8   | Else play explosion sound 1
 	LDA #$070F				;$B686FC   |
-	JSL CODE_B28012				;$B686FF   | Play explosion sound 2
+	JSL queue_sound_effect			;$B686FF   | Play explosion sound 2
 	JSL CODE_BB85AC				;$B68703   |
 	JMP CODE_B6F27D				;$B68707  / Return and delete Klasp sprite
 
@@ -1039,9 +1039,9 @@ klasp_follow_main:
 	JML [$04F5]				;$B6870A  |>
 
 .CODE_B6870D:
-	LDY sprite.unknown_66,x			;$B6870D  \
+	LDY sprite.general_purpose_66,x		;$B6870D  \
 	LDA sprite.x_position,x			;$B6870F   |
-	CMP sprite.unknown_64,x			;$B68711   |
+	CMP sprite.general_purpose_64,x	;$B68711   |
 	BCC ..CODE_B6871B			;$B68713   |
 	TYA					;$B68715   |
 	EOR #$FFFF				;$B68716   |
@@ -1067,8 +1067,8 @@ klasp_follow_main:
 	JSR CODE_B6F29D				;$B6872F  / Else flip Klasp horizontally
 .automoving_klasp_idle:
 	JSR .handle_collision			;$B68732  \ Handle collision
-	JSL CODE_B9E000				;$B68735   | Process current movement
-	JMP process_anim_handle_despawn		;$B68739  / Return and handle despawn
+	JSL process_current_movement		;$B68735   | Process current movement
+	JMP return_handle_anim_and_despawn	;$B68739  / Return and handle despawn
 
 .handle_collision:
 	LDA #$0018				;$B6873C  \ Get collision flags
@@ -1081,7 +1081,7 @@ klasp_follow_main:
 	BCC ..return				;$B68753  / If no collision happened return
 ..collision_happened:
 	LDA #$0004				;$B68755  \
-	STA sprite.unknown_6A,x			;$B68758   | Set time before exploding
+	STA sprite.general_purpose_6A,x		;$B68758   | Set time before exploding
 	LDA #$0002				;$B6875A   |
 	STA sprite.state,x			;$B6875D   | Set state 2 (explode)
 	LDA #$FFFB				;$B6875F   | Load Y position offset for explosions
@@ -1121,70 +1121,70 @@ CODE_B6878E:
 	JML CODE_B680C9				;$B68796  /
 
 lemguin_spawner_main:
-	JMP (DATA_B6879D,x)			;$B6879A
+	JMP (.state_table,x)			;$B6879A  |>
 
-DATA_B6879D:
-	dw CODE_B687A1
-	dw CODE_B687A9
+.state_table:
+	dw .init
+	dw .idle
 
-CODE_B687A1:
-	TYX					;$B687A1
-	LDA.w #$0001				;$B687A2
-	STA.b $5E,x				;$B687A5
-	INC.b $38,x				;$B687A7
-CODE_B687A9:
-	TYX					;$B687A9
-	DEC.b $5E,x				;$B687AA
-	BNE.b CODE_B6880D			;$B687AC
-	LDA.b $5C,x				;$B687AE
-	STA.b $5E,x				;$B687B0
-	LDY.w #$0086				;$B687B2
-	JSL.l CODE_BB8585			;$B687B5
-	BCS.b CODE_B6880D			;$B687B9
-	LDY.b alternate_sprite			;$B687BB
-	LDX.b current_sprite			;$B687BD
-	LDA.b $60,x				;$B687BF
-	STA.w $002E,y				;$B687C1
-	LDA.b $6A,x				;$B687C4
-	STA.w $0060,y				;$B687C6
-	LDA.b $68,x				;$B687C9
-	BEQ.b CODE_B687D9			;$B687CB
-	BMI.b CODE_B68810			;$B687CD
-	LDY.w active_kong_sprite		;$B687CF
-	LDA.b $12,x				;$B687D2
-	CMP.w $0012,y				;$B687D4
-	BCC.b CODE_B68810			;$B687D7
-CODE_B687D9:
-	LDY.b alternate_sprite			;$B687D9
-	LDA.w $001E,y				;$B687DB
-	ORA.w #$4000				;$B687DE
-	STA.w $001E,y				;$B687E1
-	LDA.b $64,x				;$B687E4
-	EOR.w #$FFFF				;$B687E6
-	INC					;$B687E9
-	STA.w $005C,y				;$B687EA
-	LDA.b $66,x				;$B687ED
-	EOR.w #$FFFF				;$B687EF
-	INC					;$B687F2
-CODE_B687F3:
-	STA.w $005E,y				;$B687F3
-	LDY.b alternate_sprite			;$B687F6
-	STA.w $002A,y				;$B687F8
-	STA.w $0030,y				;$B687FB
-	REP.b #$20				;$B687FE
-	JSL.l CODE_BBAB29			;$B68800
-	BCS.b CODE_B6880D			;$B68804
-	LDA.w #$0032				;$B68806
-	JSL.l CODE_BFF006			;$B68809
-CODE_B6880D:
-	JMP.w CODE_B6805A			;$B6880D
+.init:
+	TYX					;$B687A1  \
+	LDA #$0001				;$B687A2   |
+	STA sprite.general_purpose_5E,x		;$B687A5   |
+	INC sprite.state,x			;$B687A7  /
+.idle:
+	TYX					;$B687A9  \
+	DEC sprite.general_purpose_5E,x		;$B687AA   |
+	BNE ..return				;$B687AC   |
+	LDA sprite.general_purpose_5C,x		;$B687AE   |
+	STA sprite.general_purpose_5E,x		;$B687B0   |
+	LDY #$0086				;$B687B2   |
+	JSL CODE_BB8585				;$B687B5   |
+	BCS ..return				;$B687B9   |
+	LDY alternate_sprite			;$B687BB   |
+	LDX current_sprite			;$B687BD   |
+	LDA sprite.general_purpose_60,x		;$B687BF   |
+	STA.w sprite.y_speed,y			;$B687C1   |
+	LDA sprite.general_purpose_6A,x		;$B687C4   |
+	STA.w sprite.general_purpose_60,y	;$B687C6   |
+	LDA sprite.general_purpose_68,x		;$B687C9   |
+	BEQ ..CODE_B687D9			;$B687CB   |
+	BMI ..CODE_B68810			;$B687CD   |
+	LDY active_kong_sprite			;$B687CF   |
+	LDA sprite.x_position,x			;$B687D2   |
+	CMP.w sprite.x_position,y		;$B687D4   |
+	BCC ..CODE_B68810			;$B687D7  /
+..CODE_B687D9:
+	LDY alternate_sprite			;$B687D9  \
+	LDA.w sprite.oam_property,y		;$B687DB   |
+	ORA #$4000				;$B687DE   |
+	STA.w sprite.oam_property,y		;$B687E1   |
+	LDA sprite.general_purpose_64,x		;$B687E4   |
+	EOR #$FFFF				;$B687E6   |
+	INC					;$B687E9   |
+	STA.w sprite.general_purpose_5C,y	;$B687EA   |
+	LDA sprite.general_purpose_66,x		;$B687ED   |
+	EOR #$FFFF				;$B687EF   |
+	INC					;$B687F2  /
+..CODE_B687F3:
+	STA.w sprite.general_purpose_5E,y	;$B687F3  \
+	LDY alternate_sprite			;$B687F6   |
+	STA.w sprite.x_speed,y			;$B687F8   |
+	STA.w sprite.max_x_speed,y		;$B687FB   |
+	REP #$20				;$B687FE   |
+	JSL CODE_BBAB29				;$B68800   |
+	BCS ..return				;$B68804   |
+	LDA #$0032				;$B68806   |
+	JSL CODE_BFF006				;$B68809  /
+..return:
+	JMP return_handle_despawn		;$B6880D  |>
 
-CODE_B68810:
-	LDY.b alternate_sprite			;$B68810
-	LDA.b $64,x				;$B68812
-	STA.w $005C,y				;$B68814
-	LDA.b $66,x				;$B68817
-	BRA.b CODE_B687F3			;$B68819
+..CODE_B68810:
+	LDY alternate_sprite			;$B68810  \
+	LDA sprite.general_purpose_64,x		;$B68812   |
+	STA.w sprite.general_purpose_5C,y	;$B68814   |
+	LDA sprite.general_purpose_66,x		;$B68817   |
+	BRA ..CODE_B687F3			;$B68819  /
 
 lemguin_main:
 	JMP.w (DATA_B6881E,x)			;$B6881B
@@ -1198,13 +1198,13 @@ DATA_B6881E:
 CODE_B68826:
 	JSR.w CODE_B68917			;$B68826
 	LDA.w #$0015				;$B68829
-	JSL.l CODE_B9E003			;$B6882C
+	JSL.l process_alternate_movement	;$B6882C
 	JMP.w CODE_B685E6			;$B68830
 
 CODE_B68833:
 	JSR.w CODE_B688E9			;$B68833
 	LDA.w #$0044				;$B68836
-	JSL.l CODE_B9E003			;$B68839
+	JSL.l process_alternate_movement	;$B68839
 	LDA.b $28,x				;$B6883D
 	BEQ.b CODE_B68850			;$B6883F
 	INC.b $38,x				;$B68841
@@ -1281,7 +1281,7 @@ CODE_B688C3:
 	STA.b $24,x				;$B688C3
 	STZ.b $40,x				;$B688C5
 CODE_B688C7:
-	JSL.l CODE_B9E000			;$B688C7
+	JSL.l process_current_movement		;$B688C7
 	LDA.b $1C,x				;$B688CB
 	AND.w #$000F				;$B688CD
 	CMP.w #$0006				;$B688D0
@@ -1319,7 +1319,7 @@ CODE_B68901:
 CODE_B68906:
 	LDA.w #$063C				;$B68906
 CODE_B68909:
-	JSL.l CODE_B28012			;$B68909
+	JSL.l queue_sound_effect		;$B68909
 	LDY.w #$0003				;$B6890D
 	LDA.w #$01B0				;$B68910
 	JMP.w CODE_B6878B			;$B68913
@@ -1473,7 +1473,7 @@ CODE_B68A1B:
 	ADC.w #$0140				;$B68A2C
 	JSR.w CODE_B6F2C9			;$B68A2F
 	LDA.w #$0001				;$B68A32
-	JSL.l CODE_B9E003			;$B68A35
+	JSL.l process_alternate_movement	;$B68A35
 CODE_B68A39:
 	JSR.w CODE_B68BBC			;$B68A39
 	JMP.w CODE_B68AE9			;$B68A3C
@@ -1508,7 +1508,7 @@ CODE_B68A4D:
 	ADC.w #$0100				;$B68A79
 	JSR.w CODE_B6F2C9			;$B68A7C
 	LDA.w #$0001				;$B68A7F
-	JSL.l CODE_B9E003			;$B68A82
+	JSL.l process_alternate_movement	;$B68A82
 	JMP.w CODE_B68AE9			;$B68A86
 
 CODE_B68A89:
@@ -1548,7 +1548,7 @@ CODE_B68AB6:
 	LDA.w #$0400				;$B68ADC
 	JSR.w CODE_B6F2C9			;$B68ADF
 	LDA.w #$0001				;$B68AE2
-	JSL.l CODE_B9E003			;$B68AE5
+	JSL.l process_alternate_movement	;$B68AE5
 CODE_B68AE9:
 	JSR.w CODE_B6C6EA			;$B68AE9
 	JSL.l process_sprite_animation		;$B68AEC
@@ -1763,7 +1763,7 @@ CODE_B68C5E:
 CODE_B68C65:
 	JSR.w CODE_B68C9A			;$B68C65
 	JSR.w CODE_B68CF3			;$B68C68
-	JMP.w process_anim_handle_despawn	;$B68C6B
+	JMP.w return_handle_anim_and_despawn	;$B68C6B
 
 CODE_B68C6E:
 	TYX					;$B68C6E
@@ -1773,7 +1773,7 @@ CODE_B68C6E:
 CODE_B68C77:
 	JSR.w CODE_B68C9A			;$B68C77
 	JSR.w CODE_B68CF3			;$B68C7A
-	JMP.w process_anim_handle_despawn	;$B68C7D
+	JMP.w return_handle_anim_and_despawn	;$B68C7D
 
 CODE_B68C80:
 	JSR.w CODE_B68C9A			;$B68C80
@@ -1807,7 +1807,7 @@ CODE_B68CB0:
 	CMP.w #$0002				;$B68CBC
 	BNE.b CODE_B68CD7			;$B68CBF
 	LDA.w #$0651				;$B68CC1
-	JSL.l CODE_B28012			;$B68CC4
+	JSL.l queue_sound_effect		;$B68CC4
 	JSL.l CODE_BB85AC			;$B68CC8
 	LDX.b current_sprite			;$B68CCC
 	LDY.w #$0005				;$B68CCE
@@ -1965,7 +1965,7 @@ CODE_B68DE0:
 	CMP.w #$0001				;$B68DEC
 	BCS.b CODE_B68DF8			;$B68DEF
 	LDA.w #$076B				;$B68DF1
-	JSL.l CODE_B28012			;$B68DF4
+	JSL.l queue_sound_effect		;$B68DF4
 CODE_B68DF8:
 	LDA.w $1B6F				;$B68DF8
 	BEQ.b CODE_B68E10			;$B68DFB
@@ -1974,7 +1974,7 @@ CODE_B68DF8:
 	CMP.w #$0004				;$B68E04
 	BCS.b CODE_B68E10			;$B68E07
 	LDA.w #$0569				;$B68E09
-	JSL.l CODE_B28012			;$B68E0C
+	JSL.l queue_sound_effect		;$B68E0C
 CODE_B68E10:
 	RTS					;$B68E10
 
@@ -2038,7 +2038,7 @@ CODE_B68E68:
 	LDA.w DATA_B6F48A			;$B68E77
 	STA.w CPU.divisor			;$B68E7A
 	REP.b #$20				;$B68E7D
-	JSL.l CODE_B58003			;$B68E7F
+	JSL.l stall_cpu_time			;$B68E7F
 	LDA.w CPU.divide_remainder		;$B68E83
 	STA.b $1A				;$B68E86
 	JSR.w CODE_B6F348			;$B68E88
@@ -2159,7 +2159,7 @@ CODE_B68F55:
 CODE_B68F57:
 	JSR.w CODE_B691A1			;$B68F57
 	LDA.w #$0001				;$B68F5A
-	JSL.l CODE_B9E003			;$B68F5D
+	JSL.l process_alternate_movement	;$B68F5D
 CODE_B68F61:
 	BRA.b CODE_B68F6D			;$B68F61
 
@@ -2224,7 +2224,7 @@ CODE_B68FD1:
 	CMP.w #$000A				;$B68FD6
 	BCS.b CODE_B68FE5			;$B68FD9
 CODE_B68FDB:
-	JSL.l CODE_B9E000			;$B68FDB
+	JSL.l process_current_movement		;$B68FDB
 	JSR.w CODE_B68DE0			;$B68FDF
 	JMP.w CODE_B68F6D			;$B68FE2
 
@@ -2314,7 +2314,7 @@ CODE_B6909D:
 	CMP.w #$000A				;$B690A2
 	BCS.b CODE_B690B1			;$B690A5
 CODE_B690A7:
-	JSL.l CODE_B9E000			;$B690A7
+	JSL.l process_current_movement		;$B690A7
 	JSR.w CODE_B68DE0			;$B690AB
 	JMP.w CODE_B68F6D			;$B690AE
 
@@ -2399,7 +2399,7 @@ CODE_B6913D:
 CODE_B6914B:
 	LDA.b $2A,x				;$B6914B
 	STA.b $66,x				;$B6914D
-	JSL.l CODE_B9E000			;$B6914F
+	JSL.l process_current_movement		;$B6914F
 	JSL.l process_sprite_animation		;$B69153
 	JSR.w CODE_B6915B			;$B69157
 	RTS					;$B6915A
@@ -2417,7 +2417,7 @@ CODE_B6915B:
 	LDA.b #$05				;$B6916F
 	STA.w CPU.divisor			;$B69171
 	REP.b #$20				;$B69174
-	JSL.l CODE_B58003			;$B69176
+	JSL.l stall_cpu_time			;$B69176
 	LDA.w CPU.divide_result			;$B6917A
 	TAY					;$B6917D
 	LDA.w DATA_B6918C,y			;$B6917E
@@ -2554,15 +2554,15 @@ CODE_B6925E:
 	BEQ.b CODE_B69287			;$B69269
 	INC.b $38,x				;$B6926B
 	LDA.w #$066A				;$B6926D
-	JSL.l CODE_B28012			;$B69270
+	JSL.l queue_sound_effect		;$B69270
 	LDA.w #$076B				;$B69274
-	JSL.l CODE_B28012			;$B69277
+	JSL.l queue_sound_effect		;$B69277
 	LDA.w #$0390				;$B6927B
 	JSR.w CODE_B692F9			;$B6927E
 	TYX					;$B69281
 	INC.b $6A,x				;$B69282
 CODE_B69284:
-	JMP.w CODE_B6805A			;$B69284
+	JMP.w return_handle_despawn		;$B69284
 
 CODE_B69287:
 	LDA.w #$0002				;$B69287
@@ -2592,7 +2592,7 @@ CODE_B692AF:
 	STA.w $0060,y				;$B692B7
 	LDX.b current_sprite			;$B692BA
 	JSR.w CODE_B69441			;$B692BC
-	JMP.w CODE_B6805A			;$B692BF
+	JMP.w return_handle_despawn		;$B692BF
 
 CODE_B692C2:
 	STZ.w $04AA				;$B692C2
@@ -2607,9 +2607,9 @@ CODE_B692C2:
 	JSL.l CODE_B6F186			;$B692D8
 	BCS.b CODE_B692E5			;$B692DC
 	LDA.w #$0773				;$B692DE
-	JSL.l CODE_B28012			;$B692E1
+	JSL.l queue_sound_effect		;$B692E1
 CODE_B692E5:
-	JMP.w CODE_B6805A			;$B692E5
+	JMP.w return_handle_despawn		;$B692E5
 
 CODE_B692E8:
 	TYX					;$B692E8
@@ -2620,7 +2620,7 @@ CODE_B692E8:
 	STZ.b $38,x				;$B692F1
 CODE_B692F3:
 	JSR.w CODE_B69441			;$B692F3
-	JMP.w CODE_B6805A			;$B692F6
+	JMP.w return_handle_despawn		;$B692F6
 
 CODE_B692F9:
 	JSR.w CODE_B6F2E8			;$B692F9
@@ -2687,7 +2687,7 @@ CODE_B69350:
 	BCS.b CODE_B69364			;$B69359
 	STZ.b $6A,x				;$B6935B
 	LDA.w #$0774				;$B6935D
-	JSL.l CODE_B28012			;$B69360
+	JSL.l queue_sound_effect		;$B69360
 CODE_B69364:
 	JSL.l CODE_BEC048			;$B69364
 	LDA.w #$0394				;$B69368
@@ -2762,7 +2762,7 @@ CODE_B693ED:
 	PLA					;$B693EF
 	STA.w $005C,y				;$B693F0
 CODE_B693F3:
-	JMP.w CODE_B6805A			;$B693F3
+	JMP.w return_handle_despawn		;$B693F3
 
 CODE_B693F6:
 	LDA.w $1B6F,y				;$B693F6
@@ -2808,7 +2808,7 @@ CODE_B6943A:
 	STZ.b $44,x				;$B6943A
 CODE_B6943C:
 	STZ.b $60,x				;$B6943C
-	JMP.w CODE_B6805A			;$B6943E
+	JMP.w return_handle_despawn		;$B6943E
 
 CODE_B69441:
 	SEP.b #$20				;$B69441
@@ -2832,7 +2832,7 @@ CODE_B69441:
 unknown_sprite_0180_main:
 	INC.w $054F				;$B69465
 	JSL.l CODE_BB85A9			;$B69468
-	JSL.l CODE_BB8594			;$B6946C
+	JSL.l delete_sprite_no_deallocation	;$B6946C
 	JML [$04F5]				;$B69470
 
 unknown_sprite_017C_main:
@@ -2859,7 +2859,7 @@ CODE_B69488:
 	BIT.w $1B6D				;$B6948F
 	BEQ.b CODE_B6949F			;$B69492
 	JSL.l CODE_BB85A9			;$B69494
-	JSL.l CODE_BB8594			;$B69498
+	JSL.l delete_sprite_no_deallocation	;$B69498
 	JML [$04F5]				;$B6949C
 
 CODE_B6949F:
@@ -2940,14 +2940,14 @@ sneek_wheel_main:
 	JSR.w CODE_B696F5			;$B6952B
 	BNE.b CODE_B6953C			;$B6952E
 	LDA.w #$0773				;$B69530
-	JSL.l CODE_B28012			;$B69533
+	JSL.l queue_sound_effect		;$B69533
 	LDA.w #$0772				;$B69537
 	BRA.b CODE_B6953F			;$B6953A
 
 CODE_B6953C:
 	LDA.w #$0771				;$B6953C
 CODE_B6953F:
-	JSL.l CODE_B28012			;$B6953F
+	JSL.l queue_sound_effect		;$B6953F
 CODE_B69543:
 	PLX					;$B69543
 	PLY					;$B69544
@@ -3110,20 +3110,20 @@ sneek_in_wheel_main:
 
 ..collision_happened:
 	INC sprite.state,x			;$B69681  \ Set defeated state
-	LDA sprite.unknown_5E,x			;$B69683   |
+	LDA sprite.general_purpose_5E,x		;$B69683   |
 	JSR defeat_sprite_using_animation	;$B69685   |
 	LDA #$063C				;$B69688   |
-	JSL CODE_B28012				;$B6968B   | Play sneek hurt sound effect
+	JSL queue_sound_effect			;$B6968B   | Play sneek hurt sound effect
 	JSR CODE_B680A9				;$B6968F   | Make him fall offscreen
-	LDY sprite.unknown_5C,x			;$B69692   |
+	LDY sprite.general_purpose_5C,x		;$B69692   |
 	LDA #$0003				;$B69694   |
 	STA.w sprite.state,y			;$B69697   |
 	TYX					;$B6969A   |
-	STZ sprite.unknown_5E,x			;$B6969B   |
+	STZ sprite.general_purpose_5E,x		;$B6969B   |
 	JMP CODE_B680C9				;$B6969D  / Return and handle despawn
 
 generic_move_and_animate_state:
-	JSL CODE_B9E000				;$B696A0  \ Process current movement
+	JSL process_current_movement		;$B696A0  \ Process current movement
 	JSL process_sprite_animation		;$B696A4   |
 	JMP CODE_B680C9				;$B696A8  / Return and handle despawn
 
@@ -3132,7 +3132,7 @@ squeals_on_wheels_tracker_main:
 	TYX					;$B696AB
 	JSR CODE_B696FC				;$B696AC
 	STA $15E6				;$B696AF
-	JMP CODE_B6805A				;$B696B2
+	JMP return_handle_despawn		;$B696B2
 
 
 metal_door_sneek_controlled_main:
@@ -3170,7 +3170,7 @@ CODE_B696C3:
 	SBC.w $1C15				;$B696E9
 	STA.b $16,x				;$B696EC
 	JSL.l CODE_BEC048			;$B696EE
-	JMP.w CODE_B6805A			;$B696F2
+	JMP.w return_handle_despawn		;$B696F2
 
 CODE_B696F5:
 	LDA.b $5D,x				;$B696F5
@@ -3301,20 +3301,20 @@ DATA_B697C2:
 	dw $FFFF
 
 unknown_sprite_03AC_main:
-	LDA.b active_frame_counter		;$B697CC
+	LDA active_frame_counter		;$B697CC
 	ASL					;$B697CE
 	CLC					;$B697CF
-	ADC.b active_frame_counter		;$B697D0
+	ADC active_frame_counter		;$B697D0
 	ASL					;$B697D2
 	ASL					;$B697D3
 	ASL					;$B697D4
 	CLC					;$B697D5
-	ADC.w #$01A0				;$B697D6
-	AND.w #$01FE				;$B697D9
+	ADC #$01A0				;$B697D6
+	AND #$01FE				;$B697D9
 	TAX					;$B697DC
 	LDA.l DATA_B9F278,x			;$B697DD
 	CLC					;$B697E1
-	ADC.w #$0100				;$B697E2
+	ADC #$0100				;$B697E2
 	LSR					;$B697E5
 	LSR					;$B697E6
 	LSR					;$B697E7
@@ -3322,11 +3322,11 @@ unknown_sprite_03AC_main:
 	LSR					;$B697E9
 	LSR					;$B697EA
 	TYX					;$B697EB
-	EOR.w #$FFFF				;$B697EC
+	EOR #$FFFF				;$B697EC
 	CLC					;$B697EF
-	ADC.w $1973				;$B697F0
-	ADC.w #$00D2				;$B697F3
-	STA.b $16,x				;$B697F6
+	ADC $1973				;$B697F0
+	ADC #$00D2				;$B697F3
+	STA sprite.y_position,x			;$B697F6
 	JMP.w CODE_B6BF79			;$B697F8
 
 unknown_sprite_03B0_main:
@@ -3359,7 +3359,7 @@ CODE_B6981D:
 	STA.b $38,x				;$B69825
 CODE_B69827:
 	JSR.w CODE_B698E1			;$B69827
-	JSL.l CODE_B9E000			;$B6982A
+	JSL.l process_current_movement		;$B6982A
 	LDA.b $28,x				;$B6982E
 	AND.w #$0101				;$B69830
 	CMP.w #$0001				;$B69833
@@ -3380,7 +3380,7 @@ CODE_B69827:
 	STA.b $5C,x				;$B69853
 CODE_B69855:
 	REP.b #$20				;$B69855
-	JMP.w process_anim_handle_despawn	;$B69857
+	JMP.w return_handle_anim_and_despawn	;$B69857
 
 CODE_B6985A:
 	JMP.w generic_move_and_animate_state	;$B6985A
@@ -3395,7 +3395,7 @@ CODE_B6985D:
 	JSR.w CODE_B6F284			;$B69868
 CODE_B6986B:
 	JSR.w CODE_B698E1			;$B6986B
-	JSL.l CODE_B9E000			;$B6986E
+	JSL.l process_current_movement		;$B6986E
 	LDA.b $28,x				;$B69872
 	AND.w #$0101				;$B69874
 	CMP.w #$0001				;$B69877
@@ -3405,7 +3405,7 @@ CODE_B6986B:
 	STZ.b $5A,x				;$B69880
 	REP.b #$20				;$B69882
 CODE_B69884:
-	JMP.w process_anim_handle_despawn	;$B69884
+	JMP.w return_handle_anim_and_despawn	;$B69884
 
 CODE_B69887:
 	TYX					;$B69887
@@ -3413,7 +3413,7 @@ CODE_B69887:
 	JSR.w CODE_B6F284			;$B6988A
 CODE_B6988D:
 	JSR.w CODE_B698E1			;$B6988D
-	JMP.w process_anim_handle_despawn	;$B69890
+	JMP.w return_handle_anim_and_despawn	;$B69890
 
 CODE_B69893:
 	TYX					;$B69893
@@ -3435,7 +3435,7 @@ CODE_B698A6:
 	JSR.w CODE_B69939			;$B698A9
 CODE_B698AC:
 	JSR.w CODE_B698E1			;$B698AC
-	JSL.l CODE_B9E000			;$B698AF
+	JSL.l process_current_movement		;$B698AF
 	LDA.b $28,x				;$B698B3
 	AND.w #$0101				;$B698B5
 	CMP.w #$0001				;$B698B8
@@ -3443,7 +3443,7 @@ CODE_B698AC:
 	DEC.b $38,x				;$B698BD
 	INC.b $29,x				;$B698BF
 	STZ.b $5A,x				;$B698C1
-	JMP.w process_anim_handle_despawn	;$B698C3
+	JMP.w return_handle_anim_and_despawn	;$B698C3
 
 CODE_B698C6:
 	LDA.b $28,x				;$B698C6
@@ -3458,7 +3458,7 @@ CODE_B698C6:
 	INC					;$B698DB
 	STA.b $5C,x				;$B698DC
 CODE_B698DE:
-	JMP.w process_anim_handle_despawn	;$B698DE
+	JMP.w return_handle_anim_and_despawn	;$B698DE
 
 CODE_B698E1:
 	LDA.w #$0038				;$B698E1
@@ -3492,7 +3492,7 @@ CODE_B69911:
 	STA.b $5F,x				;$B6991A
 	STA.w CPU.divisor			;$B6991C
 	REP.b #$20				;$B6991F
-	JSL.l CODE_B58003			;$B69921
+	JSL.l stall_cpu_time			;$B69921
 	LDA.b $1E,x				;$B69925
 	ASL					;$B69927
 	BPL.b CODE_B69933			;$B69928
@@ -3555,7 +3555,7 @@ CODE_B6998A:
 	BNE.b CODE_B69994			;$B6998E
 	JSL.l CODE_BB85A9			;$B69990
 CODE_B69994:
-	JMP.w CODE_B6805A			;$B69994
+	JMP.w return_handle_despawn		;$B69994
 
 CODE_B69997:
 	LDY.w $1C15				;$B69997
@@ -3835,7 +3835,7 @@ CODE_B69BBF:
 	STA.b $65,x				;$B69BC8
 	STA.w CPU.divisor			;$B69BCA
 	REP.b #$20				;$B69BCD
-	JSL.l CODE_B58003			;$B69BCF
+	JSL.l stall_cpu_time			;$B69BCF
 	JSR.w CODE_B69CDE			;$B69BD3
 	LDY.b $62,x				;$B69BD6
 	LDA.b $1E,x				;$B69BD8
@@ -4065,7 +4065,7 @@ CODE_B69D4D:
 CODE_B69D50:
 	JSR.w CODE_B69D33			;$B69D50
 	JSR.w CODE_B69ED8			;$B69D53
-	JSL.l CODE_B9E000			;$B69D56
+	JSL.l process_current_movement		;$B69D56
 	LDA.b $28,x				;$B69D5A
 	AND.w #$0101				;$B69D5C
 	CMP.w #$0001				;$B69D5F
@@ -4084,7 +4084,7 @@ CODE_B69D78:
 	STA.b $38,x				;$B69D7B
 	STZ.b $5A,x				;$B69D7D
 	LDA.w #$0638				;$B69D7F
-	JSL.l CODE_B28012			;$B69D82
+	JSL.l queue_sound_effect		;$B69D82
 CODE_B69D86:
 	JMP.w CODE_B685E6			;$B69D86
 
@@ -4118,7 +4118,7 @@ CODE_B69DAD:
 CODE_B69DBD:
 	JSR.w CODE_B69D33			;$B69DBD
 	JSR.w CODE_B69ED8			;$B69DC0
-	JSL.l CODE_B9E000			;$B69DC3
+	JSL.l process_current_movement		;$B69DC3
 	BCC.b CODE_B69DD2			;$B69DC7
 	LDA.b $30,x				;$B69DC9
 	EOR.w #$FFFF				;$B69DCB
@@ -4130,7 +4130,7 @@ CODE_B69DD2:
 CODE_B69DD5:
 	JSR.w CODE_B69D33			;$B69DD5
 	JSR.w CODE_B69ED8			;$B69DD8
-	JSL.l CODE_B9E000			;$B69DDB
+	JSL.l process_current_movement		;$B69DDB
 	LDA.b $2A,x				;$B69DDF
 	EOR.b $30,x				;$B69DE1
 	BPL.b CODE_B69DF7			;$B69DE3
@@ -4145,7 +4145,7 @@ CODE_B69DF7:
 	JMP.w CODE_B685E6			;$B69DF7
 
 CODE_B69DFA:
-	JSL.l CODE_B9E000			;$B69DFA
+	JSL.l process_current_movement		;$B69DFA
 	JSL.l process_sprite_animation		;$B69DFE
 	LDX.b current_sprite			;$B69E02
 	LDA.l DATA_FF1BC0+$02			;$B69E04
@@ -4185,7 +4185,7 @@ CODE_B69E44:
 	LDA.w #$0200				;$B69E46
 	JSL.l set_sprite_animation		;$B69E49
 	LDA.w #$0638				;$B69E4D
-	JSL.l CODE_B28012			;$B69E50
+	JSL.l queue_sound_effect		;$B69E50
 	JML [$04F5]				;$B69E54
 
 CODE_B69E57:
@@ -4196,14 +4196,14 @@ CODE_B69E57:
 CODE_B69E60:
 	JSR.w CODE_B69D43			;$B69E60
 	JSR.w CODE_B69F1E			;$B69E63
-	JSL.l CODE_B9E000			;$B69E66
+	JSL.l process_current_movement		;$B69E66
 	LDA.b $28,x				;$B69E6A
 	AND.w #$0101				;$B69E6C
 	CMP.w #$0001				;$B69E6F
 	BNE.b CODE_B69E7D			;$B69E72
 	DEC.b $38,x				;$B69E74
 	LDA.w #$0638				;$B69E76
-	JSL.l CODE_B28012			;$B69E79
+	JSL.l queue_sound_effect		;$B69E79
 CODE_B69E7D:
 	JMP.w CODE_B685E6			;$B69E7D
 
@@ -4241,7 +4241,7 @@ CODE_B69EAF:
 CODE_B69EC2:
 	JSR.w CODE_B69D43			;$B69EC2
 	JSR.w CODE_B69F1E			;$B69EC5
-	JSL.l CODE_B9E000			;$B69EC8
+	JSL.l process_current_movement		;$B69EC8
 	JMP.w CODE_B685E6			;$B69ECC
 
 DATA_B69ECF:
@@ -4277,7 +4277,7 @@ CODE_B69F08:
 	STA.b $38,x				;$B69F0E
 CODE_B69F10:
 	LDA.w #$0659				;$B69F10
-	JSL.l CODE_B28012			;$B69F13
+	JSL.l queue_sound_effect		;$B69F13
 	LDA.w #$01FC				;$B69F17
 	JMP.w CODE_B6878E			;$B69F1A
 
@@ -4298,7 +4298,7 @@ CODE_B69F33:
 	LDA.w #$0005				;$B69F34
 	STA.b $38,x				;$B69F37
 	LDA.w #$0659				;$B69F39
-	JSL.l CODE_B28012			;$B69F3C
+	JSL.l queue_sound_effect		;$B69F3C
 	LDA.w #$01FC				;$B69F40
 	JMP.w CODE_B6878E			;$B69F43
 
@@ -4316,14 +4316,14 @@ DATA_B69F4A:
 
 CODE_B69F52:
 	TYX					;$B69F52
-	JSR.w CODE_B6F262			;$B69F53
+	JSR.w invert_max_x_speed_if_needed	;$B69F53
 	INC.b $38,x				;$B69F56
 	JML [$04F5]				;$B69F58
 
 CODE_B69F5B:
 	JSR.w CODE_B69F65			;$B69F5B
-	JSL.l CODE_B9E000			;$B69F5E
-	JMP.w process_anim_handle_despawn	;$B69F62
+	JSL.l process_current_movement		;$B69F5E
+	JMP.w return_handle_anim_and_despawn	;$B69F62
 
 CODE_B69F65:
 	LDA.w #$0038				;$B69F65
@@ -4378,20 +4378,20 @@ minkey_main:
 
 .state_0:
 	TYX					;$B69FB1  \
-	DEC sprite.unknown_5C,x			;$B69FB2   |
-	LDA sprite.unknown_5C,x			;$B69FB4   |
+	DEC sprite.general_purpose_5C,x		;$B69FB2   |
+	LDA sprite.general_purpose_5C,x		;$B69FB4   |
 	AND #$00FF				;$B69FB6   |
 	BNE CODE_B69FCD				;$B69FB9   |
-	LDA sprite.unknown_5C,x			;$B69FBB   |
+	LDA sprite.general_purpose_5C,x		;$B69FBB   |
 	XBA					;$B69FBD   |
-	ORA sprite.unknown_5C,x			;$B69FBE   |
-	STA sprite.unknown_5C,x			;$B69FC0   |
-	LDA sprite.unknown_5E,x			;$B69FC2   |
+	ORA sprite.general_purpose_5C,x		;$B69FBE   |
+	STA sprite.general_purpose_5C,x		;$B69FC0   |
+	LDA sprite.general_purpose_5E,x		;$B69FC2   |
 	STA sprite.animation_speed,x		;$B69FC4   |
 	LDA #$020D				;$B69FC6   |
 	JSL set_sprite_animation		;$B69FC9  /
 CODE_B69FCD:
-	JMP process_anim_handle_despawn		;$B69FCD  |>
+	JMP return_handle_anim_and_despawn	;$B69FCD  |>
 
 minkey_acorn_main:
 	JMP (.state_table,x)			;$B69FD0
@@ -4414,19 +4414,19 @@ minkey_acorn_main:
 	CLC					;$B69FE6  \
 	ADC #$0084				;$B69FE7  /
 ..update_x_home_and_state:
-	STA sprite.unknown_5C,x			;$B69FEA  \ Update home X position
+	STA sprite.general_purpose_5C,x		;$B69FEA  \ Update home X position
 	STZ sprite.state,x			;$B69FEC  / Set state 0 (travel)
 .travel:
 	LDX current_sprite			;$B69FEE  \ Get acorn sprite 
 	LDA sprite.x_position,x			;$B69FF0   | Get X position
 	LDY sprite.max_x_speed,x		;$B69FF2   | Get target X speed
 	BPL ..CODE_B69FFC			;$B69FF4   |
-	CMP sprite.unknown_5C,x			;$B69FF6   |
+	CMP sprite.general_purpose_5C,x		;$B69FF6   |
 	BCS ..CODE_B6A000			;$B69FF8   |
 	BRA ..CODE_B6A025			;$B69FFA  /
 
 ..CODE_B69FFC:
-	CMP sprite.unknown_5C,x			;$B69FFC  \
+	CMP sprite.general_purpose_5C,x		;$B69FFC  \
 	BCS ..CODE_B6A025			;$B69FFE  /
 ..CODE_B6A000:
 	JSL populate_sprite_clipping		;$B6A000  \
@@ -4436,7 +4436,7 @@ minkey_acorn_main:
 	LDA #$0020				;$B6A00D   | 
 	LDY #$0000				;$B6A010   | Else get sprite collision flags
 	INC $1860				;$B6A013   |
-	JSL CODE_BEC000				;$B6A016   | Check sprite collision
+	JSL check_sprite_collision		;$B6A016   | Check sprite collision
 	BCC .break				;$B6A01A   |
 	LDA #$0026				;$B6A01C   |
 	JSL CODE_BFF006				;$B6A01F   | Play acorn hitting barrel sound effect
@@ -4467,7 +4467,7 @@ minkey_acorn_main:
 	LDA #$0210				;$B6A04E   |
 	JSL set_sprite_animation		;$B6A051  / Set acorn break animation
 .break:
-	JSL CODE_B9E000				;$B6A055  \ Process current movement
+	JSL process_current_movement		;$B6A055  \ Process current movement
 	JMP CODE_B6BF79				;$B6A059  / Return and process animation
 
 
@@ -4546,7 +4546,7 @@ CODE_B6A0D9:
 
 CODE_B6A0DC:
 	JSL.l CODE_BB85A9			;$B6A0DC
-	JSL.l CODE_BB8594			;$B6A0E0
+	JSL.l delete_sprite_no_deallocation	;$B6A0E0
 	JML [$04F5]				;$B6A0E4
 
 
@@ -4666,7 +4666,7 @@ CODE_B6A1B7:
 	TYX					;$B6A1B7
 	INC.b $38,x				;$B6A1B8
 	JSR.w CODE_B6F284			;$B6A1BA
-	JSR.w CODE_B6F262			;$B6A1BD
+	JSR.w invert_max_x_speed_if_needed	;$B6A1BD
 	LDA.b $12,x				;$B6A1C0
 	STA.b $64,x				;$B6A1C2
 	TXY					;$B6A1C4
@@ -4765,7 +4765,7 @@ CODE_B6A279:
 CODE_B6A284:
 	LDX.b current_sprite			;$B6A284
 	JSR.w CODE_B6A443			;$B6A286
-	JSL.l CODE_B9E000			;$B6A289
+	JSL.l process_current_movement		;$B6A289
 	JSR.w CODE_B6A45A			;$B6A28D
 	BCS.b CODE_B6A2A2			;$B6A290
 	JSL.l CODE_BBAB52			;$B6A292
@@ -4882,7 +4882,7 @@ CODE_B6A374:
 	LDA.b $30,x				;$B6A374
 	PHA					;$B6A376
 	STZ.b $30,x				;$B6A377
-	JSL.l CODE_B9E000			;$B6A379
+	JSL.l process_current_movement		;$B6A379
 	PLA					;$B6A37D
 	STA.b $30,x				;$B6A37E
 	LDA.b $2A,x				;$B6A380
@@ -4948,7 +4948,7 @@ CODE_B6A3E2:
 CODE_B6A3F2:
 	LDA.w #$021A				;$B6A3F2
 	JSL.l set_sprite_animation		;$B6A3F5
-	JMP.w CODE_B6805A			;$B6A3F9
+	JMP.w return_handle_despawn		;$B6A3F9
 
 CODE_B6A3FC:
 	LDA.b $1C				;$B6A3FC
@@ -5050,7 +5050,7 @@ CODE_B6A48C:
 	BCC.b CODE_B6A49E			;$B6A493
 	BEQ.b CODE_B6A49E			;$B6A495
 	LDA.w #$0649				;$B6A497
-	JSL.l CODE_B28012			;$B6A49A
+	JSL.l queue_sound_effect		;$B6A49A
 CODE_B6A49E:
 	RTL					;$B6A49E
 
@@ -5068,7 +5068,7 @@ CODE_B6A49F:
 	BCS.b CODE_B6A4FE			;$B6A4BB
 	JSL.l CODE_BEC021			;$B6A4BD
 	LDA.w #$0664				;$B6A4C1
-	JSL.l CODE_B28012			;$B6A4C4
+	JSL.l queue_sound_effect		;$B6A4C4
 	LDA.b $2A,x				;$B6A4C8
 	BNE.b CODE_B6A4D4			;$B6A4CA
 	LDA.b $1E,x				;$B6A4CC
@@ -5101,7 +5101,7 @@ CODE_B6A4FE:
 	BCC.b CODE_B6A586			;$B6A505
 	BNE.b CODE_B6A586			;$B6A507
 	LDA.w #$0633				;$B6A509
-	JSL.l CODE_B28012			;$B6A50C
+	JSL.l queue_sound_effect		;$B6A50C
 	LDY.b $78				;$B6A510
 	LDA.w $0028,y				;$B6A512
 	AND.w #$0101				;$B6A515
@@ -5357,7 +5357,7 @@ CODE_B6A6C4:
 	LDA.b $1A				;$B6A6D0
 	STA.w CPU.divisor			;$B6A6D2
 	REP.b #$20				;$B6A6D5
-	JSL.l CODE_B58003			;$B6A6D7
+	JSL.l stall_cpu_time			;$B6A6D7
 	LDY.w #DATA_B6A718			;$B6A6DB
 	BRA.b CODE_B6A6F6			;$B6A6DE
 
@@ -5369,7 +5369,7 @@ CODE_B6A6E0:
 	LDA.b $1C				;$B6A6E8
 	STA.w CPU.divisor			;$B6A6EA
 	REP.b #$20				;$B6A6ED
-	JSL.l CODE_B58003			;$B6A6EF
+	JSL.l stall_cpu_time			;$B6A6EF
 	LDY.w #DATA_B6A727			;$B6A6F3
 CODE_B6A6F6:
 	LDA.w CPU.divide_result			;$B6A6F6
@@ -5477,7 +5477,7 @@ CODE_B6A7C0:
 	DEC.b $68,x				;$B6A7C1
 	BNE.b CODE_B6A7D4			;$B6A7C3
 	LDA.w #$062E				;$B6A7C5
-	JSL.l CODE_B28012			;$B6A7C8
+	JSL.l queue_sound_effect		;$B6A7C8
 	JSL.l CODE_BB85AC			;$B6A7CC
 	JSL.l delete_sprite_handle_deallocation	;$B6A7D0
 CODE_B6A7D4:
@@ -5493,8 +5493,8 @@ CODE_B6A7D7:
 	STA.b $38,x				;$B6A7E6
 	JSL.l CODE_B5802D			;$B6A7E8
 CODE_B6A7EC:
-	JSL.l CODE_B9E000			;$B6A7EC
-	JMP.w process_anim_handle_despawn	;$B6A7F0
+	JSL.l process_current_movement		;$B6A7EC
+	JMP.w return_handle_anim_and_despawn	;$B6A7F0
 
 CODE_B6A7F3:
 	LDX.b current_sprite			;$B6A7F3
@@ -5535,7 +5535,7 @@ CODE_B6A838:
 	BNE.b CODE_B6A86C			;$B6A845
 	LDA.b $2E,x				;$B6A847
 	PHA					;$B6A849
-	JSL.l CODE_B9E000			;$B6A84A
+	JSL.l process_current_movement		;$B6A84A
 	PLY					;$B6A84E
 	LDA.b $28,x				;$B6A84F
 	AND.w #$0101				;$B6A851
@@ -5553,7 +5553,7 @@ CODE_B6A838:
 	INC					;$B6A866
 	STA.b $2E,x				;$B6A867
 CODE_B6A869:
-	JMP.w process_anim_handle_despawn	;$B6A869
+	JMP.w return_handle_anim_and_despawn	;$B6A869
 
 CODE_B6A86C:
 	LDX.b current_sprite			;$B6A86C
@@ -5562,7 +5562,7 @@ CODE_B6A86C:
 	STZ.w current_held_sprite		;$B6A873
 CODE_B6A876:
 	LDA.w #$060C				;$B6A876
-	JSL.l CODE_B28012			;$B6A879
+	JSL.l queue_sound_effect		;$B6A879
 	JSL.l CODE_BEC030			;$B6A87D
 	LDX.b current_sprite			;$B6A881
 	LDA.w #$000E				;$B6A883
@@ -5673,7 +5673,7 @@ CODE_B6A953:
 	CMP.w #$0002				;$B6A96C
 	BEQ.b CODE_B6A983			;$B6A96F
 	LDA.w #$0637				;$B6A971
-	JSL.l CODE_B28012			;$B6A974
+	JSL.l queue_sound_effect		;$B6A974
 	JSR.w CODE_B6AA3A			;$B6A978
 	LDA.w #$0708				;$B6A97B
 	STA.b $38,x				;$B6A97E
@@ -5693,7 +5693,7 @@ CODE_B6A989:
 	LDA.w #$0908				;$B6A997
 	STA.b $38,x				;$B6A99A
 CODE_B6A99C:
-	JSL.l CODE_B9E000			;$B6A99C
+	JSL.l process_current_movement		;$B6A99C
 	LDY.b $5C,x				;$B6A9A0
 	JSL.l CODE_B6F272			;$B6A9A2
 	JMP.w CODE_B6A8FC			;$B6A9A6
@@ -5720,7 +5720,7 @@ CODE_B6A9D2:
 
 CODE_B6A9D8:
 	LDA.w #$0049				;$B6A9D8
-	JSL.l CODE_B9E003			;$B6A9DB
+	JSL.l process_alternate_movement	;$B6A9DB
 	LDY.b $5C,x				;$B6A9DF
 	JSL.l CODE_B6F272			;$B6A9E1
 	LDA.b $28,x				;$B6A9E5
@@ -5750,7 +5750,7 @@ CODE_B6AA0A:
 
 CODE_B6AA12:
 	LDA.w #$0040				;$B6AA12
-	JSL.l CODE_B9E003			;$B6AA15
+	JSL.l process_alternate_movement	;$B6AA15
 	LDY.b $5C,x				;$B6AA19
 	JSL.l CODE_B6F272			;$B6AA1B
 	JMP.w CODE_B6A8FC			;$B6AA1F
@@ -5788,7 +5788,7 @@ CODE_B6AA3A:
 
 CODE_B6AA62:
 	LDA.w #$0637				;$B6AA62
-	JSL.l CODE_B28012			;$B6AA65
+	JSL.l queue_sound_effect		;$B6AA65
 	LDA.b $38,x				;$B6AA69
 	PHA					;$B6AA6B
 	LDA.w #$000A				;$B6AA6C
@@ -5882,9 +5882,9 @@ krimp_main:
 	LDA sprite.state,x			;$B6AB11   |
 	XBA					;$B6AB13   | Set state 1 (idle) in a really weird way
 	STA sprite.state,x			;$B6AB14   |
-	JSR CODE_B6F262				;$B6AB16   | OAM and max X speed related routine
-	LDA sprite.max_x_speed,x		;$B6AB19   | Get starting max X speed
-	STA sprite.unknown_62,x			;$B6AB1B   | Store it for later (and never use it?)
+	JSR invert_max_x_speed_if_needed	;$B6AB16   |
+	LDA sprite.max_x_speed,x		;$B6AB19   | Get max X speed
+	STA sprite.general_purpose_62,x		;$B6AB1B   | Set as movement behavior max X speed
 	JML [$04F5]				;$B6AB1D  / Return
 
 .idle:
@@ -5895,8 +5895,8 @@ krimp_main:
 	ASL					;$B6AB29   |
 	BMI ..CODE_B6AB33			;$B6AB2A  /
 ..return:
-	JSL CODE_B9E000				;$B6AB2C  \ Process current movement
-	JMP process_anim_handle_despawn		;$B6AB30  / Process animation and handle despawn
+	JSL process_current_movement		;$B6AB2C  \ Process current movement
+	JMP return_handle_anim_and_despawn	;$B6AB30  / Process animation and handle despawn
 
 ..CODE_B6AB33:
 	LDA #$023C				;$B6AB33  \
@@ -5905,8 +5905,8 @@ krimp_main:
 	LDA #$0200				;$B6AB3A   |
 	STA sprite.animation_speed,x		;$B6AB3D  / Else update animation speed
 ..return_2:
-	JSL CODE_B9E000				;$B6AB3F  \ Process current movement
-	JMP process_anim_handle_despawn		;$B6AB43  / Process animation and handle despawn
+	JSL process_current_movement		;$B6AB3F  \ Process current movement
+	JMP return_handle_anim_and_despawn	;$B6AB43  / Process animation and handle despawn
 
 .defeated:
 	JMP generic_move_and_animate_state	;$B6AB46  |>
@@ -5949,7 +5949,7 @@ CODE_B6AB82:
 	LDA.b $38,x				;$B6AB83
 	XBA					;$B6AB85
 	STA.b $38,x				;$B6AB86
-	JSR.w CODE_B6F262			;$B6AB88
+	JSR.w invert_max_x_speed_if_needed	;$B6AB88
 	LDA.b $30,x				;$B6AB8B
 	STA.b $62,x				;$B6AB8D
 	LDA.w #$0031				;$B6AB8F
@@ -5965,7 +5965,7 @@ CODE_B6AB97:
 	BNE.b CODE_B6ABAF			;$B6ABA4
 	STZ.b $6A,x				;$B6ABA6
 	LDA.w #$0640				;$B6ABA8
-	JSL.l CODE_B28012			;$B6ABAB
+	JSL.l queue_sound_effect		;$B6ABAB
 CODE_B6ABAF:
 	LDA.b $30,x				;$B6ABAF
 	BEQ.b CODE_B6ABB8			;$B6ABB1
@@ -5973,8 +5973,8 @@ CODE_B6ABAF:
 	ASL					;$B6ABB5
 	BMI.b CODE_B6ABBF			;$B6ABB6
 CODE_B6ABB8:
-	JSL.l CODE_B9E000			;$B6ABB8
-	JMP.w process_anim_handle_despawn	;$B6ABBC
+	JSL.l process_current_movement		;$B6ABB8
+	JMP.w return_handle_anim_and_despawn	;$B6ABBC
 
 CODE_B6ABBF:
 	LDA.b $40,x				;$B6ABBF
@@ -5985,8 +5985,8 @@ CODE_B6ABBF:
 	LDA.w #$0180				;$B6ABCB
 	STA.b $44,x				;$B6ABCE
 CODE_B6ABD0:
-	JSL.l CODE_B9E000			;$B6ABD0
-	JMP.w process_anim_handle_despawn	;$B6ABD4
+	JSL.l process_current_movement		;$B6ABD0
+	JMP.w return_handle_anim_and_despawn	;$B6ABD4
 
 CODE_B6ABD7:
 	JMP.w generic_move_and_animate_state	;$B6ABD7
@@ -6004,7 +6004,7 @@ CODE_B6ABDA:
 CODE_B6ABF0:
 	LDA.b $2E,x				;$B6ABF0
 	PHA					;$B6ABF2
-	JSL.l CODE_B9E000			;$B6ABF3
+	JSL.l process_current_movement		;$B6ABF3
 	PLY					;$B6ABF7
 	LDA.b $28,x				;$B6ABF8
 	AND.w #$0101				;$B6ABFA
@@ -6021,7 +6021,7 @@ CODE_B6ABF0:
 	INC					;$B6AC0E
 	STA.b $2E,x				;$B6AC0F
 CODE_B6AC11:
-	JMP.w process_anim_handle_despawn	;$B6AC11
+	JMP.w return_handle_anim_and_despawn	;$B6AC11
 
 CODE_B6AC14:
 	LDA.b $40,x				;$B6AC14
@@ -6032,8 +6032,8 @@ CODE_B6AC14:
 	LDA.w #$0180				;$B6AC20
 	STA.b $44,x				;$B6AC23
 CODE_B6AC25:
-	JSL.l CODE_B9E000			;$B6AC25
-	JMP.w process_anim_handle_despawn	;$B6AC29
+	JSL.l process_current_movement		;$B6AC25
+	JMP.w return_handle_anim_and_despawn	;$B6AC29
 
 CODE_B6AC2C:
 	TYX					;$B6AC2C
@@ -6103,8 +6103,8 @@ CODE_B6AC9D:
 CODE_B6ACA0:
 	LDA.w #$0000				;$B6ACA0
 	JSR.w CODE_B6ACF4			;$B6ACA3
-	JSL.l CODE_B9E000			;$B6ACA6
-	JMP.w process_anim_handle_despawn	;$B6ACAA
+	JSL.l process_current_movement		;$B6ACA6
+	JMP.w return_handle_anim_and_despawn	;$B6ACAA
 
 CODE_B6ACAD:
 	LDA.w #$0000				;$B6ACAD
@@ -6115,7 +6115,7 @@ CODE_B6ACAD:
 	BNE.b CODE_B6ACC5			;$B6ACBA
 	STZ.b $6A,x				;$B6ACBC
 	LDA.w #$0640				;$B6ACBE
-	JSL.l CODE_B28012			;$B6ACC1
+	JSL.l queue_sound_effect		;$B6ACC1
 CODE_B6ACC5:
 	LDA.b $30,x				;$B6ACC5
 	BEQ.b CODE_B6ACCE			;$B6ACC7
@@ -6123,8 +6123,8 @@ CODE_B6ACC5:
 	ASL					;$B6ACCB
 	BMI.b CODE_B6ACD5			;$B6ACCC
 CODE_B6ACCE:
-	JSL.l CODE_B9E000			;$B6ACCE
-	JMP.w process_anim_handle_despawn	;$B6ACD2
+	JSL.l process_current_movement		;$B6ACCE
+	JMP.w return_handle_anim_and_despawn	;$B6ACD2
 
 CODE_B6ACD5:
 	LDA.b $40,x				;$B6ACD5
@@ -6139,9 +6139,9 @@ CODE_B6ACD5:
 	ASL					;$B6ACEA
 	BMI.b CODE_B6ACF1			;$B6ACEB
 CODE_B6ACED:
-	JSL.l CODE_B9E000			;$B6ACED
+	JSL.l process_current_movement		;$B6ACED
 CODE_B6ACF1:
-	JMP.w process_anim_handle_despawn	;$B6ACF1
+	JMP.w return_handle_anim_and_despawn	;$B6ACF1
 
 CODE_B6ACF4:
 	STA.w $1C15				;$B6ACF4
@@ -6163,166 +6163,166 @@ CODE_B6AD10:
 CODE_B6AD15:
 	LDA.w #$063B				;$B6AD15
 CODE_B6AD18:
-	JSL.l CODE_B28012			;$B6AD18
+	JSL.l queue_sound_effect		;$B6AD18
 	LDY.w #$0002				;$B6AD1C
 	LDA.w #$0253				;$B6AD1F
 	JMP.w CODE_B6878B			;$B6AD22
 
 krumple_main:
-	JMP.w (DATA_B6AD28,x)			;$B6AD25
+	JMP (.state_table,x)			;$B6AD25  |>
 
-DATA_B6AD28:
-	dw CODE_B6AD34
-	dw CODE_B6AD44
-	dw CODE_B6AD6A
-	dw CODE_B6AD6D
-	dw CODE_B6AD80
-	dw CODE_B6ADA6
+.state_table:
+	dw .init
+	dw .idle
+	dw .defeated
+	dw .laugh_init
+	dw .laugh
+	dw .laugh_flip
 
-CODE_B6AD34:
-	TYX					;$B6AD34
-	LDA.b $38,x				;$B6AD35
-	XBA					;$B6AD37
-	STA.b $38,x				;$B6AD38
-	JSR.w CODE_B6F262			;$B6AD3A
-	LDA.b $30,x				;$B6AD3D
-	STA.b $62,x				;$B6AD3F
-	JML [$04F5]				;$B6AD41
+.init:
+	TYX					;$B6AD34  \ Get Krumple sprite
+	LDA sprite.state,x			;$B6AD35   |
+	XBA					;$B6AD37   |
+	STA sprite.state,x			;$B6AD38   | Set state 1
+	JSR invert_max_x_speed_if_needed	;$B6AD3A   |
+	LDA sprite.max_x_speed,x		;$B6AD3D   |
+	STA sprite.general_purpose_62,x		;$B6AD3F   | Set Max X speed as movement behavior X speed
+	JML [$04F5]				;$B6AD41  /
 
-CODE_B6AD44:
-	JSR.w CODE_B6ADB4			;$B6AD44
-	LDA.b $30,x				;$B6AD47
-	BEQ.b CODE_B6AD50			;$B6AD49
-	EOR.b $1E,x				;$B6AD4B
-	ASL					;$B6AD4D
-	BMI.b CODE_B6AD57			;$B6AD4E
-CODE_B6AD50:
-	JSL.l CODE_B9E000			;$B6AD50
-	JMP.w process_anim_handle_despawn	;$B6AD54
+.idle:
+	JSR .handle_collision			;$B6AD44  \
+	LDA sprite.max_x_speed,x		;$B6AD47   |
+	BEQ ..CODE_B6AD50			;$B6AD49   |
+	EOR sprite.oam_property,x		;$B6AD4B   |
+	ASL					;$B6AD4D   |
+	BMI ..CODE_B6AD57			;$B6AD4E  /
+..CODE_B6AD50:
+	JSL process_current_movement		;$B6AD50  \
+	JMP return_handle_anim_and_despawn	;$B6AD54  /
 
-CODE_B6AD57:
-	LDA.w #$0259				;$B6AD57
-	CMP.b $40,x				;$B6AD5A
-	BEQ.b CODE_B6AD63			;$B6AD5C
-	LDA.w #$0180				;$B6AD5E
-	STA.b $44,x				;$B6AD61
-CODE_B6AD63:
-	JSL.l CODE_B9E000			;$B6AD63
-	JMP.w process_anim_handle_despawn	;$B6AD67
+..CODE_B6AD57:
+	LDA #$0259				;$B6AD57  \
+	CMP sprite.animation_id,x		;$B6AD5A   | Check if in the turning animation
+	BEQ ..skip_anim_speed_update		;$B6AD5C   | If yes, don't update animation speed
+	LDA #$0180				;$B6AD5E   |
+	STA sprite.animation_speed,x		;$B6AD61  / Else update it
+..skip_anim_speed_update:
+	JSL process_current_movement		;$B6AD63  \
+	JMP return_handle_anim_and_despawn	;$B6AD67  /
 
-CODE_B6AD6A:
-	JMP.w generic_move_and_animate_state	;$B6AD6A
+.defeated:
+	JMP generic_move_and_animate_state	;$B6AD6A  |>
 
-CODE_B6AD6D:
-	LDX.b current_sprite			;$B6AD6D
-	LDA.w #$0004				;$B6AD6F
-	STA.b $38,x				;$B6AD72
-	LDA.w #$004B				;$B6AD74
-	STA.b $64,x				;$B6AD77
-	LDA.w #$025A				;$B6AD79
-	JSL.l set_sprite_animation		;$B6AD7C
-CODE_B6AD80:
-	JSR.w CODE_B6ADB4			;$B6AD80
-	LDX.b current_sprite			;$B6AD83
-	DEC.b $64,x				;$B6AD85
-	BNE.b CODE_B6ADA3			;$B6AD87
-	LDA.w #$0001				;$B6AD89
-	STA.b $38,x				;$B6AD8C
-	LDY.w #$0258				;$B6AD8E
-	LDA.b $30,x				;$B6AD91
-	EOR.b $1E,x				;$B6AD93
-	ASL					;$B6AD95
-	BPL.b CODE_B6AD9B			;$B6AD96
-	LDY.w #$0259				;$B6AD98
-CODE_B6AD9B:
-	TYA					;$B6AD9B
-	JSL.l set_sprite_animation		;$B6AD9C
-	JML [$04F5]				;$B6ADA0
+.laugh_init:
+	LDX current_sprite			;$B6AD6D  \ Get Krumple sprite
+	LDA #$0004				;$B6AD6F   |
+	STA sprite.state,x			;$B6AD72   | Set laugh state
+	LDA #$004B				;$B6AD74   |
+	STA sprite.general_purpose_64,x	;$B6AD77   | Set laugh timer
+	LDA #$025A				;$B6AD79   |
+	JSL set_sprite_animation		;$B6AD7C  / Set laugh animation
+.laugh:
+	JSR .handle_collision			;$B6AD80  \
+	LDX current_sprite			;$B6AD83   |
+	DEC sprite.general_purpose_64,x	;$B6AD85   | Decrease laugh timer
+	BNE ..return				;$B6AD87   | If not done yet, return
+	LDA #$0001				;$B6AD89   |
+	STA sprite.state,x			;$B6AD8C   | Else set idle state
+	LDY #$0258				;$B6AD8E   |
+	LDA sprite.max_x_speed,x		;$B6AD91   |
+	EOR sprite.oam_property,x		;$B6AD93   |
+	ASL					;$B6AD95   |
+	BPL ..CODE_B6AD9B			;$B6AD96   |
+	LDY #$0259				;$B6AD98  /
+..CODE_B6AD9B:
+	TYA					;$B6AD9B  \
+	JSL set_sprite_animation		;$B6AD9C   |
+	JML [$04F5]				;$B6ADA0  /
 
-CODE_B6ADA3:
-	JMP.w CODE_B685E6			;$B6ADA3
+..return:
+	JMP CODE_B685E6				;$B6ADA3  |> Return and process animation
 
-CODE_B6ADA6:
-	TYX					;$B6ADA6
-	LDA.b $40,x				;$B6ADA7
-	CMP.w #$025C				;$B6ADA9
-	BEQ.b CODE_B6ADB1			;$B6ADAC
-	JMP.w CODE_B6AD6D			;$B6ADAE
+.laugh_flip:
+	TYX					;$B6ADA6  \ Get Krumple sprite
+	LDA sprite.animation_id,x		;$B6ADA7   |
+	CMP #$025C				;$B6ADA9   | Check if still in laugh flip animation
+	BEQ ..return				;$B6ADAC   | If yes return
+	JMP .laugh_init				;$B6ADAE  / Else run laugh state code
 
-CODE_B6ADB1:
-	JMP.w CODE_B685E6			;$B6ADB1
+..return:
+	JMP CODE_B685E6				;$B6ADB1  |> Return and process animation
 
-CODE_B6ADB4:
-	LDA.w #$0038				;$B6ADB4
-	JSL.l check_throwable_collision		;$B6ADB7
-	BCS.b CODE_B6ADF3			;$B6ADBB
-	JSL.l populate_sprite_clipping		;$B6ADBD
-	LDA.w #$0854				;$B6ADC1
-	LDX.w #$0858				;$B6ADC4
-	JSL.l CODE_BEC00C			;$B6ADC7
-	BCC.b CODE_B6ADF2			;$B6ADCB
-	CMP.w #$0002				;$B6ADCD
-	BEQ.b CODE_B6ADF3			;$B6ADD0
-	PLA					;$B6ADD2
-	LDA.w $0012,y				;$B6ADD3
-	SEC					;$B6ADD6
-	SBC.b $12,x				;$B6ADD7
-	LDY.w #$0003				;$B6ADD9
-	EOR.b $1E,x				;$B6ADDC
-	ASL					;$B6ADDE
-	BPL.b CODE_B6ADED			;$B6ADDF
-	LDA.w #$025C				;$B6ADE1
-	JSL.l set_sprite_animation		;$B6ADE4
-	LDX.b current_sprite			;$B6ADE8
-	LDY.w #$0005				;$B6ADEA
-CODE_B6ADED:
-	STY.b $38,x				;$B6ADED
-	JML [$04F5]				;$B6ADEF
+.handle_collision:
+	LDA #$0038				;$B6ADB4  \ Get throwable collision flags
+	JSL check_throwable_collision		;$B6ADB7   |
+	BCS ..defeat_krumple			;$B6ADBB   | If collision happened, defeat him
+	JSL populate_sprite_clipping		;$B6ADBD   |
+	LDA #$0854				;$B6ADC1   |
+	LDX #$0858				;$B6ADC4   | Else get player collision flags
+	JSL CODE_BEC00C				;$B6ADC7   | Check collision with player
+	BCC ..return				;$B6ADCB   | If no collision, return
+	CMP #$0002				;$B6ADCD   | Else check if we succeeded in defeating him
+	BEQ ..defeat_krumple			;$B6ADD0   | If yes, defeat him
+	PLA					;$B6ADD2   |
+	LDA.w sprite.x_position,y		;$B6ADD3   |
+	SEC					;$B6ADD6   | Else get X distance from kong
+	SBC sprite.x_position,x			;$B6ADD7   |
+	LDY #$0003				;$B6ADD9   |
+	EOR sprite.oam_property,x		;$B6ADDC   |
+	ASL					;$B6ADDE   |
+	BPL ..set_laugh_flip_state		;$B6ADDF   |
+	LDA #$025C				;$B6ADE1   |
+	JSL set_sprite_animation		;$B6ADE4   | Set flip animation
+	LDX current_sprite			;$B6ADE8   |
+	LDY #$0005				;$B6ADEA  /
+..set_laugh_flip_state:
+	STY sprite.state,x			;$B6ADED  \ 
+	JML [$04F5]				;$B6ADEF  /
 
-CODE_B6ADF2:
-	RTS					;$B6ADF2
+..return:
+	RTS					;$B6ADF2  |>
 
-CODE_B6ADF3:
-	LDY.w #$0002				;$B6ADF3
-	LDA.w #$025B				;$B6ADF6
-	JMP.w CODE_B6878B			;$B6ADF9
+..defeat_krumple:
+	LDY #$0002				;$B6ADF3  \ Get defeat state to set
+	LDA #$025B				;$B6ADF6   | Get animation to set
+	JMP CODE_B6878B				;$B6ADF9  / Defeat sprite
 
-unknown_sprite_01F0_main:
-	JMP.w (DATA_B6ADFF,x)			;$B6ADFC
+swoopy_spawner_main:
+	JMP (.state_table,x)			;$B6ADFC  |>
 
-DATA_B6ADFF:
-	dw CODE_B6AE03
-	dw CODE_B6AE09
+.state_table:
+	dw .init
+	dw .idle
 
-CODE_B6AE03:
-	TYX					;$B6AE03
-	JSR.w CODE_B6F371			;$B6AE04
-	INC.b $38,x				;$B6AE07
-CODE_B6AE09:
-	LDX.b current_sprite			;$B6AE09
-	JSR.w CODE_B6F381			;$B6AE0B
-	BCC.b CODE_B6AE3F			;$B6AE0E
-	LDY.w #$0130				;$B6AE10
-	JSL.l CODE_BB8585			;$B6AE13
-	BCS.b CODE_B6AE3F			;$B6AE17
-	LDX.b alternate_sprite			;$B6AE19
-	LDY.b current_sprite			;$B6AE1B
-	LDA.w $0064,y				;$B6AE1D
-	STA.b $5C,x				;$B6AE20
-	LDA.w $0066,y				;$B6AE22
-	STA.b $5E,x				;$B6AE25
-	LDA.w $0068,y				;$B6AE27
-	STA.b $60,x				;$B6AE2A
-	LDA.w $006A,y				;$B6AE2C
-	STA.b $6A,x				;$B6AE2F
-	LDA.w $002A,y				;$B6AE31
-	STA.b $2A,x				;$B6AE34
-	BPL.b CODE_B6AE3F			;$B6AE36
-	LDA.b $1E,x				;$B6AE38
-	EOR.w #$4000				;$B6AE3A
-	STA.b $1E,x				;$B6AE3D
-CODE_B6AE3F:
-	JMP.w CODE_B6805A			;$B6AE3F
+.init:
+	TYX					;$B6AE03  \ Get Spawner sprite
+	JSR CODE_B6F371				;$B6AE04   |
+	INC sprite.state,x			;$B6AE07  / Set idle state
+.idle:
+	LDX current_sprite			;$B6AE09  \ Get Spawner sprite
+	JSR CODE_B6F381				;$B6AE0B   | Count down spawn timer
+	BCC ..return				;$B6AE0E   | If timer not done, return
+	LDY #$0130				;$B6AE10   |
+	JSL CODE_BB8585				;$B6AE13   | Else spawn Swoop
+	BCS ..return				;$B6AE17   | If spawn failed, return
+	LDX alternate_sprite			;$B6AE19   | Else get Swoopy sprite
+	LDY current_sprite			;$B6AE1B   | Get Spawner sprite
+	LDA.w sprite.general_purpose_64,y	;$B6AE1D   |
+	STA sprite.general_purpose_5C,x		;$B6AE20   |
+	LDA.w sprite.general_purpose_66,y	;$B6AE22   |
+	STA sprite.general_purpose_5E,x		;$B6AE25   |
+	LDA.w sprite.general_purpose_68,y	;$B6AE27   |
+	STA sprite.general_purpose_60,x	;$B6AE2A   |
+	LDA.w sprite.general_purpose_6A,y	;$B6AE2C   |
+	STA sprite.general_purpose_6A,x		;$B6AE2F   |
+	LDA.w sprite.x_speed,y			;$B6AE31   | Copy spawner X speed to Swoopy
+	STA sprite.x_speed,x			;$B6AE34   |
+	BPL ..return				;$B6AE36   | If positive speed, don't flip
+	LDA sprite.oam_property,x		;$B6AE38   |
+	EOR #$4000				;$B6AE3A   | Else flip Swoopy
+	STA sprite.oam_property,x		;$B6AE3D  /
+..return:
+	JMP return_handle_despawn		;$B6AE3F  |> Return
 
 swoopy_main:
 	JMP.w (DATA_B6AE45,x)			;$B6AE42
@@ -6369,7 +6369,7 @@ CODE_B6AE62:
 	BRA.b CODE_B6AE97			;$B6AE8B
 
 CODE_B6AE8D:
-	JSL.l CODE_B9E000			;$B6AE8D
+	JSL.l process_current_movement		;$B6AE8D
 	JSR.w CODE_B6AF9B			;$B6AE91
 	JMP.w CODE_B685E6			;$B6AE94
 
@@ -6381,14 +6381,14 @@ CODE_B6AE97:
 	BCC.b CODE_B6AEA7			;$B6AEA3
 	INC.b $38,x				;$B6AEA5
 CODE_B6AEA7:
-	JSL.l CODE_B9E000			;$B6AEA7
+	JSL.l process_current_movement		;$B6AEA7
 	JSR.w CODE_B6AF9B			;$B6AEAB
 	JMP.w CODE_B685E6			;$B6AEAE
 
 CODE_B6AEB1:
 	JSR.w CODE_B6AFAD			;$B6AEB1
 	JSR.w CODE_B6B02A			;$B6AEB4
-	JSL.l CODE_B9E000			;$B6AEB7
+	JSL.l process_current_movement		;$B6AEB7
 	JSR.w CODE_B6AF9B			;$B6AEBB
 	JMP.w CODE_B685E6			;$B6AEBE
 
@@ -6426,7 +6426,7 @@ CODE_B6AEC4:
 	BCC.b CODE_B6AF04			;$B6AF00
 	INC.b $38,x				;$B6AF02
 CODE_B6AF04:
-	JMP.w process_anim_handle_despawn	;$B6AF04
+	JMP.w return_handle_anim_and_despawn	;$B6AF04
 
 CODE_B6AF07:
 	TYX					;$B6AF07
@@ -6437,7 +6437,7 @@ CODE_B6AF07:
 	JML [$04F5]				;$B6AF13
 
 CODE_B6AF16:
-	JMP.w process_anim_handle_despawn	;$B6AF16
+	JMP.w return_handle_anim_and_despawn	;$B6AF16
 
 CODE_B6AF19:
 	TYX					;$B6AF19
@@ -6453,7 +6453,7 @@ CODE_B6AF19:
 	STZ.b $34,x				;$B6AF2A
 CODE_B6AF2C:
 	LDA.w #$000A				;$B6AF2C
-	JSL.l CODE_B9E012			;$B6AF2F
+	JSL.l interpolate_y_speed		;$B6AF2F
 	BRA.b CODE_B6AF4F			;$B6AF33
 
 CODE_B6AF35:
@@ -6467,10 +6467,10 @@ CODE_B6AF35:
 	JSL.l set_sprite_animation		;$B6AF44
 CODE_B6AF48:
 	LDA.w #$0006				;$B6AF48
-	JSL.l CODE_B9E012			;$B6AF4B
+	JSL.l interpolate_y_speed		;$B6AF4B
 CODE_B6AF4F:
 	LDA.w #$0007				;$B6AF4F
-	JSL.l CODE_B9E00F			;$B6AF52
+	JSL.l interpolate_x_speed		;$B6AF52
 	JSL.l CODE_B9E006			;$B6AF56
 	LDA.b $28,x				;$B6AF5A
 	BIT.w #$0002				;$B6AF5C
@@ -6484,7 +6484,7 @@ CODE_B6AF4F:
 	JML [$04F5]				;$B6AF75
 
 CODE_B6AF78:
-	JMP.w process_anim_handle_despawn	;$B6AF78
+	JMP.w return_handle_anim_and_despawn	;$B6AF78
 
 CODE_B6AF7B:
 	JSL.l CODE_BBAB52			;$B6AF7B
@@ -6497,7 +6497,7 @@ CODE_B6AF8C:
 
 CODE_B6AF8F:
 	TYX					;$B6AF8F
-	JSR.w CODE_B6F262			;$B6AF90
+	JSR.w invert_max_x_speed_if_needed	;$B6AF90
 	LDA.w #$0005				;$B6AF93
 	STA.b $38,x				;$B6AF96
 	JML [$04F5]				;$B6AF98
@@ -6629,7 +6629,7 @@ CODE_B6B061:
 	JMP.w CODE_B6B110			;$B6B067
 
 CODE_B6B06A:
-	JSL.l CODE_B9E000			;$B6B06A
+	JSL.l process_current_movement		;$B6B06A
 	JMP.w CODE_B6B201			;$B6B06E
 
 CODE_B6B071:
@@ -6749,7 +6749,7 @@ CODE_B6B15D:
 	BNE.b CODE_B6B195			;$B6B16A
 	LDA.b $2E,x				;$B6B16C
 	PHA					;$B6B16E
-	JSL.l CODE_B9E000			;$B6B16F
+	JSL.l process_current_movement		;$B6B16F
 	PLY					;$B6B173
 	LDA.b $28,x				;$B6B174
 	AND.w #$0101				;$B6B176
@@ -6779,9 +6779,9 @@ CODE_B6B19F:
 	LDY.b $64,x				;$B6B19F
 	JSR.w CODE_B6F3EB			;$B6B1A1
 	LDA.w #$062E				;$B6B1A4
-	JSL.l CODE_B28012			;$B6B1A7
+	JSL.l queue_sound_effect		;$B6B1A7
 	LDA.w #$060C				;$B6B1AB
-	JSL.l CODE_B28012			;$B6B1AE
+	JSL.l queue_sound_effect		;$B6B1AE
 	JSL.l CODE_BEC030			;$B6B1B2
 	JSL.l CODE_BB85AC			;$B6B1B6
 	JSL.l delete_sprite_handle_deallocation	;$B6B1BA
@@ -6964,7 +6964,7 @@ CODE_B6B300:
 	LDA.w $0068,y				;$B6B307
 	STA.w CPU.divisor			;$B6B30A
 	REP.b #$20				;$B6B30D
-	JSL.l CODE_B58003			;$B6B30F
+	JSL.l stall_cpu_time			;$B6B30F
 	LDA.w CPU.divide_result			;$B6B313
 	LSR					;$B6B316
 	STA.b $6A,x				;$B6B317
@@ -6980,7 +6980,7 @@ CODE_B6B300:
 	STA.w CPU.divisor			;$B6B32B
 CODE_B6B32E:
 	REP.b #$20				;$B6B32E
-	JSL.l CODE_B58003			;$B6B330
+	JSL.l stall_cpu_time			;$B6B330
 	LDA.w CPU.divide_result			;$B6B334
 	STA.b $66,x				;$B6B337
 	BRA.b CODE_B6B34E			;$B6B339
@@ -6997,7 +6997,7 @@ CODE_B6B33B:
 CODE_B6B34E:
 	JSR.w CODE_B6B38F			;$B6B34E
 	BCS.b CODE_B6B3A4			;$B6B351
-	JSL.l CODE_B9E000			;$B6B353
+	JSL.l process_current_movement		;$B6B353
 	LDA.b $28,x				;$B6B357
 	BNE.b CODE_B6B3A4			;$B6B359
 	JML [$04F5]				;$B6B35B
@@ -7008,7 +7008,7 @@ CODE_B6B35E:
 	BEQ.b CODE_B6B3A4			;$B6B361
 	LDA.b $2E,x				;$B6B363
 	PHA					;$B6B365
-	JSL.l CODE_B9E000			;$B6B366
+	JSL.l process_current_movement		;$B6B366
 	PLY					;$B6B36A
 	LDA.b $28,x				;$B6B36B
 	AND.w #$0101				;$B6B36D
@@ -7024,7 +7024,7 @@ CODE_B6B35E:
 CODE_B6B383:
 	STA.b $2E,x				;$B6B383
 	LDA.w #$074B				;$B6B385
-	JSL.l CODE_B28012			;$B6B388
+	JSL.l queue_sound_effect		;$B6B388
 CODE_B6B38C:
 	JML [$04F5]				;$B6B38C
 
@@ -7077,9 +7077,9 @@ CODE_B6B3D6:
 	ORA.b $1A				;$B6B3F1
 	STA.b $1E,x				;$B6B3F3
 	LDA.w #$064F				;$B6B3F5
-	JSL.l CODE_B28012			;$B6B3F8
+	JSL.l queue_sound_effect		;$B6B3F8
 	LDA.w #$0750				;$B6B3FC
-	JSL.l CODE_B28012			;$B6B3FF
+	JSL.l queue_sound_effect		;$B6B3FF
 	RTL					;$B6B403
 
 tnt_explosion_main:
@@ -7089,7 +7089,7 @@ tnt_explosion_main:
 
 CODE_B6B40D:
 	JSR.w CODE_B6B38F			;$B6B40D
-	JSL.l CODE_B9E000			;$B6B410
+	JSL.l process_current_movement		;$B6B410
 	JMP.w CODE_B685E6			;$B6B414
 
 flying_knik_knak_main:
@@ -7129,8 +7129,8 @@ DATA_B6B42F:
 
 CODE_B6B453:
 	JSR.w CODE_B6B6CB			;$B6B453
-	JSL.l CODE_B9E000			;$B6B456
-	JMP.w process_anim_handle_despawn	;$B6B45A
+	JSL.l process_current_movement		;$B6B456
+	JMP.w return_handle_anim_and_despawn	;$B6B45A
 
 CODE_B6B45D:
 	JSL.l CODE_BEC02D			;$B6B45D
@@ -7171,8 +7171,8 @@ CODE_B6B493:
 	STA.b $38,x				;$B6B4B0
 	STZ.b $30,x				;$B6B4B2
 CODE_B6B4B4:
-	JSL.l CODE_B9E000			;$B6B4B4
-	JMP.w process_anim_handle_despawn	;$B6B4B8
+	JSL.l process_current_movement		;$B6B4B4
+	JMP.w return_handle_anim_and_despawn	;$B6B4B8
 
 CODE_B6B4BB:
 	PHA					;$B6B4BB
@@ -7192,12 +7192,12 @@ CODE_B6B4D5:
 	LDA.b $38,x				;$B6B4D7
 	XBA					;$B6B4D9
 	STA.b $38,x				;$B6B4DA
-	JSR.w CODE_B6F262			;$B6B4DC
+	JSR.w invert_max_x_speed_if_needed	;$B6B4DC
 	LDA.b $30,x				;$B6B4DF
 	STA.b $62,x				;$B6B4E1
 	LDA.b $5A,x				;$B6B4E3
 	STA.b $6A,x				;$B6B4E5
-	JMP.w process_anim_handle_despawn	;$B6B4E7
+	JMP.w return_handle_anim_and_despawn	;$B6B4E7
 
 CODE_B6B4EA:
 	JSL.l CODE_BEC033			;$B6B4EA
@@ -7216,8 +7216,8 @@ CODE_B6B4F3:
 CODE_B6B508:
 	LDX.b current_sprite			;$B6B508
 	LDA.w #$0044				;$B6B50A
-	JSL.l CODE_B9E003			;$B6B50D
-	JMP.w process_anim_handle_despawn	;$B6B511
+	JSL.l process_alternate_movement	;$B6B50D
+	JMP.w return_handle_anim_and_despawn	;$B6B511
 
 CODE_B6B514:
 	JSL.l CODE_BEC033			;$B6B514
@@ -7252,7 +7252,7 @@ CODE_B6B540:
 	LDA.w #$0232				;$B6B54D
 	JSL.l set_sprite_animation		;$B6B550
 CODE_B6B554:
-	JMP.w process_anim_handle_despawn	;$B6B554
+	JMP.w return_handle_anim_and_despawn	;$B6B554
 
 CODE_B6B557:
 	JMP.w generic_move_and_animate_state	;$B6B557
@@ -7261,8 +7261,8 @@ CODE_B6B55A:
 	LDA.w #$053F				;$B6B55A
 	JSL.l CODE_B28024			;$B6B55D
 	JSR.w CODE_B6B72C			;$B6B561
-	JSL.l CODE_B9E000			;$B6B564
-	JMP.w process_anim_handle_despawn	;$B6B568
+	JSL.l process_current_movement		;$B6B564
+	JMP.w return_handle_anim_and_despawn	;$B6B568
 
 CODE_B6B56B:
 	LDA.w #$053F				;$B6B56B
@@ -7289,8 +7289,8 @@ CODE_B6B56B:
 	STZ.b $68,x				;$B6B598
 	INC.b $38,x				;$B6B59A
 CODE_B6B59C:
-	JSL.l CODE_B9E000			;$B6B59C
-	JMP.w process_anim_handle_despawn	;$B6B5A0
+	JSL.l process_current_movement		;$B6B59C
+	JMP.w return_handle_anim_and_despawn	;$B6B5A0
 
 CODE_B6B5A3:
 	LDA.w #$053F				;$B6B5A3
@@ -7307,15 +7307,15 @@ CODE_B6B5A3:
 	JMP.w CODE_B6B4D5			;$B6B5C3
 
 CODE_B6B5C6:
-	JSL.l CODE_B9E000			;$B6B5C6
-	JMP.w process_anim_handle_despawn	;$B6B5CA
+	JSL.l process_current_movement		;$B6B5C6
+	JMP.w return_handle_anim_and_despawn	;$B6B5CA
 
 CODE_B6B5CD:
 	LDA.w #$053F				;$B6B5CD
 	JSL.l CODE_B28024			;$B6B5D0
 	JSR.w CODE_B6B72C			;$B6B5D4
-	JSL.l CODE_B9E000			;$B6B5D7
-	JMP.w process_anim_handle_despawn	;$B6B5DB
+	JSL.l process_current_movement		;$B6B5D7
+	JMP.w return_handle_anim_and_despawn	;$B6B5DB
 
 CODE_B6B5DE:
 	JSR.w CODE_B6B6CB			;$B6B5DE
@@ -7348,8 +7348,8 @@ CODE_B6B5DE:
 	LDA.w #$022E				;$B6B614
 	JSL.l set_sprite_animation		;$B6B617
 CODE_B6B61B:
-	JSL.l CODE_B9E000			;$B6B61B
-	JMP.w process_anim_handle_despawn	;$B6B61F
+	JSL.l process_current_movement		;$B6B61B
+	JMP.w return_handle_anim_and_despawn	;$B6B61F
 
 CODE_B6B622:
 	LDA.w #$053F				;$B6B622
@@ -7374,13 +7374,13 @@ CODE_B6B622:
 	STA.b $06,x				;$B6B654
 	LDA.w #$0239				;$B6B656
 	JSL.l set_sprite_animation		;$B6B659
-	JMP.w CODE_B6805A			;$B6B65D
+	JMP.w return_handle_despawn		;$B6B65D
 
 CODE_B6B660:
 	STZ.b $2E,x				;$B6B660
 	STZ.b $28,x				;$B6B662
-	JSL.l CODE_B9E000			;$B6B664
-	JMP.w process_anim_handle_despawn	;$B6B668
+	JSL.l process_current_movement		;$B6B664
+	JMP.w return_handle_anim_and_despawn	;$B6B668
 
 CODE_B6B66B:
 	LDA.w #$0E0D				;$B6B66B
@@ -7403,26 +7403,26 @@ CODE_B6B67D:
 	STA.b $5A,x				;$B6B690
 	LDA.b $30,x				;$B6B692
 	STA.b $62,x				;$B6B694
-	JMP.w CODE_B6805A			;$B6B696
+	JMP.w return_handle_despawn		;$B6B696
 
 CODE_B6B699:
 	STZ.b $2E,x				;$B6B699
 	STZ.b $28,x				;$B6B69B
-	JSL.l CODE_B9E000			;$B6B69D
-	JMP.w process_anim_handle_despawn	;$B6B6A1
+	JSL.l process_current_movement		;$B6B69D
+	JMP.w return_handle_anim_and_despawn	;$B6B6A1
 
 CODE_B6B6A4:
 	JSL.l populate_sprite_clipping		;$B6B6A4
 	LDA.w #$0040				;$B6B6A8
 	LDY.w #$0008				;$B6B6AB
-	JSL.l CODE_BEC000			;$B6B6AE
+	JSL.l check_sprite_collision		;$B6B6AE
 	RTS					;$B6B6B2
 
 CODE_B6B6B3:
 	JSL.l populate_sprite_clipping		;$B6B6B3
 	LDA.w #$0040				;$B6B6B7
 	LDY.w #$0010				;$B6B6BA
-	JSL.l CODE_BEC000			;$B6B6BD
+	JSL.l check_sprite_collision		;$B6B6BD
 	RTS					;$B6B6C1
 
 CODE_B6B6C2:
@@ -7444,7 +7444,7 @@ CODE_B6B6D5:
 CODE_B6B6E5:
 	LDA.w #$063B				;$B6B6E5
 CODE_B6B6E8:
-	JSL.l CODE_B28012			;$B6B6E8
+	JSL.l queue_sound_effect		;$B6B6E8
 	JMP.w CODE_B6B4C6			;$B6B6EC
 
 CODE_B6B6EF:
@@ -7466,7 +7466,7 @@ CODE_B6B6F4:
 	LDA.w #$022F				;$B6B710
 	JSL.l set_sprite_animation		;$B6B713
 	LDA.w #$063A				;$B6B717
-	JSL.l CODE_B28012			;$B6B71A
+	JSL.l queue_sound_effect		;$B6B71A
 	PLY					;$B6B71E
 	JML [$04F5]				;$B6B71F
 
@@ -7517,7 +7517,7 @@ bazza_spawner_main:
 	LDA #$0041				;$B6B763   |
 	JSL CODE_BFF006				;$B6B766   | Play sound effect
 	LDX current_sprite			;$B6B76A   | Get spawner sprite
-	LDA sprite.unknown_66,x			;$B6B76C   | Get X velocity to apply to Bazza
+	LDA sprite.general_purpose_66,x		;$B6B76C   | Get X velocity to apply to Bazza
 	STA.w sprite.x_speed,y			;$B6B76E   | Set his current X velocity
 	EOR.w sprite.oam_property,y		;$B6B771   |
 	ASL					;$B6B774   |
@@ -7526,10 +7526,10 @@ bazza_spawner_main:
 	EOR #$4000				;$B6B77A   |
 	STA.w sprite.oam_property,y		;$B6B77D  / Flip his facing direction
 ..no_flip:
-	LDA sprite.unknown_64,x			;$B6B780  \
-	STA.w sprite.unknown_5C,y		;$B6B782  / Set Bazza's home X position
+	LDA sprite.general_purpose_64,x	;$B6B780  \
+	STA.w sprite.general_purpose_5C,y	;$B6B782  / Set Bazza's home X position
 ..return:
-	JMP CODE_B6805A				;$B6B785  |> Return and handle despawn
+	JMP return_handle_despawn		;$B6B785  |> Return and handle despawn
 
 
 bazza_main:
@@ -7549,13 +7549,13 @@ CODE_B6B78F:
 	CMP.w #$0002				;$B6B7A2
 	BNE.b CODE_B6B7B6			;$B6B7A5
 	LDA.w #$0651				;$B6B7A7
-	JSL.l CODE_B28012			;$B6B7AA
+	JSL.l queue_sound_effect		;$B6B7AA
 	INC.b $38,x				;$B6B7AE
 	LDA.w #$026D				;$B6B7B0
 	JMP.w CODE_B6878E			;$B6B7B3
 
 CODE_B6B7B6:
-	JSL.l CODE_B9E000			;$B6B7B6
+	JSL.l process_current_movement		;$B6B7B6
 	LDA.b $12,x				;$B6B7BA
 	SEC					;$B6B7BC
 	SBC.b $5C,x				;$B6B7BD
@@ -7590,15 +7590,15 @@ CODE_B6B7E3:
 	LDA.b $38,x				;$B6B7E4
 	XBA					;$B6B7E6
 	STA.b $38,x				;$B6B7E7
-	JSR.w CODE_B6F262			;$B6B7E9
+	JSR.w invert_max_x_speed_if_needed	;$B6B7E9
 	JSR.w CODE_B6F284			;$B6B7EC
 	LDA.b $30,x				;$B6B7EF
 	STA.b $62,x				;$B6B7F1
 	JML [$04F5]				;$B6B7F3
 
 CODE_B6B7F6:
-	JSL.l CODE_B9E000			;$B6B7F6
-	JMP.w process_anim_handle_despawn	;$B6B7FA
+	JSL.l process_current_movement		;$B6B7F6
+	JMP.w return_handle_anim_and_despawn	;$B6B7FA
 
 CODE_B6B7FD:
 	JSL.l populate_sprite_clipping		;$B6B7FD
@@ -7804,11 +7804,11 @@ CODE_B6B9A1:
 	JMP.w CODE_B6B818			;$B6B9A4
 
 CODE_B6B9A7:
-	JSL.l CODE_B9E000			;$B6B9A7
-	JMP.w process_anim_handle_despawn	;$B6B9AB
+	JSL.l process_current_movement		;$B6B9A7
+	JMP.w return_handle_anim_and_despawn	;$B6B9AB
 
 CODE_B6B9AE:
-	JSL.l CODE_B9E000			;$B6B9AE
+	JSL.l process_current_movement		;$B6B9AE
 	JMP.w CODE_B685E6			;$B6B9B2
 
 CODE_B6B9B5:
@@ -7825,7 +7825,7 @@ CODE_B6B9C0:
 	INC.b $38,x				;$B6B9C9
 CODE_B6B9CB:
 	LDA.w #$0001				;$B6B9CB
-	JSL.l CODE_B9E003			;$B6B9CE
+	JSL.l process_alternate_movement	;$B6B9CE
 	LDA.b $2A,x				;$B6B9D2
 	BPL.b CODE_B6B9DA			;$B6B9D4
 	EOR.w #$FFFF				;$B6B9D6
@@ -7840,25 +7840,25 @@ CODE_B6B9E1:
 	BNE.b CODE_B6B9EB			;$B6B9E6
 	LDA.w #$0004				;$B6B9E8
 CODE_B6B9EB:
-	JSL.l CODE_B9E00F			;$B6B9EB
+	JSL.l interpolate_x_speed		;$B6B9EB
 	LDA.w #$0002				;$B6B9EF
-	JSL.l CODE_B9E012			;$B6B9F2
+	JSL.l interpolate_y_speed		;$B6B9F2
 	JMP.w CODE_B6BF79			;$B6B9F6
 
 
 unknown_sprite_0438_main:
-	JSR.w CODE_B6BA0E			;$B6B9F9
-	JML.l CODE_BBC815			;$B6B9FC
+	JSR CODE_B6BA0E				;$B6B9F9
+	JML CODE_BBC815				;$B6B9FC
 
 
 unknown_sprite_043C_main:
-	JSR.w CODE_B6BA0E			;$B6BA00
-	JML.l CODE_BBC818			;$B6BA03
+	JSR CODE_B6BA0E				;$B6BA00
+	JML CODE_BBC818				;$B6BA03
 
 
 unknown_sprite_0440_main:
-	JSR.w CODE_B6BA0E			;$B6BA07
-	JML.l CODE_BBC81B			;$B6BA0A
+	JSR CODE_B6BA0E				;$B6BA07
+	JML CODE_BBC81B				;$B6BA0A
 
 
 CODE_B6BA0E:
@@ -7868,7 +7868,7 @@ CODE_B6BA0E:
 	PHX					;$B6BA12
 	PHY					;$B6BA13
 	LDA.w #$0004				;$B6BA14
-	JSL.l CODE_B9E00F			;$B6BA17
+	JSL.l interpolate_x_speed		;$B6BA17
 	LDX.b current_sprite			;$B6BA1B
 	LDA.b $2A,x				;$B6BA1D
 	BEQ.b CODE_B6BA25			;$B6BA1F
@@ -8096,7 +8096,7 @@ CODE_B6BBB7:
 	JSR.w CODE_B6BDAE			;$B6BBB7
 	LDA.b $18,x				;$B6BBBA
 	BNE.b CODE_B6BBC1			;$B6BBBC
-	JSR.w CODE_B68429			;$B6BBBE
+	JSR.w set_platform_hitbox_position	;$B6BBBE
 CODE_B6BBC1:
 	LDA.b $2A,x				;$B6BBC1
 	BPL.b CODE_B6BBC9			;$B6BBC3
@@ -8121,7 +8121,7 @@ CODE_B6BBDC:
 	JML [$04F5]				;$B6BBE9
 
 CODE_B6BBEC:
-	JMP.w process_anim_handle_despawn	;$B6BBEC
+	JMP.w return_handle_anim_and_despawn	;$B6BBEC
 
 CODE_B6BBEF:
 	TYX					;$B6BBEF
@@ -8131,7 +8131,7 @@ CODE_B6BBEF:
 	LDA.b $18,x				;$B6BBF7
 	BNE.b CODE_B6BC0B			;$B6BBF9
 	JSR.w CODE_B6BD86			;$B6BBFB
-	JSR.w CODE_B68429			;$B6BBFE
+	JSR.w set_platform_hitbox_position	;$B6BBFE
 	LDA.b $12,x				;$B6BC01
 	SEC					;$B6BC03
 	SBC.b $66,x				;$B6BC04
@@ -8211,7 +8211,7 @@ CODE_B6BC91:
 	JSL.l CODE_BBAB29			;$B6BC9B
 	BCS.b CODE_B6BCA8			;$B6BC9F
 	LDA.w #$060C				;$B6BCA1
-	JSL.l CODE_B28012			;$B6BCA4
+	JSL.l queue_sound_effect		;$B6BCA4
 CODE_B6BCA8:
 	PLY					;$B6BCA8
 	PLX					;$B6BCA9
@@ -8233,7 +8233,7 @@ CODE_B6BCBA:
 	JSL.l CODE_BBAB29			;$B6BCC6
 	BCS.b CODE_B6BCD3			;$B6BCCA
 	LDA.w #$060C				;$B6BCCC
-	JSL.l CODE_B28012			;$B6BCCF
+	JSL.l queue_sound_effect		;$B6BCCF
 CODE_B6BCD3:
 	PLY					;$B6BCD3
 	PLX					;$B6BCD4
@@ -8312,7 +8312,7 @@ CODE_B6BD42:
 
 CODE_B6BD5D:
 	JSR.w CODE_B6BDAE			;$B6BD5D
-	JMP.w process_anim_handle_despawn	;$B6BD60
+	JMP.w return_handle_anim_and_despawn	;$B6BD60
 
 CODE_B6BD63:
 	LDX.b current_sprite			;$B6BD63
@@ -8441,7 +8441,7 @@ CODE_B6BE2E:
 	BCC.b CODE_B6BE52			;$B6BE3E
 CODE_B6BE40:
 	LDA.w #$060C				;$B6BE40
-	JSL.l CODE_B28012			;$B6BE43
+	JSL.l queue_sound_effect		;$B6BE43
 	JSL.l CODE_BEC030			;$B6BE47
 	JSL.l delete_sprite_handle_deallocation	;$B6BE4B
 	JML [$04F5]				;$B6BE4F
@@ -8449,7 +8449,7 @@ CODE_B6BE40:
 CODE_B6BE52:
 	LDA.w #$0040				;$B6BE52
 	LDY.w #$0010				;$B6BE55
-	JSL.l CODE_BEC000			;$B6BE58
+	JSL.l check_sprite_collision		;$B6BE58
 	BCS.b CODE_B6BE40			;$B6BE5C
 	JMP.w CODE_B6BEFC			;$B6BE5E
 
@@ -8461,7 +8461,7 @@ CODE_B6BE61:
 	JSL.l CODE_BEC009			;$B6BE6D
 	BCC.b CODE_B6BEBA			;$B6BE71
 	LDA.w #$076D				;$B6BE73
-	JSL.l CODE_B28012			;$B6BE76
+	JSL.l queue_sound_effect		;$B6BE76
 	JSR.w CODE_B6BF85			;$B6BE7A
 	BCC.b CODE_B6BE91			;$B6BE7D
 CODE_B6BE7F:
@@ -8494,7 +8494,7 @@ CODE_B6BEA3:
 CODE_B6BEBA:
 	LDA.w #$0040				;$B6BEBA
 	LDY.w #$0410				;$B6BEBD
-	JSL.l CODE_BEC000			;$B6BEC0
+	JSL.l check_sprite_collision		;$B6BEC0
 	BCS.b CODE_B6BE91			;$B6BEC4
 	BRA.b CODE_B6BEFC			;$B6BEC6
 
@@ -8518,13 +8518,13 @@ CODE_B6BEE5:
 CODE_B6BEE8:
 	LDA.w #$0040				;$B6BEE8
 	LDY.w #$0038				;$B6BEEB
-	JSL.l CODE_BEC000			;$B6BEEE
+	JSL.l check_sprite_collision		;$B6BEEE
 	BCC.b CODE_B6BEFC			;$B6BEF2
 	LDA.w $0000,y				;$B6BEF4
 	CMP.w #$0448				;$B6BEF7
 	BNE.b CODE_B6BEE5			;$B6BEFA
 CODE_B6BEFC:
-	JSL.l CODE_B9E000			;$B6BEFC
+	JSL.l process_current_movement		;$B6BEFC
 	LDY.b $2A,x				;$B6BF00
 	BEQ.b CODE_B6BF48			;$B6BF02
 	LDA.b $12,x				;$B6BF04
@@ -8589,7 +8589,7 @@ CODE_B6BF68:
 
 CODE_B6BF6B:
 	LDA.w #$0004				;$B6BF6B
-	JSL.l CODE_B9E003			;$B6BF6E
+	JSL.l process_alternate_movement	;$B6BF6E
 	JSL.l CODE_BBAB46			;$B6BF72
 	JML [$04F5]				;$B6BF76
 
@@ -8659,7 +8659,7 @@ CODE_B6BFD9:
 	PLA					;$B6BFF1
 	JSL.l set_sprite_animation		;$B6BFF2
 CODE_B6BFF6:
-	JMP.w CODE_B6805A			;$B6BFF6
+	JMP.w return_handle_despawn		;$B6BFF6
 
 CODE_B6BFF9:
 	LDA.w $005E,y				;$B6BFF9
@@ -8723,14 +8723,14 @@ DATA_B6C036:
 
 CODE_B6C05C:
 	TYX					;$B6C05C
-	JSR.w CODE_B6F262			;$B6C05D
+	JSR.w invert_max_x_speed_if_needed	;$B6C05D
 	JSR.w CODE_B6C31F			;$B6C060
 	INC.b $38,x				;$B6C063
 CODE_B6C065:
 	TYX					;$B6C065
 	LDA.b $30,x				;$B6C066
 	PHA					;$B6C068
-	JSL.l CODE_B9E000			;$B6C069
+	JSL.l process_current_movement		;$B6C069
 	PLA					;$B6C06D
 	EOR.b $30,x				;$B6C06E
 	BPL.b CODE_B6C07C			;$B6C070
@@ -8741,7 +8741,7 @@ CODE_B6C065:
 	BNE.b CODE_B6C07C			;$B6C078
 	INC.b $38,x				;$B6C07A
 CODE_B6C07C:
-	JMP.w process_anim_handle_despawn	;$B6C07C
+	JMP.w return_handle_anim_and_despawn	;$B6C07C
 
 CODE_B6C07F:
 	TYX					;$B6C07F
@@ -8763,13 +8763,13 @@ CODE_B6C07F:
 
 CODE_B6C09F:
 	LDA.w #$0040				;$B6C09F
-	JSL.l CODE_B9E003			;$B6C0A2
-	JMP.w process_anim_handle_despawn	;$B6C0A6
+	JSL.l process_alternate_movement	;$B6C0A2
+	JMP.w return_handle_anim_and_despawn	;$B6C0A6
 
 CODE_B6C0A9:
 	LDA.w #$0040				;$B6C0A9
-	JSL.l CODE_B9E003			;$B6C0AC
-	JMP.w process_anim_handle_despawn	;$B6C0B0
+	JSL.l process_alternate_movement	;$B6C0AC
+	JMP.w return_handle_anim_and_despawn	;$B6C0B0
 
 CODE_B6C0B3:
 	TYX					;$B6C0B3
@@ -8780,7 +8780,7 @@ CODE_B6C0B3:
 	LDA.b #$1E				;$B6C0BD
 	STA.w CPU.divisor			;$B6C0BF
 	REP.b #$20				;$B6C0C2
-	JSL.l CODE_B58003			;$B6C0C4
+	JSL.l stall_cpu_time		;$B6C0C4
 	LDA.w CPU.divide_result			;$B6C0C8
 	STA.b $64,x				;$B6C0CB
 	INC.b $38,x				;$B6C0CD
@@ -8793,7 +8793,7 @@ CODE_B6C0CF:
 	LDA.w #$0287				;$B6C0DA
 	JSL.l set_sprite_animation		;$B6C0DD
 CODE_B6C0E1:
-	JMP.w process_anim_handle_despawn	;$B6C0E1
+	JMP.w return_handle_anim_and_despawn	;$B6C0E1
 
 CODE_B6C0E4:
 	LDA.w #$0288				;$B6C0E4
@@ -8805,7 +8805,7 @@ CODE_B6C0E4:
 	LDA.b $62,x				;$B6C0F1
 	STA.b $30,x				;$B6C0F3
 CODE_B6C0F5:
-	JMP.w process_anim_handle_despawn	;$B6C0F5
+	JMP.w return_handle_anim_and_despawn	;$B6C0F5
 
 CODE_B6C0F8:
 	TYX					;$B6C0F8
@@ -8822,7 +8822,7 @@ CODE_B6C10D:
 	TYX					;$B6C10D
 	LDA.b $1A,x				;$B6C10E
 	PHA					;$B6C110
-	JSL.l CODE_B9E000			;$B6C111
+	JSL.l process_current_movement		;$B6C111
 	LDY.w #$0000				;$B6C115
 	LDA.b [$6A],y				;$B6C118
 	CLC					;$B6C11A
@@ -8852,7 +8852,7 @@ CODE_B6C133:
 	SEP.b #$20				;$B6C146
 	STA.w CPU.divisor			;$B6C148
 	REP.b #$20				;$B6C14B
-	JSL.l CODE_B58003			;$B6C14D
+	JSL.l stall_cpu_time			;$B6C14D
 	LDA.w CPU.divide_result			;$B6C151
 	STA.b $66,x				;$B6C154
 	LDA.b $62,x				;$B6C156
@@ -8863,7 +8863,7 @@ CODE_B6C133:
 	STA.b $6A,x				;$B6C162
 	INC.b $38,x				;$B6C164
 CODE_B6C166:
-	JMP.w process_anim_handle_despawn	;$B6C166
+	JMP.w return_handle_anim_and_despawn	;$B6C166
 
 CODE_B6C169:
 	TYX					;$B6C169
@@ -8877,7 +8877,7 @@ CODE_B6C174:
 	CMP.w #$0080				;$B6C174
 	BCC.b CODE_B6C171			;$B6C177
 	STA.b $2E,x				;$B6C179
-	JSL.l CODE_B9E000			;$B6C17B
+	JSL.l process_current_movement		;$B6C17B
 	LDA.b $28,x				;$B6C17F
 	AND.w #$0101				;$B6C181
 	BEQ.b CODE_B6C1A6			;$B6C184
@@ -8897,7 +8897,7 @@ CODE_B6C174:
 	LDA.w #$FFFA				;$B6C1A1
 	STA.b $6A,x				;$B6C1A4
 CODE_B6C1A6:
-	JMP.w process_anim_handle_despawn	;$B6C1A6
+	JMP.w return_handle_anim_and_despawn	;$B6C1A6
 
 CODE_B6C1A9:
 	TYX					;$B6C1A9
@@ -8914,7 +8914,7 @@ CODE_B6C1A9:
 	STA.b $30,x				;$B6C1C0
 CODE_B6C1C2:
 	JSR.w CODE_B6C2C6			;$B6C1C2
-	JSL.l CODE_B9E000			;$B6C1C5
+	JSL.l process_current_movement		;$B6C1C5
 	LDA.b $30,x				;$B6C1C9
 	EOR.b $2A,x				;$B6C1CB
 	BMI.b CODE_B6C1FF			;$B6C1CD
@@ -8945,7 +8945,7 @@ CODE_B6C1E3:
 	LDA.w #$000E				;$B6C1FA
 	STA.b $6A,x				;$B6C1FD
 CODE_B6C1FF:
-	JMP.w process_anim_handle_despawn	;$B6C1FF
+	JMP.w return_handle_anim_and_despawn	;$B6C1FF
 
 CODE_B6C202:
 	JSR.w CODE_B6C2C6			;$B6C202
@@ -8955,7 +8955,7 @@ CODE_B6C202:
 	STA.b $2E,x				;$B6C20A
 	LDA.b $64,x				;$B6C20C
 	JSR.w CODE_B6F2C9			;$B6C20E
-	JSL.l CODE_B9E000			;$B6C211
+	JSL.l process_current_movement		;$B6C211
 	LDA.b $28,x				;$B6C215
 	AND.w #$0101				;$B6C217
 	BEQ.b CODE_B6C220			;$B6C21A
@@ -8975,7 +8975,7 @@ CODE_B6C220:
 	INC					;$B6C237
 	STA.b $62,x				;$B6C238
 CODE_B6C23A:
-	JMP.w process_anim_handle_despawn	;$B6C23A
+	JMP.w return_handle_anim_and_despawn	;$B6C23A
 
 CODE_B6C23D:
 	JSR.w CODE_B6C2C6			;$B6C23D
@@ -8993,22 +8993,22 @@ CODE_B6C250:
 	CMP.w #$0080				;$B6C250
 	BCC.b CODE_B6C24D			;$B6C253
 	STA.b $2E,x				;$B6C255
-	JSL.l CODE_B9E000			;$B6C257
+	JSL.l process_current_movement		;$B6C257
 	LDA.b $28,x				;$B6C25B
 	AND.w #$0101				;$B6C25D
 	BEQ.b CODE_B6C267			;$B6C260
 	LDA.w #$000B				;$B6C262
 	STA.b $38,x				;$B6C265
 CODE_B6C267:
-	JMP.w process_anim_handle_despawn	;$B6C267
+	JMP.w return_handle_anim_and_despawn	;$B6C267
 
 CODE_B6C26A:
 	JMP.w generic_move_and_animate_state	;$B6C26A
 
 CODE_B6C26D:
 	JSR.w CODE_B6C2C6			;$B6C26D
-	JSL.l CODE_B9E000			;$B6C270
-	JMP.w process_anim_handle_despawn	;$B6C274
+	JSL.l process_current_movement		;$B6C270
+	JMP.w return_handle_anim_and_despawn	;$B6C274
 
 CODE_B6C277:
 	TYX					;$B6C277
@@ -9040,8 +9040,8 @@ CODE_B6C29C:
 	INC					;$B6C2A5
 	STA.b $34,x				;$B6C2A6
 CODE_B6C2A8:
-	JSL.l CODE_B9E000			;$B6C2A8
-	JMP.w process_anim_handle_despawn	;$B6C2AC
+	JSL.l process_current_movement		;$B6C2A8
+	JMP.w return_handle_anim_and_despawn	;$B6C2AC
 
 CODE_B6C2AF:
 	LDA.b $34,x				;$B6C2AF
@@ -9148,9 +9148,9 @@ CODE_B6C35F:
 	LDA.b $5E,x				;$B6C36D
 	JSR.w CODE_B6C43A			;$B6C36F
 	LDA.w #$0763				;$B6C372
-	JSL.l CODE_B28012			;$B6C375
+	JSL.l queue_sound_effect		;$B6C375
 	LDA.w #$0565				;$B6C379
-	JSL.l CODE_B28012			;$B6C37C
+	JSL.l queue_sound_effect		;$B6C37C
 CODE_B6C380:
 	LDY.w active_kong_sprite		;$B6C380
 	LDA.w $0016,y				;$B6C383
@@ -9176,12 +9176,12 @@ CODE_B6C399:
 	STZ.b $5A,x				;$B6C3A4
 	STZ.b $2E,x				;$B6C3A6
 	LDA.w #$0764				;$B6C3A8
-	JSL.l CODE_B28012			;$B6C3AB
+	JSL.l queue_sound_effect		;$B6C3AB
 	LDA.b $34,x				;$B6C3AF
 	BPL.b CODE_B6C3B6			;$B6C3B1
 	INC.w $054F				;$B6C3B3
 CODE_B6C3B6:
-	JSR.w CODE_B68429			;$B6C3B6
+	JSR.w set_platform_hitbox_position	;$B6C3B6
 	JSR.w CODE_B683B3			;$B6C3B9
 	JSR.w CODE_B6C458			;$B6C3BC
 	JSR.w CODE_B6C3EA			;$B6C3BF
@@ -9469,7 +9469,7 @@ CODE_B6C5D1:
 	STA.b $66,x				;$B6C5D1
 	STA.b $34,x				;$B6C5D3
 	JSR.w CODE_B6C6AA			;$B6C5D5
-	JSL.l CODE_B9E000			;$B6C5D8
+	JSL.l process_current_movement		;$B6C5D8
 CODE_B6C5DC:
 	JSR.w CODE_B6C6EA			;$B6C5DC
 	JSL.l process_sprite_animation		;$B6C5DF
@@ -9554,7 +9554,7 @@ CODE_B6C65A:
 	LDA.b [$6A],y				;$B6C689
 	JSR.w CODE_B6F2C9			;$B6C68B
 	LDA.w #$0001				;$B6C68E
-	JSL.l CODE_B9E003			;$B6C691
+	JSL.l process_alternate_movement	;$B6C691
 	JMP.w CODE_B6C5DC			;$B6C695
 
 CODE_B6C698:
@@ -9661,7 +9661,7 @@ CODE_B6C72A:
 	RTS					;$B6C749
 
 CODE_B6C74A:
-	JSL.l CODE_B9E000			;$B6C74A
+	JSL.l process_current_movement		;$B6C74A
 	BCC.b CODE_B6C75C			;$B6C74E
 	INC.b $5E,x				;$B6C750
 	STZ.b $30,x				;$B6C752
@@ -9678,7 +9678,7 @@ CODE_B6C766:
 	RTS					;$B6C769
 
 CODE_B6C76A:
-	JSL.l CODE_B9E000			;$B6C76A
+	JSL.l process_current_movement		;$B6C76A
 	LDA.b $16,x				;$B6C76E
 	CMP.b $64,x				;$B6C770
 	BCC.b CODE_B6C788			;$B6C772
@@ -9702,7 +9702,7 @@ CODE_B6C78C:
 	RTS					;$B6C78F
 
 CODE_B6C790:
-	JSL.l CODE_B9E000			;$B6C790
+	JSL.l process_current_movement		;$B6C790
 	BCC.b CODE_B6C7B8			;$B6C794
 	LDA.w #$0082				;$B6C796
 	STA.w $1BCF				;$B6C799
@@ -9723,7 +9723,7 @@ CODE_B6C7B8:
 	RTS					;$B6C7B8
 
 CODE_B6C7B9:
-	JSL.l CODE_B9E000			;$B6C7B9
+	JSL.l process_current_movement		;$B6C7B9
 	BCC.b CODE_B6C7C4			;$B6C7BD
 	LDA.w #$0003				;$B6C7BF
 	STA.b $5E,x				;$B6C7C2
@@ -9811,7 +9811,7 @@ CODE_B6C865:
 	JML [$04F5]				;$B6C865
 
 CODE_B6C868:
-	JSL.l CODE_B9E000			;$B6C868
+	JSL.l process_current_movement		;$B6C868
 	BCC.b CODE_B6C878			;$B6C86C
 	LDA.b $68,x				;$B6C86E
 	JSL.l CODE_B4801E			;$B6C870
@@ -9820,7 +9820,7 @@ CODE_B6C878:
 	DEC.b $6C,x				;$B6C878
 	BNE.b CODE_B6C883			;$B6C87A
 	LDA.w #$0778				;$B6C87C
-	JSL.l CODE_B28012			;$B6C87F
+	JSL.l queue_sound_effect		;$B6C87F
 CODE_B6C883:
 	JML [$04F5]				;$B6C883
 
@@ -9843,7 +9843,7 @@ CODE_B6C891:
 	INC.b $38,x				;$B6C89C
 CODE_B6C89E:
 	JSR.w CODE_B6C9BE			;$B6C89E
-	JSL.l CODE_B9E000			;$B6C8A1
+	JSL.l process_current_movement		;$B6C8A1
 	LDY.w #$0014				;$B6C8A5
 	JSR.w CODE_B6C9E8			;$B6C8A8
 	LDY.w #$0014				;$B6C8AB
@@ -9856,9 +9856,9 @@ CODE_B6C89E:
 	BCC.b CODE_B6C8C6			;$B6C8BA
 	JSR.w CODE_B6C958			;$B6C8BC
 	LDA.w #$060C				;$B6C8BF
-	JSL.l CODE_B28012			;$B6C8C2
+	JSL.l queue_sound_effect		;$B6C8C2
 CODE_B6C8C6:
-	JMP.w process_anim_handle_despawn	;$B6C8C6
+	JMP.w return_handle_anim_and_despawn	;$B6C8C6
 
 CODE_B6C8C9:
 	TYA					;$B6C8C9
@@ -9871,7 +9871,7 @@ CODE_B6C8C9:
 CODE_B6C8D6:
 	JSR.w CODE_B6C9BE			;$B6C8D6
 	JSR.w CODE_B6C91A			;$B6C8D9
-	JSL.l CODE_B9E000			;$B6C8DC
+	JSL.l process_current_movement		;$B6C8DC
 	LDY.w #$0014				;$B6C8E0
 	JSR.w CODE_B6C9E8			;$B6C8E3
 	LDY.w #$0014				;$B6C8E6
@@ -9884,7 +9884,7 @@ CODE_B6C8D6:
 	BCC.b CODE_B6C917			;$B6C8F5
 	JSR.w CODE_B6C958			;$B6C8F7
 	LDA.w #$060C				;$B6C8FA
-	JSL.l CODE_B28012			;$B6C8FD
+	JSL.l queue_sound_effect		;$B6C8FD
 	LDY.b alternate_sprite			;$B6C901
 	LDX.w active_kong_sprite		;$B6C903
 	LDA.b $16,x				;$B6C906
@@ -9897,7 +9897,7 @@ CODE_B6C910:
 	ADC.w #$FFC4				;$B6C911
 	STA.w $0064,y				;$B6C914
 CODE_B6C917:
-	JMP.w process_anim_handle_despawn	;$B6C917
+	JMP.w return_handle_anim_and_despawn	;$B6C917
 
 CODE_B6C91A:
 	TYX					;$B6C91A
@@ -9963,7 +9963,7 @@ CODE_B6C958:
 	PHA					;$B6C98E
 	STA.w CPU.divisor			;$B6C98F
 	REP.b #$20				;$B6C992
-	JSL.l CODE_B58003			;$B6C994
+	JSL.l stall_cpu_time			;$B6C994
 	LDA.w CPU.divide_result			;$B6C998
 	STA.w $005E,y				;$B6C99B
 	LDA.w #$1C00				;$B6C99E
@@ -9972,7 +9972,7 @@ CODE_B6C958:
 	PLA					;$B6C9A6
 	STA.w CPU.divisor			;$B6C9A7
 	REP.b #$20				;$B6C9AA
-	JSL.l CODE_B58003			;$B6C9AC
+	JSL.l stall_cpu_time			;$B6C9AC
 	LDA.w CPU.divide_result			;$B6C9B0
 	STA.w $0044,y				;$B6C9B3
 	LDA.w #$029E				;$B6C9B6
@@ -10034,7 +10034,7 @@ CODE_B6CA05:
 	LDA.b #$50				;$B6CA18
 	STA.w CPU.divisor			;$B6CA1A
 	REP.b #$20				;$B6CA1D
-	JSL.l CODE_B58003			;$B6CA1F
+	JSL.l stall_cpu_time			;$B6CA1F
 	LDA.w CPU.divide_result			;$B6CA23
 	PLX					;$B6CA26
 	PLP					;$B6CA27
@@ -10056,7 +10056,7 @@ CODE_B6CA38:
 	JSR.w CODE_B6CABF			;$B6CA38
 	TXY					;$B6CA3B
 	JSR.w CODE_B6C9BE			;$B6CA3C
-	JSL.l CODE_B9E000			;$B6CA3F
+	JSL.l process_current_movement		;$B6CA3F
 	LDA.b $5D,x				;$B6CA43
 	AND.w #$00FF				;$B6CA45
 	TAY					;$B6CA48
@@ -10080,7 +10080,7 @@ CODE_B6CA67:
 	JSR.w CODE_B6CABF			;$B6CA67
 	LDA.b $2E,x				;$B6CA6A
 	PHA					;$B6CA6C
-	JSL.l CODE_B9E000			;$B6CA6D
+	JSL.l process_current_movement		;$B6CA6D
 	LDA.b $1A,x				;$B6CA71
 	PLY					;$B6CA73
 	CMP.w #$0014				;$B6CA74
@@ -10116,7 +10116,7 @@ CODE_B6CAB2:
 
 CODE_B6CAB5:
 	JSR.w CODE_B6CABF			;$B6CAB5
-	JSL.l CODE_B9E000			;$B6CAB8
+	JSL.l process_current_movement		;$B6CAB8
 	JMP.w CODE_B6BF79			;$B6CABC
 
 CODE_B6CABF:
@@ -10191,7 +10191,7 @@ CODE_B6CB36:
 	LDA.b $68,x				;$B6CB38
 	BEQ.b CODE_B6CB4B			;$B6CB3A
 	LDA.w #$0001				;$B6CB3C
-	JSL.l CODE_B9E003			;$B6CB3F
+	JSL.l process_alternate_movement	;$B6CB3F
 	LDA.b $2E,x				;$B6CB43
 	CLC					;$B6CB45
 	ADC.b $66,x				;$B6CB46
@@ -10204,14 +10204,14 @@ CODE_B6CB4B:
 	LDY.b $60,x				;$B6CB50
 	BNE.b CODE_B6CB5C			;$B6CB52
 	ORA.w #$001A				;$B6CB54
-	JSL.l CODE_B9E003			;$B6CB57
+	JSL.l process_alternate_movement	;$B6CB57
 	RTS					;$B6CB5B
 
 CODE_B6CB5C:
 	ORA.w #$0045				;$B6CB5C
 	LDY.b $2E,x				;$B6CB5F
 	PHY					;$B6CB61
-	JSL.l CODE_B9E003			;$B6CB62
+	JSL.l process_alternate_movement	;$B6CB62
 	LDA.b $1A,x				;$B6CB66
 	PLY					;$B6CB68
 	CMP.w #$0014				;$B6CB69
@@ -10241,7 +10241,7 @@ CODE_B6CB93:
 	JSL.l CODE_BEC009			;$B6CB9F
 	LDA.w #$0040				;$B6CBA3
 	LDY.w #$0038				;$B6CBA6
-	JSL.l CODE_BEC000			;$B6CBA9
+	JSL.l check_sprite_collision		;$B6CBA9
 CODE_B6CBAD:
 	RTS					;$B6CBAD
 
@@ -10287,7 +10287,7 @@ DATA_B6CBE3:
 CODE_B6CBEB:
 	TYX					;$B6CBEB
 	INC.b $38,x				;$B6CBEC
-	JSR.w CODE_B6F262			;$B6CBEE
+	JSR.w invert_max_x_speed_if_needed	;$B6CBEE
 	JSR.w CODE_B6CC8B			;$B6CBF1
 CODE_B6CBF4:
 	TYX					;$B6CBF4
@@ -10303,9 +10303,9 @@ CODE_B6CBF4:
 	CMP.w #$0002				;$B6CC0E
 	BNE.b CODE_B6CC66			;$B6CC11
 	LDA.w #$0662				;$B6CC13
-	JSL.l CODE_B28012			;$B6CC16
+	JSL.l queue_sound_effect		;$B6CC16
 	LDA.w #$0763				;$B6CC1A
-	JSL.l CODE_B28012			;$B6CC1D
+	JSL.l queue_sound_effect		;$B6CC1D
 	LDA.b $12,x				;$B6CC21
 	CMP.w $0012,y				;$B6CC23
 	BCS.b CODE_B6CC32			;$B6CC26
@@ -10337,7 +10337,7 @@ CODE_B6CC4F:
 	LDA.w #$0273				;$B6CC5F
 	JSL.l set_sprite_animation		;$B6CC62
 CODE_B6CC66:
-	JSL.l CODE_B9E000			;$B6CC66
+	JSL.l process_current_movement		;$B6CC66
 	LDA.b $12,x				;$B6CC6A
 	CLC					;$B6CC6C
 	ADC.w #$FF7A				;$B6CC6D
@@ -10346,7 +10346,7 @@ CODE_B6CC66:
 	CLC					;$B6CC75
 	ADC.w #$FF98				;$B6CC76
 	STA.w $1B79				;$B6CC79
-	JMP.w process_anim_handle_despawn	;$B6CC7C
+	JMP.w return_handle_anim_and_despawn	;$B6CC7C
 
 CODE_B6CC7F:
 	TYX					;$B6CC7F
@@ -10379,7 +10379,7 @@ CODE_B6CCA6:
 
 
 big_smoke_cloud_main:
-	JSL.l CODE_B9E000			;$B6CCA9
+	JSL.l process_current_movement		;$B6CCA9
 	JMP.w CODE_B685E6			;$B6CCAD
 
 
@@ -10496,7 +10496,7 @@ CODE_B6CD72:
 	STA.w $0038,y				;$B6CD8A
 	INC.b $38,x				;$B6CD8D
 CODE_B6CD8F:
-	JSL.l CODE_B58027			;$B6CD8F
+	JSL set_platform_hitbox_pos_keep_flags	;$B6CD8F
 CODE_B6CD93:
 	JSR.w CODE_B6D80C			;$B6CD93
 	JML [$04F5]				;$B6CD96
@@ -10527,20 +10527,20 @@ CODE_B6CDC7:
 	BRA.b CODE_B6CD8F			;$B6CDC7
 
 CODE_B6CDC9:
-	JSL.l CODE_B58027			;$B6CDC9
-	BCC.b CODE_B6CDED			;$B6CDCD
-	LDA.w #$0669				;$B6CDCF
-	JSL.l CODE_B28012			;$B6CDD2
-	LDA.b $62,x				;$B6CDD6
-	STA.b $2C,x				;$B6CDD8
-	LDA.b $64,x				;$B6CDDA
-	STA.b $32,x				;$B6CDDC
-	STZ.b $2A,x				;$B6CDDE
-	INC.b $38,x				;$B6CDE0
-	STZ.b $5A,x				;$B6CDE2
-	JSR.w CODE_B6D7E9			;$B6CDE4
+	JSL set_platform_hitbox_pos_keep_flags	;$B6CDC9
+	BCC CODE_B6CDED				;$B6CDCD
+	LDA #$0669				;$B6CDCF
+	JSL queue_sound_effect			;$B6CDD2
+	LDA $62,x				;$B6CDD6
+	STA $2C,x				;$B6CDD8
+	LDA $64,x				;$B6CDDA
+	STA $32,x				;$B6CDDC
+	STZ $2A,x				;$B6CDDE
+	INC $38,x				;$B6CDE0
+	STZ $5A,x				;$B6CDE2
+	JSR CODE_B6D7E9				;$B6CDE4
 	LDA.w $0010,y				;$B6CDE7
-	STA.w $1B7D				;$B6CDEA
+	STA $1B7D				;$B6CDEA
 CODE_B6CDED:
 	BRA.b CODE_B6CD93			;$B6CDED
 
@@ -10564,7 +10564,7 @@ CODE_B6CE09:
 	TYX					;$B6CE09
 	LDA.b $5A,x				;$B6CE0A
 	BEQ.b CODE_B6CE20			;$B6CE0C
-	JSL.l CODE_B58027			;$B6CE0E
+	JSL set_platform_hitbox_pos_keep_flags	;$B6CE0E
 	BCC.b CODE_B6CE20			;$B6CE12
 	STZ.b $2A,x				;$B6CE14
 	STZ.b $5A,x				;$B6CE16
@@ -10598,11 +10598,11 @@ CODE_B6CE33:
 	LDA.w $0026,y				;$B6CE51
 	STA.b $66,x				;$B6CE54
 	LDA.w #$0562				;$B6CE56
-	JSL.l CODE_B28012			;$B6CE59
+	JSL.l queue_sound_effect		;$B6CE59
 	LDA.w #$0663				;$B6CE5D
-	JSL.l CODE_B28012			;$B6CE60
+	JSL.l queue_sound_effect		;$B6CE60
 	LDA.w #$0764				;$B6CE64
-	JSL.l CODE_B28012			;$B6CE67
+	JSL.l queue_sound_effect		;$B6CE67
 CODE_B6CE6B:
 	JMP.w CODE_B6CD93			;$B6CE6B
 
@@ -10630,7 +10630,7 @@ CODE_B6CE81:
 	BRA.b CODE_B6CEB9			;$B6CE9E
 
 CODE_B6CEA0:
-	JSL.l CODE_B58027			;$B6CEA0
+	JSL set_platform_hitbox_pos_keep_flags	;$B6CEA0
 	LDA.b $12,x				;$B6CEA4
 	CMP.w #$03C0				;$B6CEA6
 	BCC.b CODE_B6CEBC			;$B6CEA9
@@ -10718,7 +10718,7 @@ CODE_B6CF36:
 	LDA.b $5C,x				;$B6CF3F
 	BNE.b CODE_B6CF4C			;$B6CF41
 	LDA.w #$0673				;$B6CF43
-	JSL.l CODE_B28012			;$B6CF46
+	JSL.l queue_sound_effect		;$B6CF46
 	INC.b $5C,x				;$B6CF4A
 CODE_B6CF4C:
 	LDA.b $2E,x				;$B6CF4C
@@ -10746,7 +10746,7 @@ CODE_B6CF5A:
 CODE_B6CF81:
 	INC.w $1B7D				;$B6CF81
 CODE_B6CF84:
-	JSL.l CODE_B58027			;$B6CF84
+	JSL set_platform_hitbox_pos_keep_flags	;$B6CF84
 CODE_B6CF88:
 	JSR.w CODE_B6D80C			;$B6CF88
 	LDA.w #CODE_B6D859			;$B6CF8B
@@ -11028,7 +11028,7 @@ DATA_B6D17A:
 
 CODE_B6D180:
 	JSR.w CODE_B6D1F1			;$B6D180
-	JSL.l CODE_B9E000			;$B6D183
+	JSL.l process_current_movement		;$B6D183
 	DEC.b $5C,x				;$B6D187
 	BNE.b CODE_B6D193			;$B6D189
 	INC.b $38,x				;$B6D18B
@@ -11042,7 +11042,7 @@ CODE_B6D196:
 	LDA.b $2E,x				;$B6D199
 	PHA					;$B6D19B
 	LDA.w #$0044				;$B6D19C
-	JSL.l CODE_B9E003			;$B6D19F
+	JSL.l process_alternate_movement	;$B6D19F
 	PLY					;$B6D1A3
 	LDA.b $16,x				;$B6D1A4
 	CMP.w #$0308				;$B6D1A6
@@ -11056,7 +11056,7 @@ CODE_B6D1B1:
 	CMP.w #$0001				;$B6D1B6
 	BNE.b CODE_B6D1DD			;$B6D1B9
 	LDA.w #$0770				;$B6D1BB
-	JSL.l CODE_B28012			;$B6D1BE
+	JSL.l queue_sound_effect		;$B6D1BE
 	LDA.b $5E,x				;$B6D1C2
 	STA.b $30,x				;$B6D1C4
 	TYA					;$B6D1C6
@@ -11101,7 +11101,7 @@ CODE_B6D1F1:
 	LDA.w $001C,y				;$B6D210
 	STA.b $5C,x				;$B6D213
 	LDA.w #$060C				;$B6D215
-	JSL.l CODE_B28012			;$B6D218
+	JSL.l queue_sound_effect		;$B6D218
 	JSL.l delete_sprite_handle_deallocation	;$B6D21C
 	JSL.l CODE_BEC030			;$B6D220
 	JML [$04F5]				;$B6D224
@@ -11127,7 +11127,7 @@ DATA_B6D22F:
 
 CODE_B6D243:
 	LDA.w #$0044				;$B6D243
-	JSL.l CODE_B9E003			;$B6D246
+	JSL.l process_alternate_movement	;$B6D246
 	DEC.b $5C,x				;$B6D24A
 	BNE.b CODE_B6D258			;$B6D24C
 	JSR.w CODE_B6D410			;$B6D24E
@@ -11170,7 +11170,7 @@ CODE_B6D291:
 	BCS.b CODE_B6D2AD			;$B6D29E
 	JSR.w CODE_B6D3E6			;$B6D2A0
 	LDA.w #$0666				;$B6D2A3
-	JSL.l CODE_B28012			;$B6D2A6
+	JSL.l queue_sound_effect		;$B6D2A6
 	JMP.w CODE_B6D2E3			;$B6D2AA
 
 CODE_B6D2AD:
@@ -11186,7 +11186,7 @@ CODE_B6D2AD:
 	STA.b $38,x				;$B6D2C5
 	STZ.b $30,x				;$B6D2C7
 CODE_B6D2C9:
-	JSL.l CODE_B9E000			;$B6D2C9
+	JSL.l process_current_movement		;$B6D2C9
 	JSR.w CODE_B6D3FC			;$B6D2CD
 	BCS.b CODE_B6D2D6			;$B6D2D0
 	JSL.l process_sprite_animation		;$B6D2D2
@@ -11208,7 +11208,7 @@ CODE_B6D2E3:
 CODE_B6D2F0:
 	JSR.w CODE_B6D37B			;$B6D2F0
 	LDA.w #$0044				;$B6D2F3
-	JSL.l CODE_B9E003			;$B6D2F6
+	JSL.l process_alternate_movement	;$B6D2F6
 	JSR.w CODE_B6D3FC			;$B6D2FA
 	BCS.b CODE_B6D303			;$B6D2FD
 	JSL.l process_sprite_animation		;$B6D2FF
@@ -11232,7 +11232,7 @@ CODE_B6D30F:
 CODE_B6D324:
 	LDX.b current_sprite			;$B6D324
 	LDA.w #$0044				;$B6D326
-	JSL.l CODE_B9E003			;$B6D329
+	JSL.l process_alternate_movement	;$B6D329
 	JSR.w CODE_B6D3FC			;$B6D32D
 	BCS.b CODE_B6D336			;$B6D330
 	JSL.l process_sprite_animation		;$B6D332
@@ -11259,7 +11259,7 @@ CODE_B6D35A:
 	JMP.w generic_move_and_animate_state	;$B6D35A
 
 CODE_B6D35D:
-	JSL.l CODE_B9E000			;$B6D35D
+	JSL.l process_current_movement		;$B6D35D
 	DEC.b $5C,x				;$B6D361
 	BNE.b CODE_B6D36B			;$B6D363
 	DEC.w $1B87				;$B6D365
@@ -11286,7 +11286,7 @@ CODE_B6D382:
 	BEQ.b CODE_B6D39D			;$B6D390
 CODE_B6D392:
 	LDA.w #$063B				;$B6D392
-	JSL.l CODE_B28012			;$B6D395
+	JSL.l queue_sound_effect		;$B6D395
 	PLY					;$B6D399
 	JMP.w CODE_B6D2E3			;$B6D39A
 
@@ -11305,7 +11305,7 @@ CODE_B6D39D:
 	LDA.w #$022F				;$B6D3B9
 	JSL.l set_sprite_animation		;$B6D3BC
 	LDA.w #$063A				;$B6D3C0
-	JSL.l CODE_B28012			;$B6D3C3
+	JSL.l queue_sound_effect		;$B6D3C3
 	PLY					;$B6D3C7
 	JML [$04F5]				;$B6D3C8
 
@@ -11360,7 +11360,7 @@ CODE_B6D410:
 	RTS					;$B6D41D
 
 belcha_platform_main:
-	JSL.l CODE_B9E000			;$B6D41E
+	JSL.l process_current_movement		;$B6D41E
 	JML [$04F5]				;$B6D422
 
 belcha_tooth_main:
@@ -11473,7 +11473,7 @@ CODE_B6D4E3:
 CODE_B6D4E8:
 	LDX.b current_sprite			;$B6D4E8
 	LDA.w #$0003				;$B6D4EA
-	JSL.l CODE_B9E003			;$B6D4ED
+	JSL.l process_alternate_movement	;$B6D4ED
 	LDY.w $1B6B				;$B6D4F1
 	LDA.b $5E,x				;$B6D4F4
 	CLC					;$B6D4F6
@@ -11598,7 +11598,7 @@ CODE_B6D5B5:
 	INY					;$B6D5BC
 	INY					;$B6D5BD
 	STY.b $5C,x				;$B6D5BE
-	JSL.l CODE_B28012			;$B6D5C0
+	JSL.l queue_sound_effect		;$B6D5C0
 	JMP.w CODE_B6D493			;$B6D5C4
 
 DATA_B6D5C7:
@@ -12173,12 +12173,12 @@ CODE_B6DA52:
 	LDA.w #$0007				;$B6DA8C
 	STA.b $38,x				;$B6DA8F
 	LDA.w #$066F				;$B6DA91
-	JSL.l CODE_B28012			;$B6DA94
+	JSL.l queue_sound_effect		;$B6DA94
 	BRA.b CODE_B6DABA			;$B6DA98
 
 CODE_B6DA9A:
 	LDA.w #$066E				;$B6DA9A
-	JSL.l CODE_B28012			;$B6DA9D
+	JSL.l queue_sound_effect		;$B6DA9D
 	TYX					;$B6DAA1
 	INC.b $38,x				;$B6DAA2
 	LDX.w $1B6F				;$B6DAA4
@@ -12290,7 +12290,7 @@ CODE_B6DB5A:
 	LDA.w #$39EE				;$B6DB85
 	STA.b $60,x				;$B6DB88
 	LDA.w #$066F				;$B6DB8A
-	JSL.l CODE_B28012			;$B6DB8D
+	JSL.l queue_sound_effect		;$B6DB8D
 CODE_B6DB91:
 	RTS					;$B6DB91
 
@@ -12426,7 +12426,7 @@ CODE_B6DC6E:
 	TAY					;$B6DC6E
 	STA.w CPU.divisor			;$B6DC6F
 	REP.b #$20				;$B6DC72
-	JSL.l CODE_B58003			;$B6DC74
+	JSL.l stall_cpu_time			;$B6DC74
 	LDA.w CPU.divide_result			;$B6DC78
 	PLP					;$B6DC7B
 	BPL.b CODE_B6DC82			;$B6DC7C
@@ -12448,7 +12448,7 @@ CODE_B6DC90:
 	TYA					;$B6DC96
 	STA.w CPU.divisor			;$B6DC97
 	REP.b #$20				;$B6DC9A
-	JSL.l CODE_B58003			;$B6DC9C
+	JSL.l stall_cpu_time			;$B6DC9C
 	LDA.w CPU.divide_result			;$B6DCA0
 	PLP					;$B6DCA3
 	BPL.b CODE_B6DCAA			;$B6DCA4
@@ -12520,7 +12520,7 @@ CODE_B6DD12:
 	BCS.b CODE_B6DD35			;$B6DD1F
 	JSR.w CODE_B6DD6D			;$B6DD21
 	LDA.w #$0670				;$B6DD24
-	JSL.l CODE_B28012			;$B6DD27
+	JSL.l queue_sound_effect		;$B6DD27
 	INC.b $5C,x				;$B6DD2B
 	JSR.w CODE_B6DDFE			;$B6DD2D
 	LDA.w #$0404				;$B6DD30
@@ -12641,7 +12641,7 @@ CODE_B6DE08:
 	CMP.b $24,x				;$B6DE0B
 	BNE.b CODE_B6DE1B			;$B6DE0D
 	LDA.w #$063E				;$B6DE0F
-	JSL.l CODE_B28012			;$B6DE12
+	JSL.l queue_sound_effect		;$B6DE12
 	STZ.b $38,x				;$B6DE16
 	JSR.w CODE_B6DDFE			;$B6DE18
 CODE_B6DE1B:
@@ -13205,12 +13205,12 @@ CODE_B6E260:
 thrown_softball_main:
 	LDX.b current_sprite			;$B6E263
 	LDA.b $5C,x				;$B6E265
-	JSL.l CODE_B9E00F			;$B6E267
+	JSL.l interpolate_x_speed		;$B6E267
 	LDX.b current_sprite			;$B6E26B
 	LDA.b $5E,x				;$B6E26D
-	JSL.l CODE_B9E012			;$B6E26F
+	JSL.l interpolate_y_speed		;$B6E26F
 	LDA.w #$0001				;$B6E273
-	JSL.l CODE_B9E003			;$B6E276
+	JSL.l process_alternate_movement	;$B6E276
 	LDX.b current_sprite			;$B6E27A
 	LDA.w #$016C				;$B6E27C
 	CMP.b $16,x				;$B6E27F
@@ -13249,7 +13249,7 @@ CODE_B6E2A6:
 	TXY					;$B6E2B6
 CODE_B6E2B7:
 	TYX					;$B6E2B7
-	JSL.l CODE_B9E000			;$B6E2B8
+	JSL.l process_current_movement		;$B6E2B8
 	BCC.b CODE_B6E2D3			;$B6E2BC
 	LDX.b current_sprite			;$B6E2BE
 	LDA.b $2A,x				;$B6E2C0
@@ -13268,7 +13268,7 @@ CODE_B6E2D6:
 	LDA.w #$0090				;$B6E2D6
 	JSL.l CODE_B5800F			;$B6E2D9
 	LDA.w #$0001				;$B6E2DD
-	JSL.l CODE_B9E000			;$B6E2E0
+	JSL.l process_current_movement		;$B6E2E0
 	JMP.w CODE_B685E6			;$B6E2E4
 
 unknown_sprite_001C_main:
@@ -13281,7 +13281,7 @@ CODE_B6E2EF:
 	LDA.w #$0020				;$B6E2EF
 	JSL.l CODE_B5800F			;$B6E2F2
 	LDA.w #$0001				;$B6E2F6
-	JSL.l CODE_B9E003			;$B6E2F9
+	JSL.l process_alternate_movement	;$B6E2F9
 	JML.l CODE_B685E6			;$B6E2FD
 
 swanky_kong_prize_main:
@@ -13292,7 +13292,7 @@ DATA_B6E304:
 	dw CODE_B6E340
 
 CODE_B6E308:
-	JSL.l CODE_B9E000			;$B6E308
+	JSL.l process_current_movement		;$B6E308
 	BCC.b CODE_B6E33D			;$B6E30C
 	LDA.b $5C,x				;$B6E30E
 	TAX					;$B6E310
@@ -13347,7 +13347,7 @@ DATA_B6E35B:
 
 CODE_B6E363:
 	JSR.w CODE_B6E3AB			;$B6E363
-	JSL.l CODE_B9E000			;$B6E366
+	JSL.l process_current_movement		;$B6E366
 	LDY.w $1B6B				;$B6E36A
 	LDA.w $0012,y				;$B6E36D
 	CLC					;$B6E370
@@ -13370,7 +13370,7 @@ CODE_B6E387:
 
 CODE_B6E38D:
 	JSR.w CODE_B6E3AB			;$B6E38D
-	JSL.l CODE_B9E000			;$B6E390
+	JSL.l process_current_movement		;$B6E390
 	LDY.w $1B6B				;$B6E394
 	LDA.w $0012,y				;$B6E397
 	CLC					;$B6E39A
@@ -13475,7 +13475,7 @@ CODE_B6E442:
 	JML [$04F5]				;$B6E452
 
 CODE_B6E455:
-	JSL.l CODE_B9E000			;$B6E455
+	JSL.l process_current_movement		;$B6E455
 	LDA.b $16,x				;$B6E459
 	CMP.w #$01D2				;$B6E45B
 	BCS.b CODE_B6E442			;$B6E45E
@@ -13499,7 +13499,7 @@ CODE_B6E47E:
 
 CODE_B6E481:
 	JSR.w CODE_B6E494			;$B6E481
-	JSL.l CODE_B9E000			;$B6E484
+	JSL.l process_current_movement		;$B6E484
 	JMP.w CODE_B685E6			;$B6E488
 
 CODE_B6E48B:
@@ -13616,7 +13616,7 @@ CODE_B6E54B:
 	ADC.b $16,x				;$B6E54C
 	STA.b $64,x				;$B6E54E
 CODE_B6E550:
-	JSL.l CODE_B9E000			;$B6E550
+	JSL.l process_current_movement		;$B6E550
 	BCC.b CODE_B6E588			;$B6E554
 	LDA.b $64,x				;$B6E556
 	STA.b $16,x				;$B6E558
@@ -13657,11 +13657,11 @@ CODE_B6E592:
 
 CODE_B6E595:
 	LDA.w #$0005				;$B6E595
-	JSL.l CODE_B9E00F			;$B6E598
+	JSL.l interpolate_x_speed		;$B6E598
 	LDA.w #$0005				;$B6E59C
-	JSL.l CODE_B9E012			;$B6E59F
+	JSL.l interpolate_y_speed		;$B6E59F
 	LDA.w #$0001				;$B6E5A3
-	JSL.l CODE_B9E003			;$B6E5A6
+	JSL.l process_alternate_movement	;$B6E5A6
 	LDA.b $44,x				;$B6E5AA
 	BEQ.b CODE_B6E5C9			;$B6E5AC
 	LSR					;$B6E5AE
@@ -13698,7 +13698,7 @@ CODE_B6E5E2:
 	JMP.w CODE_B6F27D			;$B6E5E2
 
 CODE_B6E5E5:
-	JSL.l CODE_B9E000			;$B6E5E5
+	JSL.l process_current_movement		;$B6E5E5
 	JMP.w CODE_B6BF79			;$B6E5E9
 
 unknown_sprite_0024_main:
@@ -13710,7 +13710,7 @@ DATA_B6E5EF:
 
 CODE_B6E5F3:
 	TYX					;$B6E5F3
-	JSL.l CODE_B9E000			;$B6E5F4
+	JSL.l process_current_movement		;$B6E5F4
 	LDA.w #$0001				;$B6E5F8
 	STA.b $5A,x				;$B6E5FB
 	INC.b $38,x				;$B6E5FD
@@ -13728,7 +13728,7 @@ CODE_B6E617:
 	JMP.w CODE_B6F27D			;$B6E617
 
 CODE_B6E61A:
-	JSL.l CODE_B9E000			;$B6E61A
+	JSL.l process_current_movement		;$B6E61A
 	LDA.w #$010A				;$B6E61E
 	CMP.b $12,x				;$B6E621
 	BCC.b CODE_B6E634			;$B6E623
@@ -13906,7 +13906,7 @@ CODE_B6E758:
 	STA.w CPU.multiply_A			;$B6E75A
 	LDA.w #$0010				;$B6E75D
 	STA.b $3A				;$B6E760
-	LDA.w #(DATA_FD3F3D&$FF0000)>>8		;$B6E762
+	LDA.w #(electric_node_sprite_palette&$FF0000)>>8		;$B6E762
 	STA.b $47				;$B6E765
 	LDA.b $66,x				;$B6E767
 	STA.b $46				;$B6E769
@@ -14065,7 +14065,7 @@ CODE_B6E861:
 	LDA.b $1A				;$B6E867
 	STA.w CPU.divisor			;$B6E869
 	REP.b #$20				;$B6E86C
-	JSL.l CODE_B58003			;$B6E86E
+	JSL.l stall_cpu_time			;$B6E86E
 	LDA.w CPU.divide_result			;$B6E872
 	CMP.w #$00FF				;$B6E875
 	BCC.b CODE_B6E87F			;$B6E878
@@ -14144,7 +14144,7 @@ CODE_B6E90D:
 	SEC					;$B6E914
 	SBC.w #$002D				;$B6E915
 	STA.w $002E,y				;$B6E918
-	JSL.l CODE_B9E000			;$B6E91B
+	JSL.l process_current_movement		;$B6E91B
 	LDY.w $1B6B				;$B6E91F
 	LDA.b $16,x				;$B6E922
 	CMP.w $0016,y				;$B6E924
@@ -14207,9 +14207,9 @@ CODE_B6E97F:
 CODE_B6E993:
 	JSR.w CODE_B6E9A7			;$B6E993
 	LDA.w #$0004				;$B6E996
-	JSL.l CODE_B9E00F			;$B6E999
+	JSL.l interpolate_x_speed		;$B6E999
 	LDA.w #$0002				;$B6E99D
-	JSL.l CODE_B9E003			;$B6E9A0
+	JSL.l process_alternate_movement	;$B6E9A0
 	JMP.w CODE_B685E6			;$B6E9A4
 
 CODE_B6E9A7:
@@ -14278,7 +14278,7 @@ CODE_B6EA00:
 	LDA.w #$0078				;$B6EA1D
 	STA.b $5E,x				;$B6EA20
 	LDA.w #$066E				;$B6EA22
-	JSL.l CODE_B28012			;$B6EA25
+	JSL.l queue_sound_effect		;$B6EA25
 CODE_B6EA29:
 	JML [$04F5]				;$B6EA29
 
@@ -14314,7 +14314,7 @@ CODE_B6EA58:
 	JML [$04F5]				;$B6EA58
 
 CODE_B6EA5B:
-	JSL.l CODE_B9E000			;$B6EA5B
+	JSL.l process_current_movement		;$B6EA5B
 	LDA.b $16,x				;$B6EA5F
 	SEC					;$B6EA61
 	SBC.b $5C,x				;$B6EA62
@@ -14426,7 +14426,7 @@ CODE_B6EB22:
 	LDA.b #$05				;$B6EB29
 	STA.w CPU.divisor			;$B6EB2B
 	REP.b #$20				;$B6EB2E
-	JSL.l CODE_B58003			;$B6EB30
+	JSL.l stall_cpu_time			;$B6EB30
 	LDA.w CPU.divide_result			;$B6EB34
 	CMP.w #$000C				;$B6EB37
 	BCC.b CODE_B6EB3F			;$B6EB3A
@@ -14476,7 +14476,7 @@ CODE_B6EBAF:
 	LDA.b $16,x				;$B6EBAF
 	CMP.w #$0210				;$B6EBB1
 	BCS.b CODE_B6EBDB			;$B6EBB4
-	JSL.l CODE_B9E000			;$B6EBB6
+	JSL.l process_current_movement		;$B6EBB6
 	BCC.b CODE_B6EBD8			;$B6EBBA
 	LDA.w #$00F8				;$B6EBBC
 	STA.b $0E,x				;$B6EBBF
@@ -14488,7 +14488,7 @@ CODE_B6EBAF:
 	LDY.w #$01C4				;$B6EBCA
 	JSL.l CODE_BB8585			;$B6EBCD
 	LDA.w #$0667				;$B6EBD1
-	JSL.l CODE_B28012			;$B6EBD4
+	JSL.l queue_sound_effect		;$B6EBD4
 CODE_B6EBD8:
 	JMP.w CODE_B685E6			;$B6EBD8
 
@@ -14742,7 +14742,7 @@ CODE_B6ED71:
 	STZ.b $30,x				;$B6ED7B
 	INC.b $38,x				;$B6ED7D
 CODE_B6ED7F:
-	JSL.l CODE_B58027			;$B6ED7F
+	JSL set_platform_hitbox_pos_keep_flags	;$B6ED7F
 	JSR.w CODE_B683B3			;$B6ED83
 	LDA.b $12,x				;$B6ED86
 	CMP.w #$02D8				;$B6ED88
@@ -14866,7 +14866,7 @@ CODE_B6EE46:
 	RTL					;$B6EE50
 
 area_name_text_main:
-unknown_sprite_0350_main:
+save_cave_selection_text_main:
 	JMP.w (DATA_B6EE54,x)			;$B6EE51
 
 DATA_B6EE54:
@@ -15028,7 +15028,7 @@ CODE_B6EF62:
 	ASL					;$B6EF6F
 	TAX					;$B6EF70
 	JSR.w (DATA_B6EF7B,x)			;$B6EF71
-	JSL.l CODE_B9E000			;$B6EF74
+	JSL.l process_current_movement		;$B6EF74
 	JML [$04F5]				;$B6EF78
 
 DATA_B6EF7B:
@@ -15244,7 +15244,7 @@ CODE_B6F0C6:
 	LDA.w $0066,y				;$B6F0C6
 	ASL					;$B6F0C9
 	TAX					;$B6F0CA
-	LDA.l DATA_FD3201,x			;$B6F0CB
+	LDA.l sprite_palette_table,x		;$B6F0CB
 	STA.w $0066,y				;$B6F0CF
 	LDA.w $001E,y				;$B6F0D2
 	AND.w #$0E00				;$B6F0D5
@@ -15462,11 +15462,11 @@ CODE_B6F22C:
 	LDY.b $78				;$B6F22E
 	RTL					;$B6F230
 
-process_anim_handle_despawn:
+return_handle_anim_and_despawn:
 	JSL CODE_BBAB52				;$B6F231
-	BCS .return				;$B6F235
+	BCS .despawned				;$B6F235
 	JSL process_sprite_animation		;$B6F237
-.return:
+.despawned:
 	JML [$04F5]				;$B6F23B
 
 CODE_B6F23E:
@@ -15492,16 +15492,16 @@ CODE_B6F248:
 CODE_B6F261:
 	RTL					;$B6F261
 
-CODE_B6F262:
+invert_max_x_speed_if_needed:
 	LDA sprite.oam_property,x		;$B6F262
 	EOR sprite.max_x_speed,x		;$B6F264
 	ASL					;$B6F266
-	BPL CODE_B6F271				;$B6F267
+	BPL .return				;$B6F267
 	LDA sprite.max_x_speed,x		;$B6F269
 	EOR #$FFFF				;$B6F26B
 	INC					;$B6F26E
 	STA sprite.max_x_speed,x		;$B6F26F
-CODE_B6F271:
+.return:
 	RTS					;$B6F271
 
 CODE_B6F272:
@@ -15691,14 +15691,14 @@ DATA_B6F361:
 	dw $0080
 
 CODE_B6F371:
-	SEP.b #$20				;$B6F371
-	LDA.b $5C,x				;$B6F373
-	STA.b $5D,x				;$B6F375
-	LDA.b $5E,x				;$B6F377
+	SEP #$20				;$B6F371
+	LDA $5C,x				;$B6F373
+	STA $5D,x				;$B6F375
+	LDA $5E,x				;$B6F377
 	XBA					;$B6F379
-	LDA.b #$01				;$B6F37A
-	REP.b #$20				;$B6F37C
-	STA.b $5E,x				;$B6F37E
+	LDA #$01				;$B6F37A
+	REP #$20				;$B6F37C
+	STA $5E,x				;$B6F37E
 	RTS					;$B6F380
 
 ;This routine is used as a generic-ish timer countdown routine.
@@ -15797,7 +15797,7 @@ CODE_B6F3F8:
 	CLC					;$B6F418
 	ADC.b current_sprite			;$B6F419
 	SEC					;$B6F41B
-	SBC.w #aux_sprite_table			;$B6F41C
+	SBC.w #aux_sprite_slot			;$B6F41C
 	STA.w $003E,y				;$B6F41F
 	SEC					;$B6F422
 CODE_B6F423:
@@ -16538,7 +16538,7 @@ CODE_B6F8F5:
 	LDA.b $68,x				;$B6F8FD
 	STA.w CPU.divisor			;$B6F8FF
 	REP.b #$20				;$B6F902
-	JSL.l CODE_B58003			;$B6F904
+	JSL.l stall_cpu_time			;$B6F904
 	LDA.w CPU.divide_result			;$B6F908
 	ASL					;$B6F90B
 	CLC					;$B6F90C
@@ -16936,7 +16936,7 @@ CODE_B6FB80:
 	BNE.b CODE_B6FB97			;$B6FB8E
 CODE_B6FB90:
 	LDA.w #$0739				;$B6FB90
-	JSL.l CODE_B28012			;$B6FB93
+	JSL.l queue_sound_effect		;$B6FB93
 CODE_B6FB97:
 	RTL					;$B6FB97
 
@@ -17428,7 +17428,7 @@ CODE_B6FE95:
 	BNE.b CODE_B6FEA2			;$B6FE9D
 	LDA.w #$066D				;$B6FE9F
 CODE_B6FEA2:
-	JSL.l CODE_B28012			;$B6FEA2
+	JSL.l queue_sound_effect		;$B6FEA2
 CODE_B6FEA6:
 	RTL					;$B6FEA6
 
@@ -17465,7 +17465,7 @@ ADDR_B6FEC9:
 	BNE.b ADDR_B6FED6			;$B6FECF
 	LDA.w #$066D				;$B6FED1
 ADDR_B6FED6:
-	JSL.l CODE_B28012			;$B6FED4
+	JSL.l queue_sound_effect		;$B6FED4
 ADDR_B6FEDA:
 	RTL					;$B6FED8
 
@@ -17537,7 +17537,7 @@ ADDR_B6FF2D:
 	ADC.w #$0050				;$B6FF39
 	CMP.b $16,x				;$B6FF3C
 	BCC.b ADDR_B6FF59			;$B6FF3E
-	JSL.l CODE_BB8594+$01			;$B6FF40 \
+	JSL.l delete_sprite_no_deallocation+$01	;$B6FF40 \
 	LDY.w #$0296				;$B6FF44  | These jump into the middle of an opcode!
 	JSL.l CODE_BB8588+$01			;$B6FF47 /
 	RTL					;$B6FF4B
@@ -17571,7 +17571,7 @@ ADDR_B6FF70:
 	BNE.b ADDR_B6FF7D			;$B6FF6D
 	LDA.w #$066D				;$B6FF6F
 ADDR_B6FF7D:
-	JSL.l CODE_B28012			;$B6FF72
+	JSL.l queue_sound_effect		;$B6FF72
 ADDR_B6FF81:
 	RTL					;$B6FF76
 
