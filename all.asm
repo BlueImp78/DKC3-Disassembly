@@ -2,22 +2,15 @@ hirom
 optimize dp always
 optimize address mirrors
 
+!version = 0
 !include_garbage_data = 1
-;!override_lakeside_limbo = 0
-;!lakeside_limbo_replacement = $00
 
-	incsrc ram.asm
-	incsrc macros.asm
-	incsrc constants.asm
-	incsrc old_defines.asm
-	incsrc structs.asm
-	incsrc mmio.asm
-
-
-
-org $00FFB0
-	incsrc "header.asm"
-
+	incsrc "ram.asm"
+	incsrc "macros.asm"
+	incsrc "constants.asm"
+	incsrc "old_defines.asm"
+	incsrc "structs.asm"
+	incsrc "mmio.asm"
 
 
 org $C00000
@@ -34,7 +27,9 @@ if !include_garbage_data == 1
 else
 	padbyte $00 : pad $80FFB0
 endif
-
+	assert pc() <= $80FFB0
+org $00FFB0
+	incsrc "header.asm"
 
 org $C10000
 	check bankcross full

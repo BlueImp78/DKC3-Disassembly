@@ -1,44 +1,84 @@
 includeonce
 
+;Mapping Modes
+!LoROM_slow_mapping_mode = $20
+!HiROM_slow_mapping_mode = $21
+!SA1_slow_mapping_mode = $23
+!ExHiROM_slow_mapping_mode = $25
+!LoROM_fast_mapping_mode = $30
+!HiROM_fast_mapping_mode = $31
+!ExHiROM_fast_mapping_mode = $35
+
+;Cartridge Types
+!ROM_cart_type = $00
+!ROM_RAM_cart_type = $01
+!ROM_RAM_battery_cart_type = $02
+!ROM_SA1_cart_type = $33
+!ROM_RAM_SA1_cart_type = $34
+!ROM_RAM_battery_SA1_cart_type = $35
+
+;ROM Regions
+!japan_region = $00
+!north_america_region = $01
+!europe_region = $02
+!scandinavia_region = $03
+!europe_french_region = $06
+!dutch_region = $07
+!spanish_region = $08
+!germany_region = $09
+!italy_region = $0A
+!china_region = $0B
+!korea_region = $0D
+!common_region = $0E
+!canada_region = $0F
+!brazil_region = $10
+!australia_region = $11
+!other_a_region = $12
+!other_b_region = $13
+!other_c_region = $14
+
+;RAM and RAM Sizes:
+!size_0KB = $00
+!size_2KB = $01
+!size_4KB = $02
+!size_8KB = $03
+!size_16KB = $04
+!size_32KB = $05
+!size_64KB = $06
+!size_128KB = $07
+!size_256KB = $08
+!size_512KB = $09
+!size_1MB = $0A
+!size_2MB = $0B
+!size_4MB = $0C
+!size_8MB = $0D
+
+
 !null_pointer = $000000
 
-;sprite init command constants
+
+;Sprite spawn command constants
 !spawn_command_success = $EF
 !spawn_command_F0 = $F0
-!spawn_command_F1 = $F1
-!spawn_command_F2 = $F2
+!spawn_command_set_directional = $F1
+!spawn_command_set_render_order = $F2
 !spawn_command_F3 = $F3
-!spawn_command_F4 = $F4
-!spawn_command_F5 = $F5
-!spawn_command_F6 = $F6
-!spawn_command_F7 = $F7
-!spawn_command_F8 = $F8
-!spawn_command_F9 = $F9
-!spawn_command_FA = $FA
-!spawn_command_FB = $FB
-!spawn_command_FC = $FC
-!spawn_command_FD = $FD
-!spawn_command_FE = $FE
+!spawn_command_load_sub_and_bulk_set = $F4
+!spawn_command_set_position = $F5
+!spawn_command_spawn_relative = $F6
+!spawn_command_setup_static = $F7
+!spawn_command_set_conditional_palette = $F8
+!spawn_command_load_subconfig = $F9
+!spawn_command_set_animation = $FA
+!spawn_command_set_sequential_palette = $FB
+!spawn_command_set_palette = $FC
+!spawn_command_set_oam_2 = $FD
+!spawn_command_set_oam = $FE
 !spawn_command_set_type = $FF
 
 
-!initcommand_set_animation = $8100
-!initcommand_skip = $2000
-!initcommand_load_subconfig = $8300
-!initcommand_set_palette = $8400
-!initcommand_set_oam = $8500
-!initcommand_spawn_relative = $8600
-!initcommand_set_directional = $8700
-!initcommand_set_position = $8800
-!initcommand_setup_static = $8900
-!initcommand_bulk_set = $8A00
-!initcommand_set_oam_special = $8B00
-!initcommand_set_palette2 = $8C00
-!initcommand_set_alt_palette = $8D00
-!initcommand_setup_static2 = $8E00
 
-
-;sprite animation command constants
+;Sprite animation command constants
 !animation_command_80 = $80
 !animation_command_81 = $81
 !animation_command_82 = $82
@@ -133,13 +173,13 @@ includeonce
 !world_krematoa				= $0008
 
 
-!level_doorstop_dash_unused		= $0000
+!level_empty_doorstop_dash		= $0000
 !level_1  		                = $0001
 !level_2  		                = $0002
 !level_3  		                = $0003
 !level_4  		                = $0004
 !level_5  		                = $0005
-!level_6  		                = $0006
+!level_empty_krevice_kreepers  		= $0006
 !level_7  		                = $0007
 !level_bazzas_blockade_photo_album	= $0008
 !level_doorstop_dash_photo_album	= $0009
@@ -151,9 +191,9 @@ includeonce
 !level_brothers_bear_photo_album	= $000F
 !level_swankys_sideshow_photo_album	= $0010
 !level_bosses_photo_album		= $0011
-!level_krool_hovercraft_ending		= $0012
+!level_krool_hovercraft_ending		= $0012		;Also empty tidal trouble
 !level_kastle_kaos_photo_album		= $0013
-!level_bobbing_barrel_brawl_unused	= $0014
+!level_bobbing_barrel_brawl_demo	= $0014
 !level_kiddy_kong_photo_album		= $0015
 !level_dixie_kong_photo_album		= $0016
 !level_17		                = $0017
@@ -211,7 +251,7 @@ includeonce
 !level_tyrant_twin_tussle		= $004B
 !level_rocket_rush			= $004C
 !level_swankys_sideshow_inside		= $004D
-!level_4E				= $004E
+!level_empty_buzzer_barrage		= $004E
 !level_4F				= $004F
 !level_lakeside_limbo_bonus_1		= $0050
 !level_lakeside_limbo_bonus_2		= $0051
@@ -356,7 +396,7 @@ includeonce
 !sprite_belcha_tooth			= $00D8
 !sprite_unknown_00DC			= $00DC
 !sprite_inventory_item_squares		= $00E0
-!sprite_unknown_00E4			= $00E4
+!sprite_boss_prize_item			= $00E4
 !sprite_squirt 				= $00E8
 !sprite_upwards_shot_barrel		= $00EC
 !sprite_rare_logo			= $00F0
@@ -390,19 +430,19 @@ includeonce
 !sprite_green_banana_spawner		= $0154
 !sprite_kongfused_cliffs_rope		= $0158
 !sprite_kongfused_cliffs_autoscroll	= $015C
-!sprite_unknown_0160			= $0160
+!sprite_breakable_floor		        = $0160
 !sprite_kaos_head_explosion_spawner	= $0164
 !sprite_vertical_autoscroll		= $0168
 !sprite_waterfall_barrel_spawner	= $016C
 !sprite_barrel_respawner		= $0170
 !sprite_unknown_0174			= $0174
 !sprite_buzz_swarm_spawner		= $0178
-!sprite_unknown_017C			= $017C
+!squeals_on_wheels_door_handler		= $017C
 !sprite_unknown_0180			= $0180
 !sprite_target_spawner			= $0184
-!sprite_ripsaw_rage_controller		= $0188
-!sprite_kuff_n_klout			= $018C
-!sprite_unknown_0190			= $0190
+!sprite_ripsaw_rage_handler		= $0188
+!sprite_kuff_n_klout_handler		= $018C
+!sprite_koin_handler			= $0190
 !sprite_arich_back_hitbox		= $0194
 !sprite_map_flag			= $0198
 !sprite_title_screen_logo		= $019C
@@ -500,7 +540,7 @@ includeonce
 !sprite_map_kong			= $0304
 !sprite_stationary_display_sprite	= $0308
 !sprite_map_vehicle			= $030C
-!sprite_unknown_0310			= $0310
+!sprite_npc_kong			= $0310
 !sprite_ending_swanky 			= $0314
 !sprite_moving_display_sprite		= $0318
 !sprite_game_over_blocks		= $031C
@@ -515,7 +555,7 @@ includeonce
 !sprite_brambles_vase			= $0340
 !sprite_gyrocopter_blades_and_shadow	= $0344
 !sprite_banana_bird_cave_kong_main	= $0348
-!sprite_unknown_034C			= $034C
+!sprite_funky_rentals_particles		= $034C
 !sprite_save_cave_selection_text	= $0350
 !sprite_sky_high_secret_rock		= $0354
 !sprite_krosshair 			= $0358
@@ -539,13 +579,13 @@ includeonce
 !sprite_arich_legs			= $03A0
 !sprite_arich_head			= $03A4
 !sprite_arich_pupil 			= $03A8
-!sprite_unknown_03AC			= $03AC
+!sprite_ripsaw_rage_sawdust		= $03AC
 !sprite_unknown_03B0 			= $03B0
 !sprite_lurchin				= $03B4
 !sprite_bleak_snowball			= $03B8
 !sprite_rekoil				= $03BC
 !sprite_bleak_fight_kong		= $03C0
-!sprite_unknown_03C4			= $03C4
+!sprite_kuff_n_klout			= $03C4
 !sprite_kobble_and_skidda		= $03C8
 !sprite_big_smoke_cloud			= $03CC
 !sprite_koin 				= $03D0
@@ -554,7 +594,7 @@ includeonce
 !sprite_defeated_bleak_snowball		= $03DC
 !sprite_knocka				= $03E0
 !sprite_knocka_limbs			= $03E4
-!sprite_unknown_03E8			= $03E8
+!sprite_bleak_fight_dk_barrel		= $03E8
 !sprite_belcha_mouth_side		= $03EC
 !sprite_belcha_barrel			= $03F0
 !sprite_knik_knak 			= $03F4

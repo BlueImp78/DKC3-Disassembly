@@ -4447,7 +4447,7 @@ CODE_B5A2CC:
 	STA.b $5A,x				;$B5A2E0
 	RTS					;$B5A2E2
 
-unknown_sprite_03E8_main:
+bleak_fight_dk_barrel_main:
 	LDY.w $1BB9				;$B5A2E3
 	JSL.l CODE_BEC003			;$B5A2E6
 	BCC.b CODE_B5A341			;$B5A2EA

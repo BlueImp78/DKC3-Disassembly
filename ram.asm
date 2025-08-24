@@ -56,7 +56,7 @@ NMI_pointer = $4A
 ;game_logic_pointer = $58
 global_frame_counter = $5A
 
-sprite_contants_address = $6A
+current_sprite_constants = $6A
 sprite_constants_bank = $6B
 
 current_sprite = $70
@@ -109,6 +109,7 @@ screen_fade_speed = $04ED
 
 
 sprite_return_address = $04F5
+sprite_return_bank = $04F7
 
 active_kong_sprite = $04F9
 active_kong_control_variables = $04FB
@@ -236,15 +237,19 @@ sram_base = $B06000
 
 ;SPECULATIVE
 
-;sprite placement parameter from level ddata = $EA
+;sprite placement parameter from level data = $EA
 ;sprite x position from level data = $EC
 ;sprite y position from level data = $EE
+
+;DKC2 $0983 equivalent = $04E2
 
 ;bash_the_baddies_enemy_count = $051D (Could be used for other bonus things)
 
 ;squals on wheels alive rats = $0557
 
 ;debug_flags = $059B
+
+;DKC2 $08C2 equivalent = $05B1
 
 ;owned inventory item flags = $0609
 
@@ -253,5 +258,7 @@ sram_base = $B06000
 
 ;x pos of bonus coin when touched = $195F
 ;y pos of bonus coin when touched = $1961
+
+;boat water trail sprite index = $1C8F
 
 ;sprite level data? = $7E6180

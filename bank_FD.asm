@@ -1,4 +1,5 @@
-;PPU settings?
+palette_bank:
+
 DATA_FD0000:
 	dw DATA_FD0400
 	dw DATA_FD042D
@@ -1394,7 +1395,8 @@ DATA_FD17DB:
 	db $C0,$40,$A8,$08,$55,$44,$0C,$0C,$B0,$50,$A8,$08,$55,$44,$0C,$0C
 
 DATA_FD18DB:
-	db $07,$08,$0A,$09,$02,$08,$0A,$09,$07,$08,$15,$09,$17,$08,$0A,$09
+	db $07,$08,$0A,$09,$02,$08,$0A,$09
+	db $07,$08,$15,$09,$17,$08,$0A,$09
 	db $18,$08,$0A,$09,$19,$1A,$0A,$09
 
 DATA_FD18F3:
@@ -3160,7 +3162,7 @@ sprite_palette_table:
 	dw squirts_water_stream_sprite_palette		;006C
 	dw kuchuka_sprite_palette			;006D
 	dw bazza_sprite_palette				;006E
-	dw purple_barrel_unused_sprite_palette		;006F
+	dw purple_barrel_sprite_palette			;006F
 	dw buzz_swarm_sprite_palette			;0070
 	dw fire_and_explosions_sprite_palette		;0071
 	dw bazuka_sprite_palette			;0072
@@ -3565,7 +3567,7 @@ kuchuka_sprite_palette:
 bazza_sprite_palette:
 	incbin "data/palettes/Sprite_Bazza.bin"
 
-purple_barrel_unused_sprite_palette:
+purple_barrel_sprite_palette:
 	incbin "data/palettes/Sprite_PurpleBarrel.bin"
 
 karbines_fireball_sprite_palette:

@@ -796,7 +796,7 @@ CODE_8085A7:
 	ASL					;$8085BA
 	ASL					;$8085BB
 	TAX					;$8085BC
-	LDY DATA_80C679,x			;$8085BD
+	LDY photo_album_sequence_data,x		;$8085BD
 	LDX #$FFFF				;$8085C0
 	DEY					;$8085C3
 CODE_8085C4:
@@ -889,7 +889,7 @@ CODE_808669:
 	ASL					;$808672
 	ASL					;$808673
 	TAX					;$808674
-	LDA.l DATA_80C679+$02,x			;$808675
+	LDA.l photo_album_sequence_data+$02,x	;$808675
 	PHA					;$808679
 	AND #$1FFF				;$80867A
 	TAY					;$80867D
@@ -996,7 +996,7 @@ CODE_80872E:
 	LDA.w sprite.main_routine_address,y	;$808757
 	PHA					;$80875A
 	LDA.w sprite.constants_address,y	;$80875B
-	STA sprite_contants_address		;$80875E
+	STA current_sprite_constants		;$80875E
 	LDA.w sprite.state,y			;$808760
 	AND #$00FF				;$808763
 	ASL					;$808766
@@ -1611,21 +1611,21 @@ CODE_808CB0:
 	PLB					;$808CB2
 	STZ $044A				;$808CB3
 	LDX #$7E00C6				;$808CB6
-	LDY #$007E			;$808CB9
+	LDY #$007E				;$808CB9
 	LDA #$0034				;$808CBC
-	JSL CODE_808CEC			;$808CBF
+	JSL CODE_808CEC				;$808CBF
 	LDX #$7E06D8				;$808CC3
-	LDY #$007E			;$808CC6
+	LDY #$007E				;$808CC6
 	LDA #$16C3				;$808CC9
-	JSL CODE_808CEC			;$808CCC
+	JSL CODE_808CEC				;$808CCC
 	LDX #$7E2D80				;$808CD0
-	LDY #$007E			;$808CD3
+	LDY #$007E				;$808CD3
 	LDA #$D280				;$808CD6
-	JSL CODE_808CEC			;$808CD9
+	JSL CODE_808CEC				;$808CD9
 	LDX #$7F0000				;$808CDD
-	LDY #$007F			;$808CE0
+	LDY #$007F				;$808CE0
 	LDA #$0000				;$808CE3
-	JSL CODE_808CEC			;$808CE6
+	JSL CODE_808CEC				;$808CE6
 	PLB					;$808CEA
 	RTL					;$808CEB
 
@@ -1687,7 +1687,7 @@ CODE_808D3A:
 
 CODE_808D5A:
 	PHB					;$808D5A
-	PEA.w (DATA_B4FCD2&$FF0000)>>8		;$808D5B
+	%pea_mask_dbr(DATA_B4FCD2)		;$808D5B
 	PLB					;$808D5E
 	PLB					;$808D5F
 	PHX					;$808D60
@@ -1822,9 +1822,9 @@ CODE_808E3B:
 	CMP $052B				;$808E3E
 	BPL CODE_808E94				;$808E41
 	LDX $052D				;$808E43
-	LDA.l DATA_FE8406,x			;$808E46
+	LDA.l demo_scripts_table,x		;$808E46
 	STA $1E					;$808E4A
-	LDA.w #DATA_FE8428>>16			;$808E4C
+	LDA.w #demo_scripts_table>>16		;$808E4C
 	STA $20					;$808E4F
 	LDY $0525				;$808E51
 	LDA $0527				;$808E54
@@ -1936,9 +1936,9 @@ CODE_808EF1:
 	ASL					;$808F16
 	TAX					;$808F17
 	STX $052D				;$808F18
-	LDA.l DATA_FE8406,x			;$808F1B
+	LDA.l demo_scripts_table,x		;$808F1B
 	STA $1E					;$808F1F
-	LDA.w #DATA_FE8428>>16			;$808F21
+	LDA.w #demo_scripts_table>>16		;$808F21
 	STA $20					;$808F24
 	LDY #$0000				;$808F26
 	LDA [$1E]				;$808F29
@@ -2055,7 +2055,7 @@ CODE_80901E:
 
 CODE_809040:
 	LDA #!music_mama_bird_chase		;$809040
-	JSL CODE_B28009				;$809043
+	JSL play_song				;$809043
 	LDA #$1000				;$809047
 	TSB $05FD				;$80904A
 	LDA #$8000				;$80904D
@@ -2067,9 +2067,9 @@ CODE_809040:
 	STZ $0527				;$80905F
 	LDX #$0020				;$809062
 	STX $052D				;$809065
-	LDA.l DATA_FE8406,x			;$809068
+	LDA.l demo_scripts_table,x		;$809068
 	STA $1E					;$80906C
-	LDA.w #DATA_FE8428>>16			;$80906E
+	LDA.w #demo_scripts_table>>16		;$80906E
 	STA $20					;$809071
 	LDA [$1E]				;$809073
 	AND #$7FFF				;$809075
@@ -2244,7 +2244,7 @@ CODE_8091CB:
 	STA $1A					;$8091D4
 	LDA #$00B0				;$8091D6
 	STA $1C					;$8091D9
-	PEA.w (($7E2AF4&$FF0000)>>16)|((RESET_start&$FF0000)>>8)	;$8091DB
+	%pea_use_dbr($7E807E)			;$8091DB
 	PLB					;$8091DE
 	LDY #$0288				;$8091DF
 CODE_8091E2:
@@ -2263,7 +2263,7 @@ CODE_8091EC:
 	STA $1A					;$8091F5
 	LDA #$00B0				;$8091F7
 	STA $1C					;$8091FA
-	PEA.w (($7E2AF4&$FF0000)>>16)|((RESET_start&$FF0000)>>8)	;$8091FC
+	%pea_use_dbr($7E807E)			;$8091FC
 	PLB					;$8091FF
 	LDY #$0288				;$809200
 CODE_809203:
@@ -2595,7 +2595,7 @@ CODE_809489:
 	TRB $05B1				;$809491
 	BNE CODE_80949D				;$809494
 	LDA #!music_crazy_calypso		;$809496
-	JSL CODE_B28009				;$809499
+	JSL play_song				;$809499
 CODE_80949D:
 	SEP #$20				;$80949D
 	LDA $B06009				;$80949F
@@ -3636,7 +3636,8 @@ CODE_809D99:
 	RTS					;$809DA6
 
 DATA_809DA7:
-	db $01,$01,$01,$07,$0A,$05,$06,$0B,$0B,$0B,$08,$08,$08,$09,$09,$09
+	db $01,$01,$01,$07,$0A,$05,$06,$0B
+	db $0B,$0B,$08,$08,$08,$09,$09,$09
 
 CODE_809DB7:
 	INC					;$809DB7
@@ -3796,7 +3797,7 @@ CODE_809F12:
 
 CODE_809F29:
 	STY $1A					;$809F29
-	PEA.w (($7EA7BA&$FF0000)>>16)|((RESET_start&$FF0000)>>8)	;$809F2B
+	%pea_use_dbr($7E807E)			;$809F2B
 	PLB					;$809F2E
 	LDA $7EA7BA,x				;$809F2F
 	CLC					;$809F33
@@ -6264,18 +6265,18 @@ CODE_80B2C8:
 	ASL					;$80B2E2
 	ASL					;$80B2E3
 	TAX					;$80B2E4
-	LDA DATA_80C679+$06,x			;$80B2E5
+	LDA photo_album_sequence_data+$06,x	;$80B2E5
 	BMI CODE_80B32B				;$80B2E8
 	STA $051D				;$80B2EA
-	LDA DATA_80C679+$04,x			;$80B2ED
+	LDA photo_album_sequence_data+$04,x	;$80B2ED
 	AND #$00FF				;$80B2F0
 	STA level_number			;$80B2F3
 	STZ $05B7				;$80B2F5
-	LDA DATA_80C679+$02,x			;$80B2F8
+	LDA photo_album_sequence_data+$02,x	;$80B2F8
 	SEC					;$80B2FB
 	SBC #$039A				;$80B2FC
 	STA $BE					;$80B2FF
-	LDA DATA_80C679+$05,x			;$80B301
+	LDA photo_album_sequence_data+$05,x	;$80B301
 	AND #$00FF				;$80B304
 	BEQ CODE_80B31B				;$80B307
 	STA $BA					;$80B309
@@ -6371,7 +6372,7 @@ CODE_80B378:
 	TSB $05B1				;$80B3D3
 	BNE CODE_80B413				;$80B3D6
 	LDA #!music_baddies_on_parade		;$80B3D8
-	JSL CODE_B28009				;$80B3DB
+	JSL play_song				;$80B3DB
 	LDA #$8000				;$80B3DF
 	TSB $05AF				;$80B3E2
 	STZ $05E3				;$80B3E5
@@ -6574,7 +6575,7 @@ CODE_80B593:
 	PLB					;$80B594
 	JSR CODE_809437				;$80B595
 	LDA #!music_dixie_beat			;$80B598
-	JSL CODE_B28009				;$80B59B
+	JSL play_song				;$80B59B
 	LDA #$000F				;$80B59F
 	JSL CODE_BB859A				;$80B5A2
 	ORA #$3000				;$80B5A6
@@ -7631,7 +7632,7 @@ CODE_80BF0E:
 	INC					;$80BF1D
 	STA sprite.general_purpose_5E,x		;$80BF1E
 	STZ sprite.general_purpose_60,x		;$80BF20
-	PEA.w (($7EA9DE&$FF0000)>>16)|((RESET_start&$FF0000)>>8)	;$80BF22
+	%pea_use_dbr($7E807E)			;$80BF22
 	PLB					;$80BF25
 	LDA $0000,y				;$80BF26
 	AND #$00FF				;$80BF29
@@ -7657,7 +7658,7 @@ CODE_80BF45:
 	LDA #$7E00				;$80BF4B
 	STA $1B					;$80BF4E
 CODE_80BF50:
-	PEA.w (($7E0000&$FF0000)>>16)|((RESET_start&$FF0000)>>8)	;$80BF50
+	%pea_use_dbr($7E807E)			;$80BF50
 	PLB					;$80BF53
 	LDA #$FFFF				;$80BF54
 	LDY sprite.general_purpose_60,x		;$80BF57
@@ -7973,7 +7974,7 @@ CODE_80C181:
 	LDA #$0200				;$80C193
 	JSL set_fade				;$80C196
 	LDA #!music_defeated_boss		;$80C19A
-	JSL CODE_B28009				;$80C19D
+	JSL play_song				;$80C19D
 	LDA #CODE_80C1AA			;$80C1A1
 	LDX.w #CODE_80C1AA>>16			;$80C1A4
 	JMP CODE_8083C3				;$80C1A7
@@ -8287,219 +8288,233 @@ DATA_80C650:
 	db $50,$51,$52,$53,$54,$55,$56,$57,$58,$59,$5A,$30,$31,$32,$33,$34
 	db $35,$36,$37,$38,$39,$20,$88,$89,$5F
 
-DATA_80C679:
-	dw !null_pointer, $039A : db $00, $FF 					: dw $0000
-	dw DATA_80C829, $03A2 : db !level_doorstop_dash_photo_album, $01 	: dw $008A
-	dw DATA_80C879, $03A8 : db !level_squeals_on_wheels_photo_album, $00 	: dw $0080
-	dw DATA_80C84F, $03C0 : db !level_ropey_rumpus_photo_album, $00 	: dw $0087
-	dw DATA_80C873, $03A6 : db !level_ropey_rumpus_photo_album, $00 	: dw $0093
-	dw DATA_80C836, $039E : db !level_lemguin_lunge_photo_album, $00 	: dw $007A
-	dw DATA_80C85D, $03BE : db !level_ropey_rumpus_photo_album, $00 	: dw $00AE
-	dw DATA_80C865, $03BC : db !level_ropey_rumpus_photo_album, $00 	: dw $00AB
-	dw DATA_80C8B8, $039A : db !level_skiddas_row_photo_album, $00 		: dw $0100
-	dw DATA_80C86C, $03BA : db !level_ropey_rumpus_photo_album, $00 	: dw $0070
-	dw DATA_80C881, $03CC : db !level_ropey_rumpus_photo_album, $00 	: dw $0100
-	dw DATA_80C889, $03D0 : db !level_lemguin_lunge_photo_album, $00 	: dw $0120
-	dw DATA_80C88E, $83AA : db !level_ropey_rumpus_photo_album, $00 	: dw $00A8
-	dw DATA_80C830, $039C : db !level_doorstop_dash_photo_album, $02 	: dw $00B0
-	dw DATA_80C83C, $03B8 : db !level_squeals_on_wheels_photo_album, $00 	: dw $00B8
-	dw DATA_80C846, $03C2 : db !level_ropey_rumpus_photo_album, $00 	: dw $00C2
-	dw DATA_80C8B4, $03CE : db !level_squeals_on_wheels_photo_album, $00 	: dw $008C
-	dw DATA_80C8AC, $03AC : db !level_lemguin_lunge_photo_album, $00 	: dw $00D0
-	dw DATA_80C8A5, $C3C4 : db !level_squeals_on_wheels_photo_album, $00 	: dw $009A
-	dw DATA_80C8BF, $03A0 : db !level_squeals_on_wheels_photo_album, $03 	: dw $00AE
-	dw DATA_80C8C4, $03C6 : db !level_ropey_rumpus_photo_album, $00 	: dw $0094
-	dw DATA_80C8CB, $03C8 : db !level_squeals_on_wheels_photo_album, $00 	: dw $009E
-	dw DATA_80C89D, $03CA : db !level_ropey_rumpus_photo_album, $00 	: dw $00B3
-	dw DATA_80C8D6, $03A4 : db !level_bazzas_blockade_photo_album, $04 	: dw $008D
-	dw DATA_80C8DB, $03B6 : db !level_bazzas_blockade_photo_album, $00 	: dw $0110
-	dw DATA_80C8E3, $83AE : db !level_bazzas_blockade_photo_album, $00 	: dw $0065
-	dw DATA_80C8EA, $03B0 : db !level_bazzas_blockade_photo_album, $00 	: dw $0100
-	dw DATA_80C8F6, $83B2 : db !level_bazzas_blockade_photo_album, $00 	: dw $00DC
-	dw DATA_80C8FC, $03B4 : db !level_bazzas_blockade_photo_album, $00 	: dw $0100
-	dw DATA_80C90B, $03A0 : db !level_bosses_photo_album, $05 		: dw $0006
-	dw DATA_80C912, $03A1 : db !level_bosses_photo_album, $00 		: dw $0006
-	dw DATA_80C918, $03A2 : db !level_bosses_photo_album, $00 		: dw $0006
-	dw DATA_80C91F, $03A3 : db !level_bosses_photo_album, $00 		: dw $0006
-	dw DATA_80C924, $03A4 : db !level_bosses_photo_album, $00 		: dw $0006
-	dw DATA_80C92A, $03A5 : db !level_bosses_photo_album, $00 		: dw $0006
-	dw DATA_80C931, $A3E8 : db !level_kastle_kaos_photo_album, $00 		: dw $0347
-	dw DATA_80C95F, $03D2 : db !level_doorstop_dash_photo_album, $06 	: dw $0085
-	dw DATA_80C956, $03D8 : db !level_doorstop_dash_photo_album, $00 	: dw $00A1
-	dw DATA_80C965, $03DA : db !level_ropey_rumpus_photo_album, $00 	: dw $00B2
-	dw DATA_80C945, $03D6 : db !level_bazzas_blockade_photo_album, $00 	: dw $00D0
-	dw DATA_80C94E, $03D4 : db !level_ropey_rumpus_photo_album, $00  	: dw $0100
-	dw DATA_80C96B, $039A : db !level_brothers_bear_photo_album, $07 	: dw $0006
-	dw DATA_80C984, $039B : db !level_brothers_bear_photo_album, $00 	: dw $0006
-	dw DATA_80C99D, $039C : db !level_brothers_bear_photo_album, $00 	: dw $0006
-	dw DATA_80C9B6, $039D : db !level_brothers_bear_photo_album, $00 	: dw $0006
-	dw DATA_80C9CD, $039E : db !level_brothers_bear_photo_album, $00 	: dw $0006
-	dw DATA_80C9E8, $039F : db !level_brothers_bear_photo_album, $00 	: dw $0006
-	dw DATA_80CA15, $03DC : db !level_doorstop_dash_photo_album, $08 	: dw $00E3
-	dw DATA_80CA2D, $A3E0 : db !level_doorstop_dash_photo_album, $00 	: dw $0100
-	dw DATA_80CA20, $03DE : db !level_doorstop_dash_photo_album, $00 	: dw $0100
-	dw DATA_80CA39, $03E2 : db !level_swankys_sideshow_photo_album, $00 	: dw $0100
-	dw DATA_80CA0A, $03E4 : db !level_kiddy_kong_photo_album, $00 		: dw $0278
-	dw DATA_80C9FF, $03E6 : db !level_dixie_kong_photo_album, $00 		: dw $02D0
-	dw !null_pointer, $0000 : db $00, $00 					: dw $FFFF
 
-DATA_80C829:
+;80C679
+;Character name text pointer, DATA_FF218C spawn script index, level ID, category, photo timer
+;Categories:
+;	00: Don't change
+;	01: Kremling Kreeps
+;	02: Terrorfirma Tuff Guys
+;	03: Flying Fiends
+;	04: Aquatic Attackers
+;	05: Big Time Bad Guys
+;	06: Firt Class Friends
+;	07: Brothers Bear
+;	08: Crucial Kongs
+
+photo_album_sequence_data:
+	dw !null_pointer, 	$039A : db !level_empty_doorstop_dash, 	 	$FF : dw $0000
+	dw .kobble, 		$03A2 : db !level_doorstop_dash_photo_album, 	 $01 : dw $008A
+	dw .rekoil, 		$03A8 : db !level_squeals_on_wheels_photo_album, $00 : dw $0080
+	dw .knocka, 		$03C0 : db !level_ropey_rumpus_photo_album, 	 $00 : dw $0087
+	dw .klasp, 		$03A6 : db !level_ropey_rumpus_photo_album, 	 $00 : dw $0093
+	dw .krimp, 		$039E : db !level_lemguin_lunge_photo_album,     $00 : dw $007A
+	dw .krumple, 		$03BE : db !level_ropey_rumpus_photo_album,      $00 : dw $00AE
+	dw .kopter, 		$03BC : db !level_ropey_rumpus_photo_album,      $00 : dw $00AB
+	dw .skidda, 		$039A : db !level_skiddas_row_photo_album, 	 $00 : dw $0100
+	dw .bazuka, 		$03BA : db !level_ropey_rumpus_photo_album,      $00 : dw $0070
+	dw .kuchuka, 		$03CC : db !level_ropey_rumpus_photo_album,      $00 : dw $0100
+	dw .koin, 		$03D0 : db !level_lemguin_lunge_photo_album, 	 $00 : dw $0120
+	dw .kuff_n_klout, 	$83AA : db !level_ropey_rumpus_photo_album, 	 $00 : dw $00A8
+	dw .sneek, 		$039C : db !level_doorstop_dash_photo_album, 	 $02 : dw $00B0
+	dw .knik_knak, 		$03B8 : db !level_squeals_on_wheels_photo_album, $00 : dw $00B8
+	dw .bristles, 		$03C2 : db !level_ropey_rumpus_photo_album, 	 $00 : dw $00C2
+	dw .nid, 		$03CE : db !level_squeals_on_wheels_photo_album, $00 : dw $008C
+	dw .lemguin, 		$03AC : db !level_lemguin_lunge_photo_album, 	 $00 : dw $00D0
+	dw .minkey, 		$C3C4 : db !level_squeals_on_wheels_photo_album, $00 : dw $009A
+	dw .buzz, 		$03A0 : db !level_squeals_on_wheels_photo_album, $03 : dw $00AE
+	dw .swoopy, 		$03C6 : db !level_ropey_rumpus_photo_album, 	 $00 : dw $0094
+	dw .booty_bird, 	$03C8 : db !level_squeals_on_wheels_photo_album, $00 : dw $009E
+	dw .karbine, 		$03CA : db !level_ropey_rumpus_photo_album, 	 $00 : dw $00B3
+	dw .koco, 		$03A4 : db !level_bazzas_blockade_photo_album, 	 $04 : dw $008D
+	dw .lurchin, 		$03B6 : db !level_bazzas_blockade_photo_album, 	 $00 : dw $0110
+	dw .nibbla, 		$83AE : db !level_bazzas_blockade_photo_album, 	 $00 : dw $0065
+	dw .bounty_bass, 	$03B0 : db !level_bazzas_blockade_photo_album, 	 $00 : dw $0100
+	dw .bazza, 		$83B2 : db !level_bazzas_blockade_photo_album, 	 $00 : dw $00DC
+	dw .gleamin_bream, 	$03B4 : db !level_bazzas_blockade_photo_album, 	 $00 : dw $0100
+	dw .belcha, 		$03A0 : db !level_bosses_photo_album, 		 $05 : dw $0006
+	dw .arich, 		$03A1 : db !level_bosses_photo_album, 		 $00 : dw $0006
+	dw .squirt, 		$03A2 : db !level_bosses_photo_album, 		 $00 : dw $0006
+	dw .kaos, 		$03A3 : db !level_bosses_photo_album, 		 $00 : dw $0006
+	dw .bleak, 		$03A4 : db !level_bosses_photo_album, 		 $00 : dw $0006
+	dw .barbos, 		$03A5 : db !level_bosses_photo_album, 		 $00 : dw $0006
+	dw .krool, 		$A3E8 : db !level_kastle_kaos_photo_album, 	 $00 : dw $0347
+	dw .ellie, 		$03D2 : db !level_doorstop_dash_photo_album, 	 $06 : dw $0085
+	dw .squitter, 		$03D8 : db !level_doorstop_dash_photo_album, 	 $00 : dw $00A1
+	dw .parry, 		$03DA : db !level_ropey_rumpus_photo_album, 	 $00 : dw $00B2
+	dw .enguarde, 		$03D6 : db !level_bazzas_blockade_photo_album, 	 $00 : dw $00D0
+	dw .squawks, 		$03D4 : db !level_ropey_rumpus_photo_album, 	 $00 : dw $0100
+	dw .bazaar_barnacle, 	$039A : db !level_brothers_bear_photo_album, 	 $07 : dw $0006
+	dw .brash_blunder, 	$039B : db !level_brothers_bear_photo_album, 	 $00 : dw $0006
+	dw .blue_bazooka, 	$039C : db !level_brothers_bear_photo_album, 	 $00 : dw $0006
+	dw .blizzard_bramble,   $039D : db !level_brothers_bear_photo_album, 	 $00 : dw $0006
+	dw .benny_bjorn_barter, $039E : db !level_brothers_bear_photo_album, 	 $00 : dw $0006
+	dw .baffle_boomer, 	$039F : db !level_brothers_bear_photo_album, 	 $00 : dw $0006
+	dw .funky_kong, 	$03DC : db !level_doorstop_dash_photo_album, 	 $08 : dw $00E3
+	dw .swanky_kong, 	$A3E0 : db !level_doorstop_dash_photo_album, 	 $00 : dw $0100
+	dw .wrinkly_kong, 	$03DE : db !level_doorstop_dash_photo_album, 	 $00 : dw $0100
+	dw .cranky_kong, 	$03E2 : db !level_swankys_sideshow_photo_album,  $00 : dw $0100
+	dw .kiddy_kong, 	$03E4 : db !level_kiddy_kong_photo_album, 	 $00 : dw $0278
+	dw .dixie_kong, 	$03E6 : db !level_dixie_kong_photo_album, 	 $00 : dw $02D0
+	dw !null_pointer, 	$0000 : db !level_empty_doorstop_dash,	 	 $00 : dw $FFFF
+
+.kobble:
 	db "KOBBLE", $00
 
-DATA_80C830:
+.sneek:
 	db "SNEEK", $00
 
-DATA_80C836:
+.krimp:
 	db "KRIMP", $00
 
-DATA_80C83C:
+.knik_knak:
 	db "KNIK-KNAK", $00
 
-DATA_80C846:
+.bristles:
 	db "BRISTLES", $00
 
-DATA_80C84F:
+.knocka:
 	db "KNOCKA", $00
 
-UNK_80C856:
+.kracka_unused:
 	db "KRACKA", $00
 
-DATA_80C85D:
+.krumple:
 	db "KRUMPLE", $00
 
-DATA_80C865:
+.kopter:
 	db "KOPTER", $00
 
-DATA_80C86C:
+.bazuka:
 	db "BAZUKA", $00
 
-DATA_80C873:
+.klasp:
 	db "KLASP", $00
 
-DATA_80C879:
+.rekoil:
 	db "RE-KOIL", $00
 
-DATA_80C881:
+.kuchuka:
 	db "KUCHUKA", $00
 
-DATA_80C889:
+.koin:
 	db "KOIN", $00
 
-DATA_80C88E:
+.kuff_n_klout:
 	db "KUFF 'N' KLOUT", $00
 
-DATA_80C89D:
+.karbine:
 	db "KARBINE", $00
 
-DATA_80C8A5:
+.minkey:
 	db "MINKEY", $00
 
-DATA_80C8AC:
+.lemguin:
 	db "LEMGUIN", $00
 
-DATA_80C8B4:
+.nid:
 	db "NID", $00
 
-DATA_80C8B8:
+.skidda:
 	db "SKIDDA", $00
 
-DATA_80C8BF:
+.buzz:
 	db "BUZZ", $00
 
-DATA_80C8C4:
+.swoopy:
 	db "SWOOPY", $00
 
-DATA_80C8CB:
+.booty_bird:
 	db "BOOTY BIRD", $00
 
-DATA_80C8D6:
+.koco:
 	db "KOCO", $00
 
-DATA_80C8DB:
+.lurchin:
 	db "LURCHIN", $00
 
-DATA_80C8E3:
+.nibbla:
 	db "NIBBLA", $00
 
-DATA_80C8EA:
+.bounty_bass:
 	db "BOUNTY BASS", $00
 
-DATA_80C8F6:
+.bazza:
 	db "BAZZA", $00
 
-DATA_80C8FC:
+.gleamin_bream:
 	db "GLEAMIN' BREAM", $00
 
-DATA_80C90B:
+.belcha:
 	db "BELCHA", $00
 
-DATA_80C912:
+.arich:
 	db "ARICH", $00
 
-DATA_80C918:
+.squirt:
 	db "SQUIRT", $00
 
-DATA_80C91F:
+.kaos:
 	db "KAOS", $00
 
-DATA_80C924:
+.bleak:
 	db "BLEAK", $00
 
-DATA_80C92A:
+.barbos:
 	db "BARBOS", $00
 
-DATA_80C931:
+.krool:
 	db "BARON K.ROOLENSTEIN", $00
 
-DATA_80C945:
+.enguarde:
 	db "ENGUARDE", $00
 
-DATA_80C94E:
+.squawks:
 	db "SQUAWKS", $00
 
-DATA_80C956:
+.squitter:
 	db "SQUITTER", $00
 
-DATA_80C95F:
+.ellie:
 	db "ELLIE", $00
 
-DATA_80C965:
+.parry:
 	db "PARRY", $00
 
-DATA_80C96B:
+.bazaar_barnacle:
 	db " BAZAAR         BARNACLE", $00
 
-DATA_80C984:
+.brash_blunder:
 	db "  BRASH         BLUNDER ", $00
 
-DATA_80C99D:
+.blue_bazooka:
 	db "  BLUE          BAZOOKA ", $00
 
-DATA_80C9B6:
+.blizzard_bramble:
 	db "BLIZZARD       BRAMBLE", $00
 
-DATA_80C9CD:
+.benny_bjorn_barter:
 	db "BENNY ] BJ+RN    BARTER   ", $00
 
-DATA_80C9E8:
+.baffle_boomer:
 	db "BAFFLE          BOOMER", $00
 
-DATA_80C9FF:
+.dixie_kong:
 	db "DIXIE KONG", $00
 
-DATA_80CA0A:
+.kiddy_kong:
 	db "KIDDY KONG", $00
 
-DATA_80CA15:
+.funky_kong:
 	db "FUNKY KONG", $00
 
-DATA_80CA20:
+.wrinkly_kong:
 	db "WRINKLY KONG", $00
 
-DATA_80CA2D:
+.swanky_kong:
 	db "SWANKY KONG", $00
 
-DATA_80CA39:
+.cranky_kong:
 	db "CRANKY KONG", $00
 
 NMI_start:

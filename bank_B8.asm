@@ -2112,7 +2112,7 @@ CODE_B89144:
 	LDA.b $38,x				;$B89160
 	CMP.w #$003C				;$B89162
 	BNE.b CODE_B8916A			;$B89165
-	BRL.w CODE_B89235			;$B89167
+	BRL CODE_B89235				;$B89167
 
 CODE_B8916A:
 	LDA.w current_held_sprite		;$B8916A
@@ -3540,7 +3540,7 @@ CODE_B89DCA:
 	LDA.w #$0000				;$B89DF7
 	JSL.l set_riding_kong_anim_handle_kiddy	;$B89DFA
 	JSL.l CODE_B88557			;$B89DFE
-	BRL.w CODE_B89D7B			;$B89E02
+	BRL CODE_B89D7B				;$B89E02
 
 CODE_B89E05:
 	JSL.l CODE_B89C4C			;$B89E05
@@ -3705,7 +3705,7 @@ kong_state_handler:
 	STY alternate_kong_control_variables	;$B89F3C
 	LDY current_sprite			;$B89F3E
 	LDA $0006,y				;$B89F40
-	STA sprite_contants_address		;$B89F43
+	STA current_sprite_constants		;$B89F43
 	PHK					;$B89F45
 	PLB					;$B89F46
 	LDA $0038,y				;$B89F47
@@ -3728,7 +3728,7 @@ CODE_B89F69:
 	JSR.w CODE_B8A0F7			;$B89F69
 	JSR.w CODE_B8E0FE			;$B89F6C
 	JSL.l process_sprite_animation		;$B89F6F
-	BRL.w CODE_B89FC6			;$B89F73
+	BRL CODE_B89FC6				;$B89F73
 
 CODE_B89F76:
 	JSR.w CODE_B8A035			;$B89F76
@@ -3742,7 +3742,7 @@ CODE_B89F76:
 	JSL.l CODE_B8E198			;$B89F8C
 	JSL.l CODE_B8E179			;$B89F90
 	JSL.l CODE_B9A595			;$B89F94
-	BRL.w CODE_B89FC6			;$B89F98
+	BRL CODE_B89FC6				;$B89F98
 
 CODE_B89F9B:
 	LDA.b $2E,x				;$B89F9B
@@ -3752,7 +3752,7 @@ CODE_B89FA1:
 	JSR.w CODE_B8A0F7			;$B89FA1
 	JSR.w CODE_B8E0FE			;$B89FA4
 	JSL.l process_sprite_animation		;$B89FA7
-	BRL.w CODE_B89FC6			;$B89FAB
+	BRL CODE_B89FC6				;$B89FAB
 
 CODE_B89FAE:
 	JSR.w CODE_B8A035			;$B89FAE
@@ -3890,8 +3890,9 @@ CODE_B8A0A7:
 CODE_B8A0BA:
 	STA.w $18B5				;$B8A0BA
 	PHK					;$B8A0BD
-	PEA.w CODE_B8A0C4-$01			;$B8A0BE
+	%return(CODE_B8A0C4)			;$B8A0BE
 	JMP.w [$18B1]				;$B8A0C1
+
 CODE_B8A0C4:
 	RTS					;$B8A0C4
 
@@ -4705,8 +4706,9 @@ CODE_B8A7CB:
 	ADC.w #$0003				;$B8A7DC
 	STA.b $3E				;$B8A7DF
 	PHK					;$B8A7E1
-	PEA.w CODE_B8A7E8-$01			;$B8A7E2
+	%return(CODE_B8A7E8)			;$B8A7E2
 	JMP.w [$0042]				;$B8A7E5
+
 CODE_B8A7E8:
 	LDA.w #$0028				;$B8A7E8
 	LDY.b current_kong_control_variables	;$B8A7EB
@@ -6718,7 +6720,7 @@ CODE_B8B79F:
 	BMI.b CODE_B8B7EC			;$B8B7C4
 	JSR.w CODE_B8CB19			;$B8B7C6
 	BCC.b CODE_B8B7CE			;$B8B7C9
-	BRL.w CODE_B8B86F			;$B8B7CB
+	BRL CODE_B8B86F				;$B8B7CB
 
 CODE_B8B7CE:
 	JSR.w CODE_B8B89D			;$B8B7CE
@@ -6945,8 +6947,9 @@ CODE_B8B9A6:
 CODE_B8B9B9:
 	STY.w $18B5				;$B8B9B9
 	PHK					;$B8B9BC
-	PEA.w CODE_B8B9C3-$01			;$B8B9BD
+	%return(CODE_B8B9C3)			;$B8B9BD
 	JMP.w [$18B1]				;$B8B9C0
+
 CODE_B8B9C3:
 	JML [$04F5]				;$B8B9C3
 
@@ -7115,8 +7118,9 @@ CODE_B8BAC8:
 CODE_B8BAF4:
 	STZ.w $18B5				;$B8BAF4
 	PHK					;$B8BAF7
-	PEA.w CODE_B8BAFE-$01			;$B8BAF8
+	%return(CODE_B8BAFE)			;$B8BAF8
 	JMP.w [$18B1]				;$B8BAFB
+
 CODE_B8BAFE:
 	JML [$04F5]				;$B8BAFE
 
@@ -7130,7 +7134,7 @@ CODE_B8BB01:
 	BEQ.b CODE_B8BB77			;$B8BB11
 	CMP.w #$0035				;$B8BB13
 	BNE.b CODE_B8BB1B			;$B8BB16
-	BRL.w CODE_B8BBCC			;$B8BB18
+	BRL CODE_B8BBCC				;$B8BB18
 
 CODE_B8BB1B:
 	LDA.w #$001F				;$B8BB1B
@@ -7269,7 +7273,7 @@ CODE_B8BC3F:
 	BMI.b CODE_B8BC81			;$B8BC59
 	JSR.w CODE_B8CB19			;$B8BC5B
 	BCC.b CODE_B8BC63			;$B8BC5E
-	BRL.w CODE_B8BCD8			;$B8BC60
+	BRL CODE_B8BCD8				;$B8BC60
 
 CODE_B8BC63:
 	JSR.w CODE_B8BD06			;$B8BC63
@@ -7617,8 +7621,9 @@ kong_state_54:
 CODE_B8BF4C:
 	STZ.w $18B5				;$B8BF4C
 	PHK					;$B8BF4F
-	PEA.w CODE_B8BF56-$01			;$B8BF50
+	%return(CODE_B8BF56)			;$B8BF50
 	JMP.w [$18B1]				;$B8BF53
+
 CODE_B8BF56:
 	JML [$04F5]				;$B8BF56
 
@@ -8692,8 +8697,9 @@ CODE_B8C793:
 	LDA.w $002C,y				;$B8C79B
 	STA.b $44				;$B8C79E
 	PHK					;$B8C7A0
-	PEA.w CODE_B8C7A7-$01			;$B8C7A1
+	%return(CODE_B8C7A7)			;$B8C7A1
 	JMP.w [$0042]				;$B8C7A4
+
 CODE_B8C7A7:
 	LDA.b $DE				;$B8C7A7
 	SEC					;$B8C7A9
@@ -9243,8 +9249,9 @@ CODE_B8CB37:
 	LDA.w $002C,y				;$B8CB3F
 	STA.b $44				;$B8CB42
 	PHK					;$B8CB44
-	PEA.w CODE_B8CB4B-$01			;$B8CB45
+	%return(CODE_B8CB4B)			;$B8CB45
 	JMP.w [$0042]				;$B8CB48
+
 CODE_B8CB4B:
 	LDA.b $DE				;$B8CB4B
 	SEC					;$B8CB4D
@@ -9409,48 +9416,54 @@ CODE_B8CC4E:
 	BIT.w #$0080				;$B8CC7A
 	BEQ.b CODE_B8CC8B			;$B8CC7D
 	LDX.w $04DE				;$B8CC7F
-	PEA.w CODE_B8CC88-$01			;$B8CC82
-	JMP.w (DATA_B8CE97,x)			;$B8CC85
+	%return(CODE_B8CC88)			;$B8CC82
+	JMP.w (a_action_table,x)		;$B8CC85
+
 CODE_B8CC88:
 	LDA.w $04E0				;$B8CC88
 CODE_B8CC8B:
 	BIT.w #$0040				;$B8CC8B
 	BEQ.b CODE_B8CC9C			;$B8CC8E
 	LDX.w $04DE				;$B8CC90
-	PEA.w CODE_B8CC99-$01			;$B8CC93
-	JMP.w (DATA_B8CF2F,x)			;$B8CC96
+	%return(CODE_B8CC99)			;$B8CC93
+	JMP.w (x_action_table,x)		;$B8CC96
+
 CODE_B8CC99:
 	LDA.w $04E0				;$B8CC99
 CODE_B8CC9C:
 	BIT.w #$0020				;$B8CC9C
 	BEQ.b CODE_B8CCAD			;$B8CC9F
 	LDX.w $04DE				;$B8CCA1
-	PEA.w CODE_B8CCAA-$01			;$B8CCA4
-	JMP.w (DATA_B8CFC7,x)			;$B8CCA7
+	%return(CODE_B8CCAA)			;$B8CCA4
+	JMP.w (l_action_table,x)		;$B8CCA7
+
 CODE_B8CCAA:
 	LDA.w $04E0				;$B8CCAA
 CODE_B8CCAD:
 	BIT.w #$0010				;$B8CCAD
 	BEQ.b CODE_B8CCBE			;$B8CCB0
 	LDX.w $04DE				;$B8CCB2
-	PEA.w CODE_B8CCBB-$01			;$B8CCB5
-	JMP.w (DATA_B8D013,x)			;$B8CCB8
+	%return(CODE_B8CCBB)			;$B8CCB5
+	JMP.w (r_action_table,x)		;$B8CCB8
+
 CODE_B8CCBB:
 	LDA.w $04E0				;$B8CCBB
 CODE_B8CCBE:
 	BIT.w #$2000				;$B8CCBE
 	BEQ.b CODE_B8CCCF			;$B8CCC1
 	LDX.w $04DE				;$B8CCC3
-	PEA.w CODE_B8CCCC-$01			;$B8CCC6
-	JMP.w (DATA_B8D0AB,x)			;$B8CCC9
+	%return(CODE_B8CCCC)			;$B8CCC6
+	JMP.w (select_action_table,x)		;$B8CCC9
+
 CODE_B8CCCC:
 	LDA.w $04E0				;$B8CCCC
 CODE_B8CCCF:
 	BIT.w #$1000				;$B8CCCF
 	BEQ.b CODE_B8CCE0			;$B8CCD2
 	LDX.w $04DE				;$B8CCD4
-	PEA.w CODE_B8CCDD-$01			;$B8CCD7
-	JMP.w (DATA_B8D05F,x)			;$B8CCDA
+	%return(CODE_B8CCDD)			;$B8CCD7
+	JMP.w (start_action_table,x)		;$B8CCDA
+
 CODE_B8CCDD:
 	LDA.w $04E0				;$B8CCDD
 CODE_B8CCE0:
@@ -9492,15 +9505,15 @@ CODE_B8CD13:
 	LDA.w $04E0				;$B8CD16
 	AND.w #$0300				;$B8CD19
 	BNE.b CODE_B8CD21			;$B8CD1C
-	JMP.w (DATA_B8D0F7,x)			;$B8CD1E
+	JMP.w (no_left_right_action_table,x)	;$B8CD1E
 
 CODE_B8CD21:
 	AND.w #$0100				;$B8CD21
 	BNE.b CODE_B8CD29			;$B8CD24
-	JMP.w (DATA_B8CD67,x)			;$B8CD26
+	JMP.w (left_action_table,x)		;$B8CD26
 
 CODE_B8CD29:
-	JMP.w (DATA_B8CDB3,x)			;$B8CD29
+	JMP.w (right_action_table,x)		;$B8CD29
 
 ;shit
 CODE_B8CD2C:
@@ -9508,93 +9521,91 @@ CODE_B8CD2C:
 	LDA.w $04E0				;$B8CD2F
 	AND.w #$0C00				;$B8CD32
 	BNE.b CODE_B8CD3A			;$B8CD35
-	JMP.w (DATA_B8D143,x)			;$B8CD37
+	JMP.w (no_up_down_action_table,x)	;$B8CD37
 
 CODE_B8CD3A:
 	AND.w #$0400				;$B8CD3A
 	BNE.b CODE_B8CD42			;$B8CD3D
-	JMP.w (DATA_B8CDFF,x)			;$B8CD3F
+	JMP.w (up_action_table,x)		;$B8CD3F
 
 CODE_B8CD42:
-	JMP.w (DATA_B8CE4B,x)			;$B8CD42
+	JMP.w (down_action_table,x)		;$B8CD42
 
 CODE_B8CD45:
 	LDX.w $04DE				;$B8CD45
 	LDA.w $04E0				;$B8CD48
 	AND.w #$8000				;$B8CD4B
 	BNE.b CODE_B8CD53			;$B8CD4E
-	JMP.w (DATA_B8D18F,x)			;$B8CD50
+	JMP.w (no_b_action_table,x)		;$B8CD50
 
 CODE_B8CD53:
-	JMP.w (DATA_B8CEE3,x)			;$B8CD53
+	JMP.w (b_action_table,x)		;$B8CD53
 
 CODE_B8CD56:
 	LDX.w $04DE				;$B8CD56
 	LDA.w $04E0				;$B8CD59
 	AND.w #$4000				;$B8CD5C
 	BNE.b CODE_B8CD64			;$B8CD5F
-	JMP.w (DATA_B8D1DB,x)			;$B8CD61
+	JMP.w (no_y_action_table,x)		;$B8CD61
 
 CODE_B8CD64:
-	JMP.w (DATA_B8CF7B,x)			;$B8CD64
+	JMP.w (y_action_table,x)		;$B8CD64
 
 
-;yes left action table
-DATA_B8CD67:
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D3C2
-	dw CODE_B8D3C2
-	dw CODE_B8D3CE
-	dw CODE_B8D227
-	dw CODE_B8D512
-	dw CODE_B8D55C
-	dw CODE_B8D55C
-	dw CODE_B8D51E
-	dw CODE_B8D3C2
-	dw CODE_B8D3C2
-	dw CODE_B8D227
-	dw CODE_B8D3F3
+left_action_table:
+	dw no_action
+	dw no_action
+	dw walk_left_action
+	dw walk_left_action
+	dw roll_left_action
+	dw no_action
+	dw horizontal_rope_move_left_action
+	dw vertical_rope_turn_left_action
+	dw vertical_rope_turn_left_action
+	dw CODE_B8D51E				;move left at end of horizontal rope
+	dw walk_left_action
+	dw walk_left_action
+	dw no_action
+	dw swim_left_action
 	dw CODE_B8D5C3
-	dw CODE_B8D5FF
-	dw CODE_B8D3C2
-	dw CODE_B8D3C2
-	dw CODE_B8D3C2
-	dw CODE_B8D3C2
-	dw CODE_B8D227
-	dw CODE_B8D410
-	dw CODE_B8D42D
+	dw shot_from_cannon_move_left_action
+	dw walk_left_action
+	dw walk_left_action
+	dw walk_left_action
+	dw walk_left_action
+	dw no_action
+	dw move_ellie_left_in_water_action
+	dw move_enguarde_left_action
 	dw CODE_B8D435
 	dw CODE_B8DE36
-	dw CODE_B8D3C2
-	dw CODE_B8D3C2
-	dw CODE_B8D3C2
-	dw CODE_B8D227
-	dw CODE_B8DE93
-	dw CODE_B8DE93
-	dw CODE_B8D3C2
-	dw CODE_B8D3C2
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw walk_left_action
+	dw walk_left_action
+	dw walk_left_action
+	dw no_action
+	dw move_squawks_left_action
+	dw move_squawks_left_action
+	dw walk_left_action
+	dw walk_left_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 
-;yes right action table
-DATA_B8CDB3:
-	dw CODE_B8D227
-	dw CODE_B8D227
+right_action_table:
+	dw no_action
+	dw no_action
 	dw CODE_B8D448
 	dw CODE_B8D448
 	dw CODE_B8D49D
-	dw CODE_B8D227
+	dw no_action
 	dw CODE_B8D52D
 	dw CODE_B8D566
 	dw CODE_B8D566
 	dw CODE_B8D535
 	dw CODE_B8D448
 	dw CODE_B8D448
-	dw CODE_B8D227
+	dw no_action
 	dw CODE_B8D450
 	dw CODE_B8D5D1
 	dw CODE_B8D60E
@@ -9602,7 +9613,7 @@ DATA_B8CDB3:
 	dw CODE_B8D448
 	dw CODE_B8D448
 	dw CODE_B8D448
-	dw CODE_B8D227
+	dw no_action
 	dw CODE_B8D469
 	dw CODE_B8D482
 	dw CODE_B8D48A
@@ -9610,143 +9621,140 @@ DATA_B8CDB3:
 	dw CODE_B8D448
 	dw CODE_B8D448
 	dw CODE_B8D448
-	dw CODE_B8D227
+	dw no_action
 	dw CODE_B8DE9F
 	dw CODE_B8DE9F
 	dw CODE_B8D448
 	dw CODE_B8D448
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 
-;yes up action table
-DATA_B8CDFF:
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+up_action_table:
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D2EF
 	dw CODE_B8D30C
 	dw CODE_B8D329
 	dw CODE_B8D2EF
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D338
-	dw CODE_B8D227
+	dw no_action
 	dw CODE_B8DE1F
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8DEC6
 	dw CODE_B8DEC6
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D620
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
 
-;yes down action table
-DATA_B8CE4B:
-	dw CODE_B8D227
-	dw CODE_B8D227
+down_action_table:
+	dw no_action
+	dw no_action
 	dw CODE_B8D340
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D2EF
 	dw CODE_B8D359
 	dw CODE_B8D395
 	dw CODE_B8D2EF
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D3A4
 	dw CODE_B8D3AF
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D3BA
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8DECF
 	dw CODE_B8DECF
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 
-DATA_B8CE97:
-	dw CODE_B8D227
-	dw CODE_B8D227
+a_action_table:
+	dw no_action
+	dw no_action
 	dw CODE_B8DCED
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8DD50
 	dw CODE_B8DD82
 	dw CODE_B8DD82
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8DD31
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
 	dw CODE_B8DCED
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8DFF5
 	dw CODE_B8DFF5
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 
-;yes B action table
-DATA_B8CEE3:
-	dw CODE_B8D227
-	dw CODE_B8D227
+b_action_table:
+	dw no_action
+	dw no_action
 	dw CODE_B8D65E
 	dw CODE_B8D795
 	dw CODE_B8D65E
@@ -9760,16 +9768,16 @@ DATA_B8CEE3:
 	dw CODE_B8D7A5
 	dw CODE_B8D86E
 	dw CODE_B8D8D7
-	dw CODE_B8D227
+	dw no_action
 	dw CODE_B8D65E
 	dw CODE_B8D795
 	dw CODE_B8D65E
 	dw CODE_B8D795
 	dw CODE_B8D65E
 	dw CODE_B8D910
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D65E
 	dw CODE_B8D795
 	dw CODE_B8D795
@@ -9782,53 +9790,51 @@ DATA_B8CEE3:
 	dw CODE_B8D65E
 	dw CODE_B8D65E
 	dw CODE_B8D795
-	dw CODE_B8D227
+	dw no_action
 
-DATA_B8CF2F:
-	dw CODE_B8D227
-	dw CODE_B8D228
-	dw CODE_B8D228
-	dw CODE_B8D228
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D228
-	dw CODE_B8D228
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D228
-	dw CODE_B8D227
-	dw CODE_B8D227
+x_action_table:
+	dw no_action
+	dw no_action_2
+	dw no_action_2
+	dw no_action_2
+	dw no_action
+	dw no_action
+	dw no_action_2
+	dw no_action_2
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action_2
+	dw no_action
+	dw no_action
 	dw CODE_B8D229
 	dw CODE_B8D229
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D23A
 	dw CODE_B8D229
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D228
-	dw CODE_B8D228
-	dw CODE_B8D228
-	dw CODE_B8D227
-	dw CODE_B8D228
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action_2
+	dw no_action_2
+	dw no_action_2
+	dw no_action
+	dw no_action_2
+	dw no_action
 	dw CODE_B8D229
 	dw CODE_B8D229
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 
-
-;yes Y action table
-DATA_B8CF7B:
-	dw CODE_B8D227
-	dw CODE_B8D227
+y_action_table:
+	dw no_action
+	dw no_action
 	dw CODE_B8D9A0
 	dw CODE_B8D9E9
 	dw CODE_B8D9A0
@@ -9842,7 +9848,7 @@ DATA_B8CF7B:
 	dw CODE_B8D9A0
 	dw CODE_B8DA33
 	dw CODE_B8DA33 		;0E
-	dw CODE_B8D227
+	dw no_action
 	dw CODE_B8D97C
 	dw CODE_B8DA33
 	dw CODE_B8DA33
@@ -9850,190 +9856,188 @@ DATA_B8CF7B:
 	dw CODE_B8D97C
 	dw CODE_B8DA33
 	dw CODE_B8D95A
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
 	dw CODE_B8DA37
 	dw CODE_B8DA37
 	dw CODE_B8DA37
-	dw CODE_B8D227
+	dw no_action
 	dw CODE_B8DF20
 	dw CODE_B8DA33
 	dw CODE_B8DF90
 	dw CODE_B8DF90
-	dw CODE_B8D227
+	dw no_action
 	dw CODE_B8D9A0
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
 	dw CODE_B8D298
 
-DATA_B8CFC7:
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+l_action_table:
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8DDFC
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8DE36
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8DFF5
 	dw CODE_B8DFF5
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 
-DATA_B8D013:
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+r_action_table:
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8DD6D
 	dw CODE_B8DDA3
 	dw CODE_B8DDA3
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8DE55
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8DFF5
 	dw CODE_B8DFF5
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 
-DATA_B8D05F:
-	dw CODE_B8D227
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
-	dw CODE_B8D26D
+start_action_table:
+	dw no_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
+	dw pause_game_action
 	dw CODE_B8D28F
 
-DATA_B8D0AB:
-	dw CODE_B8D227
-	dw CODE_B8D227
+select_action_table:
+	dw no_action
+	dw no_action
 	dw CODE_B8D2C0
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D2C0
-	dw CODE_B8D2C0
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D2C0
 	dw CODE_B8D2C0
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw CODE_B8D2C0
+	dw CODE_B8D2C0
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D2BB
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 
-
-;no left/right action table
-DATA_B8D0F7:
-	dw CODE_B8D227
-	dw CODE_B8D227
+no_left_right_action_table:
+	dw no_action
+	dw no_action
 	dw CODE_B8D5BE
 	dw CODE_B8D5BE
-	dw CODE_B8D227
+	dw no_action
 	dw CODE_B8D5BE
 	dw CODE_B8D5BE
 	dw CODE_B8D5BE
@@ -10052,108 +10056,105 @@ DATA_B8D0F7:
 	dw CODE_B8D5BE
 	dw CODE_B8D5BE
 	dw CODE_B8D5BE
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
 	dw CODE_B8D5BE
 	dw CODE_B8D5BE
 	dw CODE_B8D5BE
-	dw CODE_B8D227
+	dw no_action
 	dw CODE_B8D5BE
 	dw CODE_B8D5BE
 	dw CODE_B8D5BE
 	dw CODE_B8D5BE
 	dw CODE_B8D5BE
 	dw CODE_B8D5BE
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
 
-;no up/down action table
-DATA_B8D143:
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+no_up_down_action_table:
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D628
 	dw CODE_B8D63E
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D659
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8DEC6
 	dw CODE_B8DEC6
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D620
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
 
-;b button action table
-DATA_B8D18F:
-	dw CODE_B8D227 		;00
-	dw CODE_B8D227		;01
+no_b_action_table:
+	dw no_action 		;00
+	dw no_action		;01
 	dw CODE_B8D96C
 	dw CODE_B8D96C
-	dw CODE_B8D227
-	dw CODE_B8D96C
-	dw CODE_B8D96C
+	dw no_action
 	dw CODE_B8D96C
 	dw CODE_B8D96C
 	dw CODE_B8D96C
 	dw CODE_B8D96C
 	dw CODE_B8D96C
 	dw CODE_B8D96C
-	dw CODE_B8D227
+	dw CODE_B8D96C
+	dw CODE_B8D96C
+	dw no_action
 	dw CODE_B8D971 		;0E
-	dw CODE_B8D227
+	dw no_action
 	dw CODE_B8D96C
 	dw CODE_B8D96C
 	dw CODE_B8D96C
 	dw CODE_B8D96C
 	dw CODE_B8D96C
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D96C
 	dw CODE_B8D96C
 	dw CODE_B8D96C
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8D96C
 	dw CODE_B8D96C
 	dw CODE_B8D96C
 	dw CODE_B8D96C
 	dw CODE_B8D96C
 	dw CODE_B8D96C
-	dw CODE_B8D227
+	dw no_action
 
-;no Y action table
-DATA_B8D1DB:
-	dw CODE_B8D227
-	dw CODE_B8D227
+no_y_action_table:
+	dw no_action
+	dw no_action
 	dw CODE_B8DC77
 	dw CODE_B8DC77
 	dw CODE_B8DC77
@@ -10167,34 +10168,34 @@ DATA_B8D1DB:
 	dw CODE_B8DC77
 	dw CODE_B8DC77
 	dw CODE_B8DC77
-	dw CODE_B8D227
+	dw no_action
 	dw CODE_B8DC77
 	dw CODE_B8DC77
 	dw CODE_B8DCBB
 	dw CODE_B8DCBB
 	dw CODE_B8DC77
 	dw CODE_B8DC77
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
 	dw CODE_B8DC77
 	dw CODE_B8DC77
 	dw CODE_B8DC77
-	dw CODE_B8D227
+	dw no_action
 	dw CODE_B8DC77
 	dw CODE_B8DF5E
 	dw CODE_B8DC77
 	dw CODE_B8DC77
 	dw CODE_B8DC77
 	dw CODE_B8DC77
-	dw CODE_B8D227
-	dw CODE_B8D227
-	dw CODE_B8D227
+	dw no_action
+	dw no_action
+	dw no_action
 
-CODE_B8D227:
+no_action:
 	RTS					;$B8D227
 
-CODE_B8D228:
+no_action_2:
 	RTS					;$B8D228
 
 CODE_B8D229:
@@ -10237,23 +10238,23 @@ CODE_B8D25C:
 	LDA.w #$0000				;$B8D269
 	RTS					;$B8D26C
 
-CODE_B8D26D:
+pause_game_action:
 	LDA.w $04E2				;$B8D26D
 	BIT.w #$1000				;$B8D270
-	BNE.b CODE_B8D276			;$B8D273
+	BNE.b .toggle_pause			;$B8D273
 	RTS					;$B8D275
 
-CODE_B8D276:
-	LDA.w screen_brightness			;$B8D276
-	BEQ.b CODE_B8D28E			;$B8D279
-	CMP.w #$0100				;$B8D27B
-	BCS.b CODE_B8D28E			;$B8D27E
-	LDA.w #$2000				;$B8D280
-	BIT.w $05AF				;$B8D283
-	BNE.b CODE_B8D28E			;$B8D286
-	LDA.w #$0010				;$B8D288
-	TSB.w $05B1				;$B8D28B
-CODE_B8D28E:
+.toggle_pause:
+	LDA screen_brightness			;$B8D276
+	BEQ ..return				;$B8D279
+	CMP #$0100				;$B8D27B
+	BCS ..return				;$B8D27E
+	LDA #$2000				;$B8D280
+	BIT $05AF				;$B8D283
+	BNE ..return				;$B8D286
+	LDA #$0010				;$B8D288
+	TSB $05B1				;$B8D28B
+..return:
 	RTS					;$B8D28E
 
 CODE_B8D28F:
@@ -10435,7 +10436,7 @@ CODE_B8D3BA:
 	STA.b $34,x				;$B8D3BF
 	RTS					;$B8D3C1
 
-CODE_B8D3C2:
+walk_left_action:
 	LDX.b current_sprite			;$B8D3C2
 	JSR.w CODE_B8D4C2			;$B8D3C4
 	EOR.w #$FFFF				;$B8D3C7
@@ -10443,7 +10444,7 @@ CODE_B8D3C2:
 	STA.b $30,x				;$B8D3CB
 	RTS					;$B8D3CD
 
-CODE_B8D3CE:
+roll_left_action:
 	LDX.b current_sprite			;$B8D3CE
 	LDA.b $1C,x				;$B8D3D0
 	AND.w #$0007				;$B8D3D2
@@ -10466,7 +10467,7 @@ CODE_B8D3E1:
 CODE_B8D3F2:
 	RTS					;$B8D3F2
 
-CODE_B8D3F3:
+swim_left_action:
 	LDY current_kong_control_variables	;$B8D3F3
 	LDA.w $0006,y				;$B8D3F5
 	AND.w #$0004				;$B8D3F8
@@ -10484,7 +10485,7 @@ CODE_B8D405:
 	STA.b $30,x				;$B8D40D
 	RTS					;$B8D40F
 
-CODE_B8D410:
+move_ellie_left_in_water_action:
 	LDY current_kong_control_variables	;$B8D410
 	LDA.w $0006,y				;$B8D412
 	AND.w #$0004				;$B8D415
@@ -10502,7 +10503,7 @@ CODE_B8D422:
 	STA.b $30,x				;$B8D42A
 	RTS					;$B8D42C
 
-CODE_B8D42D:
+move_enguarde_left_action:
 	LDX.b current_sprite			;$B8D42D
 	LDA.w #$FE00				;$B8D42F
 	STA.b $30,x				;$B8D432
@@ -10652,7 +10653,7 @@ CODE_B8D509:
 	LDA.b [$6A],y				;$B8D50F
 	RTS					;$B8D511
 
-CODE_B8D512:
+horizontal_rope_move_left_action:
 	LDX.b current_sprite			;$B8D512
 	JSR.w CODE_B8D544			;$B8D514
 	EOR.w #$FFFF				;$B8D517
@@ -10663,10 +10664,10 @@ CODE_B8D512:
 CODE_B8D51E:
 	LDA.w $04E2				;$B8D51E
 	AND.w #$0200				;$B8D521
-	BNE.b CODE_B8D512			;$B8D524
+	BNE.b horizontal_rope_move_left_action	;$B8D524
 	LDX.b current_sprite			;$B8D526
 	BIT.b $5C,x				;$B8D528
-	BPL.b CODE_B8D512			;$B8D52A
+	BPL.b horizontal_rope_move_left_action	;$B8D52A
 	RTS					;$B8D52C
 
 CODE_B8D52D:
@@ -10699,7 +10700,7 @@ CODE_B8D556:
 	LDA.b [$6A],y				;$B8D559
 	RTS					;$B8D55B
 
-CODE_B8D55C:
+vertical_rope_turn_left_action:
 	LDX.b current_sprite			;$B8D55C
 	LDA.w #$FF80				;$B8D55E
 	LDY.w #$FFFC				;$B8D561
@@ -10790,7 +10791,7 @@ CODE_B8D5FC:
 	STA.b $30,x				;$B8D5FC
 	RTS					;$B8D5FE
 
-CODE_B8D5FF:
+shot_from_cannon_move_left_action:
 	LDX.b current_sprite			;$B8D5FF
 	JSR.w CODE_B8D4C2			;$B8D601
 	EOR.w #$FFFF				;$B8D604
@@ -11643,7 +11644,7 @@ CODE_B8DC55:
 	RTS					;$B8DC55
 
 CODE_B8DC56:
-	BRL.w CODE_B8DBCB			;$B8DC56
+	BRL CODE_B8DBCB				;$B8DC56
 
 CODE_B8DC59:
 	LDY current_kong_control_variables	;$B8DC59
@@ -11953,7 +11954,7 @@ CODE_B8DE8F:
 CODE_B8DE92:
 	RTS					;$B8DE92
 
-CODE_B8DE93:
+move_squawks_left_action:
 	JSR.w CODE_B8DEA7			;$B8DE93
 	EOR.w #$FFFF				;$B8DE96
 	INC					;$B8DE99
@@ -12619,12 +12620,11 @@ CODE_B8E317:
 group_spawn_manager_main:
 	LDA.w $059B				;$B8E31E
 	AND.w #$0180				;$B8E321
-	BNE.b CODE_B8E32D			;$B8E324
+	BNE.b sprite_marker_main		;$B8E324
 	JSL.l CODE_BB85AF			;$B8E326
 	JML [$04F5]				;$B8E32A
 
 sprite_marker_main:
-CODE_B8E32D:
 	JSL.l CODE_BB85B2			;$B8E32D
 	JML [$04F5]				;$B8E331
 
@@ -12978,7 +12978,7 @@ CODE_B8E5BB:
 	CLC					;$B8E5C7
 	ADC.b $3A				;$B8E5C8
 	PHB					;$B8E5CA
-	PEA.w DATA_FF1C18>>8			;$B8E5CB
+	%pea_shift_dbr(DATA_FF1C18)		;$B8E5CB
 	PLB					;$B8E5CE
 	PLB					;$B8E5CF
 	JSR.w (DATA_B8E5D5,x)			;$B8E5D0
@@ -14943,7 +14943,7 @@ CODE_B8F5B9:
 
 CODE_B8F5C6:
 	LDA.w #!music_baddies_on_parade		;$B8F5C6
-	JSL.l CODE_B28009			;$B8F5C9
+	JSL.l play_song				;$B8F5C9
 	LDA.w #$0004				;$B8F5CD
 	JMP.w CODE_B8F3CB			;$B8F5D0
 
@@ -15098,7 +15098,7 @@ CODE_B8F712:
 	LDA.w $0006,y				;$B8F716
 	AND.w #$FFFB				;$B8F719
 	STA.w $0006,y				;$B8F71C
-	JSR.w CODE_B8D3C2			;$B8F71F
+	JSR.w walk_left_action			;$B8F71F
 	BRA.b CODE_B8F734			;$B8F722
 
 CODE_B8F724:
@@ -15123,7 +15123,7 @@ CODE_B8F74D:
 	LDA.w $0006,y				;$B8F751
 	ORA.w #$0004				;$B8F754
 	STA.w $0006,y				;$B8F757
-	JSR.w CODE_B8D3C2			;$B8F75A
+	JSR.w walk_left_action			;$B8F75A
 	BRA.b CODE_B8F76F			;$B8F75D
 
 CODE_B8F75F:
@@ -15173,7 +15173,7 @@ CODE_B8F7A4:
 	CMP.w $1943				;$B8F7C6
 	BEQ.b CODE_B8F7D8			;$B8F7C9
 	BCS.b CODE_B8F7D2			;$B8F7CB
-	JSR.w CODE_B8D3C2			;$B8F7CD
+	JSR.w walk_left_action			;$B8F7CD
 	BRA.b CODE_B8F7D5			;$B8F7D0
 
 CODE_B8F7D2:
@@ -15268,7 +15268,7 @@ CODE_B8F870:
 	LDA.w $0006,y				;$B8F892
 	AND.w #$FFFB				;$B8F895
 	STA.w $0006,y				;$B8F898
-	JSR.w CODE_B8D3C2			;$B8F89B
+	JSR.w walk_left_action			;$B8F89B
 	JSL.l CODE_B8E15A			;$B8F89E
 	JSL.l CODE_B8E198			;$B8F8A2
 	LDA.w #$0008				;$B8F8A6
@@ -15323,7 +15323,7 @@ CODE_B8F91C:
 	LDA.w $0006,y				;$B8F920
 	AND.w #$FFFB				;$B8F923
 	STA.w $0006,y				;$B8F926
-	JSR.w CODE_B8D3C2			;$B8F929
+	JSR.w walk_left_action			;$B8F929
 	STZ.b $2E,x				;$B8F92C
 	LDA.w #$0002				;$B8F92E
 	JSL.l set_anim_once_handle_kiddy	;$B8F931

@@ -133,318 +133,318 @@ UNK_BB807F:
 sprite_main_table:
 %offset(sprite_main_bank, 2)
 %offset(sprite_timestop_flag, 3)
-	dl null_sprite_main-1					: db $00	;0000
-	dl unknown_sprite_0004_main-1				: db $00	;0004
-	dl unknown_sprite_0008_main-1				: db $00	;0008
-	dl unknown_sprite_000C_main-1				: db $00	;000C
-	dl head_to_head_dot_main-1				: db $00	;0010
-	dl thrown_softball_main-1				: db $00	;0014
-	dl unknown_sprite_0018_main-1				: db $00	;0018
-	dl unknown_sprite_001C_main-1				: db $00	;001C
-	dl arich_spit_main-1					: db $00	;0020
-	dl unknown_sprite_0024_main-1				: db $00	;0024
-	dl unknown_sprite_0028_main-1				: db $00	;0028
-	dl thrown_snowball_main-1				: db $00	;002C
-	dl barrel_shield_main-1					: db $00	;0030
-	dl barrel_pieces_main-1					: db $00	;0034
-	dl map_swimming_kong_splash_main-1			: db $00	;0038
-	dl boat_water_trail_main-1				: db $00	;003C
-	dl minkey_acorn_main-1					: db $00	;0040
-	dl rotating_cylinder_key_main-1				: db $00	;0044
-	dl bleak_fight_cursor_main-1				: db $00	;0048
-	dl top_of_cotton_top_cove_waterfall_main-1		: db $00	;004C
-	dl barbos_spike_projectile_main-1			: db $00	;0050
-	dl barbos_eye_main-1					: db $00	;0054
-	dl barbos_pupil_main-1					: db $00	;0058
-	dl unknown_sprite_005C_main-1				: db $00	;005C
-	dl bottom_of_right_cotton_top_cove_waterfall_main-1	: db $00	;0060
-	dl bottom_of_cotton_top_cove_waterfall_main-1		: db $00	;0064
-	dl play_mode_text_main-1				: db $00	;0068
-	dl music_test_note_main-1				: db $00	;006C
-	dl banana_bird_cave_cover_main-1			: db $00	;0070
-	dl banana_bird_crystal_shards_main-1			: db $00	;0074
-	dl ellie_horizontal_water_shot_main-1			: db $00	;0078
-	dl ellie_diagonal_water_shot_main-1			: db $00	;007C
-	dl squawks_egg_main-1					: db $00	;0080
-	dl kremwood_forest_log_main-1				: db $00	;0084
-	dl map_cannon_main-1					: db $00	;0088
-	dl boomers_bomb_shelter_cogs_main-1			: db $00	;008C
-	dl kaos_laser_head_flame_jet_main-1			: db $00	;0090
-	dl chairlift_chair_main-1				: db $00	;0094
-	dl sewer_stockpile_grate_main-1				: db $00	;0098
-	dl unknown_sprite_009C_main-1				: db $00	;009C
-	dl unknown_sprite_00A0_main-1				: db $00	;00A0
-	dl unknown_sprite_00A4_main-1				: db $00	;00A4
-	dl razor_ridge_pipe_main-1				: db $00	;00A8
-	dl unknown_sprite_00AC_main-1				: db $00	;00AC
-	dl unknown_sprite_00B0_main-1				: db $00	;00B0
-	dl krematoa_bridge_main-1				: db $00	;00B4
-	dl kuchuka_bomb_main-1					: db $00	;00B8
-	dl mama_bird_barrier_gem_main-1				: db $00	;00BC
-	dl map_banana_bird_main-1				: db $00	;00C0
-	dl krool_fight_platform_main-1				: db $00	;00C4
-	dl krool_fight_bg_decorations_main-1			: db $00	;00C8
-	dl squirt_pupil_main-1					: db $00	;00CC
-	dl minkey_main-1					: db $00	;00D0
-	dl unknown_sprite_00D4_main-1				: db $00	;00D4
-	dl belcha_tooth_main-1					: db $00	;00D8
-	dl unknown_sprite_00DC_main-1				: db $00	;00DC (cylinder handle? does nothing)
-	dl inventory_item_squares_main-1			: db $00	;00E0
-	dl unknown_sprite_00E4_main-1				: db $00	;00E4
-	dl squirt_main-1					: db $01	;00E8
-	dl upwards_shot_barrel_main-1				: db $00	;00EC
-	dl rare_logo_main-1					: db $00	;00F0
-	dl unknown_sprite_00F4_main-1				: db $00	;00F4
-	dl funky_kong_main-1					: db $00	;00F8
-	dl title_screen_sign_main-1				: db $00	;00FC
-	dl sneek_wheel_main-1					: db $00	;0100
-	dl area_name_text_main-1				: db $00	;0104
-	dl bleak_main-1						: db $00	;0108
-	dl banana_bird_cave_crystal_main-1			: db $00	;010C
-	dl boss_cutscene_text_main-1				: db $00	;0110
-	dl the_end_sign_main-1					: db $00	;0114
-	dl krool_main-1						: db $00	;0118
-	dl krool_curtain_main-1					: db $00	;011C
-	dl mama_bird_egg-1					: db $00	;0120
-	dl level_end_flagpole_main-1				: db $01	;0124
-	dl unknown_sprite_0128_main-1				: db $00	;0128 Spawns in swanky minigame
-	dl unknown_sprite_012C_main-1				: db $00	;012C
-	dl sprite_marker_main-1					: db $00	;0130
-	dl group_spawn_manager_main-1				: db $00	;0134
-	dl unknown_sprite_0138_main-1				: db $00	;0138
-	dl stampede_trigger_main-1				: db $00	;013C
-	dl unknown_sprite_0140_main-1				: db $00	;0140
-	dl floor_door_main-1					: db $00	;0144
-	dl exit_door_main-1					: db $00	;0148
-	dl banana_main-1					: db $00	;014C
-	dl green_banana_main-1					: db $00	;0150
-	dl green_banana_spawner_main-1				: db $00	;0154
-	dl kongfused_cliffs_rope_main-1				: db $00	;0158
-	dl kongfused_cliffs_autoscroll_main-1			: db $00	;015C
-	dl unknown_sprite_0160_main-1				: db $00	;0160
-	dl kaos_head_explosion_spawner_main-1			: db $00	;0164
-	dl vertical_autoscroll_main-1				: db $00	;0168
-	dl waterfall_barrel_spawner_main-1			: db $00	;016C
-	dl barrel_respawner_main-1				: db $00	;0170
-	dl unknown_sprite_0174_main-1				: db $00	;0174
-	dl buzz_swarm_spawner_main-1				: db $00	;0178
-	dl unknown_sprite_017C_main-1				: db $00	;017C
-	dl unknown_sprite_0180_main-1				: db $00	;0180
-	dl target_spawner_main-1				: db $00	;0184
-	dl ripsaw_rage_controller_main-1			: db $00	;0188
-	dl kuff_n_klout_main-1					: db $00	;018C
-	dl unknown_sprite_0190_main-1				: db $00	;0190
-	dl arich_back_hitbox_main-1				: db $00	;0194
-	dl map_flag_main-1					: db $00	;0198
-	dl title_screen_logo_main-1				: db $00	;019C
-	dl unknown_sprite_01A0_main-1				: db $00	;01A0
-	dl file_select_menu_main-1				: db $00	;01A4
-	dl unknown_sprite_01A8_main-1				: db $00	;01A8
-	dl brash_cabin_digital_display_main-1			: db $00	;01AC
-	dl file_select_number_main-1				: db $00	;01B0
-	dl banana_bird_cave_controller_main-1			: db $00	;01B4
-	dl unknown_sprite_01B8_main-1				: db $00	;01B8
-	dl unknown_sprite_01BC_main-1				: db $00	;01BC
-	dl riverside_race_timer_main-1				: db $01	;01C0
-	dl unknown_sprite_01C4_main-1				: db $00	;01C4
-	dl unknown_sprite_01C8_main-1				: db $00	;01C8
-	dl unknown_sprite_01CC_main-1				: db $00	;01CC
-	dl lightning_bolt_spawner_main-1			: db $00	;01D0
-	dl knautilus_sprite_mask_main-1				: db $00	;01D4
-	dl player_krosshair_controller_main-1			: db $00	;01D8
-	dl unknown_sprite_01DC_main-1				: db $00	;01DC
-	dl unknown_sprite_01E0_main-1				: db $00	;01E0
-	dl boss_cutscene_dialogue_handler_main-1		: db $00	;01E4
-	dl belcha_main-1					: db $01	;01E8
-	dl barbos_main-1					: db $01	;01EC
-	dl swoopy_spawner_main-1				: db $00	;01F0
-	dl squeals_on_wheels_tracker_main-1			: db $00	;01F4
-	dl bazza_spawner_main-1					: db $00	;01F8
-	dl banana_bird_main-1					: db $00	;01FC
-	dl nibbla_handler_main-1				: db $00	;0200
-	dl kaos_main-1						: db $01	;0204
-	dl unknown_sprite_0208_main-1				: db $00	;0208
-	dl unknown_sprite_020C_main-1				: db $00	;020C
-	dl nintendo_presents_kong_main-1			: db $00	;0210
-	dl rotating_cylinder_handle_main-1			: db $00	;0214
-	dl rare_logo_kiddy_main-1				: db $00	;0218
-	dl rare_logo_dixie_main-1				: db $00	;021C
-	dl toboggan_main-1					: db $00	;0220
-	dl toboggan_sparks_main-1				: db $01	;0224
-	dl large_pipe_main-1					: db $00	;0228
-	dl dixie_kong_main-1					: db $00	;022C
-	dl kiddy_kong_main-1					: db $00	;0230
-	dl ellie_main-1						: db $00	;0234
-	dl enguarde_main-1					: db $00	;0238
-	dl squawks_main-1					: db $00	;023C
-	dl squitter_main-1					: db $00	;0240
-	dl parry_main-1						: db $00	;0244
-	dl web_shot_main-1					: db $00	;0248
-	dl web_platform_main-1					: db $00	;024C
-	dl animal_buddy_box_main-1				: db $00	;0250
-	dl animal_buddy_icon_main-1				: db $01	;0254
-	dl no_animal_buddy_sign_main-1				: db $01	;0258
-	dl unknown_sprite_025C_main-1				: db $01	;025C
-	dl respawn_suppressor_main-1				: db $00	;0260
-	dl unknown_sprite_0264_main-1				: db $00	;0264
-	dl fireball_landing_particles_main-1			: db $00	;0268
-	dl burst_effect_main-1					: db $01	;026C
-	dl water_splash_main-1					: db $00	;0270
-	dl smoke_puff_main-1					: db $01	;0274
-	dl barrel_switch_s_main-1				: db $00	;0278
-	dl mill_platform_main-1					: db $00	;027C
-	dl unknown_sprite_0280_main-1				: db $00	;0280
-	dl bear_coin_main-1					: db $00	;0284
-	dl unknown_sprite_0288_main-1				: db $00	;0288
-	dl bonus_coin_main-1					: db $00	;028C
-	dl collectable_cog_main-1				: db $00	;0290
-	dl kong_letters_main-1					: db $00	;0294
-	dl bananas_main-1					: db $00	;0298
-	dl extra_life_balloon_main-1				: db $00	;029C
-	dl level_end_flag_main-1				: db $01	;02A0
-	dl unknown_sprite_02A4_main-1				: db $01	;02A4
-	dl bonus_timer_main-1					: db $00	;02A8
-	dl rope_fire_main-1					: db $00	;02AC
-	dl kong_water_splash_main-1				: db $00	;02B0
-	dl barrel_cannon_main-1					: db $00	;02B4
-	dl barrel_icons_main-1					: db $00	;02B8
-	dl checkpoint_barrel_main-1				: db $00	;02BC
-	dl barrel_main-1					: db $00	;02C0
-	dl floating_dk_barrel_main-1				: db $00	;02C4
-	dl boss_dk_barrel_main-1				: db $00	;02C8
-	dl dk_barrel_main-1					: db $00	;02CC
-	dl tnt_barrel_main-1					: db $00	;02D0
-	dl steel_keg_main-1					: db $00	;02D4
-	dl wooden_box_main-1					: db $00	;02D8
-	dl waterfall_barrel_main-1				: db $00	;02DC
-	dl invincibility_barrel_main-1				: db $00	;02E0
-	dl fuel_can_main-1					: db $00	;02E4
-	dl kaos_head_explosion_main-1				: db $00	;02E8
-	dl rocket_main-1					: db $00	;02EC
-	dl rocket_flame_main-1					: db $00	;02F0
-	dl rocket_eyes_main-1					: db $00	;02F4
-	dl sneek_main-1						: db $00	;02F8
-	dl buzz_main-1						: db $00	;02FC
-	dl koco_main-1						: db $00	;0300
-	dl map_kong_main-1					: db $00	;0304
-	dl stationary_display_sprite_main-1			: db $00	;0308
-	dl map_vehicle_main-1					: db $00	;030C
-	dl unknown_sprite_0310_main-1				: db $00	;0310
-	dl ending_swanky_main-1					: db $00	;0314
-	dl moving_display_sprite_main-1				: db $00	;0318
-	dl game_over_blocks_main-1				: db $00	;031C
-	dl brothers_bear_main-1					: db $00	;0320
-	dl brothers_bear_accessories_main-1			: db $00	;0324
-	dl main_map_waterfall_main-1				: db $00	;0328
-	dl unknown_sprite_032C_main-1				: db $00	;032C
-	dl file_select_icon_main-1				: db $00	;0330
-	dl chairlift_pulley_main-1				: db $00	;0334
-	dl barnacles_bird_cage_main-1				: db $00	;0338
-	dl stationary_display_sprite_2_main-1			: db $00	;033C
-	dl brambles_vase_main-1					: db $00	;0340
-	dl gyrocopter_blades_and_shadow_main-1			: db $00	;0344
-	dl banana_bird_cave_kong_main-1				: db $00	;0348
-	dl unknown_sprite_034C_main-1				: db $00	;034C
-	dl save_cave_selection_text_main-1			: db $00	;0350
-	dl sky_high_secret_rock_main-1				: db $00	;0354
-	dl krosshair_main-1					: db $00	;0358
-	dl knautilus_main-1					: db $00	;035C
-	dl banana_bird_crystal_main-1				: db $00	;0360
-	dl krool_head_main-1					: db $00	;0364
-	dl funky_cranky_secret_ending_main-1			: db $00	;0368
-	dl wrinklys_save_cave_main-1				: db $00	;036C
-	dl map_mama_bird_main-1					: db $00	;0370
-	dl buzz_swarm_main-1					: db $00	;0374
-	dl klasp_follow_main-1					: db $00	;0378
-	dl klasp_auto_move_main-1				: db $00	;037C
-	dl lemguin_main-1					: db $00	;0380
-	dl nibbla_head_friendly_main-1				: db $00	;0384
-	dl nibbla_body_friendly_main-1				: db $00	;0388
-	dl door_lever_handle_main-1				: db $00	;038C
-	dl metal_door_lever_controlled_main-1			: db $00	;0390
-	dl door_gear_main-1					: db $00	;0394
-	dl sneek_in_wheel_main-1				: db $00	;0398
-	dl metal_door_sneek_controlled_main-1			: db $00	;039C
-	dl arich_legs_main-1					: db $00	;03A0
-	dl arich_head_main-1					: db $00	;03A4
-	dl arich_pupil_main-1					: db $00	;03A8
-	dl unknown_sprite_03AC_main-1				: db $00	;03AC
-	dl unknown_sprite_03B0_main-1				: db $00	;03B0 (rekoil 2? no spawn script)
-	dl lurchin_main-1					: db $00	;03B4
-	dl bleak_snowball_main-1				: db $00	;03B8
-	dl rekoil_main-1					: db $00	;03BC
-	dl bleak_fight_kong_main-1				: db $01	;03C0
-	dl unknown_sprite_03C4_main-1				: db $00	;03C4
-	dl kobble_and_skidda_main-1				: db $00	;03C8
-	dl big_smoke_cloud_main-1				: db $00	;03CC
-	dl koin_main-1						: db $00	;03D0
-	dl dk_coin_main-1					: db $00	;03D4
-	dl lemguin_spawner_main-1				: db $00	;03D8
-	dl defeated_bleak_snowball_main-1			: db $00	;03DC
-	dl knocka_main-1					: db $00	;03E0
-	dl knocka_limbs_main-1					: db $00	;03E4
-	dl unknown_sprite_03E8_main-1				: db $00	;03E8
-	dl belcha_mouth_side_main-1				: db $00	;03EC
-	dl belcha_barrel_main-1					: db $00	;03F0
-	dl knik_knak_main-1					: db $00	;03F4
-	dl krimp_main-1						: db $00	;03F8
-	dl knautilus_fireball_shooter_main-1			: db $00	;03FC
-	dl belcha_platform_main-1				: db $00	;0400
-	dl barbos_mouth_main-1					: db $00	;0404
-	dl purple_lurchin_main-1				: db $00	;0408
-	dl barbos_green_lurchin_main-1				: db $00	;040C
-	dl seashell_missle_main-1				: db $00	;0410
-	dl bristles_main-1					: db $00	;0414
-	dl krumple_main-1					: db $00	;0418
-	dl swoopy_main-1					: db $00	;041C
-	dl kuchuka_main-1					: db $00	;0420
-	dl kuchuka_hand_main-1					: db $00	;0424
-	dl flying_knik_knak_main-1				: db $00	;0428
-	dl bazza_main-1						: db $00	;042C
-	dl bounty_bass_main-1					: db $00	;0430
-	dl booty_bird_main-1					: db $00	;0434
-	dl unknown_sprite_0438_main-1				: db $00	;0438 \
-	dl unknown_sprite_043C_main-1				: db $00	;043C  | No spawn scripts
-	dl unknown_sprite_0440_main-1				: db $00	;0440 /
-	dl nid_main-1						: db $00	;0444
-	dl bazuka_main-1					: db $00	;0448
-	dl bazuka_barrel_main-1					: db $00	;044C
-	dl barrel_switch_main-1					: db $00	;0450
-	dl kopter_main-1					: db $00	;0454
-	dl murky_mill_elevator_main-1				: db $00	;0458
-	dl nibbla_head_main-1					: db $00	;045C
-	dl nibbla_body_main-1					: db $00	;0460
-	dl boss_prize_bonus_coin_main-1				: db $00	;0464
-	dl boss_prize_bear_coin_main-1				: db $00	;0468
-	dl kaos_laser_head_main-1				: db $00	;046C
-	dl kaos_skull_head_main-1				: db $00	;0470
-	dl kaos_flame_main-1					: db $00	;0474
-	dl kaos_blade_main-1					: db $00	;0478
-	dl kaos_boxing_glove_main-1				: db $00	;047C
-	dl kaos_flame_spread_main-1				: db $00	;0480
-	dl karbine_main-1					: db $00	;0484
-	dl karbine_fireball_main-1				: db $00	;0488
-	dl krosshair_fireball_main-1				: db $00	;048C
-	dl gleamin_bream_main-1					: db $00	;0490
-	dl kaos_cylinder_head_main-1				: db $00	;0494
-	dl kaos_bombs_main-1					: db $00	;0498
-	dl unknown_sprite_049C_main-1				: db $00	;049C
-	dl tnt_explosion_main-1					: db $00	;04A0
-	dl krool_propeller_main-1				: db $00	;04A4
-	dl kastle_kaos_lever_main-1				: db $00	;04A8
-	dl electric_node_main-1					: db $00	;04AC
-	dl krool_feet_main-1					: db $00	;04B0 (Also kaos hook chain)
-	dl knautilus_fireball_main-1				: db $00	;04B4
-	dl bg_steel_keg_main-1					: db $00	;04B8
-	dl squirts_eye_part_main-1				: db $00	;04BC
-	dl unknown_sprite_04C0_main-1				: db $00	;04C0
-	dl cranky_kong_main-1					: db $00	;04C4
-	dl timer_digit_main-1					: db $00	;04C8
-	dl head_to_head_icon_main-1				: db $00	;04CC
-	dl target_main-1					: db $00	;04D0
-	dl swanky_minigame_kong_main-1				: db $00	;04D4
-	dl swanky_kong_main-1					: db $00	;04D8
-	dl swanky_kong_prize_main-1				: db $00	;04DC
+	dl null_sprite_main-1				: db $00	;0000
+	dl unknown_sprite_0004_main-1			: db $00	;0004
+	dl unknown_sprite_0008_main-1			: db $00	;0008
+	dl unknown_sprite_000C_main-1			: db $00	;000C
+	dl head_to_head_dot_main-1			: db $00	;0010
+	dl thrown_softball_main-1			: db $00	;0014
+	dl unknown_sprite_0018_main-1			: db $00	;0018
+	dl unknown_sprite_001C_main-1			: db $00	;001C
+	dl arich_spit_main-1				: db $00	;0020
+	dl unknown_sprite_0024_main-1			: db $00	;0024
+	dl unknown_sprite_0028_main-1			: db $00	;0028
+	dl thrown_snowball_main-1			: db $00	;002C
+	dl barrel_shield_main-1				: db $00	;0030
+	dl barrel_pieces_main-1				: db $00	;0034
+	dl map_swimming_kong_splash_main-1		: db $00	;0038
+	dl boat_water_trail_main-1			: db $00	;003C
+	dl minkey_acorn_main-1				: db $00	;0040
+	dl rotating_cylinder_key_main-1			: db $00	;0044
+	dl bleak_fight_cursor_main-1			: db $00	;0048
+	dl top_of_cotton_top_cove_waterfall_main-1	: db $00	;004C
+	dl barbos_spike_projectile_main-1		: db $00	;0050
+	dl barbos_eye_main-1				: db $00	;0054
+	dl barbos_pupil_main-1				: db $00	;0058
+	dl unknown_sprite_005C_main-1			: db $00	;005C
+	dl bottom_of_right_ctc_waterfall_main-1		: db $00	;0060
+	dl bottom_of_ctc_waterfall_main-1		: db $00	;0064
+	dl play_mode_text_main-1			: db $00	;0068
+	dl music_test_note_main-1			: db $00	;006C
+	dl banana_bird_cave_cover_main-1		: db $00	;0070
+	dl banana_bird_crystal_shards_main-1		: db $00	;0074
+	dl ellie_horizontal_water_shot_main-1		: db $00	;0078
+	dl ellie_diagonal_water_shot_main-1		: db $00	;007C
+	dl squawks_egg_main-1				: db $00	;0080
+	dl kremwood_forest_log_main-1			: db $00	;0084
+	dl map_cannon_main-1				: db $00	;0088
+	dl boomers_bomb_shelter_cogs_main-1		: db $00	;008C
+	dl kaos_laser_head_flame_jet_main-1		: db $00	;0090
+	dl chairlift_chair_main-1			: db $00	;0094
+	dl sewer_stockpile_grate_main-1			: db $00	;0098
+	dl unknown_sprite_009C_main-1			: db $00	;009C
+	dl unknown_sprite_00A0_main-1			: db $00	;00A0
+	dl unknown_sprite_00A4_main-1			: db $00	;00A4
+	dl razor_ridge_pipe_main-1			: db $00	;00A8
+	dl unknown_sprite_00AC_main-1			: db $00	;00AC
+	dl unknown_sprite_00B0_main-1			: db $00	;00B0
+	dl krematoa_bridge_main-1			: db $00	;00B4
+	dl kuchuka_bomb_main-1				: db $00	;00B8
+	dl mama_bird_barrier_gem_main-1			: db $00	;00BC
+	dl map_banana_bird_main-1			: db $00	;00C0
+	dl krool_fight_platform_main-1			: db $00	;00C4
+	dl krool_fight_bg_decorations_main-1		: db $00	;00C8
+	dl squirt_pupil_main-1				: db $00	;00CC
+	dl minkey_main-1				: db $00	;00D0
+	dl unknown_sprite_00D4_main-1			: db $00	;00D4 Spawns in save cave
+	dl belcha_tooth_main-1				: db $00	;00D8
+	dl unknown_sprite_00DC_main-1			: db $00	;00DC Cylinder handle? does nothing
+	dl inventory_item_squares_main-1		: db $00	;00E0
+	dl boss_prize_item_main-1			: db $00	;00E4
+	dl squirt_main-1				: db $01	;00E8
+	dl upwards_shot_barrel_main-1			: db $00	;00EC
+	dl rare_logo_main-1				: db $00	;00F0
+	dl unknown_sprite_00F4_main-1			: db $00	;00F4 In bank BA so debug sprite?
+	dl funky_kong_main-1				: db $00	;00F8
+	dl title_screen_sign_main-1			: db $00	;00FC
+	dl sneek_wheel_main-1				: db $00	;0100
+	dl area_name_text_main-1			: db $00	;0104 Also used for photo album text
+	dl bleak_main-1					: db $00	;0108
+	dl banana_bird_cave_crystal_main-1		: db $00	;010C
+	dl boss_cutscene_text_main-1			: db $00	;0110
+	dl the_end_sign_main-1				: db $00	;0114
+	dl krool_main-1					: db $00	;0118
+	dl krool_curtain_main-1				: db $00	;011C
+	dl mama_bird_egg-1				: db $00	;0120
+	dl level_end_flagpole_main-1			: db $01	;0124
+	dl unknown_sprite_0128_main-1			: db $00	;0128 Spawns in swanky minigame
+	dl unknown_sprite_012C_main-1			: db $00	;012C
+	dl sprite_marker_main-1				: db $00	;0130
+	dl group_spawn_manager_main-1			: db $00	;0134
+	dl unknown_sprite_0138_main-1			: db $00	;0138 Another marker/group handler?
+	dl stampede_trigger_main-1			: db $00	;013C
+	dl unknown_sprite_0140_main-1			: db $00	;0140
+	dl floor_door_main-1				: db $00	;0144
+	dl exit_door_main-1				: db $00	;0148
+	dl banana_main-1				: db $00	;014C
+	dl green_banana_main-1				: db $00	;0150
+	dl green_banana_spawner_main-1			: db $00	;0154
+	dl kongfused_cliffs_rope_main-1			: db $00	;0158
+	dl kongfused_cliffs_autoscroll_main-1		: db $00	;015C
+	dl breakable_floor_main-1			: db $00	;0160
+	dl kaos_head_explosion_spawner_main-1		: db $00	;0164
+	dl vertical_autoscroll_main-1			: db $00	;0168
+	dl waterfall_barrel_spawner_main-1		: db $00	;016C
+	dl barrel_respawner_main-1			: db $00	;0170
+	dl unknown_sprite_0174_main-1			: db $00	;0174
+	dl buzz_swarm_spawner_main-1			: db $00	;0178
+	dl squeals_on_wheels_door_handler_main-1	: db $00	;017C
+	dl unknown_sprite_0180_main-1			: db $00	;0180 squeals on wheels related
+	dl target_spawner_main-1			: db $00	;0184
+	dl ripsaw_rage_handler_main-1			: db $00	;0188
+	dl kuff_n_klout_handler_main-1			: db $00	;018C
+	dl koin_handler_main-1				: db $00	;0190
+	dl arich_back_hitbox_main-1			: db $00	;0194
+	dl map_flag_main-1				: db $00	;0198
+	dl title_screen_logo_main-1			: db $00	;019C
+	dl unknown_sprite_01A0_main-1			: db $00	;01A0
+	dl file_select_menu_main-1			: db $00	;01A4
+	dl unknown_sprite_01A8_main-1			: db $00	;01A8
+	dl brash_cabin_digital_display_main-1		: db $00	;01AC
+	dl file_select_number_main-1			: db $00	;01B0
+	dl banana_bird_cave_controller_main-1		: db $00	;01B4
+	dl unknown_sprite_01B8_main-1			: db $00	;01B8
+	dl unknown_sprite_01BC_main-1			: db $00	;01BC
+	dl riverside_race_timer_main-1			: db $01	;01C0
+	dl unknown_sprite_01C4_main-1			: db $00	;01C4
+	dl unknown_sprite_01C8_main-1			: db $00	;01C8
+	dl unknown_sprite_01CC_main-1			: db $00	;01CC
+	dl lightning_bolt_spawner_main-1		: db $00	;01D0
+	dl knautilus_sprite_mask_main-1			: db $00	;01D4
+	dl player_krosshair_controller_main-1		: db $00	;01D8
+	dl unknown_sprite_01DC_main-1			: db $00	;01DC
+	dl unknown_sprite_01E0_main-1			: db $00	;01E0
+	dl boss_cutscene_dialogue_handler_main-1	: db $00	;01E4
+	dl belcha_main-1				: db $01	;01E8
+	dl barbos_main-1				: db $01	;01EC
+	dl swoopy_spawner_main-1			: db $00	;01F0
+	dl squeals_on_wheels_tracker_main-1		: db $00	;01F4
+	dl bazza_spawner_main-1				: db $00	;01F8
+	dl banana_bird_main-1				: db $00	;01FC
+	dl nibbla_handler_main-1			: db $00	;0200
+	dl kaos_main-1					: db $01	;0204
+	dl unknown_sprite_0208_main-1			: db $00	;0208
+	dl unknown_sprite_020C_main-1			: db $00	;020C
+	dl nintendo_presents_kong_main-1		: db $00	;0210
+	dl rotating_cylinder_handle_main-1		: db $00	;0214
+	dl rare_logo_kiddy_main-1			: db $00	;0218
+	dl rare_logo_dixie_main-1			: db $00	;021C
+	dl toboggan_main-1				: db $00	;0220
+	dl toboggan_sparks_main-1			: db $01	;0224
+	dl large_pipe_main-1				: db $00	;0228
+	dl dixie_kong_main-1				: db $00	;022C
+	dl kiddy_kong_main-1				: db $00	;0230
+	dl ellie_main-1					: db $00	;0234
+	dl enguarde_main-1				: db $00	;0238
+	dl squawks_main-1				: db $00	;023C
+	dl squitter_main-1				: db $00	;0240
+	dl parry_main-1					: db $00	;0244
+	dl web_shot_main-1				: db $00	;0248
+	dl web_platform_main-1				: db $00	;024C
+	dl animal_buddy_box_main-1			: db $00	;0250
+	dl animal_buddy_icon_main-1			: db $01	;0254
+	dl no_animal_buddy_sign_main-1			: db $01	;0258
+	dl unknown_sprite_025C_main-1			: db $01	;025C
+	dl respawn_suppressor_main-1			: db $00	;0260
+	dl unknown_sprite_0264_main-1			: db $00	;0264
+	dl fireball_landing_particles_main-1		: db $00	;0268
+	dl burst_effect_main-1				: db $01	;026C Also checkpoint stars and smoke
+	dl water_splash_main-1				: db $00	;0270
+	dl smoke_puff_main-1				: db $01	;0274
+	dl barrel_switch_s_main-1			: db $00	;0278
+	dl mill_platform_main-1				: db $00	;027C
+	dl unknown_sprite_0280_main-1			: db $00	;0280
+	dl bear_coin_main-1				: db $00	;0284
+	dl unknown_sprite_0288_main-1			: db $00	;0288
+	dl bonus_coin_main-1				: db $00	;028C
+	dl collectable_cog_main-1			: db $00	;0290
+	dl kong_letters_main-1				: db $00	;0294
+	dl bananas_main-1				: db $00	;0298
+	dl extra_life_balloon_main-1			: db $00	;029C
+	dl level_end_flag_main-1			: db $01	;02A0
+	dl unknown_sprite_02A4_main-1			: db $01	;02A4
+	dl bonus_timer_main-1				: db $00	;02A8
+	dl rope_fire_main-1				: db $00	;02AC
+	dl kong_water_splash_main-1			: db $00	;02B0
+	dl barrel_cannon_main-1				: db $00	;02B4
+	dl barrel_icons_main-1				: db $00	;02B8
+	dl checkpoint_barrel_main-1			: db $00	;02BC
+	dl barrel_main-1				: db $00	;02C0
+	dl floating_dk_barrel_main-1			: db $00	;02C4
+	dl boss_dk_barrel_main-1			: db $00	;02C8
+	dl dk_barrel_main-1				: db $00	;02CC
+	dl tnt_barrel_main-1				: db $00	;02D0
+	dl steel_keg_main-1				: db $00	;02D4
+	dl wooden_box_main-1				: db $00	;02D8
+	dl waterfall_barrel_main-1			: db $00	;02DC
+	dl invincibility_barrel_main-1			: db $00	;02E0
+	dl fuel_can_main-1				: db $00	;02E4
+	dl kaos_head_explosion_main-1			: db $00	;02E8
+	dl rocket_main-1				: db $00	;02EC
+	dl rocket_flame_main-1				: db $00	;02F0
+	dl rocket_eyes_main-1				: db $00	;02F4
+	dl sneek_main-1					: db $00	;02F8
+	dl buzz_main-1					: db $00	;02FC
+	dl koco_main-1					: db $00	;0300
+	dl map_kong_main-1				: db $00	;0304
+	dl stationary_display_sprite_main-1		: db $00	;0308
+	dl map_vehicle_main-1				: db $00	;030C
+	dl npc_kong_main-1				: db $00	;0310
+	dl ending_swanky_main-1				: db $00	;0314
+	dl moving_display_sprite_main-1			: db $00	;0318
+	dl game_over_blocks_main-1			: db $00	;031C
+	dl brothers_bear_main-1				: db $00	;0320
+	dl brothers_bear_accessories_main-1		: db $00	;0324
+	dl main_map_waterfall_main-1			: db $00	;0328
+	dl unknown_sprite_032C_main-1			: db $00	;032C
+	dl file_select_icon_main-1			: db $00	;0330
+	dl chairlift_pulley_main-1			: db $00	;0334
+	dl barnacles_bird_cage_main-1			: db $00	;0338
+	dl stationary_display_sprite_2_main-1		: db $00	;033C
+	dl brambles_vase_main-1				: db $00	;0340
+	dl gyrocopter_blades_and_shadow_main-1		: db $00	;0344
+	dl banana_bird_cave_kong_main-1			: db $00	;0348
+	dl funky_rentals_particles_main-1		: db $00	;034C
+	dl save_cave_selection_text_main-1		: db $00	;0350
+	dl sky_high_secret_rock_main-1			: db $00	;0354
+	dl krosshair_main-1				: db $00	;0358
+	dl knautilus_main-1				: db $00	;035C
+	dl banana_bird_crystal_main-1			: db $00	;0360
+	dl krool_head_main-1				: db $00	;0364
+	dl funky_cranky_secret_ending_main-1		: db $00	;0368
+	dl wrinklys_save_cave_main-1			: db $00	;036C
+	dl map_mama_bird_main-1				: db $00	;0370
+	dl buzz_swarm_main-1				: db $00	;0374
+	dl klasp_follow_main-1				: db $00	;0378
+	dl klasp_auto_move_main-1			: db $00	;037C
+	dl lemguin_main-1				: db $00	;0380
+	dl nibbla_head_friendly_main-1			: db $00	;0384
+	dl nibbla_body_friendly_main-1			: db $00	;0388
+	dl door_lever_handle_main-1			: db $00	;038C
+	dl metal_door_lever_controlled_main-1		: db $00	;0390
+	dl door_gear_main-1				: db $00	;0394
+	dl sneek_in_wheel_main-1			: db $00	;0398
+	dl metal_door_sneek_controlled_main-1		: db $00	;039C
+	dl arich_legs_main-1				: db $00	;03A0
+	dl arich_head_main-1				: db $00	;03A4
+	dl arich_pupil_main-1				: db $00	;03A8
+	dl ripsaw_rage_sawdust_main-1			: db $00	;03AC
+	dl unknown_sprite_03B0_main-1			: db $00	;03B0 (rekoil 2? no spawn script)
+	dl lurchin_main-1				: db $00	;03B4
+	dl bleak_snowball_main-1			: db $00	;03B8
+	dl rekoil_main-1				: db $00	;03BC
+	dl bleak_fight_kong_main-1			: db $01	;03C0
+	dl kuff_n_klout_main-1				: db $00	;03C4
+	dl kobble_and_skidda_main-1			: db $00	;03C8
+	dl big_smoke_cloud_main-1			: db $00	;03CC
+	dl koin_main-1					: db $00	;03D0
+	dl dk_coin_main-1				: db $00	;03D4
+	dl lemguin_spawner_main-1			: db $00	;03D8
+	dl defeated_bleak_snowball_main-1		: db $00	;03DC
+	dl knocka_main-1				: db $00	;03E0
+	dl knocka_limbs_main-1				: db $00	;03E4
+	dl bleak_fight_dk_barrel_main-1			: db $00	;03E8
+	dl belcha_mouth_side_main-1			: db $00	;03EC
+	dl belcha_barrel_main-1				: db $00	;03F0
+	dl knik_knak_main-1				: db $00	;03F4
+	dl krimp_main-1					: db $00	;03F8
+	dl knautilus_fireball_shooter_main-1		: db $00	;03FC
+	dl belcha_platform_main-1			: db $00	;0400
+	dl barbos_mouth_main-1				: db $00	;0404
+	dl purple_lurchin_main-1			: db $00	;0408
+	dl barbos_green_lurchin_main-1			: db $00	;040C
+	dl seashell_missle_main-1			: db $00	;0410
+	dl bristles_main-1				: db $00	;0414
+	dl krumple_main-1				: db $00	;0418
+	dl swoopy_main-1				: db $00	;041C
+	dl kuchuka_main-1				: db $00	;0420
+	dl kuchuka_hand_main-1				: db $00	;0424
+	dl flying_knik_knak_main-1			: db $00	;0428
+	dl bazza_main-1					: db $00	;042C
+	dl bounty_bass_main-1				: db $00	;0430
+	dl booty_bird_main-1				: db $00	;0434
+	dl unknown_sprite_0438_main-1			: db $00	;0438 \
+	dl unknown_sprite_043C_main-1			: db $00	;043C  | No spawn script, moves
+	dl unknown_sprite_0440_main-1			: db $00	;0440 /
+	dl nid_main-1					: db $00	;0444
+	dl bazuka_main-1				: db $00	;0448
+	dl bazuka_barrel_main-1				: db $00	;044C
+	dl barrel_switch_main-1				: db $00	;0450
+	dl kopter_main-1				: db $00	;0454
+	dl murky_mill_elevator_main-1			: db $00	;0458
+	dl nibbla_head_main-1				: db $00	;045C
+	dl nibbla_body_main-1				: db $00	;0460
+	dl boss_prize_bonus_coin_main-1			: db $00	;0464
+	dl boss_prize_bear_coin_main-1			: db $00	;0468
+	dl kaos_laser_head_main-1			: db $00	;046C
+	dl kaos_skull_head_main-1			: db $00	;0470
+	dl kaos_flame_main-1				: db $00	;0474
+	dl kaos_blade_main-1				: db $00	;0478
+	dl kaos_boxing_glove_main-1			: db $00	;047C
+	dl kaos_flame_spread_main-1			: db $00	;0480
+	dl karbine_main-1				: db $00	;0484
+	dl karbine_fireball_main-1			: db $00	;0488
+	dl krosshair_fireball_main-1			: db $00	;048C
+	dl gleamin_bream_main-1				: db $00	;0490
+	dl kaos_cylinder_head_main-1			: db $00	;0494
+	dl kaos_bombs_main-1				: db $00	;0498
+	dl unknown_sprite_049C_main-1			: db $00	;049C Explosion?
+	dl tnt_explosion_main-1				: db $00	;04A0
+	dl krool_propeller_main-1			: db $00	;04A4
+	dl kastle_kaos_lever_main-1			: db $00	;04A8
+	dl electric_node_main-1				: db $00	;04AC
+	dl krool_feet_main-1				: db $00	;04B0 (Also kaos hook chain)
+	dl knautilus_fireball_main-1			: db $00	;04B4
+	dl bg_steel_keg_main-1				: db $00	;04B8
+	dl squirts_eye_part_main-1			: db $00	;04BC
+	dl unknown_sprite_04C0_main-1			: db $00	;04C0
+	dl cranky_kong_main-1				: db $00	;04C4
+	dl timer_digit_main-1				: db $00	;04C8
+	dl head_to_head_icon_main-1			: db $00	;04CC
+	dl target_main-1				: db $00	;04D0
+	dl swanky_minigame_kong_main-1			: db $00	;04D4
+	dl swanky_kong_main-1				: db $00	;04D8
+	dl swanky_kong_prize_main-1			: db $00	;04DC
 
 
 disable_screen_wrapper:
@@ -520,7 +520,7 @@ CODE_BB85A9:
 	JMP CODE_BBADC1				;$BB85A9
 
 CODE_BB85AC:
-	JMP CODE_BBAD15				;$BB85AC
+	JMP CODE_BBAD15				;$BB85AC Mark sprite as defeated in level data
 
 CODE_BB85AF:
 	JMP CODE_BBAC30				;$BB85AF
@@ -632,19 +632,19 @@ CODE_BB8615:
 
 CODE_BB861E:
 	JSL CODE_BB8A3F				;$BB861E
-	PEA.w $7E0000>>16			;$BB8622
+	%pea_shift_dbr(wram_base>>8)		;$BB8622
 	BRA CODE_BB8639				;$BB8625
 
 ADDR_BB8627:
 	LDA #$0000				;$BB8627
-	PEA.w $7F0000>>16			;$BB862A
+	%pea_shift_dbr(wram_base_high>>8)	;$BB862A
 	BRA CODE_BB8639				;$BB862D
 
 CODE_BB862F:
 	LDA #$0000				;$BB862F
 CODE_BB8632:
 	JSL CODE_BB8A3F				;$BB8632
-	PEA.w $7F0000>>16			;$BB8636
+	%pea_shift_dbr(wram_base_high>>8)	;$BB8636
 CODE_BB8639:					; Note: Decompression routine.
 	STA $20					;$BB8639
 	PLA					;$BB863B
@@ -1731,7 +1731,7 @@ set_PPU_registers:
 
 vram_payload_handler:
 	PHB					;$BB8CF6
-	PEA.w DATA_FD1B03>>8			;$BB8CF7
+	%pea_shift_dbr(DATA_FD1B03)		;$BB8CF7
 	PLB					;$BB8CFA
 	PLB					;$BB8CFB
 	ASL					;$BB8CFC
@@ -1913,7 +1913,7 @@ CODE_BB8E38:
 	ASL					;$BB8E42
 	ASL					;$BB8E43
 	STA $1A					;$BB8E44
-	PEA.w (($7E2D80&$FF0000)>>16)|(($8E0000&$FF0000)>>8)	;$BB8E46
+	%pea_shift_dbr($8E7E00)			;$BB8E46
 	PLB					;$BB8E49
 	PHX					;$BB8E4A
 	PHY					;$BB8E4B
@@ -1932,7 +1932,7 @@ CODE_BB8E53:
 	ASL					;$BB8E5D
 	ASL					;$BB8E5E
 	STA $30					;$BB8E5F
-	PEA.w (($7E2D80&$FF0000)>>16)|(($8E0000&$FF0000)>>8)	;$BB8E61
+	%pea_shift_dbr($8E7E00)			;$BB8E61
 	PLB					;$BB8E64
 	PHX					;$BB8E65
 	PHY					;$BB8E66
@@ -2023,7 +2023,7 @@ init_sprite_render_order:
 .next_slot:
 	STA sprite_render_table,x		;$BB8F03
 	CLC					;$BB8F06
-	ADC #sizeof(sprite)			;$BB8F07
+	ADC.w #sizeof(sprite)			;$BB8F07
 	INX					;$BB8F0A
 	INX					;$BB8F0B
 	CPX #$003A				;$BB8F0C
@@ -2120,7 +2120,7 @@ CODE_BB8F8F:
 	LDA sprite.type,x 			;$BB8F8F
 	BEQ CODE_BB8FA1				;$BB8F91
 	TXA					;$BB8F93
-	ADC #sizeof(sprite)			;$BB8F94
+	ADC.w #sizeof(sprite)			;$BB8F94
 	TAX					;$BB8F97
 	CPX #main_sprite_table_end		;$BB8F98
 	BCC CODE_BB8F8F				;$BB8F9B
@@ -2213,25 +2213,24 @@ parse_initscript_entry:
 	TAX					;$BB9014
 	JMP (initscript_commands,x)		;$BB9015
 
-initscript_commands:				; Info: Sprite spawn script opcodes
-;$BB9018
-	dw CODE_BB9062				; $FF - Set sprite type
-	dw CODE_BB9071				; $FE - 
-	dw CODE_BB9096				; $FD - 
-	dw CODE_BB9119				; $FC - 
-	dw CODE_BB9137				; $FB - 
-	dw CODE_BB917E				; $FA - 
-	dw CODE_BB91B4				; $F9 - 
-	dw CODE_BB91C9				; $F8 - 
-	dw CODE_BB91F4				; $F7 - Spawn semi-dynamic sprite?
+initscript_commands:
+	dw spawn_command_set_sprite_type	; $FF - Set sprite type
+	dw spawn_command_set_oam		; $FE - Set OAM
+	dw spawn_command_set_oam_2		; $FD - Set OAM 2
+	dw spawn_command_set_palette		; $FC - Set palette
+	dw spawn_command_set_sequential_palette	; $FB - Set palette for current and next slot
+	dw spawn_command_set_animation		; $FA - Set animation
+	dw spawn_command_load_subconfig		; $F9 - Load subconfig
+	dw spawn_command_set_conditional_pal	; $F8 - Set conditional palette (only used by squawks/his icon)
+	dw spawn_command_setup_static		; $F7 - Setup static
 	dw spawn_command_spawn_relative		; $F6 - Spawn relative
-	dw CODE_BB9350				; $F5 - 
-	dw CODE_BB936B				; $F4 - 
-	dw CODE_BB9190				; $F3 - 
-	dw CODE_BB90AB				; $F2 - 
-	dw CODE_BB9452				; $F1 - 
-	dw CODE_BB9048				; $F0 - 
-	dw CODE_BB9041				; $EF - End of script
+	dw spawn_command_set_position		; $F5 - Set position
+	dw spawn_command_load_sub_and_bulk_set	; $F4 - Load subconfg + bulk set
+	dw CODE_BB9190				; $F3 - Set graphic ID from DATA_B9B6E7 with offset
+	dw spawn_command_set_render_order	; $F2 - Set render order and some more stuff
+	dw spawn_command_set_directional	; $F1 - Set directional
+	dw CODE_BB9048				; $F0 - Set OAM stuff + end of script
+	dw spawn_command_success		; $EF - End of script
 
 CODE_BB903A:
 	PLB					;$BB903A
@@ -2240,7 +2239,7 @@ CODE_BB903A:
 	TCD					;$BB903F
 	RTL					;$BB9040
 
-CODE_BB9041:
+spawn_command_success:
 	PLB					;$BB9041
 	CLC					;$BB9042
 	LDA #$0000				;$BB9043
@@ -2262,7 +2261,7 @@ CODE_BB9048:
 	CLC					;$BB9060
 	RTL					;$BB9061
 
-CODE_BB9062:
+spawn_command_set_sprite_type:
 	LDA #$0000				;$BB9062
 	TCD					;$BB9065
 	LDX alternate_sprite			;$BB9066
@@ -2270,7 +2269,7 @@ CODE_BB9062:
 	JSR CODE_BBB884				;$BB906B
 	JMP initscript_next			;$BB906E
 
-CODE_BB9071:
+spawn_command_set_oam:
 	LDA #$0000				;$BB9071
 	TCD					;$BB9074
 	LDX alternate_sprite			;$BB9075
@@ -2288,7 +2287,7 @@ CODE_BB9071:
 CODE_BB9093:
 	JMP initscript_next			;$BB9093
 
-CODE_BB9096:
+spawn_command_set_oam_2:
 	LDA #$0000				;$BB9096
 	TCD					;$BB9099
 	LDX alternate_sprite			;$BB909A
@@ -2299,7 +2298,7 @@ CODE_BB9096:
 	STA sprite.oam_property,x		;$BB90A6
 	JMP initscript_next			;$BB90A8
 
-CODE_BB90AB:
+spawn_command_set_render_order:
 	LDA #$0000				;$BB90AB
 	TCD					;$BB90AE
 	LDX alternate_sprite			;$BB90AF
@@ -2370,7 +2369,7 @@ CODE_BB9101:
 	PLX					;$BB9117
 	RTS					;$BB9118
 
-CODE_BB9119:
+spawn_command_set_palette:
 	LDA #$0000				;$BB9119
 	TCD					;$BB911C
 	LDA $0001,y				;$BB911D
@@ -2388,7 +2387,7 @@ CODE_BB9119:
 	PLB					;$BB9133
 	JMP initscript_next			;$BB9134
 
-CODE_BB9137:
+spawn_command_set_sequential_palette:
 	LDA #$0000				;$BB9137
 	TCD					;$BB913A
 	LDA $0001,y				;$BB913B
@@ -2430,7 +2429,7 @@ CODE_BB9148:
 	PLB					;$BB917C
 	RTS					;$BB917D
 
-CODE_BB917E:
+spawn_command_set_animation:
 	LDA #$0000				;$BB917E
 	TCD					;$BB9181
 	LDA $0001,y				;$BB9182
@@ -2459,7 +2458,7 @@ CODE_BB9190:
 	STA sprite.sprite_graphic,x		;$BB91AF
 	JMP initscript_next			;$BB91B1
 
-CODE_BB91B4:
+spawn_command_load_subconfig:
 	LDA #$0000				;$BB91B4
 	TCD					;$BB91B7
 	PHY					;$BB91B8
@@ -2471,7 +2470,7 @@ CODE_BB91B4:
 	LDX alternate_sprite			;$BB91C4
 	JMP initscript_next			;$BB91C6
 
-CODE_BB91C9:
+spawn_command_set_conditional_pal:
 	LDA #$0000				;$BB91C9
 	TCD					;$BB91CC
 	PHY					;$BB91CD
@@ -2494,7 +2493,7 @@ CODE_BB91E2:
 	LDX alternate_sprite			;$BB91EF
 	JMP parse_initscript_entry		;$BB91F1
 
-CODE_BB91F4:
+spawn_command_setup_static:
 	LDA #$0000				;$BB91F4
 	TCD					;$BB91F7
 	LDA $0001,y				;$BB91F8
@@ -2543,7 +2542,7 @@ CODE_BB9244:
 	BEQ CODE_BB929C				;$BB9248
 	TXA					;$BB924A
 	CLC					;$BB924B
-	ADC #sizeof(sprite)			;$BB924C
+	ADC.w #sizeof(sprite)			;$BB924C
 	TAX					;$BB924F
 	CPX #main_sprite_table_end		;$BB9250
 	BNE CODE_BB9244				;$BB9253
@@ -2680,7 +2679,7 @@ CODE_BB9330:
 	PLB					;$BB934C
 	JMP initscript_next			;$BB934D
 
-CODE_BB9350:
+spawn_command_set_position:
 	LDA #$0000				;$BB9350
 	TCD					;$BB9353
 	LDX alternate_sprite			;$BB9354
@@ -2693,7 +2692,7 @@ CODE_BB9350:
 	INY					;$BB9367
 	JMP parse_initscript_entry		;$BB9368
 
-CODE_BB936B:
+spawn_command_load_sub_and_bulk_set:
 	LDA #$0000				;$BB936B
 	TCD					;$BB936E
 	LDX alternate_sprite			;$BB936F
@@ -2813,7 +2812,7 @@ CODE_BB9441:
 	ROR					;$BB9450
 	RTS					;$BB9451
 
-CODE_BB9452:
+spawn_command_set_directional:
 	LDA #$0000				;$BB9452
 	TCD					;$BB9455
 	LDA $0002,y				;$BB9456
@@ -2882,7 +2881,7 @@ CODE_BB94B7:
 CODE_BB94BD:
 	TXA					;$BB94BD
 	CLC					;$BB94BE
-	ADC #sizeof(sprite)			;$BB94BF
+	ADC.w #sizeof(sprite)			;$BB94BF
 	TAX					;$BB94C2
 	CPX #main_sprite_table_end		;$BB94C3
 	BNE CODE_BB94B7				;$BB94C6
@@ -3348,7 +3347,7 @@ CODE_BB97B1:
 	ASL					;$BB97BE
 	TAY					;$BB97BF
 	PHB					;$BB97C0
-	PEA.w DATA_FD0000>>8			;$BB97C1
+	%pea_shift_dbr(DATA_FD0000)		;$BB97C1
 	PLB					;$BB97C4
 	PLB					;$BB97C5
 	LDA.w DATA_FD0000,y			;$BB97C6
@@ -4882,7 +4881,7 @@ CODE_BBA3FF:
 	LDA #$0001				;$BBA40E
 	STA $00177E				;$BBA411
 	PHB					;$BBA415
-	PEA.w (DATA_FE0000&$FF0000)>>8		;$BBA416
+	%pea_shift_dbr(DATA_FE0000)		;$BBA416
 	PLB					;$BBA419
 	PLB					;$BBA41A
 	LDA level_number			;$BBA41B
@@ -4942,7 +4941,7 @@ CODE_BBA479:
 	RTS					;$BBA479
 
 CODE_BBA47A:
-	PEA.w DATA_BBA8BE>>8			;$BBA47A
+	%pea_shift_dbr(DATA_BBA8BE)		;$BBA47A
 	PLB					;$BBA47D
 	PLB					;$BBA47E
 	LDX $1A					;$BBA47F
@@ -5086,7 +5085,7 @@ CODE_BBA58C:
 
 CODE_BBA59B:
 	PHB					;$BBA59B
-	PEA.w $7E4180>>8			;$BBA59C
+	%pea_shift_dbr($7E4180)			;$BBA59C
 	PLB					;$BBA59F
 	PLB					;$BBA5A0
 	LDA $7E4180				;$BBA5A1
@@ -5147,7 +5146,7 @@ CODE_BBA5F9:
 
 CODE_BBA604:
 	PHB					;$BBA604
-	PEA.w $7E4180>>8			;$BBA605
+	%pea_shift_dbr($7E4180)			;$BBA605
 	PLB					;$BBA608
 	PLB					;$BBA609
 	LDX #$1FFE				;$BBA60A
@@ -5227,7 +5226,7 @@ CODE_BBA685:
 	ASL					;$BBA694
 	TAX					;$BBA695
 	LDA $15FE,x				;$BBA696
-	PEA.w DATA_FE0000>>8			;$BBA699
+	%pea_shift_dbr(DATA_FE0000)		;$BBA699
 	PLB					;$BBA69C
 	PLB					;$BBA69D
 	TAX					;$BBA69E
@@ -5712,7 +5711,7 @@ CODE_BBAA32:
 	ASL					;$BBAA38
 	TAY					;$BBAA39
 	PHB					;$BBAA3A
-	PEA.w DATA_FE0000>>8			;$BBAA3B
+	%pea_shift_dbr(DATA_FE0000)		;$BBAA3B
 	PLB					;$BBAA3E
 	PLB					;$BBAA3F
 	LDA ($EC),y				;$BBAA40
@@ -5928,7 +5927,7 @@ CODE_BBAB52:
 	TXY					;$BBAB7F
 	LDA sprite.placement_parameter,x	;$BBAB80
 	AND #$1F00				;$BBAB82
-	BNE .grouped_sprite				;$BBAB85 / If sprite is in a spawn group
+	BNE .grouped_sprite			;$BBAB85 / If sprite is in a spawn group
 .CODE_BBAB87:
 	LDA sprite.placement_parameter,x	;$BBAB87
 	AND #$000F				;$BBAB89
@@ -7494,21 +7493,33 @@ DATA_BBB7B2:
 	dw $0000
 
 DATA_BBB7BC:
-	db $08,$00,$02,$14,$01,$01,$1A,$02,$00,$1B,$03,$00,$1C,$04,$00,$22
-	db $05,$02,$25,$06,$00,$26,$07,$00,$27,$08,$04,$32,$09,$01,$33,$0A
-	db $01,$34,$0B,$01,$35,$0C,$02,$36,$0D,$02,$37,$0E,$02,$3F,$0F,$03
-	db $45,$10,$00,$50,$11,$00,$51,$12,$00,$54,$13,$04,$55,$14,$04,$5C
-	db $15,$01,$5D,$16,$01,$62,$17,$01,$63,$18,$01,$64,$19,$02,$65,$1A
-	db $02,$68,$1B,$00,$69,$1C,$00,$6C,$1D,$02,$6D,$1E,$02,$86,$1F,$02
-	db $87,$20,$02,$88,$21,$00,$90,$22,$01,$91,$23,$01,$94,$24,$03,$95
-	db $25,$03,$FF,$26,$00
+	db $08, $00, $02, $14, $01, $01, $1A,$02
+	db $00, $1B, $03, $00, $1C, $04, $00,$22
+	db $05, $02, $25, $06, $00, $26, $07,$00
+	db $27, $08, $04, $32, $09, $01, $33,$0A
+	db $01, $34, $0B, $01, $35, $0C, $02,$36
+	db $0D, $02, $37, $0E, $02, $3F, $0F,$03
+	db $45, $10, $00, $50, $11, $00, $51,$12
+	db $00, $54, $13, $04, $55, $14, $04,$5C
+	db $15, $01, $5D, $16, $01, $62, $17,$01
+	db $63, $18, $01, $64, $19, $02, $65,$1A
+	db $02, $68, $1B, $00, $69, $1C, $00,$6C
+	db $1D, $02, $6D, $1E, $02, $86, $1F,$02
+	db $87, $20, $02, $88, $21, $00, $90,$22
+	db $01, $91, $23, $01, $94, $24, $03,$95
+	db $25, $03, $FF, $26, $00
 
 DATA_BBB831:
-	dw $0100,$0258,$020C,$026C,$02EC,$0100,$0298,$0298
-	dw $0298,$0258,$0258,$0258,$0100,$0100,$0100,$0200
-	dw $0378,$0298,$0298,$0298,$0298,$0258,$0258,$0258
-	dw $0258,$0100,$0100,$0298,$0298,$0100,$0100,$0100
-	dw $0100,$0200,$0258,$0258,$0100,$0100
+	dw $0100, $0258, $020C, $026C
+	dw $02EC, $0100, $0298, $0298
+	dw $0298, $0258, $0258, $0258
+	dw $0100, $0100, $0100, $0200
+	dw $0378, $0298, $0298, $0298
+	dw $0298, $0258, $0258, $0258
+	dw $0258, $0100, $0100, $0298
+	dw $0298, $0100, $0100, $0100
+	dw $0100, $0200, $0258, $0258
+	dw $0100, $0100
 
 CODE_BBB87D:
 	JML [$04F5]				;$BBB87D
@@ -7553,9 +7564,9 @@ sprite_handler_direct:
 	LDA timestop_flags			;$BBB8BA   |\ If time is currently stopped
 	BNE .time_stop_sprite_handler		;$BBB8BD   |/ Handle conditional sprite pr
 	LDA.w #<:.sprite_return			;$BBB8BF   |\ Write bank of sprite return address
-	STA $04F7				;$BBB8C2   |/
+	STA sprite_return_bank			;$BBB8C2   |/
 	LDA #.sprite_return			;$BBB8C5   |\ Write sprite return pointer
-	STA $04F5				;$BBB8C8   |/
+	STA sprite_return_address		;$BBB8C8   |/
 	LDY #main_sprite_table			;$BBB8CB   | Load sprite base pointer
 .next_slot:					;	   |
 	LDA.w sprite.type,y			;$BBB8CE   |\ If the sprite doesn't exist
@@ -7567,7 +7578,7 @@ sprite_handler_direct:
 	LDA.w sprite.main_routine_address,y	;$BBB8DA   | |
 	PHA					;$BBB8DD   |/
 	LDA.w sprite.constants_address,y	;$BBB8DE   |\
-	STA $6A					;$BBB8E1   |/ Set constants pointer to current sprites constants
+	STA current_sprite_constants		;$BBB8E1   |/ Set constants pointer to current sprites constants
 	LDA.w sprite.state,y			;$BBB8E3   |\ Get sprites state
 	AND #$00FF				;$BBB8E6   | |
 	ASL					;$BBB8E9   | |
@@ -7579,7 +7590,7 @@ sprite_handler_direct:
 .get_next_slot:					;	   |
 	TYA					;$BBB8EE   |
 	CLC					;$BBB8EF   |
-	ADC #sizeof(sprite)			;$BBB8F0   |
+	ADC.w #sizeof(sprite)			;$BBB8F0   |
 	TAY					;$BBB8F3   |
 	CPY #main_sprite_table_end		;$BBB8F4   |
 	BNE .next_slot				;$BBB8F7   |
@@ -7637,7 +7648,7 @@ sprite_handler_direct:
 	LDA.w sprite.main_routine_address,y	;$BBB964   | |
 	PHA					;$BBB967   |/
 	LDA.w sprite.constants_address,y	;$BBB968   |\
-	STA sprite_contants_address		;$BBB96B   |/ Set constants pointer to current sprites constants
+	STA current_sprite_constants		;$BBB96B   |/ Set constants pointer to current sprites constants
 	LDA.w sprite.state,y			;$BBB96D   |\ Get sprites state
 	AND #$00FF				;$BBB970   | |
 	ASL					;$BBB973   | |
@@ -7649,7 +7660,7 @@ sprite_handler_direct:
 ..get_next_slot:				;	   |
 	TYA					;$BBB978   |
 	CLC					;$BBB979   |
-	ADC #sizeof(sprite)			;$BBB97A   |
+	ADC.w #sizeof(sprite)			;$BBB97A   |
 	TAY					;$BBB97D   |
 	CPY #main_sprite_table_end		;$BBB97E   |
 	BNE ..next_slot				;$BBB981   |
@@ -7681,9 +7692,9 @@ CODE_BBB9B0:
 	LDA.w #DATA_FF1BC0>>8			;$BBB9B0
 	STA sprite_constants_bank		;$BBB9B3
 	LDA.w #CODE_BBB9DC>>16			;$BBB9B5
-	STA $04F7				;$BBB9B8
+	STA sprite_return_bank			;$BBB9B8
 	LDA #CODE_BBB9DC			;$BBB9BB
-	STA $04F5				;$BBB9BE
+	STA sprite_return_address		;$BBB9BE
 	STY current_sprite			;$BBB9C1
 	LDA.w sprite.type,y			;$BBB9C3
 	LDA.w sprite.main_routine_bank,y	;$BBB9C6
@@ -7692,7 +7703,7 @@ CODE_BBB9B0:
 	LDA.w sprite.main_routine_address,y	;$BBB9CB
 	PHA					;$BBB9CE
 	LDA.w sprite.constants_address,y	;$BBB9CF
-	STA sprite_contants_address		;$BBB9D2
+	STA current_sprite_constants		;$BBB9D2
 	LDA.w sprite.state,y			;$BBB9D4
 	AND #$00FF				;$BBB9D7
 	ASL					;$BBB9DA
@@ -7810,7 +7821,7 @@ CODE_BBBAAE:
 
 CODE_BBBAB2:
 	JSL CODE_BB8A3F				;$BBBAB2
-	PEA.w ((DATA_B9B775&$FF0000)>>16)|((RESET_start&$FF0000)>>8)	;$BBBAB6
+	%pea_shift_dbr($80B900)			;$BBBAB6
 	PLB					;$BBBAB9
 	TAX					;$BBBABA
 	LDY.w DATA_B9B775,x			;$BBBABB
@@ -8048,14 +8059,14 @@ CODE_BBBC92:
 	RTL					;$BBBC92
 
 CODE_BBBC93:
-	PEA.w (($7E3180&$FF0000)>>16)|(($BC0000&$FF0000)>>8)	;$BBBC93
+	%pea_shift_dbr($BC7E00)			;$BBBC93
 	PLB					;$BBBC96
 	JSR CODE_BBBCBA				;$BBBC97
 	PLB					;$BBBC9A
 	RTL					;$BBBC9B
 
 CODE_BBBC9C:
-	PEA.w (($7E3180&$FF0000)>>16)|(($BC0000&$FF0000)>>8)	;$BBBC9C
+	%pea_shift_dbr($BC7E00)			;$BBBC9C
 	PLB					;$BBBC9F
 	JSR CODE_BBBD77				;$BBBCA0
 	JSR CODE_BBBD8A				;$BBBCA3
@@ -8063,14 +8074,14 @@ CODE_BBBC9C:
 	RTL					;$BBBCA7
 
 CODE_BBBCA8:
-	PEA.w (($7E3180&$FF0000)>>16)|(($BC0000&$FF0000)>>8)	;$BBBCA8
+	%pea_shift_dbr($BC7E00)			;$BBBCA8
 	PLB					;$BBBCAB
 	JSR CODE_BBBDA3				;$BBBCAC
 	PLB					;$BBBCAF
 	RTL					;$BBBCB0
 
 CODE_BBBCB1:
-	PEA.w (($7E3180&$FF0000)>>16)|(($BC0000&$FF0000)>>8)	;$BBBCB1
+	%pea_shift_dbr($BC7E00)			;$BBBCB1
 	PLB					;$BBBCB4
 	JSR CODE_BBBE00				;$BBBCB5
 	PLB					;$BBBCB8
@@ -8350,14 +8361,14 @@ CODE_BBBE91:
 	RTL					;$BBBE91
 
 CODE_BBBE92:
-	PEA.w (($7E3180&$FF0000)>>16)|(($BE0000&$FF0000)>>8)	;$BBBE92
+	%pea_shift_dbr($BE7E00)			;$BBBE92
 	PLB					;$BBBE95
 	JSR CODE_BBBEB9				;$BBBE96
 	PLB					;$BBBE99
 	RTL					;$BBBE9A
 
 CODE_BBBE9B:
-	PEA.w (($7E3180&$FF0000)>>16)|(($BE0000&$FF0000)>>8)	;$BBBE9B
+	%pea_shift_dbr($BE7E00)			;$BBBE9B
 	PLB					;$BBBE9E
 	JSR CODE_BBBF76				;$BBBE9F
 	JSR CODE_BBBF89				;$BBBEA2
@@ -8365,14 +8376,14 @@ CODE_BBBE9B:
 	RTL					;$BBBEA6
 
 CODE_BBBEA7:
-	PEA.w (($7E3180&$FF0000)>>16)|(($BE0000&$FF0000)>>8)	;$BBBEA7
+	%pea_shift_dbr($BE7E00)			;$BBBEA7
 	PLB					;$BBBEAA
 	JSR CODE_BBBFA2				;$BBBEAB
 	PLB					;$BBBEAE
 	RTL					;$BBBEAF
 
 CODE_BBBEB0:
-	PEA.w (($7E3180&$FF0000)>>16)|(($BE0000&$FF0000)>>8)	;$BBBEB0
+	%pea_shift_dbr($BE7E00)			;$BBBEB0
 	PLB					;$BBBEB3
 	JSR CODE_BBBFFF				;$BBBEB4
 	PLB					;$BBBEB7
@@ -9835,7 +9846,7 @@ CODE_BBD0A2:
 	CLC					;$BBD0D3
 	ADC.w sprite.general_purpose_5C,y	;$BBD0D4
 	TAY					;$BBD0D7
-	PEA.w ((DATA_FFB5AD&$FF0000)>>16)|((green_banana_spawner_main&$FF0000)>>8)	;$BBD0D8
+	%pea_shift_dbr($BBFF00)			;$BBD0D8
 	PLB					;$BBD0DB
 	LDA $0000,y				;$BBD0DC
 	STA sprite.x_position,x			;$BBD0DF
@@ -10292,8 +10303,9 @@ CODE_BBD42A:
 	LDA DATA_BBD4B7,y			;$BBD431
 	STA $1A					;$BBD434
 	PHY					;$BBD436
-	PEA.w CODE_BBD43D-$01			;$BBD437
+	%return(CODE_BBD43D)			;$BBD437
 	JMP ($001A)				;$BBD43A
+
 CODE_BBD43D:
 	PLY					;$BBD43D
 	LDX DATA_BBD4B7+$02,y			;$BBD43E
@@ -11500,7 +11512,7 @@ rope_fire_main:
 	JMP CODE_BBC827				;$BBDD93  / Return (handle despawn?)
 
 
-unknown_sprite_0160_main:
+breakable_floor_main:
 	JMP (.state_table,x)			;$BBDD96
 
 .state_table:

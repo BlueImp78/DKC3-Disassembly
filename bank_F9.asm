@@ -18,73 +18,73 @@ endif
 
 animation_scripts_table:
 	%offset(animation_flags_table, 2)
-	dw !null_pointer, $0000		;0000
-	dw DATA_F90EB4, $0000		;0001
-	dw DATA_F90F4A, $0000		;0002
-	dw DATA_F90F8B, $0000		;0003
-	dw DATA_F90F9F, $0000		;0004
-	dw DATA_F90FE0, $1002		;0005
-	dw DATA_F91076, $0000		;0006
-	dw DATA_F91082, $0000		;0007
-	dw DATA_F9146F, $0003		;0008
-	dw DATA_F9147C, $0800		;0009
-	dw DATA_F914EA, $0800		;000A
-	dw DATA_F91513, $0000		;000B
-	dw DATA_F91530, $0800		;000C
-	dw DATA_F91545, $0800		;000D
-	dw DATA_F9157A, $0800		;000E
-	dw !null_pointer, $0800		;000F
-	dw DATA_F91AA0, $0004		;0010
-	dw DATA_F91AF3, $0000		;0011
-	dw DATA_F91B18, $0000		;0012
-	dw DATA_F91BA3, $0000		;0013
-	dw DATA_F91BBB, $0004		;0014
-	dw DATA_F91C11, $0804		;0015
-	dw DATA_F91784, $0000		;0016
-	dw DATA_F91784, $0000		;0017
-	dw DATA_F917A1, $0000		;0018
-	dw DATA_F917E2, $0800		;0019
+	dw !null_pointer, $0000		;0000 null
+	dw DATA_F90EB4, $0000		;0001 dixie_idle
+	dw DATA_F90F4A, $0000		;0002 dixie_walk
+	dw DATA_F90F8B, $0000		;0003 dixie_turn
+	dw DATA_F90F9F, $0000		;0004 dixie_run
+	dw DATA_F90FE0, $1002		;0005 dixie_roll
+	dw DATA_F91076, $0000		;0006 dixie_ride_keg
+	dw DATA_F91082, $0000		;0007 dixie_crouch
+	dw DATA_F9146F, $0003		;0008 dixie_jump
+	dw DATA_F9147C, $0800		;0009 dixie_air
+	dw DATA_F914EA, $0800		;000A dixie_glide
+	dw DATA_F91513, $0000		;000B dixie_land
+	dw DATA_F91530, $0800		;000C dixie_fall
+	dw DATA_F91545, $0800		;000D dixie_bounce
+	dw DATA_F9157A, $0800		;000E dixie_jump_out_of_water
+	dw !null_pointer, $0800		;000F null
+	dw DATA_F91AA0, $0004		;0010 dixie_carry_pickup
+	dw DATA_F91AF3, $0000		;0011 dixie_carry_idle
+	dw DATA_F91B18, $0000		;0012 dixie_carry_walk
+	dw DATA_F91BA3, $0000		;0013 dixie_carry_turn
+	dw DATA_F91BBB, $0004		;0014 dixie_carry_drop
+	dw DATA_F91C11, $0804		;0015 dixie_carry_throw
+	dw DATA_F91784, $0000		;0016 dixie_horizontal_rope_idle
+	dw DATA_F91784, $0000		;0017 dixie_horizontal_rope_idle_2
+	dw DATA_F917A1, $0000		;0018 dixie_horizontal_rope_move
+	dw DATA_F917E2, $0800		;0019 dixie_horizontal_rope_jump
 	dw DATA_F917EF, $0800		;001A
-	dw DATA_F918B6, $0000		;001B
-	dw DATA_F91924, $0000		;001C
-	dw DATA_F9196A, $0000		;001D
+	dw DATA_F918B6, $0000		;001B dixie_vertical_rope_idle
+	dw DATA_F91924, $0000		;001C dixie_vertical_rope_climb
+	dw DATA_F9196A, $0000		;001D dixie_vertical_rope_turn
 	dw DATA_F9198A, $0800		;001E
-	dw DATA_F91F1A, $0000		;001F
-	dw DATA_F91FBD, $0000		;0020
-	dw DATA_F91FCE, $0000		;0021
-	dw DATA_F92006, $0000		;0022
-	dw DATA_F9204A, $0000		;0023
-	dw DATA_F91C9C, $0003		;0024
-	dw DATA_F91CAB, $0800		;0025
-	dw DATA_F91CC6, $0000		;0026
+	dw DATA_F91F1A, $0000		;001F dixie_death
+	dw DATA_F91FBD, $0000		;0020 dixie_hurt_tears
+	dw DATA_F91FCE, $0000		;0021 dixie_hurt
+	dw DATA_F92006, $0000		;0022 dixie_hurt_jump
+	dw DATA_F9204A, $0000		;0023 dixie_hurt_from_squawks
+	dw DATA_F91C9C, $0003		;0024 dixie_carry_jump
+	dw DATA_F91CAB, $0800		;0025 dixie_carry_air
+	dw DATA_F91CC6, $0000		;0026 dixie_carry_land
 	dw DATA_F91CD3, $0000		;0027
-	dw DATA_F91CDD, $0000		;0028
-	dw DATA_F91D12, $0000		;0029
-	dw DATA_F92165, $0000		;002A
-	dw DATA_F921C4, $0000		;002B
-	dw DATA_F922B1, $0000		;002C
+	dw DATA_F91CDD, $0000		;0028 dixie_swim
+	dw DATA_F91D12, $0000		;0029 dixie_swim_turn
+	dw DATA_F92165, $0000		;002A dixie_team_up_start
+	dw DATA_F921C4, $0000		;002B dixie_team_up_idle
+	dw DATA_F922B1, $0000		;002C dixie_team_up_walk
 	dw DATA_F92362, $0000		;002D
 	dw DATA_F92392, $0000		;002E
 	dw DATA_F923A3, $0001		;002F
 	dw DATA_F923B4, $0800		;0030
 	dw DATA_F923C6, $0800		;0031
-	dw DATA_F923D8, $0000		;0032
+	dw DATA_F923D8, $0000		;0032 dixie_throw_kiddy
 	dw DATA_F9249B, $1800		;0033
 	dw DATA_F924CD, $0000		;0034
 	dw DATA_F9249B, $1800		;0035
-	dw DATA_F92519, $0000		;0036
+	dw DATA_F92519, $0000		;0036 dixie_ride_kiddy
 	dw DATA_F92525, $0800		;0037
 	dw DATA_F915BF, $0000		;0038
 	dw DATA_F91629, $0000		;0039
 	dw DATA_F91666, $0000		;003A
-	dw DATA_F93FE4, $0700		;003B
-	dw DATA_F928CF, $0000		;003C
-	dw DATA_F92911, $0000		;003D
-	dw DATA_F92920, $0000		;003E
+	dw DATA_F93FE4, $0700		;003B dixie_toboggan
+	dw DATA_F928CF, $0000		;003C dixie_swap_to_kiddy
+	dw DATA_F92911, $0000		;003D dixie_swap_to_kiddy_idle
+	dw DATA_F92920, $0000		;003E dixie_swap_from_kiddy 
 	dw DATA_F93FBC, $0000		;003F
-	dw DATA_F97DE7, $0000		;0040
-	dw DATA_F92BE5, $0000		;0041
-	dw DATA_F92D5A, $0200		;0042
+	dw DATA_F97DE7, $0000		;0040 dixie_kastle_kaos_ending_idle
+	dw DATA_F92BE5, $0000		;0041 dixie_ride_land_animal
+	dw DATA_F92D5A, $0200		;0042 dixie_ellie_idle
 	dw DATA_F92DA7, $0200		;0043
 	dw DATA_F92E66, $0200		;0044
 	dw DATA_F92F25, $0200		;0045
@@ -118,7 +118,7 @@ animation_scripts_table:
 	dw DATA_F937FC, $0300		;0061
 	dw DATA_F93809, $0300		;0062
 	dw DATA_F93822, $0300		;0063
-	dw DATA_F9388B, $0000		;0064
+	dw DATA_F9388B, $0000		;0064 dixie_ride_squawks
 	dw DATA_F938C8, $0000		;0065
 	dw DATA_F938C8, $0000		;0066
 	dw DATA_F938C8, $0000		;0067
@@ -143,15 +143,15 @@ animation_scripts_table:
 	dw DATA_F93DCA, $0500		;007A
 	dw DATA_F93DDA, $0500		;007B
 	dw DATA_F93DF3, $0500		;007C
-	dw DATA_F92A20, $0000		;007D
-	dw DATA_F92A52, $0000		;007E
-	dw DATA_F92A84, $0000		;007F
+	dw DATA_F92A20, $0000		;007D dixie_follower_walk
+	dw DATA_F92A52, $0000		;007E dixie_follower_run
+	dw DATA_F92A84, $0000		;007F dixie_follower_turn
 	dw DATA_F92A98, $0000		;0080
 	dw DATA_F92AD3, $0000		;0081
-	dw DATA_F92AE7, $0000		;0082
+	dw DATA_F92AE7, $0000		;0082 dixie_follower_roll
 	dw DATA_F9388B, $0000		;0083
-	dw DATA_F96C2D, $0000		;0084
-	dw DATA_F96C71, $0000		;0085
+	dw DATA_F96C2D, $0000		;0084 dixie_npc_jump
+	dw DATA_F96C71, $0000		;0085 dixie_npc_land
 	dw DATA_F96C8B, $0000		;0086
 	dw DATA_F96CA2, $0000		;0087
 	dw DATA_F910B6, $0000		;0088
@@ -168,7 +168,7 @@ animation_scripts_table:
 	dw DATA_F9170A, $0800		;0093
 	dw DATA_F91727, $0800		;0094
 	dw DATA_F91750, $0800		;0095
-	dw DATA_F9175B, $0800		;0096
+	dw DATA_F9175B, $0800		;0096 kiddy_water_bounce
 	dw DATA_F91D26, $0004		;0097
 	dw DATA_F91D59, $0000		;0098
 	dw DATA_F91D69, $0000		;0099
@@ -212,7 +212,7 @@ animation_scripts_table:
 	dw DATA_F915F4, $0000		;00BF
 	dw DATA_F91674, $0000		;00C0
 	dw DATA_F916B8, $0000		;00C1
-	dw DATA_F9400A, $0700		;00C2
+	dw DATA_F9400A, $0700		;00C2 kiddy_toboggan
 	dw DATA_F9295A, $0000		;00C3
 	dw DATA_F929D5, $0000		;00C4
 	dw DATA_F929E0, $0000		;00C5
@@ -289,9 +289,9 @@ animation_scripts_table:
 	dw DATA_F96D02, $0000		;010C
 	dw DATA_F96D0D, $0000		;010D
 	dw DATA_F96D12, $0000		;010E
-	dw DATA_F93600, $0000		;010F
-	dw DATA_F93614, $0000		;0110
-	dw DATA_F93628, $0000		;0111
+	dw DATA_F93600, $0000		;010F ellie_idle
+	dw DATA_F93614, $0000		;0110 ellie_hurt
+	dw DATA_F93628, $0000		;0111 ellie_walk
 	dw DATA_F93654, $0000		;0112
 	dw !null_pointer, $0000		;0113
 	dw DATA_F93844, $0000		;0114
@@ -304,69 +304,69 @@ animation_scripts_table:
 	dw DATA_F93C12, $0000		;011B
 	dw DATA_F93C3E, $0000		;011C
 	dw DATA_F93C51, $0000		;011D
-	dw DATA_F93F7B, $0600		;011E
-	dw DATA_F93F87, $0600		;011F
-	dw DATA_F93FA0, $0000		;0120
-	dw DATA_F93E99, $0000		;0121
-	dw DATA_F93EB3, $0000		;0122
-	dw DATA_F93F24, $0000		;0123
+	dw DATA_F93F7B, $0600		;011E parry_idle
+	dw DATA_F93F87, $0600		;011F parry_turn
+	dw DATA_F93FA0, $0000		;0120 parry_death
+	dw DATA_F93E99, $0000		;0121 squitter_web_projectile
+	dw DATA_F93EB3, $0000		;0122 squitter_web_platform_fly_or_open
+	dw DATA_F93F24, $0000		;0123 squitter_web_platform_close
 	dw DATA_F94030, $0000		;0124
 	dw DATA_F94074, $0000		;0125
-	dw DATA_F940AE, $0000		;0126
-	dw DATA_F940CB, $0000		;0127
+	dw DATA_F940AE, $0000		;0126 kiddy_rare_logo
+	dw DATA_F940CB, $0000		;0127 dixie_rare_logo
 	dw DATA_F940E5, $0000		;0128
-	dw DATA_F9412F, $0000		;0129
-	dw DATA_F9416A, $0000		;012A
+	dw DATA_F9412F, $0000		;0129 kiddy_nintendo_presents
+	dw DATA_F9416A, $0000		;012A dixie_nintendo_presents
 	dw DATA_F946E4, $0000		;012B
 	dw DATA_F9470D, $0000		;012C
 	dw DATA_F94727, $0000		;012D
 	dw DATA_F94744, $0000		;012E
-	dw DATA_F9475E, $0000		;012F
-	dw DATA_F94778, $0000		;0130
-	dw DATA_F9478F, $0000		;0131
-	dw DATA_F949C4, $0000		;0132
-	dw DATA_F949CC, $0000		;0133
-	dw DATA_F949F5, $0000		;0134
-	dw DATA_F9484E, $0000		;0135
-	dw DATA_F9486B, $0000		;0136
-	dw DATA_F9487F, $0000		;0137
-	dw DATA_F94890, $0000		;0138
-	dw DATA_F94945, $0000		;0139
-	dw DATA_F94962, $0000		;013A
-	dw DATA_F94976, $0000		;013B
-	dw DATA_F94993, $0000		;013C
-	dw DATA_F949A7, $0000		;013D
-	dw DATA_F948D4, $0000		;013E
-	dw DATA_F948F1, $0000		;013F
-	dw DATA_F94904, $0000		;0140
-	dw DATA_F94915, $0000		;0141
-	dw DATA_F94932, $0000		;0142
-	dw DATA_F94359, $0000		;0143
-	dw DATA_F9421D, $0000		;0144
-	dw DATA_F94249, $0000		;0145
-	dw DATA_F94275, $0000		;0146
-	dw DATA_F942A1, $0000		;0147
-	dw DATA_F942CD, $0000		;0148
-	dw DATA_F942E7, $0000		;0149
-	dw DATA_F9431F, $0000		;014A
-	dw DATA_F94336, $0000		;014B
-	dw DATA_F941F5, $0000		;014C
-	dw DATA_F941FD, $0000		;014D
-	dw DATA_F94477, $0000		;014E
-	dw DATA_F9447C, $0000		;014F
-	dw DATA_F94493, $0000		;0150
-	dw DATA_F944A1, $0000		;0151
+	dw DATA_F9475E, $0000		;012F barrel_particles
+	dw DATA_F94778, $0000		;0130 banana_bird_crystal_shards
+	dw DATA_F9478F, $0000		;0131 banana_bird_crystal_shards_2
+	dw DATA_F949C4, $0000		;0132 squawks_egg
+	dw DATA_F949CC, $0000		;0133 ellie_horizontal_water_shot
+	dw DATA_F949F5, $0000		;0134 ellie_diagonal_water_shot
+	dw DATA_F9484E, $0000		;0135 sneek_walk
+	dw DATA_F9486B, $0000		;0136 sneek_turn
+	dw DATA_F9487F, $0000		;0137 sneek_death
+	dw DATA_F94890, $0000		;0138 sneek_scare_ellie
+	dw DATA_F94945, $0000		;0139 buzz_idle
+	dw DATA_F94962, $0000		;013A buzz_idle_turn
+	dw DATA_F94976, $0000		;013B buzz_move
+	dw DATA_F94993, $0000		;013C buzz_move_turn
+	dw DATA_F949A7, $0000		;013D buzz_death
+	dw DATA_F948D4, $0000		;013E red_koco_idle
+	dw DATA_F948F1, $0000		;013F red_koco_turn
+	dw DATA_F94904, $0000		;0140 koco_death
+	dw DATA_F94915, $0000		;0141 green_koco_idle
+	dw DATA_F94932, $0000		;0142 green_koco_turn
+	dw DATA_F94359, $0000		;0143 checkpoint_barrel_idle
+	dw DATA_F9421D, $0000		;0144 letter_k_idle
+	dw DATA_F94249, $0000		;0145 letter_o_idle
+	dw DATA_F94275, $0000		;0146 letter_n_idle
+	dw DATA_F942A1, $0000		;0147 letter_g_idle
+	dw DATA_F942CD, $0000		;0148 bear_coin_idle
+	dw DATA_F942E7, $0000		;0149 dk_coin_idle
+	dw DATA_F9431F, $0000		;014A bonus_coin_idle
+	dw DATA_F94336, $0000		;014B cog_idle
+	dw DATA_F941F5, $0000		;014C green_banana_idle
+	dw DATA_F941FD, $0000		;014D banana_bunch_idle
+	dw DATA_F94477, $0000		;014E barrel_idle
+	dw DATA_F9447C, $0000		;014F barrel_carry
+	dw DATA_F94493, $0000		;0150 barrel_drop
+	dw DATA_F944A1, $0000		;0151 barrel_thrown
 	dw DATA_F944BB, $0000		;0152
 	dw DATA_F944C9, $0000		;0153
-	dw DATA_F944D1, $0000		;0154
+	dw DATA_F944D1, $0000		;0154 barrel_idle_to_roll
 	dw DATA_F944E5, $0000		;0155
-	dw DATA_F94373, $0000		;0156
-	dw DATA_F94378, $0000		;0157
+	dw DATA_F94373, $0000		;0156 tnt_barrel_idle
+	dw DATA_F94378, $0000		;0157 tnt_barrel_thrown
 	dw DATA_F94392, $0000		;0158
 	dw DATA_F943A0, $0000		;0159
 	dw DATA_F943A8, $0000		;015A
 	dw DATA_F943BC, $0000		;015B
-	dw DATA_F943D0, $0000		;015C
+	dw DATA_F943D0, $0000		;015C dk_barrel_idle
 	dw DATA_F943F1, $0000		;015D
 	dw DATA_F9440B, $0000		;015E
 	dw DATA_F9441C, $0000		;015F
@@ -374,84 +374,84 @@ animation_scripts_table:
 	dw DATA_F94432, $0000		;0161
 	dw DATA_F94449, $0000		;0162
 	dw DATA_F94460, $0000		;0163
-	dw DATA_F944F9, $0000		;0164
-	dw DATA_F944FE, $0000		;0165
-	dw DATA_F94515, $0000		;0166
-	dw DATA_F94520, $0000		;0167
+	dw DATA_F944F9, $0000		;0164 steel_keg_idle
+	dw DATA_F944FE, $0000		;0165 steel_keg_carry
+	dw DATA_F94515, $0000		;0166 steel_keg_drop
+	dw DATA_F94520, $0000		;0167 steel_keg_roll
 	dw DATA_F9453A, $0000		;0168
 	dw DATA_F94548, $0000		;0169
 	dw DATA_F94550, $0000		;016A
 	dw DATA_F94564, $0000		;016B
-	dw DATA_F94575, $0000		;016C
-	dw DATA_F9457A, $0000		;016D
-	dw DATA_F94591, $0000		;016E
-	dw DATA_F9459C, $0000		;016F
-	dw DATA_F945A1, $0000		;0170
-	dw DATA_F945AF, $0000		;0171
-	dw DATA_F947A6, $0000		;0172
-	dw DATA_F945C5, $0000		;0173
-	dw DATA_F945E2, $0000		;0174
-	dw DATA_F9460C, $0000		;0175
-	dw DATA_F9463C, $0000		;0176
+	dw DATA_F94575, $0000		;016C wooden_box_idle
+	dw DATA_F9457A, $0000		;016D wooden_box_carry
+	dw DATA_F94591, $0000		;016E wooden_box_drop
+	dw DATA_F9459C, $0000		;016F wooden_box_thrown
+	dw DATA_F945A1, $0000		;0170 wooden_box_carry_2
+	dw DATA_F945AF, $0000		;0171 woodenbox_drop_2
+	dw DATA_F947A6, $0000		;0172 collision_spark_effect
+	dw DATA_F945C5, $0000		;0173 some smoke effect
+	dw DATA_F945E2, $0000		;0174 some smoke effect
+	dw DATA_F9460C, $0000		;0175 tnt_explosion_flames
+	dw DATA_F9463C, $0000		;0176 
 	dw DATA_F94646, $0000		;0177
 	dw DATA_F94650, $0000		;0178
-	dw DATA_F94685, $0000		;0179
+	dw DATA_F94685, $0000		;0179 kong_water_splash
 	dw DATA_F9469F, $0000		;017A
 	dw DATA_F946B6, $0000		;017B
-	dw DATA_F946CB, $0000		;017C
+	dw DATA_F946CB, $0000		;017C toboggan_sparks
 	dw DATA_F941D3, $0000		;017D
-	dw DATA_F941DB, $0000		;017E
+	dw DATA_F941DB, $0000		;017E life_balloon_idle
 	dw DATA_F94184, $0000		;017F
 	dw DATA_F947BB, $0000		;0180
-	dw DATA_F947CF, $0000		;0181
+	dw DATA_F947CF, $0000		;0181 rocket_barrel_flame
 	dw DATA_F947DB, $0000		;0182
 	dw DATA_F9480B, $0000		;0183
 	dw DATA_F94837, $0000		;0184
 	dw DATA_F94846, $0000		;0185
-	dw DATA_F94A1E, $0000		;0186
-	dw DATA_F9433F, $0000		;0187
-	dw DATA_F945C0, $0000		;0188
+	dw DATA_F94A1E, $0000		;0186 rope_fire_idle
+	dw DATA_F9433F, $0000		;0187 waterfall_barrel_idle
+	dw DATA_F945C0, $0000		;0188 single frame of barrel cannon
 	dw !null_pointer, $0000		;0189
-	dw DATA_F964A3, $0000		;018A
-	dw DATA_F964B7, $0000		;018B
+	dw DATA_F964A3, $0000		;018A swanky_minigame_target_idle
+	dw DATA_F964B7, $0000		;018B swanky_minigame_thrown_ball
 	dw DATA_F964D8, $0000		;018C
 	dw DATA_F966E3, $0000		;018D
-	dw DATA_F964EF, $0000		;018E
-	dw DATA_F964FF, $0000		;018F
-	dw DATA_F9652F, $0000		;0190
-	dw DATA_F96565, $0000		;0191
-	dw DATA_F96601, $0000		;0192
-	dw DATA_F96639, $0000		;0193
-	dw DATA_F96659, $0000		;0194
-	dw DATA_F96595, $0000		;0195
-	dw DATA_F9659D, $0000		;0196
-	dw DATA_F965A5, $0000		;0197
-	dw DATA_F965AD, $0000		;0198
-	dw DATA_F965CD, $0000		;0199
-	dw DATA_F965E7, $0000		;019A
-	dw DATA_F9672D, $0000		;019B
-	dw DATA_F9673C, $0000		;019C
-	dw DATA_F96744, $0000		;019D
-	dw DATA_F9674C, $0000		;019E
+	dw DATA_F964EF, $0000		;018E swanky_minigame_target_fall
+	dw DATA_F964FF, $0000		;018F cranky_throw_ball
+	dw DATA_F9652F, $0000		;0190 dixie_third_person_throw_ball
+	dw DATA_F96565, $0000		;0191 kiddy_third_person_throw_ball
+	dw DATA_F96601, $0000		;0192 cranky_celebrate
+	dw DATA_F96639, $0000		;0193 dixie_third_person_celebrate
+	dw DATA_F96659, $0000		;0194 kiddy_third_person_celebrate
+	dw DATA_F96595, $0000		;0195 cranky transition to idle
+	dw DATA_F9659D, $0000		;0196 dixie_third_person_transition_to_idle
+	dw DATA_F965A5, $0000		;0197 kiddy_third_person_transition_to_idle
+	dw DATA_F965AD, $0000		;0198 cranky_move
+	dw DATA_F965CD, $0000		;0199 dixie_third_person_move
+	dw DATA_F965E7, $0000		;019A kiddy_third_person_move
+	dw DATA_F9672D, $0000		;019B mill_door_gear_idle
+	dw DATA_F9673C, $0000		;019C mill_door_idle
+	dw DATA_F96744, $0000		;019D mill_lever_idle
+	dw DATA_F9674C, $0000		;019E sneek_wheel_idle
 	dw DATA_F9675B, $0000		;019F
 	dw DATA_F96763, $0000		;01A0
 	dw DATA_F96774, $0000		;01A1
 	dw DATA_F9678E, $0000		;01A2
 	dw DATA_F967B3, $0000		;01A3
 	dw DATA_F967C3, $0000		;01A4
-	dw DATA_F9667C, $0000		;01A5
-	dw DATA_F96690, $0000		;01A6
-	dw DATA_F9669E, $0000		;01A7
-	dw DATA_F94A44, $0000		;01A8
-	dw DATA_F94ECE, $0000		;01A9
-	dw DATA_F94EF0, $0000		;01AA
-	dw DATA_F94F12, $0000		;01AB
-	dw DATA_F94F34, $0000		;01AC
-	dw DATA_F94F5D, $0000		;01AD
-	dw DATA_F94F6E, $0000		;01AE
-	dw DATA_F94A4D, $0000		;01AF
-	dw DATA_F94A6C, $0000		;01B0
-	dw DATA_F94A7D, $0000		;01B1
+	dw DATA_F9667C, $0000		;01A5 cranky_idle
+	dw DATA_F96690, $0000		;01A6 dixie_third_person_idle
+	dw DATA_F9669E, $0000		;01A7 kiddy_third_person_idle
+	dw DATA_F94A44, $0000		;01A8 buzz_swarm
+	dw DATA_F94ECE, $0000		;01A9 klasp_idle_1
+	dw DATA_F94EF0, $0000		;01AA klasp_idle_2
+	dw DATA_F94F12, $0000		;01AB klasp_idle_3
+	dw DATA_F94F34, $0000		;01AC klasp_move
+	dw DATA_F94F5D, $0000		;01AD klasp_turn
+	dw DATA_F94F6E, $0000		;01AE klasp_start_moving
+	dw DATA_F94A4D, $0000		;01AF lemguin_emerge
+	dw DATA_F94A6C, $0000		;01B0 lembuin_death
+	dw DATA_F94A7D, $0000		;01B1 lemguin_slide
 	dw DATA_F94A8B, $0000		;01B2
 	dw DATA_F94A90, $0000		;01B3
 	dw DATA_F94A9F, $0000		;01B4
@@ -468,16 +468,16 @@ animation_scripts_table:
 	dw DATA_F94BC2, $0000		;01BF
 	dw DATA_F94BDF, $0000		;01C0
 	dw DATA_F94BE4, $0000		;01C1
-	dw DATA_F94BE9, $0000		;01C2
-	dw DATA_F94BF9, $0000		;01C3
-	dw DATA_F94C52, $0000		;01C4
-	dw DATA_F94CD4, $0000		;01C5
-	dw DATA_F94D1B, $0000		;01C6
-	dw DATA_F94D3E, $0000		;01C7
-	dw DATA_F94D4C, $0000		;01C8
-	dw DATA_F94D69, $0000		;01C9
-	dw DATA_F94D77, $0000		;01CA
-	dw DATA_F94DA5, $0000		;01CB
+	dw DATA_F94BE9, $0000		;01C2 lurchin_move_up
+	dw DATA_F94BF9, $0000		;01C3 lurchin_move_down
+	dw DATA_F94C52, $0000		;01C4 lurchin_idle
+	dw DATA_F94CD4, $0000		;01C5 banana_bird_idle
+	dw DATA_F94D1B, $0000		;01C6 banana_bird_fly
+	dw DATA_F94D3E, $0000		;01C7 banana_bird_turn
+	dw DATA_F94D4C, $0000		;01C8 banana_bird_land
+	dw DATA_F94D69, $0000		;01C9 banana_bird_fly_start
+	dw DATA_F94D77, $0000		;01CA banana_bird_idle_2
+	dw DATA_F94DA5, $0000		;01CB banana_bird_something
 	dw DATA_F94DB3, $0000		;01CC
 	dw DATA_F966AC, $0000		;01CD
 	dw DATA_F966BD, $0000		;01CE
@@ -490,36 +490,36 @@ animation_scripts_table:
 	dw DATA_F968A2, $0000		;01D5
 	dw DATA_F968CB, $0000		;01D6
 	dw DATA_F968F4, $0000		;01D7
-	dw DATA_F968FC, $0000		;01D8
-	dw DATA_F96946, $0000		;01D9
-	dw DATA_F96910, $0000		;01DA
+	dw DATA_F968FC, $0000		;01D8 arich_spit_idle
+	dw DATA_F96946, $0000		;01D9 arich_head_idle?
+	dw DATA_F96910, $0000		;01DA arich_spit_bounce
 	dw DATA_F9692B, $0000		;01DB
 	dw DATA_F96967, $0000		;01DC
-	dw DATA_F967CB, $0000		;01DD
-	dw DATA_F9698D, $0000		;01DE
-	dw DATA_F9699B, $0000		;01DF
-	dw DATA_F969C0, $0000		;01E0
-	dw DATA_F969E0, $0000		;01E1
-	dw DATA_F969E8, $0000		;01E2
-	dw DATA_F969F0, $0000		;01E3
-	dw DATA_F96A15, $0000		;01E4
-	dw DATA_F96A41, $0000		;01E5
-	dw DATA_F96A4F, $0000		;01E6
-	dw DATA_F96AA9, $0000		;01E7
-	dw DATA_F96B03, $0000		;01E8
-	dw DATA_F96B28, $0000		;01E9
-	dw DATA_F96B48, $0000		;01EA
-	dw DATA_F96B4D, $0000		;01EB
-	dw DATA_F96B6B, $0000		;01EC
-	dw DATA_F96B78, $0000		;01ED
-	dw DATA_F94E10, $0000		;01EE
-	dw DATA_F94E4A, $0000		;01EF
-	dw DATA_F94E64, $0000		;01F0
-	dw DATA_F94E84, $0000		;01F1
-	dw DATA_F94E98, $0000		;01F2
-	dw DATA_F94EBA, $0000		;01F3
-	dw DATA_F96B91, $0000		;01F4
-	dw DATA_F96B99, $0000		;01F5
+	dw DATA_F967CB, $0000		;01DD ripsaw_dust
+	dw DATA_F9698D, $0000		;01DE bleak_close_idle
+	dw DATA_F9699B, $0000		;01DF bleak_close_throw
+	dw DATA_F969C0, $0000		;01E0 bleak_thrown_snowball_far
+	dw DATA_F969E0, $0000		;01E1 big_bleak_hurt
+	dw DATA_F969E8, $0000		;01E2 bleak_far_idle
+	dw DATA_F969F0, $0000		;01E3 bleak_far_throw
+	dw DATA_F96A15, $0000		;01E4 bleak_thrown_snowball_close
+	dw DATA_F96A41, $0000		;01E5 bleak_far_hurt
+	dw DATA_F96A4F, $0000		;01E6 bleak_close_shoot_left_to_right
+	dw DATA_F96AA9, $0000		;01E7 bleak_close_shoot_right_to_left
+	dw DATA_F96B03, $0000		;01E8 bleak_close_laugh
+	dw DATA_F96B28, $0000		;01E9 bleak_big_snowball
+	dw DATA_F96B48, $0000		;01EA bleak_close_rise_holding_hat
+	dw DATA_F96B4D, $0000		;01EB bleak_close_lower_hat
+	dw DATA_F96B6B, $0000		;01EC bleak_close_shoot_center_wait
+	dw DATA_F96B78, $0000		;01ED bleak_close_shoot_center
+	dw DATA_F94E10, $0000		;01EE rekoil_jump
+	dw DATA_F94E4A, $0000		;01EF rekoil_land
+	dw DATA_F94E64, $0000		;01F0 rekoil_turn
+	dw DATA_F94E84, $0000		;01F1 rekoil_death
+	dw DATA_F94E98, $0000		;01F2 rekoil_idle
+	dw DATA_F94EBA, $0000		;01F3 rekoil_something
+	dw DATA_F96B91, $0000		;01F4 sneek_something
+	dw DATA_F96B99, $0000		;01F5 third_person_kong_thrown_snowball
 	dw DATA_F94F78, $0000		;01F6
 	dw DATA_F94F9D, $0000		;01F7
 	dw DATA_F94FC2, $0000		;01F8
@@ -533,145 +533,145 @@ animation_scripts_table:
 	dw DATA_F95075, $0000		;0200
 	dw DATA_F950A6, $0000		;0201
 	dw DATA_F950D0, $0000		;0202
-	dw DATA_F950E4, $0000		;0203
-	dw DATA_F95110, $0000		;0204
-	dw DATA_F95124, $0000		;0205
-	dw DATA_F96BB7, $0000		;0206
-	dw DATA_F96BD0, $0000		;0207
-	dw DATA_F96BE9, $0000		;0208
-	dw DATA_F96C04, $0000		;0209
-	dw DATA_F96C1B, $0000		;020A
-	dw DATA_F95138, $0000		;020B
-	dw DATA_F95171, $0000		;020C
-	dw DATA_F95185, $0000		;020D
-	dw DATA_F951AF, $0000		;020E
-	dw DATA_F951B9, $0000		;020F
-	dw DATA_F951EB, $0000		;0210
-	dw DATA_F951FD, $0000		;0211
-	dw DATA_F9520E, $0000		;0212
-	dw DATA_F95228, $0000		;0213
-	dw DATA_F9523F, $0000		;0214
-	dw DATA_F95253, $0000		;0215
-	dw DATA_F9527D, $0000		;0216
-	dw DATA_F95297, $0000		;0217
+	dw DATA_F950E4, $0000		;0203 kobble_walk
+	dw DATA_F95110, $0000		;0204 kobble_turn
+	dw DATA_F95124, $0000		;0205 kobble_and_skidda_death
+	dw DATA_F96BB7, $0000		;0206 dixie_third_person_hurt
+	dw DATA_F96BD0, $0000		;0207 kiddy_third_person_hurt
+	dw DATA_F96BE9, $0000		;0208 bleak_death_snowball_bounce_far
+	dw DATA_F96C04, $0000		;0209 bleak_death_snowball_bounce_close
+	dw DATA_F96C1B, $0000		;020A bleak_death_snowbal_particle
+	dw DATA_F95138, $0000		;020B skidda_walk
+	dw DATA_F95171, $0000		;020C skidda_turn
+	dw DATA_F95185, $0000		;020D minkey_attack
+	dw DATA_F951AF, $0000		;020E minkey_grab_acorn
+	dw DATA_F951B9, $0000		;020F minkey_acorn_thrown
+	dw DATA_F951EB, $0000		;0210 minkey_acorn_break
+	dw DATA_F951FD, $0000		;0211 koin_and_koindozer_idle
+	dw DATA_F9520E, $0000		;0212 koin_death
+	dw DATA_F95228, $0000		;0213 dk_coin_emerge
+	dw DATA_F9523F, $0000		;0214 dk_coin_emerge_2
+	dw DATA_F95253, $0000		;0215 koindozer_bonk
+	dw DATA_F9527D, $0000		;0216 koindozer_turn_fast(?)
+	dw DATA_F95297, $0000		;0217 koindozer_run
 	dw DATA_F952B4, $0000		;0218
 	dw DATA_F952CC, $0000		;0219
-	dw DATA_F952E0, $0000		;021A
+	dw DATA_F952E0, $0000		;021A koindozer_turn
 	dw DATA_F952EF, $0000		;021B
-	dw DATA_F952FA, $0000		;021C
-	dw DATA_F952FF, $0000		;021D
-	dw DATA_F95313, $0000		;021E
-	dw DATA_F95325, $0000		;021F
-	dw DATA_F9534F, $0000		;0220
-	dw DATA_F95369, $0000		;0221
-	dw DATA_F9537D, $0000		;0222
-	dw DATA_F95391, $0000		;0223
-	dw DATA_F953A2, $0000		;0224
-	dw DATA_F953AE, $0000		;0225
-	dw DATA_F953B3, $0000		;0226
-	dw DATA_F953B8, $0000		;0227
-	dw DATA_F953C0, $0000		;0228
-	dw DATA_F95E31, $0000		;0229
-	dw DATA_F953C8, $0000		;022A
-	dw DATA_F953FE, $0000		;022B
-	dw DATA_F9541B, $0000		;022C
-	dw DATA_F9542F, $0000		;022D
-	dw DATA_F95443, $0000		;022E
-	dw DATA_F95451, $0000		;022F
-	dw DATA_F95465, $0000		;0230
-	dw DATA_F95479, $0000		;0231
-	dw DATA_F954AB, $0000		;0232
+	dw DATA_F952FA, $0000		;021C knocka_and_kuchuka_idle
+	dw DATA_F952FF, $0000		;021D knocka_wake_up
+	dw DATA_F95313, $0000		;021E knocka_limbs_wake_up
+	dw DATA_F95325, $0000		;021F knocka_run
+	dw DATA_F9534F, $0000		;0220 knocka_limbs_run
+	dw DATA_F95369, $0000		;0221 knocka_turn
+	dw DATA_F9537D, $0000		;0222 knocka_limbs_turn
+	dw DATA_F95391, $0000		;0223 knocka_hide
+	dw DATA_F953A2, $0000		;0224 knocka_limbs_hide
+	dw DATA_F953AE, $0000		;0225 knocka_bounce
+	dw DATA_F953B3, $0000		;0226 knocka_limbs_bounce
+	dw DATA_F953B8, $0000		;0227 knocka_hurt
+	dw DATA_F953C0, $0000		;0228 knocka_limbs_hurt
+	dw DATA_F95E31, $0000		;0229 wooden_barrel_and_knocka_roll
+	dw DATA_F953C8, $0000		;022A knik_knak_walk
+	dw DATA_F953FE, $0000		;022B flying_knik_knak_move
+	dw DATA_F9541B, $0000		;022C flying_knik_knak_move_turn
+	dw DATA_F9542F, $0000		;022D knik_knak_turn
+	dw DATA_F95443, $0000		;022E knik_knak_start_flying
+	dw DATA_F95451, $0000		;022F knik_knak_hurt
+	dw DATA_F95465, $0000		;0230 knik_knak_death
+	dw DATA_F95479, $0000		;0231 knik_knak_recover_start
+	dw DATA_F954AB, $0000		;0232 knik_knak_recover
 	dw DATA_F954BC, $0000		;0233
-	dw DATA_F954C4, $0000		;0234
+	dw DATA_F954C4, $0000		;0234 knik_knak_carry
 	dw DATA_F954DB, $0000		;0235
-	dw DATA_F954E9, $0000		;0236
-	dw DATA_F954FD, $0000		;0237
+	dw DATA_F954E9, $0000		;0236 knik_knak_throw
+	dw DATA_F954FD, $0000		;0237 knik_knak_stunned
 	dw DATA_F95511, $0000		;0238
-	dw DATA_F9551F, $0000		;0239
-	dw DATA_F9552B, $0000		;023A
-	dw DATA_F9553F, $0000		;023B
-	dw DATA_F95584, $0000		;023C
-	dw DATA_F9559B, $0000		;023D
+	dw DATA_F9551F, $0000		;0239 flying_knik_knak_idle
+	dw DATA_F9552B, $0000		;023A flying_knik_knak_turn
+	dw DATA_F9553F, $0000		;023B krimp_walk
+	dw DATA_F95584, $0000		;023C krimp_turn
+	dw DATA_F9559B, $0000		;023D krimp_death
 	dw DATA_F95C49, $0000		;023E
 	dw DATA_F95C5A, $0000		;023F
 	dw DATA_F95C74, $0000		;0240
 	dw DATA_F95C82, $0000		;0241
 	dw DATA_F95C93, $0000		;0242
 	dw DATA_F95CA1, $0000		;0243
-	dw DATA_F95CB2, $0000		;0244
-	dw DATA_F95CCF, $0000		;0245
-	dw DATA_F95CE9, $0000		;0246
-	dw DATA_F95CF1, $0000		;0247
-	dw DATA_F95CF9, $0000		;0248
-	dw DATA_F95D52, $0000		;0249
-	dw DATA_F95DAA, $0000		;024A
-	dw DATA_F95DB8, $0000		;024B
-	dw DATA_F95DC6, $0000		;024C
-	dw DATA_F95DD4, $0000		;024D
-	dw DATA_F95DE2, $0000		;024E
-	dw DATA_F95DF0, $0000		;024F
-	dw DATA_F955B4, $0000		;0250
-	dw DATA_F955E0, $0000		;0251
-	dw DATA_F9561A, $0000		;0252
-	dw DATA_F9562E, $0000		;0253
-	dw DATA_F9563F, $0000		;0254
-	dw DATA_F95650, $0000		;0255
-	dw DATA_F95664, $0000		;0256
-	dw DATA_F95675, $0000		;0257
-	dw DATA_F95686, $0000		;0258
-	dw DATA_F956C6, $0000		;0259
-	dw DATA_F956DA, $0000		;025A
-	dw DATA_F956F7, $0000		;025B
-	dw DATA_F9570B, $0000		;025C
-	dw DATA_F9571F, $0000		;025D
-	dw DATA_F9573C, $0000		;025E
-	dw DATA_F9574D, $0000		;025F
-	dw DATA_F9576C, $0000		;0260
-	dw DATA_F9577A, $0000		;0261
-	dw DATA_F95796, $0000		;0262
-	dw DATA_F957A7, $0000		;0263
-	dw DATA_F957BD, $0000		;0264
-	dw DATA_F957C5, $0000		;0265
-	dw DATA_F957CD, $0000		;0266
-	dw DATA_F957EB, $0000		;0267
-	dw DATA_F957F6, $0000		;0268
-	dw DATA_F95828, $0000		;0269
-	dw DATA_F95863, $0000		;026A
-	dw DATA_F9586B, $0000		;026B
-	dw DATA_F958A0, $0000		;026C
-	dw DATA_F958BF, $0000		;026D
-	dw DATA_F958C4, $0000		;026E
-	dw DATA_F958D0, $0000		;026F
-	dw DATA_F958E4, $0000		;0270
-	dw DATA_F958FE, $0000		;0271
-	dw DATA_F9590A, $0000		;0272
-	dw DATA_F9591E, $0000		;0273
-	dw DATA_F9593D, $0000		;0274
-	dw DATA_F9595D, $0000		;0275
-	dw DATA_F95974, $0000		;0276
-	dw DATA_F95991, $0000		;0277
-	dw DATA_F959B1, $0000		;0278
-	dw DATA_F959C8, $0000		;0279
-	dw DATA_F959E2, $0000		;027A
-	dw DATA_F959FE, $0000		;027B
-	dw DATA_F95A0F, $0000		;027C
-	dw DATA_F95A2E, $0000		;027D
-	dw DATA_F95A44, $0000		;027E
-	dw DATA_F95A58, $0000		;027F
-	dw DATA_F95A80, $0000		;0280
-	dw DATA_F95A85, $0000		;0281
-	dw DATA_F95A93, $0000		;0282
-	dw DATA_F95AAA, $0000		;0283
-	dw DATA_F95AB3, $0000		;0284
-	dw DATA_F95ABC, $0000		;0285
-	dw DATA_F95AC5, $0000		;0286
-	dw DATA_F95AF5, $0000		;0287
-	dw DATA_F95B09, $0000		;0288
-	dw DATA_F95B1A, $0000		;0289
-	dw DATA_F95B33, $0000		;028A
-	dw DATA_F95B44, $0000		;028B
-	dw DATA_F95B58, $0000		;028C
-	dw DATA_F95B64, $0000		;028D
+	dw DATA_F95CB2, $0000		;0244 barbos_purple_lurchin_move_to_front
+	dw DATA_F95CCF, $0000		;0245 barbos_purple_lurchin_move_to_back
+	dw DATA_F95CE9, $0000		;0246 barbos_purple_lurchin_idle
+	dw DATA_F95CF1, $0000		;0247 lurchin_emerge
+	dw DATA_F95CF9, $0000		;0248 lurchin_move_up_slow
+	dw DATA_F95D52, $0000		;0249 lurchin_death
+	dw DATA_F95DAA, $0000		;024A seashell_missile_up_down
+	dw DATA_F95DB8, $0000		;024B barbos_seashell_missile_diagonal
+	dw DATA_F95DC6, $0000		;024C barbos_seashell_missile_diagonal_2
+	dw DATA_F95DD4, $0000		;024D barbos_seashell_missile_diagonal_3
+	dw DATA_F95DE2, $0000		;024E barbos_seashell_missile_left_right
+	dw DATA_F95DF0, $0000		;024F barbos_seashell_missile_death
+	dw DATA_F955B4, $0000		;0250 bristles_walk
+	dw DATA_F955E0, $0000		;0251 bristles_roll
+	dw DATA_F9561A, $0000		;0252 bristles_turn
+	dw DATA_F9562E, $0000		;0253 bristles_death
+	dw DATA_F9563F, $0000		;0254 bristles_roll_to_turn   (unused?)
+	dw DATA_F95650, $0000		;0255 bristles_turn_to_roll   (unused?)
+	dw DATA_F95664, $0000		;0256 bristles_roll_to_turn_2 (unused?)
+	dw DATA_F95675, $0000		;0257 bristles_roll_to_walk   (unused?)
+	dw DATA_F95686, $0000		;0258 krumple_walk
+	dw DATA_F956C6, $0000		;0259 krumple_walk_turn
+	dw DATA_F956DA, $0000		;025A krumple_laugh
+	dw DATA_F956F7, $0000		;025B krumple_death
+	dw DATA_F9570B, $0000		;025C krumple_laugh_turn
+	dw DATA_F9571F, $0000		;025D swoopy_idle
+	dw DATA_F9573C, $0000		;025E swoopy_idle_2 (possibly unused)
+	dw DATA_F9574D, $0000		;025F swoopy_dive
+	dw DATA_F9576C, $0000		;0260 swoopy_stab_tree
+	dw DATA_F9577A, $0000		;0261 swoopy_stunned_shake_1
+	dw DATA_F95796, $0000		;0262 swoopy_death
+	dw DATA_F957A7, $0000		;0263 swoopy_stunned_shake_2
+	dw DATA_F957BD, $0000		;0264 swoopy_stunned_idle
+	dw DATA_F957C5, $0000		;0265 swoopy_stunned_kong_on_top
+	dw DATA_F957CD, $0000		;0266 swoopy_stunned_shake_3
+	dw DATA_F957EB, $0000		;0267 kuchuka_hands_throw (single graphic?)
+	dw DATA_F957F6, $0000		;0268 kuchuka_hands_throw
+	dw DATA_F95828, $0000		;0269 fire particles (or kuchuka's bomb?)
+	dw DATA_F95863, $0000		;026A kuchuka_bomb
+	dw DATA_F9586B, $0000		;026B some explosion
+	dw DATA_F958A0, $0000		;026C bazza_move
+	dw DATA_F958BF, $0000		;026D bazza_death
+	dw DATA_F958C4, $0000		;026E bounty_bass_move
+	dw DATA_F958D0, $0000		;026F bounty_bass_turn
+	dw DATA_F958E4, $0000		;0270 bounty_bass_hurt
+	dw DATA_F958FE, $0000		;0271 gleamin_bream_idle
+	dw DATA_F9590A, $0000		;0272 gleamin_bream_turn
+	dw DATA_F9591E, $0000		;0273 gleamin_bream_hurt
+	dw DATA_F9593D, $0000		;0274 booty_bird_move
+	dw DATA_F9595D, $0000		;0275 booty_bird_move_turn
+	dw DATA_F95974, $0000		;0276 booty_bird_hurt
+	dw DATA_F95991, $0000		;0277 booty_bird_idle
+	dw DATA_F959B1, $0000		;0278 booty_bird_idle_turn
+	dw DATA_F959C8, $0000		;0279 nid_idle
+	dw DATA_F959E2, $0000		;027A nid_jump
+	dw DATA_F959FE, $0000		;027B nid_land
+	dw DATA_F95A0F, $0000		;027C bazuka_horizontal_shoot
+	dw DATA_F95A2E, $0000		;027D bazuka_horizontal_recover
+	dw DATA_F95A44, $0000		;027E bazuka_horizontal_walk_back
+	dw DATA_F95A58, $0000		;027F bazuka_vertical_shoot
+	dw DATA_F95A80, $0000		;0280 bazuka_vertical_idle
+	dw DATA_F95A85, $0000		;0281 bazuka_horizontal_idle
+	dw DATA_F95A93, $0000		;0282 bazuka_death
+	dw DATA_F95AAA, $0000		;0283 tnt_barrel_roll_right
+	dw DATA_F95AB3, $0000		;0284 keg transition to tnt???
+	dw DATA_F95ABC, $0000		;0285 tnt_barrel_roll_left
+	dw DATA_F95AC5, $0000		;0286 bazuka_horizontal_shoot_fast
+	dw DATA_F95AF5, $0000		;0287 kopter_idle_to_spin_unused
+	dw DATA_F95B09, $0000		;0288 kopter_spin_slow_to_fast
+	dw DATA_F95B1A, $0000		;0289 kopter_idle_unused
+	dw DATA_F95B33, $0000		;028A kopter_death_unused
+	dw DATA_F95B44, $0000		;028B kopter_spin_to_idle_unused
+	dw DATA_F95B58, $0000		;028C kopter_spin_normal_speed
+	dw DATA_F95B64, $0000		;028D kopter_spin_slow_to_mid
 	dw !null_pointer, $0000		;028E
 	dw !null_pointer, $0000		;028F
 	dw DATA_F95E4B, $0000		;0290
@@ -687,10 +687,10 @@ animation_scripts_table:
 	dw DATA_F95FE5, $0000		;029A
 	dw DATA_F95FF3, $0000		;029B
 	dw DATA_F96001, $0000		;029C
-	dw DATA_F95B9D, $0000		;029D
-	dw DATA_F95BAF, $0000		;029E
-	dw DATA_F95BC9, $0000		;029F
-	dw DATA_F95BF6, $0000		;02A0
+	dw DATA_F95B9D, $0000		;029D karbine_idle
+	dw DATA_F95BAF, $0000		;029E karbine_shoot
+	dw DATA_F95BC9, $0000		;029F karbine_fireball_idle
+	dw DATA_F95BF6, $0000		;02A0 karbine_fireball_bounce
 	dw DATA_F95C09, $0000		;02A1
 	dw DATA_F95C3B, $0000		;02A2
 	dw DATA_F95C46, $0000		;02A3
@@ -745,24 +745,24 @@ animation_scripts_table:
 	dw DATA_F96441, $0000		;02D4
 	dw DATA_F9645A, $0000		;02D5
 	dw DATA_F9646E, $0000		;02D6
-	dw DATA_F96D90, $0000		;02D7
-	dw DATA_F96DB3, $0000		;02D8
-	dw DATA_F96DCE, $0000		;02D9
-	dw DATA_F96DD9, $0000		;02DA
+	dw DATA_F96D90, $0000		;02D7 funky_idle
+	dw DATA_F96DB3, $0000		;02D8 funky_talk
+	dw DATA_F96DCE, $0000		;02D9 funky_turn
+	dw DATA_F96DD9, $0000		;02DA funky_walk
 	dw DATA_F96DE2, $0000		;02DB
-	dw DATA_F974AC, $0000		;02DC
-	dw DATA_F974CC, $0000		;02DD
-	dw DATA_F974E6, $0000		;02DE
-	dw DATA_F96E03, $0000		;02DF
-	dw DATA_F96E16, $0000		;02E0
-	dw DATA_F96E39, $0000		;02E1
-	dw DATA_F967E6, $0000		;02E2
-	dw DATA_F96E71, $0000		;02E3
-	dw DATA_F96F01, $0000		;02E4
-	dw DATA_F96ED0, $0000		;02E5
-	dw DATA_F96EB7, $0000		;02E6
+	dw DATA_F974AC, $0000		;02DC funky_sawdust_effect
+	dw DATA_F974CC, $0000		;02DD funky_spark_effect
+	dw DATA_F974E6, $0000		;02DE funky_spark_effect_2
+	dw DATA_F96E03, $0000		;02DF swanky_idle
+	dw DATA_F96E16, $0000		;02E0 swanky_unknown
+	dw DATA_F96E39, $0000		;02E1 swanky_talk
+	dw DATA_F967E6, $0000		;02E2 swanky_give_prize
+	dw DATA_F96E71, $0000		;02E3 swanky_something
+	dw DATA_F96F01, $0000		;02E4 wrinkly_idle
+	dw DATA_F96ED0, $0000		;02E5 wrinkly_play_n64
+	dw DATA_F96EB7, $0000		;02E6 wrinkly_sleep
 	dw !null_pointer, $0000		;02E7
-	dw DATA_F96DFA, $0000		;02E8
+	dw DATA_F96DFA, $0000		;02E8 funky_rentals_water
 	dw DATA_F96F72, $0000		;02E9
 	dw DATA_F96F8B, $0000		;02EA
 	dw DATA_F96FA4, $0000		;02EB
@@ -815,25 +815,25 @@ animation_scripts_table:
 	dw DATA_F97335, $0000		;031A
 	dw DATA_F970FC, $0000		;031B
 	dw !null_pointer, $0000		;031C
-	dw DATA_F9710F, $0000		;031D
+	dw DATA_F9710F, $0000		;031D gyrocopter_blades
 	dw DATA_F97542, $0000		;031E
 	dw DATA_F9754C, $0000		;031F
 	dw DATA_F97556, $0000		;0320
 	dw DATA_F9755E, $0000		;0321
 	dw DATA_F9757B, $0000		;0322
 	dw DATA_F97105, $0000		;0323
-	dw DATA_F96F61, $0000		;0324
-	dw DATA_F9733D, $0000		;0325
-	dw DATA_F97346, $0000		;0326
-	dw DATA_F96F6A, $0000		;0327
-	dw DATA_F9734F, $0000		;0328
+	dw DATA_F96F61, $0000		;0324 k3_waterfall_top
+	dw DATA_F9733D, $0000		;0325 bleaks_house_face
+	dw DATA_F97346, $0000		;0326 arichs_ambush_face_unused
+	dw DATA_F96F6A, $0000		;0327 wrinkly_cave_glow
+	dw DATA_F9734F, $0000		;0328 kremwood_forest_water_trails
 	dw !null_pointer, $0000		;0329
 	dw !null_pointer, $0000		;032A
-	dw DATA_F97358, $0000		;032B
-	dw DATA_F97361, $0000		;032C
+	dw DATA_F97358, $0000		;032B brashs_cabin_smoke
+	dw DATA_F97361, $0000		;032C some smoke cloud
 	dw DATA_F97370, $0000		;032D
-	dw DATA_F9737C, $0000		;032E
-	dw DATA_F9738D, $0000		;032F
+	dw DATA_F9737C, $0000		;032E brothers_bear_idle
+	dw DATA_F9738D, $0000		;032F brothers_bear_move_hands
 	dw DATA_F973A2, $0000		;0330
 	dw DATA_F973C1, $0000		;0331
 	dw DATA_F973E3, $0000		;0332
@@ -841,7 +841,7 @@ animation_scripts_table:
 	dw DATA_F97436, $0000		;0334
 	dw DATA_F9743E, $0000		;0335
 	dw !null_pointer, $0000		;0336
-	dw DATA_F97464, $0000		;0337
+	dw DATA_F97464, $0000		;0337 main_map_ctc_waterfall
 	dw DATA_F9746D, $0000		;0338
 	dw DATA_F97476, $0000		;0339
 	dw DATA_F9747F, $0000		;033A
@@ -855,8 +855,8 @@ animation_scripts_table:
 	dw DATA_F97500, $0000		;0342
 	dw DATA_F97516, $0000		;0343
 	dw DATA_F9752C, $0000		;0344
-	dw DATA_F97584, $0000		;0345
-	dw DATA_F97596, $0000		;0346
+	dw DATA_F97584, $0000		;0345 mama_bird_head_idle
+	dw DATA_F97596, $0000		;0346 mama_bird_head_talk
 	dw DATA_F97CA9, $0000		;0347
 	dw DATA_F97A7E, $0000		;0348
 	dw DATA_F97A92, $0000		;0349
@@ -869,10 +869,10 @@ animation_scripts_table:
 	dw !null_pointer, $0000		;0350
 	dw DATA_F975D0, $0000		;0351
 	dw DATA_F97632, $0000		;0352
-	dw DATA_F976DC, $0000		;0353
-	dw DATA_F97745, $0000		;0354
-	dw DATA_F977CD, $0000		;0355
-	dw DATA_F977EC, $0000		;0356
+	dw DATA_F976DC, $0000		;0353 dixie_photo_album_dixie_section
+	dw DATA_F97745, $0000		;0354 dixie_photo_album_kiddy_section
+	dw DATA_F977CD, $0000		;0355 kiddy_photo_album_dixie_section
+	dw DATA_F977EC, $0000		;0356 kiddy_photo_album_kiddy_section
 	dw DATA_F97972, $0000		;0357
 	dw DATA_F979B8, $0000		;0358
 	dw DATA_F979C9, $0000		;0359
@@ -884,17 +884,17 @@ animation_scripts_table:
 	dw DATA_F97B28, $0000		;035F
 	dw DATA_F97B17, $0000		;0360
 	dw DATA_F97B06, $0000		;0361
-	dw DATA_F97AF2, $0000		;0362
+	dw DATA_F97AF2, $0000		;0362 cranky_true_ending_boat
 	dw DATA_F97B45, $0000		;0363
 	dw DATA_F97B81, $0000		;0364
 	dw DATA_F97BC6, $0000		;0365
-	dw DATA_F97C35, $0000		;0366
-	dw DATA_F97CB2, $0000		;0367
-	dw DATA_F97CB7, $0000		;0368
-	dw DATA_F97CCD, $0000		;0369
-	dw DATA_F97D26, $0000		;036A
-	dw DATA_F97D2B, $0000		;036B
-	dw DATA_F97D3E, $0000		;036C
+	dw DATA_F97C35, $0000		;0366 cranky_kastle_kaos
+	dw DATA_F97CB2, $0000		;0367 donkey_jump (single graphic)
+	dw DATA_F97CB7, $0000		;0368 donkey_jump
+	dw DATA_F97CCD, $0000		;0369 donkey_talk
+	dw DATA_F97D26, $0000		;036A diddy_jump (single graphic)
+	dw DATA_F97D2B, $0000		;036B diddy_jump
+	dw DATA_F97D3E, $0000		;036C diddy_talk
 
 DATA_F90EB4:
 	%DKC3_AnS_Op85(CODE_B9A65D)
