@@ -212,217 +212,217 @@ DATA_ECD002:
 	dw DATA_ECF236-DATA_ECD002
 
 DATA_ECD1A2:
-	incbin "data/levels/banana_placement/LakesideLimbo_Main.bin"
+	incbin "LakesideLimbo_Main.bin"
 
 DATA_ECD1F2:
-	incbin "data/levels/banana_placement/KreepingKlasps_Main.bin"
+	incbin "KreepingKlasps_Main.bin"
 
 DATA_ECD24E:
-	incbin "data/levels/banana_placement/TidalTrouble_Main.bin"
+	incbin "TidalTrouble_Main.bin"
 
 DATA_ECD2E6:
-	incbin "data/levels/banana_placement/DoorstopDash_Main.bin"
+	incbin "DoorstopDash_Main.bin"
 
 DATA_ECD39A:
-	incbin "data/levels/banana_placement/SquealsOnWheels_Main.bin"
+	incbin "SquealsOnWheels_Main.bin"
 
 DATA_ECD47E:
-	incbin "data/levels/banana_placement/MurkyMill_Main.bin"
+	incbin "MurkyMill_Main.bin"
 
 DATA_ECD532:
-	incbin "data/levels/banana_placement/SkiddasRow_Main.bin"
+	incbin "SkiddasRow_Main.bin"
 
 DATA_ECD5B6:
-	incbin "data/levels/banana_placement/LemguinLunge_Main.bin"
+	incbin "LemguinLunge_Main.bin"
 
 DATA_ECD5E2:
-	incbin "data/levels/banana_placement/TearawayToboggan_Main.bin"
+	incbin "TearawayToboggan_Main.bin"
 
 DATA_ECD67E:
-	incbin "data/levels/banana_placement/RipsawRage_Main.bin"
+	incbin "RipsawRage_Main.bin"
 
 DATA_ECD776:
-	incbin "data/levels/banana_placement/SpringinSpiders_Main.bin"
+	incbin "SpringinSpiders_Main.bin"
 
 DATA_ECD846:
-	incbin "data/levels/banana_placement/BarrelShieldBustUp_Main.bin"
+	incbin "BarrelShieldBustUp_Main.bin"
 
 DATA_ECD8C6:
-	incbin "data/levels/banana_placement/SwoopySalvo_Main.bin"
+	incbin "SwoopySalvo_Main.bin"
 
 DATA_ECD98A:
-	incbin "data/levels/banana_placement/RiversideRace_Main.bin"
+	incbin "RiversideRace_Main.bin"
 
 DATA_ECDA06:
-	incbin "data/levels/banana_placement/LightningLookOut_Main.bin"
+	incbin "LightningLookOut_Main.bin"
 
 DATA_ECDA26:
-	incbin "data/levels/banana_placement/BobbingBarrelBrawl_Main.bin"
+	incbin "BobbingBarrelBrawl_Main.bin"
 
 DATA_ECDA9A:
-	incbin "data/levels/banana_placement/BazzasBlockade_Main.bin"
+	incbin "BazzasBlockade_Main.bin"
 
 DATA_ECDB2E:
-	incbin "data/levels/banana_placement/FishFoodFrenzy_Main.bin"
+	incbin "FishFoodFrenzy_Main.bin"
 
 DATA_ECDC32:
-	incbin "data/levels/banana_placement/FloodlitFish_Main.bin"
+	incbin "FloodlitFish_Main.bin"
 
 DATA_ECDD36:
-	incbin "data/levels/banana_placement/RocketBarrelRide_Main.bin"
+	incbin "RocketBarrelRide_Main.bin"
 
 DATA_ECDE06:
-	incbin "data/levels/banana_placement/TrackerBarrelTrek_Main.bin"
+	incbin "TrackerBarrelTrek_Main.bin"
 
 DATA_ECDEA2:
-	incbin "data/levels/banana_placement/BarrelDropBounce_Main.bin"
+	incbin "BarrelDropBounce_Main.bin"
 
 DATA_ECDF66:
-	incbin "data/levels/banana_placement/FireballFrenzy_Main.bin"
+	incbin "FireballFrenzy_Main.bin"
 
 DATA_ECE016:
-	incbin "data/levels/banana_placement/BlazingBazukas_Main.bin"
+	incbin "BlazingBazukas_Main.bin"
 
 DATA_ECE0D2:
-	incbin "data/levels/banana_placement/KrackshotKroc_Main.bin"
+	incbin "KrackshotKroc_Main.bin"
 
 DATA_ECE1AA:
-	incbin "data/levels/banana_placement/LowGLabyrinth_Main.bin"
+	incbin "LowGLabyrinth_Main.bin"
 
 DATA_ECE2E6:
-	incbin "data/levels/banana_placement/PoisonousPipeline_Main.bin"
+	incbin "PoisonousPipeline_Main.bin"
 
 DATA_ECE3AE:
-	incbin "data/levels/banana_placement/DemolitionDrainPipe_Main.bin"
+	incbin "DemolitionDrainPipe_Main.bin"
 
 DATA_ECE476:
-	incbin "data/levels/banana_placement/KreviceKreepers_Main.bin"
+	incbin "KreviceKreepers_Main.bin"
 
 DATA_ECE552:
-	incbin "data/levels/banana_placement/KongFusedCliffs_Main.bin"
+	incbin "KongFusedCliffs_Main.bin"
 
 DATA_ECE5DA:
-	incbin "data/levels/banana_placement/RopeyRumpus_Main.bin"
+	incbin "RopeyRumpus_Main.bin"
 
 DATA_ECE6E2:
-	incbin "data/levels/banana_placement/BuzzerBarrage_Main.bin"
+	incbin "BuzzerBarrage_Main.bin"
 
 DATA_ECE826:
-	incbin "data/levels/banana_placement/PotHolePanic_Main.bin"
+	incbin "PotHolePanic_Main.bin"
 
 DATA_ECE8A2:
-	incbin "data/levels/banana_placement/CreepyCaverns_Main.bin"
+	incbin "CreepyCaverns_Main.bin"
 
 DATA_ECE982:
-	incbin "data/levels/banana_placement/KoindozerKlamber_Main.bin"
+	incbin "KoindozerKlamber_Main.bin"
 
 DATA_ECE9EE:
-	incbin "data/levels/banana_placement/KonveyorRopeKlash_Main.bin"
+	incbin "KonveyorRopeKlash_Main.bin"
 
 DATA_ECEA56:
-	incbin "data/levels/banana_placement/StampedeSprint_Main.bin"
+	incbin "StampedeSprint_Main.bin"
 
 DATA_ECEAB6:
-	incbin "data/levels/banana_placement/CrissKrossCliffs_Main.bin"
+	incbin "CrissKrossCliffs_Main.bin"
 
 DATA_ECEB0A:
-	incbin "data/levels/banana_placement/TyrantTwinTussle_Main.bin"
+	incbin "TyrantTwinTussle_Main.bin"
 
 DATA_ECEB8A:
-	incbin "data/levels/banana_placement/RocketRush_Main.bin"
+	incbin "RocketRush_Main.bin"
 
 DATA_ECECCA:
-	incbin "data/levels/banana_placement/LakesideLimbo_Bonus1.bin"
+	incbin "LakesideLimbo_Bonus1.bin"
 
 DATA_ECECFE:
-	incbin "data/levels/banana_placement/DoorstopDash_Bonus1.bin"
+	incbin "DoorstopDash_Bonus1.bin"
 
 DATA_ECED3A:
-	incbin "data/levels/banana_placement/TidalTrouble_Bonus1.bin"
+	incbin "TidalTrouble_Bonus1.bin"
 
 DATA_ECED5E:
-	incbin "data/levels/banana_placement/TidalTrouble_Bonus2.bin"
+	incbin "TidalTrouble_Bonus2.bin"
 
 DATA_ECED72:
-	incbin "data/levels/banana_placement/SquealsOnWheels_Bonus1.bin"
+	incbin "SquealsOnWheels_Bonus1.bin"
 
 DATA_ECED82:
-	incbin "data/levels/banana_placement/BarrelShieldBustUp_Bonus1.bin"
+	incbin "BarrelShieldBustUp_Bonus1.bin"
 
 DATA_ECED86:
-	incbin "data/levels/banana_placement/SpringinSpiders_Bonus2.bin"
+	incbin "SpringinSpiders_Bonus2.bin"
 
 DATA_ECEDAA:
-	incbin "data/levels/banana_placement/RocketBarrelRide_Bonus1.bin"
+	incbin "RocketBarrelRide_Bonus1.bin"
 
 DATA_ECEDBE:
-	incbin "data/levels/banana_placement/RocketBarrelRide_Bonus2.bin"
+	incbin "RocketBarrelRide_Bonus2.bin"
 
 DATA_ECEE0A:
-	incbin "data/levels/banana_placement/TrackerBarrelTrek_Bonus1.bin"
+	incbin "TrackerBarrelTrek_Bonus1.bin"
 
 DATA_ECEE72:
-	incbin "data/levels/banana_placement/DemolitionDrainPipe_Bonus2.bin"
+	incbin "DemolitionDrainPipe_Bonus2.bin"
 
 DATA_ECEE92:
-	incbin "data/levels/banana_placement/RipsawRage_Bonus1.bin"
+	incbin "RipsawRage_Bonus1.bin"
 
 DATA_ECEEB6:
-	incbin "data/levels/banana_placement/BlazingBazukas_Bonus2.bin"
+	incbin "BlazingBazukas_Bonus2.bin"
 
 DATA_ECEECA:
-	incbin "data/levels/banana_placement/LowGLabyrinth_Bonus1.bin"
+	incbin "LowGLabyrinth_Bonus1.bin"
 
 DATA_ECEF02:
-	incbin "data/levels/banana_placement/KreviceKreepers_Bonus1.bin"
+	incbin "KreviceKreepers_Bonus1.bin"
 
 DATA_ECEF22:
-	incbin "data/levels/banana_placement/KreviceKreepers_Bonus2.bin"
+	incbin "KreviceKreepers_Bonus2.bin"
 
 DATA_ECEF3A:
-	incbin "data/levels/banana_placement/TearawayToboggan_Bonus2.bin"
+	incbin "TearawayToboggan_Bonus2.bin"
 
 DATA_ECEFAA:
-	incbin "data/levels/banana_placement/LemguinLunge_Bonus2.bin"
+	incbin "LemguinLunge_Bonus2.bin"
 
 DATA_ECEFDE:
-	incbin "data/levels/banana_placement/BuzzerBarrage_Bonus2.bin"
+	incbin "BuzzerBarrage_Bonus2.bin"
 
 DATA_ECF02E:
-	incbin "data/levels/banana_placement/FloodlitFish_Bonus1.bin"
+	incbin "FloodlitFish_Bonus1.bin"
 
 DATA_ECF046:
-	incbin "data/levels/banana_placement/FloodlitFish_Bonus2.bin"
+	incbin "FloodlitFish_Bonus2.bin"
 
 DATA_ECF0CA:
-	incbin "data/levels/banana_placement/PotHolePanic_Bonus1.bin"
+	incbin "PotHolePanic_Bonus1.bin"
 
 DATA_ECF0CE:
-	incbin "data/levels/banana_placement/RopeyRumpus_Bonus1.bin"
+	incbin "RopeyRumpus_Bonus1.bin"
 
 DATA_ECF0DA:
-	incbin "data/levels/banana_placement/KoindozerKlamber_Bonus1.bin"
+	incbin "KoindozerKlamber_Bonus1.bin"
 
 DATA_ECF106:
-	incbin "data/levels/banana_placement/CreepyCaverns_Bonus1.bin"
+	incbin "CreepyCaverns_Bonus1.bin"
 
 DATA_ECF146:
-	incbin "data/levels/banana_placement/BobbingBarrelBrawl_Bonus2.bin"
+	incbin "BobbingBarrelBrawl_Bonus2.bin"
 
 DATA_ECF16E:
-	incbin "data/levels/banana_placement/KonveyorRopeKlash_Bonus1.bin"
+	incbin "KonveyorRopeKlash_Bonus1.bin"
 
 DATA_ECF1B2:
-	incbin "data/levels/banana_placement/PoisonousPipeline_Bonus1.bin"
+	incbin "PoisonousPipeline_Bonus1.bin"
 
 DATA_ECF1FA:
-	incbin "data/levels/banana_placement/SwoopySalvo_Bonus3.bin"
+	incbin "SwoopySalvo_Bonus3.bin"
 
 DATA_ECF1FE:
-	incbin "data/levels/banana_placement/TyrantTwinTussle_Bonus1.bin"
+	incbin "TyrantTwinTussle_Bonus1.bin"
 
 DATA_ECF22A:
-	incbin "data/levels/banana_placement/TyrantTwinTussle_Bonus2.bin"
+	incbin "TyrantTwinTussle_Bonus2.bin"
 
 DATA_ECF236:
 	dw DATA_ECF320-DATA_ECF236

@@ -1616,234 +1616,234 @@ DATA_FD1B03:
 	dw DATA_FD28FE-DATA_FD1B03
 
 DATA_FD1B8B:
-	db ((DATA_FFEE00>>16)&$3F)|$00 : dw DATA_FFEE00,$1C40,$0100
-	db ((DATA_FFE380>>16)&$3F)|$00 : dw DATA_FFE380,$1CC0,$0280
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1E00,$0400
+	%vram_payload(DATA_FFEE00,$1C40,$0100,!big_data_compression)
+	%vram_payload(DATA_FFE380,$1CC0,$0280,!big_data_compression)
+	%vram_payload(DATA_FFE600,$1E00,$0400,!big_data_compression)
 	db $00
 
 DATA_FD1BA1:
-	db ((DATA_FFDF80>>16)&$3F)|$00 : dw DATA_FFDF80,$1E00,$0400
+	%vram_payload(DATA_FFDF80,$1E00,$0400,!big_data_compression)
 	db $00
 
 DATA_FD1BA9:
-	db ((DATA_FFDB80>>16)&$3F)|$00 : dw DATA_FFDB80,$1E00,$0400
+	%vram_payload(DATA_FFDB80,$1E00,$0400,!big_data_compression)
 	db $00
 
 DATA_FD1BB1:
-	db ((DATA_FDE415>>16)&$3F)|$00 : dw DATA_FDE415,$1E00,$0400
+	%vram_payload(DATA_FDE415,$1E00,$0400,!big_data_compression)
 	db $00
 
 DATA_FD1BB9:
-	db ((DATA_E08E80>>16)&$3F)|$00 : dw DATA_E08E80,$A000,$6EA0
-	db ((DATA_F2587C>>16)&$3F)|$00 : dw DATA_F2587C,$F000,$319C
-	db ((DATA_F275D5>>16)&$3F)|$40 : dw DATA_F275D5,$EC00,$0800
-	db ((DATA_E8A874>>16)&$3F)|$00 : dw DATA_E8A874,$D750,$1160
+	%vram_payload(DATA_E08E80,$A000,$6EA0,!big_data_compression)
+	%vram_payload(DATA_F2587C,$F000,$319C,!big_data_compression)
+	%vram_payload(DATA_F275D5,$EC00,$0800,!small_data_compression)
+	%vram_payload(DATA_E8A874,$D750,$1160,!big_data_compression)
 	db $00
 
 DATA_FD1BD6:
-	db ((DATA_E15058>>16)&$3F)|$00 : dw DATA_E15058,$A000,$71C0
-	db ((DATA_E9F346>>16)&$3F)|$00 : dw DATA_E9F346,$F400,$0800
-	db ((DATA_E9F818>>16)&$3F)|$00 : dw DATA_E9F818,$5000,$0C70
+	%vram_payload(DATA_E15058,$A000,$71C0,!big_data_compression)
+	%vram_payload(DATA_E9F346,$F400,$0800,!big_data_compression)
+	%vram_payload(DATA_E9F818,$5000,$0C70,!big_data_compression)
 	db $00
 
 DATA_FD1BEC:
-	db ((DATA_FFEF00>>16)&$3F)|$00 : dw DATA_FFEF00,$1C40,$00C0
-	db ((DATA_E21914>>16)&$3F)|$00 : dw DATA_E21914,$A000,$6800
-	db ((DATA_EA3387>>16)&$3F)|$00 : dw DATA_EA3387,$F000,$0EF0
-	db ((DATA_EA426A>>16)&$3F)|$00 : dw DATA_EA426A,$E000,$1FC0
-	db ((DATA_EA5B53>>16)&$3F)|$40 : dw DATA_EA5B53,$DC00,$0800
-	db ((DATA_EA5F1C>>16)&$3F)|$00 : dw DATA_EA5F1C,$D400,$1000
+	%vram_payload(DATA_FFEF00,$1C40,$00C0,!big_data_compression)
+	%vram_payload(DATA_E21914,$A000,$6800,!big_data_compression)
+	%vram_payload(DATA_EA3387,$F000,$0EF0,!big_data_compression)
+	%vram_payload(DATA_EA426A,$E000,$1FC0,!big_data_compression)
+	%vram_payload(DATA_EA5B53,$DC00,$0800,!small_data_compression)
+	%vram_payload(DATA_EA5F1C,$D400,$1000,!big_data_compression)
 	db $00
 
 DATA_FD1C17:
-	db ((DATA_E2D9E8>>16)&$3F)|$00 : dw DATA_E2D9E8,$A000,$7800
-	db ((DATA_F2275C>>16)&$3F)|$00 : dw DATA_F2275C,$E000,$2000
-	db ((DATA_F24170>>16)&$3F)|$00 : dw DATA_F24170,$FC00,$0800
-	db ((DATA_F2470A>>16)&$3F)|$00 : dw DATA_F2470A,$F000,$1000
-	db ((DATA_F25437>>16)&$3F)|$40 : dw DATA_F25437,$F800,$0800
-	db ((DATA_EBC052>>16)&$3F)|$00 : dw DATA_EBC052,$2010,$0140
-	db ((DATA_EBC052>>16)&$3F)|$00 : dw DATA_EBC052,$20B0,$0140
-	db ((DATA_EBC052>>16)&$3F)|$00 : dw DATA_EBC052,$2150,$0080
+	%vram_payload(DATA_E2D9E8,$A000,$7800,!big_data_compression)
+	%vram_payload(DATA_F2275C,$E000,$2000,!big_data_compression)
+	%vram_payload(DATA_F24170,$FC00,$0800,!big_data_compression)
+	%vram_payload(DATA_F2470A,$F000,$1000,!big_data_compression)
+	%vram_payload(DATA_F25437,$F800,$0800,!small_data_compression)
+	%vram_payload(DATA_EBC052,$2010,$0140,!big_data_compression)
+	%vram_payload(DATA_EBC052,$20B0,$0140,!big_data_compression)
+	%vram_payload(DATA_EBC052,$2150,$0080,!big_data_compression)
 	db $00
 
 DATA_FD1C50:
-	db ((DATA_E38D56>>16)&$3F)|$00 : dw DATA_E38D56,$A000,$71C0
-	db ((DATA_E9B0BD>>16)&$3F)|$40 : dw DATA_E9B0BD,$F400,$0800
-	db ((DATA_E9B6C0>>16)&$3F)|$00 : dw DATA_E9B6C0,$D8E0,$0C80
-	db ((DATA_EC576C>>16)&$3F)|$00 : dw DATA_EC576C,$6000,$1F60
-	db ((DATA_EC4F6C>>16)&$3F)|$00 : dw DATA_EC4F6C,$7000,$0800
+	%vram_payload(DATA_E38D56,$A000,$71C0,!big_data_compression)
+	%vram_payload(DATA_E9B0BD,$F400,$0800,!small_data_compression)
+	%vram_payload(DATA_E9B6C0,$D8E0,$0C80,!big_data_compression)
+	%vram_payload(DATA_EC576C,$6000,$1F60,!big_data_compression)
+	%vram_payload(DATA_EC4F6C,$7000,$0800,!big_data_compression)
 	db $00
 
 DATA_FD1C74:
-	db ((DATA_E43549>>16)&$3F)|$00 : dw DATA_E43549,$A000,$71C0
-	db ((DATA_DDFE8F>>16)&$3F)|$00 : dw DATA_DDFE8F,$DA50,$2280
-	db ((DATA_DDF873>>16)&$3F)|$00 : dw DATA_DDF873,$F400,$0800
+	%vram_payload(DATA_E43549,$A000,$71C0,!big_data_compression)
+	%vram_payload(DATA_DDFE8F,$DA50,$2280,!big_data_compression)
+	%vram_payload(DATA_DDF873,$F400,$0800,!big_data_compression)
 	db $00
 
 DATA_FD1C8A:
-	db ((DATA_E4D25F>>16)&$3F)|$00 : dw DATA_E4D25F,$A000,$71C0
-	db ((DATA_E88388>>16)&$3F)|$40 : dw DATA_E88388,$F5C0,$0480
-	db ((DATA_E88388>>16)&$3F)|$40 : dw DATA_E88388,$F1C0,$0480
-	db ((DATA_E8861B>>16)&$3F)|$00 : dw DATA_E8861B,$D040,$1F80
-	db ((DATA_E8A412>>16)&$3F)|$00 : dw DATA_E8A412,$EC00,$0680
-	db ((DATA_E8A634>>16)&$3F)|$00 : dw DATA_E8A634,$6880,$0240
-	db ((DATA_E8A874>>16)&$3F)|$00 : dw DATA_E8A874,$DF50,$1160
+	%vram_payload(DATA_E4D25F,$A000,$71C0,!big_data_compression)
+	%vram_payload(DATA_E88388,$F5C0,$0480,!small_data_compression)
+	%vram_payload(DATA_E88388,$F1C0,$0480,!small_data_compression)
+	%vram_payload(DATA_E8861B,$D040,$1F80,!big_data_compression)
+	%vram_payload(DATA_E8A412,$EC00,$0680,!big_data_compression)
+	%vram_payload(DATA_E8A634,$6880,$0240,!big_data_compression)
+	%vram_payload(DATA_E8A874,$DF50,$1160,!big_data_compression)
 	db $00
 
 DATA_FD1CBC:
-	db ((DATA_F70000>>16)&$3F)|$00 : dw DATA_F70000,$D8A0,$2EC0
-	db ((DATA_E5F598>>16)&$3F)|$00 : dw DATA_E5F598,$A000,$6E00
-	db ((DATA_F6254B>>16)&$3F)|$00 : dw DATA_F6254B,$7400,$0700
+	%vram_payload(DATA_F70000,$D8A0,$2EC0,!big_data_compression)
+	%vram_payload(DATA_E5F598,$A000,$6E00,!big_data_compression)
+	%vram_payload(DATA_F6254B,$7400,$0700,!big_data_compression)
 	db $00
 
 DATA_FD1CD2:
-	db ((DATA_E54C41>>16)&$3F)|$00 : dw DATA_E54C41,$A000,$5960
-	db ((DATA_E5968A>>16)&$3F)|$00 : dw DATA_E5968A,$D000,$3220
-	db ((DATA_E591C9>>16)&$3F)|$40 : dw DATA_E591C9,$F000,$0740
-	db ((DATA_E594A2>>16)&$3F)|$00 : dw DATA_E594A2,$F420,$0180
-	db ((DATA_E59533>>16)&$3F)|$00 : dw DATA_E59533,$F6A0,$02C0
-	db ((DATA_DCFF76>>16)&$3F)|$00 : dw DATA_DCFF76,$E910,$05E0
-	db ((DATA_DCFECD>>16)&$3F)|$40 : dw DATA_DCFECD,$ECC0,$0180
+	%vram_payload(DATA_E54C41,$A000,$5960,!big_data_compression)
+	%vram_payload(DATA_E5968A,$D000,$3220,!big_data_compression)
+	%vram_payload(DATA_E591C9,$F000,$0740,!small_data_compression)
+	%vram_payload(DATA_E594A2,$F420,$0180,!big_data_compression)
+	%vram_payload(DATA_E59533,$F6A0,$02C0,!big_data_compression)
+	%vram_payload(DATA_DCFF76,$E910,$05E0,!big_data_compression)
+	%vram_payload(DATA_DCFECD,$ECC0,$0180,!small_data_compression)
 	db $00
 
 DATA_FD1D04:
-	db ((DATA_E69DCF>>16)&$3F)|$00 : dw DATA_E69DCF,$A000,$6C00
-	db ((DATA_E717A6>>16)&$3F)|$00 : dw DATA_E717A6,$D5F0,$2420
-	db ((DATA_E6FCEA>>16)&$3F)|$00 : dw DATA_E6FCEA,$FC00,$0800
-	db ((DATA_E703F1>>16)&$3F)|$00 : dw DATA_E703F1,$F000,$0EE0
-	db ((DATA_E712B8>>16)&$3F)|$40 : dw DATA_E712B8,$F7A0,$08C0
+	%vram_payload(DATA_E69DCF,$A000,$6C00,!big_data_compression)
+	%vram_payload(DATA_E717A6,$D5F0,$2420,!big_data_compression)
+	%vram_payload(DATA_E6FCEA,$FC00,$0800,!big_data_compression)
+	%vram_payload(DATA_E703F1,$F000,$0EE0,!big_data_compression)
+	%vram_payload(DATA_E712B8,$F7A0,$08C0,!small_data_compression)
 	db $00
 
 DATA_FD1D28:
-	db ((DATA_E43549>>16)&$3F)|$00 : dw DATA_E43549,$A000,$71C0
-	db ((DATA_E99AB2>>16)&$3F)|$40 : dw DATA_E99AB2,$F000,$0540
-	db ((DATA_E99BFB>>16)&$3F)|$00 : dw DATA_E99BFB,$DF20,$21C0
-	db ((DATA_E9B0BD>>16)&$3F)|$40 : dw DATA_E9B0BD,$F400,$0800
-	db ((DATA_E9B6C0>>16)&$3F)|$00 : dw DATA_E9B6C0,$D8E0,$0C80
+	%vram_payload(DATA_E43549,$A000,$71C0,!big_data_compression)
+	%vram_payload(DATA_E99AB2,$F000,$0540,!small_data_compression)
+	%vram_payload(DATA_E99BFB,$DF20,$21C0,!big_data_compression)
+	%vram_payload(DATA_E9B0BD,$F400,$0800,!small_data_compression)
+	%vram_payload(DATA_E9B6C0,$D8E0,$0C80,!big_data_compression)
 	db $00
 
 DATA_FD1D4C:
-	db ((DATA_E15058>>16)&$3F)|$00 : dw DATA_E15058,$A000,$71C0
-	db ((DATA_E9BEAE>>16)&$3F)|$40 : dw DATA_E9BEAE,$F000,$0600
-	db ((DATA_E9BFBC>>16)&$3F)|$00 : dw DATA_E9BFBC,$E000,$1BE0
-	db ((DATA_E9F346>>16)&$3F)|$00 : dw DATA_E9F346,$F400,$0800
-	db ((DATA_E9F818>>16)&$3F)|$00 : dw DATA_E9F818,$5000,$0C70
+	%vram_payload(DATA_E15058,$A000,$71C0,!big_data_compression)
+	%vram_payload(DATA_E9BEAE,$F000,$0600,!small_data_compression)
+	%vram_payload(DATA_E9BFBC,$E000,$1BE0,!big_data_compression)
+	%vram_payload(DATA_E9F346,$F400,$0800,!big_data_compression)
+	%vram_payload(DATA_E9F818,$5000,$0C70,!big_data_compression)
 	db $00
 
 DATA_FD1D70:
-	db ((DATA_E8BDEC>>16)&$3F)|$00 : dw DATA_E8BDEC,$A000,$8000
-	db ((DATA_E9E146>>16)&$3F)|$00 : dw DATA_E9E146,$6000,$1200
-	db ((DATA_EC475C>>16)&$3F)|$00 : dw DATA_EC475C,$6BB0,$08A0
-	db ((DATA_EC451C>>16)&$3F)|$00 : dw DATA_EC451C,$7D00,$0240
-	db ((DATA_E8B5AE>>16)&$3F)|$40 : dw DATA_E8B5AE,$F000,$0800
-	db ((DATA_E8B989>>16)&$3F)|$40 : dw DATA_E8B989,$F400,$0800
-	db ((DATA_E9DD86>>16)&$3F)|$00 : dw DATA_E9DD86,$7800,$03E0
-	db ((DATA_F45CC0>>16)&$3F)|$00 : dw DATA_F45CC0,$7E40,$0280
+	%vram_payload(DATA_E8BDEC,$A000,$8000,!big_data_compression)
+	%vram_payload(DATA_E9E146,$6000,$1200,!big_data_compression)
+	%vram_payload(DATA_EC475C,$6BB0,$08A0,!big_data_compression)
+	%vram_payload(DATA_EC451C,$7D00,$0240,!big_data_compression)
+	%vram_payload(DATA_E8B5AE,$F000,$0800,!small_data_compression)
+	%vram_payload(DATA_E8B989,$F400,$0800,!small_data_compression)
+	%vram_payload(DATA_E9DD86,$7800,$03E0,!big_data_compression)
+	%vram_payload(DATA_F45CC0,$7E40,$0280,!big_data_compression)
 	db $00
 
 DATA_FD1DA9:
-	db ((DATA_E38D56>>16)&$3F)|$00 : dw DATA_E38D56,$A000,$71C0
-	db ((DATA_E9B0BD>>16)&$3F)|$40 : dw DATA_E9B0BD,$EC00,$0800
-	db ((DATA_E9B6C0>>16)&$3F)|$00 : dw DATA_E9B6C0,$D8E0,$0C80
-	db ((DATA_E9E146>>16)&$3F)|$00 : dw DATA_E9E146,$6000,$1200
-	db ((DATA_E9DD86>>16)&$3F)|$00 : dw DATA_E9DD86,$7000,$03E0
+	%vram_payload(DATA_E38D56,$A000,$71C0,!big_data_compression)
+	%vram_payload(DATA_E9B0BD,$EC00,$0800,!small_data_compression)
+	%vram_payload(DATA_E9B6C0,$D8E0,$0C80,!big_data_compression)
+	%vram_payload(DATA_E9E146,$6000,$1200,!big_data_compression)
+	%vram_payload(DATA_E9DD86,$7000,$03E0,!big_data_compression)
 	db $00
 
 DATA_FD1DCD:
-	db ((DATA_E7588E>>16)&$3F)|$00 : dw DATA_E7588E,$A000,$7C00
-	db ((DATA_EA68F2>>16)&$3F)|$00 : dw DATA_EA68F2,$E000,$1D20
-	db ((DATA_EA6712>>16)&$3F)|$00 : dw DATA_EA6712,$DEC0,$0280
-	db ((DATA_EA68CB>>16)&$3F)|$40 : dw DATA_EA68CB,$F000,$00C0
+	%vram_payload(DATA_E7588E,$A000,$7C00,!big_data_compression)
+	%vram_payload(DATA_EA68F2,$E000,$1D20,!big_data_compression)
+	%vram_payload(DATA_EA6712,$DEC0,$0280,!big_data_compression)
+	%vram_payload(DATA_EA68CB,$F000,$00C0,!small_data_compression)
 	db $00
 
 DATA_FD1DEA:
-	db ((DATA_E7F2F2>>16)&$3F)|$00 : dw DATA_E7F2F2,$A000,$71C0
-	db ((DATA_EA160B>>16)&$3F)|$00 : dw DATA_EA160B,$4F00,$1900
-	db ((DATA_EA0C0C>>16)&$3F)|$40 : dw DATA_EA0C0C,$F800,$0800
-	db ((DATA_EA0C0C>>16)&$3F)|$40 : dw DATA_EA0C0C,$FC00,$0800
-	db ((DATA_EA1349>>16)&$3F)|$00 : dw DATA_EA1349,$FD00,$0300
-	db ((DATA_EA21AB>>16)&$3F)|$00 : dw DATA_EA21AB,$DA90,$1AE0
+	%vram_payload(DATA_E7F2F2,$A000,$71C0,!big_data_compression)
+	%vram_payload(DATA_EA160B,$4F00,$1900,!big_data_compression)
+	%vram_payload(DATA_EA0C0C,$F800,$0800,!small_data_compression)
+	%vram_payload(DATA_EA0C0C,$FC00,$0800,!small_data_compression)
+	%vram_payload(DATA_EA1349,$FD00,$0300,!big_data_compression)
+	%vram_payload(DATA_EA21AB,$DA90,$1AE0,!big_data_compression)
 	db $00
 
 DATA_FD1E15:
-	db ((DATA_E43549>>16)&$3F)|$00 : dw DATA_E43549,$A000,$71C0
-	db ((DATA_DDFE8F>>16)&$3F)|$00 : dw DATA_DDFE8F,$DA50,$2280
-	db ((DATA_DF04D4>>16)&$3F)|$00 : dw DATA_DF04D4,$6B90,$08D0
-	db ((DATA_DDF873>>16)&$3F)|$00 : dw DATA_DDF873,$F400,$0800
+	%vram_payload(DATA_E43549,$A000,$71C0,!big_data_compression)
+	%vram_payload(DATA_DDFE8F,$DA50,$2280,!big_data_compression)
+	%vram_payload(DATA_DF04D4,$6B90,$08D0,!big_data_compression)
+	%vram_payload(DATA_DDF873,$F400,$0800,!big_data_compression)
 	db $00
 
 DATA_FD1E32:
-	db ((DATA_DFFE80>>16)&$3F)|$40 : dw DATA_DFFE80,$EC00,$0700
-	db ((DATA_CBFE6D>>16)&$3F)|$00 : dw DATA_CBFE6D,$A000,$5C00
-	db ((DATA_FC14A0>>16)&$3F)|$00 : dw DATA_FC14A0,$0000,$0CA0
-	db ((DATA_ECA5A9>>16)&$3F)|$00 : dw DATA_ECA5A9,$F120,$0300
+	%vram_payload(DATA_DFFE80,$EC00,$0700,!small_data_compression)
+	%vram_payload(DATA_CBFE6D,$A000,$5C00,!big_data_compression)
+	%vram_payload(DATA_FC14A0,$0000,$0CA0,!big_data_compression)
+	%vram_payload(DATA_ECA5A9,$F120,$0300,!big_data_compression)
 	db $00
 
 DATA_FD1E4F:
-	db ((DATA_DFFE80>>16)&$3F)|$40 : dw DATA_DFFE80,$EC00,$0700
-	db ((DATA_CBFE6D>>16)&$3F)|$00 : dw DATA_CBFE6D,$A000,$5C00
-	db ((DATA_FC14A0>>16)&$3F)|$00 : dw DATA_FC14A0,$0000,$0CA0
-	db ((DATA_ECA690>>16)&$3F)|$00 : dw DATA_ECA690,$F100,$0380
+	%vram_payload(DATA_DFFE80,$EC00,$0700,!small_data_compression)
+	%vram_payload(DATA_CBFE6D,$A000,$5C00,!big_data_compression)
+	%vram_payload(DATA_FC14A0,$0000,$0CA0,!big_data_compression)
+	%vram_payload(DATA_ECA690,$F100,$0380,!big_data_compression)
 	db $00
 
 DATA_FD1E6C:
-	db ((DATA_DFFE80>>16)&$3F)|$40 : dw DATA_DFFE80,$EC00,$0700
-	db ((DATA_CBFE6D>>16)&$3F)|$00 : dw DATA_CBFE6D,$A000,$5C00
-	db ((DATA_FC14A0>>16)&$3F)|$00 : dw DATA_FC14A0,$0000,$0CA0
-	db ((DATA_ECA7A7>>16)&$3F)|$00 : dw DATA_ECA7A7,$F100,$0380
+	%vram_payload(DATA_DFFE80,$EC00,$0700,!small_data_compression)
+	%vram_payload(DATA_CBFE6D,$A000,$5C00,!big_data_compression)
+	%vram_payload(DATA_FC14A0,$0000,$0CA0,!big_data_compression)
+	%vram_payload(DATA_ECA7A7,$F100,$0380,!big_data_compression)
 	db $00
 
 DATA_FD1E89:
-	db ((DATA_EBDC2A>>16)&$3F)|$00 : dw DATA_EBDC2A,$A000,$73E0
-	db ((DATA_EBD1D2>>16)&$3F)|$00 : dw DATA_EBD1D2,$D9E8,$0C30
-	db ((DATA_F45F40>>16)&$3F)|$00 : dw DATA_F45F40,$6000,$1800
-	db ((DATA_EC7D0C>>16)&$3F)|$00 : dw DATA_EC7D0C,$6C00,$0040
-	db ((DATA_EC3EB2>>16)&$3F)|$00 : dw DATA_EC3EB2,$F000,$0800
-	db ((DATA_EC3825>>16)&$3F)|$00 : dw DATA_EC3825,$F400,$0800
-	db ((DATA_EC7CCC>>16)&$3F)|$00 : dw DATA_EC7CCC,$6C20,$0040
-	db ((DATA_F45CC0>>16)&$3F)|$00 : dw DATA_F45CC0,$6D60,$01C0
-	db ((DATA_F45CC0>>16)&$3F)|$00 : dw DATA_F45CC0,$6E20,$01C0
-	db ((DATA_EBD052>>16)&$3F)|$00 : dw DATA_EBD052,$7AE0,$00C0
-	db (((DATA_EBD052+$C0)>>16)&$3F)|$00 : dw DATA_EBD052+$C0,$7EE0,$00C0
-	db ((DATA_EBCD52>>16)&$3F)|$00 : dw DATA_EBCD52,$78C0,$0300
-	db ((DATA_EBCA52>>16)&$3F)|$00 : dw DATA_EBCA52,$7CC0,$0300
+	%vram_payload(DATA_EBDC2A,$A000,$73E0,!big_data_compression)
+	%vram_payload(DATA_EBD1D2,$D9E8,$0C30,!big_data_compression)
+	%vram_payload(DATA_F45F40,$6000,$1800,!big_data_compression)
+	%vram_payload(DATA_EC7D0C,$6C00,$0040,!big_data_compression)
+	%vram_payload(DATA_EC3EB2,$F000,$0800,!big_data_compression)
+	%vram_payload(DATA_EC3825,$F400,$0800,!big_data_compression)
+	%vram_payload(DATA_EC7CCC,$6C20,$0040,!big_data_compression)
+	%vram_payload(DATA_F45CC0,$6D60,$01C0,!big_data_compression)
+	%vram_payload(DATA_F45CC0,$6E20,$01C0,!big_data_compression)
+	%vram_payload(DATA_EBD052,$7AE0,$00C0,!big_data_compression)
+	%vram_payload((DATA_EBD052+$C0),$7EE0,$00C0,!big_data_compression)
+	%vram_payload(DATA_EBCD52,$78C0,$0300,!big_data_compression)
+	%vram_payload(DATA_EBCA52,$7CC0,$0300,!big_data_compression)
 	db $00
 
 DATA_FD1EE5:
-	db ((DATA_C8FE75>>16)&$3F)|$00 : dw DATA_C8FE75,$A000,$3980
-	db ((DATA_CA0000>>16)&$3F)|$00 : dw DATA_CA0000,$C000,$01A0
-	db ((DATA_E8640C>>16)&$3F)|$40 : dw DATA_E8640C,$F800,$0780
-	db ((DATA_E866E0>>16)&$3F)|$40 : dw DATA_E866E0,$FC00,$0780
-	db ((DATA_FC14A0>>16)&$3F)|$00 : dw DATA_FC14A0,$6000,$0640
+	%vram_payload(DATA_C8FE75,$A000,$3980,!big_data_compression)
+	%vram_payload(DATA_CA0000,$C000,$01A0,!big_data_compression)
+	%vram_payload(DATA_E8640C,$F800,$0780,!small_data_compression)
+	%vram_payload(DATA_E866E0,$FC00,$0780,!small_data_compression)
+	%vram_payload(DATA_FC14A0,$6000,$0640,!big_data_compression)
 	db $00
 
 DATA_FD1F09:
-	db ((DATA_E69DCF>>16)&$3F)|$00 : dw DATA_E69DCF,$A000,$6C00
-	db ((DATA_E98D12>>16)&$3F)|$00 : dw DATA_E98D12,$55F0,$0DA0
-	db ((DATA_E98550>>16)&$3F)|$00 : dw DATA_E98550,$650E,$008A
-	db (((DATA_E98550+$8A)>>16)&$3F)|$00 : dw DATA_E98550+$8A,$656C,$01CE
-	db ((DATA_E6FCEA>>16)&$3F)|$00 : dw DATA_E6FCEA,$FC00,$0800
-	db ((DATA_E703F1>>16)&$3F)|$00 : dw DATA_E703F1,$F000,$0EE0
+	%vram_payload(DATA_E69DCF,$A000,$6C00,!big_data_compression)
+	%vram_payload(DATA_E98D12,$55F0,$0DA0,!big_data_compression)
+	%vram_payload(DATA_E98550,$650E,$008A,!big_data_compression)
+	%vram_payload((DATA_E98550+$8A),$656C,$01CE,!big_data_compression)
+	%vram_payload(DATA_E6FCEA,$FC00,$0800,!big_data_compression)
+	%vram_payload(DATA_E703F1,$F000,$0EE0,!big_data_compression)
 	db $00
 
 DATA_FD1F34:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_FFEA00>>16)&$3F)|$00 : dw DATA_FFEA00,$1E00,$0400
-	db ((DATA_FD1F4A>>16)&$3F)|$00 : dw DATA_FD1F4A,$6000,$0080
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_FFEA00,$1E00,$0400,!big_data_compression)
+	%vram_payload(DATA_FD1F4A,$6000,$0080,!big_data_compression)
 	db $00
 
 DATA_FD1F4A:					; Note: Uncompressed graphics (Perhaps a border for something?)
 	incbin "data/unknown_or_unused/tiles/unknown_tiles_FD1F4A.bin"
 
 DATA_FD1FCA:
-	db ((DATA_E87AA3>>16)&$3F)|$40 : dw DATA_E87AA3,$FC00,$0700
-	db ((DATA_CDFED2>>16)&$3F)|$00 : dw DATA_CDFED2,$A000,$4E20
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_FC0000>>16)&$3F)|$00 : dw DATA_FC0000,$5000,$0F00
-	db ((DATA_FC14A0>>16)&$3F)|$00 : dw DATA_FC14A0,$6000,$0650
-	db ((DATA_FD2023>>16)&$3F)|$00 : dw DATA_FD2023,$6E68,$0010
-	db ((DATA_FD2033>>16)&$3F)|$00 : dw DATA_FD2033,$6E70,$0020
-	db ((DATA_FC0F00>>16)&$3F)|$00 : dw DATA_FC0F00,$6E80,$0300
+	%vram_payload(DATA_E87AA3,$FC00,$0700,!small_data_compression)
+	%vram_payload(DATA_CDFED2,$A000,$4E20,!big_data_compression)
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_FC0000,$5000,$0F00,!big_data_compression)
+	%vram_payload(DATA_FC14A0,$6000,$0650,!big_data_compression)
+	%vram_payload(DATA_FD2023,$6E68,$0010,!big_data_compression)
+	%vram_payload(DATA_FD2033,$6E70,$0020,!big_data_compression)
+	%vram_payload(DATA_FC0F00,$6E80,$0300,!big_data_compression)
 	db $00
 
 
@@ -1859,21 +1859,21 @@ DATA_FD2033:
 	incbin "data/screens/tiledata/funky_rentals_layer1_menu_mask_tiledata.bin"
 
 DATA_FD2053:
-	db ((DATA_FFE380>>16)&$3F)|$00 : dw DATA_FFE380,$1CC0,$0280
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1A00,$0400
-	db (((DATA_FC2A40+$60)>>16)&$3F)|$00 : dw DATA_FC2A40+$60,$1EA0,$0020
-	db (((DATA_FC2A40+$40)>>16)&$3F)|$00 : dw DATA_FC2A40+$40,$1EB0,$0020
-	db ((DATA_FC2A40>>16)&$3F)|$00 : dw DATA_FC2A40,$1EC0,$0040
-	db ((DATA_FD20BD>>16)&$3F)|$00 : dw DATA_FD20BD,$1EE0,$0020
-	db ((DATA_FD20BD>>16)&$3F)|$00 : dw DATA_FD20BD,$1EF0,$0020
-	db ((DATA_FD20BD>>16)&$3F)|$00 : dw DATA_FD20BD,$1FE0,$0020
-	db ((DATA_FD20BD>>16)&$3F)|$00 : dw DATA_FD20BD,$1FF0,$0020
-	db ((DATA_E87D26>>16)&$3F)|$40 : dw DATA_E87D26,$EC00,$0700
-	db ((DATA_CEFD21>>16)&$3F)|$00 : dw DATA_CEFD21,$A000,$5240
-	db ((DATA_FC0000>>16)&$3F)|$00 : dw DATA_FC0000,$5000,$0F00
-	db ((DATA_FC14A0>>16)&$3F)|$00 : dw DATA_FC14A0,$6000,$0650
-	db ((DATA_FD20DD>>16)&$3F)|$00 : dw DATA_FD20DD,$6BF8,$0010
-	db ((DATA_FD20ED>>16)&$3F)|$00 : dw DATA_FD20ED,$5BE0,$0020
+	%vram_payload(DATA_FFE380,$1CC0,$0280,!big_data_compression)
+	%vram_payload(DATA_FFE600,$1A00,$0400,!big_data_compression)
+	%vram_payload((DATA_FC2A40+$60),$1EA0,$0020,!big_data_compression)
+	%vram_payload((DATA_FC2A40+$40),$1EB0,$0020,!big_data_compression)
+	%vram_payload(DATA_FC2A40,$1EC0,$0040,!big_data_compression)
+	%vram_payload(DATA_FD20BD,$1EE0,$0020,!big_data_compression)
+	%vram_payload(DATA_FD20BD,$1EF0,$0020,!big_data_compression)
+	%vram_payload(DATA_FD20BD,$1FE0,$0020,!big_data_compression)
+	%vram_payload(DATA_FD20BD,$1FF0,$0020,!big_data_compression)
+	%vram_payload(DATA_E87D26,$EC00,$0700,!small_data_compression)
+	%vram_payload(DATA_CEFD21,$A000,$5240,!big_data_compression)
+	%vram_payload(DATA_FC0000,$5000,$0F00,!big_data_compression)
+	%vram_payload(DATA_FC14A0,$6000,$0650,!big_data_compression)
+	%vram_payload(DATA_FD20DD,$6BF8,$0010,!big_data_compression)
+	%vram_payload(DATA_FD20ED,$5BE0,$0020,!big_data_compression)
 	db $00
 
 DATA_FD20BD:
@@ -1886,17 +1886,17 @@ DATA_FD20ED:
 	incbin "data/screens/tiledata/swanky_sideshow_text_bg_tiledata.bin"
 
 DATA_FD210D:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_FC1B40>>16)&$3F)|$00 : dw DATA_FC1B40,$0640,$0160
-	db ((DATA_FD217B>>16)&$3F)|$00 : dw DATA_FD217B,$06F0,$0020
-	db (((DATA_FD217B+$20)>>16)&$3F)|$00 : dw DATA_FD217B+$20,$0700,$0020
-	db (((DATA_FD217B+$40)>>16)&$3F)|$00 : dw DATA_FD217B+$40,$0710,$0020
-	db ((DATA_FD215B>>16)&$3F)|$00 : dw DATA_FD215B,$1FF0,$0020
-	db ((DATA_FC14A0>>16)&$3F)|$00 : dw DATA_FC14A0,$6000,$06A0
-	db ((DATA_EA0488>>16)&$3F)|$40 : dw DATA_EA0488,$F800,$0700
-	db ((DATA_D3FE2A>>16)&$3F)|$00 : dw DATA_D3FE2A,$A000,$32A0
-	db ((DATA_EA0730>>16)&$3F)|$40 : dw DATA_EA0730,$F400,$0140
-	db ((DATA_EA077B>>16)&$3F)|$00 : dw DATA_EA077B,$D000,$0820
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_FC1B40,$0640,$0160,!big_data_compression)
+	%vram_payload(DATA_FD217B,$06F0,$0020,!big_data_compression)
+	%vram_payload((DATA_FD217B+$20),$0700,$0020,!big_data_compression)
+	%vram_payload((DATA_FD217B+$40),$0710,$0020,!big_data_compression)
+	%vram_payload(DATA_FD215B,$1FF0,$0020,!big_data_compression)
+	%vram_payload(DATA_FC14A0,$6000,$06A0,!big_data_compression)
+	%vram_payload(DATA_EA0488,$F800,$0700,!small_data_compression)
+	%vram_payload(DATA_D3FE2A,$A000,$32A0,!big_data_compression)
+	%vram_payload(DATA_EA0730,$F400,$0140,!small_data_compression)
+	%vram_payload(DATA_EA077B,$D000,$0820,!big_data_compression)
 	db $00
 
 DATA_FD215B:
@@ -1908,73 +1908,73 @@ DATA_FD217B:
 
 ;bear house payload
 DATA_FD21FB:
-	db ((DATA_FC1B40>>16)&$3F)|$00 : dw DATA_FC1B40,$0200,$03E0 	
-	db ((DATA_FFE380>>16)&$3F)|$00 : dw DATA_FFE380,$1CC0,$0280 	;hud font
-	db ((DATA_FD222D>>16)&$3F)|$00 : dw DATA_FD222D,$1FF0,$0020
-	db ((DATA_FB0000>>16)&$3F)|$00 : dw DATA_FB0000,$A000,$7FE0     
-	db ((DATA_FB6897>>16)&$3F)|$00 : dw DATA_FB6897,$E800,$14A0  	;font related
-	db ((DATA_FC14A0>>16)&$3F)|$00 : dw DATA_FC14A0,$6000,$0650 	;text
-	db ((DATA_E9305A>>16)&$3F)|$40 : dw DATA_E9305A,$F400,$0740
+	%vram_payload(DATA_FC1B40,$0200,$03E0,!big_data_compression) 	
+	%vram_payload(DATA_FFE380,$1CC0,$0280,!big_data_compression) 	;hud font
+	%vram_payload(DATA_FD222D,$1FF0,$0020,!big_data_compression)
+	%vram_payload(DATA_FB0000,$A000,$7FE0,!big_data_compression)     
+	%vram_payload(DATA_FB6897,$E800,$14A0,!big_data_compression)  	;font related
+	%vram_payload(DATA_FC14A0,$6000,$0650,!big_data_compression) 	;text
+	%vram_payload(DATA_E9305A,$F400,$0740,!small_data_compression)
 	db $00
 
 DATA_FD222D:
 	incbin "data/screens/objects/DialogueSelectionArrow.bin"
 
 DATA_FD224D:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_E867D8>>16)&$3F)|$40 : dw DATA_E867D8,$EC00,$0700
-	db ((DATA_C6FEFE>>16)&$3F)|$00 : dw DATA_C6FEFE,$A000,$51C0
-	db ((DATA_EB081C>>16)&$3F)|$00 : dw DATA_EB081C,$F400,$0800
-	db ((DATA_F35E23>>16)&$3F)|$00 : dw DATA_F35E23,$7920,$0200
-	db ((DATA_EB0B39>>16)&$3F)|$00 : dw DATA_EB0B39,$D000,$08E0
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_E867D8,$EC00,$0700,!small_data_compression)
+	%vram_payload(DATA_C6FEFE,$A000,$51C0,!big_data_compression)
+	%vram_payload(DATA_EB081C,$F400,$0800,!big_data_compression)
+	%vram_payload(DATA_F35E23,$7920,$0200,!big_data_compression)
+	%vram_payload(DATA_EB0B39,$D000,$08E0,!big_data_compression)
 	db $00
 
 
 ;main map payload
 DATA_FD2278:
-	db ((DATA_FC21A0>>16)&$3F)|$00 : dw DATA_FC21A0,$0000,$0120
-	db ((DATA_FC22C0>>16)&$3F)|$00 : dw DATA_FC22C0,$0090,$0480
-	db ((DATA_FC22C0>>16)&$3F)|$00 : dw DATA_FC22C0,$02D0,$0480
-	db ((DATA_FC2740>>16)&$3F)|$00 : dw DATA_FC2740,$0510,$0300
-	db ((DATA_FD229C>>16)&$3F)|$00 : dw DATA_FD229C,$0690,$0040
+	%vram_payload(DATA_FC21A0,$0000,$0120,!big_data_compression)
+	%vram_payload(DATA_FC22C0,$0090,$0480,!big_data_compression)
+	%vram_payload(DATA_FC22C0,$02D0,$0480,!big_data_compression)
+	%vram_payload(DATA_FC2740,$0510,$0300,!big_data_compression)
+	%vram_payload(DATA_FD229C,$0690,$0040,!big_data_compression)
 	db $00
 
 DATA_FD229C:					; Note: Uncompressed graphics (It's loaded on the main map)
 	incbin "data/unknown_or_unused/tiles/unknown_tiles_FD229C.bin"
 
 DATA_FD22DC:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_E877CC>>16)&$3F)|$40 : dw DATA_E877CC,$FC00,$0700
-	db ((DATA_C7FD8A>>16)&$3F)|$00 : dw DATA_C7FD8A,$A000,$5720
-	db ((DATA_FC14A0>>16)&$3F)|$00 : dw DATA_FC14A0,$6000,$0650
-	db ((DATA_FD2300>>16)&$3F)|$00 : dw DATA_FD2300,$5900,$0020
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_E877CC,$FC00,$0700,!small_data_compression)
+	%vram_payload(DATA_C7FD8A,$A000,$5720,!big_data_compression)
+	%vram_payload(DATA_FC14A0,$6000,$0650,!big_data_compression)
+	%vram_payload(DATA_FD2300,$5900,$0020,!big_data_compression)
 	db $00
 
 DATA_FD2300:
 	incbin "data/screens/tiledata/wrinkly_save_cave_text_bg_tiledata.bin"
 
 DATA_FD2320:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_D1FF7D>>16)&$3F)|$00 : dw DATA_D1FF7D,$F000,$0690
-	db ((DATA_E8734F>>16)&$3F)|$00 : dw DATA_E8734F,$EC00,$0700
-	db ((DATA_CAFDB5>>16)&$3F)|$00 : dw DATA_CAFDB5,$A000,$57C0
-	db ((DATA_E86B7F>>16)&$3F)|$40 : dw DATA_E86B7F,$FC00,$0800
-	db ((DATA_EB081C>>16)&$3F)|$00 : dw DATA_EB081C,$F800,$0800
-	db ((DATA_EB0B39>>16)&$3F)|$00 : dw DATA_EB0B39,$D000,$08E0
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_D1FF7D,$F000,$0690,!big_data_compression)
+	%vram_payload(DATA_E8734F,$EC00,$0700,!big_data_compression)
+	%vram_payload(DATA_CAFDB5,$A000,$57C0,!big_data_compression)
+	%vram_payload(DATA_E86B7F,$FC00,$0800,!small_data_compression)
+	%vram_payload(DATA_EB081C,$F800,$0800,!big_data_compression)
+	%vram_payload(DATA_EB0B39,$D000,$08E0,!big_data_compression)
 	db $00
 
 DATA_FD2352:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_FD24A0>>16)&$3F)|$00 : dw DATA_FD24A0,$1E50,$0020
-	db ((DATA_FD23A0>>16)&$3F)|$00 : dw DATA_FD23A0,$1EE0,$0040
-	db (((DATA_FD23A0+$40)>>16)&$3F)|$00 : dw DATA_FD23A0+$40,$1FE0,$0040
-	db (((DATA_FD23A0+$80)>>16)&$3F)|$00 : dw DATA_FD23A0+$80,$1EC0,$0040
-	db (((DATA_FD23A0+$C0)>>16)&$3F)|$00 : dw DATA_FD23A0+$C0,$1FC0,$0040
-	db ((DATA_EB069C>>16)&$3F)|$00 : dw DATA_EB069C,$1E60,$00C0
-	db (((DATA_EB069C+$C0)>>16)&$3F)|$00 : dw DATA_EB069C+$C0,$1F60,$00C0
-	db ((DATA_EB0B39>>16)&$3F)|$00 : dw DATA_EB0B39,$86B0,$08E0
-	db ((DATA_F21DA4>>16)&$3F)|$00 : dw DATA_F21DA4,$E000,$1540
-	db ((DATA_F50000>>16)&$3F)|$00 : dw DATA_F50000,$A000,$7FC0
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_FD24A0,$1E50,$0020,!big_data_compression)
+	%vram_payload(DATA_FD23A0,$1EE0,$0040,!big_data_compression)
+	%vram_payload((DATA_FD23A0+$40),$1FE0,$0040,!big_data_compression)
+	%vram_payload((DATA_FD23A0+$80),$1EC0,$0040,!big_data_compression)
+	%vram_payload((DATA_FD23A0+$C0),$1FC0,$0040,!big_data_compression)
+	%vram_payload(DATA_EB069C,$1E60,$00C0,!big_data_compression)
+	%vram_payload((DATA_EB069C+$C0),$1F60,$00C0,!big_data_compression)
+	%vram_payload(DATA_EB0B39,$86B0,$08E0,!big_data_compression)
+	%vram_payload(DATA_F21DA4,$E000,$1540,!big_data_compression)
+	%vram_payload(DATA_F50000,$A000,$7FC0,!big_data_compression)
 	db $00
 
 DATA_FD23A0:
@@ -1984,231 +1984,231 @@ DATA_FD24A0:
 	incbin "data/world_maps/objects/CollectableFlower.bin"
 
 DATA_FD24C0:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_DFFE80>>16)&$3F)|$40 : dw DATA_DFFE80,$FC00,$0700
-	db ((DATA_CBFE6D>>16)&$3F)|$00 : dw DATA_CBFE6D,$A000,$52E0
-	db ((DATA_E92913>>16)&$3F)|$00 : dw DATA_E92913,$7800,$0700
-	db ((DATA_E93013>>16)&$3F)|$00 : dw DATA_E93013,$E000,$0200
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_DFFE80,$FC00,$0700,!small_data_compression)
+	%vram_payload(DATA_CBFE6D,$A000,$52E0,!big_data_compression)
+	%vram_payload(DATA_E92913,$7800,$0700,!big_data_compression)
+	%vram_payload(DATA_E93013,$E000,$0200,!big_data_compression)
 	db $00
 
 DATA_FD24E4:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_E86F2B>>16)&$3F)|$40 : dw DATA_E86F2B,$EC00,$0700
-	db ((DATA_CFFF7E>>16)&$3F)|$00 : dw DATA_CFFF7E,$A000,$5760
-	db ((DATA_E871D7>>16)&$3F)|$40 : dw DATA_E871D7,$F000,$0700
-	db ((DATA_D0FE01>>16)&$3F)|$00 : dw DATA_D0FE01,$E000,$06B0
-	db ((DATA_EB081C>>16)&$3F)|$00 : dw DATA_EB081C,$F400,$0800
-	db ((DATA_EB0B39>>16)&$3F)|$00 : dw DATA_EB0B39,$D000,$08E0
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_E86F2B,$EC00,$0700,!small_data_compression)
+	%vram_payload(DATA_CFFF7E,$A000,$5760,!big_data_compression)
+	%vram_payload(DATA_E871D7,$F000,$0700,!small_data_compression)
+	%vram_payload(DATA_D0FE01,$E000,$06B0,!big_data_compression)
+	%vram_payload(DATA_EB081C,$F400,$0800,!big_data_compression)
+	%vram_payload(DATA_EB0B39,$D000,$08E0,!big_data_compression)
 	db $00
 
 DATA_FD2516:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_D2FF14>>16)&$3F)|$00 : dw DATA_D2FF14,$A000,$2FA0
-	db ((DATA_FC0000>>16)&$3F)|$00 : dw DATA_FC0000,$5000,$0F00
-	db ((DATA_EA0B39>>16)&$3F)|$00 : dw DATA_EA0B39,$E000,$01A0
-	db ((DATA_EA0A88>>16)&$3F)|$00 : dw DATA_EA0A88,$ECC0,$0240
-	db ((DATA_EA0A88>>16)&$3F)|$00 : dw DATA_EA0A88,$EE40,$0240
-	db ((DATA_E88052>>16)&$3F)|$40 : dw DATA_E88052,$FC00,$0700
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_D2FF14,$A000,$2FA0,!big_data_compression)
+	%vram_payload(DATA_FC0000,$5000,$0F00,!big_data_compression)
+	%vram_payload(DATA_EA0B39,$E000,$01A0,!big_data_compression)
+	%vram_payload(DATA_EA0A88,$ECC0,$0240,!big_data_compression)
+	%vram_payload(DATA_EA0A88,$EE40,$0240,!big_data_compression)
+	%vram_payload(DATA_E88052,$FC00,$0700,!small_data_compression)
 	db $00
 
 DATA_FD2548:
-	db ((DATA_FFE380>>16)&$3F)|$00 : dw DATA_FFE380,$1CC0,$0280
-	db ((DATA_F82E96>>16)&$3F)|$00 : dw DATA_F82E96,$A000,$5D60
-	db ((DATA_EA9AD9>>16)&$3F)|$40 : dw DATA_EA9AD9,$FC00,$0700
-	db ((DATA_EB0486>>16)&$3F)|$40 : dw DATA_EB0486,$F800,$0140
-	db ((DATA_EB04B0>>16)&$3F)|$00 : dw DATA_EB04B0,$D000,$01E0
+	%vram_payload(DATA_FFE380,$1CC0,$0280,!big_data_compression)
+	%vram_payload(DATA_F82E96,$A000,$5D60,!big_data_compression)
+	%vram_payload(DATA_EA9AD9,$FC00,$0700,!small_data_compression)
+	%vram_payload(DATA_EB0486,$F800,$0140,!small_data_compression)
+	%vram_payload(DATA_EB04B0,$D000,$01E0,!big_data_compression)
 	db $00
 
 DATA_FD256C:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_EA9DCC>>16)&$3F)|$00 : dw DATA_EA9DCC,$A000,$0DA0
-	db ((DATA_EA9CD8>>16)&$3F)|$40 : dw DATA_EA9CD8,$FC00,$0700
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_EA9DCC,$A000,$0DA0,!big_data_compression)
+	%vram_payload(DATA_EA9CD8,$FC00,$0700,!small_data_compression)
 	db $00
 
 DATA_FD2582:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_F666BB>>16)&$3F)|$40 : dw DATA_F666BB,$F000,$0700
-	db ((DATA_F6688A>>16)&$3F)|$00 : dw DATA_F6688A,$E000,$0B60
-	db ((DATA_EAFEAB>>16)&$3F)|$40 : dw DATA_EAFEAB,$EC00,$0700
-	db ((DATA_C4F05F>>16)&$3F)|$00 : dw DATA_C4F05F,$A000,$4D80
-	db ((DATA_EB081C>>16)&$3F)|$00 : dw DATA_EB081C,$F400,$0700
-	db ((DATA_EB0B39>>16)&$3F)|$00 : dw DATA_EB0B39,$D000,$08E0
-	db ((DATA_FD25BB>>16)&$3F)|$00 : dw DATA_FD25BB,$1F90,$00A0
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_F666BB,$F000,$0700,!small_data_compression)
+	%vram_payload(DATA_F6688A,$E000,$0B60,!big_data_compression)
+	%vram_payload(DATA_EAFEAB,$EC00,$0700,!small_data_compression)
+	%vram_payload(DATA_C4F05F,$A000,$4D80,!big_data_compression)
+	%vram_payload(DATA_EB081C,$F400,$0700,!big_data_compression)
+	%vram_payload(DATA_EB0B39,$D000,$08E0,!big_data_compression)
+	%vram_payload(DATA_FD25BB,$1F90,$00A0,!big_data_compression)
 	db $00
 
 DATA_FD25BB:
 	incbin "data/world_maps/objects/CottenTopCoveRockBarrier.bin"
 
 DATA_FD265B:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_F66EE1>>16)&$3F)|$00 : dw DATA_F66EE1,$F000,$0700
-	db ((DATA_F67029>>16)&$3F)|$00 : dw DATA_F67029,$E000,$04D0
-	db ((DATA_EA93BD>>16)&$3F)|$40 : dw DATA_EA93BD,$EC00,$0700
-	db ((DATA_D4FFD7>>16)&$3F)|$00 : dw DATA_D4FFD7,$A000,$5B80
-	db ((DATA_EB081C>>16)&$3F)|$00 : dw DATA_EB081C,$F400,$0700
-	db ((DATA_EB0B39>>16)&$3F)|$00 : dw DATA_EB0B39,$D000,$08E0
-	db ((DATA_FD2694>>16)&$3F)|$00 : dw DATA_FD2694,$5470,$0020
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_F66EE1,$F000,$0700,!big_data_compression)
+	%vram_payload(DATA_F67029,$E000,$04D0,!big_data_compression)
+	%vram_payload(DATA_EA93BD,$EC00,$0700,!small_data_compression)
+	%vram_payload(DATA_D4FFD7,$A000,$5B80,!big_data_compression)
+	%vram_payload(DATA_EB081C,$F400,$0700,!big_data_compression)
+	%vram_payload(DATA_EB0B39,$D000,$08E0,!big_data_compression)
+	%vram_payload(DATA_FD2694,$5470,$0020,!big_data_compression)
 	db $00
 
 DATA_FD2694:
 	incbin "data/world_maps/tiledata/sky_high_secret_rope_tiledata.bin"
 
 DATA_FD26B4:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_F672D8>>16)&$3F)|$40 : dw DATA_F672D8,$F000,$0700
-	db ((DATA_F673D5>>16)&$3F)|$00 : dw DATA_F673D5,$E000,$0490
-	db ((DATA_F72353>>16)&$3F)|$40 : dw DATA_F72353,$EC00,$0700
-	db ((DATA_F7266A>>16)&$3F)|$00 : dw DATA_F7266A,$A000,$5860
-	db ((DATA_EB081C>>16)&$3F)|$00 : dw DATA_EB081C,$F400,$0800
-	db ((DATA_EB0B39>>16)&$3F)|$00 : dw DATA_EB0B39,$D000,$08E0
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_F672D8,$F000,$0700,!small_data_compression)
+	%vram_payload(DATA_F673D5,$E000,$0490,!big_data_compression)
+	%vram_payload(DATA_F72353,$EC00,$0700,!small_data_compression)
+	%vram_payload(DATA_F7266A,$A000,$5860,!big_data_compression)
+	%vram_payload(DATA_EB081C,$F400,$0800,!big_data_compression)
+	%vram_payload(DATA_EB0B39,$D000,$08E0,!big_data_compression)
 	db $00
 
 DATA_FD26E6:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_EB017D>>16)&$3F)|$40 : dw DATA_EB017D,$EC00,$0700
-	db ((DATA_C1FC3C>>16)&$3F)|$00 : dw DATA_C1FC3C,$A000,$4E80
-	db ((DATA_F676E3>>16)&$3F)|$40 : dw DATA_F676E3,$F000,$0700
-	db ((DATA_F67816>>16)&$3F)|$00 : dw DATA_F67816,$E000,$0400
-	db ((DATA_EB081C>>16)&$3F)|$00 : dw DATA_EB081C,$F400,$0800
-	db ((DATA_EB0B39>>16)&$3F)|$00 : dw DATA_EB0B39,$D000,$08E0
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_EB017D,$EC00,$0700,!small_data_compression)
+	%vram_payload(DATA_C1FC3C,$A000,$4E80,!big_data_compression)
+	%vram_payload(DATA_F676E3,$F000,$0700,!small_data_compression)
+	%vram_payload(DATA_F67816,$E000,$0400,!big_data_compression)
+	%vram_payload(DATA_EB081C,$F400,$0800,!big_data_compression)
+	%vram_payload(DATA_EB0B39,$D000,$08E0,!big_data_compression)
 	db $00
 
 DATA_FD2718:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_EB069C>>16)&$3F)|$00 : dw DATA_EB069C,$1EA0,$00C0
-	db (((DATA_EB069C+$C0)>>16)&$3F)|$00 : dw DATA_EB069C+$C0,$1FA0,$00C0
-	db ((DATA_F67A94>>16)&$3F)|$00 : dw DATA_F67A94,$F000,$0700
-	db ((DATA_F67B9A>>16)&$3F)|$00 : dw DATA_F67B9A,$E000,$0310
-	db ((DATA_EA9638>>16)&$3F)|$40 : dw DATA_EA9638,$EC00,$0700
-	db ((DATA_DBFE0E>>16)&$3F)|$00 : dw DATA_DBFE0E,$A000,$5440
-	db ((DATA_EB081C>>16)&$3F)|$00 : dw DATA_EB081C,$F400,$0700
-	db ((DATA_EB0B39>>16)&$3F)|$00 : dw DATA_EB0B39,$D000,$08E0
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_EB069C,$1EA0,$00C0,!big_data_compression)
+	%vram_payload((DATA_EB069C+$C0),$1FA0,$00C0,!big_data_compression)
+	%vram_payload(DATA_F67A94,$F000,$0700,!big_data_compression)
+	%vram_payload(DATA_F67B9A,$E000,$0310,!big_data_compression)
+	%vram_payload(DATA_EA9638,$EC00,$0700,!small_data_compression)
+	%vram_payload(DATA_DBFE0E,$A000,$5440,!big_data_compression)
+	%vram_payload(DATA_EB081C,$F400,$0700,!big_data_compression)
+	%vram_payload(DATA_EB0B39,$D000,$08E0,!big_data_compression)
 	db $00
 
 DATA_FD2758:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_EAA8DC>>16)&$3F)|$00 : dw DATA_EAA8DC,$A000,$0DA0
-	db ((DATA_EAA818>>16)&$3F)|$40 : dw DATA_EAA818,$FC00,$0700
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_EAA8DC,$A000,$0DA0,!big_data_compression)
+	%vram_payload(DATA_EAA818,$FC00,$0700,!small_data_compression)
 	db $00
 
 DATA_FD276E:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_EAB4DE>>16)&$3F)|$00 : dw DATA_EAB4DE,$A000,$0F80
-	db ((DATA_EAB3E9>>16)&$3F)|$40 : dw DATA_EAB3E9,$FC00,$0700
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_EAB4DE,$A000,$0F80,!big_data_compression)
+	%vram_payload(DATA_EAB3E9,$FC00,$0700,!small_data_compression)
 	db $00
 
 DATA_FD2784:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_EA8675>>16)&$3F)|$00 : dw DATA_EA8675,$A000,$1120
-	db ((DATA_EA858A>>16)&$3F)|$40 : dw DATA_EA858A,$FC00,$0700
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_EA8675,$A000,$1120,!big_data_compression)
+	%vram_payload(DATA_EA858A,$FC00,$0700,!small_data_compression)
 	db $00
 
 DATA_FD279A:
-	db ((DATA_EAC294>>16)&$3F)|$00 : dw DATA_EAC294,$B000,$5120
-	db ((DATA_EAC190>>16)&$3F)|$40 : dw DATA_EAC190,$F800,$0700
+	%vram_payload(DATA_EAC294,$B000,$5120,!big_data_compression)
+	%vram_payload(DATA_EAC190,$F800,$0700,!small_data_compression)
 	db $00
 
 DATA_FD27A9:
-	db ((DATA_E9342E>>16)&$3F)|$00 : dw DATA_E9342E,$D780,$1760
-	db ((DATA_E9339E>>16)&$3F)|$40 : dw DATA_E9339E,$F440,$0300
+	%vram_payload(DATA_E9342E,$D780,$1760,!big_data_compression)
+	%vram_payload(DATA_E9339E,$F440,$0300,!small_data_compression)
 	db $00
 
 DATA_FD27B8:
-	db ((DATA_FC14A0>>16)&$3F)|$00 : dw DATA_FC14A0,$6000,$0650
-	db ((DATA_F47B15>>16)&$3F)|$00 : dw DATA_F47B15,$EC30,$0780
-	db ((DATA_EBB852>>16)&$3F)|$00 : dw DATA_EBB852,$0000,$0800
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_EB069C>>16)&$3F)|$00 : dw DATA_EB069C,$1EA0,$00C0
-	db (((DATA_EB069C+$C0)>>16)&$3F)|$00 : dw DATA_EB069C+$C0,$1FA0,$00C0
-	db ((DATA_F31B38>>16)&$3F)|$40 : dw DATA_F31B38,$F400,$0700
-	db ((DATA_F31DED>>16)&$3F)|$00 : dw DATA_F31DED,$A000,$3F80
-	db ((DATA_EB81FF>>16)&$3F)|$40 : dw DATA_EB81FF,$F800,$0840
-	db ((DATA_EB8538>>16)&$3F)|$00 : dw DATA_EB8538,$C000,$3C60
+	%vram_payload(DATA_FC14A0,$6000,$0650,!big_data_compression)
+	%vram_payload(DATA_F47B15,$EC30,$0780,!big_data_compression)
+	%vram_payload(DATA_EBB852,$0000,$0800,!big_data_compression)
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_EB069C,$1EA0,$00C0,!big_data_compression)
+	%vram_payload((DATA_EB069C+$C0),$1FA0,$00C0,!big_data_compression)
+	%vram_payload(DATA_F31B38,$F400,$0700,!small_data_compression)
+	%vram_payload(DATA_F31DED,$A000,$3F80,!big_data_compression)
+	%vram_payload(DATA_EB81FF,$F800,$0840,!small_data_compression)
+	%vram_payload(DATA_EB8538,$C000,$3C60,!big_data_compression)
 	db $00
 
 DATA_FD27FF:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_F3480A>>16)&$3F)|$40 : dw DATA_F3480A,$EC00,$0700
-	db ((DATA_F34FAD>>16)&$3F)|$00 : dw DATA_F34FAD,$A000,$10E0
-	db ((DATA_E9339E>>16)&$3F)|$40 : dw DATA_E9339E,$F0C0,$0300
-	db ((DATA_E9342E>>16)&$3F)|$00 : dw DATA_E9342E,$E000,$1760
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_F3480A,$EC00,$0700,!small_data_compression)
+	%vram_payload(DATA_F34FAD,$A000,$10E0,!big_data_compression)
+	%vram_payload(DATA_E9339E,$F0C0,$0300,!small_data_compression)
+	%vram_payload(DATA_E9342E,$E000,$1760,!big_data_compression)
 	db $00
 
 DATA_FD2823:
-	db ((DATA_FFE600>>16)&$3F)|$00 : dw DATA_FFE600,$1C00,$0400
-	db ((DATA_F34C21>>16)&$3F)|$00 : dw DATA_F34C21,$EC00,$0700
-	db ((DATA_F34FAD>>16)&$3F)|$00 : dw DATA_F34FAD,$A000,$10E0
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
+	%vram_payload(DATA_F34C21,$EC00,$0700,!big_data_compression)
+	%vram_payload(DATA_F34FAD,$A000,$10E0,!big_data_compression)
 	db $00
 
 DATA_FD2839:
-	db ((DATA_F80000>>16)&$3F)|$00 : dw DATA_F80000,$A000,$34A0
+	%vram_payload(DATA_F80000,$A000,$34A0,!big_data_compression)
 	db $00
 
 DATA_FD2841:
-	db ((DATA_C8FE75>>16)&$3F)|$00 : dw DATA_C8FE75,$A000,$3980
-	db ((DATA_E8640C>>16)&$3F)|$40 : dw DATA_E8640C,$E000,$0380
-	db ((DATA_CA0000>>16)&$3F)|$00 : dw DATA_CA0000,$C000,$01A0
-	db ((DATA_E866E0>>16)&$3F)|$40 : dw DATA_E866E0,$E400,$03C0
+	%vram_payload(DATA_C8FE75,$A000,$3980,!big_data_compression)
+	%vram_payload(DATA_E8640C,$E000,$0380,!small_data_compression)
+	%vram_payload(DATA_CA0000,$C000,$01A0,!big_data_compression)
+	%vram_payload(DATA_E866E0,$E400,$03C0,!small_data_compression)
 	db $00
 
 DATA_FD285E:
-	db ((DATA_EB1BC4>>16)&$3F)|$00 : dw DATA_EB1BC4,$A000,$7B80
+	%vram_payload(DATA_EB1BC4,$A000,$7B80,!big_data_compression)
 	db $00
 
 DATA_FD2866:
-	db ((DATA_EBAABA>>16)&$3F)|$40 : dw DATA_EBAABA,$F900,$0700
-	db ((DATA_EBAB57>>16)&$3F)|$00 : dw DATA_EBAB57,$A000,$1000
-	db ((DATA_E5968A>>16)&$3F)|$00 : dw DATA_E5968A,$D000,$3220
-	db ((DATA_E591C9>>16)&$3F)|$40 : dw DATA_E591C9,$F000,$0740
-	db ((DATA_E594A2>>16)&$3F)|$00 : dw DATA_E594A2,$F420,$0180
-	db ((DATA_E59533>>16)&$3F)|$00 : dw DATA_E59533,$F6A0,$02C0
-	db ((DATA_DCFF76>>16)&$3F)|$00 : dw DATA_DCFF76,$E910,$05E0
-	db ((DATA_DCFECD>>16)&$3F)|$40 : dw DATA_DCFECD,$ECC0,$0180
+	%vram_payload(DATA_EBAABA,$F900,$0700,!small_data_compression)
+	%vram_payload(DATA_EBAB57,$A000,$1000,!big_data_compression)
+	%vram_payload(DATA_E5968A,$D000,$3220,!big_data_compression)
+	%vram_payload(DATA_E591C9,$F000,$0740,!small_data_compression)
+	%vram_payload(DATA_E594A2,$F420,$0180,!big_data_compression)
+	%vram_payload(DATA_E59533,$F6A0,$02C0,!big_data_compression)
+	%vram_payload(DATA_DCFF76,$E910,$05E0,!big_data_compression)
+	%vram_payload(DATA_DCFECD,$ECC0,$0180,!small_data_compression)
 	db $00
 
 DATA_FD289F:
-	db ((DATA_EC7D4C>>16)&$3F)|$40 : dw DATA_EC7D4C,$FC00,$0700
-	db ((DATA_EC7E00>>16)&$3F)|$00 : dw DATA_EC7E00,$A000,$0D20
+	%vram_payload(DATA_EC7D4C,$FC00,$0700,!small_data_compression)
+	%vram_payload(DATA_EC7E00,$A000,$0D20,!big_data_compression)
 	db $00
 
 DATA_FD28AE:
-	db ((DATA_EC9B78>>16)&$3F)|$40 : dw DATA_EC9B78,$FC00,$0700
-	db ((DATA_EC9C32>>16)&$3F)|$00 : dw DATA_EC9C32,$A000,$0C20
+	%vram_payload(DATA_EC9B78,$FC00,$0700,!small_data_compression)
+	%vram_payload(DATA_EC9C32,$A000,$0C20,!big_data_compression)
 	db $00
 
 DATA_FD28BD:
-	db ((DATA_F30200>>16)&$3F)|$00 : dw DATA_F30200,$A000,$4000
-	db ((DATA_F30000>>16)&$3F)|$40 : dw DATA_F30000,$F800,$0600
-	db ((DATA_F316F0>>16)&$3F)|$00 : dw DATA_F316F0,$F000,$0800
-	db ((DATA_F60B11>>16)&$3F)|$00 : dw DATA_F60B11,$C000,$5C00
-	db ((DATA_F621E6>>16)&$3F)|$40 : dw DATA_F621E6,$FC00,$0800
+	%vram_payload(DATA_F30200,$A000,$4000,!big_data_compression)
+	%vram_payload(DATA_F30000,$F800,$0600,!small_data_compression)
+	%vram_payload(DATA_F316F0,$F000,$0800,!big_data_compression)
+	%vram_payload(DATA_F60B11,$C000,$5C00,!big_data_compression)
+	%vram_payload(DATA_F621E6,$FC00,$0800,!small_data_compression)
 	db $00
 
 DATA_FD28E1:
-	db ((DATA_CCFE3D>>16)&$3F)|$00 : dw DATA_CCFE3D,$A000,$4FE0
-	db ((DATA_E87581>>16)&$3F)|$40 : dw DATA_E87581,$FC00,$0800
-	db ((DATA_E9342E>>16)&$3F)|$00 : dw DATA_E9342E,$D000,$1760
-	db ((DATA_E9339E>>16)&$3F)|$40 : dw DATA_E9339E,$F400,$0300
+	%vram_payload(DATA_CCFE3D,$A000,$4FE0,!big_data_compression)
+	%vram_payload(DATA_E87581,$FC00,$0800,!small_data_compression)
+	%vram_payload(DATA_E9342E,$D000,$1760,!big_data_compression)
+	%vram_payload(DATA_E9339E,$F400,$0300,!small_data_compression)
 	db $00
 
 DATA_FD28FE:
-	db ((DATA_E98030>>16)&$3F)|$00 : dw DATA_E98030,$0000,$0520
-	db ((DATA_E97FB0>>16)&$3F)|$00 : dw DATA_E97FB0,$21A0,$0080
+	%vram_payload(DATA_E98030,$0000,$0520,!big_data_compression)
+	%vram_payload(DATA_E97FB0,$21A0,$0080,!big_data_compression)
 	db $00
 
 DATA_FD290D:
-	db ((DATA_E945BC>>16)&$3F)|$40 : dw DATA_E945BC,$FC00,$0700
-	db ((DATA_E94782>>16)&$3F)|$40 : dw DATA_E94782,$F4E0,$0200
-	db ((DATA_E9481D>>16)&$3F)|$00 : dw DATA_E9481D,$A000,$50A0
-	db ((DATA_F70000>>16)&$3F)|$00 : dw DATA_F70000,$C8A0,$2EC0
+	%vram_payload(DATA_E945BC,$FC00,$0700,!small_data_compression)
+	%vram_payload(DATA_E94782,$F4E0,$0200,!small_data_compression)
+	%vram_payload(DATA_E9481D,$A000,$50A0,!big_data_compression)
+	%vram_payload(DATA_F70000,$C8A0,$2EC0,!big_data_compression)
 	db $00
 
 DATA_FD292A:
-	db ((DATA_E15058>>16)&$3F)|$00 : dw DATA_E15058,$A000,$71C0
-	db ((DATA_E9F346>>16)&$3F)|$00 : dw DATA_E9F346,$F400,$0800
-	db ((DATA_E9F818>>16)&$3F)|$00 : dw DATA_E9F818,$5000,$0C70
-	db ((DATA_EB13B3>>16)&$3F)|$40 : dw DATA_EB13B3,$F000,$0600
-	db ((DATA_EB14E2>>16)&$3F)|$00 : dw DATA_EB14E2,$E000,$1020
+	%vram_payload(DATA_E15058,$A000,$71C0,!big_data_compression)
+	%vram_payload(DATA_E9F346,$F400,$0800,!big_data_compression)
+	%vram_payload(DATA_E9F818,$5000,$0C70,!big_data_compression)
+	%vram_payload(DATA_EB13B3,$F000,$0600,!small_data_compression)
+	%vram_payload(DATA_EB14E2,$E000,$1020,!big_data_compression)
 	db $00
 
 DATA_FD294E:

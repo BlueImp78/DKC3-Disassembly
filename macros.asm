@@ -117,8 +117,8 @@ macro local(name, scratch)
 	pullpc
 endmacro
 
-macro vram_payload(data_address, vram_address, data_size, compressed)
-	dl bank_word(<data_address>)
-	dw <vram_address>|(<compressed><<15)
+macro vram_payload(data_address, vram_address, data_size, compression_type)
+	dl bank_word((<data_address>&$3FFFFF)|(<compression_type><<22))
+	dw <vram_address>
 	dw <data_size>
 endmacro

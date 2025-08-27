@@ -840,3 +840,7 @@ includeonce
 !kong_state_75				= $0075
 !kong_state_76				= $0076
 !kong_state_77				= $0077
+
+!big_data_compression	= $000000
+!small_data_compression	= $000001
+!no_compression		= $000002

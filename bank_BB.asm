@@ -1806,11 +1806,12 @@ CODE_BB8D73:
 	TAX					;$BB8D84
 	JMP (DATA_BB8D88,x)			;$BB8D85
 
+;decompression routine table
 DATA_BB8D88:
-	dw CODE_BB8D90
-	dw CODE_BB8DCC
-	dw CODE_BB8DE4
-	dw CODE_BB8DE4
+	dw CODE_BB8D90				;00 Big data
+	dw CODE_BB8DCC				;40 Small data
+	dw CODE_BB8DE4				;80 Uncompressed
+	dw CODE_BB8DE4				;C0 Uncompressed
 
 CODE_BB8D90:
 	PLX					;$BB8D90
