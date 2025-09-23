@@ -4,7 +4,7 @@ ADDR_B2FCAB:
 	LDA.w #$0878
 	STA.w $005E,y
 ADDR_B2FCB3:
-	LDA.w $04D0
+	LDA.w player_2_pressed
 	BIT.w #$2000
 	BEQ.b $21
 ADDR_B2FCBB:

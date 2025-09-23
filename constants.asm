@@ -448,7 +448,7 @@ includeonce
 !sprite_title_screen_logo		= $019C
 !sprite_unknown_01A0			= $01A0
 !sprite_file_select_menu		= $01A4
-!sprite_unknown_01A8			= $01A8
+!sprite_file_select_cheat_handler	= $01A8
 !sprite_brash_cabin_digital_display	= $01AC
 !sprite_file_select_number		= $01B0
 !sprite_banana_bird_cave_controller     = $01B4

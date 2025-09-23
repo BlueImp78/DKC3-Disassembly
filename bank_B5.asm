@@ -105,7 +105,7 @@ CODE_B58066:
 CODE_B58087:
 	STY.w $0547				;$B58087
 	JSL.l set_sprite_animation		;$B5808A
-	LDA.w $04C4				;$B5808E
+	LDA.w current_game_mode			;$B5808E
 	BEQ.b CODE_B580B0			;$B58091
 	CMP.w #!gamemode_2_player_team		;$B58093
 	BNE.b CODE_B580B0			;$B58096
@@ -127,7 +127,7 @@ CODE_B580B3:
 	LDY.w $1B7F				;$B580B8
 	LDX.w #$00E0				;$B580BB
 	LDA.w $0000,y				;$B580BE
-	CMP.w #$04C4				;$B580C1
+	CMP.w #$04C4		;$B580C1
 	BNE.b CODE_B580C9			;$B580C4
 	LDX.w #$0180				;$B580C6
 CODE_B580C9:
@@ -1344,8 +1344,8 @@ CODE_B589E5:
 	AND.w #$0007				;$B589EA
 	CMP.w #$0004				;$B589ED
 	BNE.b CODE_B58A69			;$B589F0
-	LDA.w $04CA				;$B589F2
-	ORA.w $04CC				;$B589F5
+	LDA.w player_1_held			;$B589F2
+	ORA.w player_2_held			;$B589F5
 	BIT.w #$8080				;$B589F8
 	BEQ.b CODE_B58A69			;$B589FB
 	LDY.w $1BB9				;$B589FD
@@ -2156,7 +2156,7 @@ CODE_B59027:
 	LDX.b current_sprite			;$B59032
 CODE_B59034:
 	LDY.b $64,x				;$B59034
-	LDA.w $04DA,y				;$B59036
+	LDA.w player_active_pressed,y		;$B59036
 	BIT.w #$8080				;$B59039
 	BEQ.b CODE_B59053			;$B5903C
 	INC.b $38,x				;$B5903E
@@ -2190,7 +2190,7 @@ CODE_B59069:
 CODE_B59078:
 	STA.b $60,x				;$B59078
 	LDY.b $64,x				;$B5907A
-	LDA.w $04D6,y				;$B5907C
+	LDA.w player_active_held,y		;$B5907C
 	BIT.w #$8080				;$B5907F
 	BNE.b CODE_B59086			;$B59082
 	INC.b $62,x				;$B59084
@@ -2200,7 +2200,7 @@ CODE_B59086:
 CODE_B59088:
 	LDY.b $64,x				;$B59088
 	STZ.b $30,x				;$B5908A
-	LDA.w $04D6,y				;$B5908C
+	LDA.w player_active_held,y		;$B5908C
 	BIT.w #$0200				;$B5908F
 	BEQ.b CODE_B590A3			;$B59092
 	LDA.b $12,x				;$B59094
@@ -2247,7 +2247,7 @@ CODE_B590D1:
 	LDA.w #$830F				;$B590D6
 	JSL.l CODE_808024			;$B590D9
 CODE_B590DD:
-	JSL.l CODE_808021			;$B590DD
+	JSL.l handle_fading			;$B590DD
 	LDA.w screen_brightness			;$B590E1
 	BNE.b CODE_B590E8			;$B590E4
 	SEC					;$B590E6
@@ -2258,8 +2258,8 @@ CODE_B590E8:
 	RTS					;$B590E9
 
 CODE_B590EA:
-	LDA.w $04CA				;$B590EA
-	ORA.w $04CC				;$B590ED
+	LDA.w player_1_held			;$B590EA
+	ORA.w player_2_held			;$B590ED
 	BIT.w #$8080				;$B590F0
 	BEQ.b CODE_B590FC			;$B590F3
 	LDA.w screen_brightness			;$B590F5
@@ -3960,7 +3960,7 @@ CODE_B59F42:
 	RTS					;$B59F50
 
 CODE_B59F51:
-	LDA.w $04DA				;$B59F51
+	LDA.w player_active_pressed		;$B59F51
 	BIT.w #$1000				;$B59F54
 	BEQ.b CODE_B59F73			;$B59F57
 	LDA.w screen_brightness			;$B59F59
@@ -4343,7 +4343,7 @@ CODE_B5A215:
 
 CODE_B5A218:
 	TYX					;$B5A218
-	LDA.w $04C4				;$B5A219
+	LDA.w current_game_mode			;$B5A219
 	DEC					;$B5A21C
 	BNE.b CODE_B5A26A			;$B5A21D
 	LDA.w #$0100				;$B5A21F
@@ -4366,7 +4366,7 @@ CODE_B5A243:
 	LDA.w #$062D				;$B5A245
 	JSL.l CODE_B28018			;$B5A248
 CODE_B5A24C:
-	LDA.w $04DA				;$B5A24C
+	LDA.w player_active_pressed		;$B5A24C
 	BIT.w #$5000				;$B5A24F
 	BEQ.b CODE_B5A267			;$B5A252
 	LDA.b $4C,x				;$B5A254
@@ -4389,14 +4389,14 @@ CODE_B5A26A:
 
 CODE_B5A277:
 	LDY.b $64,x				;$B5A277
-	LDA.w $04D6,y				;$B5A279
+	LDA.w player_active_held,y		;$B5A279
 	BIT.w #$0800				;$B5A27C
 	BEQ.b CODE_B5A286			;$B5A27F
 	LDA.w #$0000				;$B5A281
 	BRA.b CODE_B5A291			;$B5A284
 
 CODE_B5A286:
-	LDA.w $04D6,y				;$B5A286
+	LDA.w player_active_held,y		;$B5A286
 	BIT.w #$0400				;$B5A289
 	BEQ.b CODE_B5A294			;$B5A28C
 	LDA.w #$0001				;$B5A28E
@@ -14890,9 +14890,9 @@ CODE_B5F641:
 	LDA.b $62,x				;$B5F642
 	BEQ.b CODE_B5F651			;$B5F644
 	LDY.b $64,x				;$B5F646
-	LDA.w $04CA,y				;$B5F648
+	LDA.w player_1_held,y			;$B5F648
 	AND.w #$7F7F				;$B5F64B
-	STA.w $04CA,y				;$B5F64E
+	STA.w player_1_held,y			;$B5F64E
 CODE_B5F651:
 	STZ.b $38,x				;$B5F651
 	LDA.w #$0195				;$B5F653
@@ -15532,7 +15532,7 @@ CODE_B5FB29:
 	LDA.w #$0023				;$B5FB43
 	LDY.w #$07D0				;$B5FB46
 	JSL.l enable_timestop			;$B5FB49
-	LDA.w $04C4				;$B5FB4D
+	LDA.w current_game_mode			;$B5FB4D
 	DEC					;$B5FB50
 	BNE.b CODE_B5FB5C			;$B5FB51
 	LDA.w $05B3				;$B5FB53

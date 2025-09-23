@@ -766,7 +766,7 @@ CODE_B2850E:
 	STX $4E					;$B28516
 	STY $50					;$B28518
 	LDA #CODE_808370			;$B2851A
-	JML CODE_80803C				;$B2851D
+	JML set_and_wait_for_nmi		;$B2851D
 
 CODE_B28521:
 	LDA #$1300				;$B28521
@@ -852,7 +852,7 @@ CODE_B28611:
 	RTS					;$B28611
 
 CODE_B28612:
-	JSL CODE_808021				;$B28612
+	JSL handle_fading				;$B28612
 	LDA screen_brightness			;$B28616
 	BNE CODE_B2861E				;$B28619
 	CMP screen_fade_speed			;$B2861B
@@ -1015,7 +1015,7 @@ CODE_B28770:
 	BIT #$FF00				;$B28790
 	BNE CODE_B287AA				;$B28793
 	JSL CODE_808015				;$B28795
-	LDA $04CE				;$B28799
+	LDA player_1_pressed			;$B28799
 	AND #$9080				;$B2879C
 	BEQ CODE_B287AA				;$B2879F
 	LDA #$0002				;$B287A1
@@ -1348,7 +1348,7 @@ CODE_B28B52:
 	BIT #$FF00				;$B28B7E
 	BNE CODE_B28B92				;$B28B81
 	JSL CODE_808015				;$B28B83
-	LDA $04CE				;$B28B87
+	LDA player_1_pressed			;$B28B87
 	AND #$9080				;$B28B8A
 	BEQ CODE_B28B92				;$B28B8D
 	JSR CODE_B28603				;$B28B8F
@@ -1668,7 +1668,7 @@ CODE_B28E84:
 	LDA.w #CODE_808045>>16			;$B28E91
 	STA $50					;$B28E94
 	LDA #CODE_808370			;$B28E96
-	JML CODE_80803C				;$B28E99
+	JML set_and_wait_for_nmi		;$B28E99
 
 CODE_B28E9D:
 	LDA #$0001				;$B28E9D
@@ -1678,7 +1678,7 @@ CODE_B28E9D:
 	STX $4E					;$B28EA9
 	STY $50					;$B28EAB
 	LDA #CODE_808344			;$B28EAD
-	JML CODE_80803C				;$B28EB0
+	JML set_and_wait_for_nmi		;$B28EB0
 
 CODE_B28EB4:
 	LDA #$0043				;$B28EB4
@@ -2898,7 +2898,7 @@ CODE_B29941:
 	STX $4E					;$B29947
 	STY $50					;$B29949
 	LDA #CODE_808348			;$B2994B
-	JML CODE_80803C				;$B2994E
+	JML set_and_wait_for_nmi		;$B2994E
 
 CODE_B29952:
 	PHK					;$B29952
@@ -3024,14 +3024,14 @@ CODE_B29952:
 	LDA #$0200				;$B29ABD
 	JSL CODE_808024				;$B29AC0
 	LDA #$0200				;$B29AC4
-	STA DMA[$00].source_word		;$B29AC7
-	STA DMA[$00].unused_2			;$B29ACA
+	STA DMA[0].source_word			;$B29AC7
+	STA DMA[0].unused_2			;$B29ACA
 	LDA #$0220				;$B29ACD
-	STA DMA[$00].size			;$B29AD0
+	STA DMA[0].size				;$B29AD0
 	LDA #$0400				;$B29AD3
-	STA DMA[$00].settings			;$B29AD6
+	STA DMA[0].settings			;$B29AD6
 	SEP #$20				;$B29AD9
-	STZ DMA[$00].source_bank		;$B29ADB
+	STZ DMA[0].source_bank			;$B29ADB
 	LDA #$01				;$B29ADE
 	STA CPU.enable_dma			;$B29AE0
 	REP #$20				;$B29AE3
@@ -3101,7 +3101,7 @@ CODE_B29B66:
 	STX $4E					;$B29B88
 	STY $50					;$B29B8A
 	LDA #CODE_808362			;$B29B8C
-	JML CODE_80803C				;$B29B8F
+	JML set_and_wait_for_nmi		;$B29B8F
 
 CODE_B29B93:
 	LDX #CODE_B48009			;$B29B93
@@ -3109,7 +3109,7 @@ CODE_B29B93:
 	STX $4E					;$B29B99
 	STY $50					;$B29B9B
 	LDA #CODE_808362			;$B29B9D
-	JML CODE_80803C				;$B29BA0
+	JML set_and_wait_for_nmi		;$B29BA0
 
 CODE_B29BA4:
 	LDA $15E8				;$B29BA4
@@ -3569,15 +3569,15 @@ CODE_B29F14:
 	LDX #$72E0				;$B29F1A
 	STX PPU.vram_address			;$B29F1D
 	LDA #$F5C0				;$B29F20
-	STA DMA[$00].source_word		;$B29F23
-	STA DMA[$00].unused_2			;$B29F26
+	STA DMA[0].source_word			;$B29F23
+	STA DMA[0].unused_2			;$B29F26
 	LDA #$0100				;$B29F29
-	STA DMA[$00].size			;$B29F2C
+	STA DMA[0].size				;$B29F2C
 	LDA #$1801				;$B29F2F
-	STA DMA[$00].settings			;$B29F32
+	STA DMA[0].settings			;$B29F32
 	SEP #$20				;$B29F35
 	LDA #$7E				;$B29F37
-	STA DMA[$00].source_bank		;$B29F39
+	STA DMA[0].source_bank			;$B29F39
 	LDA #$01				;$B29F3C
 	STA CPU.enable_dma			;$B29F3E
 	REP #$20				;$B29F41
@@ -3812,7 +3812,7 @@ CODE_B2A10A:
 	LDA #$0010				;$B2A10F
 	BIT $05FD				;$B2A112
 	BEQ CODE_B2A125				;$B2A115
-	LDA $04DA				;$B2A117
+	LDA player_active_pressed		;$B2A117
 	BIT #$9180				;$B2A11A
 	BEQ CODE_B2A125				;$B2A11D
 	LDA #$0002				;$B2A11F
@@ -5041,7 +5041,7 @@ toboggan_main:
 	JSR .CODE_B2B6A7			;$B2B5F1   |
 	JSR CODE_B2B715			        ;$B2B5F4   |
 	JSR CODE_B2BB62			        ;$B2B5F7   |
-	LDA $04D6				;$B2B5FA   |
+	LDA player_active_held			;$B2B5FA   |
 	AND #$0400				;$B2B5FD   |
 	BEQ ..CODE_B2B613			;$B2B600   |
 	JSR CODE_B2B863			        ;$B2B602   |
@@ -8072,7 +8072,7 @@ CODE_B2CE2E:
 	LDA.w sprite.state,y			;$B2CE33   |
 	CMP #$0009				;$B2CE36   |
 	BNE CODE_B2CE6A				;$B2CE39   |
-	LDA $04D6				;$B2CE3B   |
+	LDA player_active_held			;$B2CE3B   |
 	BEQ CODE_B2CE6A				;$B2CE3E   |
 	LDX current_sprite			;$B2CE40   |
 	LDA sprite.general_purpose_4E,x		;$B2CE42   |
@@ -9111,7 +9111,7 @@ game_over_blocks_main:
 	LDA sprite.y_position,x			;$B2D593   |
 	CMP #$0010				;$B2D595   |
 	BMI .CODE_B2D5B9			;$B2D598   |
-	LDA sprite.general_purpose_60,x	;$B2D59A   |
+	LDA sprite.general_purpose_60,x		;$B2D59A   |
 	JSL queue_sound_effect			;$B2D59C   |
 	BRA .CODE_B2D5B4			;$B2D5A0  /
 
@@ -10491,7 +10491,7 @@ CODE_B2E035:
 	BRA.b CODE_B2E02A			;$B2E03C
 
 CODE_B2E03E:
-	LDA.w $04DA				;$B2E03E
+	LDA.w player_active_pressed		;$B2E03E
 	AND.w #$C0C0				;$B2E041
 	BIT.w #$0040				;$B2E044
 	BEQ.b CODE_B2E050			;$B2E047
@@ -11432,7 +11432,7 @@ CODE_B2E702:
 	LDA.w #$0008				;$B2E70A
 	JSR.w CODE_B2E3F2			;$B2E70D
 	BCC.b CODE_B2E742			;$B2E710
-	LDA.w $04DA				;$B2E712
+	LDA.w player_active_pressed		;$B2E712
 	BIT.w #$9000				;$B2E715
 	BEQ.b CODE_B2E72F			;$B2E718
 	LDA.w $0062,y				;$B2E71A
@@ -14137,6 +14137,8 @@ CODE_B2FB15:
 unknown_sprite_01A0_main:
 	JML [$04F5]				;$B2FB18
 
+
+;Unreferenced
 CODE_B2FB1B:
 	LSR.w $0490,x				;$B2FB1B
 	LDA.b $54,x				;$B2FB1E

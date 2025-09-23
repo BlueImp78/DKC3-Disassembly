@@ -244,7 +244,7 @@ sneek_main:
 ..set_scare_animation:
 	TYX					;$B6815C  \ Get sneek sprite
 	INC sprite.state,x			;$B6815D   | Set dummy state
-	LDA #$0138				;$B6815F   |
+	LDA.b #$0138				;$B6815F   |
 	JSL set_sprite_animation		;$B68162   | Set sneek scare Ellie animation
 	JMP return_handle_despawn		;$B68166  / Return and handle despawn
 

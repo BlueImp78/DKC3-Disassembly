@@ -239,7 +239,7 @@ sprite_main_table:
 	dl title_screen_logo_main-1			: db $00	;019C
 	dl unknown_sprite_01A0_main-1			: db $00	;01A0
 	dl file_select_menu_main-1			: db $00	;01A4
-	dl unknown_sprite_01A8_main-1			: db $00	;01A8
+	dl file_select_cheat_handler_main-1		: db $00	;01A8
 	dl brash_cabin_digital_display_main-1		: db $00	;01AC
 	dl file_select_number_main-1			: db $00	;01B0
 	dl banana_bird_cave_controller_main-1		: db $00	;01B4
@@ -749,12 +749,12 @@ finalize_decompression:
 	LDA $40					;$BB86DD   |\ This would be a be a DMA to VRAM
 	STA.w PPU.vram_address			;$BB86DF   | | However $32 is a constant and will always be skipped (0xFFFF)
 	LDA $20					;$BB86E2   | |
-	STA DMA[$00].source_word		;$BB86E4   | |
+	STA DMA[0].source_word			;$BB86E4   | |
 	LDA $22					;$BB86E7   | |
-	STA DMA[$00].source_bank		;$BB86E9   | |
-	STX DMA[$00].size			;$BB86EC   | |
+	STA DMA[0].source_bank			;$BB86E9   | |
+	STX DMA[0].size				;$BB86EC   | |
 	LDA #$1801				;$BB86EF   | |
-	STA DMA[$00].settings			;$BB86F2   | |
+	STA DMA[0].settings			;$BB86F2   | |
 	SEP #$20				;$BB86F5   | |
 	LDA #$01				;$BB86F7   | |
 	STA.w CPU.enable_dma			;$BB86F9   | |
@@ -1747,10 +1747,10 @@ CODE_BB8D01:
 	ORA #$C0				;$BB8D10
 	STA $44					;$BB8D12
 	LDA #$7F				;$BB8D14
-	STA.l DMA[$00].source_bank		;$BB8D16
+	STA.l DMA[0].source_bank		;$BB8D16
 	REP #$20				;$BB8D1A
 	LDA #$0000				;$BB8D1C
-	STA.l DMA[$00].source_word		;$BB8D1F
+	STA.l DMA[0].source_word		;$BB8D1F
 	LDA.w DATA_FD1B03+$01,x			;$BB8D23
 	STA $42					;$BB8D26
 	LDA.w DATA_FD1B03+$03,x			;$BB8D28
@@ -1772,13 +1772,13 @@ CODE_BB8D39:
 	SEP #$20				;$BB8D45
 CODE_BB8D47:
 	LDA.w DATA_FD1B03+$05,x			;$BB8D47
-	STA.l DMA[$00].size_low			;$BB8D4A
+	STA.l DMA[0].size_low			;$BB8D4A
 	LDA.w DATA_FD1B03+$06,x			;$BB8D4E
-	STA.l DMA[$00].size_high		;$BB8D51
+	STA.l DMA[0].size_high			;$BB8D51
 	LDA.b #PPU.vram_write_low		;$BB8D55
-	STA.l DMA[$00].destination		;$BB8D57
+	STA.l DMA[0].destination		;$BB8D57
 	LDA #$01				;$BB8D5B
-	STA.l DMA[$00].control			;$BB8D5D
+	STA.l DMA[0].control			;$BB8D5D
 	STA.l CPU.enable_dma			;$BB8D61
 	REP #$20				;$BB8D65
 	TXA					;$BB8D67
@@ -1835,10 +1835,10 @@ CODE_BB8DA6:
 	AND #$7F				;$BB8DB2
 	STA.l PPU.vram_address_high		;$BB8DB4
 	LDA #$7F				;$BB8DB8
-	STA.l DMA[$00].source_bank		;$BB8DBA
+	STA.l DMA[0].source_bank		;$BB8DBA
 	REP #$20				;$BB8DBE
 	LDA #$0000				;$BB8DC0
-	STA.l DMA[$00].source_word		;$BB8DC3
+	STA.l DMA[0].source_word		;$BB8DC3
 	SEP #$20				;$BB8DC7
 	BRL CODE_BB8D47				;$BB8DC9
 
@@ -1887,17 +1887,17 @@ CODE_BB8E11:
 	JSR CODE_BB8E53				;$BB8E11
 CODE_BB8E14:
 	PLA					;$BB8E14
-	STA DMA[$00].source_word		;$BB8E15
+	STA DMA[0].source_word			;$BB8E15
 	TXA					;$BB8E18
 	ASL					;$BB8E19
 	ASL					;$BB8E1A
 	ASL					;$BB8E1B
-	STA DMA[$00].size			;$BB8E1C
+	STA DMA[0].size				;$BB8E1C
 	LDA #$2200				;$BB8E1F
-	STA DMA[$00].settings			;$BB8E22
+	STA DMA[0].settings			;$BB8E22
 	SEP #$20				;$BB8E25
 	LDA #$FD				;$BB8E27
-	STA DMA[$00].source_bank		;$BB8E29
+	STA DMA[0].source_bank			;$BB8E29
 	TYA					;$BB8E2C
 	STA PPU.cgram_address			;$BB8E2D
 	LDA #$01				;$BB8E30
@@ -3172,7 +3172,7 @@ CODE_BB968A:
 	LDA current_game_mode			;$BB968D
 	CMP #!gamemode_2_player_contest		;$BB9690
 	BNE CODE_BB969F				;$BB9693
-	LDA $04C6				;$BB9695
+	LDA active_player			;$BB9695
 	BEQ CODE_BB96AA				;$BB9698
 	LDY #$003C				;$BB969A
 	BRA CODE_BB96AA				;$BB969D
@@ -4565,7 +4565,7 @@ CODE_BBA154:
 	LDX #$188D				;$BBA164
 	JSR CODE_BB9507				;$BBA167
 	LDA #$00E0				;$BBA16A
-	STA DMA[$00].size			;$BBA16D
+	STA DMA[0].size				;$BBA16D
 	LDA $18AB				;$BBA170
 	ASL					;$BBA173
 	ASL					;$BBA174
@@ -4573,14 +4573,14 @@ CODE_BBA154:
 	ASL					;$BBA176
 	STA.l PPU.vram_address			;$BBA177
 	LDA.l DATA_C00000+$04			;$BBA17B
-	STA.l DMA[$00].source_word		;$BBA17F
+	STA.l DMA[0].source_word		;$BBA17F
 	SEP #$20				;$BBA183
 	LDA.l DATA_C00000+$06			;$BBA185
-	STA.l DMA[$00].source_bank		;$BBA189
+	STA.l DMA[0].source_bank		;$BBA189
 	LDA.b #PPU.vram_write_low		;$BBA18D
-	STA.w DMA[$00].destination		;$BBA18F
+	STA.w DMA[0].destination		;$BBA18F
 	LDA #$01				;$BBA192
-	STA.l DMA[$00].control			;$BBA194
+	STA.l DMA[0].control			;$BBA194
 	STA.l CPU.enable_dma			;$BBA198
 	REP #$20				;$BBA19C
 	RTS					;$BBA19E
@@ -4720,7 +4720,7 @@ CODE_BBA27B:
 	JML CODE_808003				;$BBA295
 
 CODE_BBA299:
-	LDA current_game_mode			;$BBA299
+	LDA current_game_mode		;$BBA299
 	BEQ CODE_BBA2B1				;$BBA29C
 	CMP #!gamemode_2_player_team		;$BBA29E
 	BNE CODE_BBA2AB				;$BBA2A1
@@ -4851,7 +4851,7 @@ CODE_BBA3CB:
 	STY $4E					;$BBA3CB
 	STX $50					;$BBA3CD
 	LDA #CODE_808348			;$BBA3CF
-	JML CODE_80803C				;$BBA3D2
+	JML set_and_wait_for_nmi		;$BBA3D2
 
 CODE_BBA3D6:
 	JSL CODE_B38009				;$BBA3D6

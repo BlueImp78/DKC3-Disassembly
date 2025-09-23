@@ -1395,7 +1395,7 @@ CODE_B9A90F:
 	RTS					;$B9A91D
 
 CODE_B9A91E:
-	LDA.w $04D6				;$B9A91E
+	LDA.w player_active_held		;$B9A91E
 	AND.w #$0800				;$B9A921
 CODE_B9A924:
 	CMP.w #$0001				;$B9A924
@@ -2541,7 +2541,7 @@ CODE_B9B0D3:
 	LDX.w follower_kong_sprite		;$B9B0D3
 	LDA.w #$00D8				;$B9B0D6
 	STA.b $0E,x				;$B9B0D9
-	LDA.w $04D6				;$B9B0DB
+	LDA.w player_active_held		;$B9B0DB
 	AND.w #$0800				;$B9B0DE
 	BEQ.b CODE_B9B0E6			;$B9B0E1
 	JMP.w CODE_B9B150			;$B9B0E3
@@ -2779,10 +2779,10 @@ CODE_B9B2A4:
 CODE_B9B2A5:
 	LDA.w #$0006				;$B9B2A5
 	JSL.l CODE_BFF009			;$B9B2A8
-	LDA.w $04DA				;$B9B2AC
+	LDA.w player_active_pressed		;$B9B2AC
 	AND.w #$0300				;$B9B2AF
 	BNE.b CODE_B9B2CD			;$B9B2B2
-	LDA.w $04D6				;$B9B2B4
+	LDA.w player_active_held		;$B9B2B4
 	BIT.w #$0020				;$B9B2B7
 	BNE.b CODE_B9B2C4			;$B9B2BA
 	AND.w #$0480				;$B9B2BC
@@ -2824,7 +2824,7 @@ CODE_B9B2E7:
 CODE_B9B2FF:
 	STZ.b $2A,x				;$B9B2FF
 CODE_B9B301:
-	LDA.w $04D6				;$B9B301
+	LDA.w player_active_held		;$B9B301
 	AND.w #$0090				;$B9B304
 	BNE.b CODE_B9B30B			;$B9B307
 	STZ.b $6C,x				;$B9B309
@@ -2849,7 +2849,7 @@ CODE_B9B31C:
 	RTS					;$B9B31C
 
 CODE_B9B31D:
-	LDA.w $04D6				;$B9B31D
+	LDA.w player_active_held		;$B9B31D
 	AND.w #$0800				;$B9B320
 	CMP.w #$0001				;$B9B323
 	RTS					;$B9B326
@@ -4432,7 +4432,7 @@ CODE_B9BD33:
 	BEQ.b CODE_B9BD7E			;$B9BD35
 	CPX.w follower_kong_sprite		;$B9BD37
 	BEQ.b CODE_B9BD44			;$B9BD3A
-	LDA.w $04D6				;$B9BD3C
+	LDA.w player_active_held		;$B9BD3C
 	BIT.w #$0F00				;$B9BD3F
 	BEQ.b CODE_B9BD75			;$B9BD42
 CODE_B9BD44:

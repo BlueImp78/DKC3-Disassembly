@@ -93,12 +93,18 @@ active_player = $04C6
 ;controller logic
 player_1_held = $04CA
 player_2_held = $04CC
+
 player_1_pressed = $04CE
 player_2_pressed = $04D0
+
 player_1_release = $04D2
 player_2_release = $04D4
+
 player_active_held = $04D6
+player_inactive_held = $04D8
 player_active_pressed = $04DA
+player_inactive_pressed = $04DC
+
 player_action = $04DE
 player_action_button_held = $04E0
 player_action_button_pressed = $04E2
@@ -106,6 +112,7 @@ player_action_button_pressed = $04E2
 
 screen_brightness = $04EC
 screen_fade_speed = $04ED
+screen_fade_timer = $04EE
 
 
 sprite_return_address = $04F5

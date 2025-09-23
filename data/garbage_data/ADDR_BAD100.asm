@@ -164,7 +164,7 @@ ADDR_BAD268:
 	RTS
 
 ADDR_BAD269:
-	LDA.w $04CA
+	LDA.w player_1_held
 	AND.w #$0300
 	BEQ.b ADDR_BAD2AB
 	LDA.w $0834
@@ -172,7 +172,7 @@ ADDR_BAD269:
 	LDA.w $081A
 	STA.w $0834
 	STZ.w $081A
-	LDA.w $04CA
+	LDA.w player_1_held
 	AND.w #$0200
 	BNE.b ADDR_BAD295
 	LDA.w $081C
@@ -204,7 +204,7 @@ ADDR_BAD2AB:
 ADDR_BAD2B6:
 	STA.w $081C
 ADDR_BAD2B9:
-	LDA.w $04CA
+	LDA.w player_1_held
 	AND.w #$0C00
 	BEQ.b ADDR_BAD2FA
 	LDA.w $0838
@@ -212,7 +212,7 @@ ADDR_BAD2B9:
 	LDA.w $081E
 	STA.w $0838
 	STZ.w $081E
-	LDA.w $04CA
+	LDA.w player_1_held
 	AND.w #$0400
 	BNE.b ADDR_BAD2E8
 	LDA.w $0820
@@ -407,7 +407,7 @@ UNK_BAD43F:
 ADDR_BAD44D:
 	STZ.w $1D7D
 	JSR.w ADDR_BAD269
-	LDA.w $04CE
+	LDA.w player_1_pressed
 	BIT.w #$2000
 	BNE.b ADDR_BAD47F
 	BIT.w #$0080
@@ -481,9 +481,9 @@ ADDR_BAD4D5:
 
 ADDR_BAD4DC:
 	LDA.w #$2000
-	BIT.w $04D2
+	BIT.w player_1_release
 	BNE.b ADDR_BAD4F7
-	LDA.w $04CE
+	LDA.w player_1_pressed
 	BIT.w #$8000
 	BNE.b ADDR_BAD4FB
 	BIT.w #$1000
@@ -543,7 +543,7 @@ ADDR_BAD545:
 ADDR_BAD552:
 	JSR.w ADDR_BAD269
 	LDA.w #$0080
-	BIT.w $04D2
+	BIT.w player_1_release
 	BEQ.b ADDR_BAD569
 	JSR.w ADDR_BAD7EE
 	LDA.w #$1000
@@ -561,12 +561,12 @@ ADDR_BAD571:
 	PHK
 	PLB
 	LDA.w #$2000
-	BIT.w $04CE
+	BIT.w player_1_pressed
 	BNE.b ADDR_BAD5A4
 	LDA.w #$8000
-	BIT.w $04D2
+	BIT.w player_1_release
 	BNE.b ADDR_BAD59C
-	LDA.w $04CE
+	LDA.w player_1_pressed
 	AND.w #$0F00
 	XBA
 	TAY
@@ -602,10 +602,10 @@ ADDR_BAD5BE:
 	PHK
 	PLB
 	LDA.w #$2000
-	BIT.w $04CE
+	BIT.w player_1_pressed
 	BNE.b ADDR_BAD607
 	LDA.w #$0040
-	BIT.w $04D2
+	BIT.w player_1_release
 	BNE.b ADDR_BAD5FA
 	LDA.w $1D7D
 	BEQ.b ADDR_BAD5E1
@@ -617,7 +617,7 @@ ADDR_BAD5DA:
 	RTS
 
 ADDR_BAD5E1:
-	LDA.w $04CE
+	LDA.w player_1_pressed
 	AND.w #$0F00
 	XBA
 	TAY
@@ -678,7 +678,7 @@ UNK_BAD654:
 
 ADDR_BAD65C:
 	LDA.w #$4000
-	BIT.w $04CA
+	BIT.w player_1_held
 	BNE.b ADDR_BAD673
 	LDX.w $0866
 	BNE.b ADDR_BAD673
@@ -733,10 +733,10 @@ ADDR_BAD6C0:
 	RTS
 
 ADDR_BAD6D3:
-	LDA.w $04CA
+	LDA.w player_1_held
 	BIT.w #$2000
 	BEQ.b ADDR_BAD704
-	LDA.w $04CE
+	LDA.w player_1_pressed
 	BIT.w #$0020
 	BNE.b ADDR_BAD6E9
 	BIT.w #$0010
@@ -1199,7 +1199,7 @@ ADDR_BADA95:
 	RTS
 
 ADDR_BADA9B:
-	LDA.w $04CA
+	LDA.w player_1_held
 	AND.w #$0300
 	BEQ.b ADDR_BADACC
 	LDA.w $0834
@@ -1229,7 +1229,7 @@ ADDR_BADACC:
 	STA.w $081A
 	STZ.w $0834
 ADDR_BADAD5:
-	LDA.w $04CA
+	LDA.w player_1_held
 	AND.w #$0C00
 	BEQ.b ADDR_BADB04
 	LDA.w $0838
@@ -1262,7 +1262,7 @@ ADDR_BADB04:
 
 ADDR_BADB0E:
 	LDY.w #$00F8
-	LDA.w $04CA
+	LDA.w player_1_held
 	BIT.w #$0200
 	BNE.b ADDR_BADB1C
 	LDY.w #$0008
@@ -1279,7 +1279,7 @@ ADDR_BADB2F:
 
 ADDR_BADB30:
 	LDY.w #$F800
-	LDA.w $04CA
+	LDA.w player_1_held
 	BIT.w #$0200
 	BNE.b ADDR_BADB3E
 	LDY.w #$0800
@@ -1296,7 +1296,7 @@ ADDR_BADB50:
 
 ADDR_BADB51:
 	LDY.w #$00F8
-	LDA.w $04CA
+	LDA.w player_1_held
 	BIT.w #$0800
 	BNE.b ADDR_BADB5F
 	LDY.w #$0008
@@ -1313,7 +1313,7 @@ ADDR_BADB72:
 
 ADDR_BADB73:
 	LDY.w #$F800
-	LDA.w $04CA
+	LDA.w player_1_held
 	BIT.w #$0800
 	BNE.b ADDR_BADB81
 	LDY.w #$0800
@@ -4049,7 +4049,7 @@ ADDR_BAEFE6:
 
 ADDR_BAEFE7:
 	STZ.w $1D7D
-	LDA.w $04CE
+	LDA.w player_1_pressed
 	BIT.w #$2000
 	BNE.b ADDR_BAF019
 	BIT.w #$0080
@@ -4113,9 +4113,9 @@ ADDR_BAF050:
 
 ADDR_BAF057:
 	LDA.w #$2000
-	BIT.w $04D2
+	BIT.w player_1_release
 	BNE.b ADDR_BAF09D
-	LDA.w $04CA
+	LDA.w player_1_held
 	BIT.w #$0200
 	BNE.b ADDR_BAF0A7
 	BIT.w #$0100
@@ -4124,7 +4124,7 @@ ADDR_BAF057:
 	BNE.b ADDR_BAF0AD
 	BIT.w #$0400
 	BNE.b ADDR_BAF0B0
-	LDA.w $04CE
+	LDA.w player_1_pressed
 	BIT.w #$0080
 	BNE.b ADDR_BAF0B3
 	BIT.w #$8000
@@ -4215,7 +4215,7 @@ ADDR_BAF104:
 	JMP.w ADDR_BAD1A4
 
 ADDR_BAF118:
-	AND.w $04CE
+	AND.w player_1_pressed
 	BEQ.b ADDR_BAF168
 	LDX.w #$0000
 ADDR_BAF120:
@@ -4265,7 +4265,7 @@ ADDR_BAF179:
 	RTS
 
 ADDR_BAF17A:
-	AND.w $04CE
+	AND.w player_1_pressed
 	BEQ.b ADDR_BAF1CA
 	LDX.w #$0000
 ADDR_BAF182:
@@ -4316,9 +4316,9 @@ ADDR_BAF1DB:
 
 ADDR_BAF1DC:
 	LDA.w #$0040
-	BIT.w $04CA
+	BIT.w player_1_held
 	BEQ.b ADDR_BAF20B
-	LDA.w $04CE
+	LDA.w player_1_pressed
 	BIT.w #$0300
 	BEQ.b ADDR_BAF1F3
 	BIT.w #$0100
@@ -4415,7 +4415,7 @@ ADDR_BAF28F:
 	LDA.w $1D5D
 	CMP.w #$000F
 	BCC.b ADDR_BAF28B
-	LDA.w $04CA
+	LDA.w player_1_held
 	BIT.w #$0040
 	BNE.b ADDR_BAF2AD
 	BIT.w #$2000
@@ -4582,7 +4582,7 @@ ADDR_BAF3A0:
 	BNE.b ADDR_BAF38C
 	DEC.w $1D59
 	LDA.w #$2000
-	TRB.w $04CA
+	TRB.w player_1_held
 	JSR.w ADDR_BAFC26
 ADDR_BAF3B4:
 	RTS
@@ -4609,7 +4609,7 @@ ADDR_BAF3D2:
 
 ADDR_BAF3D3:
 	LDA.w #$0080
-	BIT.w $04CA
+	BIT.w player_1_held
 	BNE.b ADDR_BAF3E8
 	BRL ADDR_BAF443
 
@@ -4620,12 +4620,12 @@ ADDR_BAF3DE:
 	RTS
 
 ADDR_BAF3E8:
-	LDA.w $04CA
+	LDA.w player_1_held
 	BIT.w #$0300
 	BEQ.b ADDR_BAF3F3
 	JSR.w ADDR_BAF3FF
 ADDR_BAF3F3:
-	LDA.w $04CA
+	LDA.w player_1_held
 	BIT.w #$0C00
 	BEQ.b ADDR_BAF3FE
 	JSR.w ADDR_BAF421
@@ -4675,7 +4675,7 @@ ADDR_BAF436:
 ADDR_BAF443:
 	STZ.w $1D7B
 	STZ.w $086A
-	LDA.w $04CA
+	LDA.w player_1_held
 	AND.w #$2000
 	BNE.b ADDR_BAF457
 	JSR.w ADDR_BAF457
@@ -5617,12 +5617,12 @@ ADDR_BAFA90:
 ADDR_BAFA9A:
 	JSR.w ADDR_BAD269
 	LDA.w #$4000
-	BIT.w $04D2
+	BIT.w player_1_release
 	BEQ.b ADDR_BAFAA8
 	BRL ADDR_BAFB0E
 
 ADDR_BAFAA8:
-	LDA.w $04CE
+	LDA.w player_1_pressed
 	AND.w #$4000
 	BEQ.b ADDR_BAFAB3
 	STZ.w $1D59
@@ -5718,8 +5718,8 @@ ADDR_BAFB36:
 	STA.w $081C
 	LDA.l $7E6782,x
 	STA.w $0820
-	LDA.w $04CA
-	ORA.w $04CC
+	LDA.w player_1_held
+	ORA.w player_2_held
 	AND.w #$2000
 	BNE.b ADDR_BAFB75
 	JSR.w ADDR_BAFB9D
@@ -5796,7 +5796,7 @@ ADDR_BAFBE6:
 	DEC.w $1D59
 	BEQ.b ADDR_BAFC25
 	LDA.w #$2000
-	BIT.w $04CA
+	BIT.w player_1_held
 	BEQ.b ADDR_BAFC22
 	LDA.l $7E7364
 	LSR
@@ -5834,7 +5834,7 @@ ADDR_BAFC26:
 	CMP.b [$21]
 	BCS.b ADDR_BAFC3E
 	INC.w $1D59
-	LDA.w $04CA
+	LDA.w player_1_held
 	AND.w #$2000
 	BNE.b ADDR_BAFC41
 ADDR_BAFC3E:

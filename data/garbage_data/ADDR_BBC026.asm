@@ -282,10 +282,10 @@ ADDR_BBC233:
 ADDR_BBC23F:
 	LDA.w $0060,y
 	STZ.b $46
-	LDY.w $04C4
+	LDY.w current_game_mode
 	CPY.w #!gamemode_2_player_contest
 	BNE.b ADDR_BBC258
-	LDY.w $04C6
+	LDY.w active_player
 	BEQ.b ADDR_BBC267
 	LDY.w #$001E
 	STY.b $46

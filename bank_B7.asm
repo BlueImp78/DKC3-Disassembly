@@ -4945,14 +4945,14 @@ CODE_B7B8A0:
 	ADC.w $1969				;$B7B8A0
 	STA.w PPU.vram_address			;$B7B8A3
 	LDA.w #$001A0D				;$B7B8A6
-	STA.w DMA[$00].source_word		;$B7B8A9
-	STA.w DMA[$00].unused_2			;$B7B8AC
+	STA.w DMA[0].source_word		;$B7B8A9
+	STA.w DMA[0].unused_2			;$B7B8AC
 	LDA.w #$0040				;$B7B8AF
-	STA.w DMA[$00].size			;$B7B8B2
+	STA.w DMA[0].size			;$B7B8B2
 	LDA.w #$1801				;$B7B8B5
-	STA.w DMA[$00].settings			;$B7B8B8
+	STA.w DMA[0].settings			;$B7B8B8
 	SEP.b #$20				;$B7B8BB
-	STZ.w DMA[$00].source_bank		;$B7B8BD
+	STZ.w DMA[0].source_bank		;$B7B8BD
 	LDA.b #$01				;$B7B8C0
 	STA.w CPU.enable_dma			;$B7B8C2
 	REP.b #$20				;$B7B8C5
@@ -4991,15 +4991,15 @@ CODE_B7B8F2:
 CODE_B7B901:
 	ADC.w #$70C0				;$B7B901
 	STA.w PPU.vram_address			;$B7B904
-	LDA.w #$001A4D				;$B7B907
-	STA.w DMA[$00].source_word		;$B7B90A
-	STA.w DMA[$00].unused_2			;$B7B90D
+	LDA.w #$1A4D				;$B7B907
+	STA.w DMA[0].source_word		;$B7B90A
+	STA.w DMA[0].unused_2			;$B7B90D
 	LDA.w #$000C				;$B7B910
-	STA.w DMA[$00].size			;$B7B913
+	STA.w DMA[0].size			;$B7B913
 	LDA.w #$1801				;$B7B916
-	STA.w DMA[$00].settings			;$B7B919
+	STA.w DMA[0].settings			;$B7B919
 	SEP.b #$20				;$B7B91C
-	STZ.w DMA[$00].source_bank		;$B7B91E
+	STZ.w DMA[0].source_bank		;$B7B91E
 	LDA.b #$01				;$B7B921
 	STA.w CPU.enable_dma			;$B7B923
 	REP.b #$20				;$B7B926
@@ -5042,15 +5042,15 @@ CODE_B7B958:
 CODE_B7B967:
 	ADC.w #$7800				;$B7B967
 	STA.w PPU.vram_address			;$B7B96A
-	LDA.w #$001ACD				;$B7B96D
-	STA.w DMA[$00].source_word		;$B7B970
-	STA.w DMA[$00].unused_2			;$B7B973
+	LDA.w #$1ACD				;$B7B96D
+	STA.w DMA[0].source_word		;$B7B970
+	STA.w DMA[0].unused_2			;$B7B973
 	LDA.w #$0040				;$B7B976
-	STA.w DMA[$00].size			;$B7B979
+	STA.w DMA[0].size			;$B7B979
 	LDA.w #$1801				;$B7B97C
-	STA.w DMA[$00].settings			;$B7B97F
+	STA.w DMA[0].settings			;$B7B97F
 	SEP.b #$20				;$B7B982
-	STZ.w DMA[$00].source_bank		;$B7B984
+	STZ.w DMA[0].source_bank		;$B7B984
 	LDA.b #$01				;$B7B987
 	STA.w CPU.enable_dma			;$B7B989
 	REP.b #$20				;$B7B98C
@@ -5281,15 +5281,15 @@ CODE_B7BB21:
 	ADC.w $1969				;$B7BB27
 	STA.b $1A				;$B7BB2A
 	STA.w PPU.vram_address			;$B7BB2C
-	LDA.w #$00198D				;$B7BB2F
-	STA.w DMA[$00].source_word		;$B7BB32
-	STA.w DMA[$00].unused_2			;$B7BB35
+	LDA.w #$198D				;$B7BB2F
+	STA.w DMA[0].source_word		;$B7BB32
+	STA.w DMA[0].unused_2			;$B7BB35
 	LDA.w #$0040				;$B7BB38
-	STA.w DMA[$00].size			;$B7BB3B
+	STA.w DMA[0].size			;$B7BB3B
 	LDA.w #$1801				;$B7BB3E
-	STA.w DMA[$00].settings			;$B7BB41
+	STA.w DMA[0].settings			;$B7BB41
 	SEP.b #$20				;$B7BB44
-	STZ.w DMA[$00].source_bank		;$B7BB46
+	STZ.w DMA[0].source_bank		;$B7BB46
 	LDA.b #$01				;$B7BB49
 	STA.w CPU.enable_dma			;$B7BB4B
 	REP.b #$20				;$B7BB4E
@@ -5297,15 +5297,15 @@ CODE_B7BB21:
 	CLC					;$B7BB52
 	ADC.w #$0400				;$B7BB53
 	STA.w PPU.vram_address			;$B7BB56
-	LDA.w #$0019CD				;$B7BB59
-	STA.w DMA[$00].source_word		;$B7BB5C
-	STA.w DMA[$00].unused_2			;$B7BB5F
+	LDA.w #$19CD				;$B7BB59
+	STA.w DMA[0].source_word		;$B7BB5C
+	STA.w DMA[0].unused_2			;$B7BB5F
 	LDA.w #$0040				;$B7BB62
-	STA.w DMA[$00].size			;$B7BB65
+	STA.w DMA[0].size			;$B7BB65
 	LDA.w #$1801				;$B7BB68
-	STA.w DMA[$00].settings			;$B7BB6B
+	STA.w DMA[0].settings			;$B7BB6B
 	SEP.b #$20				;$B7BB6E
-	STZ.w DMA[$00].source_bank		;$B7BB70
+	STZ.w DMA[0].source_bank		;$B7BB70
 	LDA.b #$01				;$B7BB73
 	STA.w CPU.enable_dma			;$B7BB75
 	REP.b #$20				;$B7BB78
@@ -5336,15 +5336,15 @@ CODE_B7BB98:
 	ADC.w #$7800				;$B7BB9E
 	STA.b $1A				;$B7BBA1
 	STA.w PPU.vram_address			;$B7BBA3
-	LDA.w #$001A4D				;$B7BBA6
-	STA.w DMA[$00].source_word		;$B7BBA9
-	STA.w DMA[$00].unused_2			;$B7BBAC
+	LDA.w #$1A4D				;$B7BBA6
+	STA.w DMA[0].source_word		;$B7BBA9
+	STA.w DMA[0].unused_2			;$B7BBAC
 	LDA.w #$0040				;$B7BBAF
-	STA.w DMA[$00].size			;$B7BBB2
+	STA.w DMA[0].size			;$B7BBB2
 	LDA.w #$1801				;$B7BBB5
-	STA.w DMA[$00].settings			;$B7BBB8
+	STA.w DMA[0].settings			;$B7BBB8
 	SEP.b #$20				;$B7BBBB
-	STZ.w DMA[$00].source_bank		;$B7BBBD
+	STZ.w DMA[0].source_bank		;$B7BBBD
 	LDA.b #$01				;$B7BBC0
 	STA.w CPU.enable_dma			;$B7BBC2
 	REP.b #$20				;$B7BBC5
@@ -5352,15 +5352,15 @@ CODE_B7BB98:
 	CLC					;$B7BBC9
 	ADC.w #$0400				;$B7BBCA
 	STA.w PPU.vram_address			;$B7BBCD
-	LDA.w #$001A8D				;$B7BBD0
-	STA.w DMA[$00].source_word		;$B7BBD3
-	STA.w DMA[$00].unused_2			;$B7BBD6
+	LDA.w #$1A8D				;$B7BBD0
+	STA.w DMA[0].source_word		;$B7BBD3
+	STA.w DMA[0].unused_2			;$B7BBD6
 	LDA.w #$0040				;$B7BBD9
-	STA.w DMA[$00].size			;$B7BBDC
+	STA.w DMA[0].size			;$B7BBDC
 	LDA.w #$1801				;$B7BBDF
-	STA.w DMA[$00].settings			;$B7BBE2
+	STA.w DMA[0].settings			;$B7BBE2
 	SEP.b #$20				;$B7BBE5
-	STZ.w DMA[$00].source_bank		;$B7BBE7
+	STZ.w DMA[0].source_bank		;$B7BBE7
 	LDA.b #$01				;$B7BBEA
 	STA.w CPU.enable_dma			;$B7BBEC
 	REP.b #$20				;$B7BBEF

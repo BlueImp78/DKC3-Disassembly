@@ -649,23 +649,23 @@ DATA_FE83D8:
 
 
 demo_scripts_table:
-	dw .main_map_demo_script			;01
-	dw .barnacles_island_demo_script		;02
-	dw .belchas_barn_demo_script			;03
-	dw .lake_orangatanga_demo_script		;04
-	dw .tidal_trouble_demo_script			;05
-	dw .doorstop_dash_demo_script_2			;06
-	dw .doorstop_dash_demo_script			;07
-	dw .barrel_shield_bust_up_demo_script		;08
-	dw .ripsaw_rage_demo_script			;09
-	dw .bobbing_barrel_brawl_demo_script		;0A
-	dw .riverside_race_demo_script_2		;0B
-	dw .riverside_race_demo_script			;0C
-	dw .skiddas_row_demo_script			;0D
-	dw .lemguin_lunge_demo_script			;0F
-	dw .lakeside_limbo_demo_script			;10
-	dw .kreeping_klasps_demo_script			;11
-	dw .DATA_FE8924					;12 Never triggers? Sets level to barnacle's island
+	dw .main_map_demo_script			;00
+	dw .barnacles_island_demo_script		;01
+	dw .belchas_barn_demo_script			;02
+	dw .lake_orangatanga_demo_script		;03
+	dw .tidal_trouble_demo_script			;04
+	dw .doorstop_dash_demo_script_2			;05
+	dw .doorstop_dash_demo_script			;06
+	dw .barrel_shield_bust_up_demo_script		;07
+	dw .ripsaw_rage_demo_script			;08
+	dw .bobbing_barrel_brawl_demo_script		;09
+	dw .riverside_race_demo_script_2		;0A
+	dw .riverside_race_demo_script			;0B
+	dw .skiddas_row_demo_script			;0C
+	dw .lemguin_lunge_demo_script			;0D
+	dw .lakeside_limbo_demo_script			;0E
+	dw .kreeping_klasps_demo_script			;0F
+	dw .DATA_FE8924					;10 Never triggers? Sets level to barnacle's island
 
 .main_map_demo_script:
 	db $91,$80,$FF,$FF,$DE,$02,$00,$00,$14,$00,$00,$48,$0C,$00,$00,$4A

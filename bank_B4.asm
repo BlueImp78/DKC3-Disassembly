@@ -53,14 +53,14 @@ CODE_B48021:
 	STA $0541				;$B48054
 	STZ current_animal_type			;$B48057
 	LDA #$000200				;$B48059
-	STA DMA[$00].source_word		;$B4805C
-	STA DMA[$00].unused_2			;$B4805F
+	STA DMA[0].source_word			;$B4805C
+	STA DMA[0].unused_2			;$B4805F
 	LDA #$0220				;$B48062
-	STA DMA[$00].size			;$B48065
+	STA DMA[0].size				;$B48065
 	LDA #$0400				;$B48068
-	STA DMA[$00].settings			;$B4806B
+	STA DMA[0].settings			;$B4806B
 	SEP #$20				;$B4806E
-	STZ DMA[$00].source_bank		;$B48070
+	STZ DMA[0].source_bank			;$B48070
 	LDA #$01				;$B48073
 	STA.w CPU.enable_dma			;$B48075
 	REP #$20				;$B48078
@@ -197,7 +197,7 @@ CODE_B481AF:
 	LDA.w #$0100				;$B481B7
 	BIT.w $1C35				;$B481BA
 	BEQ.b CODE_B481CD			;$B481BD
-	LDA.w $04DA				;$B481BF
+	LDA.w player_active_pressed		;$B481BF
 	BIT.w #$8000				;$B481C2
 	BEQ.b CODE_B481EF			;$B481C5
 	JSL.l CODE_BCF84D			;$B481C7
@@ -274,11 +274,11 @@ CODE_B48263:
 	TXA					;$B48263
 	STA.l $7EA18F				;$B48264
 	JSL.l CODE_808012			;$B48268
-	JSL.l CODE_808021			;$B4826C
+	JSL.l handle_fading			;$B4826C
 	JML.l CODE_808006			;$B48270
 
 CODE_B48274:
-	LDA.w $04DA				;$B48274
+	LDA.w player_active_pressed		;$B48274
 	BIT.w #$0800				;$B48277
 	BEQ.b CODE_B482AA			;$B4827A
 	LDA.w $1C49				;$B4827C
@@ -301,7 +301,7 @@ CODE_B482A1:
 	LDA.w #$0011				;$B482A4
 	STA.w $1C65				;$B482A7
 CODE_B482AA:
-	LDA.w $04DA				;$B482AA
+	LDA.w player_active_pressed		;$B482AA
 	BIT.w #$0400				;$B482AD
 	BEQ.b CODE_B482DD			;$B482B0
 	LDA.w $1C49				;$B482B2
@@ -326,7 +326,7 @@ CODE_B482DD:
 	RTS					;$B482DD
 
 CODE_B482DE:
-	LDA.w $04DA				;$B482DE
+	LDA.w player_active_pressed		;$B482DE
 	BIT.w #$0100				;$B482E1
 	BNE.b CODE_B48310			;$B482E4
 	BIT.w #$0200				;$B482E6
@@ -801,7 +801,7 @@ CODE_B486D5:
 	ADC.w #DATA_FC1F20			;$B486DD
 	LDY.w #$00A0				;$B486E0
 	LDX.w #DATA_FC1F20>>16			;$B486E3
-	JSL.l CODE_808054			;$B486E6
+	JSL.l DMA_to_VRAM			;$B486E6
 CODE_B486EA:
 	RTS					;$B486EA
 
@@ -909,7 +909,7 @@ CODE_B487CC:
 	LDA.w #$0100				;$B487DA
 	BIT.w $1C35				;$B487DD
 	BEQ.b CODE_B487FD			;$B487E0
-	LDA.w $04DA				;$B487E2
+	LDA.w player_active_pressed		;$B487E2
 	BIT.w #$8000				;$B487E5
 	BEQ.b CODE_B487FB			;$B487E8
 	LDX.w $18DF				;$B487EA
@@ -1017,7 +1017,7 @@ CODE_B488C5:
 	REP.b #$20				;$B488CC
 CODE_B488CE:
 	JSL.l CODE_808012			;$B488CE
-	JSL.l CODE_808021			;$B488D2
+	JSL.l handle_fading			;$B488D2
 	JML.l CODE_808006			;$B488D6
 
 CODE_B488DA:
@@ -1063,7 +1063,7 @@ CODE_B48932:
 	RTS					;$B48934
 
 CODE_B48935:
-	LDA.w $04D6				;$B48935
+	LDA.w player_active_held		;$B48935
 	BIT.w #$0400				;$B48938
 	BEQ.b CODE_B4895F			;$B4893B
 	LDA.w $1C49				;$B4893D
@@ -1096,7 +1096,7 @@ CODE_B48982:
 	RTS					;$B48982
 
 CODE_B48983:
-	LDA.w $04DA				;$B48983
+	LDA.w player_active_pressed		;$B48983
 	LDX.w $1C3B				;$B48986
 	CPX.w #$0002				;$B48989
 	BCC.b CODE_B489AF			;$B4898C
@@ -1642,7 +1642,7 @@ CODE_B48E10:
 	LDA.w #$0100				;$B48E18
 	BIT.w $1C35				;$B48E1B
 	BEQ.b CODE_B48E34			;$B48E1E
-	LDA.w $04DA				;$B48E20
+	LDA.w player_active_pressed		;$B48E20
 	BIT.w $1C59				;$B48E23
 	BNE.b CODE_B48E2D			;$B48E26
 	BIT.w #$8000				;$B48E28
@@ -1710,7 +1710,7 @@ CODE_B48EA2:
 	JSL.l sprite_handler			;$B48EAB
 	JSL.l CODE_B7800F			;$B48EAF
 	JSL.l CODE_808012			;$B48EB3
-	JSL.l CODE_808021			;$B48EB7
+	JSL.l handle_fading			;$B48EB7
 	JML.l CODE_808006			;$B48EBB
 
 CODE_B48EBF:
@@ -1729,7 +1729,7 @@ CODE_B48ED8:
 	LDA.w #$0002				;$B48EDD
 	TRB.w $1C35				;$B48EE0
 CODE_B48EE3:
-	LDA.w $04DA				;$B48EE3
+	LDA.w player_active_pressed		;$B48EE3
 	BIT.w #$0400				;$B48EE6
 	BEQ.b CODE_B48F02			;$B48EE9
 	LDX.w $1C49				;$B48EEB
@@ -1759,7 +1759,7 @@ CODE_B48F1D:
 	RTS					;$B48F1D
 
 CODE_B48F1E:
-	LDA.w $04DA				;$B48F1E
+	LDA.w player_active_pressed		;$B48F1E
 	BIT.w $1C59				;$B48F21
 	BEQ.b CODE_B48F34			;$B48F24
 	LDA.w #$0001				;$B48F26
@@ -1773,7 +1773,7 @@ CODE_B48F34:
 	LDA.l $7EA171				;$B48F34
 	CMP.w #$FFFE				;$B48F38
 	BCC.b CODE_B48F57			;$B48F3B
-	LDA.w $04DA				;$B48F3D
+	LDA.w player_active_pressed		;$B48F3D
 	BIT.w #$8000				;$B48F40
 	BEQ.b CODE_B48F57			;$B48F43
 	LDA.w #$0004				;$B48F45
@@ -3079,7 +3079,7 @@ CODE_B4999A:
 	LDA.w #$0100				;$B4999A
 	BIT.w $1C35				;$B4999D
 	BEQ.b CODE_B499B1			;$B499A0
-	LDA.w $04DA				;$B499A2
+	LDA.w player_active_pressed		;$B499A2
 	BIT.w #$8200				;$B499A5
 	BEQ.b CODE_B499AE			;$B499A8
 	JSL.l CODE_BCF84D			;$B499AA
@@ -3125,7 +3125,7 @@ CODE_B499F9:
 	JSL.l CODE_B6804B			;$B49A01
 	JSL.l CODE_B7800F			;$B49A05
 	JSL.l CODE_808012			;$B49A09
-	JSL.l CODE_808021			;$B49A0D
+	JSL.l handle_fading			;$B49A0D
 	JML.l CODE_808006			;$B49A11
 
 DATA_B49A15:
@@ -3365,7 +3365,7 @@ CODE_B49C06:
 	BPL.b CODE_B49C6C			;$B49C14
 	LDX.w $1C4F				;$B49C16
 	LDY.w $1C45				;$B49C19
-	LDA.w $04DA				;$B49C1C
+	LDA.w player_active_pressed		;$B49C1C
 	BIT.w #$0200				;$B49C1F
 	BEQ.b CODE_B49C4A			;$B49C22
 	STZ.w $1C49				;$B49C24
@@ -3398,7 +3398,7 @@ CODE_B49C4A:
 	LDA.w #$076C				;$B49C65
 	JSL.l queue_sound_effect		;$B49C68
 CODE_B49C6C:
-	LDA.w $04DA				;$B49C6C
+	LDA.w player_active_pressed		;$B49C6C
 	BIT.w #$0200				;$B49C6F
 	BEQ.b CODE_B49C49			;$B49C72
 	LDA.w $1C4F				;$B49C74
@@ -3424,7 +3424,7 @@ CODE_B49C9E:
 	RTS					;$B49CA8
 
 CODE_B49CA9:
-	LDA.w $04DA				;$B49CA9
+	LDA.w player_active_pressed		;$B49CA9
 	BIT.w #$9000				;$B49CAC
 	BEQ.b CODE_B49CD1			;$B49CAF
 	LDA.w $1C3B				;$B49CB1
@@ -3471,7 +3471,7 @@ CODE_B49CD3:
 	BEQ.b CODE_B49D3C			;$B49D05
 	LDA.w screen_brightness			;$B49D07
 	BNE.b CODE_B49D3C			;$B49D0A
-	LDA.w $04C4				;$B49D0C
+	LDA.w current_game_mode			;$B49D0C
 	CMP.w #!gamemode_2_player_contest	;$B49D0F
 	BNE.b CODE_B49D38			;$B49D12
 	LDA.b $C2				;$B49D14
@@ -3498,7 +3498,7 @@ CODE_B49D3C:
 	JSL.l CODE_B7800C			;$B49D40
 	JSL.l CODE_B7800F			;$B49D44
 	JSL.l CODE_808012			;$B49D48
-	JSL.l CODE_808021			;$B49D4C
+	JSL.l handle_fading			;$B49D4C
 	JML.l CODE_808006			;$B49D50
 
 CODE_B49D54:
@@ -3584,7 +3584,7 @@ CODE_B49DDE:
 CODE_B49DF9:
 	DEC.w $1C63				;$B49DF9
 	BMI.b CODE_B49E09			;$B49DFC
-	LDX.w $04DA				;$B49DFE
+	LDX.w player_active_pressed		;$B49DFE
 	BEQ.b CODE_B49E0F			;$B49E01
 	TXA					;$B49E03
 	BIT.w #$1000				;$B49E04
@@ -3704,7 +3704,7 @@ CODE_B49ED0:
 	STZ.w $1560				;$B49EF4
 	STZ.w $155E				;$B49EF7
 	JSL.l CODE_808015			;$B49EFA
-	LDA.w $04DA				;$B49EFE
+	LDA.w player_active_pressed		;$B49EFE
 	BIT.w #$0600				;$B49F01
 	BEQ.b CODE_B49F0C			;$B49F04
 	LDA.w #$0020				;$B49F06
@@ -3718,7 +3718,7 @@ CODE_B49F0C:
 CODE_B49F1D:
 	JSL.l CODE_B7800F			;$B49F1D
 	JSL.l CODE_808012			;$B49F21
-	JSL.l CODE_808021			;$B49F25
+	JSL.l handle_fading			;$B49F25
 	LDA.w screen_brightness			;$B49F29
 	BNE.b CODE_B49F33			;$B49F2C
 	CMP.w screen_fade_speed			;$B49F2E
@@ -4271,7 +4271,7 @@ CODE_B4A3FF:
 	STX.w PPU.vram_address			;$B4A402
 	LDA.w #$7EF000				;$B4A405
 	LDX.w #$7EF000>>16			;$B4A408
-	JSL.l CODE_808054			;$B4A40B
+	JSL.l DMA_to_VRAM			;$B4A40B
 	RTS					;$B4A40F
 
 CODE_B4A410:
@@ -4313,7 +4313,7 @@ CODE_B4A447:
 	LDA.w #$7EF000				;$B4A472
 	LDY.w #$1000				;$B4A475
 	LDX.w #$7EF000>>16			;$B4A478
-	JSL.l CODE_808054			;$B4A47B
+	JSL.l DMA_to_VRAM			;$B4A47B
 	LDA.w #$F489				;$B4A47F
 	STA.l $7EA196				;$B4A482
 	STA.l $7EA199				;$B4A486
@@ -4779,14 +4779,14 @@ CODE_B4A7C9:
 	LDY.w #$0010				;$B4A7C9
 	LDA.w $0000,x				;$B4A7CC
 CODE_B4A7CF:
-	STA.w HDMA[$00].settings,y		;$B4A7CF
+	STA.w HDMA[0].settings,y		;$B4A7CF
 	LDA.w $0002,x				;$B4A7D2
-	STA.w HDMA[$00].source_word,y		;$B4A7D5
+	STA.w HDMA[0].source_word,y		;$B4A7D5
 	LDA.w $0004,x				;$B4A7D8
 	SEP.b #$20				;$B4A7DB
-	STA.w HDMA[$00].source_bank,y		;$B4A7DD
+	STA.w HDMA[0].source_bank,y		;$B4A7DD
 	XBA					;$B4A7E0
-	STA.w HDMA[$00].indirect_source_bank,y	;$B4A7E1
+	STA.w HDMA[0].indirect_source_bank,y	;$B4A7E1
 	REP.b #$20				;$B4A7E4
 	TYA					;$B4A7E6
 	CLC					;$B4A7E7
@@ -4828,15 +4828,15 @@ CODE_B4A812:
 CODE_B4A82A:
 	STX.w PPU.vram_address			;$B4A82A
 	LDA #$7EF5C0				;$B4A82D
-	STA DMA[$00].source_word		;$B4A830
-	STA DMA[$00].unused_2			;$B4A833
+	STA DMA[0].source_word			;$B4A830
+	STA DMA[0].unused_2			;$B4A833
 	LDA #$0100				;$B4A836
-	STA DMA[$00].size			;$B4A839
+	STA DMA[0].size				;$B4A839
 	LDA #$1801				;$B4A83C
-	STA DMA[$00].settings			;$B4A83F
+	STA DMA[0].settings			;$B4A83F
 	SEP #$20				;$B4A842
 	LDA #$7EF5C0>>16			;$B4A844
-	STA DMA[$00].source_bank		;$B4A846
+	STA DMA[0].source_bank			;$B4A846
 	REP #$20				;$B4A849
 	SEP #$20				;$B4A84B
 	LDA $04E4				;$B4A84D
@@ -4850,15 +4850,15 @@ CODE_B4A859:
 	LDA #$7F20				;$B4A859
 	STA.w PPU.vram_address			;$B4A85C
 	LDA #$7EF000				;$B4A85F
-	STA DMA[$00].source_word		;$B4A862
-	STA DMA[$00].unused_2			;$B4A865
+	STA DMA[0].source_word			;$B4A862
+	STA DMA[0].unused_2			;$B4A865
 	LDA #$0080				;$B4A868
-	STA DMA[$00].size			;$B4A86B
+	STA DMA[0].size				;$B4A86B
 	LDA #$1801				;$B4A86E
-	STA DMA[$00].settings			;$B4A871
+	STA DMA[0].settings			;$B4A871
 	SEP #$20				;$B4A874
 	LDA #$7EF000>>16			;$B4A876
-	STA DMA[$00].source_bank		;$B4A878
+	STA DMA[0].source_bank			;$B4A878
 	LDA #$01				;$B4A87B
 	STA.w CPU.enable_dma			;$B4A87D
 	REP #$20				;$B4A880
@@ -4911,15 +4911,15 @@ CODE_B4A8C6:
 	LDX #$2000				;$B4A8C6
 	JSR CODE_B4A6B6				;$B4A8C9
 	LDA #$7EF000				;$B4A8CC
-	STA DMA[$00].source_word		;$B4A8CF
-	STA DMA[$00].unused_2			;$B4A8D2
+	STA DMA[0].source_word			;$B4A8CF
+	STA DMA[0].unused_2			;$B4A8D2
 	LDA #$0800				;$B4A8D5
-	STA DMA[$00].size			;$B4A8D8
+	STA DMA[0].size				;$B4A8D8
 	LDA #$1801				;$B4A8DB
-	STA DMA[$00].settings			;$B4A8DE
+	STA DMA[0].settings			;$B4A8DE
 	SEP #$20				;$B4A8E1
 	LDA #$7EF000>>16			;$B4A8E3
-	STA DMA[$00].source_bank		;$B4A8E5
+	STA DMA[0].source_bank			;$B4A8E5
 	REP #$20				;$B4A8E8
 	LDA #$0003				;$B4A8EA
 	STA $04E4				;$B4A8ED
@@ -4994,15 +4994,15 @@ CODE_B4A991:
 	LDX #$7000				;$B4A9A8
 	STX.w PPU.vram_address			;$B4A9AB
 	LDA #$7EF000				;$B4A9AE
-	STA DMA[$00].source_word		;$B4A9B1
-	STA DMA[$00].unused_2			;$B4A9B4
+	STA DMA[0].source_word			;$B4A9B1
+	STA DMA[0].unused_2			;$B4A9B4
 	LDA #$0400				;$B4A9B7
-	STA DMA[$00].size			;$B4A9BA
+	STA DMA[0].size				;$B4A9BA
 	LDA #$1801				;$B4A9BD
-	STA DMA[$00].settings			;$B4A9C0
+	STA DMA[0].settings			;$B4A9C0
 	SEP #$20				;$B4A9C3
 	LDA #$7EF000>>16			;$B4A9C5
-	STA DMA[$00].source_bank		;$B4A9C7
+	STA DMA[0].source_bank			;$B4A9C7
 	LDA #$01				;$B4A9CA
 	STA.w CPU.enable_dma			;$B4A9CC
 	REP #$20				;$B4A9CF
@@ -5092,15 +5092,15 @@ CODE_B4AA03:
 	LDX #$7000				;$B4AAB0
 	STX.w PPU.vram_address			;$B4AAB3
 	LDA #$7EF000				;$B4AAB6
-	STA DMA[$00].source_word		;$B4AAB9
-	STA DMA[$00].unused_2			;$B4AABC
+	STA DMA[0].source_word			;$B4AAB9
+	STA DMA[0].unused_2			;$B4AABC
 	LDA #$0800				;$B4AABF
-	STA DMA[$00].size			;$B4AAC2
+	STA DMA[0].size				;$B4AAC2
 	LDA #$1801				;$B4AAC5
-	STA DMA[$00].settings			;$B4AAC8
+	STA DMA[0].settings			;$B4AAC8
 	SEP #$20				;$B4AACB
 	LDA #$7EF000>>16			;$B4AACD
-	STA DMA[$00].source_bank		;$B4AACF
+	STA DMA[0].source_bank			;$B4AACF
 	LDA #$01				;$B4AAD2
 	STA.w CPU.enable_dma			;$B4AAD4
 	REP #$20				;$B4AAD7
@@ -5702,7 +5702,7 @@ CODE_B4B043:
 	LDA.b ($B8)				;$B4B044
 	BIT.w #$8000				;$B4B046
 	BNE.b CODE_B4B062			;$B4B049
-	LDA.w $04DA				;$B4B04B
+	LDA.w player_active_pressed		;$B4B04B
 	BIT.w #$8000				;$B4B04E
 	BEQ.b CODE_B4B062			;$B4B051
 	LDA.l $7EA171				;$B4B053
@@ -5952,7 +5952,7 @@ CODE_B4B271:
 	LDA.w $005C,y				;$B4B28A
 	BNE.b CODE_B4B298			;$B4B28D
 CODE_B4B28F:
-	JSL.l CODE_808021			;$B4B28F
+	JSL.l handle_fading			;$B4B28F
 	LDA.w screen_brightness			;$B4B293
 	BEQ.b CODE_B4B29C			;$B4B296
 CODE_B4B298:
@@ -6523,7 +6523,7 @@ CODE_B4B6AE:
 	STX.b $22				;$B4B6CF
 	JSR.w CODE_B4B783			;$B4B6D1
 	JSR.w CODE_B4B906			;$B4B6D4
-	LDA.w $04C4				;$B4B6D7
+	LDA.w current_game_mode			;$B4B6D7
 	BEQ.b CODE_B4B6EF			;$B4B6DA
 	CMP.w #!gamemode_2_player_team		;$B4B6DC
 	BNE.b CODE_B4B6E9			;$B4B6DF
@@ -6786,10 +6786,10 @@ CODE_B4B89D:
 	JSL.l CODE_BB85F7			;$B4B8A0
 	BCS.b CODE_B4B905			;$B4B8A4
 	LDX.b alternate_sprite			;$B4B8A6
-	LDA.w $04C4				;$B4B8A8
+	LDA.w current_game_mode			;$B4B8A8
 	CMP.w #!gamemode_2_player_contest	;$B4B8AB
 	BNE.b CODE_B4B8BC			;$B4B8AE
-	LDY.w $04C6				;$B4B8B0
+	LDY.w active_player			;$B4B8B0
 	BEQ.b CODE_B4B8BC			;$B4B8B3
 	LDA.w #$00D5				;$B4B8B5
 	JSL.l CODE_BB85A0			;$B4B8B8
@@ -7369,7 +7369,7 @@ CODE_B4BD15:
 	LDA.w $0038,y				;$B4BD38
 	CMP.w #$0001				;$B4BD3B
 	BNE.b CODE_B4BD4E			;$B4BD3E
-	LDA.w $04D6				;$B4BD40
+	LDA.w player_active_held		;$B4BD40
 	JSR.w CODE_B4B063			;$B4BD43
 	BCC.b CODE_B4BD4E			;$B4BD46
 	LDY.w #$0000				;$B4BD48
@@ -8457,32 +8457,32 @@ CODE_B4C739:
 	AND #$000E				;$B4C755
 	TAX					;$B4C758
 	LDA.l DATA_B4C7AE,x			;$B4C759
-	STA DMA[$00].source_word		;$B4C75D
-	STA DMA[$00].unused_2			;$B4C760
+	STA DMA[0].source_word			;$B4C75D
+	STA DMA[0].unused_2			;$B4C760
 	LDA #$0300				;$B4C763
-	STA DMA[$00].size			;$B4C766
+	STA DMA[0].size				;$B4C766
 	LDA #$5480				;$B4C769
 	STA.w PPU.vram_address			;$B4C76C
 	LDA #$1801				;$B4C76F
-	STA DMA[$00].settings			;$B4C772
+	STA DMA[0].settings			;$B4C772
 	SEP #$20				;$B4C775
 	LDA #DATA_F40000>>16			;$B4C777
-	STA DMA[$00].source_bank		;$B4C779
+	STA DMA[0].source_bank			;$B4C779
 	LDA #$01				;$B4C77C
 	STA.w CPU.enable_dma			;$B4C77E
 	REP #$20				;$B4C781
 	LDA.l DATA_B4C7BE,x			;$B4C783
-	STA DMA[$00].source_word		;$B4C787
-	STA DMA[$00].unused_2			;$B4C78A
+	STA DMA[0].source_word			;$B4C787
+	STA DMA[0].unused_2			;$B4C78A
 	LDA #$0300				;$B4C78D
-	STA DMA[$00].size			;$B4C790
+	STA DMA[0].size				;$B4C790
 	LDA #$5600				;$B4C793
 	STA.w PPU.vram_address			;$B4C796
 	LDA #$1801				;$B4C799
-	STA DMA[$00].settings			;$B4C79C
+	STA DMA[0].settings			;$B4C79C
 	SEP #$20				;$B4C79F
 	LDA #DATA_F41800>>16			;$B4C7A1
-	STA DMA[$00].source_bank		;$B4C7A3
+	STA DMA[0].source_bank			;$B4C7A3
 	LDA #$01				;$B4C7A6
 	STA.w CPU.enable_dma			;$B4C7A8
 	REP #$20				;$B4C7AB
@@ -8514,23 +8514,23 @@ CODE_B4C7CE:
 	RTS					;$B4C7D1
 
 CODE_B4C7D2:
-	LDA active_frame_counter;$B4C7D2
+	LDA active_frame_counter		;$B4C7D2
 	BIT #$0001				;$B4C7D4
 	BEQ .return				;$B4C7D7
 	AND #$000E				;$B4C7D9
 	TAX					;$B4C7DC
 	LDA.l DATA_F36023,x			;$B4C7DD
-	STA DMA[$00].source_word		;$B4C7E1
-	STA DMA[$00].unused_2			;$B4C7E4
+	STA DMA[0].source_word			;$B4C7E1
+	STA DMA[0].unused_2			;$B4C7E4
 	LDA #$02C0				;$B4C7E7
-	STA DMA[$00].size			;$B4C7EA
+	STA DMA[0].size				;$B4C7EA
 	LDA #$5470				;$B4C7ED
 	STA.w PPU.vram_address			;$B4C7F0
 	LDA #$1801				;$B4C7F3
-	STA DMA[$00].settings			;$B4C7F6
+	STA DMA[0].settings			;$B4C7F6
 	SEP #$20				;$B4C7F9
 	LDA #DATA_F36033>>16			;$B4C7FB
-	STA DMA[$00].source_bank		;$B4C7FD
+	STA DMA[0].source_bank			;$B4C7FD
 	LDA #$01				;$B4C800
 	STA.w CPU.enable_dma			;$B4C802
 	REP #$20				;$B4C805
@@ -8557,24 +8557,24 @@ CODE_B4C81A:
 	LDY #$007C				;$B4C82A
 	LDX #$0001				;$B4C82D
 	JSL CODE_BB856D				;$B4C830
-	LDA active_frame_counter;$B4C834
+	LDA active_frame_counter		;$B4C834
 	BIT #$0003				;$B4C836
 	BNE .return				;$B4C839
 	LSR					;$B4C83B
 	AND #$000E				;$B4C83C
 	TAX					;$B4C83F
 	LDA.l DATA_B4C873,x			;$B4C840
-	STA DMA[$00].source_word		;$B4C844
-	STA DMA[$00].unused_2			;$B4C847
+	STA DMA[0].source_word			;$B4C844
+	STA DMA[0].unused_2			;$B4C847
 	LDA #$0240				;$B4C84A
-	STA DMA[$00].size			;$B4C84D
+	STA DMA[0].size				;$B4C84D
 	LDA #$5480				;$B4C850
 	STA.w PPU.vram_address			;$B4C853
 	LDA #$1801				;$B4C856
-	STA DMA[$00].settings			;$B4C859
+	STA DMA[0].settings			;$B4C859
 	SEP #$20				;$B4C85C
 	LDA #DATA_EC8978>>16			;$B4C85E
-	STA DMA[$00].source_bank		;$B4C860
+	STA DMA[0].source_bank			;$B4C860
 	LDA #$01				;$B4C863
 	STA.w CPU.enable_dma			;$B4C865
 	REP.b #$20				;$B4C868
@@ -8612,14 +8612,14 @@ CODE_B4C893:
 	TRB $05FD				;$B4C896
 	BEQ CODE_B4C8DC				;$B4C899
 	LDA #$2200				;$B4C89B
-	STA DMA[$00].settings			;$B4C89E
+	STA DMA[0].settings			;$B4C89E
 	LDA $15E8				;$B4C8A1
-	STA DMA[$00].size			;$B4C8A4
+	STA DMA[0].size				;$B4C8A4
 	LDA #$7E2F80				;$B4C8A7
-	STA DMA[$00].source_word		;$B4C8AA
+	STA DMA[0].source_word			;$B4C8AA
 	SEP #$20				;$B4C8AD
 	LDA #$7E2F80>>16			;$B4C8AF
-	STA DMA[$00].source_bank		;$B4C8B1
+	STA DMA[0].source_bank			;$B4C8B1
 	LDA #$00				;$B4C8B4
 	STA.w PPU.cgram_address			;$B4C8B6
 	LDA #$01				;$B4C8B9
@@ -8859,20 +8859,20 @@ CODE_B4CA9B:
 	AND #$0FC0				;$B4CAB5
 	CLC					;$B4CAB8
 	ADC $22					;$B4CAB9
-	STA DMA[$00].source_word		;$B4CABB
-	STA DMA[$00].unused_2			;$B4CABE
+	STA DMA[0].source_word			;$B4CABB
+	STA DMA[0].unused_2			;$B4CABE
 	ADC #$1000				;$B4CAC1
 	STA DMA[$07].source_word		;$B4CAC4
 	STA DMA[$07].unused_2			;$B4CAC7
 	LDA #$0040				;$B4CACA
-	STA DMA[$00].size			;$B4CACD
+	STA DMA[0].size				;$B4CACD
 	STA DMA[$07].size			;$B4CAD0
 	LDA #$1801				;$B4CAD3
-	STA DMA[$00].settings			;$B4CAD6
+	STA DMA[0].settings			;$B4CAD6
 	STA DMA[$07].settings			;$B4CAD9
 	SEP #$20				;$B4CADC
 	LDA #$7E4180>>16			;$B4CADE
-	STA DMA[$00].source_bank		;$B4CAE0
+	STA DMA[0].source_bank			;$B4CAE0
 	STA DMA[$07].source_bank		;$B4CAE3
 	LDA #$01				;$B4CAE6
 	STA.w CPU.enable_dma			;$B4CAE8

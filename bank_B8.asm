@@ -892,7 +892,7 @@ CODE_B88698:
 	LDA.b current_animal_type		;$B8869B
 	CMP.w #!sprite_enguarde			;$B8869D
 	BEQ.b CODE_B886B0			;$B886A0
-	LDA.w $04D6				;$B886A2
+	LDA.w player_active_held		;$B886A2
 	EOR.w #$0800				;$B886A5
 	AND.w #$0800				;$B886A8
 	BNE.b CODE_B886B0			;$B886AB
@@ -1617,7 +1617,7 @@ CODE_B88D13:
 	STA.w $0030,y				;$B88D30
 	BMI.b CODE_B88D56			;$B88D33
 	BNE.b CODE_B88D4E			;$B88D35
-	LDA.w $04D6				;$B88D37
+	LDA.w player_active_held		;$B88D37
 	BIT.w #$0200				;$B88D3A
 	BNE.b CODE_B88D56			;$B88D3D
 	BIT.w #$0100				;$B88D3F
@@ -2606,7 +2606,7 @@ CODE_B89585:
 	JSL.l CODE_B89C4C			;$B895BF
 	JSL.l CODE_B88557			;$B895C3
 	JSR.w CODE_B8C5A0			;$B895C7
-	LDA.w $04C4				;$B895CA
+	LDA.w current_game_mode			;$B895CA
 	CMP.w #!gamemode_2_player_team		;$B895CD
 	BNE.b CODE_B895DF			;$B895D0
 	LDX.w active_kong_sprite		;$B895D2
@@ -2662,7 +2662,7 @@ CODE_B89617:
 	JSR.w CODE_B8C5A0			;$B8963A
 	LDA.w #$0100				;$B8963D
 	STA.b $3A,x				;$B89640
-	LDA.w $04C4				;$B89642
+	LDA.w current_game_mode			;$B89642
 	CMP.w #!gamemode_2_player_team		;$B89645
 	BNE.b CODE_B8965D			;$B89648
 	LDX.w active_kong_sprite		;$B8964A
@@ -2736,7 +2736,7 @@ CODE_B896B4:
 	LDA.w #$003B				;$B896EA
 	JSL.l set_anim_handle_kiddy		;$B896ED
 	LDA.w #$0058				;$B896F1
-	LDY.w $04C4				;$B896F4
+	LDY.w current_game_mode			;$B896F4
 	CPY.w #!gamemode_2_player_team		;$B896F7
 	BNE.b CODE_B89702			;$B896FA
 	STA.w $189D				;$B896FC
@@ -4150,7 +4150,7 @@ get_kong_state_flags:
 
 kong_state_00:
 	LDX.b current_sprite			;$B8A37E
-	LDA.w $04CE				;$B8A380
+	LDA.w player_1_pressed			;$B8A380
 	AND.w #$1000				;$B8A383
 	BNE.b CODE_B8A38F			;$B8A386
 	JSL.l CODE_B8E3A3			;$B8A388
@@ -5745,7 +5745,7 @@ CODE_B8B004:
 	LDA.w #$FE00				;$B8B065
 	STA.b $2E,x				;$B8B068
 CODE_B8B06A:
-	LDA.w $04C4				;$B8B06A
+	LDA.w current_game_mode			;$B8B06A
 	CMP.w #!gamemode_2_player_team		;$B8B06D
 	BNE.b CODE_B8B083			;$B8B070
 	LDA.w #$005A				;$B8B072
@@ -9398,9 +9398,9 @@ CODE_B8CC4C:
 	RTS					;$B8CC4D
 
 CODE_B8CC4E:
-	LDA.w $04DA				;$B8CC4E
+	LDA.w player_active_pressed		;$B8CC4E
 	STA.w $04E2				;$B8CC51
-	LDA.w $04D6				;$B8CC54
+	LDA.w player_active_held		;$B8CC54
 	STA.w $04E0				;$B8CC57
 	LDY current_kong_control_variables	;$B8CC5A
 	LDA.w $04E0				;$B8CC5C
@@ -10258,13 +10258,13 @@ pause_game_action:
 	RTS					;$B8D28E
 
 CODE_B8D28F:
-	LDA.w $04DA				;$B8D28F
+	LDA.w player_active_pressed		;$B8D28F
 	AND.w #$1000				;$B8D292
 	BNE.b CODE_B8D2A1			;$B8D295
 	RTS					;$B8D297
 
 CODE_B8D298:
-	LDA.w $04DA				;$B8D298
+	LDA.w player_active_pressed		;$B8D298
 	AND.w #$4000				;$B8D29B
 	BNE.b CODE_B8D2A1			;$B8D29E
 	RTS					;$B8D2A0
@@ -10291,7 +10291,7 @@ CODE_B8D2C0:
 CODE_B8D2C3:
 	STA.b $3A				;$B8D2C3
 	LDA.w #$2000				;$B8D2C5
-	TRB.w $04DA				;$B8D2C8
+	TRB.w player_active_pressed		;$B8D2C8
 	BEQ.b CODE_B8D2ED			;$B8D2CB
 	LDA.w $05AF				;$B8D2CD
 	AND.w #$4000				;$B8D2D0
@@ -10973,7 +10973,7 @@ CODE_B8D72E:
 CODE_B8D744:
 	LDA.w #$0004				;$B8D744
 	JSL.l set_anim_handle_animal_and_kiddy	;$B8D747
-	LDA.w $04D6				;$B8D74B
+	LDA.w player_active_held		;$B8D74B
 	AND.w #$0010				;$B8D74E
 	TSB.w $04E2				;$B8D751
 	RTS					;$B8D754
@@ -11251,7 +11251,7 @@ CODE_B8D96C:
 	RTS					;$B8D970
 
 CODE_B8D971:
-	LDA.w $04D6				;$B8D971
+	LDA.w player_active_held		;$B8D971
 	AND.w #$0400				;$B8D974
 	BEQ.b CODE_B8D96C			;$B8D977
 	JMP.w CODE_B8D3AF			;$B8D979
@@ -12676,7 +12676,7 @@ CODE_B8E369:
 	STA.b $26,x				;$B8E388
 	LDA.w #$00BC				;$B8E38A
 	STA.b $3A,x				;$B8E38D
-	LDA.w $04CA				;$B8E38F
+	LDA.w player_1_held			;$B8E38F
 	AND.w #$0020				;$B8E392
 	BNE.b CODE_B8E3A2			;$B8E395
 	LDA.b current_animal_type		;$B8E397
@@ -12687,7 +12687,7 @@ CODE_B8E3A2:
 	RTL					;$B8E3A2
 
 CODE_B8E3A3:
-	LDA.w $04CA				;$B8E3A3
+	LDA.w player_1_held			;$B8E3A3
 	LDY.w #$0002				;$B8E3A6
 	BIT.w #$4040				;$B8E3A9
 	BEQ.b CODE_B8E3BC			;$B8E3AC
@@ -12695,11 +12695,11 @@ CODE_B8E3A3:
 	BIT.w #$4000				;$B8E3B1
 	BNE.b CODE_B8E3BC			;$B8E3B4
 	LDY.w #$0001				;$B8E3B6
-	LDA.w $04CE				;$B8E3B9
+	LDA.w player_1_pressed			;$B8E3B9
 CODE_B8E3BC:
 	STA.b $1C				;$B8E3BC
 	LDX.b current_sprite			;$B8E3BE
-	LDA.w $04CA				;$B8E3C0
+	LDA.w player_1_held			;$B8E3C0
 	AND.w #$8000				;$B8E3C3
 	BEQ.b CODE_B8E3FB			;$B8E3C6
 	STY.b $1A				;$B8E3C8
