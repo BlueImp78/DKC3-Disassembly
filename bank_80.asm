@@ -140,7 +140,7 @@ CODE_80808A:
 	JMP CODE_8087D5				;$80808A
 
 rare_string:
-	db $F4,$92,$72,$EE,$77,$A6,$E7,$8A
+	db $F4, $92, $72, $EE, $77, $A6, $E7, $8A
 
 piracy_string:
 	db "(c) 1996"
@@ -3044,7 +3044,7 @@ CODE_8098B6:
 	LDA sprite.oam_property,x		;$8098BF
 	AND #$0E00				;$8098C1
 	STA $1CAA				;$8098C4
-	LDA sprite.visibility,x			;$8098C7
+	LDA sprite.display_mode,x		;$8098C7
 	AND #$0E00				;$8098C9
 	STA $1CA6				;$8098CC
 	LDA $1C37				;$8098CF
@@ -5207,10 +5207,10 @@ CODE_80A9CB:
 	AND.w #$0E00				;$80A9DA
 	ORA.w #$8002				;$80A9DD
 	STA.b $1A				;$80A9E0
-	EOR.b sprite.visibility,x		;$80A9E2
+	EOR.b sprite.display_mode,x		;$80A9E2
 	AND.w #$4000				;$80A9E4
 	EOR.b $1A				;$80A9E7
-	STA.b sprite.visibility,x		;$80A9E9
+	STA.b sprite.display_mode,x		;$80A9E9
 	RTS					;$80A9EB
 
 CODE_80A9EC:
@@ -5223,10 +5223,10 @@ CODE_80A9EC:
 	AND #$0E00				;$80A9FB
 	ORA #$8002				;$80A9FE
 	STA $1A					;$80AA01
-	EOR sprite.visibility,x			;$80AA03
+	EOR sprite.display_mode,x		;$80AA03
 	AND #$4000				;$80AA05
 	EOR $1A					;$80AA08
-	STA sprite.visibility,x			;$80AA0A
+	STA sprite.display_mode,x		;$80AA0A
 	RTS					;$80AA0C
 
 CODE_80AA0D:

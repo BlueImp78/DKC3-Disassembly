@@ -3309,7 +3309,7 @@ CODE_B29CED:
 	BNE CODE_B29D08				;$B29CFE
 	LDX follower_kong_sprite		;$B29D00
 	LDA #$C000				;$B29D03
-	STA sprite.visibility,x			;$B29D06
+	STA sprite.display_mode,x		;$B29D06
 CODE_B29D08:
 	JSR CODE_B29D0C				;$B29D08
 	RTS					;$B29D0B
@@ -4497,7 +4497,7 @@ toboggan_main:
 	STZ sprite.general_purpose_5E,x		;$B2B156   |
 	STZ sprite.general_purpose_60,x		;$B2B158   |
 	LDA sprite.y_position,x			;$B2B15A   |
-	STA sprite.visibility,x			;$B2B15C   |
+	STA sprite.display_mode,x		;$B2B15C   |
 	STZ sprite.x_speed,x			;$B2B15E   |
 	STZ sprite.max_x_speed,x		;$B2B160   |
 	LDA #$0100				;$B2B162   |
@@ -5898,7 +5898,7 @@ CODE_B2BC86:
 	LDX current_sprite			;$B2BC8A
 	LDA sprite.y_position,x			;$B2BC8C
 	SEC					;$B2BC8E
-	SBC sprite.visibility,x			;$B2BC8F
+	SBC sprite.display_mode,x		;$B2BC8F
 	STA temp_1A				;$B2BC91
 	ASL					;$B2BC93
 	CLC					;$B2BC94
@@ -6011,7 +6011,7 @@ CODE_B2BD30:
 	SBC sprite.slip_velocity,x		;$B2BD37
 	STA sprite.max_y_speed,x		;$B2BD39
 	LDA sprite.y_position,x			;$B2BD3B
-	STA sprite.visibility,x			;$B2BD3D
+	STA sprite.display_mode,x		;$B2BD3D
 CODE_B2BD3F:
 	STZ sprite.unknown_58,x			;$B2BD3F
 	LDA temp_1C				;$B2BD41
@@ -6676,7 +6676,7 @@ CODE_B2C1FA:
 	BIT #$4000				;$B2C219
 	BNE CODE_B2C223				;$B2C21C
 	LDA #$C000				;$B2C21E
-	STA sprite.visibility,x			;$B2C221
+	STA sprite.display_mode,x		;$B2C221
 CODE_B2C223:
 	RTS					;$B2C223
 
@@ -6861,8 +6861,8 @@ CODE_B2C362:
 	LDA #$0009				;$B2C37A
 	STA sprite.state,x			;$B2C37D
 	LDA #$8001				;$B2C37F
-	ORA sprite.visibility,x			;$B2C382
-	STA sprite.visibility,x			;$B2C384
+	ORA sprite.display_mode,x		;$B2C382
+	STA sprite.display_mode,x		;$B2C384
 	STZ sprite.movement_state,x		;$B2C386
 	STZ sprite.x_speed,x			;$B2C388
 	STZ sprite.y_speed,x			;$B2C38A
@@ -6962,7 +6962,7 @@ CODE_B2C433:
 CODE_B2C448:
 	LDA #$0006				;$B2C448
 	STA sprite.state,x			;$B2C44B
-	LDA sprite.visibility,x			;$B2C44D
+	LDA sprite.display_mode,x		;$B2C44D
 	BIT #$4000				;$B2C44F
 	BNE CODE_B2C45B				;$B2C452
 	LDA #$076A				;$B2C454
@@ -7014,15 +7014,15 @@ CODE_B2C4AF:
 	STA sprite.general_purpose_64,x		;$B2C4C2
 	LDA #$0008				;$B2C4C4
 	STA sprite.general_purpose_66,x		;$B2C4C7
-	JSR CODE_B2C519			;$B2C4C9
-	CPY active_kong_sprite		;$B2C4CC
-	BNE CODE_B2C4E0			;$B2C4CF
+	JSR CODE_B2C519				;$B2C4C9
+	CPY active_kong_sprite			;$B2C4CC
+	BNE CODE_B2C4E0				;$B2C4CF
 	LDA current_world			;$B2C4D1
-	BNE CODE_B2C4D9			;$B2C4D4
-	JSR CODE_B2C547			;$B2C4D6
+	BNE CODE_B2C4D9				;$B2C4D4
+	JSR CODE_B2C547				;$B2C4D6
 CODE_B2C4D9:
 	LDA #$056B				;$B2C4D9
-	JSL queue_sound_effect		;$B2C4DC
+	JSL queue_sound_effect			;$B2C4DC
 CODE_B2C4E0:
 	RTS					;$B2C4E0
 
@@ -7068,8 +7068,8 @@ CODE_B2C519:
 	STY sprite.general_purpose_5C,x		;$B2C526
 	LDA $0028,y				;$B2C528
 	STA sprite.constants_address,x		;$B2C52B
-	LDA.w sprite.visibility,y		;$B2C52D
-	STA sprite.visibility,x			;$B2C530
+	LDA.w sprite.display_mode,y		;$B2C52D
+	STA sprite.display_mode,x		;$B2C530
 	CMP #$C000				;$B2C532
 	BEQ CODE_B2C546				;$B2C535
 	LDA #$FF00				;$B2C537
@@ -13227,7 +13227,7 @@ krematoa_bridge_main:
 	LDA #$0100				;$B2F425   |
 	BIT $05FD				;$B2F428   |
 	BEQ .CODE_B2F42F			;$B2F42B   |
-	STZ sprite.visibility,x			;$B2F42D  /
+	STZ sprite.display_mode,x		;$B2F42D  /
 .CODE_B2F42F:
 	LDA active_frame_counter		;$B2F42F  \
 	BIT #$0007				;$B2F431   |

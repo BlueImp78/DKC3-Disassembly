@@ -1,3 +1,5 @@
+;TODO: Start at 1 instead of 0
+
 player_interaction_table:
 	dw player_interaction_00		;00
 	dw player_interaction_01		;01
@@ -393,7 +395,7 @@ CODE_B882A9:
 	RTS					;$B882B5
 
 CODE_B882B6:
-	CMP.w $17C6				;$B882B6
+	CMP.w current_interaction		;$B882B6
 	BCC.b CODE_B882E4			;$B882B9
 	BEQ.b CODE_B882E4			;$B882BB
 	CMP.w #$002B				;$B882BD
@@ -413,7 +415,7 @@ CODE_B882CA:
 	PLX					;$B882D7
 	BCS.b CODE_B882E4			;$B882D8
 CODE_B882DA:
-	STA.w $17C6				;$B882DA
+	STA.w current_interaction		;$B882DA
 	LDA.b current_sprite			;$B882DD
 	STA.w $17C8				;$B882DF
 	CLC					;$B882E2
@@ -434,12 +436,12 @@ process_player_interaction_direct:
 .get_and_process_interaction:
 	PHK					;$B882F6
 	PLB					;$B882F7
-	LDA $17C6				;$B882F8
+	LDA current_interaction			;$B882F8
 	BNE .process_interaction		;$B882FB
 	RTL					;$B882FD
 
 .process_interaction:
-	STZ $17C6				;$B882FE
+	STZ current_interaction			;$B882FE
 	DEC					;$B88301
 	ASL					;$B88302
 	TAX					;$B88303
@@ -10323,7 +10325,7 @@ CODE_B8D2EF:
 	JSR.w CODE_B8C8CD			;$B8D300
 	BCC.b CODE_B8D30B			;$B8D303
 	LDA.w #$000C				;$B8D305
-	STA.w $17C6				;$B8D308
+	STA.w current_interaction		;$B8D308
 CODE_B8D30B:
 	RTS					;$B8D30B
 

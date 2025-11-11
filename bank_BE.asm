@@ -479,7 +479,7 @@ CODE_BEC317:
 	AND.w #$0300				;$BEC319
 	CMP.w #$0300				;$BEC31C
 	BEQ.b CODE_BEC32E			;$BEC31F
-	LDX.b $78				;$BEC321
+	LDX.b current_colliding_sprite		;$BEC321
 	LDA.b $3C,x				;$BEC323
 	ORA.w #$0080				;$BEC325
 	STA.b $3C,x				;$BEC328
@@ -5326,7 +5326,7 @@ CODE_BEE71B:
 
 CODE_BEE725:
 	LDA.w sprite.general_purpose_6A,y	;$BEE725  \
-	STA sprite.visibility,x			;$BEE728   |
+	STA sprite.display_mode,x		;$BEE728   |
 	LDA.w sprite.general_purpose_5E,y	;$BEE72A   |
 	CLC					;$BEE72D   |
 	ADC.w sprite.general_purpose_5E+1,y	;$BEE72E   |
@@ -5400,13 +5400,13 @@ CODE_BEE7A1:
 CODE_BEE7C2:
 	LDA.w sprite.general_purpose_6A,y	;$BEE7C2  \
 	AND #$C000				;$BEE7C5   |
-	STA sprite.visibility,x			;$BEE7C8   |
+	STA sprite.display_mode,x		;$BEE7C8   |
 	RTS					;$BEE7CA  /
 
 CODE_BEE7CB:
 	LDA.w sprite.general_purpose_6A,y	;$BEE7CB  \
 	ORA #$C000				;$BEE7CE   |
-	STA sprite.visibility,x			;$BEE7D1   |
+	STA sprite.display_mode,x		;$BEE7D1   |
 	RTS					;$BEE7D3  /
 
 CODE_BEE7D4:
@@ -5419,7 +5419,7 @@ CODE_BEE7D4:
 	LDX current_sprite			;$BEE7E4   |
 	LDY alternate_sprite			;$BEE7E6   |
 	STY sprite.general_purpose_4C,x		;$BEE7E8   |
-	LDA.w sprite.visibility,y		;$BEE7EA   |
+	LDA.w sprite.display_mode,y		;$BEE7EA   |
 	STA sprite.general_purpose_6A,x		;$BEE7ED   |
 	LDA sprite.x_position,x			;$BEE7EF   |
 	STA.w sprite.x_position,y		;$BEE7F1   |
@@ -5642,7 +5642,7 @@ CODE_BEE992:
 	LDA.w #$0455				;$BEE99C   |
 	JSL.l CODE_BEC2F9			;$BEE99F   |
 	BCC.b CODE_BEE9D8			;$BEE9A3   |
-	LDA.w $17C6				;$BEE9A5   |
+	LDA.w current_interaction		;$BEE9A5   |
 	CMP.w #$0014				;$BEE9A8   |
 	BNE.b CODE_BEE9B6			;$BEE9AB   |
 	LDA.w #$0015				;$BEE9AD   |

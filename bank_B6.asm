@@ -244,7 +244,7 @@ sneek_main:
 ..set_scare_animation:
 	TYX					;$B6815C  \ Get sneek sprite
 	INC sprite.state,x			;$B6815D   | Set dummy state
-	LDA.b #$0138				;$B6815F   |
+	LDA #$0138				;$B6815F   |
 	JSL set_sprite_animation		;$B68162   | Set sneek scare Ellie animation
 	JMP return_handle_despawn		;$B68166  / Return and handle despawn
 
@@ -2557,7 +2557,7 @@ CODE_B6925E:
 	JSL.l queue_sound_effect		;$B69270
 	LDA.w #$076B				;$B69274
 	JSL.l queue_sound_effect		;$B69277
-	LDA.w #$0390				;$B6927B
+	LDA.w #!sprite_metal_door_lever_ctrld	;$B6927B
 	JSR.w CODE_B692F9			;$B6927E
 	TYX					;$B69281
 	INC.b $6A,x				;$B69282
@@ -2586,7 +2586,7 @@ CODE_B69295:
 	STA.w $0474				;$B692A9
 	JSR.w CODE_B6930B			;$B692AC
 CODE_B692AF:
-	LDA.w #$0390				;$B692AF
+	LDA.w #!sprite_metal_door_lever_ctrld	;$B692AF
 	JSR.w CODE_B692F9			;$B692B2
 	LDA.b $60,x				;$B692B5
 	STA.w $0060,y				;$B692B7
@@ -2600,7 +2600,7 @@ CODE_B692C2:
 	LDA.w #$001E				;$B692C8
 	STA.b $5C,x				;$B692CB
 	INC.b $38,x				;$B692CD
-	LDA.w #$0390				;$B692CF
+	LDA.w #!sprite_metal_door_lever_ctrld	;$B692CF
 	JSR.w CODE_B692F9			;$B692D2
 	TYX					;$B692D5
 	STZ.b $60,x				;$B692D6
@@ -2690,7 +2690,7 @@ CODE_B69350:
 	JSL.l queue_sound_effect		;$B69360
 CODE_B69364:
 	JSL.l CODE_BEC048			;$B69364
-	LDA.w #$0394				;$B69368
+	LDA.w #!sprite_door_gear		;$B69368
 	JSR.w CODE_B692F9			;$B6936B
 	LDA.b $60,x				;$B6936E
 	BNE.b CODE_B69374			;$B69370
@@ -7438,7 +7438,7 @@ CODE_B6B6D5:
 	JSL.l CODE_BEC009			;$B6B6D5
 	BCC.b CODE_B6B722			;$B6B6D9
 	BEQ.b CODE_B6B722			;$B6B6DB
-	LDA.w $17C6				;$B6B6DD
+	LDA.w current_interaction		;$B6B6DD
 	CMP.w #$0011				;$B6B6E0
 	BEQ.b CODE_B6B6F4			;$B6B6E3
 CODE_B6B6E5:
@@ -7632,7 +7632,7 @@ CODE_B6B833:
 	LDA.b $78				;$B6B834
 	CMP.w active_kong_sprite		;$B6B836
 	BNE.b CODE_B6B85F			;$B6B839
-	LDA.w $17C6				;$B6B83B
+	LDA.w current_interaction		;$B6B83B
 	CMP.w #$0012				;$B6B83E
 	BNE.b CODE_B6B85F			;$B6B841
 	LDA.w #$0013				;$B6B843
@@ -9089,7 +9089,7 @@ CODE_B6C2F6:
 	JSL.l CODE_BEC009			;$B6C300
 	BCC.b CODE_B6C2EA			;$B6C304
 	BEQ.b CODE_B6C2EA			;$B6C306
-	LDA.w $17C6				;$B6C308
+	LDA.w current_interaction		;$B6C308
 	CMP.w #$0011				;$B6C30B
 	BNE.b CODE_B6C2DB			;$B6C30E
 	JSL.l CODE_BB85AC			;$B6C310
@@ -11281,7 +11281,7 @@ CODE_B6D382:
 	JSL.l CODE_BEC009			;$B6D382
 	BCC.b CODE_B6D3CB			;$B6D386
 	BEQ.b CODE_B6D3CB			;$B6D388
-	LDA.w $17C6				;$B6D38A
+	LDA.w current_interaction		;$B6D38A
 	CMP.w #$0011				;$B6D38D
 	BEQ.b CODE_B6D39D			;$B6D390
 CODE_B6D392:

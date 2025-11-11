@@ -128,6 +128,9 @@ water_bubbles_x_speed = $0509
 water_level = $050F
 riverside_race_timer = $0535
 active_cheats = $053B
+
+game_state_flags = $05AF
+
 current_kong = $05B5
 parent_level_number = $05B9
 
@@ -186,6 +189,13 @@ dixie_control_variables = $1480
 kiddy_control_variables = $14D2
 
 sprite_render_table = $1524
+
+
+current_interaction = $17C6
+
+
+contact_flash_x_position = $1867
+contact_flash_y_position = $1869
 
 
 current_held_sprite = $186B

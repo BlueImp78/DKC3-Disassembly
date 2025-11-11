@@ -3424,7 +3424,7 @@ DATA_FF27DB:
 DATA_FF27F1:
 	db !spawn_command_set_type : dw !sprite_KAOSHeadExplosionSpawner
 	db !spawn_command_spawn_relative, $00, $00
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db sprite.movement_state : dw $0001
 	db sprite.x_speed : dw $0040
 	db sprite.y_speed : dw $0000
@@ -3438,7 +3438,7 @@ DATA_FF27F1:
 DATA_FF2813:
 	db !spawn_command_set_type : dw !sprite_KAOSHeadExplosionSpawner
 	db !spawn_command_spawn_relative, $00, $00
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db sprite.movement_state : dw $0001
 	db sprite.x_speed : dw $FFC0
 	db sprite.y_speed : dw $0000
@@ -3454,7 +3454,7 @@ DATA_FF2835:
 	db sprite.movement_state : dw $0001
 	db sprite.interaction_flags : dw $0400
 	db !spawn_command_spawn_relative, $00, $00
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.x_speed : dw $0000
 	db sprite.y_speed : dw $FF00
 	db !spawn_command_set_oam : dw $2000
@@ -3482,7 +3482,7 @@ DATA_FF2874:
 	db !spawn_command_set_type : dw !sprite_LevelEndFlag
 	db !spawn_command_spawn_relative, $08, $A5
 	db !spawn_command_set_animation : dw $017F
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.general_purpose_62 : dw $0005
@@ -3511,7 +3511,7 @@ DATA_FF28AB:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_02A4
 	db sprite.constants_address : dw DATA_FF1BCE
 	db !spawn_command_spawn_relative, $00, $90
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.movement_state : dw $0004
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5C : dw $000F
@@ -3655,7 +3655,7 @@ DATA_FF29F0:
 	db sprite.render_order : dw $00F8
 	db sprite.x_position : dw $1880
 	db sprite.y_position : dw $1200
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db sprite.interaction_flags : dw $0000
 	db sprite.state : dw $0001
 	db !spawn_command_success
@@ -3855,7 +3855,7 @@ DATA_FF2B95:
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.general_purpose_62 : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_palette : dw $000F
 	db !spawn_command_success
 
@@ -3913,7 +3913,7 @@ DATA_FF2C1B:
 	db sprite.sprite_graphic : dw $0001
 	db sprite.sprite_graphic_mirror : dw $0001
 	db sprite.last_rendered_graphic : dw $0001
-	db sprite.visibility : dw $8006
+	db sprite.display_mode : dw $8006
 	db sprite.general_purpose_64 : dw $0000
 	db !spawn_command_success
 
@@ -3964,7 +3964,7 @@ DATA_FF2C7E:
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_palette : dw $0012
 	db !spawn_command_set_animation : dw $0187
-	db sprite.visibility : dw $A007
+	db sprite.display_mode : dw $A007
 	db sprite.movement_state : dw $0003
 	db !spawn_command_success
 
@@ -3977,7 +3977,7 @@ DATA_FF2C9A:
 	db sprite.y_speed : dw $0000
 	db sprite.general_purpose_4C : dw $0070
 	db sprite.general_purpose_50 : dw $0404
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_palette : dw $0070
 	db !spawn_command_set_animation : dw $01A8
@@ -3995,7 +3995,7 @@ DATA_FF2CBF:
 	db sprite.constants_address : dw DATA_FF1F32
 	db sprite.interaction_flags : dw $0040
 	db sprite.general_purpose_6A : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_render_order : dw $00D4
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_palette : dw $0052
@@ -4005,7 +4005,7 @@ DATA_FF2CBF:
 DATA_FF2CF0:
 	db !spawn_command_setup_static : dw !sprite_unknown_sprite_00D4, $005A : db $0D
 	db sprite.state : dw $0000
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_F3, $3C, $00
 	db !spawn_command_set_oam : dw $7000
 	db !spawn_command_success
@@ -4020,7 +4020,7 @@ DATA_FF2D03:
 	db sprite.general_purpose_62 : dw $0000
 	db sprite.x_speed : dw $0000
 	db sprite.y_speed : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_palette : dw $005A
 	db !spawn_command_set_oam : dw $7000
 	db !spawn_command_set_animation : dw $01C5
@@ -4036,7 +4036,7 @@ DATA_FF2D2B:
 	db sprite.constants_address : dw DATA_FF1F4A
 	db sprite.movement_state : dw $0001
 	db sprite.state : dw $0005
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_render_order : dw $00F4
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_animation : dw $01CA
@@ -4049,7 +4049,7 @@ DATA_FF2D56:
 	db sprite.constants_address : dw DATA_FF1F4A
 	db sprite.movement_state : dw $0001
 	db sprite.state : dw $000B
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_render_order : dw $00F4
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_animation : dw $01C5
@@ -4062,7 +4062,7 @@ DATA_FF2D78:
 	db sprite.constants_address : dw DATA_FF1F4A
 	db sprite.movement_state : dw $0001
 	db sprite.state : dw $000C
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_render_order : dw $00F4
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_animation : dw $01C5
@@ -4077,7 +4077,7 @@ DATA_FF2DA1:
 	db !spawn_command_set_type : dw !sprite_TimerDigit
 	db sprite.y_position : dw $0040
 	db sprite.render_order : dw $00F8
-	db sprite.visibility : dw $8000
+	db sprite.display_mode : dw $8000
 	db sprite.sprite_graphic : dw $2981
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_palette : dw $000F
@@ -4088,7 +4088,7 @@ DATA_FF2DB7:
 	db sprite.x_position : dw $00ED
 	db sprite.y_position : dw $0024
 	db sprite.render_order : dw $00F8
-	db sprite.visibility : dw $8000
+	db sprite.display_mode : dw $8000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_palette : dw $003F
 	db !spawn_command_success
@@ -4098,7 +4098,7 @@ DATA_FF2DCD:
 	db sprite.x_position : dw $00ED
 	db sprite.y_position : dw $0016
 	db sprite.render_order : dw $00F8
-	db sprite.visibility : dw $8000
+	db sprite.display_mode : dw $8000
 	db !spawn_command_set_oam : dw $3000
 	db sprite.sprite_graphic : dw $004B
 	db !spawn_command_success
@@ -4137,7 +4137,7 @@ DATA_FF2E21:
 	db sprite.max_x_speed : dw $0000
 	db sprite.y_speed : dw $0000
 	db sprite.max_y_speed : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_palette : dw $0058
 	db !spawn_command_success
 
@@ -4214,7 +4214,7 @@ DATA_FF2EDF:
 	db sprite.movement_state : dw $0013
 	db sprite.general_purpose_66 : dw $001A
 	db sprite.state : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.movement_state : dw $0013
 	db !spawn_command_success
 
@@ -4239,7 +4239,7 @@ DATA_FF2F15:
 	db sprite.render_order : dw $00D4
 	db sprite.state : dw $0000
 	db sprite.interaction_flags : dw $0040
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_palette : dw $0040
 	db !spawn_command_set_animation : dw $01D2
 	db !spawn_command_success
@@ -4263,7 +4263,7 @@ DATA_FF2F3C:
 	db sprite.general_purpose_66 : dw $0000
 	db sprite.general_purpose_6A : dw $000E
 	db sprite.unknown_58 : dw $0000
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db !spawn_command_set_palette : dw $004A
 	db !spawn_command_set_oam : dw $3000
 	db sprite.sprite_graphic : dw $2A76
@@ -4279,7 +4279,7 @@ DATA_FF2F68:
 	db sprite.render_order : dw $00D8
 	db sprite.interaction_flags : dw $0040
 	db sprite.movement_state : dw $0014
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_animation : dw $01D8
 	db !spawn_command_success
@@ -4290,7 +4290,7 @@ DATA_FF2F81:
 	db sprite.interaction_flags : dw $0040
 	db sprite.state : dw $0000
 	db sprite.movement_state : dw $0014
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_animation : dw $01D8
 	db !spawn_command_success
@@ -4309,7 +4309,7 @@ DATA_FF2FA4:
 
 DATA_FF2FB1:
 	db !spawn_command_load_subconfig : dw DATA_FF2FA4
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $000F
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
@@ -4322,7 +4322,7 @@ DATA_FF2FBE:
 DATA_FF2FC5:
 	db !spawn_command_set_type : dw !sprite_FriendlyNibblaBody
 	db sprite.render_order : dw $00DC
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_set_palette : dw $0054
 	db !spawn_command_set_animation : dw $01BE
@@ -4333,7 +4333,7 @@ DATA_FF2FD8:
 	db !spawn_command_spawn_relative, $00, $00
 	db sprite.render_order : dw $00DA
 	db sprite.movement_state : dw $0014
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_palette : dw $0051
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_success
@@ -4350,7 +4350,7 @@ DATA_FF2FEE:
 	db sprite.movement_state : dw $0012
 	db sprite.render_order : dw $00DA
 	db sprite.state : dw $0002
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_palette : dw $0007
 	db !spawn_command_success
@@ -4361,7 +4361,7 @@ DATA_FF3019:
 	db sprite.render_order : dw $00F8
 	db !spawn_command_set_oam : dw $3000
 	db sprite.sprite_graphic : dw $004B
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_success
 
 DATA_FF302F:
@@ -4369,7 +4369,7 @@ DATA_FF302F:
 	db sprite.render_order : dw $00D8
 	db sprite.interaction_flags : dw $0000
 	db sprite.movement_state : dw $0014
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_animation : dw $01F5
 	db !spawn_command_success
@@ -4387,7 +4387,7 @@ DATA_FF3048:
 	db sprite.general_purpose_6A : dw $0000
 	db sprite.unknown_2C : dw $0000
 	db sprite.interaction_flags : dw $0840
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.constants_address : dw DATA_FF1F58
 	db !spawn_command_set_palette : dw $0050
 	db !spawn_command_set_oam : dw $2000
@@ -4401,7 +4401,7 @@ DATA_FF307C:
 	db sprite.max_x_speed : dw $0000
 	db sprite.y_speed : dw $0000
 	db sprite.max_y_speed : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_render_order : dw $00D8
 	db !spawn_command_set_palette : dw $000F
 	db !spawn_command_set_oam : dw $2000
@@ -4421,7 +4421,7 @@ DATA_FF30AB:
 	db sprite.state : dw $0002
 	db sprite.y_speed : dw $FF20
 	db sprite.movement_state : dw $0015
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.constants_address : dw DATA_FF1F6A
 	db sprite.render_order : dw $00D8
 	db !spawn_command_set_oam : dw $2000
@@ -4436,7 +4436,7 @@ DATA_FF30CD:
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.interaction_flags : dw $0840
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.y_speed : dw $0000
 	db !spawn_command_set_palette : dw $0057
 	db !spawn_command_set_oam : dw $2000
@@ -4448,7 +4448,7 @@ DATA_FF30F2:
 	db !spawn_command_spawn_relative, $00, $00
 	db sprite.state : dw $0000
 	db sprite.render_order : dw $00D8
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $0000
 	db !spawn_command_set_palette : dw $0023
 	db !spawn_command_set_oam : dw $2000
@@ -4463,7 +4463,7 @@ DATA_FF310E:
 	db !spawn_command_set_palette : dw $001C
 	db !spawn_command_set_animation : dw $014E
 	db sprite.state : dw $0007
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.x_speed : dw $0000
 	db sprite.max_x_speed : dw $0000
 	db sprite.y_speed : dw $0000
@@ -4476,7 +4476,7 @@ DATA_FF3136:
 	db sprite.movement_state : dw $0014
 	db sprite.render_order : dw $00D4
 	db sprite.state : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.x_position : dw $0100
 	db sprite.y_position : dw $0100
 	db sprite.general_purpose_66 : dw $0000
@@ -4491,7 +4491,7 @@ DATA_FF315E:
 	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
 	db !spawn_command_spawn_relative, $00, $09
 	db sprite.render_order : dw $00DC
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_palette : dw $0022
 	db !spawn_command_set_animation : dw $017A
@@ -4501,7 +4501,7 @@ DATA_FF3174:
 	db !spawn_command_setup_static : dw !sprite_TopOfCottonTopCoveWaterfall, $0022 : db $07
 	db !spawn_command_spawn_relative, $00, $07
 	db sprite.render_order : dw $00D8
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_animation : dw $020A
 	db !spawn_command_success
@@ -4510,7 +4510,7 @@ DATA_FF318A:
 	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
 	db !spawn_command_spawn_relative, $00, $00
 	db sprite.render_order : dw $00DB
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_palette : dw $0022
 	db !spawn_command_set_animation : dw $0178
@@ -4521,7 +4521,7 @@ DATA_FF31A3:
 	db !spawn_command_set_type : dw !sprite_KnockaLimbs
 	db !spawn_command_spawn_relative, $00, $00
 	db sprite.render_order : dw $00D8
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_palette : dw $005B
 	db !spawn_command_set_animation : dw $021E
@@ -4532,7 +4532,7 @@ DATA_FF31B9:
 	db sprite.x_position : dw $0170
 	db sprite.y_position : dw $01E0
 	db sprite.render_order : dw $00D4
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_sequential_palette : dw $1C0F
 	db !spawn_command_set_animation : dw $015C
@@ -4543,7 +4543,7 @@ DATA_FF31D2:
 	db sprite.state : dw $0000
 	db sprite.general_purpose_60 : dw $0000
 	db !spawn_command_set_oam : dw $2000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_success
 
 DATA_FF31E2:
@@ -4621,7 +4621,7 @@ DATA_FF3282:
 	db !spawn_command_spawn_relative, $D8, $00
 	db sprite.render_order : dw $00F0
 	db sprite.state : dw $0001
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_F3, $38, $0A
 	db !spawn_command_success
@@ -4630,7 +4630,7 @@ DATA_FF329B:
 	db !spawn_command_set_type : dw !sprite_SideOfBelchasMouth
 	db sprite.state : dw $0000
 	db sprite.render_order : dw $00D4
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_palette : dw $0060
 	db !spawn_command_F3, $39, $00
@@ -4645,7 +4645,7 @@ DATA_FF32B1:
 	db sprite.movement_state : dw $0002
 	db sprite.render_order : dw $00E1
 	db sprite.constants_address : dw DATA_FF1F70
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_palette : dw $001C
 	db !spawn_command_set_animation : dw $0229
@@ -4661,7 +4661,7 @@ DATA_FF32E0:
 	db !spawn_command_setup_static : dw !sprite_unknown_sprite_0008, $000F : db $00
 	db !spawn_command_load_subconfig : dw DATA_FF32D6
 	db !spawn_command_spawn_relative, $08, $08
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
@@ -4673,7 +4673,7 @@ DATA_FF32F3:
 	db sprite.max_x_speed : dw $0000
 	db sprite.y_speed : dw $0000
 	db sprite.max_y_speed : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.movement_state : dw $0040
 	db sprite.render_order : dw $00D8
 	db sprite.constants_address : dw DATA_FF1E96
@@ -4731,7 +4731,7 @@ DATA_FF3382:
 	db sprite.y_position : dw $02CD
 	db sprite.y_speed : dw $0000
 	db sprite.movement_state : dw $0003
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.render_order : dw $00D4
 	db !spawn_command_set_palette : dw $001C
 	db !spawn_command_set_oam : dw $6000
@@ -4760,7 +4760,7 @@ DATA_FF33C5:
 	db sprite.state : dw $0000
 	db sprite.general_purpose_66 : dw $0000
 	db sprite.general_purpose_6A : dw $000A
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.render_order : dw $00D8
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_F3, $3A, $00
@@ -4784,7 +4784,7 @@ DATA_FF33FB:
 	db !spawn_command_set_type : dw !sprite_BarbosMouth
 	db sprite.state : dw $0000
 	db sprite.render_order : dw $00D3
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_palette : dw $0064
 	db !spawn_command_set_oam : dw $2000
 	db sprite.sprite_graphic : dw $3147
@@ -4797,7 +4797,7 @@ DATA_FF3411:
 	db sprite.movement_state : dw $0014
 	db sprite.render_order : dw $00CC
 	db sprite.constants_address : dw DATA_FF1F7C
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_palette : dw $0066
 	db !spawn_command_set_oam : dw $5000
 	db !spawn_command_set_animation : dw $0246
@@ -4815,7 +4815,7 @@ DATA_FF343A:
 	db sprite.movement_state : dw $0018
 	db sprite.general_purpose_5C : dw $FF00
 	db sprite.render_order : dw $00DC
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_palette : dw $0065
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_animation : dw $0247
@@ -4831,7 +4831,7 @@ DATA_FF3456:
 	db sprite.general_purpose_4E : dw $0001
 	db sprite.constants_address : dw DATA_FF1F82
 	db sprite.render_order : dw $00DA
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_palette : dw $006A
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_animation : dw $024A
@@ -4840,7 +4840,7 @@ DATA_FF3456:
 DATA_FF347E:
 	db sprite.state : dw $0000
 	db sprite.movement_state : dw $0001
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.render_order : dw $00D4
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
@@ -4909,7 +4909,7 @@ DATA_FF3507:
 	db sprite.constants_address : dw DATA_FF1F94
 	db sprite.movement_state : dw $0002
 	db sprite.interaction_flags : dw $0040
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_animation : dw $025D
 	db !spawn_command_set_palette : dw $006B
@@ -4919,7 +4919,7 @@ DATA_FF3535:
 	db !spawn_command_set_type : dw !sprite_KuchukaHand
 	db !spawn_command_spawn_relative, $00, $00
 	db sprite.render_order : dw $00D8
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_animation : dw $0267
 	db !spawn_command_set_palette : dw $006D
@@ -4930,7 +4930,7 @@ DATA_FF354B:
 	db sprite.movement_state : dw $0045
 	db sprite.render_order : dw $00DC
 	db sprite.general_purpose_4C : dw $0001
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.constants_address : dw DATA_FF1F9A
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_animation : dw $0269
@@ -4958,7 +4958,7 @@ DATA_FF358B:
 	db !spawn_command_set_type : dw !sprite_TNTExplosion
 	db !spawn_command_spawn_relative, $00, $00
 	db sprite.render_order : dw $00DC
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.general_purpose_4C : dw $0001
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_animation : dw $026B
@@ -4974,7 +4974,7 @@ DATA_FF35A4:
 	db sprite.max_x_speed : dw $0000
 	db sprite.max_y_speed : dw $0000
 	db sprite.render_order : dw $00D4
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.movement_state : dw $0002
 	db sprite.interaction_flags : dw $0040
 	db !spawn_command_set_oam_2 : dw $6000
@@ -4993,7 +4993,7 @@ DATA_FF35D2:
 	db sprite.movement_state : dw $0001
 	db sprite.general_purpose_6C : dw $0000
 	db !spawn_command_set_render_order : dw $00F4
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.interaction_flags : dw $0040
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
@@ -5040,7 +5040,7 @@ DATA_FF3631:
 DATA_FF3647:
 	db !spawn_command_load_subconfig : dw DATA_FF307C
 	db !spawn_command_set_render_order : dw $00F6
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $E000
 	db sprite.movement_state : dw $0001
 	db sprite.y_speed : dw $FFA0
@@ -5051,7 +5051,7 @@ DATA_FF3647:
 
 DATA_FF3663:
 	db !spawn_command_load_subconfig : dw DATA_FF307C
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $F000
 	db sprite.movement_state : dw $0001
 	db sprite.y_speed : dw $FFA0
@@ -5064,7 +5064,7 @@ DATA_FF367C:
 	db !spawn_command_set_type : dw !sprite_MurkyMillElevator
 	db sprite.render_order : dw $00D2
 	db sprite.state : dw $0002
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_F3, $29, $00
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_palette : dw $0026
@@ -5079,7 +5079,7 @@ DATA_FF3692:
 	db sprite.state : dw $0000
 	db sprite.general_purpose_68 : dw $0000
 	db sprite.movement_state : dw $0107
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_set_palette : dw $0054
 	db !spawn_command_set_animation : dw $01B6
@@ -5088,7 +5088,7 @@ DATA_FF3692:
 DATA_FF36B7:
 	db !spawn_command_set_type : dw !sprite_NibblaBody
 	db sprite.render_order : dw $00D4
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_set_palette : dw $0054
 	db !spawn_command_set_animation : dw $01BF
@@ -5100,7 +5100,7 @@ DATA_FF36CA:
 	db sprite.general_purpose_5E : dw $0100
 	db sprite.constants_address : dw DATA_FF2000
 	db sprite.movement_state : dw $0014
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.interaction_flags : dw $0000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_success
@@ -5304,7 +5304,7 @@ DATA_FF3854:
 	db sprite.x_speed : dw $0000
 	db sprite.max_x_speed : dw $0000
 	db sprite.state : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.general_purpose_6C : dw $FFF6
 	db !spawn_command_F3, $3D, $00
 	db !spawn_command_set_oam : dw $2000
@@ -5319,7 +5319,7 @@ DATA_FF3876:
 	db sprite.max_x_speed : dw $0000
 	db sprite.state : dw $0000
 	db sprite.movement_state : dw $0003
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.general_purpose_6C : dw $FFEC
 	db sprite.interaction_flags : dw $0840
 	db !spawn_command_F3, $3D, $01
@@ -5332,7 +5332,7 @@ DATA_FF389E:
 	db !spawn_command_set_render_order : dw $00D2
 	db sprite.state : dw $0000
 	db sprite.movement_state : dw $0003
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam_2 : dw $2000
 	db !spawn_command_set_palette : dw $0011
 	db !spawn_command_set_animation : dw $0290
@@ -5342,7 +5342,7 @@ DATA_FF38B7:
 	db !spawn_command_set_type : dw !sprite_KAOSFlameSpread
 	db sprite.state : dw $0000
 	db sprite.max_x_speed : dw $0000
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_render_order : dw $00D3
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_set_palette : dw $0011
@@ -5352,7 +5352,7 @@ DATA_FF38B7:
 DATA_FF38D0:
 	db !spawn_command_set_type : dw !sprite_KAOSFlameSpread
 	db sprite.state : dw $0000
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db sprite.max_x_speed : dw $0000
 	db !spawn_command_set_render_order : dw $00D3
 	db !spawn_command_set_oam : dw $2000
@@ -5366,7 +5366,7 @@ DATA_FF38E9:
 	db !spawn_command_set_render_order : dw $00D4
 	db sprite.state : dw $0002
 	db sprite.general_purpose_62 : dw $0291
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_animation : dw $0291
 	db !spawn_command_set_oam_2 : dw $7000
 	db !spawn_command_set_palette : dw $0079
@@ -5378,7 +5378,7 @@ DATA_FF3905:
 	db !spawn_command_set_render_order : dw $00D4
 	db sprite.state : dw $0002
 	db sprite.general_purpose_62 : dw $0292
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_animation : dw $0292
 	db !spawn_command_set_oam_2 : dw $7000
 	db !spawn_command_set_palette : dw $0079
@@ -5390,7 +5390,7 @@ DATA_FF3921:
 	db !spawn_command_set_render_order : dw $00D2
 	db sprite.state : dw $0000
 	db sprite.general_purpose_60 : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.movement_state : dw $0002
 	db !spawn_command_set_animation : dw $0293
 	db !spawn_command_set_palette : dw $007E
@@ -5420,7 +5420,7 @@ DATA_FF395D:
 	db sprite.movement_state : dw $0003
 	db sprite.y_speed : dw $0100
 	db !spawn_command_set_render_order : dw $00D4
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.state : dw $0000
 	db !spawn_command_F3, $43, $00
 	db !spawn_command_set_oam_2 : dw $2000
@@ -5428,7 +5428,7 @@ DATA_FF395D:
 	db !spawn_command_success
 
 DATA_FF3982:
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.render_order : dw $00D2
 	db !spawn_command_set_animation : dw $0294
 	db !spawn_command_success
@@ -5451,7 +5451,7 @@ DATA_FF39AC:
 	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
 	db !spawn_command_set_render_order : dw $00D4
 	db !spawn_command_set_oam : dw $2000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_animation : dw $0296
 	db !spawn_command_set_palette : dw $0077
 	db !spawn_command_success
@@ -5465,7 +5465,7 @@ DATA_FF39BF:
 	db sprite.unknown_32 : dw $0000
 	db sprite.unknown_2C : dw $0000
 	db sprite.interaction_flags : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_render_order : dw $00C2
 	db !spawn_command_set_oam : dw $1000
 	db !spawn_command_set_animation : dw $029F
@@ -5476,7 +5476,7 @@ DATA_FF39E7:
 	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
 	db !spawn_command_spawn_relative, $00, $14
 	db !spawn_command_set_render_order : dw $00D4
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_animation : dw $0296
 	db !spawn_command_set_palette : dw $0077
@@ -5486,7 +5486,7 @@ DATA_FF39FD:
 	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
 	db !spawn_command_spawn_relative, $00, $0A
 	db !spawn_command_set_render_order : dw $00D4
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_animation : dw $0296
 	db !spawn_command_set_palette : dw $0077
@@ -5505,7 +5505,7 @@ DATA_FF3A13:
 	db sprite.max_x_speed : dw $0000
 	db sprite.y_speed : dw $0000
 	db sprite.y_position : dw $0100
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.interaction_flags : dw $0005
 	db sprite.movement_state : dw $0040
 	db !spawn_command_success
@@ -5519,7 +5519,7 @@ DATA_FF3A41:
 	db sprite.movement_state : dw $0003
 	db sprite.general_purpose_6C : dw $FFEC
 	db sprite.interaction_flags : dw $0840
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_F3, $3D, $02
 	db !spawn_command_set_oam_2 : dw $6000
 	db !spawn_command_set_palette : dw $007A
@@ -5533,7 +5533,7 @@ DATA_FF3A66:
 	db sprite.interaction_flags : dw $0840
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.movement_state : dw $001A
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_animation : dw $029A
 	db !spawn_command_set_oam_2 : dw $7000
 	db !spawn_command_set_palette : dw $0078
@@ -5543,7 +5543,7 @@ DATA_FF3A88:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_049C
 	db sprite.render_order : dw $00EC
 	db sprite.interaction_flags : dw $0000
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_animation : dw $0175
 	db !spawn_command_set_palette : dw $0071
 	db !spawn_command_success
@@ -5580,7 +5580,7 @@ DATA_FF3ACB:
 	db sprite.y_speed : dw $0000
 	db sprite.max_x_speed : dw $0000
 	db sprite.max_y_speed : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.state : dw $0012
 	db sprite.ground_y_position : dw $0260
 	db !spawn_command_success
@@ -5598,7 +5598,7 @@ DATA_FF3AEA:
 	db sprite.y_speed : dw $0000
 	db sprite.max_y_speed : dw $0000
 	db sprite.interaction_flags : dw $0040
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $0000
 	db sprite.ground_y_position : dw $025E
 	db !spawn_command_set_oam_2 : dw $6000
@@ -5616,7 +5616,7 @@ DATA_FF3B21:
 	db sprite.general_purpose_5C : dw $0155
 	db sprite.general_purpose_5E : dw $000A
 	db sprite.y_speed : dw $FF00
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_palette : dw $0087
 	db !spawn_command_set_oam_2 : dw $2000
 	db !spawn_command_F3, $43, $01
@@ -5629,7 +5629,7 @@ DATA_FF3B49:
 	db sprite.state : dw $0000
 	db sprite.general_purpose_6A : dw $0002
 	db sprite.general_purpose_6C : dw $0100
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.interaction_flags : dw $0000
 	db sprite.unknown_58 : dw $0000
 	db !spawn_command_set_oam : dw $6000
@@ -5650,7 +5650,7 @@ DATA_FF3B71:
 	db sprite.y_speed : dw $0008
 	db sprite.y_position : dw $0100
 	db sprite.ground_distance : dw $0130
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_palette : dw $0084
 	db sprite.animation_id : dw $0000
@@ -5720,7 +5720,7 @@ DATA_FF3BFC:
 	db sprite.max_y_speed : dw $0000
 	db sprite.interaction_flags : dw $0000
 	db sprite.movement_state : dw $000D
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam_2 : dw $2000
 	db !spawn_command_F3, $41, $00
 	db !spawn_command_success
@@ -5750,7 +5750,7 @@ DATA_FF3C47:
 	db sprite.general_purpose_5E : dw $02C2
 	db sprite.y_position : dw $01B7
 	db sprite.general_purpose_66 : dw $0083
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam_2 : dw $2000
 	db !spawn_command_set_palette : dw $0083
 	db !spawn_command_set_animation : dw $02B8
@@ -5763,7 +5763,7 @@ DATA_FF3C69:
 	db sprite.general_purpose_5C : dw $0140
 	db sprite.general_purpose_5E : dw $02C2
 	db sprite.y_position : dw $01EF
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_success
 
 DATA_FF3C7F:
@@ -5772,7 +5772,7 @@ DATA_FF3C7F:
 	db sprite.render_order : dw $00C0
 	db sprite.x_position : dw $01BB
 	db sprite.y_position : dw $016B
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam_2 : dw $2000
 	db !spawn_command_set_animation : dw $02B9
 	db !spawn_command_success
@@ -5783,7 +5783,7 @@ DATA_FF3C9B:
 	db sprite.render_order : dw $00C0
 	db sprite.x_position : dw $023F
 	db sprite.y_position : dw $017B
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam_2 : dw $2000
 	db !spawn_command_F3, $42, $00
 	db !spawn_command_success
@@ -5794,7 +5794,7 @@ DATA_FF3CB7:
 	db sprite.x_position : dw $0288
 	db sprite.y_position : dw $01BA
 	db sprite.state : dw $0005
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam_2 : dw $6000
 	db !spawn_command_set_palette : dw $0081
 	db !spawn_command_F3, $45, $08
@@ -5813,7 +5813,7 @@ DATA_FF3CD3:
 	db sprite.y_speed : dw $0000
 	db sprite.max_y_speed : dw $0000
 	db sprite.interaction_flags : dw $0040
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $0000
 	db sprite.ground_y_position : dw $025E
 	db !spawn_command_set_oam_2 : dw $7000
@@ -5830,7 +5830,7 @@ DATA_FF3D0A:
 	db sprite.x_speed : dw $0000
 	db sprite.max_x_speed : dw $0000
 	db sprite.y_speed : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.interaction_flags : dw $0001
 	db sprite.movement_state : dw $0040
 	db !spawn_command_set_oam_2 : dw $3000
@@ -5857,7 +5857,7 @@ DATA_FF3D4E:
 	db sprite.general_purpose_5C : dw $0135
 	db sprite.general_purpose_5E : dw $02CE
 	db sprite.general_purpose_66 : dw $0083
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam_2 : dw $2000
 	db !spawn_command_set_palette : dw $0083
 	db !spawn_command_set_animation : dw $02B8
@@ -5870,7 +5870,7 @@ DATA_FF3D70:
 	db sprite.y_position : dw $01A9
 	db sprite.general_purpose_5C : dw $012E
 	db sprite.general_purpose_5E : dw $02D6
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_success
 
 DATA_FF3D86:
@@ -5880,7 +5880,7 @@ DATA_FF3D86:
 	db sprite.general_purpose_64 : dw $01B5
 	db sprite.state : dw $0000
 	db sprite.general_purpose_60 : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.interaction_flags : dw $0000
 	db sprite.movement_state : dw $001A
 	db !spawn_command_set_oam_2 : dw $3000
@@ -5892,7 +5892,7 @@ DATA_FF3DAB:
 	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
 	db !spawn_command_spawn_relative, $00, $0E
 	db !spawn_command_set_render_order : dw $00D4
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_animation : dw $0296
 	db !spawn_command_set_palette : dw $0077
@@ -5902,7 +5902,7 @@ DATA_FF3DC1:
 	db !spawn_command_set_type : dw !sprite_FireballLandingParticles
 	db sprite.x_position : dw $0200
 	db sprite.y_position : dw $0138
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_render_order : dw $00F8
 	db !spawn_command_set_oam_2 : dw $3000
 	db !spawn_command_set_animation : dw $02C3
@@ -5914,7 +5914,7 @@ DATA_FF3DDA:
 	db sprite.x_position : dw $0230
 	db sprite.y_position : dw $016B
 	db sprite.state : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_render_order : dw $00D6
 	db !spawn_command_set_oam_2 : dw $3000
 	db !spawn_command_F3, $43, $03
@@ -5931,7 +5931,7 @@ DATA_FF3DF6:
 	db sprite.general_purpose_66 : dw $001E
 	db sprite.general_purpose_6A : dw $0028
 	db sprite.state : dw $0000
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db sprite.constants_address : dw DATA_FF202A
 	db sprite.movement_state : dw $0004
 	db !spawn_command_set_render_order : dw $00D7
@@ -5945,7 +5945,7 @@ DATA_FF3E27:
 	db !spawn_command_set_render_order : dw $00D0
 	db sprite.y_position : dw $01AA
 	db sprite.general_purpose_5C : dw $0002
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_oam_2 : dw $3000
 	db !spawn_command_set_palette : dw $0042
 	db !spawn_command_set_animation : dw $02D0
@@ -6067,7 +6067,7 @@ DATA_FF3F34:
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.general_purpose_62 : dw $0000
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_success
 
 DATA_FF3F53:
@@ -6111,7 +6111,7 @@ DATA_FF3FA2:
 	db !spawn_command_set_type : dw !sprite_MapVehicle
 	db sprite.render_order : dw $00D0
 	db sprite.movement_state : dw $0001
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.general_purpose_60 : dw $0180
 	db sprite.slip_velocity : dw $0180
 	db sprite.x_position : dw $021C
@@ -6158,7 +6158,7 @@ DATA_FF3FF9:
 
 DATA_FF4015:
 	db !spawn_command_set_type : dw !sprite_GyrocopterBladesAndShadow
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.x_position : dw $01B0
 	db sprite.y_position : dw $0210
 	db sprite.render_order : dw $00FF
@@ -6281,7 +6281,7 @@ DATA_FF410E:
 
 DATA_FF411E:
 	db !spawn_command_setup_static : dw !sprite_unknown_sprite_008C, $0023 : db $22
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $0000
 	db sprite.state : dw $0000
 	db sprite.render_order : dw $00DE
@@ -6324,7 +6324,7 @@ DATA_FF4168:
 	db !spawn_command_set_palette : dw $008E
 	db !spawn_command_set_oam : dw $0000
 	db !spawn_command_set_animation : dw $02E8
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
@@ -6352,7 +6352,7 @@ DATA_FF41B0:
 	db !spawn_command_set_type : dw !sprite_ChairliftPulley
 	db !spawn_command_set_palette : dw $00C8
 	db !spawn_command_set_animation : dw $0335
-	db sprite.visibility : dw $8003
+	db sprite.display_mode : dw $8003
 	db sprite.render_order : dw $00F4
 	db sprite.y_position : dw $007A
 	db sprite.state : dw $0000
@@ -6397,7 +6397,7 @@ DATA_FF4209:
 	db sprite.y_position : dw $0031
 	db sprite.render_order : dw $0080
 	db sprite.general_purpose_5C : dw $0006
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $2208
 	db !spawn_command_F3, $04, $04
 	db !spawn_command_set_palette : dw $00CE
@@ -6410,7 +6410,7 @@ DATA_FF4228:
 	db sprite.y_position : dw $FFE0
 	db !spawn_command_set_oam : dw $3000
 	db sprite.state : dw $0100
-	db sprite.visibility : dw $8005
+	db sprite.display_mode : dw $8005
 	db sprite.render_order : dw $00FE
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_5E : dw $0000
@@ -6526,7 +6526,7 @@ DATA_FF4333:
 DATA_FF4346:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_0350
 	db sprite.state : dw $0000
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_success
 
@@ -6577,7 +6577,7 @@ DATA_FF43A4:
 	db sprite.general_purpose_64 : dw $0404
 	db sprite.max_y_speed : dw $0300
 	db sprite.constants_address : dw DATA_FF1BCE
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_success
 
 DATA_FF43C9:
@@ -6811,7 +6811,7 @@ DATA_FF45DB:
 
 DATA_FF45E2:
 	db !spawn_command_set_type : dw !sprite_MapFlag
-	db sprite.visibility : dw $8004
+	db sprite.display_mode : dw $8004
 	db sprite.state : dw $0000
 	db sprite.render_order : dw $00C0
 	db sprite.general_purpose_5C : dw $0000
@@ -6826,7 +6826,7 @@ DATA_FF45E2:
 
 DATA_FF4607:
 	db !spawn_command_set_type : dw !sprite_MapFlag
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db sprite.state : dw $0002
 	db sprite.render_order : dw $00C0
 	db sprite.sprite_graphic : dw $0101
@@ -6852,7 +6852,7 @@ DATA_FF4636:
 
 DATA_FF463D:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_01A8
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
@@ -6936,7 +6936,7 @@ DATA_FF46E3:
 	db sprite.x_speed : dw $F800
 	db sprite.movement_state : dw $0002
 	db sprite.general_purpose_5C : dw $00B8
-	db sprite.visibility : dw $8000
+	db sprite.display_mode : dw $8000
 	db !spawn_command_success
 
 DATA_FF46F9:
@@ -6967,7 +6967,7 @@ DATA_FF4719:
 	db sprite.general_purpose_5C : dw $00ED
 	db sprite.general_purpose_5E : dw $0060
 	db !spawn_command_F3, $08, $01
-	db sprite.visibility : dw $8000
+	db sprite.display_mode : dw $8000
 	db !spawn_command_success
 
 DATA_FF473E:
@@ -6986,7 +6986,7 @@ DATA_FF4754:
 	db !spawn_command_set_oam : dw $1000
 	db sprite.movement_state : dw $0006
 	db sprite.constants_address : dw DATA_FF1BCE
-	db sprite.visibility : dw $8000
+	db sprite.display_mode : dw $8000
 	db sprite.state : dw $0000
 	db sprite.general_purpose_64 : dw $0003
 	db !spawn_command_success
@@ -7047,7 +7047,7 @@ DATA_FF47DB:
 	db !spawn_command_set_oam : dw $3000
 	db sprite.render_order : dw $00CC
 	db sprite.interaction_flags : dw $0000
-	db sprite.visibility : dw $8000
+	db sprite.display_mode : dw $8000
 	db sprite.x_position : dw $0078
 	db sprite.y_position : dw $FFF7
 	db sprite.y_sub_position : dw $001E
@@ -7064,7 +7064,7 @@ DATA_FF4806:
 	db !spawn_command_set_oam : dw $3000
 	db sprite.render_order : dw $00CC
 	db sprite.interaction_flags : dw $0000
-	db sprite.visibility : dw $8000
+	db sprite.display_mode : dw $8000
 	db sprite.x_position : dw $0074
 	db sprite.y_position : dw $FFF7
 	db sprite.y_sub_position : dw $0028
@@ -7081,7 +7081,7 @@ DATA_FF4831:
 	db !spawn_command_set_oam : dw $3000
 	db sprite.render_order : dw $00CC
 	db sprite.interaction_flags : dw $0000
-	db sprite.visibility : dw $8000
+	db sprite.display_mode : dw $8000
 	db sprite.x_position : dw $0078
 	db sprite.y_position : dw $FFF7
 	db sprite.y_sub_position : dw $0022
@@ -7264,7 +7264,7 @@ DATA_FF49B8:
 
 DATA_FF49D6:
 	db !spawn_command_setup_static : dw !sprite_MapCannon, $00E6 : db $20
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $2000
 	db sprite.state : dw $0000
 	db sprite.x_position : dw $00DF
@@ -7277,7 +7277,7 @@ DATA_FF49D6:
 
 DATA_FF49F8:
 	db !spawn_command_setup_static : dw !sprite_MapCannon, $00E6 : db $20
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $0020
 	db sprite.state : dw $0003
 	db sprite.x_position : dw $0039
@@ -7537,7 +7537,7 @@ DATA_FF4CCF:
 	db sprite.x_position : dw $00A1
 	db sprite.y_position : dw $0080
 	db sprite.render_order : dw $00FF
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_success
 
 DATA_FF4CE5:
@@ -7546,7 +7546,7 @@ DATA_FF4CE5:
 	db sprite.x_position : dw $00A1
 	db sprite.y_position : dw $0080
 	db sprite.render_order : dw $00FF
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_success
 
 DATA_FF4CFB:
@@ -7557,7 +7557,7 @@ DATA_FF4CFB:
 	db sprite.y_position : dw $0080
 	db sprite.render_order : dw $00FF
 	db !spawn_command_set_oam : dw $3000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_success
 
 DATA_FF4D17:
@@ -7566,7 +7566,7 @@ DATA_FF4D17:
 	db sprite.x_position : dw $00A1
 	db sprite.y_position : dw $0080
 	db sprite.render_order : dw $00FF
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $0000
 	db sprite.state : dw $0000
 	db !spawn_command_success
@@ -7580,7 +7580,7 @@ DATA_FF4D33:
 	db !spawn_command_set_oam : dw $2000
 	db sprite.state : dw $0001
 	db sprite.unknown_58 : dw $1000
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.general_purpose_5C : dw $0040
 	db !spawn_command_success
 
@@ -7593,7 +7593,7 @@ DATA_FF4D55:
 	db !spawn_command_set_oam : dw $2000
 	db sprite.state : dw $0001
 	db sprite.unknown_58 : dw $1000
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.general_purpose_5C : dw $0040
 	db !spawn_command_success
 
@@ -7612,7 +7612,7 @@ DATA_FF4D87:
 	db sprite.render_order : dw $00FF
 	db sprite.general_purpose_5C : dw $0010
 	db sprite.state : dw $0000
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db sprite.animation_speed : dw $0100
 	db !spawn_command_success
 
@@ -7731,7 +7731,7 @@ DATA_FF4E7D:
 
 DATA_FF4EAB:
 	db !spawn_command_set_type : dw !sprite_KnautilusSpriteMask
-	db sprite.visibility : dw $8008
+	db sprite.display_mode : dw $8008
 	db sprite.sprite_graphic : dw $0001
 	db sprite.last_rendered_graphic : dw $0001
 	db sprite.sprite_graphic_mirror : dw $0001
@@ -7767,7 +7767,7 @@ DATA_FF4EF0:
 	db !spawn_command_success
 
 DATA_FF4EFA:
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db !spawn_command_set_oam : dw $2000
 	db sprite.x_position : dw $0080
 	db sprite.y_position : dw $00AC
@@ -7851,7 +7851,7 @@ DATA_FF4FAB:
 	db sprite.y_position : dw $003B
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_palette : dw $000F
-	db sprite.visibility : dw $8009
+	db sprite.display_mode : dw $8009
 	db sprite.sprite_graphic : dw $0001
 	db sprite.last_rendered_graphic : dw $0001
 	db sprite.sprite_graphic_mirror : dw $0001
@@ -7874,7 +7874,7 @@ DATA_FF4FDD:
 	db sprite.x_position : dw $0081
 	db sprite.y_position : dw $0073
 	db sprite.unknown_58 : dw $0000
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db !spawn_command_success
 
 DATA_FF4FF6:
@@ -8038,7 +8038,7 @@ DATA_FF5152:
 
 DATA_FF516B:
 	db !spawn_command_setup_static : dw !sprite_MapBananaBird, $005A : db $2A
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_animation : dw $0347
 	db sprite.constants_address : dw DATA_FF1BCE
 	db sprite.state : dw $0002
@@ -8168,7 +8168,7 @@ DATA_FF5240:
 DATA_FF5258:
 	db !spawn_command_set_type : dw !sprite_LightningBoltSpawner
 	db sprite.constants_address : dw DATA_FF215E
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db sprite.state : dw $0000
 	db sprite.movement_state : dw $000D
 	db sprite.general_purpose_62 : dw $0034
@@ -8181,7 +8181,7 @@ DATA_FF5258:
 DATA_FF5277:
 	db !spawn_command_set_type : dw !sprite_LightningBoltSpawner
 	db sprite.constants_address : dw DATA_FF2164
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db sprite.state : dw $0000
 	db sprite.movement_state : dw $000D
 	db sprite.general_purpose_62 : dw $0034
@@ -8210,7 +8210,7 @@ DATA_FF52AC:
 	db sprite.general_purpose_68 : dw $0000
 	db sprite.unknown_2C : dw $0000
 	db sprite.interaction_flags : dw $0000
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_render_order : dw $00F8
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_animation : dw $02A1
@@ -8220,7 +8220,7 @@ DATA_FF52AC:
 DATA_FF52D4:
 	db !spawn_command_set_type : dw !sprite_AreaNameText
 	db sprite.state : dw $0000
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_oam : dw $3000
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
@@ -8232,7 +8232,7 @@ DATA_FF52E4:
 	db !spawn_command_F3, $29, $00
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_palette : dw $0032
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $0020
 	db !spawn_command_success
 
@@ -8243,7 +8243,7 @@ DATA_FF52FD:
 	db !spawn_command_F3, $35, $00
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_palette : dw $001B
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $0020
 	db !spawn_command_success
 
@@ -8269,7 +8269,7 @@ DATA_FF532A:
 DATA_FF533A:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_0110
 	db sprite.state : dw $0000
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_oam : dw $3000
 	db sprite.movement_state : dw $0000
 	db sprite.x_position : dw $0080
@@ -8301,7 +8301,7 @@ DATA_FF535A:
 DATA_FF5382:
 	db !spawn_command_set_type : dw !sprite_TheEndSign
 	db !spawn_command_spawn_relative, $00, $00
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $D000
 	db sprite.render_order : dw $00FD
 	db !spawn_command_set_palette : dw $00F3
@@ -8378,7 +8378,7 @@ DATA_FF5436:
 	db !spawn_command_setup_static : dw !sprite_Squirt, $006C : db $17
 	db sprite.state : dw $0000
 	db sprite.interaction_flags : dw $0000
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_success
 
@@ -8388,7 +8388,7 @@ DATA_FF5449:
 	db sprite.general_purpose_60 : dw $39DF
 	db sprite.state : dw $0000
 	db sprite.interaction_flags : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_F3, $44, $00
 	db !spawn_command_set_palette : dw $0041
 	db !spawn_command_success
@@ -8410,7 +8410,7 @@ DATA_FF5476:
 	db !spawn_command_set_render_order : dw $00D6
 	db sprite.state : dw $000A
 	db sprite.interaction_flags : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam_2 : dw $3000
 	db !spawn_command_set_palette : dw $0041
 	db !spawn_command_success
@@ -8420,7 +8420,7 @@ DATA_FF548C:
 	db !spawn_command_set_render_order : dw $00D2
 	db sprite.interaction_flags : dw $0000
 	db sprite.state : dw $0005
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam_2 : dw $3000
 	db !spawn_command_set_palette : dw $0076
 	db !spawn_command_F3, $44, $0E
@@ -8444,7 +8444,7 @@ DATA_FF54B9:
 	db !spawn_command_set_render_order : dw $00D4
 	db sprite.interaction_flags : dw $0000
 	db sprite.state : dw $0006
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam_2 : dw $2000
 	db !spawn_command_set_palette : dw $0075
 	db !spawn_command_F3, $44, $0A
@@ -8456,7 +8456,7 @@ DATA_FF54D5:
 	db !spawn_command_set_render_order : dw $00D4
 	db sprite.interaction_flags : dw $0000
 	db sprite.state : dw $000A
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam_2 : dw $3000
 	db !spawn_command_set_palette : dw $0075
 	db !spawn_command_F3, $44, $0D
@@ -8471,7 +8471,7 @@ DATA_FF54F1:
 	db !spawn_command_set_oam_2 : dw $2000
 	db sprite.movement_state : dw $000D
 	db sprite.constants_address : dw DATA_FF1BCE
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_success
 
 DATA_FF550D:
@@ -8531,7 +8531,7 @@ DATA_FF557D:
 	db sprite.render_order : dw $0000
 	db !spawn_command_set_animation : dw $0125
 	db !spawn_command_set_oam : dw $3000
-	db sprite.visibility : dw $8000
+	db sprite.display_mode : dw $8000
 	db !spawn_command_success
 
 DATA_FF5596:
@@ -8570,7 +8570,7 @@ DATA_FF55D2:
 	db sprite.y_position : dw $FF88
 	db sprite.y_speed : dw $0600
 	db sprite.render_order : dw $0001
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db !spawn_command_success
 
 DATA_FF55EB:
@@ -8942,13 +8942,13 @@ DATA_FF5900:
 	db !spawn_command_set_oam : dw $2000
 	db sprite.constants_address : dw DATA_FF1BCE
 	db sprite.unknown_58 : dw $D000
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db !spawn_command_success
 
 DATA_FF5922:
 	db !spawn_command_set_type : dw !sprite_EndingSwankyKong
 	db sprite.unknown_58 : dw $D8FD
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db !spawn_command_set_palette : dw $008F
 	db !spawn_command_set_animation : dw $02E0
 	db sprite.x_position : dw $0244
@@ -8975,7 +8975,7 @@ DATA_FF5957:
 	db sprite.x_position : dw $0180
 	db sprite.y_position : dw $018E
 	db sprite.movement_state : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $3000
 	db sprite.state : dw $FFFF
 	db sprite.unknown_58 : dw $0000
@@ -9494,7 +9494,7 @@ DATA_FF5D66:
 	db !spawn_command_set_oam : dw $6000
 	db sprite.state : dw $0005
 	db sprite.animation_address : dw $0009
-	db sprite.animation_routine_pointer : dw $002F
+	db sprite.animation_routine : dw $002F
 	db !spawn_command_success
 
 DATA_FF5D82:
@@ -9516,7 +9516,7 @@ DATA_FF5D96:
 	db !spawn_command_set_oam : dw $6000
 	db sprite.state : dw $0005
 	db sprite.animation_address : dw $0000
-	db sprite.animation_routine_pointer : dw $002F
+	db sprite.animation_routine : dw $002F
 	db !spawn_command_success
 
 DATA_FF5DA9:
@@ -9844,7 +9844,7 @@ DATA_FF617A:
 	db sprite.render_order : dw $00F8
 	db sprite.x_position : dw $1780
 	db sprite.y_position : dw $1200
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_F3, $2F, $00
 	db sprite.interaction_flags : dw $0000
 	db sprite.state : dw $0000
@@ -9950,7 +9950,7 @@ DATA_FF6234:
 	db !spawn_command_success
 
 DATA_FF624A:
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_type : dw !sprite_BearCoin
 	db !spawn_command_set_animation : dw $0148
 	db !spawn_command_set_palette : dw $00C8
@@ -9971,7 +9971,7 @@ DATA_FF6263:
 	db !spawn_command_F0
 
 DATA_FF6279:
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_type : dw !sprite_BearCoin
 	db !spawn_command_set_animation : dw $0148
 	db !spawn_command_set_palette : dw $00C8
@@ -10157,7 +10157,7 @@ DATA_FF63D8:
 
 DATA_FF63F4:
 	db !spawn_command_load_subconfig : dw DATA_FF63D8
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_success
 
 DATA_FF63FB:
@@ -10166,7 +10166,7 @@ DATA_FF63FB:
 
 DATA_FF63FF:
 	db !spawn_command_load_subconfig : dw DATA_FF63D8
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_F0
 
 DATA_FF6406:
@@ -10215,7 +10215,7 @@ DATA_FF644D:
 DATA_FF6457:
 	db !spawn_command_load_subconfig : dw DATA_FF6428
 	db sprite.general_purpose_6C : dw $8000
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_success
 
 DATA_FF6461:
@@ -10230,7 +10230,7 @@ DATA_FF6468:
 
 DATA_FF646F:
 	db !spawn_command_load_subconfig : dw DATA_FF6432
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db sprite.general_purpose_6C : dw $8000
 	db !spawn_command_success
 
@@ -10241,7 +10241,7 @@ DATA_FF6479:
 
 DATA_FF6480:
 	db !spawn_command_load_subconfig : dw DATA_FF643C
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db sprite.general_purpose_6C : dw $8000
 	db !spawn_command_success
 
@@ -11513,7 +11513,7 @@ DATA_FF718A:
 	db !spawn_command_success
 
 DATA_FF7197:
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_load_subconfig : dw DATA_FF718A
 	db !spawn_command_success
 
@@ -11550,7 +11550,7 @@ DATA_FF71C8:
 	db !spawn_command_F0
 
 DATA_FF71DE:
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_load_subconfig : dw DATA_FF71B2
 	db !spawn_command_success
 
@@ -11585,7 +11585,7 @@ DATA_FF720D:
 
 DATA_FF7214:
 	db !spawn_command_set_type : dw !sprite_NoAnimalBuddySign
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $FC00
 	db sprite.render_order : dw $00C0
 	db !spawn_command_set_oam : dw $2000
@@ -13586,7 +13586,7 @@ DATA_FF80BA:
 	db sprite.y_speed : dw $0000
 	db sprite.max_x_speed : dw $0000
 	db sprite.max_y_speed : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.state : dw $0000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_palette : dw $004E
@@ -13918,7 +13918,7 @@ DATA_FF8327:
 	db !spawn_command_set_type : dw !sprite_DoorLeverHandle
 	db sprite.render_order : dw $00D4
 	db sprite.state : dw $0003
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_animation : dw $019D
 	db sprite.general_purpose_60 : dw $0004
@@ -13962,7 +13962,7 @@ DATA_FF8372:
 	db sprite.general_purpose_5E : dw $0040
 	db sprite.general_purpose_62 : dw $0001
 	db sprite.interaction_flags : dw $0840
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_animation : dw $019C
 	db !spawn_command_set_palette : dw $0049
@@ -14007,7 +14007,7 @@ DATA_FF83D9:
 	db sprite.interaction_flags : dw $0000
 	db sprite.y_speed : dw $0000
 	db sprite.general_purpose_64 : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_palette : dw $0047
 	db !spawn_command_success
@@ -14271,7 +14271,7 @@ DATA_FF85A7:
 	db sprite.constants_address : dw DATA_FF1BCE
 	db sprite.render_order : dw $00D4
 	db sprite.movement_state : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.interaction_flags : dw $0240
 	db !spawn_command_set_palette : dw $004D
 	db !spawn_command_set_oam : dw $2000
@@ -14662,7 +14662,7 @@ DATA_FF8899:
 	db sprite.movement_state : dw $0043
 	db sprite.x_speed : dw $0000
 	db sprite.y_speed : dw $0000
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.constants_address : dw DATA_FF1F5E
 	db sprite.interaction_flags : dw $0040
 	db !spawn_command_set_palette : dw $0053
@@ -14741,7 +14741,7 @@ DATA_FF8923:
 	db sprite.x_speed : dw $0000
 	db sprite.y_speed : dw $0000
 	db sprite.constants_address : dw DATA_FF1F64
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_palette : dw $0059
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_set_animation : dw $020B
@@ -14921,7 +14921,7 @@ DATA_FF8A78:
 	db sprite.general_purpose_60 : dw $4804
 	db sprite.general_purpose_64 : dw $0007
 	db sprite.general_purpose_66 : dw $0380
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.interaction_flags : dw $0040
 	db sprite.movement_state : dw $0040
 	db sprite.constants_address : dw DATA_FF1E44
@@ -14966,7 +14966,7 @@ DATA_FF8AE9:
 	db sprite.y_speed : dw $0000
 	db sprite.render_order : dw $00D4
 	db sprite.constants_address : dw DATA_FF1F76
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.interaction_flags : dw $0040
 	db !spawn_command_set_palette : dw $0063
 	db !spawn_command_set_animation : dw $023B
@@ -15114,7 +15114,7 @@ DATA_FF8BE0:
 	db sprite.x_speed : dw $0000
 	db sprite.y_speed : dw $0000
 	db sprite.render_order : dw $00D4
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.constants_address : dw DATA_FF1F88
 	db sprite.interaction_flags : dw $0040
 	db !spawn_command_set_palette : dw $0067
@@ -15308,7 +15308,7 @@ DATA_FF8D23:
 	db sprite.y_speed : dw $0000
 	db sprite.render_order : dw $00D4
 	db sprite.constants_address : dw DATA_FF1F8E
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.interaction_flags : dw $0040
 	db !spawn_command_set_palette : dw $0069
 	db !spawn_command_set_animation : dw $0258
@@ -15584,7 +15584,7 @@ DATA_FF8F29:
 	db sprite.render_order : dw $00D4
 	db sprite.movement_state : dw $0001
 	db sprite.interaction_flags : dw $0040
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_animation : dw $025D
 	db !spawn_command_set_palette : dw $006B
@@ -15676,7 +15676,7 @@ DATA_FF8FEA:
 	db sprite.max_y_speed : dw $0000
 	db sprite.interaction_flags : dw $0000
 	db sprite.movement_state : dw $0040
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.constants_address : dw DATA_FF1E78
 	db sprite.render_order : dw $00D4
 	db !spawn_command_set_oam : dw $6000
@@ -15810,7 +15810,7 @@ DATA_FF912D:
 	db sprite.y_speed : dw $0000
 	db sprite.render_order : dw $00D4
 	db sprite.constants_address : dw DATA_FF1EB4
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.interaction_flags : dw $0040
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
@@ -16282,7 +16282,7 @@ DATA_FF9489:
 	db sprite.general_purpose_6A : dw $0101
 	db sprite.render_order : dw $00D4
 	db sprite.interaction_flags : dw $0040
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
@@ -16517,7 +16517,7 @@ DATA_FF963A:
 	db sprite.movement_state : dw $000D
 	db sprite.general_purpose_6C : dw $0000
 	db sprite.constants_address : dw DATA_FF1FB8
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.render_order : dw $00F2
 	db sprite.interaction_flags : dw $0240
 	db !spawn_command_set_palette : dw $0072
@@ -17319,7 +17319,7 @@ DATA_FF9C79:
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.interaction_flags : dw $0840
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.y_speed : dw $0000
 	db !spawn_command_set_palette : dw $0080
 	db !spawn_command_set_oam : dw $2000
@@ -17338,7 +17338,7 @@ DATA_FF9C9B:
 	db sprite.movement_state : dw $0044
 	db sprite.constants_address : dw DATA_FF2024
 	db sprite.interaction_flags : dw $0840
-	db sprite.visibility : dw $0000
+	db sprite.display_mode : dw $0000
 	db sprite.x_speed : dw $0000
 	db sprite.y_speed : dw $0000
 	db !spawn_command_set_palette : dw $0080
@@ -18636,7 +18636,7 @@ DATA_FFA753:
 	db sprite.interaction_flags : dw $0840
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.movement_state : dw $0000
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $FA00
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_animation : dw $0279
@@ -20129,7 +20129,7 @@ DATA_FFB520:
 	db sprite.general_purpose_60 : dw $0280
 	db !spawn_command_set_oam : dw $6000
 	db sprite.state : dw $0002
-	db sprite.animation_routine_pointer : dw $002F
+	db sprite.animation_routine : dw $002F
 	db !spawn_command_success
 
 DATA_FFB536:
@@ -20141,7 +20141,7 @@ DATA_FFB536:
 	db !spawn_command_set_oam : dw $6000
 	db sprite.state : dw $0002
 	db sprite.animation_address : dw $0009
-	db sprite.animation_routine_pointer : dw $002E
+	db sprite.animation_routine : dw $002E
 	db !spawn_command_success
 
 DATA_FFB552:
@@ -20166,7 +20166,7 @@ DATA_FFB566:
 	db !spawn_command_set_oam : dw $6000
 	db sprite.state : dw $0002
 	db sprite.animation_address : dw $FF80
-	db sprite.animation_routine_pointer : dw $002F
+	db sprite.animation_routine : dw $002F
 	db !spawn_command_success
 
 DATA_FFB582:
@@ -20662,7 +20662,7 @@ DATA_FFBD3A:
 DATA_FFBD44:
 	db !spawn_command_setup_static : dw !sprite_Squirt, $000F : db $17
 	db sprite.state : dw $0000
-	db sprite.visibility : dw $C000
+	db sprite.display_mode : dw $C000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_success
 
@@ -20715,7 +20715,7 @@ DATA_FFBDAA:
 	db sprite.interaction_flags : dw $0040
 	db sprite.movement_state : dw $0000
 	db sprite.constants_address : dw DATA_FF2012
-	db sprite.visibility : dw $8001
+	db sprite.display_mode : dw $8001
 	db sprite.unknown_58 : dw $0000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_palette : dw $004A

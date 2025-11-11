@@ -2043,7 +2043,7 @@ CODE_BB8F18:
 	STZ sprite.placement_number,x		;$BB8F1F
 	LDA #$0005				;$BB8F21
 	STA sprite.placement_parameter,x	;$BB8F24
-	STZ sprite.visibility,x			;$BB8F26
+	STZ sprite.display_mode,x		;$BB8F26
 	BRL CODE_BB8FE3				;$BB8F28
 
 CODE_BB8F2B:
@@ -2070,7 +2070,7 @@ CODE_BB8F3A:
 	STZ sprite.last_rendered_graphic,x	;$BB8F48
 	STZ sprite.sprite_graphic,x		;$BB8F4A
 	LDA #$C000				;$BB8F4C
-	STA sprite.visibility,x			;$BB8F4F
+	STA sprite.display_mode,x		;$BB8F4F
 	STZ sprite.terrain_attributes,x		;$BB8F51
 	STZ sprite.oam_property,x		;$BB8F53
 	BRL CODE_BB8FE3				;$BB8F55
@@ -2109,7 +2109,7 @@ CODE_BB8F78:
 	PLY					;$BB8F81
 	BCS CODE_BB8F8A				;$BB8F82
 	STZ sprite.last_rendered_graphic,x	;$BB8F84
-	STZ sprite.visibility,x			;$BB8F86
+	STZ sprite.display_mode,x		;$BB8F86
 	STZ sprite.terrain_attributes,x		;$BB8F88
 CODE_BB8F8A:
 	RTS					;$BB8F8A
@@ -2167,7 +2167,7 @@ CODE_BB8FC8:
 	PLY					;$BB8FD3
 	BCS CODE_BB8FDC				;$BB8FD4
 	STZ sprite.last_rendered_graphic,x	;$BB8FD6
-	STZ sprite.visibility,x			;$BB8FD8
+	STZ sprite.display_mode,x		;$BB8FD8
 	STZ sprite.terrain_attributes,x		;$BB8FDA
 CODE_BB8FDC:
 	RTS					;$BB8FDC
@@ -2413,10 +2413,10 @@ CODE_BB9148:
 	AND #$0E00				;$BB9157
 	ORA #$8002				;$BB915A
 	STA $42					;$BB915D
-	EOR sprite.visibility,x			;$BB915F
+	EOR sprite.display_mode,x		;$BB915F
 	AND #$4000				;$BB9161
 	EOR $42					;$BB9164
-	STA sprite.visibility,x			;$BB9166
+	STA sprite.display_mode,x		;$BB9166
 	PLA					;$BB9168
 	AND #$00FF				;$BB9169
 	PHY					;$BB916C
@@ -2595,7 +2595,7 @@ CODE_BB92A9:
 	LDA $1E					;$BB92A9
 	JSR CODE_BBB884				;$BB92AB
 	STZ sprite.last_rendered_graphic,x	;$BB92AE
-	STZ sprite.visibility,x			;$BB92B0
+	STZ sprite.display_mode,x		;$BB92B0
 	STZ sprite.terrain_attributes,x		;$BB92B2
 	LDA $22					;$BB92B4
 	PHA					;$BB92B6
@@ -2651,11 +2651,11 @@ CODE_BB92FD:
 	LDA.w sprite.render_order,y		;$BB930C
 	INC					;$BB930F
 	STA sprite.render_order,x		;$BB9310
-	LDA.w sprite.visibility,y		;$BB9312
+	LDA.w sprite.display_mode,y		;$BB9312
 	AND #$800F				;$BB9315
 	CMP #$8002				;$BB9318
 	BNE CODE_BB932D				;$BB931B
-	LDA.w sprite.visibility,y		;$BB931D
+	LDA.w sprite.display_mode,y		;$BB931D
 	AND #$C000				;$BB9320
 	CMP #$C000				;$BB9323
 	BEQ CODE_BB9330				;$BB9326
@@ -2663,9 +2663,9 @@ CODE_BB92FD:
 	BRA CODE_BB9330				;$BB932B
 
 CODE_BB932D:
-	LDA.w sprite.visibility,y		;$BB932D
+	LDA.w sprite.display_mode,y		;$BB932D
 CODE_BB9330:
-	STA sprite.visibility,x			;$BB9330
+	STA sprite.display_mode,x		;$BB9330
 	LDA.w sprite.x_sub_position,y		;$BB9332
 	STA sprite.x_sub_position,x		;$BB9335
 	LDA.w sprite.y_sub_position,y		;$BB9337
@@ -2716,7 +2716,7 @@ spawn_command_load_sub_and_bulk_set:
 	AND #$0004				;$BB9393
 	BEQ CODE_BB939D				;$BB9396
 	LDA #$C000				;$BB9398
-	STA sprite.visibility,x			;$BB939B
+	STA sprite.display_mode,x		;$BB939B
 CODE_BB939D:
 	LDA $0003,y				;$BB939D
 	AND #$0F00				;$BB93A0
@@ -2724,10 +2724,10 @@ CODE_BB939D:
 	ASL					;$BB93A4
 	ASL					;$BB93A5
 	ASL					;$BB93A6
-	STA sprite.animation_routine_pointer,x	;$BB93A7
+	STA sprite.animation_routine,x		;$BB93A7
 	LDA $0004,y				;$BB93A9
 	AND #$00F0				;$BB93AC
-	ORA sprite.animation_routine_pointer,x	;$BB93AF
+	ORA sprite.animation_routine,x		;$BB93AF
 	XBA					;$BB93B1
 	STA sprite.animation_address,x		;$BB93B2
 	STA sprite.general_purpose_6A,x		;$BB93B4
@@ -3256,13 +3256,13 @@ dereference_sprite_palette_global:
 	RTL					;$BB9725
 
 dereference_sprite_palette:
-	LDA sprite.visibility,x			;$BB9726
+	LDA sprite.display_mode,x		;$BB9726
 	BPL CODE_BB9747				;$BB9728
 	AND #$800F				;$BB972A
 	CMP #$8002				;$BB972D
 	BNE CODE_BB9747				;$BB9730
 	PHX					;$BB9732
-	LDA sprite.visibility+1,x		;$BB9733
+	LDA sprite.display_mode+1,x		;$BB9733
 	AND #$000E				;$BB9735
 	TAX					;$BB9738
 	DEC sprite_palette_reference_count,x	;$BB9739
@@ -3325,7 +3325,7 @@ CODE_BB9785:
 
 CODE_BB979B:
 	TYX					;$BB979B
-	JSR CODE_BB9747			;$BB979C
+	JSR CODE_BB9747				;$BB979C
 CODE_BB979F:
 	PLA					;$BB979F
 	JSR request_palette_direct		;$BB97A0
@@ -5441,7 +5441,7 @@ CODE_BBA7E7:
 	STA sprite.x_sub_position,x		;$BBA802
 	STA sprite.y_sub_position,x		;$BBA804
 	LDA #$C000				;$BBA806
-	STA sprite.visibility,x			;$BBA809
+	STA sprite.display_mode,x		;$BBA809
 	STZ sprite.sprite_graphic,x		;$BBA80B
 	STZ sprite.last_rendered_graphic,x	;$BBA80D
 	STZ sprite.slip_velocity,x		;$BBA80F
@@ -5449,7 +5449,7 @@ CODE_BBA7E7:
 	STZ sprite.interaction_flags,x		;$BBA813
 	STZ sprite.terrain_interaction,x	;$BBA815
 	STZ sprite.offscreen_despawn_time,x	;$BBA817
-	STZ sprite.visibility,x			;$BBA819
+	STZ sprite.display_mode,x		;$BBA819
 	STZ sprite.constants_address,x		;$BBA81B
 	STZ sprite.oam_property,x		;$BBA81D
 	LDA ($EA),y				;$BBA81F
@@ -8673,7 +8673,7 @@ CODE_BBC843:
 	STA.w sprite.unknown_56,y		;$BBC84F
 	STA.w sprite.unknown_32,y		;$BBC852
 	LDA #$800A				;$BBC855
-	STA.w sprite.visibility,y		;$BBC858
+	STA.w sprite.display_mode,y		;$BBC858
 	JSR CODE_BBC982				;$BBC85B
 	LDX parent_level_number			;$BBC85E
 	LDA $0632,x				;$BBC861
@@ -9427,7 +9427,7 @@ CODE_BBCDC5:
 	LDX current_sprite			;$BBCDC5
 	STX $18DD				;$BBCDC7
 	LDA #$C000				;$BBCDCA
-	STA sprite.visibility,x			;$BBCDCD
+	STA sprite.display_mode,x		;$BBCDCD
 	INC sprite.state,x			;$BBCDCF
 	TXY					;$BBCDD1
 CODE_BBCDD2:
@@ -9722,7 +9722,7 @@ CODE_BBCFC7:
 	AND #$F000				;$BBCFCD
 	EOR $18F7				;$BBCFD0
 	STA sprite.oam_property,x		;$BBCFD3
-	STZ sprite.visibility,x			;$BBCFD5
+	STZ sprite.display_mode,x		;$BBCFD5
 	INC sprite.state,x			;$BBCFD7
 	LDA sprite.animation_id,x		;$BBCFD9
 	JSL set_sprite_animation		;$BBCFDB
@@ -9767,7 +9767,7 @@ CODE_BBD01C:
 CODE_BBD02D:
 	LDA #$0001				;$BBD02D
 	STA sprite.state,x			;$BBD030
-	STZ sprite.visibility,x			;$BBD032
+	STZ sprite.display_mode,x		;$BBD032
 	LDA sprite.general_purpose_68,x		;$BBD034
 	SED					;$BBD036
 	CLC					;$BBD037
@@ -9784,10 +9784,10 @@ CODE_BBD046:
 	LDX #$F8F8				;$BBD04D
 	JSL CODE_B7E4A2				;$BBD050
 	LDX current_sprite			;$BBD054
-	LDA sprite.visibility,x			;$BBD056
+	LDA sprite.display_mode,x		;$BBD056
 	AND #$C000				;$BBD058
 	EOR #$C000				;$BBD05B
-	STA sprite.visibility,x			;$BBD05E
+	STA sprite.display_mode,x		;$BBD05E
 	LDA sprite.general_purpose_68,x		;$BBD060
 	SEP #$09				;$BBD062
 	SBC #$0001				;$BBD064
@@ -9895,7 +9895,7 @@ CODE_BBD117:
 	AND #$F000				;$BBD11D
 	EOR $18F7				;$BBD120
 	STA sprite.oam_property,x		;$BBD123
-	STZ sprite.visibility,x			;$BBD125
+	STZ sprite.display_mode,x		;$BBD125
 	INC sprite.state,x			;$BBD127
 	LDA sprite.animation_id,x		;$BBD129
 	JSL set_sprite_animation		;$BBD12B
@@ -9926,10 +9926,10 @@ CODE_BBD152:
 	LDA DATA_BBD181,y			;$BBD160
 	AND active_frame_counter		;$BBD163
 	BNE CODE_BBD171				;$BBD165
-	LDA sprite.visibility,x			;$BBD167
+	LDA sprite.display_mode,x		;$BBD167
 	AND #$C000				;$BBD169
 	EOR #$C000				;$BBD16C
-	STA sprite.visibility,x			;$BBD16F
+	STA sprite.display_mode,x		;$BBD16F
 CODE_BBD171:
 	JSL populate_sprite_clipping		;$BBD171
 	LDA #$08AA				;$BBD175
@@ -10550,7 +10550,7 @@ CODE_BBD650:
 	STA sprite.x_speed+1,x			;$BBD658
 	REP #$20				;$BBD65A
 	LDA #$8000				;$BBD65C
-	STA sprite.visibility,x			;$BBD65F
+	STA sprite.display_mode,x		;$BBD65F
 	LDA sprite.x_position,x			;$BBD661
 	SEC					;$BBD663
 	SBC $196D				;$BBD664
@@ -11046,7 +11046,7 @@ CODE_BBD9E3:
 	LDA #$00C0				;$BBDA0C
 	STA sprite.render_order,x		;$BBDA0F
 	LDA #$8001				;$BBDA11
-	STA sprite.visibility,x			;$BBDA14
+	STA sprite.display_mode,x		;$BBDA14
 	LDA #$04FC				;$BBDA16
 	STA sprite.unknown_58,x			;$BBDA19
 	TXY					;$BBDA1B
@@ -11546,7 +11546,7 @@ CODE_BBDDC3:
 	LDA.w sprite.general_purpose_60,y	;$BBDDC7
 	JSR CODE_BBDE63				;$BBDDCA
 	LDX current_sprite			;$BBDDCD
-	STZ sprite.visibility,x			;$BBDDCF
+	STZ sprite.display_mode,x		;$BBDDCF
 	LDA sprite.general_purpose_6C,x		;$BBDDD1
 	BMI CODE_BBDDED				;$BBDDD3
 	JSR CODE_BBDE7A				;$BBDDD5

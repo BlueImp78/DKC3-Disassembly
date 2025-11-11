@@ -108,7 +108,7 @@ bg_steel_keg_main:
 	TYX					;$ACB0B4  \
 	DEC sprite.general_purpose_5C,x		;$ACB0B5   |
 	BNE ..return				;$ACB0B7   |
-	STZ sprite.visibility,x			;$ACB0B9   |
+	STZ sprite.display_mode,x		;$ACB0B9   |
 	LDA #$0300				;$ACB0BB   |
 	STA sprite.y_speed,x			;$ACB0BE   |
 	INC sprite.state,x			;$ACB0C0  /

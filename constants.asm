@@ -572,7 +572,7 @@ includeonce
 !sprite_nibbla_head_friendly		= $0384
 !sprite_nibbla_body_friendly		= $0388
 !sprite_door_lever_handle		= $038C
-!sprite_metal_door_level_controlled	= $0390
+!sprite_metal_door_lever_ctrld  	= $0390
 !sprite_door_gear			= $0394
 !sprite_sneek_in_wheel			= $0398
 !sprite_metal_door_sneek_controlled	= $039C

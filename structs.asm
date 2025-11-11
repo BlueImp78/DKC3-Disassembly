@@ -24,7 +24,7 @@ struct sprite $0000
 	.last_rendered_graphic:		skip 2  	;20,x
 	.sprite_graphic_mirror:		skip 2  	;22,x
 	.sprite_graphic:		skip 2  	;24,x
-	.visibility:			skip 2  	;26,x
+	.display_mode:			skip 2  	;26,x
 	.terrain_interaction:		skip 2  	;28,x
 	.x_speed:			skip 2  	;2A,x
 	.unknown_2C:			skip 1  	;2C,x
@@ -44,7 +44,7 @@ struct sprite $0000
 	.animation_timer:		skip 2  	;42,x
 	.animation_speed:		skip 2  	;44,x
 	.animation_address:		skip 2  	;46,x
-	.animation_routine_pointer:	skip 2  	;48,x
+	.animation_routine:		skip 2  	;48,x
 	.animation_flags:		skip 2  	;4A,x
 	.general_purpose_4C:		skip 2  	;4C,x
 	.general_purpose_4E:		skip 2  	;4E,x
