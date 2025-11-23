@@ -9,7 +9,7 @@ CODE_B58006:
 	JMP CODE_B5F2B9				;$B58006
 
 CODE_B58009:
-	JMP CODE_B5F2F6				;$B58009
+	JMP CODE_B5F2F6				;$B58009 Get RNG?
 
 CODE_B5800C:
 	JMP.w !null_pointer			;$B5800C
@@ -21,10 +21,10 @@ CODE_B58012:
 	JMP.w !null_pointer			;$B58012
 
 CODE_B58015:
-	JMP CODE_B5F31C				;$B58015
+	JMP CODE_B5F31C				;$B58015 Division related
 
 CODE_B58018:
-	JMP CODE_B5F1E4				;$B58018
+	JMP CODE_B5F1E4				;$B58018 Multiplies A by whats in temp_1A, result in A
 
 CODE_B5801B:
 	JMP CODE_B5F1F8				;$B5801B
@@ -45,7 +45,7 @@ CODE_B5802A:
 	JMP CODE_B5F14A				;$B5802A Sets bit 0 of interaction flags
 
 CODE_B5802D:
-	JMP CODE_B5F152				;$B5802D
+	JMP CODE_B5F152				;$B5802D Similar to above
 
 CODE_B58030:
 	JMP.w !null_pointer			;$B58030
@@ -63,7 +63,7 @@ CODE_B5803C:
 	JMP CODE_B5F11B				;$B5803C
 
 CODE_B5803F:
-	JMP CODE_B5E98A				;$B5803F
+	JMP CODE_B5E98A				;$B5803F Sprite palette reference count related
 
 CODE_B58042:
 	JMP CODE_B5E40B				;$B58042
@@ -71,8 +71,8 @@ CODE_B58042:
 CODE_B58045:
 	JMP CODE_B5CC29				;$B58045
 
-CODE_B58048:
-	JMP CODE_B5C4BE				;$B58048 Gets X distance from kong
+get_x_distance_from_kong:
+	JMP get_x_distance_from_kong_global	;$B58048
 
 cranky_kong_main:
 	TYX					;$B5804B
@@ -127,7 +127,7 @@ CODE_B580B3:
 	LDY.w $1B7F				;$B580B8
 	LDX.w #$00E0				;$B580BB
 	LDA.w $0000,y				;$B580BE
-	CMP.w #$04C4		;$B580C1
+	CMP.w #!sprite_cranky_kong		;$B580C1
 	BNE.b CODE_B580C9			;$B580C4
 	LDX.w #$0180				;$B580C6
 CODE_B580C9:
@@ -7053,8 +7053,8 @@ CODE_B5B746:
 
 CODE_B5B74A:
 	STY.b $38,x				;$B5B74A
-	JSL.l CODE_B6801E			;$B5B74C
-	JSL.l CODE_B68021			;$B5B750
+	JSL.l defeat_sprite_using_animation	;$B5B74C
+	JSL.l make_sprite_fall_offscreen	;$B5B750
 	JML.l CODE_B68024			;$B5B754
 
 CODE_B5B758:
@@ -7788,7 +7788,7 @@ CODE_B5BD4D:
 	JSR.w CODE_B5C5AC			;$B5BD56
 	LDA.w #$0016				;$B5BD59
 	STA.b $38,x				;$B5BD5C
-	JSR.w CODE_B5C4C2			;$B5BD5E
+	JSR.w get_x_distance_from_kong_direct	;$B5BD5E
 	BPL.b CODE_B5BD68			;$B5BD61
 	LDA.w #$0218				;$B5BD63
 	BRA.b CODE_B5BD6B			;$B5BD66
@@ -8668,7 +8668,7 @@ CODE_B5C3F4:
 	JMP.w CODE_B5C6AB			;$B5C3F7
 
 CODE_B5C3FA:
-	JSR.w CODE_B5C4C2			;$B5C3FA
+	JSR.w get_x_distance_from_kong_direct	;$B5C3FA
 	BPL.b CODE_B5C404			;$B5C3FD
 	LDA.w #DATA_B5D10A			;$B5C3FF
 	BRA.b CODE_B5C3F4			;$B5C402
@@ -8679,7 +8679,7 @@ CODE_B5C404:
 
 CODE_B5C409:
 	TYX					;$B5C409
-	JSR.w CODE_B5C4C2			;$B5C40A
+	JSR.w get_x_distance_from_kong_direct	;$B5C40A
 	BPL.b CODE_B5C414			;$B5C40D
 	LDA.w #DATA_B5D157			;$B5C40F
 	BRA.b CODE_B5C3F4			;$B5C412
@@ -8706,7 +8706,7 @@ CODE_B5C419:
 	LDA.w $0000,y				;$B5C43F
 	PHY					;$B5C442
 	PHA					;$B5C443
-	JSR.w CODE_B5C4C2			;$B5C444
+	JSR.w get_x_distance_from_kong_direct	;$B5C444
 	BMI.b CODE_B5C44F			;$B5C447
 	PLA					;$B5C449
 	EOR.w #$FFFF				;$B5C44A
@@ -8765,15 +8765,15 @@ CODE_B5C4AA:
 	STZ.b $30,x				;$B5C4B9
 	JMP.w CODE_B5BD4A			;$B5C4BB
 
-CODE_B5C4BE:
-	JSR.w CODE_B5C4C2			;$B5C4BE
+get_x_distance_from_kong_global:
+	JSR get_x_distance_from_kong_direct	;$B5C4BE
 	RTL					;$B5C4C1
 
-CODE_B5C4C2:
-	LDY.w active_kong_sprite		;$B5C4C2
-	LDA.b $12,x				;$B5C4C5
+get_x_distance_from_kong_direct:
+	LDY active_kong_sprite			;$B5C4C2
+	LDA sprite.x_position,x			;$B5C4C5
 	SEC					;$B5C4C7
-	SBC.w $0012,y				;$B5C4C8
+	SBC.w sprite.x_position,y		;$B5C4C8
 	RTS					;$B5C4CB
 
 CODE_B5C4CC:
@@ -11661,7 +11661,7 @@ CODE_B5DCE8:
 	RTS					;$B5DCE8
 
 CODE_B5DCE9:
-	JSR.w CODE_B5C4C2			;$B5DCE9
+	JSR.w get_x_distance_from_kong_direct	;$B5DCE9
 	PHP					;$B5DCEC
 	JSR.w CODE_B5EBDD			;$B5DCED
 	PLP					;$B5DCF0
@@ -14852,14 +14852,18 @@ CODE_B5F5DA:
 	RTL					;$B5F5DD
 
 DATA_B5F5DE:
-	dw $0028,$0019,$0100,$0028,$0019,$0100
-	dw $0028,$0028,$0100,$0028,$0028,$0100
+	dw $0028, $0019, $0100
+	dw $0028, $0019, $0100
+	dw $0028, $0028, $0100
+	dw $0028, $0028, $0100
 
 DATA_B5F5F6:
-	dw $FFF1,$FFE4,$000C,$FFEC,$000A,$FFED
+	dw $FFF1, $FFE4, $000C
+	dw $FFEC, $000A, $FFED
 
 DATA_B5F602:
-	dw $FB00,$0500,$FAC0,$0500,$FA90,$0500
+	dw $FB00, $0500, $FAC0
+	dw $0500, $FA90, $0500
 
 CODE_B5F60E:
 	LDA.w #$0195				;$B5F60E
@@ -15630,7 +15634,7 @@ CODE_B5FBF1:
 	JSL.l CODE_BB8585			;$B5FBFA
 	LDY.b alternate_sprite			;$B5FBFE
 	LDX.w $1B6B				;$B5FC00
-	JSL.l CODE_B68054			;$B5FC03
+	JSL.l move_sprite_in_Y_to_sprite_in_X	;$B5FC03
 	LDA.w #$076D				;$B5FC07
 	JSL.l queue_sound_effect		;$B5FC0A
 CODE_B5FC0E:

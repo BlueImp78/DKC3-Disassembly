@@ -230,7 +230,7 @@ kaos_blade_main:
 	XBA					;$ACB19D   |
 	STA sprite.state,x			;$ACB19E   |
 	STZ sprite.general_purpose_64,x		;$ACB1A0   |
-	JSL CODE_B58048				;$ACB1A2   |
+	JSL get_x_distance_from_kong		;$ACB1A2   |
 	BCS ..CODE_ACB1AD			;$ACB1A6   |
 	LDA #$0000				;$ACB1A8   |
 	BRA ..CODE_ACB1B0			;$ACB1AB  /

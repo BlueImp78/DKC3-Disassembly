@@ -121,6 +121,7 @@ CODE_BFF092:
 
 
 ;looks like sound effects
+;TODO: fix skipped number label lol
 DATA_BFF09D:
 	dw DATA_BFF14F				;00
 	dw DATA_BFF155				;01
@@ -211,6 +212,10 @@ DATA_BFF09D:
 	dw DATA_BFF236				;57
 	dw DATA_BFF23C				;58
 	dw DATA_BFF242				;59
+
+
+;Song number, sound effect number, channel number
+;$FF = catch all
 
 DATA_BFF14F:
 	db $03,$6D,$07

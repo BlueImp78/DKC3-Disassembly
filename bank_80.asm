@@ -8304,7 +8304,7 @@ DATA_80C650:
 ;	08: Crucial Kongs
 
 photo_album_sequence_data:
-	dw !null_pointer, 	$039A : db !level_empty_doorstop_dash, 	 	$FF : dw $0000
+	dw !null_pointer, 	$039A : db !level_empty_doorstop_dash, 	 	 $FF : dw $0000
 	dw .kobble, 		$03A2 : db !level_doorstop_dash_photo_album, 	 $01 : dw $008A
 	dw .rekoil, 		$03A8 : db !level_squeals_on_wheels_photo_album, $00 : dw $0080
 	dw .knocka, 		$03C0 : db !level_ropey_rumpus_photo_album, 	 $00 : dw $0087

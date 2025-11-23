@@ -177,7 +177,7 @@ sprite_main_table:
 	dl unknown_sprite_00A4_main-1			: db $00	;00A4
 	dl razor_ridge_pipe_main-1			: db $00	;00A8
 	dl unknown_sprite_00AC_main-1			: db $00	;00AC
-	dl unknown_sprite_00B0_main-1			: db $00	;00B0
+	dl unknown_sprite_00B0_main-1			: db $00	;00B0 Map related?
 	dl krematoa_bridge_main-1			: db $00	;00B4
 	dl kuchuka_bomb_main-1				: db $00	;00B8
 	dl mama_bird_barrier_gem_main-1			: db $00	;00BC

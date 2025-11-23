@@ -54,6 +54,30 @@ includeonce
 !size_8MB = $0D
 
 
+;input constants
+!input_up 	        = $0800
+!input_down  	        = $0400
+!input_left  	        = $0200
+!input_right 	        = $0100
+!input_any_direction    = $0F00
+
+!input_A 	        = $0080
+!input_B 	        = $8000
+!input_X 	        = $0040
+!input_Y 	        = $4000
+
+!input_L 	        = $0020
+!input_R	        = $0010
+!input_LR               = $0030
+
+!input_start 	        = $1000
+!input_select	        = $2000
+
+!input_ABXY             = $C0C0
+!input_ABXY_start       = $D0C0
+
+
+
 !null_pointer = $000000
 
 

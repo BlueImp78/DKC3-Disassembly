@@ -13744,7 +13744,7 @@ CODE_B8EB5A:
 CODE_B8EB63:
 	LDA.w #$0120				;$B8EB63
 	JSL.l set_sprite_animation		;$B8EB66
-	JSL.l CODE_B68021			;$B8EB6A
+	JSL.l make_sprite_fall_offscreen	;$B8EB6A
 	INC.b $38,x				;$B8EB6E
 	LDA.b $1E,x				;$B8EB70
 	ORA.w #$3000				;$B8EB72

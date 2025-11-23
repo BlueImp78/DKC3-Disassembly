@@ -8,13 +8,13 @@ CODE_B68006:
 	JMP CODE_B69232				;$B68006
 
 CODE_B68009:
-	JMP CODE_B6F3DA				;$B68009
+	JMP CODE_B6F3DA				;$B68009 Unused, mirrors current sprite's X/Y pos. to $1C31 and $1C2F
 
 CODE_B6800C:
-	JMP CODE_B6F3E7				;$B6800C
+	JMP CODE_B6F3E7				;$B6800C Sprite deallocation related
 
 CODE_B6800F:
-	JMP CODE_B6F3F8				;$B6800F
+	JMP CODE_B6F3F8				;$B6800F Collision routine?
 
 CODE_B68012:
 	JMP CODE_B6F3AB				;$B68012
@@ -28,11 +28,11 @@ CODE_B68018:
 CODE_B6801B:
 	JMP.w !null_pointer			;$B6801B
 
-CODE_B6801E:
+defeat_sprite_using_animation:
 	JMP defeat_sprite_using_anim_global	;$B6801E
 
-CODE_B68021:
-	JMP CODE_B680A5				;$B68021
+make_sprite_fall_offscreen:
+	JMP make_sprite_fall_offscreen_global	;$B68021
 
 CODE_B68024:
 	JMP CODE_B680C9				;$B68024
@@ -82,8 +82,8 @@ CODE_B6804E:
 CODE_B68051:
 	JMP CODE_B6F186				;$B68051
 
-CODE_B68054:
-	JMP CODE_B6F272				;$B68054 Moves sprite in Y to sprite in X
+move_sprite_in_Y_to_sprite_in_X:
+	JMP move_spr_in_Y_to_spr_in_X_direct	;$B68054 Moves sprite in Y to sprite in X
 
 
 ;unknown_sprite_0128_main does nothing...
@@ -126,37 +126,37 @@ unknown_sprite_000C_main:
 
 
 defeat_sprite_using_anim_global:
-	JSR defeat_sprite_using_animation	;$B68081
+	JSR defeat_sprite_using_anim_direct	;$B68081
 	RTL					;$B68084
 
 
-defeat_sprite_using_animation:
+defeat_sprite_using_anim_direct:
 	JSL set_sprite_animation		;$B68085
 	JSL CODE_BB85AC				;$B68089
 	LDX current_sprite			;$B6808D
-	STZ $08,x				;$B6808F
+	STZ sprite.placement_number,x		;$B6808F
 	LDA #$0005				;$B68091
-	STA $0A,x				;$B68094
-	LDA $1E,x				;$B68096
+	STA sprite.placement_parameter,x	;$B68094
+	LDA sprite.oam_property,x		;$B68096
 	ORA #$3000				;$B68098
-	STA $1E,x				;$B6809B
+	STA sprite.oam_property,x		;$B6809B
 	LDA #$00F4				;$B6809D
-	STA $0E,x				;$B680A0
-	STZ $3A,x				;$B680A2
+	STA sprite.render_order,x		;$B680A0
+	STZ sprite.interaction_flags,x		;$B680A2
 	RTS					;$B680A4
 
-CODE_B680A5:
-	JSR CODE_B680A9				;$B680A5
+make_sprite_fall_offscreen_global:
+	JSR make_sprite_fall_offscreen_direct	;$B680A5
 	RTL					;$B680A8
 
-CODE_B680A9:
+make_sprite_fall_offscreen_direct:
 	DEC $051D				;$B680A9
 	LDX $78					;$B680AC
 	LDA #$0100				;$B680AE
 	BIT $1E,x				;$B680B1
-	BVC CODE_B680B8				;$B680B3
+	BVC .CODE_B680B8			;$B680B3
 	LDA #$FF00				;$B680B5
-CODE_B680B8:
+.CODE_B680B8:
 	LDX current_sprite			;$B680B8
 	STA $30,x				;$B680BA
 	STA $2A,x				;$B680BC
@@ -167,12 +167,12 @@ CODE_B680B8:
 	RTS					;$B680C8
 
 CODE_B680C9:
-	LDX.b current_sprite			;$B680C9
-	LDA.l DATA_FF1BC0+$02			;$B680CB
-	STA.b $06,x				;$B680CF
-	JSL.l CODE_BBAB29			;$B680D1
-	BCC.b CODE_B680DB			;$B680D5
-	JSL.l CODE_BB8597			;$B680D7
+	LDX current_sprite			;$B680C9
+	LDA DATA_FF1BC0+$02			;$B680CB
+	STA sprite.constants_address,x		;$B680CF
+	JSL CODE_BBAB29				;$B680D1
+	BCC CODE_B680DB				;$B680D5
+	JSL CODE_BB8597				;$B680D7
 CODE_B680DB:
 	JML [$04F5]				;$B680DB
 
@@ -222,8 +222,8 @@ sneek_main:
 ..defeat_sprite:
 	JSL queue_sound_effect			;$B6812A  \  Play defeated sound
 	LDA #$0137				;$B6812E   |
-	JSR defeat_sprite_using_animation	;$B68131   | Set sneek death animation
-	JSR CODE_B680A9				;$B68134   | Make him fall offscreen
+	JSR defeat_sprite_using_anim_direct	;$B68131   | Set sneek death animation
+	JSR make_sprite_fall_offscreen_direct	;$B68134   | Make him fall offscreen
 	INC sprite.state,x			;$B68137   | Set defeated state
 	JMP return_handle_despawn		;$B68139  /
 
@@ -285,8 +285,8 @@ buzz_main:
 	BNE .CODE_B68184			;$B681AA  /
 .CODE_B681AC:
 	LDA #$013D				;$B681AC  \
-	JSR defeat_sprite_using_animation	;$B681AF   |
-	JSR CODE_B680A9				;$B681B2   |
+	JSR defeat_sprite_using_anim_direct	;$B681AF   |
+	JSR make_sprite_fall_offscreen_direct	;$B681B2   |
 	LDA #$0002				;$B681B5   |
 	STA sprite.state,x			;$B681B8   |
 	JMP return_handle_despawn		;$B681BA  /
@@ -318,8 +318,8 @@ buzz_main:
 	LDA #$002F				;$B681F5   |
 	JSL CODE_BB85A0				;$B681F8   |
 	LDA #$013D				;$B681FC   |
-	JSR defeat_sprite_using_animation	;$B681FF   |
-	JSR CODE_B680A9				;$B68202   |
+	JSR defeat_sprite_using_anim_direct	;$B681FF   |
+	JSR make_sprite_fall_offscreen_direct	;$B68202   |
 	LDA #$FF80				;$B68205   |
 	STA sprite.y_speed,x			;$B68208   |
 	LDA #$0002				;$B6820A   |
@@ -367,8 +367,8 @@ koco_main:
 
 ..defeated_in_kong_collision:
 	LDA #$0140				;$B68259  \
-	JSR defeat_sprite_using_animation	;$B6825C   | Set Koco defeated animation
-	JSR CODE_B680A9				;$B6825F   | Make him fall offscreen
+	JSR defeat_sprite_using_anim_direct	;$B6825C   | Set Koco defeated animation
+	JSR make_sprite_fall_offscreen_direct	;$B6825F   | Make him fall offscreen
 	INC sprite.state,x			;$B68262   | Set defeated state
 	JMP return_handle_despawn		;$B68264  / Return and handle despawn
 
@@ -1111,13 +1111,13 @@ klasp_follow_main:
 	RTS					;$B6878A  / Return
 
 
-;Defeat sprite setting state, animation, and something else (fly offscreen?)
+;Defeat sprite setting state, animation, and make sprite fall offscreen
 CODE_B6878B:
 	STY sprite.state,x			;$B6878B  \
-	PLY					;$B6878D  /
+	PLY					;$B6878D  / Pulls JSR from stack
 CODE_B6878E:
 	JSL defeat_sprite_using_anim_global	;$B6878E  \
-	JSL CODE_B680A5				;$B68792   |
+	JSL make_sprite_fall_offscreen_global	;$B68792   |
 	JML CODE_B680C9				;$B68796  /
 
 lemguin_spawner_main:
@@ -3111,10 +3111,10 @@ sneek_in_wheel_main:
 ..collision_happened:
 	INC sprite.state,x			;$B69681  \ Set defeated state
 	LDA sprite.general_purpose_5E,x		;$B69683   |
-	JSR defeat_sprite_using_animation	;$B69685   |
+	JSR defeat_sprite_using_anim_direct	;$B69685   |
 	LDA #$063C				;$B69688   |
 	JSL queue_sound_effect			;$B6968B   | Play sneek hurt sound effect
-	JSR CODE_B680A9				;$B6968F   | Make him fall offscreen
+	JSR make_sprite_fall_offscreen_direct	;$B6968F   | Make him fall offscreen
 	LDY sprite.general_purpose_5C,x		;$B69692   |
 	LDA #$0003				;$B69694   |
 	STA.w sprite.state,y			;$B69697   |
@@ -5695,7 +5695,7 @@ CODE_B6A989:
 CODE_B6A99C:
 	JSL.l process_current_movement		;$B6A99C
 	LDY.b $5C,x				;$B6A9A0
-	JSL.l CODE_B6F272			;$B6A9A2
+	JSL.l move_spr_in_Y_to_spr_in_X_direct	;$B6A9A2
 	JMP.w CODE_B6A8FC			;$B6A9A6
 
 CODE_B6A9A9:
@@ -5722,7 +5722,7 @@ CODE_B6A9D8:
 	LDA.w #$0049				;$B6A9D8
 	JSL.l process_alternate_movement	;$B6A9DB
 	LDY.b $5C,x				;$B6A9DF
-	JSL.l CODE_B6F272			;$B6A9E1
+	JSL.l move_spr_in_Y_to_spr_in_X_direct	;$B6A9E1
 	LDA.b $28,x				;$B6A9E5
 	AND.w #$0001				;$B6A9E7
 	BEQ.b CODE_B6A9F1			;$B6A9EA
@@ -5752,7 +5752,7 @@ CODE_B6AA12:
 	LDA.w #$0040				;$B6AA12
 	JSL.l process_alternate_movement	;$B6AA15
 	LDY.b $5C,x				;$B6AA19
-	JSL.l CODE_B6F272			;$B6AA1B
+	JSL.l move_spr_in_Y_to_spr_in_X_direct	;$B6AA1B
 	JMP.w CODE_B6A8FC			;$B6AA1F
 
 CODE_B6AA22:
@@ -12807,7 +12807,7 @@ CODE_B6DF4E:
 	JSL.l CODE_BB8585			;$B6DF51
 	LDY.b alternate_sprite			;$B6DF55
 	LDX.b current_sprite			;$B6DF57
-	JSL.l CODE_B6F272			;$B6DF59
+	JSL.l move_spr_in_Y_to_spr_in_X_direct	;$B6DF59
 	LDA.b $1E,x				;$B6DF5D
 	AND.w #$4000				;$B6DF5F
 	EOR.w $001E,y				;$B6DF62
@@ -15505,7 +15505,7 @@ invert_max_x_speed_if_needed:
 .return:
 	RTS					;$B6F271
 
-CODE_B6F272:
+move_spr_in_Y_to_spr_in_X_direct:
 	LDA sprite.x_position,x			;$B6F272
 	STA.w sprite.x_position,y		;$B6F274
 	LDA sprite.y_position,x			;$B6F277
