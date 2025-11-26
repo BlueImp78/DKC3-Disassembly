@@ -157,7 +157,7 @@ CODE_B580D1:
 	MVN $7EA174>>16,DATA_B5FD80>>16		;$B58106
 	PLB					;$B58109
 	LDA.w #$0201				;$B5810A
-	STA.w $04E4				;$B5810D
+	STA.w pending_dma_hdma_channels		;$B5810D
 	JSL.l CODE_B68045			;$B58110
 	SEP.b #$20				;$B58114
 	LDA.b #$81				;$B58116

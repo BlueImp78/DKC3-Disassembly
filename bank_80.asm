@@ -758,9 +758,9 @@ CODE_808550:
 	LDA #$E0				;$808560
 	STA PPU.fixed_color			;$808562
 	REP #$20				;$808565
-	LDA $04E4				;$808567
+	LDA pending_dma_hdma_channels		;$808567
 	AND #$1E01				;$80856A
-	STA $04E4				;$80856D
+	STA pending_dma_hdma_channels		;$80856D
 	LDA #$0040				;$808570
 	TSB $05AF				;$808573
 	STZ $1D89				;$808576
@@ -1131,7 +1131,7 @@ CODE_80882A:
 	STA HDMA[$07].indirect_source_bank	;$80888B
 	REP #$20				;$80888E
 	LDA #$8000				;$808890
-	TSB $04E4				;$808893
+	TSB pending_dma_hdma_channels		;$808893
 	BRA CODE_80889E				;$808896
 
 CODE_808898:
@@ -2681,7 +2681,7 @@ CODE_80957A:
 	RTS					;$809585
 
 CODE_809586:
-	LDA $04E4				;$809586
+	LDA pending_dma_hdma_channels		;$809586
 	STA CPU.enable_dma_hdma			;$809589
 	JSL CODE_B38006				;$80958C
 	JSL CODE_808799				;$809590
@@ -3793,7 +3793,7 @@ CODE_809F12:
 	CPY #$008A				;$809F1D
 	BMI CODE_809F12				;$809F20
 	LDA #$7E01				;$809F22
-	STA $04E4				;$809F25
+	STA pending_dma_hdma_channels		;$809F25
 	RTS					;$809F28
 
 CODE_809F29:
@@ -5369,8 +5369,8 @@ CODE_80AB28:
 	CLC					;$80AB2F
 	ADC sprite.general_purpose_5C,x		;$80AB30
 	CLC					;$80AB32
-	ADC sprite.sprite_graphic,x		;$80AB33
-	STA sprite.sprite_graphic,x		;$80AB35
+	ADC sprite.current_graphic,x		;$80AB33
+	STA sprite.current_graphic,x		;$80AB35
 	RTS					;$80AB37
 
 file_select_cheat_handler_main:
@@ -5722,7 +5722,7 @@ play_mode_text_main:
 .init:
 	TYX					;$80ADEE  \
 	INC sprite.state,x			;$80ADEF   |
-	LDA sprite.sprite_graphic,x		;$80ADF1   |
+	LDA sprite.current_graphic,x		;$80ADF1   |
 	STA sprite.general_purpose_5C,x		;$80ADF3  /
 .state_1:
 	TYX					;$80ADF5  \
@@ -5734,7 +5734,7 @@ play_mode_text_main:
 	ADC $1C3B				;$80ADFD   |
 	CLC					;$80AE00   |
 	ADC sprite.general_purpose_5C,x		;$80AE01   |
-	STA sprite.sprite_graphic,x		;$80AE03   |
+	STA sprite.current_graphic,x		;$80AE03   |
 	LDA DATA_80C32E,y			;$80AE05   |
 	STA sprite.x_position,x			;$80AE08   |
 	LDA DATA_80C32E+$02,y			;$80AE0A   |
@@ -5802,7 +5802,7 @@ CODE_80AE3E:
 	STA HDMA[$02].indirect_source_bank	;$80AEA3
 	REP #$20				;$80AEA6
 	LDA #$0601				;$80AEA8
-	STA $04E4				;$80AEAB
+	STA pending_dma_hdma_channels		;$80AEAB
 	LDA #$0020				;$80AEAE
 	STA $7EA15A				;$80AEB1
 	LDA #$0102				;$80AEB5
@@ -5953,7 +5953,7 @@ CODE_80AFFD:
 	STA $7EA15E				;$80B035
 CODE_80B039:
 	LDA #$0201				;$80B039
-	STA $04E4				;$80B03C
+	STA pending_dma_hdma_channels		;$80B03C
 	RTS					;$80B03F
 
 CODE_80B040:
@@ -6160,7 +6160,7 @@ CODE_80B1EA:
 	RTS					;$80B1EC
 
 CODE_80B1ED:
-	LDA $04E4				;$80B1ED
+	LDA pending_dma_hdma_channels		;$80B1ED
 	STA CPU.enable_dma_hdma			;$80B1F0
 	LDX #$7400				;$80B1F3
 	STX PPU.vram_address			;$80B1F6
@@ -6362,7 +6362,7 @@ CODE_80B378:
 	LDA #$1300				;$80B3B5
 	STA $80					;$80B3B8
 	LDA #$0001				;$80B3BA
-	STA $04E4				;$80B3BD
+	STA pending_dma_hdma_channels		;$80B3BD
 	LDA #$000F				;$80B3C0
 	JSL CODE_BB859A				;$80B3C3
 	ORA #$3000				;$80B3C7
@@ -6423,7 +6423,7 @@ CODE_80B44D:
 	JMP CODE_8083C3				;$80B45A
 
 CODE_80B45D:
-	LDA $04E4				;$80B45D
+	LDA pending_dma_hdma_channels		;$80B45D
 	STA CPU.enable_dma_hdma			;$80B460
 	JSL CODE_B38006				;$80B463
 	JSL CODE_808799				;$80B467
@@ -6601,7 +6601,7 @@ CODE_80B593:
 	JSL CODE_808CEC				;$80B5DF
 	JSR CODE_80B926				;$80B5E3
 	LDA #$7001				;$80B5E6
-	STA $04E4				;$80B5E9
+	STA pending_dma_hdma_channels		;$80B5E9
 	JSR CODE_80B98B				;$80B5EC
 	JSR CODE_80957A				;$80B5EF
 	LDA #$0001				;$80B5F2
@@ -6617,7 +6617,7 @@ DATA_80B5FF:
 	dw CODE_80B9CD
 
 CODE_80B605:
-	LDA $04E4				;$80B605
+	LDA pending_dma_hdma_channels		;$80B605
 	STA CPU.enable_dma_hdma			;$80B608
 	JSL CODE_B38006				;$80B60B
 	JSL CODE_808799				;$80B60F
@@ -6660,7 +6660,7 @@ CODE_80B648:
 	LDA #$0090				;$80B674
 	STA $1D39				;$80B677
 	LDA #$8001				;$80B67A
-	STA $04E4				;$80B67D
+	STA pending_dma_hdma_channels		;$80B67D
 	STZ $F4					;$80B680
 CODE_80B682:
 	LDA $1D39				;$80B682
@@ -6726,7 +6726,7 @@ CODE_80B711:
 	JMP CODE_8082EC				;$80B711
 
 CODE_80B714:
-	LDA $04E4				;$80B714
+	LDA pending_dma_hdma_channels		;$80B714
 	STA CPU.enable_dma_hdma			;$80B717
 	LDX #$75C0				;$80B71A
 	STX PPU.vram_address			;$80B71D
@@ -6842,7 +6842,7 @@ CODE_80B7FD:
 	STA CPU.enable_dma			;$80B833
 	REP #$20				;$80B836
 	LDA #$0001				;$80B838
-	TSB $04E4				;$80B83B
+	TSB pending_dma_hdma_channels		;$80B83B
 	LDY #$0286				;$80B83E
 	JSL CODE_BB8588				;$80B841
 	LDA #$0007				;$80B845
@@ -7485,7 +7485,7 @@ boss_cutscene_dialogue_handler_main:
 	STA sprite.general_purpose_5E,x		;$80BDAF   |
 	LDA $0001,y				;$80BDB1   |
 	STA sprite.general_purpose_60,x		;$80BDB4   |
-	LDA sprite.carry_or_defeated_flags,x	;$80BDB6   |
+	LDA sprite.carry_or_defeat_flags,x	;$80BDB6   |
 	BNE ..CODE_80BDC8			;$80BDB8   |
 	STZ $1E					;$80BDBA   |
 	STZ $20					;$80BDBC   |
@@ -7969,7 +7969,7 @@ CODE_80C181:
 	LDY #$FFDF				;$80C181
 	JSR CODE_809F29				;$80C184
 	LDA #$0001				;$80C187
-	STA $04E4				;$80C18A
+	STA pending_dma_hdma_channels		;$80C18A
 	LDA #$0001				;$80C18D
 	TRB $05AF				;$80C190
 	LDA #$0200				;$80C193
@@ -7981,7 +7981,7 @@ CODE_80C181:
 	JMP CODE_8083C3				;$80C1A7
 
 CODE_80C1AA:
-	LDA $04E4				;$80C1AA
+	LDA pending_dma_hdma_channels		;$80C1AA
 	STA CPU.enable_dma_hdma			;$80C1AD
 	JSL CODE_B38006				;$80C1B0
 	JSL CODE_808799				;$80C1B4

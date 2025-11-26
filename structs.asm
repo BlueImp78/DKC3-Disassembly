@@ -22,8 +22,8 @@ struct sprite $0000
 	.terrain_attributes:		skip 2  	;1C,x
 	.oam_property:			skip 2  	;1E,x
 	.last_rendered_graphic:		skip 2  	;20,x
-	.sprite_graphic_mirror:		skip 2  	;22,x
-	.sprite_graphic:		skip 2  	;24,x
+	.current_graphic_mirror:	skip 2  	;22,x
+	.current_graphic:		skip 2  	;24,x
 	.display_mode:			skip 2  	;26,x
 	.terrain_interaction:		skip 2  	;28,x
 	.x_speed:			skip 2  	;2A,x
@@ -38,7 +38,7 @@ struct sprite $0000
 	.state:				skip 1  	;38,x
 	.sub_state:			skip 1  	;39,x
 	.interaction_flags:		skip 2  	;3A,x
-	.carry_or_defeated_flags:	skip 2  	;3C,x
+	.carry_or_defeat_flags:		skip 2  	;3C,x
 	.unknown_3E:			skip 2  	;3E,x   34,x in DKC2
 	.animation_id:			skip 2  	;40,x
 	.animation_timer:		skip 2  	;42,x

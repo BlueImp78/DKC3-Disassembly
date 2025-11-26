@@ -2068,7 +2068,7 @@ CODE_BB8F3A:
 	LDA #$0005				;$BB8F43
 	STA sprite.placement_parameter,x	;$BB8F46
 	STZ sprite.last_rendered_graphic,x	;$BB8F48
-	STZ sprite.sprite_graphic,x		;$BB8F4A
+	STZ sprite.current_graphic,x		;$BB8F4A
 	LDA #$C000				;$BB8F4C
 	STA sprite.display_mode,x		;$BB8F4F
 	STZ sprite.terrain_attributes,x		;$BB8F51
@@ -2184,7 +2184,7 @@ CODE_BB8FE3:
 	STZ sprite.slip_velocity,x		;$BB8FE9
 	STZ sprite.constants_address,x		;$BB8FEB
 	STZ sprite.placement_number,x		;$BB8FED
-	STZ sprite.carry_or_defeated_flags,x	;$BB8FEF
+	STZ sprite.carry_or_defeat_flags,x	;$BB8FEF
 apply_spawn_script_to_slot_direct:
 	PHB					;$BB8FF1
 	%pea_shift_dbr(DATA_FF218C)
@@ -2456,7 +2456,7 @@ CODE_BB9190:
 	CLC					;$BB91A8
 	ADC.l DATA_B9B6E7,x			;$BB91A9
 	LDX alternate_sprite			;$BB91AD
-	STA sprite.sprite_graphic,x		;$BB91AF
+	STA sprite.current_graphic,x		;$BB91AF
 	JMP initscript_next			;$BB91B1
 
 spawn_command_load_subconfig:
@@ -4533,14 +4533,14 @@ DATA_BBA117:
 
 CODE_BBA121:
 	LDA #$8000				;$BBA121
-	STA water_level				;$BBA124
+	STA water_y_position			;$BBA124
 	STZ $050B				;$BBA127
 	STZ $050D				;$BBA12A
 	RTS					;$BBA12D
 
 CODE_BBA12E:
 	LDA $0513				;$BBA12E
-	STA water_level				;$BBA131
+	STA water_y_position			;$BBA131
 	JSR CODE_BBA154				;$BBA134
 	STZ $0507				;$BBA137
 	STZ $050D				;$BBA13A
@@ -4548,7 +4548,7 @@ CODE_BBA12E:
 
 CODE_BBA13E:
 	LDA $0513				;$BBA13E
-	STA water_level				;$BBA141
+	STA water_y_position			;$BBA141
 	JSR CODE_BBA154				;$BBA144
 	LDA #$FF80				;$BBA147
 	STA $0507				;$BBA14A
@@ -5390,7 +5390,7 @@ CODE_BBA786:
 	STA sprite.x_sub_position,x		;$BBA7A3
 	STA sprite.y_sub_position,x		;$BBA7A5
 	STZ sprite.slip_velocity,x		;$BBA7A7
-	STZ sprite.carry_or_defeated_flags,x	;$BBA7A9
+	STZ sprite.carry_or_defeat_flags,x	;$BBA7A9
 	STZ sprite.interaction_flags,x		;$BBA7AB
 	STZ sprite.terrain_interaction,x	;$BBA7AD
 	STZ sprite.offscreen_despawn_time,x	;$BBA7AF
@@ -5442,10 +5442,10 @@ CODE_BBA7E7:
 	STA sprite.y_sub_position,x		;$BBA804
 	LDA #$C000				;$BBA806
 	STA sprite.display_mode,x		;$BBA809
-	STZ sprite.sprite_graphic,x		;$BBA80B
+	STZ sprite.current_graphic,x		;$BBA80B
 	STZ sprite.last_rendered_graphic,x	;$BBA80D
 	STZ sprite.slip_velocity,x		;$BBA80F
-	STZ sprite.carry_or_defeated_flags,x	;$BBA811
+	STZ sprite.carry_or_defeat_flags,x	;$BBA811
 	STZ sprite.interaction_flags,x		;$BBA813
 	STZ sprite.terrain_interaction,x	;$BBA815
 	STZ sprite.offscreen_despawn_time,x	;$BBA817
@@ -5508,7 +5508,7 @@ CODE_BBA866:
 	STA sprite.x_sub_position,x		;$BBA87A
 	STA sprite.y_sub_position,x		;$BBA87C
 	STZ sprite.slip_velocity,x		;$BBA87E
-	STZ sprite.carry_or_defeated_flags,x	;$BBA880
+	STZ sprite.carry_or_defeat_flags,x	;$BBA880
 	STZ sprite.interaction_flags,x		;$BBA882
 	STZ sprite.terrain_interaction,x	;$BBA884
 	STZ sprite.offscreen_despawn_time,x	;$BBA886
@@ -5999,7 +5999,7 @@ CODE_BBAB52:
 	LDX current_sprite			;$BBABE8
 	LDA #!sprite_respawn_suppressor		;$BBABEA
 	JSR CODE_BBB884				;$BBABED
-	STZ sprite.sprite_graphic,x		;$BBABF0
+	STZ sprite.current_graphic,x		;$BBABF0
 	STZ sprite.last_rendered_graphic,x	;$BBABF2
 	STZ sprite.x_position,x			;$BBABF4
 	STZ sprite.y_position,x			;$BBABF6
@@ -8698,8 +8698,8 @@ CODE_BBC887:
 CODE_BBC88A:
 	TYX					;$BBC88A
 	LDA #$0040				;$BBC88B
-	AND sprite.carry_or_defeated_flags,x	;$BBC88E
-	STZ sprite.carry_or_defeated_flags,x	;$BBC890
+	AND sprite.carry_or_defeat_flags,x	;$BBC88E
+	STZ sprite.carry_or_defeat_flags,x	;$BBC890
 	BNE CODE_BBC897				;$BBC892
 	JMP CODE_BBC915				;$BBC894
 
@@ -10649,7 +10649,7 @@ CODE_BBD6F5:
 	LDY alternate_sprite			;$BBD6F7
 	STY sprite.general_purpose_5C,x		;$BBD6F9
 	STX sprite.general_purpose_5C,y		;$BBD6FB
-	LDA sprite.sprite_graphic,x		;$BBD6FD
+	LDA sprite.current_graphic,x		;$BBD6FD
 	STA sprite.general_purpose_6C,x		;$BBD6FF
 	STX bonus_timer_index			;$BBD701
 	JSR CODE_BBD915				;$BBD704
@@ -10925,13 +10925,13 @@ CODE_BBD915:
 	ASL					;$BBD92E
 	ADC CPU.divide_result			;$BBD92F
 	ADC sprite.general_purpose_6C,x		;$BBD932
-	STA sprite.sprite_graphic,x		;$BBD934
+	STA sprite.current_graphic,x		;$BBD934
 	LDA CPU.divide_remainder		;$BBD936
 	ASL					;$BBD939
 	ASL					;$BBD93A
 	ADC CPU.divide_remainder		;$BBD93B
 	ADC sprite.general_purpose_6C,x		;$BBD93E
-	STA.w sprite.sprite_graphic,y		;$BBD940
+	STA.w sprite.current_graphic,y		;$BBD940
 	RTS					;$BBD943
 
 CODE_BBD944:
@@ -11053,8 +11053,8 @@ CODE_BBD9E3:
 	LDX #$006C				;$BBDA1C
 	LDA.l DATA_B9B6E7,x			;$BBDA1F
 	TYX					;$BBDA23
-	STA sprite.sprite_graphic,x		;$BBDA24
-	STZ sprite.sprite_graphic_mirror,x	;$BBDA26
+	STA sprite.current_graphic,x		;$BBDA24
+	STZ sprite.current_graphic_mirror,x	;$BBDA26
 	STZ sprite.last_rendered_graphic,x	;$BBDA28
 	INC sprite.state,x			;$BBDA2A
 	JML [$04F5]				;$BBDA2C
@@ -11586,8 +11586,8 @@ CODE_BBDE22:
 	LDX current_sprite			;$BBDE32
 	LDY $78					;$BBDE34
 	LDA #$0200				;$BBDE36
-	ORA.w sprite.carry_or_defeated_flags,y	;$BBDE39
-	STA.w sprite.carry_or_defeated_flags,y	;$BBDE3C
+	ORA.w sprite.carry_or_defeat_flags,y	;$BBDE39
+	STA.w sprite.carry_or_defeat_flags,y	;$BBDE3C
 	STX sprite.unknown_3E,y			;$BBDE3F
 CODE_BBDE41:
 	RTS					;$BBDE41

@@ -3203,7 +3203,7 @@ DATA_FF261A:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_0130
 	db sprite.x_position : dw $0000
 	db sprite.y_position : dw $0000
-	db sprite.sprite_graphic : dw $0000
+	db sprite.current_graphic : dw $0000
 	db sprite.last_rendered_graphic : dw $0000
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.general_purpose_60 : dw $0000
@@ -3572,28 +3572,28 @@ DATA_FF293C:
 	db !spawn_command_load_subconfig : dw DATA_FF2926
 	db !spawn_command_set_palette : dw $0016
 	db sprite.general_purpose_60 : dw $0234
-	db sprite.sprite_graphic : dw $0000
+	db sprite.current_graphic : dw $0000
 	db !spawn_command_success
 
 DATA_FF2949:
 	db !spawn_command_load_subconfig : dw DATA_FF2926
 	db !spawn_command_set_palette : dw $0017
 	db sprite.general_purpose_60 : dw $0238
-	db sprite.sprite_graphic : dw $0002
+	db sprite.current_graphic : dw $0002
 	db !spawn_command_success
 
 DATA_FF2956:
 	db !spawn_command_load_subconfig : dw DATA_FF2926
 	db !spawn_command_set_conditional_palette : dw $0777, $0010, DATA_FF2B21, DATA_FF2B25
 	db sprite.general_purpose_60 : dw $023C
-	db sprite.sprite_graphic : dw $0004
+	db sprite.current_graphic : dw $0004
 	db !spawn_command_success
 
 DATA_FF2969:
 	db !spawn_command_load_subconfig : dw DATA_FF2926
 	db !spawn_command_set_palette : dw $0019
 	db sprite.general_purpose_60 : dw $0240
-	db sprite.sprite_graphic : dw $0006
+	db sprite.current_graphic : dw $0006
 	db !spawn_command_success
 
 DATA_FF2976:
@@ -3910,8 +3910,8 @@ DATA_FF2C19:
 DATA_FF2C1B:
 	db !spawn_command_set_type : dw !sprite_KongFusedCliffsAutoscroll
 	db sprite.render_order : dw $00CC
-	db sprite.sprite_graphic : dw $0001
-	db sprite.sprite_graphic_mirror : dw $0001
+	db sprite.current_graphic : dw $0001
+	db sprite.current_graphic_mirror : dw $0001
 	db sprite.last_rendered_graphic : dw $0001
 	db sprite.display_mode : dw $8006
 	db sprite.general_purpose_64 : dw $0000
@@ -4078,7 +4078,7 @@ DATA_FF2DA1:
 	db sprite.y_position : dw $0040
 	db sprite.render_order : dw $00F8
 	db sprite.display_mode : dw $8000
-	db sprite.sprite_graphic : dw $2981
+	db sprite.current_graphic : dw $2981
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_palette : dw $000F
 	db !spawn_command_success
@@ -4100,7 +4100,7 @@ DATA_FF2DCD:
 	db sprite.render_order : dw $00F8
 	db sprite.display_mode : dw $8000
 	db !spawn_command_set_oam : dw $3000
-	db sprite.sprite_graphic : dw $004B
+	db sprite.current_graphic : dw $004B
 	db !spawn_command_success
 
 DATA_FF2DE6:
@@ -4266,7 +4266,7 @@ DATA_FF2F3C:
 	db sprite.display_mode : dw $8001
 	db !spawn_command_set_palette : dw $004A
 	db !spawn_command_set_oam : dw $3000
-	db sprite.sprite_graphic : dw $2A76
+	db sprite.current_graphic : dw $2A76
 	db !spawn_command_success
 
 DATA_FF2F61:
@@ -4360,7 +4360,7 @@ DATA_FF3019:
 	db sprite.x_position : dw $0110
 	db sprite.render_order : dw $00F8
 	db !spawn_command_set_oam : dw $3000
-	db sprite.sprite_graphic : dw $004B
+	db sprite.current_graphic : dw $004B
 	db sprite.display_mode : dw $0000
 	db !spawn_command_success
 
@@ -4452,7 +4452,7 @@ DATA_FF30F2:
 	db sprite.unknown_58 : dw $0000
 	db !spawn_command_set_palette : dw $0023
 	db !spawn_command_set_oam : dw $2000
-	db sprite.sprite_graphic : dw $2E3B
+	db sprite.current_graphic : dw $2E3B
 	db !spawn_command_success
 
 DATA_FF310E:
@@ -4787,7 +4787,7 @@ DATA_FF33FB:
 	db sprite.display_mode : dw $0000
 	db !spawn_command_set_palette : dw $0064
 	db !spawn_command_set_oam : dw $2000
-	db sprite.sprite_graphic : dw $3147
+	db sprite.current_graphic : dw $3147
 	db !spawn_command_success
 
 DATA_FF3411:
@@ -6829,8 +6829,8 @@ DATA_FF4607:
 	db sprite.display_mode : dw $C000
 	db sprite.state : dw $0002
 	db sprite.render_order : dw $00C0
-	db sprite.sprite_graphic : dw $0101
-	db sprite.sprite_graphic_mirror : dw $0101
+	db sprite.current_graphic : dw $0101
+	db sprite.current_graphic_mirror : dw $0101
 	db sprite.x_position : dw $02A5
 	db sprite.y_position : dw $020D
 	db sprite.render_order : dw $00FF
@@ -7366,7 +7366,7 @@ DATA_FF4AA6:
 	db sprite.general_purpose_5C : dw DATA_FF4B20
 	db sprite.general_purpose_6C : dw $0001
 	db sprite.general_purpose_50 : dw $00C4
-	db sprite.carry_or_defeated_flags : dw $27A5
+	db sprite.carry_or_defeat_flags : dw $27A5
 	db !spawn_command_success
 
 DATA_FF4AC5:
@@ -7378,7 +7378,7 @@ DATA_FF4AC5:
 	db sprite.general_purpose_5C : dw DATA_FF4AF8
 	db sprite.general_purpose_6C : dw $0001
 	db sprite.general_purpose_50 : dw $00C4
-	db sprite.carry_or_defeated_flags : dw $2998
+	db sprite.carry_or_defeat_flags : dw $2998
 	db !spawn_command_success
 
 DATA_FF4AE4:
@@ -7732,9 +7732,9 @@ DATA_FF4E7D:
 DATA_FF4EAB:
 	db !spawn_command_set_type : dw !sprite_KnautilusSpriteMask
 	db sprite.display_mode : dw $8008
-	db sprite.sprite_graphic : dw $0001
+	db sprite.current_graphic : dw $0001
 	db sprite.last_rendered_graphic : dw $0001
-	db sprite.sprite_graphic_mirror : dw $0001
+	db sprite.current_graphic_mirror : dw $0001
 	db sprite.constants_address : dw DATA_FF1BCE
 	db sprite.movement_state : dw $0007
 	db sprite.general_purpose_60 : dw $0201
@@ -7852,9 +7852,9 @@ DATA_FF4FAB:
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_set_palette : dw $000F
 	db sprite.display_mode : dw $8009
-	db sprite.sprite_graphic : dw $0001
+	db sprite.current_graphic : dw $0001
 	db sprite.last_rendered_graphic : dw $0001
-	db sprite.sprite_graphic_mirror : dw $0001
+	db sprite.current_graphic_mirror : dw $0001
 	db sprite.general_purpose_5E : dw $0000
 	db !spawn_command_success
 
@@ -8263,7 +8263,7 @@ DATA_FF532A:
 	db sprite.state : dw $0001
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_64 : dw $0040
-	db sprite.carry_or_defeated_flags : dw $0000
+	db sprite.carry_or_defeat_flags : dw $0000
 	db !spawn_command_success
 
 DATA_FF533A:
@@ -10447,31 +10447,31 @@ DATA_FF6604:
 DATA_FF6617:
 	db !spawn_command_load_subconfig : dw DATA_FF6604
 	db !spawn_command_set_palette : dw $000F
-	db sprite.sprite_graphic : dw $0008
+	db sprite.current_graphic : dw $0008
 	db !spawn_command_success
 
 DATA_FF6621:
 	db !spawn_command_load_subconfig : dw DATA_FF6604
 	db !spawn_command_set_palette : dw $0016
-	db sprite.sprite_graphic : dw $0000
+	db sprite.current_graphic : dw $0000
 	db !spawn_command_success
 
 DATA_FF662B:
 	db !spawn_command_load_subconfig : dw DATA_FF6604
 	db !spawn_command_set_palette : dw $0017
-	db sprite.sprite_graphic : dw $0002
+	db sprite.current_graphic : dw $0002
 	db !spawn_command_success
 
 DATA_FF6635:
 	db !spawn_command_load_subconfig : dw DATA_FF6604
-	db sprite.sprite_graphic : dw $0004
+	db sprite.current_graphic : dw $0004
 	db !spawn_command_set_conditional_palette : dw $0777, $0010, DATA_FF2B21, DATA_FF2B25
 	db !spawn_command_success
 
 DATA_FF6645:
 	db !spawn_command_load_subconfig : dw DATA_FF6604
 	db !spawn_command_set_palette : dw $0019
-	db sprite.sprite_graphic : dw $0006
+	db sprite.current_graphic : dw $0006
 	db !spawn_command_success
 
 DATA_FF664F:
@@ -11334,7 +11334,7 @@ DATA_FF6F71:
 	db sprite.render_order : dw $00EC
 	db sprite.general_purpose_68 : dw $0000
 	db sprite.general_purpose_6A : dw $0000
-	db sprite.sprite_graphic : dw $0000
+	db sprite.current_graphic : dw $0000
 	db sprite.movement_state : dw $0A0A
 	db sprite.constants_address : dw $0100
 	db !spawn_command_success
@@ -14793,7 +14793,7 @@ DATA_FF898D:
 	db sprite.state : dw $0000
 	db sprite.general_purpose_68 : dw $0000
 	db sprite.general_purpose_60 : dw $FD00
-	db sprite.sprite_graphic : dw $2D55
+	db sprite.current_graphic : dw $2D55
 	db sprite.render_order : dw $00D8
 	db !spawn_command_set_oam_2 : dw $2000
 	db !spawn_command_set_palette : dw $0052

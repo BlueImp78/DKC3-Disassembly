@@ -109,6 +109,8 @@ player_action = $04DE
 player_action_button_held = $04E0
 player_action_button_pressed = $04E2
 
+pending_dma_hdma_channels = $04E4
+
 
 screen_brightness = $04EC
 screen_fade_speed = $04ED
@@ -125,7 +127,7 @@ follower_kong_control_variables = $04FF
 
 
 water_bubbles_x_speed = $0509
-water_level = $050F
+water_y_position = $050F
 riverside_race_timer = $0535
 active_cheats = $053B
 
@@ -265,6 +267,8 @@ sram_base = $B06000
 ;squals on wheels alive rats = $0557
 
 ;debug_flags = $059B
+
+;world_map_events = $05FB ($0400 = kremwood log moved)
 
 ;DKC2 $08C2 equivalent = $05B1
 

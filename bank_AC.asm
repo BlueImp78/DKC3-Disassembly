@@ -121,7 +121,7 @@ bg_steel_keg_main:
 	BCC ..CODE_ACB0D9			;$ACB0CC   |
 	LDY $1BBD				;$ACB0CE   |
 	LDA #$0018				;$ACB0D1   |
-	STA.w sprite.carry_or_defeated_flags,y	;$ACB0D4   |
+	STA.w sprite.carry_or_defeat_flags,y	;$ACB0D4   |
 	BRA ..CODE_ACB0E2			;$ACB0D7  /
 
 ..CODE_ACB0D9:
@@ -180,7 +180,7 @@ kaos_blade_main:
 
 .state_0:
 	JSR .CODE_ACB25A			;$ACB13D  \
-	LDA.w sprite.sprite_graphic,y		;$ACB140   |
+	LDA.w sprite.current_graphic,y		;$ACB140   |
 	JSR .CODE_ACB1F2			;$ACB143   |
 	JML [$04F5]				;$ACB146  /
 
@@ -194,7 +194,7 @@ kaos_blade_main:
 ..CODE_ACB158:
 	LDA sprite.general_purpose_5E,x		;$ACB158  \
 	BEQ ..CODE_ACB168			;$ACB15A   |
-	STA sprite.sprite_graphic,x		;$ACB15C   |
+	STA sprite.current_graphic,x		;$ACB15C   |
 	STZ sprite.general_purpose_5E,x		;$ACB15E   |
 	JSL process_sprite_animation		;$ACB160   |
 	LDX current_sprite			;$ACB164   |
@@ -203,24 +203,24 @@ kaos_blade_main:
 ..CODE_ACB168:
 	JSL process_sprite_animation		;$ACB168  \
 	LDX current_sprite			;$ACB16C   |
-	LDA sprite.sprite_graphic,x		;$ACB16E   |
+	LDA sprite.current_graphic,x		;$ACB16E   |
 	CMP sprite.last_rendered_graphic,x	;$ACB170   |
 	BEQ .CODE_ACB182			;$ACB172   |
 	STA sprite.general_purpose_5E,x		;$ACB174   |
 	LDA sprite.last_rendered_graphic,x	;$ACB176   |
-	STA sprite.sprite_graphic,x		;$ACB178   |
+	STA sprite.current_graphic,x		;$ACB178   |
 	LDA sprite.general_purpose_5E,x		;$ACB17A   |
 	JSR .CODE_ACB1F2			;$ACB17C   |
 	JML [$04F5]				;$ACB17F  /
 
 .CODE_ACB182:
-	LDA sprite.sprite_graphic,x		;$ACB182  \
+	LDA sprite.current_graphic,x		;$ACB182  \
 	JSR .CODE_ACB1F2			;$ACB184   |
 	JML [$04F5]				;$ACB187  /
 
 .state_2:
 	JSL CODE_B68015				;$ACB18A  \
-	LDA sprite.sprite_graphic,x		;$ACB18E   |
+	LDA sprite.current_graphic,x		;$ACB18E   |
 	JSR .CODE_ACB1F2			;$ACB190   |
 	LDA sprite.unknown_2C,x			;$ACB193   |
 	STA sprite.x_position,x			;$ACB195   |

@@ -59,7 +59,7 @@ includeonce
 !input_down  	        = $0400
 !input_left  	        = $0200
 !input_right 	        = $0100
-!input_any_direction    = $0F00
+!input_dpad		= $0F00
 
 !input_A 	        = $0080
 !input_B 	        = $8000

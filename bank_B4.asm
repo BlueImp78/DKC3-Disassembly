@@ -146,7 +146,7 @@ CODE_B4812D:
 CODE_B4813A:
 	PHK					;$B4813A
 	PLB					;$B4813B
-	LDA.w $04E4				;$B4813C
+	LDA.w pending_dma_hdma_channels		;$B4813C
 	AND.w #$0001				;$B4813F
 	ORA.w #$7E00				;$B48142
 	STA.w CPU.enable_dma_hdma		;$B48145
@@ -179,7 +179,7 @@ CODE_B48164:
 	STA.l $7EA171				;$B4818E
 	LDX.w #$0003				;$B48192
 CODE_B48195:
-	STX.w $04E4				;$B48195
+	STX.w pending_dma_hdma_channels		;$B48195
 	LDA.w $1C39				;$B48198
 	BEQ.b CODE_B481AF			;$B4819B
 	DEC.w $1C39				;$B4819D
@@ -850,7 +850,7 @@ DATA_B4874B:
 CODE_B4874E:
 	PHK					;$B4874E
 	PLB					;$B4874F
-	LDA.w $04E4				;$B48750
+	LDA.w pending_dma_hdma_channels		;$B48750
 	AND.w #$0001				;$B48753
 	ORA.w #$FE00				;$B48756
 	STA.w CPU.enable_dma_hdma		;$B48759
@@ -876,7 +876,7 @@ CODE_B4874E:
 	STA.l $7EA171				;$B48791
 	LDX.w #$0003				;$B48795
 CODE_B48798:
-	STX.w $04E4				;$B48798
+	STX.w pending_dma_hdma_channels		;$B48798
 	JSR.w CODE_B48D55			;$B4879B
 	LDA.w $1C39				;$B4879E
 	BEQ.b CODE_B487C2			;$B487A1
@@ -1578,7 +1578,7 @@ CODE_B48D81:
 CODE_B48D82:
 	PHK					;$B48D82
 	PLB					;$B48D83
-	LDA.w $04E4				;$B48D84
+	LDA.w pending_dma_hdma_channels		;$B48D84
 	AND.w #$FF01				;$B48D87
 	STA.w CPU.enable_dma_hdma		;$B48D8A
 	JSL.l CODE_B38006			;$B48D8D
@@ -1612,7 +1612,7 @@ CODE_B48DC5:
 	LDX.w #$0003				;$B48DD5
 CODE_B48DD8:
 	SEP.b #$10				;$B48DD8
-	STX.w $04E4				;$B48DDA
+	STX.w pending_dma_hdma_channels		;$B48DDA
 	REP.b #$10				;$B48DDD
 	LDA.w $1C39				;$B48DDF
 	BEQ.b CODE_B48E10			;$B48DE2
@@ -1847,7 +1847,7 @@ CODE_B48FC7:
 	STZ.w $1D3F				;$B48FC7
 	JSR.w CODE_B4A80C			;$B48FCA
 	LDA.w #$0E01				;$B48FCD
-	STA.w $04E4				;$B48FD0
+	STA.w pending_dma_hdma_channels		;$B48FD0
 	LDA.w #$0001				;$B48FD3
 	STA.l $7EA19C				;$B48FD6
 	JMP.w CODE_B4904A			;$B48FDA
@@ -1883,7 +1883,7 @@ CODE_B4901A:
 	LDA.w #$0007				;$B4901A
 	TRB.w $1C35				;$B4901D
 	LDA.w #$1E01				;$B49020
-	STA.w $04E4				;$B49023
+	STA.w pending_dma_hdma_channels		;$B49023
 	LDA.w $1C49				;$B49026
 	BNE.b CODE_B49032			;$B49029
 	LDA.w #$0001				;$B4902B
@@ -3036,7 +3036,7 @@ CODE_B4992D:
 CODE_B49930:
 	PHK					;$B49930
 	PLB					;$B49931
-	LDA.w $04E4				;$B49932
+	LDA.w pending_dma_hdma_channels		;$B49932
 	AND.w #$0001				;$B49935
 	ORA.w #$FE00				;$B49938
 	STA.w CPU.enable_dma_hdma		;$B4993B
@@ -3064,7 +3064,7 @@ CODE_B49930:
 	STA.l $7EA171				;$B49979
 	LDX.w #$0003				;$B4997D
 CODE_B49980:
-	STX.w $04E4				;$B49980
+	STX.w pending_dma_hdma_channels		;$B49980
 	LDA.w $1C39				;$B49983
 	BEQ.b CODE_B4999A			;$B49986
 	DEC.w $1C39				;$B49988
@@ -3451,7 +3451,7 @@ CODE_B49CD1:
 CODE_B49CD3:
 	PHK					;$B49CD3
 	PLB					;$B49CD4
-	LDA.w $04E4				;$B49CD5
+	LDA.w pending_dma_hdma_channels		;$B49CD5
 	STA.w CPU.enable_dma_hdma		;$B49CD8
 	JSL.l CODE_B38006			;$B49CDB
 	JSL.l CODE_80801E			;$B49CDF
@@ -3689,7 +3689,7 @@ CODE_B49EBA:
 CODE_B49ED0:
 	PHK					;$B49ED0
 	PLB					;$B49ED1
-	LDA.w $04E4				;$B49ED2
+	LDA.w pending_dma_hdma_channels		;$B49ED2
 	STA.w CPU.enable_dma_hdma		;$B49ED5
 	JSL.l CODE_B38006			;$B49ED8
 	JSL.l CODE_80801E			;$B49EDC
@@ -4496,7 +4496,7 @@ CODE_B4A5C8:
 	TAX					;$B4A5DE
 	JSR.w CODE_B4A583			;$B4A5DF
 	LDA.w #$3E03				;$B4A5E2
-	STA.w $04E4				;$B4A5E5
+	STA.w pending_dma_hdma_channels		;$B4A5E5
 	LDA.w #$0080				;$B4A5E8
 	TRB.w $1C35				;$B4A5EB
 	LDA.w #$1337				;$B4A5EE
@@ -4839,7 +4839,7 @@ CODE_B4A82A:
 	STA DMA[0].source_bank			;$B4A846
 	REP #$20				;$B4A849
 	SEP #$20				;$B4A84B
-	LDA $04E4				;$B4A84D
+	LDA pending_dma_hdma_channels		;$B4A84D
 	AND #$02				;$B4A850
 	LSR					;$B4A852
 	STA.w CPU.enable_dma			;$B4A853
@@ -4922,7 +4922,7 @@ CODE_B4A8C6:
 	STA DMA[0].source_bank			;$B4A8E5
 	REP #$20				;$B4A8E8
 	LDA #$0003				;$B4A8EA
-	STA $04E4				;$B4A8ED
+	STA pending_dma_hdma_channels		;$B4A8ED
 	RTS					;$B4A8F0
 
 CODE_B4A8F1:
@@ -5376,7 +5376,7 @@ CODE_B4AD50:
 	PHK					;$B4AD80
 	PLB					;$B4AD81
 	LDA.w #$0201				;$B4AD82
-	STA.w $04E4				;$B4AD85
+	STA.w pending_dma_hdma_channels		;$B4AD85
 	RTS					;$B4AD88
 
 CODE_B4AD89:
@@ -5506,7 +5506,7 @@ CODE_B4AE66:
 	STZ.w $1C41				;$B4AEC2
 	STZ.w $1C49				;$B4AEC5
 	LDA.w #$1E03				;$B4AEC8
-	STA.w $04E4				;$B4AECB
+	STA.w pending_dma_hdma_channels		;$B4AECB
 	RTS					;$B4AECE
 
 ;CGRAM colors
@@ -5662,7 +5662,7 @@ CODE_B4AFEE:
 	JSR.w CODE_B4A159			;$B4AFF1
 	JSL.l CODE_80807B			;$B4AFF4
 	LDA.w #$0001				;$B4AFF8
-	STA.w $04E4				;$B4AFFB
+	STA.w pending_dma_hdma_channels		;$B4AFFB
 	JSR.w CODE_B4810B			;$B4AFFE
 	LDA.w #$0003				;$B4B001
 	JSL.l CODE_BB85E2			;$B4B004
@@ -5839,7 +5839,7 @@ DATA_B4B175:
 CODE_B4B179:
 	PHK					;$B4B179
 	PLB					;$B4B17A
-	LDA.w $04E4				;$B4B17B
+	LDA.w pending_dma_hdma_channels		;$B4B17B
 	STA.w CPU.enable_dma_hdma		;$B4B17E
 	JSL.l CODE_B38006			;$B4B181
 	JSL.l CODE_80801E			;$B4B185
@@ -7491,7 +7491,7 @@ CODE_B4BE32:
 	LDA.w #$0000				;$B4BE57
 	STA.l $7EA1D0				;$B4BE5A
 	LDA.w #$0E01				;$B4BE5E
-	STA.w $04E4				;$B4BE61
+	STA.w pending_dma_hdma_channels		;$B4BE61
 	JSR.w CODE_B4C4C1			;$B4BE64
 	STZ.w $048E				;$B4BE67
 	LDA.w $1973				;$B4BE6A
@@ -7551,7 +7551,7 @@ CODE_B4BEB3:
 	LDX.w #DATA_B4DF5C			;$B4BEE6
 	JSR.w CODE_B4A7C9			;$B4BEE9
 	LDA.w #$0201				;$B4BEEC
-	STA.w $04E4				;$B4BEEF
+	STA.w pending_dma_hdma_channels		;$B4BEEF
 	LDX.w #$0008				;$B4BEF2
 	JSR.w CODE_B4BCCD			;$B4BEF5
 	JSR.w CODE_B4C0EF			;$B4BEF8
@@ -7584,7 +7584,7 @@ CODE_B4BF2C:
 	CPX.w #$01C0				;$B4BF36
 	BNE.b CODE_B4BF2C			;$B4BF39
 	LDA.w #$0E01				;$B4BF3B
-	STA.w $04E4				;$B4BF3E
+	STA.w pending_dma_hdma_channels		;$B4BF3E
 	LDX.w #DATA_B4D030			;$B4BF41
 	JSR.w CODE_B4A159			;$B4BF44
 	LDY.w #$0210				;$B4BF47
@@ -7665,7 +7665,7 @@ CODE_B4BFEF:
 	LDX.w #DATA_B4DF78			;$B4C004
 	JSR.w CODE_B4A7C9			;$B4C007
 	LDA.w #$1E01				;$B4C00A
-	STA.w $04E4				;$B4C00D
+	STA.w pending_dma_hdma_channels		;$B4C00D
 	STZ.w $1C67				;$B4C010
 	LDX.w #$0006				;$B4C013
 	JSR.w CODE_B4BCCD			;$B4C016
@@ -7714,7 +7714,7 @@ CODE_B4C066:
 	LDX.w #$0003				;$B4C07F
 	LDA.w #$745E				;$B4C082
 	STA.b $1A				;$B4C085
-CODE_B4C087:						; Note: This adds the rope to the Mekanos layer 2 tilemap.
+CODE_B4C087:					; Note: This adds the rope to the Mekanos layer 2 tilemap.
 	LDA.b $1A				;$B4C087
 	STA.w PPU.vram_address			;$B4C089
 	CLC					;$B4C08C
@@ -7728,7 +7728,7 @@ CODE_B4C087:						; Note: This adds the rope to the Mekanos layer 2 tilemap.
 	LDX.w #DATA_B4DF92			;$B4C09E
 	JSR.w CODE_B4A7C9			;$B4C0A1
 	LDA.w #$0601				;$B4C0A4
-	STA.w $04E4				;$B4C0A7
+	STA.w pending_dma_hdma_channels		;$B4C0A7
 	LDX.w #DATA_B4D055			;$B4C0AA
 	JSR.w CODE_B4A159			;$B4C0AD
 	LDX.w active_kong_sprite		;$B4C0B0
@@ -7790,7 +7790,7 @@ CODE_B4C102:
 	LDX.w #DATA_B4DFA0			;$B4C131
 	JSR.w CODE_B4A7C9			;$B4C134
 	LDA.w #$FC01				;$B4C137
-	STA.w $04E4				;$B4C13A
+	STA.w pending_dma_hdma_channels		;$B4C13A
 	LDX.w #$0006				;$B4C13D
 	JSR.w CODE_B4BCCD			;$B4C140
 	STZ.w $1C67				;$B4C143
@@ -7885,7 +7885,7 @@ CODE_B4C21D:
 	LDX.w #DATA_B4DF5C			;$B4C22E
 	JSR.w CODE_B4A7C9			;$B4C231
 	LDA.w #$0201				;$B4C234
-	STA.w $04E4				;$B4C237
+	STA.w pending_dma_hdma_channels		;$B4C237
 	STZ.w $1C67				;$B4C23A
 	LDX.w #$0008				;$B4C23D
 	JSR.w CODE_B4BCCD			;$B4C240
@@ -7925,7 +7925,7 @@ CODE_B4C273:
 	LDX.w #DATA_B4DFCC			;$B4C292
 	JSR.w CODE_B4A7C9			;$B4C295
 	LDA.w #$1E01				;$B4C298
-	STA.w $04E4				;$B4C29B
+	STA.w pending_dma_hdma_channels		;$B4C29B
 	LDA.w #$76C0				;$B4C29E
 	STA.w PPU.vram_address			;$B4C2A1
 	LDX.w #$0000				;$B4C2A4
@@ -7969,7 +7969,7 @@ CODE_B4C2F9:
 	LDX.w #DATA_B4DFE6			;$B4C2FC
 	JSR.w CODE_B4A7C9			;$B4C2FF
 	LDA.w #$0201				;$B4C302
-	STA.w $04E4				;$B4C305
+	STA.w pending_dma_hdma_channels		;$B4C305
 	LDA.w #$FFFF				;$B4C308
 	STA.w $06E0				;$B4C30B
 	LDX.w #$0000				;$B4C30E
