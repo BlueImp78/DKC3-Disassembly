@@ -83,7 +83,7 @@ CODE_B68051:
 	JMP CODE_B6F186				;$B68051
 
 move_sprite_in_Y_to_sprite_in_X:
-	JMP move_spr_in_Y_to_spr_in_X_direct	;$B68054 Moves sprite in Y to sprite in X
+	JMP move_spr_in_Y_to_spr_in_X_direct	;$B68054
 
 
 ;unknown_sprite_0128_main does nothing...
@@ -14458,12 +14458,14 @@ CODE_B6EB52:
 	RTS					;$B6EB6E
 
 DATA_B6EB6F:
-	dw $C6ED,$C3EF,$BFF0,$BBF1,$BAF1,$B8F2,$B7F3,$B7F3
-	dw $B7F3,$BCF6,$BCFD,$BBF1
+	dw $C6ED, $C3EF, $BFF0, $BBF1
+	dw $BAF1, $B8F2, $B7F3, $B7F3
+	dw $B7F3, $BCF6, $BCFD, $BBF1
 
 DATA_B6EB87:
-	dw $D5F8,$D3F8,$D3F9,$D2F9,$D2F9,$D2F9,$D4FA,$D4FE
-	dw $D4F8,$D4F8,$D4F8,$D4F8
+	dw $D5F8, $D3F8, $D3F9, $D2F9
+	dw $D2F9, $D2F9, $D4FA, $D4FE
+	dw $D4F8, $D4F8, $D4F8, $D4F8
 
 knautilus_fireball_main:
 	TYX					;$B6EB9F
@@ -14903,7 +14905,7 @@ CODE_B6EE8F:
 
 CODE_B6EE92:
 	TYX					;$B6EE92
-	LDA.w #(($7EA9DE&$FF0000)>>16)|((CODE_B6EE92&$FF0000)>>8)	;$B6EE93
+	LDA.w #$B67E				;$B6EE93
 	STA.w $004C,y				;$B6EE96
 	STZ.b $5C,x				;$B6EE99
 	LDA.b $5E,x				;$B6EE9B
@@ -14926,7 +14928,7 @@ CODE_B6EEB4:
 	TYX					;$B6EEB4
 	LDA.w #$0100				;$B6EEB5
 	STA.b $1C				;$B6EEB8
-	LDA.w #((DATA_FC0000+$06A0)&$FF0000)>>8	;$B6EEBA
+	LDA.w #$FC00				;$B6EEBA
 	STA.b $1B				;$B6EEBD
 CODE_B6EEBF:
 	LDA.b $4C,x				;$B6EEBF

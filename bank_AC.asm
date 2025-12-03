@@ -55,9 +55,9 @@ krool_fight_bg_decorations_main:
 	ASL					;$ACB05C   |
 	TAX					;$ACB05D   |
 	LDA $04F1				;$ACB05E   |
-	STA $06FC,x				;$ACB061   |
+	STA palette_upload_ring_buffer,x	;$ACB061   |
 	LDA $04F3				;$ACB064   |
-	STA $06FE,x				;$ACB067   |
+	STA palette_upload_ring_buffer+$2,x	;$ACB067   |
 	LDA $E8					;$ACB06A   |
 	INC					;$ACB06C   |
 	AND #$000F				;$ACB06D   |

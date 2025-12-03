@@ -143,7 +143,7 @@ CODE_B380F4:
 	JSL CODE_B3D843				;$B380FA
 	JSL CODE_B7B00F				;$B380FE
 	JSL CODE_B7B012				;$B38102
-	JSL CODE_80801E				;$B38106
+	JSL DMA_queued_sprite_palette		;$B38106
 	RTS					;$B3810A
 
 CODE_B3810B:
@@ -933,7 +933,7 @@ CODE_B3939E:
 	JSL.l CODE_B7B8D1			;$B393A8
 	JSL.l CODE_B7B00F			;$B393AC
 	JSL.l CODE_B7B012			;$B393B0
-	JSL.l CODE_80801E			;$B393B4
+	JSL DMA_queued_sprite_palette		;$B393B4
 	LDA.w $15E4				;$B393B8
 	BEQ.b CODE_B393C0			;$B393BB
 	DEC.w $15E4				;$B393BD
@@ -1285,7 +1285,7 @@ CODE_B397A2:
 	LDA.w pending_dma_hdma_channels		;$B397A2
 	STA.w CPU.enable_dma_hdma		;$B397A5
 	JSL.l CODE_B3D843			;$B397A8
-	JSL.l CODE_80801E			;$B397AC
+	JSL DMA_queued_sprite_palette		;$B397AC
 	LDA.w #$0004				;$B397B0
 	TRB.w $1B7D				;$B397B3
 	BEQ.b CODE_B397E9			;$B397B6
@@ -1868,7 +1868,7 @@ CODE_B39E6A:
 	LDA.w pending_dma_hdma_channels		;$B39E6A
 	STA.w CPU.enable_dma_hdma		;$B39E6D
 	JSL.l CODE_B3D843			;$B39E70
-	JSL.l CODE_80801E			;$B39E74
+	JSL DMA_queued_sprite_palette		;$B39E74
 	SEP.b #$20				;$B39E78
 	LDA.l $7EA69A				;$B39E7A
 	STA.w PPU.cgram_address			;$B39E7E
@@ -2093,9 +2093,9 @@ CODE_B3A0AD:
 	LDA.w pending_dma_hdma_channels		;$B3A0AD
 	STA.w CPU.enable_dma_hdma		;$B3A0B0
 	JSL.l CODE_B3D843			;$B3A0B3
-	JSL.l CODE_80801E			;$B3A0B7
-	JSL.l CODE_80801E			;$B3A0BB
-	JSL.l CODE_80801E			;$B3A0BF
+	JSL DMA_queued_sprite_palette		;$B3A0B7
+	JSL DMA_queued_sprite_palette		;$B3A0BB
+	JSL DMA_queued_sprite_palette		;$B3A0BF
 	LDA.b active_frame_counter		;$B3A0C3
 	EOR.w #$0001				;$B3A0C5
 	AND.w #$0001				;$B3A0C8
@@ -2396,7 +2396,7 @@ CODE_B3A3A4:
 	LDA.w pending_dma_hdma_channels		;$B3A3A4
 	STA.w CPU.enable_dma_hdma		;$B3A3A7
 	JSL.l CODE_B3D843			;$B3A3AA
-	JSL.l CODE_80801E			;$B3A3AE
+	JSL DMA_queued_sprite_palette		;$B3A3AE
 	SEP.b #$20				;$B3A3B2
 	LDA.w screen_brightness			;$B3A3B4
 	STA.w PPU.screen			;$B3A3B7
@@ -2407,7 +2407,7 @@ CODE_B3A3BD:
 	LDA.w pending_dma_hdma_channels		;$B3A3BD
 	STA.w CPU.enable_dma_hdma		;$B3A3C0
 	JSL.l CODE_B3D843			;$B3A3C3
-	JSL.l CODE_80801E			;$B3A3C7
+	JSL DMA_queued_sprite_palette		;$B3A3C7
 	JSR.w CODE_B38158			;$B3A3CB
 	LDA.w $1C49				;$B3A3CE
 	SEP.b #$20				;$B3A3D1
@@ -2426,9 +2426,9 @@ CODE_B3A3EC:
 	LDA.w pending_dma_hdma_channels		;$B3A3EC
 	STA.w CPU.enable_dma_hdma		;$B3A3EF
 	JSL.l CODE_B3D843			;$B3A3F2
-	JSL.l CODE_80801E			;$B3A3F6
-	JSL.l CODE_80801E			;$B3A3FA
-	JSL.l CODE_80801E			;$B3A3FE
+	JSL DMA_queued_sprite_palette		;$B3A3F6
+	JSL DMA_queued_sprite_palette		;$B3A3FA
+	JSL DMA_queued_sprite_palette		;$B3A3FE
 	LDA.w timestop_flags			;$B3A402
 	BIT.w #$0004				;$B3A405
 	BEQ.b CODE_B3A40D			;$B3A408

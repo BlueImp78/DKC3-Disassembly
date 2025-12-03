@@ -121,7 +121,6 @@ CODE_BFF092:
 
 
 ;looks like sound effects
-;TODO: fix skipped number label lol
 DATA_BFF09D:
 	dw DATA_BFF14F				;00
 	dw DATA_BFF155				;01
@@ -147,71 +146,71 @@ DATA_BFF09D:
 	dw DATA_BFF1A9				;15
 	dw DATA_BFF1AC				;16
 	dw DATA_BFF1AF				;17
-	dw DATA_BFF1B2				;19
-	dw DATA_BFF1B5				;1A
-	dw DATA_BFF1B8				;1B
-	dw DATA_BFF1BB				;1C
-	dw DATA_BFF1BE				;1D
-	dw DATA_BFF1C4				;1E
-	dw DATA_BFF1CA				;1F
-	dw DATA_BFF1D0				;20
-	dw DATA_BFF1D6				;21
-	dw DATA_BFF1DC				;22
-	dw DATA_BFF1EB				;23
-	dw DATA_BFF1F1				;24
-	dw DATA_BFF245				;25
-	dw DATA_BFF24B				;26
-	dw DATA_BFF251				;27
-	dw DATA_BFF257				;28
-	dw DATA_BFF25D				;29
-	dw DATA_BFF263				;2A
-	dw DATA_BFF269				;2B
-	dw DATA_BFF26F				;2C
-	dw DATA_BFF275				;2D
-	dw DATA_BFF27E				;2E
-	dw DATA_BFF287				;2F
-	dw DATA_BFF28D				;30
-	dw DATA_BFF293				;31
-	dw DATA_BFF299				;32
-	dw DATA_BFF29F				;33
-	dw DATA_BFF2A5				;34
-	dw DATA_BFF2AE				;35
-	dw DATA_BFF2B4				;36
-	dw DATA_BFF2BA				;37
-	dw DATA_BFF2C0				;38
-	dw DATA_BFF2C6				;39
-	dw DATA_BFF2CC				;3A
-	dw DATA_BFF2D2				;3B
-	dw DATA_BFF2D8				;3C
-	dw DATA_BFF2DE				;3D
-	dw DATA_BFF2E4				;3E
-	dw DATA_BFF2E7				;3F
-	dw DATA_BFF2EA				;40
-	dw DATA_BFF2F0				;41
-	dw DATA_BFF2F6				;42
-	dw DATA_BFF1F7				;43
-	dw DATA_BFF1FA				;44
-	dw DATA_BFF1FD				;45
-	dw DATA_BFF200				;46
-	dw DATA_BFF203				;47
-	dw DATA_BFF206				;48
-	dw DATA_BFF209				;49
-	dw DATA_BFF20C				;4A
-	dw DATA_BFF20F				;4B
-	dw DATA_BFF212				;4C
-	dw DATA_BFF215				;4D
-	dw DATA_BFF218				;4E
-	dw DATA_BFF21B				;4F
-	dw DATA_BFF21E				;50
-	dw DATA_BFF221				;51
-	dw DATA_BFF224				;52
-	dw DATA_BFF227				;53
-	dw DATA_BFF22A				;54
-	dw DATA_BFF22D				;55
-	dw DATA_BFF230				;56
-	dw DATA_BFF236				;57
-	dw DATA_BFF23C				;58
-	dw DATA_BFF242				;59
+	dw DATA_BFF1B2				;18
+	dw DATA_BFF1B5				;19
+	dw DATA_BFF1B8				;1A
+	dw DATA_BFF1BB				;1B
+	dw DATA_BFF1BE				;1C
+	dw DATA_BFF1C4				;1D
+	dw DATA_BFF1CA				;1E
+	dw DATA_BFF1D0				;1F
+	dw DATA_BFF1D6				;20
+	dw DATA_BFF1DC				;21
+	dw DATA_BFF1EB				;22
+	dw DATA_BFF1F1				;23
+	dw DATA_BFF245				;24
+	dw DATA_BFF24B				;25
+	dw DATA_BFF251				;26
+	dw DATA_BFF257				;27
+	dw DATA_BFF25D				;28
+	dw DATA_BFF263				;29
+	dw DATA_BFF269				;2A
+	dw DATA_BFF26F				;2B
+	dw DATA_BFF275				;2C
+	dw DATA_BFF27E				;2D
+	dw DATA_BFF287				;2E
+	dw DATA_BFF28D				;2F
+	dw DATA_BFF293				;30
+	dw DATA_BFF299				;31
+	dw DATA_BFF29F				;32
+	dw DATA_BFF2A5				;33
+	dw DATA_BFF2AE				;34
+	dw DATA_BFF2B4				;35
+	dw DATA_BFF2BA				;36
+	dw DATA_BFF2C0				;37
+	dw DATA_BFF2C6				;38
+	dw DATA_BFF2CC				;39
+	dw DATA_BFF2D2				;3A
+	dw DATA_BFF2D8				;3B
+	dw DATA_BFF2DE				;3C
+	dw DATA_BFF2E4				;3D
+	dw DATA_BFF2E7				;3E
+	dw DATA_BFF2EA				;3F
+	dw DATA_BFF2F0				;40
+	dw DATA_BFF2F6				;41
+	dw DATA_BFF1F7				;42
+	dw DATA_BFF1FA				;43
+	dw DATA_BFF1FD				;44
+	dw DATA_BFF200				;45
+	dw DATA_BFF203				;46
+	dw DATA_BFF206				;47
+	dw DATA_BFF209				;48
+	dw DATA_BFF20C				;49
+	dw DATA_BFF20F				;4A
+	dw DATA_BFF212				;4B
+	dw DATA_BFF215				;4C
+	dw DATA_BFF218				;4D
+	dw DATA_BFF21B				;4E
+	dw DATA_BFF21E				;4F
+	dw DATA_BFF221				;50
+	dw DATA_BFF224				;51
+	dw DATA_BFF227				;52
+	dw DATA_BFF22A				;53
+	dw DATA_BFF22D				;54
+	dw DATA_BFF230				;55
+	dw DATA_BFF236				;56
+	dw DATA_BFF23C				;57
+	dw DATA_BFF242				;58
 
 
 ;Song number, sound effect number, channel number

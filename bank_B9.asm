@@ -30,7 +30,7 @@ set_inactive_kong_anim_handle_kiddy:
 	JMP CODE_B9A091				;$B9A01B
 
 set_anim_handle_animal_direct:
-	STA.b $3E				;$B9A01E
+	STA.b temp_3E				;$B9A01E
 	LDY.b current_sprite			;$B9A020
 	LDA.w $0000,y				;$B9A022
 	SEC					;$B9A025
@@ -39,12 +39,12 @@ set_anim_handle_animal_direct:
 	TAX					;$B9A02A
 	LDA.l DATA_B9B1BB,x			;$B9A02B
 	CLC					;$B9A02F
-	ADC.b $3E				;$B9A030
+	ADC.b temp_3E				;$B9A030
 	BRL set_sprite_animation_direct		;$B9A032
 
 CODE_B9A035:
-	STA.b $3E				;$B9A035
-	LDX.w $04FB				;$B9A037
+	STA.b temp_3E				;$B9A035
+	LDX.w active_kong_control_variables	;$B9A037
 	STX current_kong_control_variables	;$B9A03A
 	LDA.b $00,x				;$B9A03C
 	PHX					;$B9A03E
@@ -61,7 +61,7 @@ CODE_B9A035:
 	TAX					;$B9A051
 	LDA.l DATA_B9B1B3,x			;$B9A052
 	CLC					;$B9A056
-	ADC.b $3E				;$B9A057
+	ADC.b temp_3E				;$B9A057
 	JSL.l set_anim_handle_kiddy_direct	;$B9A059
 CODE_B9A05D:
 	PLA					;$B9A05D
@@ -1162,7 +1162,8 @@ CODE_B9A746:
 	RTS					;$B9A752
 
 DATA_B9A753:
-	dw $0023,$0000,$002D,$0002,$0063,$0000,$0067,$0000
+	dw $0023, $0000, $002D, $0002
+	dw $0063, $0000, $0067, $0000
 
 CODE_B9A763:
 	LDX.b current_sprite			;$B9A763
@@ -1214,7 +1215,8 @@ CODE_B9A7B7:
 	RTS					;$B9A7C3
 
 DATA_B9A7C4:
-	dw $0023,$0001,$002D,$0002,$0063,$0001,$0067,$0001
+	dw $0023, $0001, $002D, $0002
+	dw $0063, $0001, $0067, $0001
 
 CODE_B9A7D4:
 	LDX.b current_sprite			;$B9A7D4
@@ -1257,7 +1259,8 @@ CODE_B9A816:
 	RTS					;$B9A822
 
 DATA_B9A823:
-	dw $0023,$0002,$002D,$0002,$0063,$0002,$0067,$0002
+	dw $0023, $0002, $002D, $0002
+	dw $0063, $0002, $0067, $0002
 
 CODE_B9A833:
 	LDX.b current_sprite			;$B9A833
@@ -1396,7 +1399,7 @@ CODE_B9A90F:
 
 CODE_B9A91E:
 	LDA.w player_active_held		;$B9A91E
-	AND.w #$0800				;$B9A921
+	AND.w #!input_up			;$B9A921
 CODE_B9A924:
 	CMP.w #$0001				;$B9A924
 	RTS					;$B9A927
@@ -2542,7 +2545,7 @@ CODE_B9B0D3:
 	LDA.w #$00D8				;$B9B0D6
 	STA.b $0E,x				;$B9B0D9
 	LDA.w player_active_held		;$B9B0DB
-	AND.w #$0800				;$B9B0DE
+	AND.w #!input_up			;$B9B0DE
 	BEQ.b CODE_B9B0E6			;$B9B0E1
 	JMP.w CODE_B9B150			;$B9B0E3
 
@@ -2630,6 +2633,8 @@ CODE_B9B193:
 	STZ.w current_held_sprite		;$B9B1AF
 	RTS					;$B9B1B2
 
+
+;Animation ID's
 DATA_B9B1B3:
 	dw $0041
 	dw $0041
@@ -2780,13 +2785,13 @@ CODE_B9B2A5:
 	LDA.w #$0006				;$B9B2A5
 	JSL.l CODE_BFF009			;$B9B2A8
 	LDA.w player_active_pressed		;$B9B2AC
-	AND.w #$0300				;$B9B2AF
+	AND.w #!input_left|!input_right		;$B9B2AF
 	BNE.b CODE_B9B2CD			;$B9B2B2
 	LDA.w player_active_held		;$B9B2B4
-	BIT.w #$0020				;$B9B2B7
+	BIT.w #!input_L				;$B9B2B7
 	BNE.b CODE_B9B2C4			;$B9B2BA
-	AND.w #$0480				;$B9B2BC
-	CMP.w #$0480				;$B9B2BF
+	AND.w #!input_down|!input_A		;$B9B2BC
+	CMP.w #!input_down|!input_A		;$B9B2BF
 	BNE.b CODE_B9B2CD			;$B9B2C2
 CODE_B9B2C4:
 	LDA.w $1891				;$B9B2C4
@@ -2825,7 +2830,7 @@ CODE_B9B2FF:
 	STZ.b $2A,x				;$B9B2FF
 CODE_B9B301:
 	LDA.w player_active_held		;$B9B301
-	AND.w #$0090				;$B9B304
+	AND.w #!input_A|!input_R		;$B9B304
 	BNE.b CODE_B9B30B			;$B9B307
 	STZ.b $6C,x				;$B9B309
 CODE_B9B30B:
@@ -2850,7 +2855,7 @@ CODE_B9B31C:
 
 CODE_B9B31D:
 	LDA.w player_active_held		;$B9B31D
-	AND.w #$0800				;$B9B320
+	AND.w #!input_up			;$B9B320
 	CMP.w #$0001				;$B9B323
 	RTS					;$B9B326
 
@@ -3049,7 +3054,7 @@ CODE_B9B47C:
 CODE_B9B487:
 	LDA.b $30,x				;$B9B487
 	BNE.b CODE_B9B497			;$B9B489
-	LDY.w $04FB				;$B9B48B
+	LDY.w active_kong_control_variables	;$B9B48B
 	LDA.w $0004,y				;$B9B48E
 	AND.w #$0080				;$B9B491
 	BEQ.b CODE_B9B497			;$B9B494
@@ -3061,7 +3066,7 @@ CODE_B9B497:
 CODE_B9B49A:
 	LDA.b $30,x				;$B9B49A
 	BNE.b CODE_B9B4AA			;$B9B49C
-	LDY.w $04FB				;$B9B49E
+	LDY.w active_kong_control_variables	;$B9B49E
 	LDA.w $0004,y				;$B9B4A1
 	AND.w #$0080				;$B9B4A4
 	BEQ.b CODE_B9B4B2			;$B9B4A7
@@ -4433,7 +4438,7 @@ CODE_B9BD33:
 	CPX.w follower_kong_sprite		;$B9BD37
 	BEQ.b CODE_B9BD44			;$B9BD3A
 	LDA.w player_active_held		;$B9BD3C
-	BIT.w #$0F00				;$B9BD3F
+	BIT.w #!input_dpad			;$B9BD3F
 	BEQ.b CODE_B9BD75			;$B9BD42
 CODE_B9BD44:
 	LDA.b $60,x				;$B9BD44
@@ -4479,7 +4484,8 @@ CODE_B9BD7E:
 	JMP.w CODE_B9BCBC			;$B9BD88
 
 DATA_B9BD8B:
-	dw $0000,$0001,$0002,$0003,$0004,$0003,$0002,$0001
+	dw $0000, $0001, $0002, $0003
+	dw $0004, $0003, $0002, $0001
 
 CODE_B9BD9B:
 	JSL.l CODE_808018			;$B9BD9B
@@ -5033,13 +5039,12 @@ process_alternate_movement_direct:
 	AND #$00FF				;$B9E036
 	ASL					;$B9E039
 	LDY current_sprite			;$B9E03A
-	JSR (DATA_B9E042,x)			;$B9E03C
+	JSR (sprite_movement_routines,x)	;$B9E03C
 	LDX current_sprite			;$B9E03F
 	RTL					;$B9E041
 
 
-;object movement routines
-DATA_B9E042:
+sprite_movement_routines:
 	dw CODE_B9E0E8			;00					
 	dw CODE_B9E0E9			;01
 	dw CODE_B9E0EC			;02
@@ -7843,70 +7848,70 @@ CODE_B9F26A:
 
 ;positions?
 DATA_B9F278:
-	dw $0000,$FFFA,$FFF3,$FFED
-	dw $FFE7,$FFE1,$FFDB,$FFD4
-	dw $FFCE,$FFC8,$FFC2,$FFBC
-	dw $FFB6,$FFB0,$FFAA,$FFA4
-	dw $FF9E,$FF99,$FF93,$FF8D
-	dw $FF88,$FF82,$FF7D,$FF78
-	dw $FF72,$FF6D,$FF68,$FF63
-	dw $FF5E,$FF59,$FF55,$FF50
-	dw $FF4C,$FF47,$FF43,$FF3F
-	dw $FF3B,$FF37,$FF33,$FF30
-	dw $FF2C,$FF29,$FF25,$FF22
-	dw $FF1F,$FF1C,$FF19,$FF17
-	dw $FF14,$FF12,$FF10,$FF0E
-	dw $FF0C,$FF0A,$FF09,$FF07
-	dw $FF06,$FF05,$FF04,$FF03
-	dw $FF02,$FF02,$FF01,$FF01
-	dw $FF01,$FF01,$FF01,$FF02
-	dw $FF02,$FF03,$FF04,$FF05
-	dw $FF06,$FF07,$FF09,$FF0A
-	dw $FF0C,$FF0E,$FF10,$FF12
-	dw $FF14,$FF17,$FF19,$FF1C
-	dw $FF1F,$FF22,$FF25,$FF29
-	dw $FF2C,$FF30,$FF33,$FF37
-	dw $FF3B,$FF3F,$FF43,$FF47
-	dw $FF4C,$FF50,$FF55,$FF59
-	dw $FF5E,$FF63,$FF68,$FF6D
-	dw $FF72,$FF78,$FF7D,$FF82
-	dw $FF88,$FF8D,$FF93,$FF99
-	dw $FF9E,$FFA4,$FFAA,$FFB0
-	dw $FFB6,$FFBC,$FFC2,$FFC8
-	dw $FFCE,$FFD4,$FFDB,$FFE1
-	dw $FFE7,$FFED,$FFF3,$FFFA
-	dw $0000,$0006,$000D,$0013
-	dw $0019,$001F,$0025,$002C
-	dw $0032,$0038,$003E,$0044
-	dw $004A,$0050,$0056,$005C
-	dw $0062,$0067,$006D,$0073
-	dw $0078,$007E,$0083,$0088
-	dw $008E,$0093,$0098,$009D
-	dw $00A2,$00A7,$00AB,$00B0
-	dw $00B4,$00B9,$00BD,$00C1
-	dw $00C5,$00C9,$00CD,$00D0
-	dw $00D4,$00D7,$00DB,$00DE
-	dw $00E1,$00E4,$00E7,$00E9
-	dw $00EC,$00EE,$00F0,$00F2
-	dw $00F4,$00F6,$00F7,$00F9
-	dw $00FA,$00FB,$00FC,$00FD
-	dw $00FE,$00FE,$00FF,$00FF
-	dw $00FF,$00FF,$00FF,$00FE
-	dw $00FE,$00FD,$00FC,$00FB
-	dw $00FA,$00F9,$00F7,$00F6
-	dw $00F4,$00F2,$00F0,$00EE
-	dw $00EC,$00E9,$00E7,$00E4
-	dw $00E1,$00DE,$00DB,$00D7
-	dw $00D4,$00D0,$00CD,$00C9
-	dw $00C5,$00C1,$00BD,$00B9
-	dw $00B4,$00B0,$00AB,$00A7
-	dw $00A2,$009D,$0098,$0093
-	dw $008E,$0088,$0083,$007E
-	dw $0078,$0073,$006D,$0067
-	dw $0062,$005C,$0056,$0050
-	dw $004A,$0044,$003E,$0038
-	dw $0032,$002C,$0025,$001F
-	dw $0019,$0013,$000D,$0006
+	dw $0000, $FFFA, $FFF3, $FFED
+	dw $FFE7, $FFE1, $FFDB, $FFD4
+	dw $FFCE, $FFC8, $FFC2, $FFBC
+	dw $FFB6, $FFB0, $FFAA, $FFA4
+	dw $FF9E, $FF99, $FF93, $FF8D
+	dw $FF88, $FF82, $FF7D, $FF78
+	dw $FF72, $FF6D, $FF68, $FF63
+	dw $FF5E, $FF59, $FF55, $FF50
+	dw $FF4C, $FF47, $FF43, $FF3F
+	dw $FF3B, $FF37, $FF33, $FF30
+	dw $FF2C, $FF29, $FF25, $FF22
+	dw $FF1F, $FF1C, $FF19, $FF17
+	dw $FF14, $FF12, $FF10, $FF0E
+	dw $FF0C, $FF0A, $FF09, $FF07
+	dw $FF06, $FF05, $FF04, $FF03
+	dw $FF02, $FF02, $FF01, $FF01
+	dw $FF01, $FF01, $FF01, $FF02
+	dw $FF02, $FF03, $FF04, $FF05
+	dw $FF06, $FF07, $FF09, $FF0A
+	dw $FF0C, $FF0E, $FF10, $FF12
+	dw $FF14, $FF17, $FF19, $FF1C
+	dw $FF1F, $FF22, $FF25, $FF29
+	dw $FF2C, $FF30, $FF33, $FF37
+	dw $FF3B, $FF3F, $FF43, $FF47
+	dw $FF4C, $FF50, $FF55, $FF59
+	dw $FF5E, $FF63, $FF68, $FF6D
+	dw $FF72, $FF78, $FF7D, $FF82
+	dw $FF88, $FF8D, $FF93, $FF99
+	dw $FF9E, $FFA4, $FFAA, $FFB0
+	dw $FFB6, $FFBC, $FFC2, $FFC8
+	dw $FFCE, $FFD4, $FFDB, $FFE1
+	dw $FFE7, $FFED, $FFF3, $FFFA
+	dw $0000, $0006, $000D, $0013
+	dw $0019, $001F, $0025, $002C
+	dw $0032, $0038, $003E, $0044
+	dw $004A, $0050, $0056, $005C
+	dw $0062, $0067, $006D, $0073
+	dw $0078, $007E, $0083, $0088
+	dw $008E, $0093, $0098, $009D
+	dw $00A2, $00A7, $00AB, $00B0
+	dw $00B4, $00B9, $00BD, $00C1
+	dw $00C5, $00C9, $00CD, $00D0
+	dw $00D4, $00D7, $00DB, $00DE
+	dw $00E1, $00E4, $00E7, $00E9
+	dw $00EC, $00EE, $00F0, $00F2
+	dw $00F4, $00F6, $00F7, $00F9
+	dw $00FA, $00FB, $00FC, $00FD
+	dw $00FE, $00FE, $00FF, $00FF
+	dw $00FF, $00FF, $00FF, $00FE
+	dw $00FE, $00FD, $00FC, $00FB
+	dw $00FA, $00F9, $00F7, $00F6
+	dw $00F4, $00F2, $00F0, $00EE
+	dw $00EC, $00E9, $00E7, $00E4
+	dw $00E1, $00DE, $00DB, $00D7
+	dw $00D4, $00D0, $00CD, $00C9
+	dw $00C5, $00C1, $00BD, $00B9
+	dw $00B4, $00B0, $00AB, $00A7
+	dw $00A2, $009D, $0098, $0093
+	dw $008E, $0088, $0083, $007E
+	dw $0078, $0073, $006D, $0067
+	dw $0062, $005C, $0056, $0050
+	dw $004A, $0044, $003E, $0038
+	dw $0032, $002C, $0025, $001F
+	dw $0019, $0013, $000D, $0006
 
 interpolate_y_speed_direct:
 	ASL					;$B9F478
@@ -8365,29 +8370,44 @@ CODE_B9F6D9:
 	RTS					;$B9F6D9
 
 DATA_B9F6DA:
-	dw $0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000
-	dw $0000,$0000,$0000,$0000,$0000,$0000,$0000,$0100
-	dw $00C0,$0200,$0100,$00C0,$0200,$0000,$0000,$0000
+	dw $0000, $0000, $0000, $0000
+	dw $0000, $0000, $0000, $0000
+	dw $0000, $0000, $0000, $0000
+	dw $0000, $0000, $0000, $0100
+	dw $00C0, $0200, $0100, $00C0
+	dw $0200, $0000, $0000, $0000
 
 DATA_B9F70A:
-	dw $0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000
-	dw $0000,$0000,$0000,$0000,$0000,$0000,$0000,$0180
-	dw $0100,$0300,$0100,$00C0,$0200,$0000,$0000,$0000
+	dw $0000, $0000, $0000, $0000
+	dw $0000, $0000, $0000, $0000
+	dw $0000, $0000, $0000, $0000
+	dw $0000, $0000, $0000, $0180
+	dw $0100, $0300, $0100, $00C0
+	dw $0200, $0000, $0000, $0000
 
 DATA_B9F73A:
-	dw $0000,$0000,$0000,$0200,$0180,$0400,$0200,$0180
-	dw $0400,$0200,$0180,$0400,$0200,$0180,$0400,$0200
-	dw $0180,$0400,$0200,$0180,$0400,$0200,$0180,$0400
+	dw $0000, $0000, $0000, $0200
+	dw $0180, $0400, $0200, $0180
+	dw $0400, $0200, $0180, $0400
+	dw $0200, $0180, $0400, $0200
+	dw $0180, $0400, $0200, $0180
+	dw $0400, $0200, $0180, $0400
 
 DATA_B9F76A:
-	dw $0000,$0000,$0000,$0000,$0000,$0000,$0100,$0000
-	dw $0800,$0180,$0000,$0800,$01F0,$0000,$0800,$0280
-	dw $0000,$0400,$0400,$00A0,$0200,$0000,$0000,$0000
+	dw $0000, $0000, $0000, $0000
+	dw $0000, $0000, $0100, $0000
+	dw $0800, $0180, $0000, $0800
+	dw $01F0, $0000, $0800, $0280
+	dw $0000, $0400, $0400, $00A0
+	dw $0200, $0000, $0000, $0000
 
 DATA_B9F79A:
-	dw $0000,$0000,$0000,$0000,$0000,$0000,$0100,$0100
-	dw $0200,$0100,$0200,$0200,$0200,$0200,$0400,$0200
-	dw $0200,$0400,$0200,$0200,$0400,$0000,$0000,$0000
+	dw $0000, $0000, $0000, $0000
+	dw $0000, $0000, $0100, $0100
+	dw $0200, $0100, $0200, $0200
+	dw $0200, $0200, $0400, $0200
+	dw $0200, $0400, $0200, $0200
+	dw $0400, $0000, $0000, $0000
 
 CODE_B9F7CA:
 	NOP #4					;$B9F7CA

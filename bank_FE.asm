@@ -1,650 +1,650 @@
-;Object placement data
-DATA_FE0000:
-	dw DATA_FE0400
-	dw DATA_FE040A
-	dw DATA_FE040C
-	dw DATA_FE040E
-	dw DATA_FE0410
-	dw DATA_FE0412
-	dw DATA_FE0414
-	dw DATA_FE0416
-	dw DATA_FE0418
-	dw DATA_FE041A
-	dw DATA_FE041C
-	dw DATA_FE041E
-	dw DATA_FE0420
-	dw DATA_FE0422
-	dw DATA_FE0424
-	dw DATA_FE0426
-	dw DATA_FE0428
-	dw DATA_FE042A
-	dw DATA_FE042C
-	dw DATA_FE042E
-	dw DATA_FE0430
-	dw DATA_FE0482
-	dw DATA_FE0484
-	dw DATA_FE04DE
-	dw DATA_FE04E0
-	dw DATA_FE04E2
-	dw DATA_FE04E4
-	dw DATA_FE04FE
-	dw DATA_FE0520
-	dw DATA_FE0542
-	dw DATA_FE0554
-	dw DATA_FE0566
-	dw DATA_FE0578
-	dw DATA_FE058A
-	dw DATA_FE0594
-	dw DATA_FE05AE
-	dw DATA_FE05B0
-	dw DATA_FE05B2
-	dw DATA_FE072C
-	dw DATA_FE0926
-	dw DATA_FE0B10
-	dw DATA_FE0EC2
-	dw DATA_FE1334
-	dw DATA_FE15B6
-	dw DATA_FE1728
-	dw DATA_FE1912
-	dw DATA_FE1B6C
-	dw DATA_FE1CDE
-	dw DATA_FE20D0
-	dw DATA_FE246A
-	dw DATA_FE2754
-	dw DATA_FE296E
-	dw DATA_FE2C30
-	dw DATA_FE2F6A
-	dw DATA_FE326C
-	dw DATA_FE34B6
-	dw DATA_FE3818
-	dw DATA_FE3B4A
-	dw DATA_FE3DC4
-	dw DATA_FE3F46
-	dw DATA_FE4280
-	dw DATA_FE461A
-	dw DATA_FE48F4
-	dw DATA_FE4CEE
-	dw DATA_FE5058
-	dw DATA_FE534A
-	dw DATA_FE55CC
-	dw DATA_FE5866
-	dw DATA_FE5C38
-	dw DATA_FE6032
-	dw DATA_FE62C4
-	dw DATA_FE666E
-	dw DATA_FE6878
-	dw DATA_FE6B0A
-	dw DATA_FE6CF4
-	dw DATA_FE6F7E
-	dw DATA_FE7298
-	dw DATA_FE7442
-	dw DATA_FE744C
-	dw DATA_FE7456
-	dw DATA_FE7458
-	dw DATA_FE746A
-	dw DATA_FE7484
-	dw DATA_FE74B6
-	dw DATA_FE7508
-	dw DATA_FE7522
-	dw DATA_FE755C
-	dw DATA_FE7596
-	dw DATA_FE75D8
-	dw DATA_FE75FA
-	dw DATA_FE7624
-	dw DATA_FE7666
-	dw DATA_FE7698
-	dw DATA_FE76BA
-	dw DATA_FE76EC
-	dw DATA_FE772E
-	dw DATA_FE7760
-	dw DATA_FE7792
-	dw DATA_FE77AC
-	dw DATA_FE77F6
-	dw DATA_FE7810
-	dw DATA_FE785A
-	dw DATA_FE78C4
-	dw DATA_FE78EE
-	dw DATA_FE7920
-	dw DATA_FE7942
-	dw DATA_FE7984
-	dw DATA_FE79A6
-	dw DATA_FE7A00
-	dw DATA_FE7A1A
-	dw DATA_FE7A84
-	dw DATA_FE7AEE
-	dw DATA_FE7B18
-	dw DATA_FE7B62
-	dw DATA_FE7B94
-	dw DATA_FE7BA6
-	dw DATA_FE7BC8
-	dw DATA_FE7C02
-	dw DATA_FE7C2C
-	dw DATA_FE7C3E
-	dw DATA_FE7CA8
-	dw DATA_FE7CCA
-	dw DATA_FE7CEC
-	dw DATA_FE7D1E
-	dw DATA_FE7D38
-	dw DATA_FE7D52
-	dw DATA_FE7D64
-	dw DATA_FE7D7E
-	dw DATA_FE7DE8
-	dw DATA_FE7E1A
-	dw DATA_FE7E4C
-	dw DATA_FE7EAE
-	dw DATA_FE7EC8
-	dw DATA_FE7F2A
-	dw DATA_FE7F74
-	dw DATA_FE7F86
-	dw DATA_FE7F98
-	dw DATA_FE7FB2
-	dw DATA_FE7FD4
-	dw DATA_FE8016
-	dw DATA_FE8040
-	dw DATA_FE806A
-	dw DATA_FE8094
-	dw DATA_FE80AE
-	dw DATA_FE80F8
-	dw DATA_FE811A
-	dw DATA_FE814C
-	dw DATA_FE815E
-	dw DATA_FE8178
-	dw DATA_FE818A
-	dw DATA_FE81EC
-	dw DATA_FE8206
-	dw DATA_FE8240
-	dw DATA_FE8272
-	dw DATA_FE8294
-	dw DATA_FE82D6
-	dw DATA_FE8300
-	dw DATA_FE832A
-	dw DATA_FE837C
-	dw DATA_FE83AE
-	dw DATA_FE83D8
+level_objects_table:
+	dw beta_doorstop_dash_objects
+	dw null_level_1_objects
+	dw null_level_2_objects
+	dw null_level_3_objects
+	dw null_level_4_objects
+	dw null_level_5_objects
+	dw null_level_6_objects
+	dw null_level_7_objects
+	dw bazzas_blockade_photo_album_objects
+	dw doorstop_dash_photo_album_objects
+	dw lemguin_lunge_photo_album_objects
+	dw ropey_rumpus_photo_album_objects
+	dw skiddas_row_photo_album_objects
+	dw squeals_on_wheels_photo_album_objects
+	dw floodlit_fish_photo_album_objects
+	dw brothers_bear_photos_objects
+	dw swankys_sideshow_photo_album_objects
+	dw boss_photos_objects
+	dw krool_hovercraft_ending_objects
+	dw kastle_kaos_photo_album_objects
+	dw beta_bobbing_barrel_brawl_objects
+	dw kiddy_photo_album_objects
+	dw dixie_photo_album_objects
+	dw null_level_8_objects
+	dw null_level_9_objects
+	dw null_level_10_objects
+	dw bazzas_blockade_exit_objects
+	dw fish_food_frenzy_exit_objects
+	dw floodlit_fish_exit_objects
+	dw belchas_barn_objects
+	dw arichs_ambush_objects
+	dw squirts_showdown_objects
+	dw kaos_karnage_objects
+	dw bleaks_house_objects
+	dw barbos_barrier_objects
+	dw kastle_kaos_objects
+	dw knautilus_objects
+	dw lakeside_limbo_objects
+	dw kreeping_klasps_objects
+	dw tidal_trouble_objects
+	dw doorstop_dash_objects
+	dw squeals_on_wheels_objects
+	dw murky_mill_objects
+	dw skiddas_row_objects
+	dw lemguin_lunge_objects
+	dw tearaway_toboggan_objects
+	dw ripsaw_rage_objects
+	dw springin_spiders_objects
+	dw barrel_shield_bustup_objects
+	dw swoopy_salvo_objects
+	dw riverside_race_objects
+	dw lightning_lookout_objects
+	dw bobbing_barrel_brawl_objects
+	dw bazzas_blockade_objects
+	dw fish_food_frenzy_objects
+	dw floodlit_fish_objects
+	dw rocket_barrel_ride_objects
+	dw tracker_barrel_trek_objects
+	dw barrel_drop_bounce_objects
+	dw fireball_frenzy_objects
+	dw blazing_bazukas_objects
+	dw krackshot_kroc_objects
+	dw lowg_labyrinth_objects
+	dw poisonous_pipeline_objects
+	dw demolition_drainpipe_objects
+	dw krevice_kreepers_objects
+	dw kongfused_cliffs_objects
+	dw ropey_rumpus_objects
+	dw buzzer_barrage_objects
+	dw pothole_panic_objects
+	dw creepy_caverns_objects
+	dw koindozer_klamber_objects
+	dw konveyor_rope_klash_objects
+	dw stampede_sprint_objects
+	dw criss_kross_cliffs_objects
+	dw tyrant_twin_tussle_objects
+	dw rocket_rush_objects
+	dw swankys_sideshow_inside_objects
+	dw null_level_11_objects
+	dw null_level_12_objects
+	dw lakeside_limbo_b1_objects
+	dw lakeside_limbo_b2_objects
+	dw doorstop_dash_b1_objects
+	dw doorstop_dash_b2_objects
+	dw tidal_trouble_b1_objects
+	dw tidal_trouble_b2_objects
+	dw skiddas_row_b1_objects
+	dw skiddas_row_b2_objects
+	dw squeals_on_wheels_b1_objects
+	dw squeals_on_wheels_b2_objects
+	dw barrel_shield_bustup_b1_objects
+	dw barrel_shield_bustup_b2_objects
+	dw riverside_race_b1_objects
+	dw riverside_race_b2_objects
+	dw murky_mill_b1_objects
+	dw murky_mill_b2_objects
+	dw springin_spiders_b1_objects
+	dw springin_spiders_b2_objects
+	dw lightning_lookout_b1_objects
+	dw lightning_lookout_b2_objects
+	dw bazzas_blockad_b1_objects
+	dw bazzas_blockad_b2_objects
+	dw rocket_barrel_ride_b1_objects
+	dw rocket_barrel_ride_b2_objects
+	dw kreeping_klasps_b1_objects
+	dw kreeping_klasps_b2_objects
+	dw tracker_barrel_trek_b1_objects
+	dw tracker_barrel_trek_b2_objects
+	dw fish_food_frenzy_b1_objects
+	dw fish_food_frenzy_b2_objects
+	dw fireball_frenzy_b1_objects
+	dw fireball_frenzy_b2_objects
+	dw demolition_drainpipe_b1_objects
+	dw demolition_drainpipe_b2_objects
+	dw ripsaw_rage_b1_objects
+	dw ripsaw_rage_b2_objects
+	dw blazing_bazukas_b1_objects
+	dw blazing_bazukas_b2_objects
+	dw lowg_labyrinth_b1_objects
+	dw lowg_labyrinth_b2_objects
+	dw krevice_kreepers_b1_objects
+	dw krevice_kreepers_b2_objects
+	dw tearaway_toboggan_b1_objects
+	dw tearaway_toboggan_b2_objects
+	dw barrel_drop_bounce_b1_objects
+	dw barrel_drop_bounce_b2_objects
+	dw krackshot_kroc_b1_objects
+	dw krackshot_kroc_b2_objects
+	dw lemguin_lunge_b1_objects
+	dw lemguin_lunge_b2_objects
+	dw buzzer_barrage_b1_objects
+	dw buzzer_barrage_b2_objects
+	dw kongfused_cliffs_b1_objects
+	dw kongfused_cliffs_b2_objects
+	dw floodlit_fish_b1_objects
+	dw floodlit_fish_b2_objects
+	dw pothole_panic_b1_objects
+	dw pothole_panic_b2_objects
+	dw ropey_rumpus_b1_objects
+	dw ropey_rumpus_b2_objects
+	dw koindozer_klamber_b1_objects
+	dw koindozer_klamber_b2_objects
+	dw creepy_caverns_b1_objects
+	dw creepy_caverns_b2_objects
+	dw bobbing_barrel_brawl_b1_objects
+	dw bobbing_barrel_brawl_b2_objects
+	dw konveyor_rope_klash_b1_objects
+	dw konveyor_rope_klash_b2_objects
+	dw poisonou_pipeline_b1_objects
+	dw poisonou_pipeline_b2_objects
+	dw swoopy_salvo_b3_objects
+	dw swoopy_salvo_b1_objects
+	dw swoopy_salvo_b2_objects
+	dw criss_kross_cliffs_b1_objects
+	dw criss_kross_cliffs_b2_objects
+	dw tyrant_twin_tussle_b1_objects
+	dw tyrant_twin_tussle_b3_objects
+	dw tyrant_twin_tussle_b2_objects
+	dw stampede_sprint_b2_objects
+	dw stampede_sprint_b3_objects
+	dw stampede_sprint_b1_objects
 
 	padbyte $00 : pad $FE0400
 
-DATA_FE0400:
+
+beta_doorstop_dash_objects:
 	incbin "data/levels/object_placement/EmptyDoorStopDashSublevel.bin"
 
-DATA_FE040A:
+null_level_1_objects:
 	incbin "data/levels/object_placement/NullLevel1.bin"
 
-DATA_FE040C:
+null_level_2_objects:
 	incbin "data/levels/object_placement/NullLevel2.bin"
 
-DATA_FE040E:
+null_level_3_objects:
 	incbin "data/levels/object_placement/NullLevel3.bin"
 
-DATA_FE0410:
+null_level_4_objects:
 	incbin "data/levels/object_placement/NullLevel4.bin"
 
-DATA_FE0412:
+null_level_5_objects:
 	incbin "data/levels/object_placement/NullLevel5.bin"
 
-DATA_FE0414:
+null_level_6_objects:
 	incbin "data/levels/object_placement/NullLevel6.bin"
 
-DATA_FE0416:
+null_level_7_objects:
 	incbin "data/levels/object_placement/NullLevel7.bin"
 
-DATA_FE0418:
+bazzas_blockade_photo_album_objects:
 	incbin "data/levels/object_placement/BazzasBlockade_PhotoAlbum.bin"
 
-DATA_FE041A:
+doorstop_dash_photo_album_objects:
 	incbin "data/levels/object_placement/DoorstopDash_PhotoAlbum.bin"
 
-DATA_FE041C:
+lemguin_lunge_photo_album_objects:
 	incbin "data/levels/object_placement/LemguinLunge_PhotoAlbum.bin"
 
-DATA_FE041E:
+ropey_rumpus_photo_album_objects:
 	incbin "data/levels/object_placement/RopeyRumpus_PhotoAlbum.bin"
 
-DATA_FE0420:
+skiddas_row_photo_album_objects:
 	incbin "data/levels/object_placement/SkiddasRow_PhotoAlbum.bin"
 
-DATA_FE0422:
+squeals_on_wheels_photo_album_objects:
 	incbin "data/levels/object_placement/SquealsOnWheels_PhotoAlbum.bin"
 
-DATA_FE0424:
+floodlit_fish_photo_album_objects:
 	incbin "data/levels/object_placement/FloodlitFish_PhotoAlbum.bin"
 
-DATA_FE0426:
+brothers_bear_photos_objects:
 	incbin "data/levels/object_placement/BrothersBearPhotos.bin"
 
-DATA_FE0428:
+swankys_sideshow_photo_album_objects:
 	incbin "data/levels/object_placement/SwankysSideshow_PhotoAlbum.bin"
 
-DATA_FE042A:
+boss_photos_objects:
 	incbin "data/levels/object_placement/BossPhotos.bin"
 
-DATA_FE042C:
+krool_hovercraft_ending_objects:
 	incbin "data/levels/object_placement/CloseupOfKRoolDrivingHovercraft.bin"
 
-DATA_FE042E:
+kastle_kaos_photo_album_objects:
 	incbin "data/levels/object_placement/KastleKAOS_PhotoAlbum.bin"
 
-DATA_FE0430:
+beta_bobbing_barrel_brawl_objects:
 	incbin "data/levels/object_placement/EarlyBobbingBarrelBrawl.bin"
 
-DATA_FE0482:
+kiddy_photo_album_objects:
 	incbin "data/levels/object_placement/KiddysPhotoAlbumArea.bin"
 
-DATA_FE0484:
+dixie_photo_album_objects:
 	incbin "data/levels/object_placement/DixiesPhotoAlbumArea.bin"
 
-DATA_FE04DE:
+null_level_8_objects:
 	incbin "data/levels/object_placement/NullLevel8.bin"
 
-DATA_FE04E0:
+null_level_9_objects:
 	incbin "data/levels/object_placement/NullLevel9.bin"
 
-DATA_FE04E2:
+null_level_10_objects:
 	incbin "data/levels/object_placement/NullLevel10.bin"
 
-DATA_FE04E4:
+bazzas_blockade_exit_objects:
 	incbin "data/levels/object_placement/BazzasBlockade_ExitSublevel.bin"
 
-DATA_FE04FE:
+fish_food_frenzy_exit_objects:
 	incbin "data/levels/object_placement/FishfoodFrenzy_ExitSublevel.bin"
 
-DATA_FE0520:
+floodlit_fish_exit_objects:
 	incbin "data/levels/object_placement/FloodlitFish_ExitSublevel.bin"
 
-DATA_FE0542:
+belchas_barn_objects:
 	incbin "data/levels/object_placement/BelchasBarn.bin"
 
-DATA_FE0554:
+arichs_ambush_objects:
 	incbin "data/levels/object_placement/ArichsAmbush.bin"
 
-DATA_FE0566:
+squirts_showdown_objects:
 	incbin "data/levels/object_placement/SquirtsShowdown.bin"
 
-DATA_FE0578:
+kaos_karnage_objects:
 	incbin "data/levels/object_placement/KAOSKarnage.bin"
 
-DATA_FE058A:
+bleaks_house_objects:
 	incbin "data/levels/object_placement/BleaksHouse.bin"
 
-DATA_FE0594:
+barbos_barrier_objects:
 	incbin "data/levels/object_placement/BarbossBarrier.bin"
 
-DATA_FE05AE:
+kastle_kaos_objects:
 	incbin "data/levels/object_placement/KastleKAOS.bin"
 
-DATA_FE05B0:
+knautilus_objects:
 	incbin "data/levels/object_placement/Knautilus.bin"
 
-DATA_FE05B2:
+lakeside_limbo_objects:
 	incbin "data/levels/object_placement/LakesideLimbo_Main.bin"
 
-DATA_FE072C:
+kreeping_klasps_objects:
 	incbin "data/levels/object_placement/KreepingKlasps_Main.bin"
 
-DATA_FE0926:
+tidal_trouble_objects:
 	incbin "data/levels/object_placement/TidalTrouble_Main.bin"
 
-DATA_FE0B10:
+doorstop_dash_objects:
 	incbin "data/levels/object_placement/DoorstopDash_Main.bin"
 
-DATA_FE0EC2:
+squeals_on_wheels_objects:
 	incbin "data/levels/object_placement/SquealsOnWheels_Main.bin"
 
-DATA_FE1334:
+murky_mill_objects:
 	incbin "data/levels/object_placement/MurkyMill_Main.bin"
 
-DATA_FE15B6:
+skiddas_row_objects:
 	incbin "data/levels/object_placement/SkiddasRow_Main.bin"
 
-DATA_FE1728:
+lemguin_lunge_objects:
 	incbin "data/levels/object_placement/LemguinLunge_Main.bin"
 
-DATA_FE1912:
+tearaway_toboggan_objects:
 	incbin "data/levels/object_placement/TearawayToboggan_Main.bin"
 
-DATA_FE1B6C:
+ripsaw_rage_objects:
 	incbin "data/levels/object_placement/RipsawRage_Main.bin"
 
-DATA_FE1CDE:
+springin_spiders_objects:
 	incbin "data/levels/object_placement/SpringinSpiders_Main.bin"
 
-DATA_FE20D0:
+barrel_shield_bustup_objects:
 	incbin "data/levels/object_placement/BarrelShieldBustUp_Main.bin"
 
-DATA_FE246A:
+swoopy_salvo_objects:
 	incbin "data/levels/object_placement/SwoopySalvo_Main.bin"
 
-DATA_FE2754:
+riverside_race_objects:
 	incbin "data/levels/object_placement/RiversideRace_Main.bin"
 
-DATA_FE296E:
+lightning_lookout_objects:
 	incbin "data/levels/object_placement/LightningLookOut_Main.bin"
 
-DATA_FE2C30:
+bobbing_barrel_brawl_objects:
 	incbin "data/levels/object_placement/BobbingBarrelBrawl_Main.bin"
 
-DATA_FE2F6A:
+bazzas_blockade_objects:
 	incbin "data/levels/object_placement/BazzasBlockade_Main.bin"
 
-DATA_FE326C:
+fish_food_frenzy_objects:
 	incbin "data/levels/object_placement/FishFoodFrenzy_Main.bin"
 
-DATA_FE34B6:
+floodlit_fish_objects:
 	incbin "data/levels/object_placement/FloodlitFish_Main.bin"
 
-DATA_FE3818:
+rocket_barrel_ride_objects:
 	incbin "data/levels/object_placement/RocketBarrelRide_Main.bin"
 
-DATA_FE3B4A:
+tracker_barrel_trek_objects:
 	incbin "data/levels/object_placement/TrackerBarrelTrek_Main.bin"
 
-DATA_FE3DC4:
+barrel_drop_bounce_objects:
 	incbin "data/levels/object_placement/BarrelDropBounce_Main.bin"
 
-DATA_FE3F46:
+fireball_frenzy_objects:
 	incbin "data/levels/object_placement/FireballFrenzy_Main.bin"
 
-DATA_FE4280:
+blazing_bazukas_objects:
 	incbin "data/levels/object_placement/BlazingBazukas_Main.bin"
 
-DATA_FE461A:
+krackshot_kroc_objects:
 	incbin "data/levels/object_placement/KrackshotKroc_Main.bin"
 
-DATA_FE48F4:
+lowg_labyrinth_objects:
 	incbin "data/levels/object_placement/LowGLabyrinth_Main.bin"
 
-DATA_FE4CEE:
+poisonous_pipeline_objects:
 	incbin "data/levels/object_placement/PoisonousPipeline_Main.bin"
 
-DATA_FE5058:
+demolition_drainpipe_objects:
 	incbin "data/levels/object_placement/DemolitionDrainPipe_Main.bin"
 
-DATA_FE534A:
+krevice_kreepers_objects:
 	incbin "data/levels/object_placement/KreviceKreepers_Main.bin"
 
-DATA_FE55CC:
+kongfused_cliffs_objects:
 	incbin "data/levels/object_placement/KongFusedCliffs_Main.bin"
 
-DATA_FE5866:
+ropey_rumpus_objects:
 	incbin "data/levels/object_placement/RopeyRumpus_Main.bin"
 
-DATA_FE5C38:
+buzzer_barrage_objects:
 	incbin "data/levels/object_placement/BuzzerBarrage_Main.bin"
 
-DATA_FE6032:
+pothole_panic_objects:
 	incbin "data/levels/object_placement/PotHolePanic_Main.bin"
 
-DATA_FE62C4:
+creepy_caverns_objects:
 	incbin "data/levels/object_placement/CreepyCaverns_Main.bin"
 
-DATA_FE666E:
+koindozer_klamber_objects:
 	incbin "data/levels/object_placement/KoindozerKlamber_Main.bin"
 
-DATA_FE6878:
+konveyor_rope_klash_objects:
 	incbin "data/levels/object_placement/KonveyorRopeKlash_Main.bin"
 
-DATA_FE6B0A:
+stampede_sprint_objects:
 	incbin "data/levels/object_placement/StampedeSprint_Main.bin"
 
-DATA_FE6CF4:
+criss_kross_cliffs_objects:
 	incbin "data/levels/object_placement/CrissKrossCliffs_Main.bin"
 
-DATA_FE6F7E:
+tyrant_twin_tussle_objects:
 	incbin "data/levels/object_placement/TyrantTwinTussle_Main.bin"
 
-DATA_FE7298:
+rocket_rush_objects:
 	incbin "data/levels/object_placement/RocketRush_Main.bin"
 
-DATA_FE7442:
+swankys_sideshow_inside_objects:
 	incbin "data/levels/object_placement/SwankysSideshow_InTent.bin"
 
-DATA_FE744C:
+null_level_11_objects:
 	incbin "data/levels/object_placement/NullLevel11.bin"
 
-DATA_FE7456:
+null_level_12_objects:
 	incbin "data/levels/object_placement/NullLevel12.bin"
 
-DATA_FE7458:
+lakeside_limbo_b1_objects:
 	incbin "data/levels/object_placement/LakesideLimbo_Bonus1.bin"
 
-DATA_FE746A:
+lakeside_limbo_b2_objects:
 	incbin "data/levels/object_placement/LakesideLimbo_Bonus2.bin"
 
-DATA_FE7484:
+doorstop_dash_b1_objects:
 	incbin "data/levels/object_placement/DoorstopDash_Bonus1.bin"
 
-DATA_FE74B6:
+doorstop_dash_b2_objects:
 	incbin "data/levels/object_placement/DoorstopDash_Bonus2.bin"
 
-DATA_FE7508:
+tidal_trouble_b1_objects:
 	incbin "data/levels/object_placement/TidalTrouble_Bonus1.bin"
 
-DATA_FE7522:
+tidal_trouble_b2_objects:
 	incbin "data/levels/object_placement/TidalTrouble_Bonus2.bin"
 
-DATA_FE755C:
+skiddas_row_b1_objects:
 	incbin "data/levels/object_placement/SkiddasRow_Bonus1.bin"
 
-DATA_FE7596:
+skiddas_row_b2_objects:
 	incbin "data/levels/object_placement/SkiddasRow_Bonus2.bin"
 
-DATA_FE75D8:
+squeals_on_wheels_b1_objects:
 	incbin "data/levels/object_placement/SquealsOnWheels_Bonus1.bin"
 
-DATA_FE75FA:
+squeals_on_wheels_b2_objects:
 	incbin "data/levels/object_placement/SquealsOnWheels_Bonus2.bin"
 
-DATA_FE7624:
+barrel_shield_bustup_b1_objects:
 	incbin "data/levels/object_placement/BarrelShieldBustUp_Bonus1.bin"
 
-DATA_FE7666:
+barrel_shield_bustup_b2_objects:
 	incbin "data/levels/object_placement/BarrelShieldBustUp_Bonus2.bin"
 
-DATA_FE7698:
+riverside_race_b1_objects:
 	incbin "data/levels/object_placement/RiverbankRace_Bonus1.bin"
 
-DATA_FE76BA:
+riverside_race_b2_objects:
 	incbin "data/levels/object_placement/RiverbankRace_Bonus2.bin"
 
-DATA_FE76EC:
+murky_mill_b1_objects:
 	incbin "data/levels/object_placement/MurkyMill_Bonus1.bin"
 
-DATA_FE772E:
+murky_mill_b2_objects:
 	incbin "data/levels/object_placement/MurkyMill_Bonus2.bin"
 
-DATA_FE7760:
+springin_spiders_b1_objects:
 	incbin "data/levels/object_placement/SpringinSpiders_Bonus1.bin"
 
-DATA_FE7792:
+springin_spiders_b2_objects:
 	incbin "data/levels/object_placement/SpringinSpiders_Bonus2.bin"
 
-DATA_FE77AC:
+lightning_lookout_b1_objects:
 	incbin "data/levels/object_placement/LightningLookOut_Bonus1.bin"
 
-DATA_FE77F6:
+lightning_lookout_b2_objects:
 	incbin "data/levels/object_placement/LightningLookOut_Bonus2.bin"
 
-DATA_FE7810:
+bazzas_blockad_b1_objects:
 	incbin "data/levels/object_placement/BazzasBlockade_Bonus1.bin"
 
-DATA_FE785A:
+bazzas_blockad_b2_objects:
 	incbin "data/levels/object_placement/BazzasBlockade_Bonus2.bin"
 
-DATA_FE78C4:
+rocket_barrel_ride_b1_objects:
 	incbin "data/levels/object_placement/RocketBarrelRide_Bonus1.bin"
 
-DATA_FE78EE:
+rocket_barrel_ride_b2_objects:
 	incbin "data/levels/object_placement/RocketBarrelRide_Bonus2.bin"
 
-DATA_FE7920:
+kreeping_klasps_b1_objects:
 	incbin "data/levels/object_placement/KreepingKlasps_Bonus1.bin"
 
-DATA_FE7942:
+kreeping_klasps_b2_objects:
 	incbin "data/levels/object_placement/KreepingKlasps_Bonus2.bin"
 
-DATA_FE7984:
+tracker_barrel_trek_b1_objects:
 	incbin "data/levels/object_placement/TrackerBarrelTrek_Bonus1.bin"
 
-DATA_FE79A6:
+tracker_barrel_trek_b2_objects:
 	incbin "data/levels/object_placement/TrackerBarrelTrek_Bonus2.bin"
 
-DATA_FE7A00:
+fish_food_frenzy_b1_objects:
 	incbin "data/levels/object_placement/FishFoodFrenzy_Bonus1.bin"
 
-DATA_FE7A1A:
+fish_food_frenzy_b2_objects:
 	incbin "data/levels/object_placement/FishFoodFrenzy_Bonus2.bin"
 
-DATA_FE7A84:
+fireball_frenzy_b1_objects:
 	incbin "data/levels/object_placement/FireballFrenzy_Bonus1.bin"
 
-DATA_FE7AEE:
+fireball_frenzy_b2_objects:
 	incbin "data/levels/object_placement/FireballFrenzy_Bonus2.bin"
 
-DATA_FE7B18:
+demolition_drainpipe_b1_objects:
 	incbin "data/levels/object_placement/DemolitionDrainPipe_Bonus1.bin"
 
-DATA_FE7B62:
+demolition_drainpipe_b2_objects:
 	incbin "data/levels/object_placement/DemolitionDrainPipe_Bonus2.bin"
 
-DATA_FE7B94:
+ripsaw_rage_b1_objects:
 	incbin "data/levels/object_placement/RipsawRage_Bonus1.bin"
 
-DATA_FE7BA6:
+ripsaw_rage_b2_objects:
 	incbin "data/levels/object_placement/RipsawRage_Bonus2.bin"
 
-DATA_FE7BC8:
+blazing_bazukas_b1_objects:
 	incbin "data/levels/object_placement/BlazingBazukas_Bonus1.bin"
 
-DATA_FE7C02:
+blazing_bazukas_b2_objects:
 	incbin "data/levels/object_placement/BlazingBazukas_Bonus2.bin"
 
-DATA_FE7C2C:
+lowg_labyrinth_b1_objects:
 	incbin "data/levels/object_placement/LowGLabyrinth_Bonus1.bin"
 
-DATA_FE7C3E:
+lowg_labyrinth_b2_objects:
 	incbin "data/levels/object_placement/LowGLabyrinth_Bonus2.bin"
 
-DATA_FE7CA8:
+krevice_kreepers_b1_objects:
 	incbin "data/levels/object_placement/KreviceKreepers_Bonus1.bin"
 
-DATA_FE7CCA:
+krevice_kreepers_b2_objects:
 	incbin "data/levels/object_placement/KreviceKreepers_Bonus2.bin"
 
-DATA_FE7CEC:
+tearaway_toboggan_b1_objects:
 	incbin "data/levels/object_placement/TearawayToboggan_Bonus1.bin"
 
-DATA_FE7D1E:
+tearaway_toboggan_b2_objects:
 	incbin "data/levels/object_placement/TearawayToboggan_Bonus2.bin"
 
-DATA_FE7D38:
+barrel_drop_bounce_b1_objects:
 	incbin "data/levels/object_placement/BarrelDropBounce_Bonus1.bin"
 
-DATA_FE7D52:
+barrel_drop_bounce_b2_objects:
 	incbin "data/levels/object_placement/BarrelDropBounce_Bonus2.bin"
 
-DATA_FE7D64:
+krackshot_kroc_b1_objects:
 	incbin "data/levels/object_placement/KrackshotKroc_Bonus1.bin"
 
-DATA_FE7D7E:
+krackshot_kroc_b2_objects:
 	incbin "data/levels/object_placement/KrackshotKroc_Bonus2.bin"
 
-DATA_FE7DE8:
+lemguin_lunge_b1_objects:
 	incbin "data/levels/object_placement/LemguinLunge_Bonus1.bin"
 
-DATA_FE7E1A:
+lemguin_lunge_b2_objects:
 	incbin "data/levels/object_placement/LemguinLunge_Bonus2.bin"
 
-DATA_FE7E4C:
+buzzer_barrage_b1_objects:
 	incbin "data/levels/object_placement/BuzzerBarrage_Bonus1.bin"
 
-DATA_FE7EAE:
+buzzer_barrage_b2_objects:
 	incbin "data/levels/object_placement/BuzzerBarrage_Bonus2.bin"
 
-DATA_FE7EC8:
+kongfused_cliffs_b1_objects:
 	incbin "data/levels/object_placement/KongFusedCliffs_Bonus1.bin"
 
-DATA_FE7F2A:
+kongfused_cliffs_b2_objects:
 	incbin "data/levels/object_placement/KongFusedCliffs_Bonus2.bin"
 
-DATA_FE7F74:
+floodlit_fish_b1_objects:
 	incbin "data/levels/object_placement/FloodlitFish_Bonus1.bin"
 
-DATA_FE7F86:
+floodlit_fish_b2_objects:
 	incbin "data/levels/object_placement/FloodlitFish_Bonus2.bin"
 
-DATA_FE7F98:
+pothole_panic_b1_objects:
 	incbin "data/levels/object_placement/PotHolePanic_Bonus1.bin"
 
-DATA_FE7FB2:
+pothole_panic_b2_objects:
 	incbin "data/levels/object_placement/PotHolePanic_Bonus2.bin"
 
-DATA_FE7FD4:
+ropey_rumpus_b1_objects:
 	incbin "data/levels/object_placement/RopeyRumpus_Bonus1.bin"
 
-DATA_FE8016:
+ropey_rumpus_b2_objects:
 	incbin "data/levels/object_placement/RopeyRumpus_Bonus2.bin"
 
-DATA_FE8040:
+koindozer_klamber_b1_objects:
 	incbin "data/levels/object_placement/KoindozerKlamber_Bonus1.bin"
 
-DATA_FE806A:
+koindozer_klamber_b2_objects:
 	incbin "data/levels/object_placement/KoindozerKlamber_Bonus2.bin"
 
-DATA_FE8094:
+creepy_caverns_b1_objects:
 	incbin "data/levels/object_placement/CreepyCaverns_Bonus1.bin"
 
-DATA_FE80AE:
+creepy_caverns_b2_objects:
 	incbin "data/levels/object_placement/CreepyCaverns_Bonus2.bin"
 
-DATA_FE80F8:
+bobbing_barrel_brawl_b1_objects:
 	incbin "data/levels/object_placement/BobbingBarrelBrawl_Bonus1.bin"
 
-DATA_FE811A:
+bobbing_barrel_brawl_b2_objects:
 	incbin "data/levels/object_placement/BobbingBarrelBrawl_Bonus2.bin"
 
-DATA_FE814C:
+konveyor_rope_klash_b1_objects:
 	incbin "data/levels/object_placement/KonveyorRopeKlash_Bonus1.bin"
 
-DATA_FE815E:
+konveyor_rope_klash_b2_objects:
 	incbin "data/levels/object_placement/KonveyorRopeKlash_Bonus2.bin"
 
-DATA_FE8178:
+poisonou_pipeline_b1_objects:
 	incbin "data/levels/object_placement/PoisonousPipeline_Bonus1.bin"
 
-DATA_FE818A:
+poisonou_pipeline_b2_objects:
 	incbin "data/levels/object_placement/PoisonousPipeline_Bonus2.bin"
 
-DATA_FE81EC:
+swoopy_salvo_b3_objects:
 	incbin "data/levels/object_placement/SwoopySalvo_Bonus3.bin"
 
-DATA_FE8206:
+swoopy_salvo_b1_objects:
 	incbin "data/levels/object_placement/SwoopySalvo_Bonus1.bin"
 
-DATA_FE8240:
+swoopy_salvo_b2_objects:
 	incbin "data/levels/object_placement/SwoopySalvo_Bonus2.bin"
 
-DATA_FE8272:
+criss_kross_cliffs_b1_objects:
 	incbin "data/levels/object_placement/CrissKrossCliffs_Bonus1.bin"
 
-DATA_FE8294:
+criss_kross_cliffs_b2_objects:
 	incbin "data/levels/object_placement/CrissKrossCliffs_Bonus2.bin"
 
-DATA_FE82D6:
+tyrant_twin_tussle_b1_objects:
 	incbin "data/levels/object_placement/TyrantTwinTussle_Bonus1.bin"
 
-DATA_FE8300:
+tyrant_twin_tussle_b3_objects:
 	incbin "data/levels/object_placement/TyrantTwinTussle_Bonus3.bin"
 
-DATA_FE832A:
+tyrant_twin_tussle_b2_objects:
 	incbin "data/levels/object_placement/TyrantTwinTussle_Bonus2.bin"
 
-DATA_FE837C:
+stampede_sprint_b2_objects:
 	incbin "data/levels/object_placement/StampedeSprint_Bonus2.bin"
 
-DATA_FE83AE:
+stampede_sprint_b3_objects:
 	incbin "data/levels/object_placement/StampedeSprint_Bonus3.bin"
 
-DATA_FE83D8:
+stampede_sprint_b1_objects:
 	incbin "data/levels/object_placement/StampedeSprint_Bonus1.bin"
 
 

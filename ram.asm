@@ -274,11 +274,16 @@ sram_base = $B06000
 
 ;owned inventory item flags = $0609
 
+;level completion flags? = $0632
+
 ;DKC2 $0515 equivalent = $075C
 ;used to index a table in bonus_timer_main = $075E
 
 ;x pos of bonus coin when touched = $195F
 ;y pos of bonus coin when touched = $1961
+
+;x offset of world map sprites (kongs included) = $196D
+;y offset of world map sprites (kongs included) = $1947
 
 ;boat water trail sprite index = $1C8F
 

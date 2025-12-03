@@ -1696,16 +1696,16 @@ DATA_BB8CBC:
 
 set_PPU_registers:
 	PHB					;$BB8CC4
-	%pea_shift_dbr(DATA_FD294E)
+	%pea_shift_dbr(ppu_config_table)
 	PLB					;$BB8CC5
 	PLB					;$BB8CC6
 	SEP #$20				;$BB8CC7
 	ASL					;$BB8CC9
 	TAY					;$BB8CCA
-	LDX.w DATA_FD294E,y			;$BB8CCB
+	LDX.w ppu_config_table,y		;$BB8CCB
 	TXY					;$BB8CCE
 .next_register:
-	LDX.w DATA_FD294E,y			;$BB8CCF
+	LDX.w ppu_config_table,y		;$BB8CCF
 	BEQ .return				;$BB8CD2
 	INY					;$BB8CD4
 	INY					;$BB8CD5
@@ -1714,12 +1714,12 @@ set_PPU_registers:
 	BCC .single_register			;$BB8CDA
 	LSR $3B					;$BB8CDC
 	LDX $3A					;$BB8CDE
-	LDA.w DATA_FD294E,y			;$BB8CE0
+	LDA.w ppu_config_table,y		;$BB8CE0
 	STA $00,x				;$BB8CE3
 	INX					;$BB8CE5
 	INY					;$BB8CE6
 .single_register:
-	LDA.w DATA_FD294E,y			;$BB8CE7
+	LDA.w ppu_config_table,y		;$BB8CE7
 	STA $00,x				;$BB8CEA
 	INY					;$BB8CEC
 	BRA .next_register			;$BB8CED
@@ -1731,19 +1731,19 @@ set_PPU_registers:
 
 vram_payload_handler:
 	PHB					;$BB8CF6
-	%pea_shift_dbr(DATA_FD1B03)		;$BB8CF7
+	%pea_shift_dbr(vram_payload_table)	;$BB8CF7
 	PLB					;$BB8CFA
 	PLB					;$BB8CFB
 	ASL					;$BB8CFC
 	TAY					;$BB8CFD
-	LDX.w DATA_FD1B03,y			;$BB8CFE
+	LDX.w vram_payload_table,y		;$BB8CFE
 CODE_BB8D01:
 	SEP #$20				;$BB8D01
-	LDA.w DATA_FD1B03,x			;$BB8D03
+	LDA.w vram_payload_table,x		;$BB8D03
 	BEQ CODE_BB8D6F				;$BB8D06
-	LDA.w DATA_FD1B03+$04,x			;$BB8D08
+	LDA.w vram_payload_table+$04,x		;$BB8D08
 	BMI CODE_BB8D73				;$BB8D0B
-	LDA.w DATA_FD1B03,x			;$BB8D0D
+	LDA.w vram_payload_table,x		;$BB8D0D
 	ORA #$C0				;$BB8D10
 	STA $44					;$BB8D12
 	LDA #$7F				;$BB8D14
@@ -1751,12 +1751,12 @@ CODE_BB8D01:
 	REP #$20				;$BB8D1A
 	LDA #$0000				;$BB8D1C
 	STA.l DMA[0].source_word		;$BB8D1F
-	LDA.w DATA_FD1B03+$01,x			;$BB8D23
+	LDA.w vram_payload_table+$01,x		;$BB8D23
 	STA $42					;$BB8D26
-	LDA.w DATA_FD1B03+$03,x			;$BB8D28
+	LDA.w vram_payload_table+$03,x		;$BB8D28
 	STA.l PPU.vram_address			;$BB8D2B
 	PHX					;$BB8D2F
-	LDA.w DATA_FD1B03+$05,x			;$BB8D30
+	LDA.w vram_payload_table+$05,x		;$BB8D30
 	INC					;$BB8D33
 	AND #$FFFE				;$BB8D34
 	TAY					;$BB8D37
@@ -1771,9 +1771,9 @@ CODE_BB8D39:
 	PLX					;$BB8D44
 	SEP #$20				;$BB8D45
 CODE_BB8D47:
-	LDA.w DATA_FD1B03+$05,x			;$BB8D47
+	LDA.w vram_payload_table+$05,x		;$BB8D47
 	STA.l DMA[0].size_low			;$BB8D4A
-	LDA.w DATA_FD1B03+$06,x			;$BB8D4E
+	LDA.w vram_payload_table+$06,x		;$BB8D4E
 	STA.l DMA[0].size_high			;$BB8D51
 	LDA.b #PPU.vram_write_low		;$BB8D55
 	STA.l DMA[0].destination		;$BB8D57
@@ -1794,8 +1794,8 @@ CODE_BB8D6F:
 
 CODE_BB8D73:
 	REP #$20				;$BB8D73
-	LDY.w DATA_FD1B03+$01,x			;$BB8D75
-	LDA.w DATA_FD1B03,x			;$BB8D78
+	LDY.w vram_payload_table+$01,x		;$BB8D75
+	LDA.w vram_payload_table,x		;$BB8D78
 	AND #$00C0				;$BB8D7B
 	LSR					;$BB8D7E
 	LSR					;$BB8D7F
@@ -1815,7 +1815,7 @@ DATA_BB8D88:
 
 CODE_BB8D90:
 	PLX					;$BB8D90
-	LDA.w DATA_FD1B03,x			;$BB8D91
+	LDA.w vram_payload_table,x		;$BB8D91
 	ORA #$00C0				;$BB8D94
 	AND #$00FF				;$BB8D97
 	PHX					;$BB8D9A
@@ -1829,9 +1829,9 @@ CODE_BB8D90:
 	PLX					;$BB8DA5
 CODE_BB8DA6:
 	SEP #$20				;$BB8DA6
-	LDA.w DATA_FD1B03+$03,x			;$BB8DA8
+	LDA.w vram_payload_table+$03,x		;$BB8DA8
 	STA.l PPU.vram_address_low		;$BB8DAB
-	LDA.w DATA_FD1B03+$04,x			;$BB8DAF
+	LDA.w vram_payload_table+$04,x		;$BB8DAF
 	AND #$7F				;$BB8DB2
 	STA.l PPU.vram_address_high		;$BB8DB4
 	LDA #$7F				;$BB8DB8
@@ -1845,11 +1845,11 @@ CODE_BB8DA6:
 CODE_BB8DCC:
 	PLX					;$BB8DCC
 	PHX					;$BB8DCD
-	LDA.w DATA_FD1B03,x			;$BB8DCE
+	LDA.w vram_payload_table,x		;$BB8DCE
 	ORA #$00C0				;$BB8DD1
 	AND #$00FF				;$BB8DD4
 	TAY					;$BB8DD7
-	LDA.w DATA_FD1B03+$01,x			;$BB8DD8
+	LDA.w vram_payload_table+$01,x		;$BB8DD8
 	LDX #$0000				;$BB8DDB
 	JSR CODE_BB8A73				;$BB8DDE
 	PLX					;$BB8DE1
@@ -3348,10 +3348,10 @@ CODE_BB97B1:
 	ASL					;$BB97BE
 	TAY					;$BB97BF
 	PHB					;$BB97C0
-	%pea_shift_dbr(DATA_FD0000)		;$BB97C1
+	%pea_shift_dbr(level_config_table)	;$BB97C1
 	PLB					;$BB97C4
 	PLB					;$BB97C5
-	LDA.w DATA_FD0000,y			;$BB97C6
+	LDA.w level_config_table,y		;$BB97C6
 	TAY					;$BB97C9
 	LDA.w DATA_FD0400&$FF0000,y		;$BB97CA
 	INY					;$BB97CD
@@ -3678,7 +3678,7 @@ CODE_BB9A7A:
 	LDA $0775				;$BB9A7A
 	AND #$0800				;$BB9A7D
 	STA $F8					;$BB9A80
-	JSL CODE_80808A				;$BB9A82
+	JSL DMA_queued_sprite_palettes		;$BB9A82
 CODE_BB9A86:
 	RTL					;$BB9A86
 
@@ -4882,13 +4882,13 @@ CODE_BBA3FF:
 	LDA #$0001				;$BBA40E
 	STA $00177E				;$BBA411
 	PHB					;$BBA415
-	%pea_shift_dbr(DATA_FE0000)		;$BBA416
+	%pea_shift_dbr(level_objects_table)	;$BBA416
 	PLB					;$BBA419
 	PLB					;$BBA41A
 	LDA level_number			;$BBA41B
 	ASL					;$BBA41D
 	TAY					;$BBA41E
-	LDA.w DATA_FE0000,y			;$BBA41F
+	LDA.w level_objects_table,y		;$BBA41F
 	BEQ CODE_BBA477				;$BBA422
 	TAY					;$BBA424
 	BRA CODE_BBA467				;$BBA425
@@ -4896,11 +4896,11 @@ CODE_BBA3FF:
 CODE_BBA427:
 	AND #$00F0				;$BBA427
 	STA $1A					;$BBA42A
-	LDA.w (DATA_FE0400&$FF0000)+$02,y	;$BBA42C
+	LDA $0002,y				;$BBA42C
 	SEC					;$BBA42F
 	SBC #$0100				;$BBA430
 	STA $0015EE				;$BBA433
-	LDA.w (DATA_FE0400&$FF0000)+$04,y	;$BBA437
+	LDA $0004,y				;$BBA437
 	SEC					;$BBA43A
 	SBC #$0100				;$BBA43B
 	STA $0015F4				;$BBA43E
@@ -4909,7 +4909,7 @@ CODE_BBA427:
 	JSR CODE_BBA47A				;$BBA444
 	PLY					;$BBA447
 	PLB					;$BBA448
-	LDA.w DATA_FE0400&$FF0000,y		;$BBA449
+	LDA $0000,y				;$BBA449
 	AND #$1F00				;$BBA44C
 	BEQ CODE_BBA458				;$BBA44F
 	PHB					;$BBA451
@@ -4926,7 +4926,7 @@ CODE_BBA458:
 	ADC #$0008				;$BBA463
 	TAY					;$BBA466
 CODE_BBA467:
-	LDA.w DATA_FE0400&$FF0000,y		;$BBA467
+	LDA $0000,y				;$BBA467
 	AND #$00FF				;$BBA46A
 	BNE CODE_BBA427				;$BBA46D
 	JSR CODE_BBA604				;$BBA46F
@@ -5190,7 +5190,7 @@ CODE_BBA647:
 	LDA level_number			;$BBA648
 	ASL					;$BBA64A
 	TAX					;$BBA64B
-	LDA.l DATA_FE0000,x			;$BBA64C
+	LDA.l level_objects_table,x		;$BBA64C
 	BEQ CODE_BBA6A1				;$BBA650
 	STA $0000EA				;$BBA652
 	INC					;$BBA656
@@ -5227,7 +5227,7 @@ CODE_BBA685:
 	ASL					;$BBA694
 	TAX					;$BBA695
 	LDA $15FE,x				;$BBA696
-	%pea_shift_dbr(DATA_FE0000)		;$BBA699
+	%pea_shift_dbr(level_objects_table)	;$BBA699
 	PLB					;$BBA69C
 	PLB					;$BBA69D
 	TAX					;$BBA69E
@@ -5712,7 +5712,7 @@ CODE_BBAA32:
 	ASL					;$BBAA38
 	TAY					;$BBAA39
 	PHB					;$BBAA3A
-	%pea_shift_dbr(DATA_FE0000)		;$BBAA3B
+	%pea_shift_dbr(level_objects_table)	;$BBAA3B
 	PLB					;$BBAA3E
 	PLB					;$BBAA3F
 	LDA ($EC),y				;$BBAA40

@@ -206,7 +206,7 @@ upload_spc_engine:
 	PHY					;$B28157
 	SEP #$30				;$B28158
 	XBA					;$B2815A
-	AND.b #$07				;$B2815B
+	AND #$07				;$B2815B
 	TAX					;$B2815D
 	XBA					;$B2815E
 	LDY $0428,x				;$B2815F
@@ -1002,7 +1002,7 @@ CODE_B2875A:
 
 CODE_B28770:
 	JSL CODE_B38006				;$B28770
-	JSL CODE_80801E				;$B28774
+	JSL DMA_queued_sprite_palette		;$B28774
 	SEP #$20				;$B28778
 	LDA screen_brightness			;$B2877A
 	STA PPU.screen				;$B2877D
@@ -1339,7 +1339,7 @@ CODE_B28B52:
 	DEY					;$B28B5B
 	BNE CODE_B28B52				;$B28B5C
 	JSL CODE_B38006				;$B28B5E
-	JSL CODE_80801E				;$B28B62
+	JSL DMA_queued_sprite_palette		;$B28B62
 	SEP #$20				;$B28B66
 	LDA screen_brightness			;$B28B68
 	STA PPU.screen				;$B28B6B
@@ -1617,7 +1617,7 @@ CODE_B28E05:
 	LDA pending_dma_hdma_channels		;$B28E05
 	STA CPU.enable_dma_hdma			;$B28E08
 	JSL CODE_B38006				;$B28E0B
-	JSL CODE_80801E				;$B28E0F
+	JSL DMA_queued_sprite_palette		;$B28E0F
 	LDX active_kong_sprite			;$B28E13
 	LDA sprite.y_position,x			;$B28E16
 	EOR #$FFFF				;$B28E18
@@ -1706,7 +1706,7 @@ CODE_B28EE5:
 	LDA pending_dma_hdma_channels		;$B28EE5
 	STA CPU.enable_dma_hdma			;$B28EE8
 	JSL CODE_B38006				;$B28EEB
-	JSL CODE_80801E				;$B28EEF
+	JSL DMA_queued_sprite_palette		;$B28EEF
 	SEP #$20				;$B28EF3
 	LDA screen_brightness			;$B28EF5
 	STA PPU.screen				;$B28EF8
@@ -1815,7 +1815,7 @@ unknown_sprite_00DC_main:
 	JML [$04F5]				;$B28FC6  |>
 
 rotating_cylinder_key_main:
-	JSL.l process_sprite_animation		;$B28FC9  \
+	JSL process_sprite_animation		;$B28FC9  \
 	JML [$04F5]				;$B28FCD  /
 
 rare_logo_main:
@@ -1901,10 +1901,14 @@ CODE_B29057:
 	RTS					;$B29072  /
 
 DATA_B29073:
-	db $45,$00,$00,$00,$00,$47,$00,$00,$00,$00,$4C,$00,$00,$00,$00,$53
-	db $00,$00,$00,$00,$5A,$00,$00,$00,$00,$60,$00,$00,$00,$00,$65,$00
-	db $00,$00,$00,$67,$00,$00,$00,$00,$43,$04,$00,$00,$00,$3D,$0C,$00
-	db $00,$00,$37,$14,$00,$00,$00,$35,$18
+	db $45,$00,$00,$00,$00,$47,$00,$00
+	db $00,$00,$4C,$00,$00,$00,$00,$53
+	db $00,$00,$00,$00,$5A,$00,$00,$00
+	db $00,$60,$00,$00,$00,$00,$65,$00
+	db $00,$00,$00,$67,$00,$00,$00,$00
+	db $43,$04,$00,$00,$00,$3D,$0C,$00
+	db $00,$00,$37,$14,$00,$00,$00,$35
+	db $18
 
 nintendo_presents_kong_main:
 	JSL process_sprite_animation		;$B290AC  \
@@ -2348,7 +2352,7 @@ CODE_B29432:
 	DEX					;$B29435
 	BNE CODE_B29432				;$B29436
 	JSL CODE_B38006				;$B29438
-	JSL CODE_80801E				;$B2943C
+	JSL DMA_queued_sprite_palette		;$B2943C
 	SEP #$20				;$B29440
 	LDA screen_brightness			;$B29442
 	STA PPU.screen				;$B29445
@@ -2850,7 +2854,7 @@ CODE_B298BA:
 	LDA pending_dma_hdma_channels		;$B298BA
 	STA CPU.enable_dma_hdma			;$B298BD
 	JSL CODE_B38006				;$B298C0
-	JSL CODE_80801E				;$B298C4
+	JSL DMA_queued_sprite_palette		;$B298C4
 	SEP #$20				;$B298C8
 	LDA screen_brightness			;$B298CA
 	STA PPU.screen				;$B298CD
@@ -2862,7 +2866,7 @@ CODE_B298BA:
 	BNE CODE_B298F6				;$B298DE
 	JSL CODE_808015				;$B298E0
 	LDA player_active_pressed		;$B298E4
-	BIT #$9080				;$B298E7
+	BIT #!input_A|!input_B|!input_start	;$B298E7
 	BEQ CODE_B298F6				;$B298EA
 	JSR CODE_B28603				;$B298EC
 	LDA #$0001				;$B298EF
@@ -2932,13 +2936,13 @@ CODE_B29952:
 	STA $06DA				;$B2999D
 	LDA #$4000				;$B299A0
 	STA $073C				;$B299A3
-	JSL CODE_80807E				;$B299A6
+	JSL lock_sprite_palette_queue		;$B299A6
 	JSR CODE_B29CED				;$B299AA
 	LDY #$0328				;$B299AD
 	JSL CODE_BB8585				;$B299B0
 	LDX alternate_sprite			;$B299B4
 	STX $1C3F				;$B299B6
-	JSL CODE_808081				;$B299B9
+	JSL unlock_sprite_palette_queue		;$B299B9
 	LDY #$0326				;$B299BD
 	JSL CODE_BB85B5				;$B299C0
 	LDY #$032C				;$B299C4
@@ -3021,10 +3025,10 @@ CODE_B29952:
 	CLC					;$B29AA7
 	ADC #$01C0				;$B29AA8
 	STA $B4					;$B29AAB
-	JSL CODE_80801E				;$B29AAD
-	JSL CODE_80801E				;$B29AB1
-	JSL CODE_80801E				;$B29AB5
-	JSL CODE_80801E				;$B29AB9
+	JSL DMA_queued_sprite_palette		;$B29AAD
+	JSL DMA_queued_sprite_palette		;$B29AB1
+	JSL DMA_queued_sprite_palette		;$B29AB5
+	JSL DMA_queued_sprite_palette		;$B29AB9
 	LDA #$0200				;$B29ABD
 	JSL CODE_808024				;$B29AC0
 	LDA #$0200				;$B29AC4
@@ -3047,7 +3051,7 @@ CODE_B29AEF:
 	LDA pending_dma_hdma_channels		;$B29AEF
 	STA CPU.enable_dma_hdma			;$B29AF2
 	JSL CODE_B38006				;$B29AF5
-	JSL CODE_80801E				;$B29AF9
+	JSL DMA_queued_sprite_palette		;$B29AF9
 	JSR CODE_B29D64				;$B29AFD
 	LDA #$0001				;$B29B00
 	TRB $1C35				;$B29B03
@@ -3819,7 +3823,7 @@ CODE_B2A10A:
 	BIT $05FD				;$B2A112
 	BEQ CODE_B2A125				;$B2A115
 	LDA player_active_pressed		;$B2A117
-	BIT #$9180				;$B2A11A
+	BIT #$9180				;$B2A11A A/B/START/right
 	BEQ CODE_B2A125				;$B2A11D
 	LDA #$0002				;$B2A11F
 	STA $1C39				;$B2A122
@@ -6672,7 +6676,7 @@ CODE_B2C1AC:
 	CMP #$0003				;$B2C1B7
 	BNE CODE_B2C1D7				;$B2C1BA
 	LDA player_active_pressed		;$B2C1BC
-	BIT #$0100				;$B2C1BF
+	BIT #!input_right			;$B2C1BF
 	BEQ CODE_B2C1F9				;$B2C1C2
 	STZ $1C41				;$B2C1C4
 	STZ $1C57				;$B2C1C7
@@ -9216,7 +9220,7 @@ game_over_blocks_main:
 	BCC .CODE_B2D5EA			;$B2D5E5   |
 	STZ $15E6				;$B2D5E7  /
 .CODE_B2D5EA:
-	BRA.b .CODE_B2D5B9			;$B2D5EA  |>
+	BRA .CODE_B2D5B9			;$B2D5EA  |>
 
 
 stationary_display_sprite_main:
@@ -11560,12 +11564,12 @@ wrinklys_save_cave_main:
 	TYX					;$B2E77A   |
 	INC sprite.state,x			;$B2E77B  /
 .idle:
-	JSL.l process_anim_preserve_state	;$B2E77D  \
+	JSL process_anim_preserve_state		;$B2E77D  \
 	JML [$04F5]				;$B2E781  /
 
 
 kremwood_forest_log_main:
-	JMP.w (.state_table,x)			;$B2E784
+	JMP (.state_table,x)			;$B2E784
 
 .state_table:
 	dw CODE_B2E78F
@@ -12111,11 +12115,11 @@ CODE_B2EB71:
 	SEC					;$B2EB73
 	SBC #$0008				;$B2EB74
 	CMP.w sprite.y_position,y		;$B2EB77
-	BCS.b CODE_B2EB86			;$B2EB7A
+	BCS CODE_B2EB86				;$B2EB7A
 	CLC					;$B2EB7C
 	ADC #$0010				;$B2EB7D
 	CMP.w sprite.y_position,y		;$B2EB80
-	BCC.b CODE_B2EB86			;$B2EB83
+	BCC CODE_B2EB86				;$B2EB83
 	RTS					;$B2EB85
 
 CODE_B2EB86:
@@ -12259,7 +12263,7 @@ CODE_B2EC7E:
 	LDA #$0001				;$B2EC7E
 	STA sprite.state,x			;$B2EC81
 	ASL sprite.general_purpose_50,x		;$B2EC83
-	BRA.b CODE_B2EC68			;$B2EC85
+	BRA CODE_B2EC68				;$B2EC85
 
 CODE_B2EC87:
 	LDA sprite.general_purpose_50,x		;$B2EC87
@@ -12650,7 +12654,7 @@ CODE_B2EF19:
 CODE_B2EF39:
 	EOR #$FFFF				;$B2EF39
 	INC					;$B2EF3C
-	BRA.b CODE_B2EF45			;$B2EF3D
+	BRA CODE_B2EF45				;$B2EF3D
 
 CODE_B2EF3F:
 	CMP temp_1A				;$B2EF3F
@@ -12848,7 +12852,7 @@ CODE_B2F065:
 	STA CPU.dividen_low			;$B2F0A7
 	LDA sprite.ground_distance,x		;$B2F0AA
 	STA.w sprite.general_purpose_6A,y	;$B2F0AC
-	SEP.b #$20				;$B2F0AF
+	SEP #$20				;$B2F0AF
 	PHA					;$B2F0B1
 	STA CPU.divisor				;$B2F0B2
 	REP #$20				;$B2F0B5
@@ -13339,7 +13343,7 @@ CODE_B2F471:
 	LDA [current_sprite_constants],y	;$B2F481
 	EOR #$FFFF				;$B2F483
 	INC					;$B2F486
-	BRA.b CODE_B2F48B			;$B2F487
+	BRA CODE_B2F48B				;$B2F487
 
 CODE_B2F489:
 	LDA [current_sprite_constants],y	;$B2F489
@@ -13354,7 +13358,7 @@ CODE_B2F48B:
 	LDA [current_sprite_constants],y	;$B2F49C
 	EOR #$FFFF				;$B2F49E
 	INC					;$B2F4A1
-	BRA.b CODE_B2F4A6			;$B2F4A2
+	BRA CODE_B2F4A6				;$B2F4A2
 
 CODE_B2F4A4:
 	LDA [current_sprite_constants],y	;$B2F4A4
@@ -13402,7 +13406,7 @@ CODE_B2F4F0:
 
 
 unknown_sprite_01DC_main:
-	JMP.w (.state_table,x)			;$B2F4F1
+	JMP (.state_table,x)			;$B2F4F1
 
 .state_table:
 	dw CODE_B2F4FA
@@ -13456,7 +13460,7 @@ CODE_B2F552:
 	LDA.w sprite.general_purpose_5C,y	;$B2F552
 	LSR					;$B2F555
 	SBC #$0005				;$B2F556
-	BPL.b CODE_B2F55C			;$B2F559
+	BPL CODE_B2F55C				;$B2F559
 	TDC					;$B2F55B
 CODE_B2F55C:
 	STA $15E4				;$B2F55C
@@ -13492,10 +13496,10 @@ CODE_B2F58D:
 	LDA #$0040				;$B2F597
 	BIT $05FD				;$B2F59A
 	BEQ CODE_B2F5AE				;$B2F59D
-	JSL CODE_80807E				;$B2F59F
+	JSL lock_sprite_palette_queue		;$B2F59F
 	LDY #$00D8				;$B2F5A3
 	JSL CODE_BB85B8				;$B2F5A6
-	JSL CODE_808081				;$B2F5AA
+	JSL unlock_sprite_palette_queue		;$B2F5AA
 CODE_B2F5AE:
 	JML [$04F5]				;$B2F5AE
 
@@ -13597,7 +13601,7 @@ CODE_B2F68E:
 
 
 krool_head_main:
-	JMP.w (DATA_B2F694,x)			;$B2F691
+	JMP (DATA_B2F694,x)			;$B2F691
 
 DATA_B2F694:
 	dw CODE_B2F69C
@@ -13647,13 +13651,13 @@ CODE_B2F6E6:
 
 CODE_B2F6F1:
 	LDA.w sprite.movement_state,y		;$B2F6F1
-	BNE.b CODE_B2F6E6			;$B2F6F4
+	BNE CODE_B2F6E6				;$B2F6F4
 	LDX sprite.general_purpose_5C,y		;$B2F6F6
 	LDA sprite.y_position,x			;$B2F6F8
 	SEC					;$B2F6FA
 	SBC #$0030				;$B2F6FB
 	STA.w sprite.y_position,y		;$B2F6FE
-	BRA.b CODE_B2F6E6			;$B2F701
+	BRA CODE_B2F6E6				;$B2F701
 
 CODE_B2F703:
 	TYX					;$B2F703
@@ -13819,7 +13823,7 @@ mama_bird_egg:
 	LDA sprite.max_x_speed,x		;$B2F831   |
 	SEC					;$B2F833   |
 	SBC #$0008				;$B2F834   |
-	BPL.b ..CODE_B2F83A			;$B2F837   |
+	BPL ..CODE_B2F83A			;$B2F837   |
 	TDC					;$B2F839  /
 ..CODE_B2F83A:
 	STA sprite.max_x_speed,x		;$B2F83A  \
@@ -13941,7 +13945,7 @@ CODE_B2F914:
 	BEQ CODE_B2F962				;$B2F929
 	LDA #$4000				;$B2F92B
 	TXY					;$B2F92E
-	BRA.b CODE_B2F907			;$B2F92F
+	BRA CODE_B2F907				;$B2F92F
 
 CODE_B2F931:
 	LDA #$0566				;$B2F931
@@ -14028,7 +14032,7 @@ CODE_B2F9CA:
 	INC $62					;$B2F9CE   |
 	JSL CODE_BB85B8				;$B2F9D0   |
 	DEC $60					;$B2F9D4   |
-	BNE.b CODE_B2F9CA			;$B2F9D6   |
+	BNE CODE_B2F9CA				;$B2F9D6   |
 	JML [$04F5]				;$B2F9D8  /
 
 CODE_B2F9DB:
@@ -14142,7 +14146,7 @@ DATA_B2FA9E:
 
 
 squirt_pupil_main:
-	JMP.w (DATA_B2FAA9,x)			;$B2FAA6
+	JMP (DATA_B2FAA9,x)			;$B2FAA6
 
 DATA_B2FAA9:
 	dw CODE_B2FAAD
