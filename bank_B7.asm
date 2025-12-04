@@ -55,7 +55,7 @@ CODE_B78033:
 CODE_B78036:
 	PHX					;$B78036
 	LDX.w $155E				;$B78037
-	STA.w $1564,x				;$B7803A
+	STA.w sprite_DMA[0].destination,x	;$B7803A
 	LDA.b $1D				;$B7803D
 	BRA.b CODE_B78054			;$B7803F
 
@@ -66,31 +66,31 @@ CODE_B78041:
 	ASL					;$B78046
 	ASL					;$B78047
 	ASL					;$B78048
-	STA.w $1564,x				;$B78049
+	STA.w sprite_DMA[0].destination,x	;$B78049
 	LDA.b $1C				;$B7804C
 	AND.w #$FF00				;$B7804E
 	LSR					;$B78051
 	LSR					;$B78052
 	LSR					;$B78053
 CODE_B78054:
-	STA.w $1562,x				;$B78054
+	STA.w sprite_DMA[0].size,x		;$B78054
 	ADC.w #$0032				;$B78057
 	ADC.w $1560				;$B7805A
 	CMP.b $80				;$B7805D
 	BCS.b CODE_B7808B			;$B7805F
 	STA.w $1560				;$B78061
 	LDA.b $1A				;$B78064
-	STA.w $1566,x				;$B78066
+	STA.w sprite_DMA[0].source_word,x	;$B78066
 	LDA.b $1C				;$B78069
 	AND.w #$00FF				;$B7806B
 	ORA.w #$8000				;$B7806E
-	STA.w $1568,x				;$B78071
+	STA.w sprite_DMA[0].source_bank,x	;$B78071
 	TXA					;$B78074
 	CLC					;$B78075
-	ADC.w #$0008				;$B78076
+	ADC.w #sizeof(sprite_DMA)		;$B78076
 	STA.w $155E				;$B78079
 	TAX					;$B7807C
-	STZ.w $1568,x				;$B7807D
+	STZ.w sprite_DMA[0].terminate,x		;$B7807D
 	CPX.w #$0070				;$B78080
 	BCC.b CODE_B7808B			;$B78083
 	LDA.b $80				;$B78085
@@ -323,7 +323,7 @@ CODE_B781F8:
 	TYA					;$B7820C
 	CLC					;$B7820D
 	ADC.b $28				;$B7820E
-	STA.w $1566,x				;$B78210
+	STA.w sprite_DMA[0].source_word,x	;$B78210
 	LDA.b $23				;$B78213
 	AND.w #$00FF				;$B78215
 	ASL					;$B78218
@@ -331,8 +331,8 @@ CODE_B781F8:
 	ASL					;$B7821A
 	ASL					;$B7821B
 	ASL					;$B7821C
-	STA.w $1562,x				;$B7821D
-	ADC.w $1566,x				;$B78220
+	STA.w sprite_DMA[0].size,x		;$B7821D
+	ADC.w sprite_DMA[0].source_word,x	;$B78220
 	TAY					;$B78223
 	LDA.b $1A				;$B78224
 	AND.w #$01FF				;$B78226
@@ -340,17 +340,17 @@ CODE_B781F8:
 	ASL					;$B7822A
 	ASL					;$B7822B
 	ASL					;$B7822C
-	STA.w $1564,x				;$B7822D
+	STA.w sprite_DMA[0].destination,x	;$B7822D
 	LDA.b $2A				;$B78230
 	ORA.w #$FF00				;$B78232
-	STA.w $1568,x				;$B78235
+	STA.w sprite_DMA[0].source_bank,x	;$B78235
 	LDA.b $25				;$B78238
 	AND.w #$000F				;$B7823A
 	BNE.b CODE_B78254			;$B7823D
 	TXA					;$B7823F
-	ADC.w #$0008				;$B78240
+	ADC.w #sizeof(sprite_DMA)		;$B78240
 	STA.w $155E				;$B78243
-	STZ.w $1570,x				;$B78246
+	STZ.w sprite_DMA[1].terminate,x		;$B78246
 	CPX.w #$0070				;$B78249
 	BCC.b CODE_B78253			;$B7824C
 	LDA.b $80				;$B7824E
@@ -364,23 +364,23 @@ CODE_B78254:
 	ASL					;$B78256
 	ASL					;$B78257
 	ASL					;$B78258
-	STA.w $156A,x				;$B78259
+	STA.w sprite_DMA[1].size,x		;$B78259
 	TXA					;$B7825C
-	ADC.w #$0010				;$B7825D
+	ADC.w #sizeof(sprite_DMA)*2		;$B7825D
 	STA.w $155E				;$B78260
-	STZ.w $1578,x				;$B78263
+	STZ.w sprite_DMA[2].terminate,x		;$B78263
 	LDA.b $24				;$B78266
 	AND.w #$00FF				;$B78268
 	ASL					;$B7826B
 	ASL					;$B7826C
 	ASL					;$B7826D
 	ASL					;$B7826E
-	ADC.w $1564,x				;$B7826F
-	STA.w $156C,x				;$B78272
+	ADC.w sprite_DMA[0].destination,x	;$B7826F
+	STA.w sprite_DMA[1].destination,x	;$B78272
 	TYA					;$B78275
-	STA.w $156E,x				;$B78276
-	LDA.w $1568,x				;$B78279
-	STA.w $1570,x				;$B7827C
+	STA.w sprite_DMA[1].source_word,x	;$B78276
+	LDA.w sprite_DMA[0].source_bank,x	;$B78279
+	STA.w sprite_DMA[1].source_bank,x	;$B7827C
 	CPX.w #$0070				;$B7827F
 	BCC.b CODE_B78289			;$B78282
 	LDA.b $80				;$B78284
@@ -2289,14 +2289,14 @@ CODE_B790B9:
 	CLC					;$B790BF
 	ADC.b $28				;$B790C0
 	TAY					;$B790C2
-	STA.w $1566,x				;$B790C3
+	STA.w sprite_DMA[0].source_word,x	;$B790C3
 	LDA.b $23				;$B790C6
 	AND.w #$00FF				;$B790C8
 	XBA					;$B790CB
 	LSR					;$B790CC
 	LSR					;$B790CD
 	LSR					;$B790CE
-	STA.w $1562,x				;$B790CF
+	STA.w sprite_DMA[0].size,x		;$B790CF
 	STA.b $84				;$B790D2
 	TYA					;$B790D4
 	CLC					;$B790D5
@@ -2308,15 +2308,15 @@ CODE_B790B9:
 	ASL					;$B790DF
 	ASL					;$B790E0
 	ASL					;$B790E1
-	STA.w $1564,x				;$B790E2
+	STA.w sprite_DMA[0].destination,x	;$B790E2
 	LDA.b $2A				;$B790E5
 	ORA.w #$FF00				;$B790E7
-	STA.w $1568,x				;$B790EA
+	STA.w sprite_DMA[0].source_bank,x	;$B790EA
 	TXA					;$B790ED
 	CLC					;$B790EE
-	ADC.w #$0008				;$B790EF
+	ADC.w #sizeof(sprite_DMA)		;$B790EF
 	TAX					;$B790F2
-	STZ.w $1568,x				;$B790F3
+	STZ.w sprite_DMA[0].terminate,x		;$B790F3
 	LDA.b $25				;$B790F6
 	AND.w #$000F				;$B790F8
 	BEQ.b CODE_B79130			;$B790FB
@@ -2324,7 +2324,7 @@ CODE_B790B9:
 	LSR					;$B790FE
 	LSR					;$B790FF
 	LSR					;$B79100
-	STA.w $1562,x				;$B79101
+	STA.w sprite_DMA[0].size,x		;$B79101
 	LDA.b $24				;$B79104
 	AND.w #$00FF				;$B79106
 	ASL					;$B79109
@@ -2340,19 +2340,19 @@ CODE_B790B9:
 	ASL					;$B79117
 	CLC					;$B79118
 	ADC.b $84				;$B79119
-	STA.w $1564,x				;$B7911B
+	STA.w sprite_DMA[0].destination,x	;$B7911B
 	TYA					;$B7911E
-	STA.w $1566,x				;$B7911F
+	STA.w sprite_DMA[0].source_word,x	;$B7911F
 	LDA.b $2A				;$B79122
 	ORA.w #$FF00				;$B79124
-	STA.w $1568,x				;$B79127
+	STA.w sprite_DMA[0].source_bank,x	;$B79127
 	TXA					;$B7912A
 	CLC					;$B7912B
-	ADC.w #$0008				;$B7912C
+	ADC.w #sizeof(sprite_DMA)		;$B7912C
 	TAX					;$B7912F
 CODE_B79130:
 	STX.w $155E				;$B79130
-	STZ.w $1568,x				;$B79133
+	STZ.w sprite_DMA[0].terminate,x		;$B79133
 	CPX.w #$0070				;$B79136
 	BCC.b CODE_B79140			;$B79139
 	LDA.b $80				;$B7913B

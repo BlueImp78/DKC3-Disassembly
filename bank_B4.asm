@@ -45,8 +45,8 @@ CODE_B48021:
 	LDA #$0001				;$B48037
 	TRB game_state_flags			;$B4803A
 	JSL disable_screen_wrapper		;$B4803D
-	JSL CODE_808009				;$B48041
-	JSL CODE_80800C				;$B48045
+	JSL init_registers			;$B48041
+	JSL clear_VRAM				;$B48045
 	JSL CODE_80801B				;$B48049
 	JSL CODE_BB857F				;$B4804D
 	LDA #$1D93				;$B48051
@@ -108,7 +108,7 @@ CODE_B480D9:
 	STA.w $1C47				;$B480E8
 	JSR.w CODE_B4810B			;$B480EB
 	LDA.w #$0200				;$B480EE
-	JSL.l CODE_808024			;$B480F1
+	JSL.l set_screen_fade			;$B480F1
 	LDA.w #$0001				;$B480F5
 	TRB.w $1C35				;$B480F8
 	LDY.w $05E3				;$B480FB
@@ -150,7 +150,7 @@ CODE_B4813A:
 	AND.w #$0001				;$B4813F
 	ORA.w #$7E00				;$B48142
 	STA.w CPU.enable_dma_hdma		;$B48145
-	JSL.l CODE_B38006			;$B48148
+	JSL.l DMA_sprite_graphics		;$B48148
 	JSL DMA_queued_sprite_palette		;$B4814C
 	LDX.w #$72E0				;$B48150
 	JSR.w CODE_B4A82A			;$B48153
@@ -168,7 +168,7 @@ CODE_B48164:
 	REP.b #$20				;$B48172
 	STZ.w $1560				;$B48174
 	STZ.w $155E				;$B48177
-	JSL.l CODE_808015			;$B4817A
+	JSL.l input_and_pause_handler		;$B4817A
 	PHK					;$B4817E
 	PLB					;$B4817F
 	LDX.w #$0001				;$B48180
@@ -273,8 +273,8 @@ CODE_B48260:
 CODE_B48263:
 	TXA					;$B48263
 	STA.l $7EA18F				;$B48264
-	JSL.l CODE_808012			;$B48268
-	JSL.l handle_fading			;$B4826C
+	JSL.l set_unused_OAM_offscreen		;$B48268
+	JSL.l screen_fade_handler		;$B4826C
 	JML.l CODE_808006			;$B48270
 
 CODE_B48274:
@@ -854,7 +854,7 @@ CODE_B4874E:
 	AND.w #$0001				;$B48753
 	ORA.w #$FE00				;$B48756
 	STA.w CPU.enable_dma_hdma		;$B48759
-	JSL.l CODE_B38006			;$B4875C
+	JSL.l DMA_sprite_graphics		;$B4875C
 	JSL DMA_queued_sprite_palette		;$B48760
 	JSR.w CODE_B488DA			;$B48764
 	SEP.b #$20				;$B48767
@@ -863,7 +863,7 @@ CODE_B4874E:
 	REP.b #$20				;$B4876F
 	STZ.w $1560				;$B48771
 	STZ.w $155E				;$B48774
-	JSL.l CODE_808015			;$B48777
+	JSL.l input_and_pause_handler		;$B48777
 	PHK					;$B4877B
 	PLB					;$B4877C
 	JSR.w CODE_B48D06			;$B4877D
@@ -1016,8 +1016,8 @@ CODE_B488C5:
 	STA.l $7EA18F				;$B488C8
 	REP.b #$20				;$B488CC
 CODE_B488CE:
-	JSL.l CODE_808012			;$B488CE
-	JSL.l handle_fading			;$B488D2
+	JSL.l set_unused_OAM_offscreen		;$B488CE
+	JSL.l screen_fade_handler		;$B488D2
 	JML.l CODE_808006			;$B488D6
 
 CODE_B488DA:
@@ -1581,7 +1581,7 @@ CODE_B48D82:
 	LDA.w pending_dma_hdma_channels		;$B48D84
 	AND.w #$FF01				;$B48D87
 	STA.w CPU.enable_dma_hdma		;$B48D8A
-	JSL.l CODE_B38006			;$B48D8D
+	JSL.l DMA_sprite_graphics		;$B48D8D
 	JSL DMA_queued_sprite_palette		;$B48D91
 	LDX.w #$7EE0				;$B48D95
 	JSR.w CODE_B4A82A			;$B48D98
@@ -1600,7 +1600,7 @@ CODE_B48DA6:
 	LDA.w #$4000				;$B48DB9
 	BIT.w $1C35				;$B48DBC
 	BNE.b CODE_B48DC5			;$B48DBF
-	JSL.l CODE_808015			;$B48DC1
+	JSL.l input_and_pause_handler		;$B48DC1
 CODE_B48DC5:
 	PHK					;$B48DC5
 	PLB					;$B48DC6
@@ -1709,8 +1709,8 @@ CODE_B48EA2:
 	STA.b $46				;$B48EA9
 	JSL.l sprite_handler			;$B48EAB
 	JSL.l CODE_B7800F			;$B48EAF
-	JSL.l CODE_808012			;$B48EB3
-	JSL.l handle_fading			;$B48EB7
+	JSL.l set_unused_OAM_offscreen		;$B48EB3
+	JSL.l screen_fade_handler		;$B48EB7
 	JML.l CODE_808006			;$B48EBB
 
 CODE_B48EBF:
@@ -3040,7 +3040,7 @@ CODE_B49930:
 	AND.w #$0001				;$B49935
 	ORA.w #$FE00				;$B49938
 	STA.w CPU.enable_dma_hdma		;$B4993B
-	JSL.l CODE_B38006			;$B4993E
+	JSL.l DMA_sprite_graphics		;$B4993E
 	JSL DMA_queued_sprite_palette		;$B49942
 	LDX.w #$72E0				;$B49946
 	JSR.w CODE_B4A82A			;$B49949
@@ -3053,7 +3053,7 @@ CODE_B49930:
 	STZ.w $1560				;$B4995C
 	STZ.w $155E				;$B4995F
 	JSR.w CODE_B49F63			;$B49962
-	JSL.l CODE_808015			;$B49965
+	JSL.l input_and_pause_handler		;$B49965
 	PHK					;$B49969
 	PLB					;$B4996A
 	LDX.w #$0001				;$B4996B
@@ -3124,8 +3124,8 @@ CODE_B499F9:
 	JSL.l CODE_B7800C			;$B499FD
 	JSL.l CODE_B6804B			;$B49A01
 	JSL.l CODE_B7800F			;$B49A05
-	JSL.l CODE_808012			;$B49A09
-	JSL.l handle_fading			;$B49A0D
+	JSL.l set_unused_OAM_offscreen		;$B49A09
+	JSL.l screen_fade_handler		;$B49A0D
 	JML.l CODE_808006			;$B49A11
 
 DATA_B49A15:
@@ -3453,7 +3453,7 @@ CODE_B49CD3:
 	PLB					;$B49CD4
 	LDA.w pending_dma_hdma_channels		;$B49CD5
 	STA.w CPU.enable_dma_hdma		;$B49CD8
-	JSL.l CODE_B38006			;$B49CDB
+	JSL.l DMA_sprite_graphics		;$B49CDB
 	JSL DMA_queued_sprite_palette		;$B49CDF
 	JSR.w CODE_B49D54			;$B49CE3
 	SEP.b #$20				;$B49CE6
@@ -3462,7 +3462,7 @@ CODE_B49CD3:
 	REP.b #$20				;$B49CEE
 	STZ.w $1560				;$B49CF0
 	STZ.w $155E				;$B49CF3
-	JSL.l CODE_808015			;$B49CF6
+	JSL.l input_and_pause_handler		;$B49CF6
 	PHK					;$B49CFA
 	PLB					;$B49CFB
 	JSR.w CODE_B49DF9			;$B49CFC
@@ -3497,8 +3497,8 @@ CODE_B49D3C:
 	JSL.l sprite_handler			;$B49D3C
 	JSL.l CODE_B7800C			;$B49D40
 	JSL.l CODE_B7800F			;$B49D44
-	JSL.l CODE_808012			;$B49D48
-	JSL.l handle_fading			;$B49D4C
+	JSL.l set_unused_OAM_offscreen		;$B49D48
+	JSL.l screen_fade_handler		;$B49D4C
 	JML.l CODE_808006			;$B49D50
 
 CODE_B49D54:
@@ -3692,7 +3692,7 @@ CODE_B49ED0:
 	PLB					;$B49ED1
 	LDA.w pending_dma_hdma_channels		;$B49ED2
 	STA.w CPU.enable_dma_hdma		;$B49ED5
-	JSL.l CODE_B38006			;$B49ED8
+	JSL.l DMA_sprite_graphics		;$B49ED8
 	JSL DMA_queued_sprite_palette		;$B49EDC
 	JSR.w CODE_B4C6F7			;$B49EE0
 	SEP.b #$20				;$B49EE3
@@ -3704,7 +3704,7 @@ CODE_B49ED0:
 	REP.b #$20				;$B49EF2
 	STZ.w $1560				;$B49EF4
 	STZ.w $155E				;$B49EF7
-	JSL.l CODE_808015			;$B49EFA
+	JSL.l input_and_pause_handler		;$B49EFA
 	LDA.w player_active_pressed		;$B49EFE
 	BIT.w #!input_left|!input_down		;$B49F01
 	BEQ.b CODE_B49F0C			;$B49F04
@@ -3718,8 +3718,8 @@ CODE_B49F0C:
 	JSL.l CODE_BB8606			;$B49F19
 CODE_B49F1D:
 	JSL.l CODE_B7800F			;$B49F1D
-	JSL.l CODE_808012			;$B49F21
-	JSL.l handle_fading			;$B49F25
+	JSL.l set_unused_OAM_offscreen		;$B49F21
+	JSL.l screen_fade_handler		;$B49F25
 	LDA.w screen_brightness			;$B49F29
 	BNE.b CODE_B49F33			;$B49F2C
 	CMP.w screen_fade_speed			;$B49F2E
@@ -5828,7 +5828,7 @@ CODE_B4B156:
 	JSR.w CODE_B4CDDE			;$B4B15E
 CODE_B4B161:
 	LDA.w #$0200				;$B4B161
-	JSL.l CODE_808024			;$B4B164
+	JSL.l set_screen_fade			;$B4B164
 	JSR.w CODE_B4810B			;$B4B168
 	LDA.w #CODE_B4B179			;$B4B16B
 	LDX.w #CODE_B4B179>>16			;$B4B16E
@@ -5845,7 +5845,7 @@ CODE_B4B179:
 	PLB					;$B4B17A
 	LDA.w pending_dma_hdma_channels		;$B4B17B
 	STA.w CPU.enable_dma_hdma		;$B4B17E
-	JSL.l CODE_B38006			;$B4B181
+	JSL.l DMA_sprite_graphics		;$B4B181
 	JSL DMA_queued_sprite_palette		;$B4B185
 	JSR.w CODE_B4BBF7			;$B4B189
 	SEP.b #$20				;$B4B18C
@@ -5881,7 +5881,7 @@ CODE_B4B1C7:
 	LDA.w #$0002				;$B4B1DA
 	JSR.w CODE_B4B89D			;$B4B1DD
 CODE_B4B1E0:
-	JSL.l CODE_808015			;$B4B1E0
+	JSL.l input_and_pause_handler		;$B4B1E0
 	PHK					;$B4B1E4
 	PLB					;$B4B1E5
 	LDA.w current_world			;$B4B1E6
@@ -5901,7 +5901,7 @@ CODE_B4B1FE:
 	DEC.w $1C39				;$B4B206
 	BNE.b CODE_B4B21D			;$B4B209
 	LDA.w #$820F				;$B4B20B
-	JSL.l CODE_808024			;$B4B20E
+	JSL.l set_screen_fade			;$B4B20E
 CODE_B4B212:
 	LDA.w #$2000				;$B4B212
 	BIT.w $05FB				;$B4B215
@@ -5944,7 +5944,7 @@ CODE_B4B25C:
 	BEQ.b CODE_B4B271			;$B4B26C
 	JSR.w CODE_B4B60B			;$B4B26E
 CODE_B4B271:
-	JSL.l CODE_808012			;$B4B271
+	JSL.l set_unused_OAM_offscreen		;$B4B271
 	LDA.w current_world			;$B4B275
 	BEQ.b CODE_B4B28F			;$B4B278
 	LDA.w map_node_number			;$B4B27A
@@ -5956,7 +5956,7 @@ CODE_B4B271:
 	LDA.w $005C,y				;$B4B28A
 	BNE.b CODE_B4B298			;$B4B28D
 CODE_B4B28F:
-	JSL.l handle_fading			;$B4B28F
+	JSL.l screen_fade_handler		;$B4B28F
 	LDA.w screen_brightness			;$B4B293
 	BEQ.b CODE_B4B29C			;$B4B296
 CODE_B4B298:

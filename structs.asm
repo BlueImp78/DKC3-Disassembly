@@ -65,3 +65,11 @@ struct sprite $0000
 	.general_purpose_6A:		skip 2  	;6A,x   movement behavior?
 	.general_purpose_6C:		skip 2  	;6C,x   movement behavior?
 endstruct
+
+struct sprite_DMA sprite_DMA_buffer
+	.size:		skip 2
+	.destination:	skip 2
+	.source_word:	skip 2
+	.terminate:
+	.source_bank:	skip 2
+endstruct

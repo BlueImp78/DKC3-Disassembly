@@ -2426,7 +2426,7 @@ CODE_B9AFE7:
 	CPX.w active_kong_sprite		;$B9AFE7
 	BNE.b CODE_B9AFFF			;$B9AFEA
 	LDA.w #$820F				;$B9AFEC
-	JSL.l CODE_808024			;$B9AFEF
+	JSL.l set_screen_fade			;$B9AFEF
 	LDA.w #$0001				;$B9AFF3
 	TSB.w $05AF				;$B9AFF6
 	LDA.w #$FFFF				;$B9AFF9

@@ -2245,9 +2245,9 @@ CODE_B590D1:
 	LDA.w screen_brightness			;$B590D1
 	BMI.b CODE_B590DD			;$B590D4
 	LDA.w #$830F				;$B590D6
-	JSL.l CODE_808024			;$B590D9
+	JSL.l set_screen_fade			;$B590D9
 CODE_B590DD:
-	JSL.l handle_fading			;$B590DD
+	JSL.l screen_fade_handler		;$B590DD
 	LDA.w screen_brightness			;$B590E1
 	BNE.b CODE_B590E8			;$B590E4
 	SEC					;$B590E6
@@ -14225,7 +14225,7 @@ CODE_B5F109:
 	DEC.w $1BCF				;$B5F10E
 	BNE.b CODE_B5F11A			;$B5F111
 	LDA.w #$830F				;$B5F113
-	JSL.l CODE_808024			;$B5F116
+	JSL.l set_screen_fade			;$B5F116
 CODE_B5F11A:
 	RTS					;$B5F11A
 
@@ -15670,7 +15670,7 @@ CODE_B5FB5C:
 
 CODE_B5FBA0:
 	LDA.w #$830F				;$B5FBA0
-	JSL.l CODE_808024			;$B5FBA3
+	JSL.l set_screen_fade			;$B5FBA3
 	LDX.w $1B6B				;$B5FBA7
 	LDA.w #$0010				;$B5FBAA
 	STA.b $38,x				;$B5FBAD

@@ -41,21 +41,21 @@ ADDR_BAD100:
 	STA.w $0828
 	LDY.w $155E
 	LDA.w #$0100
-	STA.w $1562,y
+	STA.w sprite_DMA[0].size,y
 	LDA.w $0828
 	AND.w #$01FF
 	ASL
 	ASL
 	ASL
 	ASL
-	STA.w $1564,y
+	STA.w sprite_DMA[0].destination,y
 	LDA.w #$D000
-	STA.w $1566,y
+	STA.w sprite_DMA[0].source_word,y
 	LDA.w #$80BA
-	STA.w $1568,y
+	STA.w sprite_DMA[0].source_bank,y
 	TYA
 	CLC
-	ADC.w #$0008
+	ADC.w #sizeof(sprite_DMA)
 	STA.w $155E
 	INC.w $1D7F
 	STZ.w $1D7B

@@ -4,8 +4,8 @@ CODE_B38000:
 CODE_B38003:
 	JMP CODE_B3D999				;$B38003
 
-CODE_B38006:
-	JMP CODE_B3D843				;$B38006
+DMA_sprite_graphics:
+	JMP DMA_sprite_graphics_global		;$B38006
 
 CODE_B38009:
 	JMP CODE_B3D9A9				;$B38009
@@ -140,7 +140,7 @@ DATA_B380AC:
 CODE_B380F4:
 	LDA pending_dma_hdma_channels		;$B380F4
 	STA.w CPU.enable_dma_hdma		;$B380F7
-	JSL CODE_B3D843				;$B380FA
+	JSL DMA_sprite_graphics_global		;$B380FA
 	JSL CODE_B7B00F				;$B380FE
 	JSL CODE_B7B012				;$B38102
 	JSL DMA_queued_sprite_palette		;$B38106
@@ -929,7 +929,7 @@ CODE_B39359:
 CODE_B3939E:
 	LDA.w pending_dma_hdma_channels		;$B3939E
 	STA.w CPU.enable_dma_hdma		;$B393A1
-	JSL.l CODE_B3D843			;$B393A4
+	JSL.l DMA_sprite_graphics_global	;$B393A4
 	JSL.l CODE_B7B8D1			;$B393A8
 	JSL.l CODE_B7B00F			;$B393AC
 	JSL.l CODE_B7B012			;$B393B0
@@ -1284,7 +1284,7 @@ CODE_B39781:
 CODE_B397A2:
 	LDA.w pending_dma_hdma_channels		;$B397A2
 	STA.w CPU.enable_dma_hdma		;$B397A5
-	JSL.l CODE_B3D843			;$B397A8
+	JSL.l DMA_sprite_graphics_global	;$B397A8
 	JSL DMA_queued_sprite_palette		;$B397AC
 	LDA.w #$0004				;$B397B0
 	TRB.w $1B7D				;$B397B3
@@ -1867,7 +1867,7 @@ CODE_B39E51:
 CODE_B39E6A:
 	LDA.w pending_dma_hdma_channels		;$B39E6A
 	STA.w CPU.enable_dma_hdma		;$B39E6D
-	JSL.l CODE_B3D843			;$B39E70
+	JSL.l DMA_sprite_graphics_global	;$B39E70
 	JSL DMA_queued_sprite_palette		;$B39E74
 	SEP.b #$20				;$B39E78
 	LDA.l $7EA69A				;$B39E7A
@@ -2092,7 +2092,7 @@ CODE_B39F34:
 CODE_B3A0AD:
 	LDA.w pending_dma_hdma_channels		;$B3A0AD
 	STA.w CPU.enable_dma_hdma		;$B3A0B0
-	JSL.l CODE_B3D843			;$B3A0B3
+	JSL.l DMA_sprite_graphics_global	;$B3A0B3
 	JSL DMA_queued_sprite_palette		;$B3A0B7
 	JSL DMA_queued_sprite_palette		;$B3A0BB
 	JSL DMA_queued_sprite_palette		;$B3A0BF
@@ -2395,7 +2395,7 @@ CODE_B3A357:
 CODE_B3A3A4:
 	LDA.w pending_dma_hdma_channels		;$B3A3A4
 	STA.w CPU.enable_dma_hdma		;$B3A3A7
-	JSL.l CODE_B3D843			;$B3A3AA
+	JSL.l DMA_sprite_graphics_global	;$B3A3AA
 	JSL DMA_queued_sprite_palette		;$B3A3AE
 	SEP.b #$20				;$B3A3B2
 	LDA.w screen_brightness			;$B3A3B4
@@ -2406,7 +2406,7 @@ CODE_B3A3A4:
 CODE_B3A3BD:
 	LDA.w pending_dma_hdma_channels		;$B3A3BD
 	STA.w CPU.enable_dma_hdma		;$B3A3C0
-	JSL.l CODE_B3D843			;$B3A3C3
+	JSL.l DMA_sprite_graphics_global	;$B3A3C3
 	JSL DMA_queued_sprite_palette		;$B3A3C7
 	JSR.w CODE_B38158			;$B3A3CB
 	LDA.w $1C49				;$B3A3CE
@@ -2425,7 +2425,7 @@ CODE_B3A3BD:
 CODE_B3A3EC:
 	LDA.w pending_dma_hdma_channels		;$B3A3EC
 	STA.w CPU.enable_dma_hdma		;$B3A3EF
-	JSL.l CODE_B3D843			;$B3A3F2
+	JSL.l DMA_sprite_graphics_global	;$B3A3F2
 	JSL DMA_queued_sprite_palette		;$B3A3F6
 	JSL DMA_queued_sprite_palette		;$B3A3FA
 	JSL DMA_queued_sprite_palette		;$B3A3FE
@@ -2705,12 +2705,12 @@ DATA_B3A62E:
 	dw CODE_B3D820
 
 CODE_B3A678:
-	JSL CODE_808015				;$B3A678
+	JSL input_and_pause_handler		;$B3A678
 	JSL sprite_handler			;$B3A67C
 	JSL CODE_B7800C				;$B3A680
 	JSL CODE_B7800F				;$B3A684
-	JSL CODE_808012				;$B3A688
-	JSL handle_fading			;$B3A68C
+	JSL set_unused_OAM_offscreen		;$B3A688
+	JSL screen_fade_handler			;$B3A68C
 	JML CODE_808006				;$B3A690
 
 CODE_B3A694:
@@ -2718,7 +2718,7 @@ CODE_B3A694:
 	LDA $05B1				;$B3A696
 	AND #$7000				;$B3A699
 	BNE CODE_B3A6B9				;$B3A69C
-	JSL handle_fading			;$B3A69E
+	JSL screen_fade_handler			;$B3A69E
 	LDA screen_brightness			;$B3A6A2
 	BEQ CODE_B3A6AB				;$B3A6A5
 	JML CODE_808006				;$B3A6A7
@@ -2734,7 +2734,7 @@ CODE_B3A6B9:
 	JML CODE_808006				;$B3A6BD
 
 CODE_B3A6C1:
-	JSL CODE_808015				;$B3A6C1
+	JSL input_and_pause_handler		;$B3A6C1
 	BNE CODE_B3A6F4				;$B3A6C5
 	JSR CODE_B3A8E4				;$B3A6C7
 	JSR CODE_B3CADC				;$B3A6CA
@@ -2745,8 +2745,8 @@ CODE_B3A6C1:
 	JSL CODE_B7B00C				;$B3A6DC
 	JSL CODE_B78000				;$B3A6E0
 	JSL CODE_BB85BB				;$B3A6E4
-	JSL CODE_808012				;$B3A6E8
-	JSL handle_fading			;$B3A6EC
+	JSL set_unused_OAM_offscreen		;$B3A6E8
+	JSL screen_fade_handler			;$B3A6EC
 	JML CODE_808006				;$B3A6F0
 
 CODE_B3A6F4:
@@ -3328,7 +3328,7 @@ DATA_B3AC58:
 	dw $0000,$0001,$0001,$0001,$0000,$00FF,$00FF
 
 CODE_B3AC96:
-	JSL.l CODE_808015			;$B3AC96
+	JSL.l input_and_pause_handler		;$B3AC96
 	BNE.b CODE_B3ACBF			;$B3AC9A
 	JSL.l CODE_BB8582			;$B3AC9C
 	JSL.l sprite_handler			;$B3ACA0
@@ -3336,15 +3336,15 @@ CODE_B3AC96:
 	JSR.w CODE_B3A6F7			;$B3ACA8
 	JSL.l CODE_B7C4EA			;$B3ACAB
 	JSL.l CODE_B78000			;$B3ACAF
-	JSL.l CODE_808012			;$B3ACB3
-	JSL.l handle_fading			;$B3ACB7
+	JSL.l set_unused_OAM_offscreen		;$B3ACB3
+	JSL.l screen_fade_handler		;$B3ACB7
 	JML.l CODE_808006			;$B3ACBB
 
 CODE_B3ACBF:
 	JMP.w CODE_B3A694			;$B3ACBF
 
 CODE_B3ACC2:
-	JSL.l CODE_808015			;$B3ACC2
+	JSL.l input_and_pause_handler		;$B3ACC2
 	BNE.b CODE_B3ACF5			;$B3ACC6
 	JSL.l CODE_BB8582			;$B3ACC8
 	JSL.l sprite_handler			;$B3ACCC
@@ -3354,9 +3354,9 @@ CODE_B3ACC2:
 	JSL.l CODE_B78000			;$B3ACDB
 	JSR.w CODE_B3CADC			;$B3ACDF
 	JSL.l CODE_BB85BB			;$B3ACE2
-	JSL.l CODE_808012			;$B3ACE6
+	JSL.l set_unused_OAM_offscreen		;$B3ACE6
 	JSR.w CODE_B3ACF8			;$B3ACEA
-	JSL.l handle_fading			;$B3ACED
+	JSL.l screen_fade_handler		;$B3ACED
 	JML.l CODE_808006			;$B3ACF1
 
 CODE_B3ACF5:
@@ -3937,7 +3937,7 @@ CODE_B3B1D4:
 	RTS					;$B3B225
 
 CODE_B3B226:
-	JSL.l CODE_808015			;$B3B226
+	JSL.l input_and_pause_handler		;$B3B226
 	BNE.b CODE_B3B250			;$B3B22A
 	JSL.l CODE_BB8582			;$B3B22C
 	JSL.l sprite_handler			;$B3B230
@@ -3945,15 +3945,15 @@ CODE_B3B226:
 	JSL.l CODE_B7C726			;$B3B238
 	JSL.l CODE_B78000			;$B3B23C
 	JSL.l CODE_BB85BB			;$B3B240
-	JSL.l CODE_808012			;$B3B244
-	JSL.l handle_fading			;$B3B248
+	JSL.l set_unused_OAM_offscreen		;$B3B244
+	JSL.l screen_fade_handler		;$B3B248
 	JML.l CODE_808006			;$B3B24C
 
 CODE_B3B250:
 	JMP.w CODE_B3A694			;$B3B250
 
 CODE_B3B253:
-	JSL.l CODE_808015			;$B3B253
+	JSL.l input_and_pause_handler		;$B3B253
 	BNE.b CODE_B3B27D			;$B3B257
 	JSL.l CODE_BB8582			;$B3B259
 	JSL.l sprite_handler			;$B3B25D
@@ -3961,15 +3961,15 @@ CODE_B3B253:
 	JSL.l CODE_B7C2A3			;$B3B265
 	JSL.l CODE_B78000			;$B3B269
 	JSL.l CODE_BB85BB			;$B3B26D
-	JSL.l CODE_808012			;$B3B271
-	JSL.l handle_fading			;$B3B275
+	JSL.l set_unused_OAM_offscreen		;$B3B271
+	JSL.l screen_fade_handler		;$B3B275
 	JML.l CODE_808006			;$B3B279
 
 CODE_B3B27D:
 	JMP.w CODE_B3A694			;$B3B27D
 
 CODE_B3B280:
-	JSL.l CODE_808015			;$B3B280
+	JSL.l input_and_pause_handler		;$B3B280
 	BNE.b CODE_B3B2B1			;$B3B284
 	JSL.l CODE_BB8582			;$B3B286
 	JSL.l sprite_handler			;$B3B28A
@@ -3979,15 +3979,15 @@ CODE_B3B280:
 	JSL.l CODE_B7C2A3			;$B3B299
 	JSL.l CODE_B78000			;$B3B29D
 	JSL.l CODE_BB85BB			;$B3B2A1
-	JSL.l CODE_808012			;$B3B2A5
-	JSL.l handle_fading			;$B3B2A9
+	JSL.l set_unused_OAM_offscreen		;$B3B2A5
+	JSL.l screen_fade_handler		;$B3B2A9
 	JML.l CODE_808006			;$B3B2AD
 
 CODE_B3B2B1:
 	JMP.w CODE_B3A694			;$B3B2B1
 
 CODE_B3B2B4:
-	JSL.l CODE_808015			;$B3B2B4
+	JSL.l input_and_pause_handler		;$B3B2B4
 	BNE.b CODE_B3B2E5			;$B3B2B8
 	JSL.l CODE_BB8582			;$B3B2BA
 	JSL.l sprite_handler			;$B3B2BE
@@ -3997,15 +3997,15 @@ CODE_B3B2B4:
 	JSL.l CODE_B7C726			;$B3B2CD
 	JSL.l CODE_B78000			;$B3B2D1
 	JSL.l CODE_BB85BB			;$B3B2D5
-	JSL.l CODE_808012			;$B3B2D9
-	JSL.l handle_fading			;$B3B2DD
+	JSL.l set_unused_OAM_offscreen		;$B3B2D9
+	JSL.l screen_fade_handler		;$B3B2DD
 	JML.l CODE_808006			;$B3B2E1
 
 CODE_B3B2E5:
 	JMP.w CODE_B3A694			;$B3B2E5
 
 CODE_B3B2E8:
-	JSL.l CODE_808015			;$B3B2E8
+	JSL.l input_and_pause_handler		;$B3B2E8
 	BNE.b CODE_B3B311			;$B3B2EC
 	JSL.l CODE_BB8582			;$B3B2EE
 	JSL.l sprite_handler			;$B3B2F2
@@ -4013,15 +4013,15 @@ CODE_B3B2E8:
 	JSR.w CODE_B3A6F7			;$B3B2FA
 	JSL.l CODE_B7C726			;$B3B2FD
 	JSL.l CODE_B78000			;$B3B301
-	JSL.l CODE_808012			;$B3B305
-	JSL.l handle_fading			;$B3B309
+	JSL.l set_unused_OAM_offscreen		;$B3B305
+	JSL.l screen_fade_handler		;$B3B309
 	JML.l CODE_808006			;$B3B30D
 
 CODE_B3B311:
 	JMP.w CODE_B3A694			;$B3B311
 
 CODE_B3B314:
-	JSL.l CODE_808015			;$B3B314
+	JSL.l input_and_pause_handler		;$B3B314
 	BNE.b CODE_B3B33D			;$B3B318
 	JSL.l CODE_BB8582			;$B3B31A
 	JSL.l sprite_handler			;$B3B31E
@@ -4029,15 +4029,15 @@ CODE_B3B314:
 	JSR.w CODE_B3A6F7			;$B3B326
 	JSL.l CODE_B7C2A3			;$B3B329
 	JSL.l CODE_B78000			;$B3B32D
-	JSL.l CODE_808012			;$B3B331
-	JSL.l handle_fading			;$B3B335
+	JSL.l set_unused_OAM_offscreen		;$B3B331
+	JSL.l screen_fade_handler		;$B3B335
 	JML.l CODE_808006			;$B3B339
 
 CODE_B3B33D:
 	JMP.w CODE_B3A694			;$B3B33D
 
 CODE_B3B340:
-	JSL.l CODE_808015			;$B3B340
+	JSL.l input_and_pause_handler		;$B3B340
 	BNE.b CODE_B3B36C			;$B3B344
 	JSL.l CODE_BB8582			;$B3B346
 	JSL.l sprite_handler			;$B3B34A
@@ -4045,9 +4045,9 @@ CODE_B3B340:
 	JSR.w CODE_B3A6F7			;$B3B352
 	JSL.l CODE_B7B00C			;$B3B355
 	JSL.l CODE_B78000			;$B3B359
-	JSL.l CODE_808012			;$B3B35D
+	JSL.l set_unused_OAM_offscreen		;$B3B35D
 	JSR.w CODE_B3B36F			;$B3B361
-	JSL.l handle_fading			;$B3B364
+	JSL.l screen_fade_handler		;$B3B364
 	JML.l CODE_808006			;$B3B368
 
 CODE_B3B36C:
@@ -4131,16 +4131,16 @@ DATA_B3B3F2:
 
 
 CODE_B3B402:
-	JSL.l CODE_808015			;$B3B402
+	JSL.l input_and_pause_handler		;$B3B402
 	BNE.b CODE_B3B42B			;$B3B406
 	JSL.l CODE_BB8582			;$B3B408
 	JSL.l sprite_handler			;$B3B40C
 	JSL.l CODE_B7B009			;$B3B410
 	JSL.l CODE_B7C2A3			;$B3B414
 	JSL.l CODE_B78000			;$B3B418
-	JSL.l CODE_808012			;$B3B41C
+	JSL.l set_unused_OAM_offscreen		;$B3B41C
 	JSR.w CODE_B3B42E			;$B3B420
-	JSL.l handle_fading			;$B3B423
+	JSL.l screen_fade_handler		;$B3B423
 	JML.l CODE_808006			;$B3B427
 
 CODE_B3B42B:
@@ -4292,7 +4292,7 @@ DATA_B3B549:
 	dw DATA_F45600
 
 CODE_B3B555:
-	JSL.l CODE_808015			;$B3B555
+	JSL.l input_and_pause_handler		;$B3B555
 	BNE.b CODE_B3B587			;$B3B559
 	LDA.b $CC				;$B3B55B
 	STA.b $CE				;$B3B55D
@@ -4303,9 +4303,9 @@ CODE_B3B555:
 	JSL.l CODE_B7C2A3			;$B3B56D
 	JSR.w CODE_B3B58A			;$B3B571
 	JSL.l CODE_B78000			;$B3B574
-	JSL.l CODE_808012			;$B3B578
+	JSL.l set_unused_OAM_offscreen		;$B3B578
 	JSR.w CODE_B3B6D6			;$B3B57C
-	JSL.l handle_fading			;$B3B57F
+	JSL.l screen_fade_handler		;$B3B57F
 	JML.l CODE_808006			;$B3B583
 
 CODE_B3B587:
@@ -4623,7 +4623,7 @@ DATA_B3B8A4:
 	dw $4042,$E0F2,$E0F2,$E8E2,$E8E2,$E8F2,$E0F2,$E0F2
 
 CODE_B3B934:
-	JSL.l CODE_808015			;$B3B934
+	JSL.l input_and_pause_handler		;$B3B934
 	BNE.b CODE_B3B96B			;$B3B938
 	JSR.w CODE_B3B971			;$B3B93A
 	JSR.w CODE_B3CADC			;$B3B93D
@@ -4635,8 +4635,8 @@ CODE_B3B934:
 	JSL.l CODE_B7B00C			;$B3B953
 	JSL.l CODE_B78000			;$B3B957
 	JSL.l CODE_BB85BB			;$B3B95B
-	JSL.l CODE_808012			;$B3B95F
-	JSL.l handle_fading			;$B3B963
+	JSL.l set_unused_OAM_offscreen		;$B3B95F
+	JSL.l screen_fade_handler		;$B3B963
 	JML.l CODE_808006			;$B3B967
 
 CODE_B3B96B:
@@ -4909,7 +4909,7 @@ CODE_B3B9E7:
 	RTS					;$B3BC47
 
 CODE_B3BC48:
-	JSL.l CODE_808015			;$B3BC48
+	JSL.l input_and_pause_handler		;$B3BC48
 	BNE.b CODE_B3BC79			;$B3BC4C
 	JSL.l CODE_BB8582			;$B3BC4E
 	JSL.l sprite_handler			;$B3BC52
@@ -4920,8 +4920,8 @@ CODE_B3BC48:
 	JSR.w CODE_B3BC7C			;$B3BC62
 	JSL.l CODE_B7B00C			;$B3BC65
 	JSL.l CODE_B78000			;$B3BC69
-	JSL.l CODE_808012			;$B3BC6D
-	JSL.l handle_fading			;$B3BC71
+	JSL.l set_unused_OAM_offscreen		;$B3BC6D
+	JSL.l screen_fade_handler		;$B3BC71
 	JML.l CODE_808006			;$B3BC75
 
 CODE_B3BC79:
@@ -5315,7 +5315,7 @@ DATA_B3BF72:
 	dw DATA_F6344B+$0E00
 
 CODE_B3BF82:
-	JSL.l CODE_808015			;$B3BF82
+	JSL.l input_and_pause_handler		;$B3BF82
 	BNE.b CODE_B3BFAE			;$B3BF86
 	JSR.w CODE_B3C0F4			;$B3BF88
 	JSL.l CODE_BB8582			;$B3BF8B
@@ -5324,8 +5324,8 @@ CODE_B3BF82:
 	JSR.w CODE_B3BFB1			;$B3BF97
 	JSL.l CODE_B7C726			;$B3BF9A
 	JSL.l CODE_B78000			;$B3BF9E
-	JSL.l CODE_808012			;$B3BFA2
-	JSL.l handle_fading			;$B3BFA6
+	JSL.l set_unused_OAM_offscreen		;$B3BFA2
+	JSL.l screen_fade_handler		;$B3BFA6
 	JML.l CODE_808006			;$B3BFAA
 
 CODE_B3BFAE:
@@ -5669,7 +5669,7 @@ CODE_B3C23E:
 
 CODE_B3C243:
 	JSR.w CODE_B3C2C4			;$B3C243
-	JSL.l CODE_808015			;$B3C246
+	JSL.l input_and_pause_handler		;$B3C246
 	BNE.b CODE_B3C2C1			;$B3C24A
 	JSL.l CODE_BB8582			;$B3C24C
 	JSL.l sprite_handler			;$B3C250
@@ -5680,7 +5680,7 @@ CODE_B3C243:
 
 CODE_B3C262:
 	JSR.w CODE_B3C2C4			;$B3C262
-	JSL.l CODE_808015			;$B3C265
+	JSL.l input_and_pause_handler		;$B3C265
 	BNE.b CODE_B3C2C1			;$B3C269
 	JSL.l CODE_BB8582			;$B3C26B
 	JSL.l sprite_handler			;$B3C26F
@@ -5690,7 +5690,7 @@ CODE_B3C262:
 	BRA.b CODE_B3C29B			;$B3C27F
 
 CODE_B3C281:
-	JSL.l CODE_808015			;$B3C281
+	JSL.l input_and_pause_handler		;$B3C281
 	BNE.b CODE_B3C2C1			;$B3C285
 	JSL.l CODE_BB8582			;$B3C287
 	JSL.l sprite_handler			;$B3C28B
@@ -5708,8 +5708,8 @@ CODE_B3C29B:
 	ORA.w #$0200				;$B3C2AF
 	STA.w $05AF				;$B3C2B2
 CODE_B3C2B5:
-	JSL.l CODE_808012			;$B3C2B5
-	JSL.l handle_fading			;$B3C2B9
+	JSL.l set_unused_OAM_offscreen		;$B3C2B5
+	JSL.l screen_fade_handler		;$B3C2B9
 	JML.l CODE_808006			;$B3C2BD
 
 CODE_B3C2C1:
@@ -5803,54 +5803,54 @@ CODE_B3C381:
 	RTS					;$B3C395
 
 CODE_B3C396:
-	JSL.l CODE_808015			;$B3C396
+	JSL.l input_and_pause_handler		;$B3C396
 	BNE.b CODE_B3C3BC			;$B3C39A
 	JSL.l CODE_BB8582			;$B3C39C
 	JSL.l sprite_handler			;$B3C3A0
 	JSL.l CODE_B7B009			;$B3C3A4
 	JSL.l CODE_B7B00C			;$B3C3A8
 	JSL.l CODE_B78000			;$B3C3AC
-	JSL.l CODE_808012			;$B3C3B0
-	JSL.l handle_fading			;$B3C3B4
+	JSL.l set_unused_OAM_offscreen		;$B3C3B0
+	JSL.l screen_fade_handler		;$B3C3B4
 	JML.l CODE_808006			;$B3C3B8
 
 CODE_B3C3BC:
 	JMP.w CODE_B3A694			;$B3C3BC
 
 CODE_B3C3BF:
-	JSL.l CODE_808015			;$B3C3BF
+	JSL.l input_and_pause_handler		;$B3C3BF
 	BNE.b CODE_B3C3E8			;$B3C3C3
 	JSL.l CODE_BB8582			;$B3C3C5
 	JSL.l sprite_handler			;$B3C3C9
 	JSL.l CODE_B7B009			;$B3C3CD
 	JSL.l CODE_B7C726			;$B3C3D1
 	JSL.l CODE_B78000			;$B3C3D5
-	JSL.l CODE_808012			;$B3C3D9
+	JSL.l set_unused_OAM_offscreen		;$B3C3D9
 	JSR.w CODE_B3C44B			;$B3C3DD
-	JSL.l handle_fading			;$B3C3E0
+	JSL.l screen_fade_handler		;$B3C3E0
 	JML.l CODE_808006			;$B3C3E4
 
 CODE_B3C3E8:
 	JMP.w CODE_B3A694			;$B3C3E8
 
 CODE_B3C3EB:
-	JSL.l CODE_808015			;$B3C3EB
+	JSL.l input_and_pause_handler		;$B3C3EB
 	BNE.b CODE_B3C414			;$B3C3EF
 	JSL.l CODE_BB8582			;$B3C3F1
 	JSL.l sprite_handler			;$B3C3F5
 	JSL.l CODE_B7B009			;$B3C3F9
 	JSL.l CODE_B7C2A3			;$B3C3FD
 	JSL.l CODE_B78000			;$B3C401
-	JSL.l CODE_808012			;$B3C405
+	JSL.l set_unused_OAM_offscreen		;$B3C405
 	JSR.w CODE_B3C44B			;$B3C409
-	JSL.l handle_fading			;$B3C40C
+	JSL.l screen_fade_handler		;$B3C40C
 	JML.l CODE_808006			;$B3C410
 
 CODE_B3C414:
 	JMP.w CODE_B3A694			;$B3C414
 
 CODE_B3C417:
-	JSL.l CODE_808015			;$B3C417
+	JSL.l input_and_pause_handler		;$B3C417
 	BNE.b CODE_B3C448			;$B3C41B
 	JSL.l CODE_BB8582			;$B3C41D
 	JSL.l sprite_handler			;$B3C421
@@ -5859,9 +5859,9 @@ CODE_B3C417:
 	JSL.l CODE_B7800C			;$B3C42D
 	JSL.l CODE_B6804E			;$B3C431
 	JSL.l CODE_B7801E			;$B3C435
-	JSL.l CODE_808012			;$B3C439
+	JSL.l set_unused_OAM_offscreen		;$B3C439
 	JSR.w CODE_B3C44B			;$B3C43D
-	JSL.l handle_fading			;$B3C440
+	JSL.l screen_fade_handler		;$B3C440
 	JML.l CODE_808006			;$B3C444
 
 CODE_B3C448:
@@ -5905,31 +5905,31 @@ CODE_B3C478:
 	RTS					;$B3C48A
 
 CODE_B3C48B:
-	JSL.l CODE_808015			;$B3C48B
+	JSL.l input_and_pause_handler		;$B3C48B
 	BNE.b CODE_B3C4B1			;$B3C48F
 	JSL.l CODE_BB8582			;$B3C491
 	JSL.l sprite_handler			;$B3C495
 	JSL.l CODE_B7800C			;$B3C499
 	JSL.l CODE_B6804B			;$B3C49D
 	JSL.l CODE_B7800F			;$B3C4A1
-	JSL.l CODE_808012			;$B3C4A5
-	JSL.l handle_fading			;$B3C4A9
+	JSL.l set_unused_OAM_offscreen		;$B3C4A5
+	JSL.l screen_fade_handler		;$B3C4A9
 	JML.l CODE_808006			;$B3C4AD
 
 CODE_B3C4B1:
 	JMP.w CODE_B3A694			;$B3C4B1
 
 CODE_B3C4B4:
-	JSL.l CODE_808015			;$B3C4B4
+	JSL.l input_and_pause_handler		;$B3C4B4
 	BNE.b CODE_B3C4DD			;$B3C4B8
 	JSL.l CODE_BB8582			;$B3C4BA
 	JSL.l CODE_B7B009			;$B3C4BE
 	JSL.l sprite_handler			;$B3C4C2
 	JSL.l CODE_B7C726			;$B3C4C6
 	JSL.l CODE_B78000			;$B3C4CA
-	JSL.l CODE_808012			;$B3C4CE
+	JSL.l set_unused_OAM_offscreen		;$B3C4CE
 	JSR.w CODE_B3C4E0			;$B3C4D2
-	JSL.l handle_fading			;$B3C4D5
+	JSL.l screen_fade_handler		;$B3C4D5
 	JML.l CODE_808006			;$B3C4D9
 
 CODE_B3C4DD:
@@ -6086,7 +6086,7 @@ DATA_B3C631:
 	dw DATA_E98550+$05F4
 
 CODE_B3C639:
-	JSL.l CODE_808015			;$B3C639
+	JSL.l input_and_pause_handler		;$B3C639
 	BNE.b CODE_B3C668			;$B3C63D
 	JSL.l CODE_BB8582			;$B3C63F
 	JSL.l sprite_handler			;$B3C643
@@ -6096,8 +6096,8 @@ CODE_B3C639:
 	JSL.l CODE_B7C2A3			;$B3C651
 	JSR.w CODE_B3B58A			;$B3C655
 	JSL.l CODE_B78000			;$B3C658
-	JSL.l CODE_808012			;$B3C65C
-	JSL.l handle_fading			;$B3C660
+	JSL.l set_unused_OAM_offscreen		;$B3C65C
+	JSL.l screen_fade_handler		;$B3C660
 	JML.l CODE_808006			;$B3C664
 
 CODE_B3C668:
@@ -6641,33 +6641,33 @@ CODE_B3CB20:
 	RTS					;$B3CB20
 
 CODE_B3CB21:
-	JSL.l CODE_808015			;$B3CB21
+	JSL.l input_and_pause_handler		;$B3CB21
 	BNE.b CODE_B3CB43			;$B3CB25
 	JSL.l CODE_BB8582			;$B3CB27
 	JSL.l sprite_handler			;$B3CB2B
 	JSL.l CODE_B7800C			;$B3CB2F
 	JSL.l CODE_B7801E			;$B3CB33
-	JSL.l CODE_808012			;$B3CB37
-	JSL.l handle_fading			;$B3CB3B
+	JSL.l set_unused_OAM_offscreen		;$B3CB37
+	JSL.l screen_fade_handler		;$B3CB3B
 	JML.l CODE_808006			;$B3CB3F
 
 CODE_B3CB43:
 	JMP.w CODE_B3A694			;$B3CB43
 
 CODE_B3CB46:
-	JSL.l CODE_808015			;$B3CB46
+	JSL.l input_and_pause_handler		;$B3CB46
 	BNE.b CODE_B3CB73			;$B3CB4A
 	JSL.l CODE_B7B009			;$B3CB4C
 	JSL.l sprite_handler			;$B3CB50
 	JSL.l CODE_B7800C			;$B3CB54
 	JSL.l CODE_B7801E			;$B3CB58
-	JSL.l CODE_808012			;$B3CB5C
+	JSL.l set_unused_OAM_offscreen		;$B3CB5C
 	JSR.w CODE_B3CBF1			;$B3CB60
 	LDA.w $15E6				;$B3CB63
 	BNE.b CODE_B3CB6B			;$B3CB66
 	JSR.w CODE_B3CB76			;$B3CB68
 CODE_B3CB6B:
-	JSL.l handle_fading			;$B3CB6B
+	JSL.l screen_fade_handler		;$B3CB6B
 	JML.l CODE_808006			;$B3CB6F
 
 CODE_B3CB73:
@@ -7137,7 +7137,7 @@ CODE_B3CF8A:
 	RTS					;$B3CF8A
 
 CODE_B3CF8B:
-	JSL.l CODE_808015			;$B3CF8B
+	JSL.l input_and_pause_handler		;$B3CF8B
 	BNE.b CODE_B3CFBB			;$B3CF8F
 	JSL.l CODE_BB8582			;$B3CF91
 	JSL.l CODE_B7B009			;$B3CF95
@@ -7145,10 +7145,10 @@ CODE_B3CF8B:
 	JSL.l CODE_B7C2A3			;$B3CF9D
 	JSL.l CODE_B7800C			;$B3CFA1
 	JSL.l CODE_B7801E			;$B3CFA5
-	JSL.l CODE_808012			;$B3CFA9
+	JSL.l set_unused_OAM_offscreen		;$B3CFA9
 	JSR.w CODE_B3CFBE			;$B3CFAD
 	JSR.w CODE_B3CB76			;$B3CFB0
-	JSL.l handle_fading			;$B3CFB3
+	JSL.l screen_fade_handler		;$B3CFB3
 	JML.l CODE_808006			;$B3CFB7
 
 CODE_B3CFBB:
@@ -7375,7 +7375,7 @@ CODE_B3D139:
 	RTS					;$B3D173
 
 CODE_B3D174:
-	JSL.l CODE_808015			;$B3D174
+	JSL.l input_and_pause_handler		;$B3D174
 	BNE.b CODE_B3D1A1			;$B3D178
 	JSL.l CODE_BB8582			;$B3D17A
 	JSL.l CODE_B7B009			;$B3D17E
@@ -7384,15 +7384,15 @@ CODE_B3D174:
 	JSL.l CODE_B7C2A3			;$B3D18A
 	JSR.w CODE_B3B58A			;$B3D18E
 	JSL.l CODE_B78000			;$B3D191
-	JSL.l CODE_808012			;$B3D195
-	JSL.l handle_fading			;$B3D199
+	JSL.l set_unused_OAM_offscreen		;$B3D195
+	JSL.l screen_fade_handler		;$B3D199
 	JML.l CODE_808006			;$B3D19D
 
 CODE_B3D1A1:
 	JMP.w CODE_B3A694			;$B3D1A1
 
 CODE_B3D1A4:
-	JSL.l CODE_808015			;$B3D1A4
+	JSL.l input_and_pause_handler		;$B3D1A4
 	BNE.b CODE_B3D1D1			;$B3D1A8
 	JSL.l CODE_BB8582			;$B3D1AA
 	JSL.l CODE_B7B009			;$B3D1AE
@@ -7401,8 +7401,8 @@ CODE_B3D1A4:
 	JSL.l CODE_B7C726			;$B3D1B9
 	JSL.l CODE_B78000			;$B3D1BD
 	JSL.l CODE_BB85BB			;$B3D1C1
-	JSL.l CODE_808012			;$B3D1C5
-	JSL.l handle_fading			;$B3D1C9
+	JSL.l set_unused_OAM_offscreen		;$B3D1C5
+	JSL.l screen_fade_handler		;$B3D1C9
 	JML.l CODE_808006			;$B3D1CD
 
 CODE_B3D1D1:
@@ -7826,22 +7826,22 @@ CODE_B3D552:
 	BNE.b CODE_B3D56E			;$B3D558
 	JSL.l sprite_handler			;$B3D55A
 	JSL.l CODE_B78000			;$B3D55E
-	JSL.l CODE_808012			;$B3D562
-	JSL.l handle_fading			;$B3D566
+	JSL.l set_unused_OAM_offscreen		;$B3D562
+	JSL.l screen_fade_handler		;$B3D566
 	JML.l CODE_808006			;$B3D56A
 
 CODE_B3D56E:
 	JMP.w CODE_B3A694			;$B3D56E
 
 CODE_B3D571:
-	JSL.l CODE_808015			;$B3D571
+	JSL.l input_and_pause_handler		;$B3D571
 	JSR.w CODE_B3A8E4			;$B3D575
 	JSL.l CODE_B7B009			;$B3D578
 	JSL.l sprite_handler			;$B3D57C
 	JSL.l CODE_B7800C			;$B3D580
 	JSL.l CODE_B7800F			;$B3D584
-	JSL.l CODE_808012			;$B3D588
-	JSL.l handle_fading			;$B3D58C
+	JSL.l set_unused_OAM_offscreen		;$B3D588
+	JSL.l screen_fade_handler		;$B3D58C
 	LDA.w screen_brightness			;$B3D590
 	BNE.b CODE_B3D59A			;$B3D593
 	CMP.w screen_fade_speed			;$B3D595
@@ -7860,16 +7860,16 @@ CODE_B3D5AE:
 	JMP.w CODE_B3A694			;$B3D5AE
 
 CODE_B3D5B1:
-	JSL.l CODE_808015			;$B3D5B1
+	JSL.l input_and_pause_handler		;$B3D5B1
 	BNE.b CODE_B3D5D9			;$B3D5B5
 	JSL.l CODE_B7B009			;$B3D5B7
 	JSL.l sprite_handler			;$B3D5BB
 	JSL.l CODE_B7800C			;$B3D5BF
 	JSL.l CODE_B7801E			;$B3D5C3
-	JSL.l CODE_808012			;$B3D5C7
+	JSL.l set_unused_OAM_offscreen		;$B3D5C7
 	JSR.w CODE_B3D5DC			;$B3D5CB
 	JSR.w CODE_B3D75B			;$B3D5CE
-	JSL.l handle_fading			;$B3D5D1
+	JSL.l screen_fade_handler		;$B3D5D1
 	JML.l CODE_808006			;$B3D5D5
 
 CODE_B3D5D9:
@@ -8147,38 +8147,38 @@ CODE_B3D820:
 	JSL.l sprite_handler			;$B3D828
 	JSL.l CODE_B7B009			;$B3D82C
 	JSL.l CODE_B78000			;$B3D830
-	JSL.l CODE_808012			;$B3D834
-	JSL.l handle_fading			;$B3D838
+	JSL.l set_unused_OAM_offscreen		;$B3D834
+	JSL.l screen_fade_handler		;$B3D838
 	JML.l CODE_808006			;$B3D83C
 
 CODE_B3D840:
 	JMP.w CODE_B3A694			;$B3D840
 
-CODE_B3D843:
+DMA_sprite_graphics_global:
 	LDA.w #$1801				;$B3D843
 	STA.w DMA[0].settings			;$B3D846
 	SEP.b #$10				;$B3D849
 	LDY.b #$01				;$B3D84B
 	LDX.b #$00				;$B3D84D
-CODE_B3D84F:
-	LDA.w $1568,x				;$B3D84F
-	BPL.b CODE_B3D877			;$B3D852
+.next_DMA:
+	LDA.w sprite_DMA[0].source_bank,x	;$B3D84F
+	BPL.b .return				;$B3D852
 	STA.w DMA[0].source_bank		;$B3D854
-	LDA.w $1562,x				;$B3D857
+	LDA.w sprite_DMA[0].size,x		;$B3D857
 	STA.w DMA[0].size			;$B3D85A
-	LDA.w $1564,x				;$B3D85D
+	LDA.w sprite_DMA[0].destination,x	;$B3D85D
 	STA.w PPU.vram_address			;$B3D860
-	LDA.w $1566,x				;$B3D863
+	LDA.w sprite_DMA[0].source_word,x	;$B3D863
 	STA.w DMA[0].source_word		;$B3D866
-	STZ.w $1568,x				;$B3D869
+	STZ.w sprite_DMA[0].terminate,x		;$B3D869
 	STY.w CPU.enable_dma			;$B3D86C
 	TXA					;$B3D86F
 	CLC					;$B3D870
-	ADC.w #$0008				;$B3D871
+	ADC.w #sizeof(sprite_DMA)		;$B3D871
 	TAX					;$B3D874
-	BRA.b CODE_B3D84F			;$B3D875
+	BRA.b .next_DMA				;$B3D875
 
-CODE_B3D877:
+.return:
 	REP.b #$10				;$B3D877
 	RTL					;$B3D879
 

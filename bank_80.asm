@@ -7,20 +7,20 @@ CODE_808003:
 CODE_808006:
 	JMP CODE_808384				;$808006
 
-CODE_808009:
+init_registers:
 	JMP init_registers_global		;$808009
 
-CODE_80800C:
-	JMP clear_vram_global			;$80800C
+clear_VRAM:
+	JMP clear_VRAM_global			;$80800C
 
-CODE_80800F:
-	JMP set_all_oam_offscreen		;$80800F
+set_all_OAM_offscreen:
+	JMP set_all_OAM_offscreen_global	;$80800F
 
-CODE_808012:
-	JMP CODE_80898C				;$808012
+set_unused_OAM_offscreen:
+	JMP set_unused_OAM_offscreen_global	;$808012
 
-CODE_808015:
-	JMP CODE_8089CA				;$808015
+input_and_pause_handler:
+	JMP input_and_pause_handler_global	;$808015
 
 CODE_808018:
 	JMP CODE_808C60				;$808018
@@ -31,14 +31,14 @@ CODE_80801B:
 DMA_queued_sprite_palette:
 	JMP DMA_queued_sprite_palette_global	;$80801E
 
-handle_fading:
-	JMP handle_fading_direct		;$808021
+screen_fade_handler:
+	JMP screen_fade_handler_global		;$808021
 
-CODE_808024:
-	JMP set_fade				;$808024
+set_screen_fade:
+	JMP set_screen_fade_global		;$808024
 
-throw_exception_wrapper:
-	JMP throw_exception			;$808027
+throw_exception:
+	JMP throw_exception_global		;$808027
 
 CODE_80802A:
 	JMP CODE_8091A3				;$80802A
@@ -58,8 +58,8 @@ CODE_808036:
 CODE_808039:
 	JMP CODE_8084C7				;$808039
 
-set_and_wait_for_nmi:
-	JMP set_and_wait_for_nmi_direct		;$80803C
+set_and_wait_for_NMI:
+	JMP set_and_wait_for_NMI_global		;$80803C
 
 CODE_80803F:
 	JMP CODE_808EE6				;$80803F
@@ -83,7 +83,7 @@ CODE_808051:
 	JMP CODE_80B2C8				;$808051
 
 DMA_to_VRAM:
-	JMP DMA_to_VRAM_direct			;$808054
+	JMP DMA_to_VRAM_global			;$808054
 
 CODE_808057:
 	JMP CODE_808669				;$808057
@@ -282,8 +282,8 @@ RESET_start:
 	LDX #stack				;$808195
 	TXS					;$808198
 	%return(display_error_message)
-	%return(clear_VRAM)	
-	BRA init_registers			;$808199
+	%return(clear_VRAM_local)	
+	BRA init_registers_local		;$808199
 
 .final_piracy_test:
 	PHK					;$80819B
@@ -304,8 +304,8 @@ RESET_start:
 	LDX #stack				;$8081B5
 	TXS					;$8081B8
 	%return(start_engine)
-	%return(clear_VRAM)
-init_registers:
+	%return(clear_VRAM_local)
+init_registers_local:
 	SEP #$30				;$8081C5
 	LDX #$00				;$8081C7
 .clear_ppu:
@@ -369,13 +369,13 @@ init_registers:
 	RTS					;$808257
 
 init_registers_global:
-	JSR init_registers			;$808258
+	JSR init_registers_local		;$808258
 	RTL					;$80825B
 
 VRAM_zero_fill:
 	dw $0000
 
-clear_VRAM:
+clear_VRAM_local:
 	STZ PPU.vram_address			;$80825E
 	LDA #VRAM_zero_fill			;$808261
 	STA DMA[0].source_word			;$808264
@@ -391,8 +391,8 @@ clear_VRAM:
 	REP #$20				;$80827F
 	RTS					;$808281
 
-clear_vram_global:
-	JSR clear_VRAM				;$808282
+clear_VRAM_global:
+	JSR clear_VRAM_local			;$808282
 	RTL					;$808285
 
 start_engine:
@@ -452,7 +452,7 @@ CODE_8082EC:
 	LDX #stack				;$8082F0
 	TXS					;$8082F3
 	JSL disable_screen_wrapper		;$8082F4
-	JSR init_registers			;$8082F8
+	JSR init_registers_local		;$8082F8
 	JSL CODE_808C77				;$8082FB
 	STZ $04C8				;$8082FF
 	LDA #$4000				;$808302
@@ -466,7 +466,7 @@ CODE_8082EC:
 	LDA #CODE_808370			;$808319
 	STX $4E					;$80831C
 	STY $50					;$80831E
-	JMP set_and_wait_for_nmi_direct		;$808320
+	JMP set_and_wait_for_NMI_global		;$808320
 
 CODE_808323:
 	LDA #$0001				;$808323
@@ -493,7 +493,7 @@ CODE_808337:
 	RTL					;$808343
 
 CODE_808344:
-	JSL handle_fading_direct		;$808344
+	JSL screen_fade_handler_global		;$808344
 CODE_808348:
 	LDA #stack				;$808348
 	TCS					;$80834B
@@ -542,11 +542,11 @@ CODE_808387:
 	LDA #$81				;$808392
 	STA CPU.enable_interrupts		;$808394
 	STZ joypad.port_0			;$808397
-CODE_80839A:
+-:
 	WAI					;$80839A
-	BRA CODE_80839A				;$80839B
+	BRA -					;$80839B
 
-set_and_wait_for_nmi_direct:
+set_and_wait_for_NMI_global:
 	STA NMI_pointer				;$80839D
 	STA $4C					;$80839F
 	LDA #CODE_808337			;$8083A1
@@ -590,7 +590,7 @@ CODE_8083CC:
 	AND #$FF00				;$8083ED
 	BNE CODE_80840A				;$8083F0
 	LDA #$810F				;$8083F2
-	JSL set_fade				;$8083F5
+	JSL set_screen_fade_global		;$8083F5
 	BRA CODE_80840A				;$8083F9
 
 CODE_8083FB:
@@ -665,7 +665,7 @@ CODE_808493:
 	PHK					;$8084A3
 	PLB					;$8084A4
 	LDA #$0200				;$8084A5
-	JSL set_fade				;$8084A8
+	JSL set_screen_fade_global		;$8084A8
 	SEP #$20				;$8084AC
 	LDA $0773				;$8084AE
 	STA $58					;$8084B1
@@ -696,11 +696,11 @@ throw_sprite_group_exception_global:
 	AND #$1F00				;$8084DF
 	BEQ CODE_8084EB				;$8084E2
 	LDA #$0008				;$8084E4
-	JSL throw_exception			;$8084E7
+	JSL throw_exception_global		;$8084E7
 CODE_8084EB:
 	RTL					;$8084EB
 
-throw_exception:
+throw_exception_global:
 	RTL					;$8084EC
 
 CODE_8084ED:
@@ -711,12 +711,12 @@ CODE_8084ED:
 	STA $001D4F				;$8084FC
 	RTL					;$808500
 
-set_fade:
+set_screen_fade_global:
 	STZ screen_fade_speed			;$808501
 	STA screen_brightness			;$808504
 	RTL					;$808507
 
-handle_fading_direct:
+screen_fade_handler_global:
 	SEP #$20				;$808508
 	LDA screen_fade_speed			;$80850A
 	BEQ .return				;$80850D
@@ -1008,7 +1008,7 @@ CODE_80872E:
 CODE_808769:
 	JSL CODE_B7800C				;$808769
 	JSL CODE_B78000				;$80876D
-	JSL CODE_80898C				;$808771
+	JSL set_unused_OAM_offscreen_global	;$808771
 	JSR CODE_809741				;$808775
 	BEQ CODE_80877B				;$808778
 	RTL					;$80877A
@@ -1024,7 +1024,7 @@ CODE_80877B:
 	LDA.w #CODE_80B2C8>>16			;$80878E
 	STA $50					;$808791
 	LDA #CODE_808362			;$808793
-	JMP set_and_wait_for_nmi_direct		;$808796
+	JMP set_and_wait_for_NMI_global		;$808796
 
 DMA_queued_sprite_palette_global:
 	LDA $1D8B				;$808799
@@ -1063,7 +1063,7 @@ DMA_queued_sprite_palettes_global:
 	BNE DMA_queued_sprite_palettes_global	;$8087DD
 	RTL					;$8087DF
 
-DMA_to_VRAM_direct:
+DMA_to_VRAM_global:
 	STA DMA[0].source_word			;$8087E0
 	STY DMA[0].size				;$8087E3
 	LDA #$1801				;$8087E6
@@ -1145,88 +1145,88 @@ CODE_80889E:
 	LDX.w #(DATA_FC2F40+$C0)>>16		;$8088A4
 	LDA #DATA_FC2F40+$C0			;$8088A7
 	LDY #$0020				;$8088AA
-	JSL DMA_to_VRAM_direct			;$8088AD
+	JSL DMA_to_VRAM_global			;$8088AD
 	LDA #$1E90				;$8088B1
 	STA PPU.vram_address			;$8088B4
 	LDX.w #(DATA_FC2F40+$C0)>>16		;$8088B7
 	LDA #DATA_FC2F40+$C0			;$8088BA
 	LDY #$0020				;$8088BD
-	JSL DMA_to_VRAM_direct			;$8088C0
+	JSL DMA_to_VRAM_global			;$8088C0
 	LDA #$1F80				;$8088C4
 	STA PPU.vram_address			;$8088C7
 	LDX.w #(DATA_FC2F40+$C0)>>16		;$8088CA
 	LDA #DATA_FC2F40+$C0			;$8088CD
 	LDY #$0020				;$8088D0
-	JSL DMA_to_VRAM_direct			;$8088D3
+	JSL DMA_to_VRAM_global			;$8088D3
 	LDA #$1F90				;$8088D7
 	STA PPU.vram_address			;$8088DA
 	LDX.w #(DATA_FC2F40+$C0)>>16		;$8088DD
 	LDA #DATA_FC2F40+$C0			;$8088E0
 	LDY #$0020				;$8088E3
-	JSL DMA_to_VRAM_direct			;$8088E6
+	JSL DMA_to_VRAM_global			;$8088E6
 	LDA #$1EA0				;$8088EA
 	STA PPU.vram_address			;$8088ED
 	LDX.w #DATA_FC2F40>>16			;$8088F0
 	LDA #DATA_FC2F40			;$8088F3
 	LDY #$0060				;$8088F6
-	JSL DMA_to_VRAM_direct			;$8088F9
+	JSL DMA_to_VRAM_global			;$8088F9
 	LDA #$1ED0				;$8088FD
 	STA PPU.vram_address			;$808900
 	LDX.w #(DATA_FC2F40+$40)>>16		;$808903
 	LDA #DATA_FC2F40+$40			;$808906
 	LDY #$0060				;$808909
-	JSL DMA_to_VRAM_direct			;$80890C
+	JSL DMA_to_VRAM_global			;$80890C
 	LDA #$1FA0				;$808910
 	STA PPU.vram_address			;$808913
 	LDX.w #(DATA_FC2F40+$A0)>>16		;$808916
 	LDA #DATA_FC2F40+$A0			;$808919
 	LDY #$0020				;$80891C
-	JSL DMA_to_VRAM_direct			;$80891F
+	JSL DMA_to_VRAM_global			;$80891F
 	LDA #$1FB0				;$808923
 	STA PPU.vram_address			;$808926
 	LDX.w #(DATA_FC2F40+$80)>>16		;$808929
 	LDA #DATA_FC2F40+$80			;$80892C
 	LDY #$0020				;$80892F
-	JSL DMA_to_VRAM_direct			;$808932
+	JSL DMA_to_VRAM_global			;$808932
 	LDA #$1FC0				;$808936
 	STA PPU.vram_address			;$808939
 	LDX.w #(DATA_FC2F40+$80)>>16		;$80893C
 	LDA #DATA_FC2F40+$80			;$80893F
 	LDY #$0020				;$808942
-	JSL DMA_to_VRAM_direct			;$808945
+	JSL DMA_to_VRAM_global			;$808945
 	LDA #$1FD0				;$808949
 	STA PPU.vram_address			;$80894C
 	LDX.w #(DATA_FC2F40+$80)>>16		;$80894F
 	LDA #DATA_FC2F40+$80			;$808952
 	LDY #$0020				;$808955
-	JSL DMA_to_VRAM_direct			;$808958
+	JSL DMA_to_VRAM_global			;$808958
 	LDA #$1FF0				;$80895C
 	STA PPU.vram_address			;$80895F
 	LDX.w #(DATA_FC2F40+$80)>>16		;$808962
 	LDA #DATA_FC2F40+$80			;$808965
 	LDY #$0020				;$808968
-	JSL DMA_to_VRAM_direct			;$80896B
+	JSL DMA_to_VRAM_global			;$80896B
 	LDA #$1FE0				;$80896F
 	STA PPU.vram_address			;$808972
 	LDX.w #(DATA_FC2F40+$60)>>16		;$808975
 	LDA #DATA_FC2F40+$60			;$808978
 	LDY #$0020				;$80897B
-	JSL DMA_to_VRAM_direct			;$80897E
+	JSL DMA_to_VRAM_global			;$80897E
 	RTS					;$808982
 
-set_all_oam_offscreen:
+set_all_OAM_offscreen_global:
 	LDA #oam_table				;$808983
 	STA next_oam_slot			;$808986
-	JSR set_unused_oam_offscreen		;$808988
+	JSR set_unused_OAM_offscreen_local	;$808988
 	RTL					;$80898B
 
-CODE_80898C:
+set_unused_OAM_offscreen_global:
 	PHB					;$80898C
-	JSR set_unused_oam_offscreen		;$80898D
+	JSR set_unused_OAM_offscreen_local	;$80898D
 	PLB					;$808990
 	RTL					;$808991
 
-set_unused_oam_offscreen:
+set_unused_OAM_offscreen_local:
 	PHK					;$808992
 	PLB					;$808993
 	LDX next_oam_slot			;$808994
@@ -1261,7 +1261,7 @@ CODE_8089C5:
 	JSR CODE_808E29				;$8089C5
 	BRA CODE_808A13				;$8089C8
 
-CODE_8089CA:
+input_and_pause_handler_global:
 	PHK					;$8089CA
 	PLB					;$8089CB
 	SEP #$20				;$8089CC
@@ -1876,7 +1876,7 @@ CODE_808E94:
 	TSB game_state_flags			;$808E97
 	BNE CODE_808EA3				;$808E9A
 	LDA #$810F				;$808E9C
-	JSL set_fade				;$808E9F
+	JSL set_screen_fade_global		;$808E9F
 CODE_808EA3:
 	RTS					;$808EA3
 
@@ -1974,7 +1974,7 @@ CODE_808F33:
 	LDA.w #CODE_808493>>16			;$808F5B
 	STA $50					;$808F5E
 	LDA #CODE_808344			;$808F60
-	JMP set_and_wait_for_nmi_direct		;$808F63
+	JMP set_and_wait_for_NMI_global		;$808F63
 
 CODE_808F66:
 	LDX $052F				;$808F66
@@ -1992,7 +1992,7 @@ CODE_808F66:
 	STX $4E					;$808F89
 	STY $50					;$808F8B
 	LDA #CODE_808370			;$808F8D
-	JMP set_and_wait_for_nmi_direct		;$808F90
+	JMP set_and_wait_for_NMI_global		;$808F90
 
 CODE_808F93:
 	LDA #CODE_809489			;$808F93
@@ -2000,7 +2000,7 @@ CODE_808F93:
 	LDX.w #CODE_809489>>16			;$808F98
 	STX $50					;$808F9B
 	LDA #CODE_808370			;$808F9D
-	JMP set_and_wait_for_nmi_direct		;$808FA0
+	JMP set_and_wait_for_NMI_global		;$808FA0
 
 CODE_808FA3:
 	CMP #$FFFF				;$808FA3
@@ -2025,7 +2025,7 @@ CODE_808FA3:
 	LDA.w #CODE_B48009>>16			;$808FDA
 	STA $50					;$808FDD
 	LDA #CODE_808344			;$808FDF
-	JMP set_and_wait_for_nmi_direct		;$808FE2
+	JMP set_and_wait_for_NMI_global		;$808FE2
 
 CODE_808FE5:
 	CMP #$FFFE				;$808FE5
@@ -2047,7 +2047,7 @@ CODE_808FE5:
 	LDA.w #CODE_B48009>>16			;$809013
 	STA $50					;$809016
 	LDA #CODE_808344			;$809018
-	JMP set_and_wait_for_nmi_direct		;$80901B
+	JMP set_and_wait_for_NMI_global		;$80901B
 
 CODE_80901E:
 	LDA #$040A				;$80901E
@@ -2061,7 +2061,7 @@ CODE_80901E:
 	LDA.w #CODE_B48000>>16			;$809035
 	STA $50					;$809038
 	LDA #CODE_808344			;$80903A
-	JMP set_and_wait_for_nmi_direct		;$80903D
+	JMP set_and_wait_for_NMI_global		;$80903D
 
 CODE_809040:
 	LDA #!music_mama_bird_chase		;$809040
@@ -2579,7 +2579,7 @@ CODE_809437:
 	JSL disable_screen_wrapper		;$809446
 	JSL init_registers_global		;$80944A
 	JSL CODE_808CB0				;$80944E
-	JSL clear_vram_global			;$809452
+	JSL clear_VRAM_global			;$809452
 	LDX #$A15A				;$809456
 	LDY #$007E				;$809459
 	LDA #$0660				;$80945C
@@ -2679,7 +2679,7 @@ CODE_8094A8:
 	JSL DMA_queued_sprite_palette_global	;$809562
 	JSL DMA_queued_sprite_palette_global	;$809566
 	LDA #$0200				;$80956A
-	JSL set_fade				;$80956D
+	JSL set_screen_fade_global		;$80956D
 	LDA #CODE_809586			;$809571
 	LDX.w #CODE_809586>>16			;$809574
 	JMP CODE_8083C3				;$809577
@@ -2694,7 +2694,7 @@ CODE_80957A:
 CODE_809586:
 	LDA pending_dma_hdma_channels		;$809586
 	STA CPU.enable_dma_hdma			;$809589
-	JSL CODE_B38006				;$80958C
+	JSL DMA_sprite_graphics			;$80958C
 	JSL DMA_queued_sprite_palette_global	;$809590
 	LDX #$7C00				;$809594
 	STX PPU.vram_address			;$809597
@@ -2722,7 +2722,7 @@ CODE_809586:
 	LDA $1C35				;$8095D4
 	BIT #$4000				;$8095D7
 	BNE CODE_8095E0				;$8095DA
-	JSL CODE_8089CA				;$8095DC
+	JSL input_and_pause_handler_global	;$8095DC
 CODE_8095E0:
 	LDA $1C35				;$8095E0
 	BIT #$0006				;$8095E3
@@ -2774,7 +2774,7 @@ CODE_809647:
 	BNE CODE_809652				;$80964D
 	JSR CODE_80A465				;$80964F
 CODE_809652:
-	JSL CODE_80898C				;$809652
+	JSL set_unused_OAM_offscreen_global	;$809652
 	JSR CODE_809741				;$809656
 	BEQ CODE_80966E				;$809659
 	LDA $1C87				;$80965B
@@ -2829,7 +2829,7 @@ CODE_8096C2:
 	LDX.w #CODE_B48009>>16			;$8096C7
 	STX $50					;$8096CA
 	LDA #CODE_808362			;$8096CC
-	JMP set_and_wait_for_nmi_direct		;$8096CF
+	JMP set_and_wait_for_NMI_global		;$8096CF
 
 CODE_8096D2:
 	LDA $1C37				;$8096D2
@@ -2881,7 +2881,7 @@ CODE_809734:
 	RTS					;$809740
 
 CODE_809741:
-	JSL handle_fading_direct		;$809741
+	JSL screen_fade_handler_global		;$809741
 	LDA screen_brightness			;$809745
 	BNE CODE_80974D				;$809748
 	CMP screen_fade_speed			;$80974A
@@ -3644,7 +3644,7 @@ CODE_809D99:
 	LDA #$4020				;$809D99
 	TSB $1C35				;$809D9C
 	LDA #$820F				;$809D9F
-	JSL set_fade				;$809DA2
+	JSL set_screen_fade_global		;$809DA2
 	RTS					;$809DA6
 
 DATA_809DA7:
@@ -5297,7 +5297,7 @@ CODE_80AA66:
 	LDA #$0001				;$80AA6B
 	STA sprite.state,x			;$80AA6E
 	LDA #$820F				;$80AA70
-	JSL set_fade				;$80AA73
+	JSL set_screen_fade_global		;$80AA73
 	BRA CODE_80AA83				;$80AA77
 
 CODE_80AA79:
@@ -5855,7 +5855,7 @@ CODE_80AF0F:
 	JSL DMA_queued_sprite_palette_global	;$80AF20
 	JSL DMA_queued_sprite_palette_global	;$80AF24
 	LDA #$0200				;$80AF28
-	JSL set_fade				;$80AF2B
+	JSL set_screen_fade_global		;$80AF2B
 	LDA #$0001				;$80AF2F
 	TRB game_state_flags			;$80AF32
 	LDA #CODE_80B1ED			;$80AF35
@@ -6082,7 +6082,7 @@ CODE_80B118:
 	CLC					;$80B127
 	ADC temp_34				;$80B128
 	STA sprite.y_position,x			;$80B12A
-	JSL CODE_B38006				;$80B12C
+	JSL DMA_sprite_graphics			;$80B12C
 	STZ $1560				;$80B130
 	STZ $155E				;$80B133
 	PLX					;$80B136
@@ -6192,7 +6192,7 @@ CODE_80B1ED:
 	LDA #$01				;$80B215
 	STA CPU.enable_dma			;$80B217
 	REP #$20				;$80B21A
-	JSL CODE_B38006				;$80B21C
+	JSL DMA_sprite_graphics			;$80B21C
 	JSL DMA_queued_sprite_palette_global	;$80B220
 	SEP #$20				;$80B224
 	LDA screen_brightness			;$80B226
@@ -6203,7 +6203,7 @@ CODE_80B1ED:
 	LDA screen_brightness			;$80B234
 	BIT #$FF00				;$80B237
 	BNE CODE_80B24C				;$80B23A
-	JSL CODE_8089CA				;$80B23C
+	JSL input_and_pause_handler_global	;$80B23C
 	LDA player_active_pressed		;$80B240
 	AND #$9180				;$80B243 A/B/Right/Start
 	BEQ CODE_80B24C				;$80B246
@@ -6212,7 +6212,7 @@ CODE_80B24C:
 	JSL CODE_B7800C				;$80B24C
 	JSL sprite_handler			;$80B250
 	JSL CODE_B7800F				;$80B254
-	JSL CODE_80898C				;$80B258
+	JSL set_unused_OAM_offscreen_global	;$80B258
 	JSR CODE_809741				;$80B25C
 	BEQ CODE_80B264				;$80B25F
 	JMP CODE_808384				;$80B261
@@ -6301,7 +6301,7 @@ CODE_80B2C8:
 	LDA.w #CODE_80B378>>16			;$80B310
 	STA $50					;$80B313
 	LDA #CODE_808370			;$80B315
-	JMP set_and_wait_for_nmi_direct		;$80B318
+	JMP set_and_wait_for_NMI_global		;$80B318
 
 CODE_80B31B:
 	LDA #CODE_808493			;$80B31B
@@ -6309,7 +6309,7 @@ CODE_80B31B:
 	LDA.w #CODE_808493>>16			;$80B320
 	STA $50					;$80B323
 	LDA #CODE_8083CC			;$80B325
-	JMP set_and_wait_for_nmi_direct		;$80B328
+	JMP set_and_wait_for_NMI_global		;$80B328
 
 CODE_80B32B:
 	LDX #CODE_80B33D			;$80B32B
@@ -6318,7 +6318,7 @@ CODE_80B32B:
 	STY $50					;$80B333
 	STZ active_frame_counter		;$80B335
 	LDA #CODE_808370			;$80B337
-	JMP set_and_wait_for_nmi_direct		;$80B33A
+	JMP set_and_wait_for_NMI_global		;$80B33A
 
 CODE_80B33D:
 	LDA active_frame_counter		;$80B33D
@@ -6350,14 +6350,14 @@ CODE_80B363:
 	STX $4E					;$80B36E
 	STY $50					;$80B370
 	LDA #CODE_808370			;$80B372
-	JMP set_and_wait_for_nmi_direct		;$80B375
+	JMP set_and_wait_for_NMI_global		;$80B375
 
 CODE_80B378:
 	PHK					;$80B378
 	PLB					;$80B379
 	JSL disable_screen_wrapper		;$80B37A
 	JSL init_registers_global		;$80B37E
-	JSL clear_vram_global			;$80B382
+	JSL clear_VRAM_global			;$80B382
 	JSL CODE_808CB0				;$80B386
 	JSL CODE_BB857F				;$80B38A
 	LDA #$0200				;$80B38E
@@ -6432,7 +6432,7 @@ CODE_80B413:
 	STA $0541				;$80B44A
 CODE_80B44D:
 	LDA #$0200				;$80B44D
-	JSL set_fade				;$80B450
+	JSL set_screen_fade_global		;$80B450
 	LDA #CODE_80B45D			;$80B454
 	LDX.w #CODE_80B45D>>16			;$80B457
 	JMP CODE_8083C3				;$80B45A
@@ -6440,7 +6440,7 @@ CODE_80B44D:
 CODE_80B45D:
 	LDA pending_dma_hdma_channels		;$80B45D
 	STA CPU.enable_dma_hdma			;$80B460
-	JSL CODE_B38006				;$80B463
+	JSL DMA_sprite_graphics			;$80B463
 	JSL DMA_queued_sprite_palette_global	;$80B467
 	SEP #$20				;$80B46B
 	LDA screen_brightness			;$80B46D
@@ -6456,7 +6456,7 @@ CODE_80B45D:
 CODE_80B48A:
 	JSL CODE_B7800C				;$80B48A
 	JSL CODE_B6804B				;$80B48E
-	JSL CODE_80898C				;$80B492
+	JSL set_unused_OAM_offscreen_global	;$80B492
 	JSR CODE_809741				;$80B496
 	BEQ CODE_80B49E				;$80B499
 	JMP CODE_808384				;$80B49B
@@ -6470,7 +6470,7 @@ CODE_80B49E:
 	LDA.w #CODE_808493>>16			;$80B4AA
 	STA $50					;$80B4AD
 	LDA #CODE_8083CC			;$80B4AF
-	JMP set_and_wait_for_nmi_direct		;$80B4B2
+	JMP set_and_wait_for_NMI_global		;$80B4B2
 
 CODE_80B4B5:
 	INC $05E3				;$80B4B5
@@ -6479,7 +6479,7 @@ CODE_80B4B5:
 	LDA.w #CODE_80B2C8>>16			;$80B4BD
 	STA $50					;$80B4C0
 	LDA #CODE_808362			;$80B4C2
-	JMP set_and_wait_for_nmi_direct		;$80B4C5
+	JMP set_and_wait_for_NMI_global		;$80B4C5
 
 CODE_80B4C8:
 	JSL CODE_8092EB				;$80B4C8
@@ -6634,7 +6634,7 @@ DATA_80B5FF:
 CODE_80B605:
 	LDA pending_dma_hdma_channels		;$80B605
 	STA CPU.enable_dma_hdma			;$80B608
-	JSL CODE_B38006				;$80B60B
+	JSL DMA_sprite_graphics			;$80B60B
 	JSL DMA_queued_sprite_palette_global	;$80B60F
 	LDA $1D39				;$80B613
 	CMP #$008F				;$80B616
@@ -6667,7 +6667,7 @@ CODE_80B648:
 	BNE CODE_80B682				;$80B65E
 	LDA $1D39				;$80B660
 	BNE CODE_80B682				;$80B663
-	JSL CODE_8089CA				;$80B665
+	JSL input_and_pause_handler_global	;$80B665
 	LDA player_active_pressed		;$80B669
 	AND #!input_A|!input_B|!input_start	;$80B66C
 	BEQ CODE_80B682				;$80B66F
@@ -6712,7 +6712,7 @@ CODE_80B6C7:
 	JSL CODE_B7800C				;$80B6CB
 	JSL CODE_B6804B				;$80B6CF
 	JSL CODE_B7800F				;$80B6D3
-	JSL CODE_80898C				;$80B6D7
+	JSL set_unused_OAM_offscreen_global	;$80B6D7
 	JSR CODE_809741				;$80B6DB
 	BEQ CODE_80B6F3				;$80B6DE
 	LDA $F4					;$80B6E0
@@ -6758,7 +6758,7 @@ CODE_80B714:
 	LDA #$01				;$80B73C
 	STA CPU.enable_dma			;$80B73E
 	REP #$20				;$80B741
-	JSL CODE_B38006				;$80B743
+	JSL DMA_sprite_graphics			;$80B743
 	JSL DMA_queued_sprite_palette_global	;$80B747
 	SEP #$20				;$80B74B
 	LDA screen_brightness			;$80B74D
@@ -6777,7 +6777,7 @@ CODE_80B76D:
 	LDA screen_brightness			;$80B770
 	BIT #$FF00				;$80B773
 	BNE CODE_80B7D5				;$80B776
-	JSL CODE_8089CA				;$80B778
+	JSL input_and_pause_handler_global	;$80B778
 	LDA player_active_pressed		;$80B77C
 	AND #!input_start			;$80B77F
 	BEQ CODE_80B788				;$80B782
@@ -6820,7 +6820,7 @@ CODE_80B7D5:
 	JSL sprite_handler			;$80B7D5
 	JSL CODE_B7800C				;$80B7D9
 	JSL CODE_B7800F				;$80B7DD
-	JSL CODE_80898C				;$80B7E1
+	JSL set_unused_OAM_offscreen_global	;$80B7E1
 	JSR CODE_809741				;$80B7E5
 	BEQ CODE_80B7ED				;$80B7E8
 	JMP CODE_808384				;$80B7EA
@@ -6831,7 +6831,7 @@ CODE_80B7ED:
 	LDA #CODE_808370			;$80B7F3
 	STX $4E					;$80B7F6
 	STY $50					;$80B7F8
-	JMP set_and_wait_for_nmi_direct		;$80B7FA
+	JMP set_and_wait_for_NMI_global		;$80B7FA
 
 CODE_80B7FD:
 	LDA #DATA_B6F42C			;$80B7FD
@@ -6893,7 +6893,7 @@ CODE_80B86A:
 	STZ $1CCA				;$80B891
 	JSR CODE_80B8D6				;$80B894
 	LDA #$0200				;$80B897
-	JSL set_fade				;$80B89A
+	JSL set_screen_fade_global		;$80B89A
 	LDA #CODE_80B714			;$80B89E
 	LDX.w #CODE_80B714>>16			;$80B8A1
 	JMP CODE_8083C3				;$80B8A4
@@ -7143,7 +7143,7 @@ CODE_80BA6A:
 	STA sprite.general_purpose_5C,x		;$80BABB
 CODE_80BABD:
 	LDA #$0200				;$80BABD
-	JSL set_fade				;$80BAC0
+	JSL set_screen_fade_global		;$80BAC0
 	STZ $F4					;$80BAC4
 	LDA #CODE_808370			;$80BAC6
 	STA $4A					;$80BAC9
@@ -7995,7 +7995,7 @@ CODE_80C181:
 	LDA #$0001				;$80C18D
 	TRB game_state_flags			;$80C190
 	LDA #$0200				;$80C193
-	JSL set_fade				;$80C196
+	JSL set_screen_fade_global		;$80C196
 	LDA #!music_defeated_boss		;$80C19A
 	JSL play_song				;$80C19D
 	LDA #CODE_80C1AA			;$80C1A1
@@ -8005,7 +8005,7 @@ CODE_80C181:
 CODE_80C1AA:
 	LDA pending_dma_hdma_channels		;$80C1AA
 	STA CPU.enable_dma_hdma			;$80C1AD
-	JSL CODE_B38006				;$80C1B0
+	JSL DMA_sprite_graphics			;$80C1B0
 	JSL DMA_queued_sprite_palette_global	;$80C1B4
 	SEP #$20				;$80C1B8
 	LDA screen_brightness			;$80C1BA
@@ -8016,7 +8016,7 @@ CODE_80C1AA:
 	LDA screen_brightness			;$80C1C8
 	BIT #$FF00				;$80C1CB
 	BNE CODE_80C1E0				;$80C1CE
-	JSL CODE_8089CA				;$80C1D0
+	JSL input_and_pause_handler_global	;$80C1D0
 	LDA player_active_pressed		;$80C1D4
 	AND #!input_A|!input_B|!input_start	;$80C1D7
 	BEQ CODE_80C1E0				;$80C1DA
@@ -8027,7 +8027,7 @@ CODE_80C1E0:
 	STA $0541				;$80C1E7
 	JSL CODE_B7800C				;$80C1EA
 	JSL CODE_B284CD				;$80C1EE
-	JSL CODE_80898C				;$80C1F2
+	JSL set_unused_OAM_offscreen_global	;$80C1F2
 	JSR CODE_809741				;$80C1F6
 	BEQ CODE_80C1FE				;$80C1F9
 	JMP CODE_808384				;$80C1FB
@@ -8038,7 +8038,7 @@ CODE_80C1FE:
 	LDA.w #CODE_80B2C8>>16			;$80C203
 	STA $50					;$80C206
 	LDA #CODE_808362			;$80C208
-	JMP set_and_wait_for_nmi_direct		;$80C20B
+	JMP set_and_wait_for_NMI_global		;$80C20B
 
 DATA_80C20E:
 	db $FF,$5A,$A1,$FF,$5A,$A1,$00

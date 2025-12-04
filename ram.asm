@@ -192,6 +192,7 @@ kiddy_control_variables = $14D2
 
 sprite_render_table = $1524
 
+sprite_DMA_buffer = $1562
 
 current_interaction = $17C6
 
