@@ -3,8 +3,8 @@ includeonce
 active_frame_counter = $00
 
 rng_result = $02
-;rng_seed_1 = $03
-;rng_seed_2 = $04
+rng_seed_1 = $03
+rng_seed_2 = $04
 ;rng_seed_3 = $05
 
 spc_transaction = $06
@@ -53,7 +53,9 @@ temp_40 = $40
 
 NMI_pointer = $4A
 
-;game_logic_pointer = $58
+tileset_NMI_index = $56
+tileset_logic_index = $58
+
 global_frame_counter = $5A
 
 current_sprite_constants = $6A
@@ -134,6 +136,7 @@ active_cheats = $053B
 game_state_flags = $05AF
 
 current_kong = $05B5
+current_entrance = $05B7
 parent_level_number = $05B9
 
 
@@ -150,8 +153,12 @@ kong_letter_flags = $05D7
 current_world = $05E5
 map_node_number = $05E7
 current_map_vehicle = $05EB
+
+
+boomer_explosive_count	= $05FF
+boomer_cog_count = $0603
 inventory_flags = $0609
-bazaar_store_products_flags = $0615
+brother_bear_dialogue_flags_start = $0615
 
 
 riverside_race_player_time = $062F
@@ -213,6 +220,8 @@ hud_banana_display_timer = $18CF
 hud_lives_count = $18D1
 hud_lives_to_add = $18D3
 hud_lives_display_timer = $18D5
+hud_lives_icon_graphic_id = $18D7
+hud_lives_icon_y_pos = $18DB
 
 bonus_timer_index = $18E1
 rocket_rush_fuel_amount = $18E9
@@ -273,6 +282,11 @@ sram_base = $B06000
 
 ;DKC2 $08C2 equivalent = $05B1
 
+;Contains what special map screen to init = $05E3
+;	Goes up by 2 so probably indexed without an ASL
+;	00 = Wrinkly, 02 = funky, 04 = Swanky, 06 = Gamover(?), 08 = bird cave, 0A = Bear houses
+;		(If bird cave or bear house, right byte tells which one to send you to.)
+
 ;owned inventory item flags = $0609
 
 ;level completion flags? = $0632
@@ -285,6 +299,8 @@ sram_base = $B06000
 
 ;x offset of world map sprites (kongs included) = $196D
 ;y offset of world map sprites (kongs included) = $1947
+
+;index of bleak fight kong (may be shared boss RAM) = $1BB9
 
 ;boat water trail sprite index = $1C8F
 

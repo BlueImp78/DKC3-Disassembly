@@ -100,6 +100,7 @@ CODE_B7808B:
 	PLX					;$B7808B
 	RTL					;$B7808C
 
+;Draws screen space sprite
 CODE_B7808D:
 	PHB					;$B7808D
 	PHK					;$B7808E
@@ -1003,85 +1004,85 @@ CODE_B78694:
 	RTS					;$B78696
 
 DATA_B78697:
-	dw $3040, $3FEA 
-	dw $30B0, $7FEA 
-	dw $90B0, $FFEA 
+	dw $3040, $3FEA
+	dw $30B0, $7FEA
+	dw $90B0, $FFEA
 	dw $9040, $BFEA
-	dw $3050, $3FEC 
-	dw $3060, $3FEC 
-	dw $3070, $3FEC 
+	dw $3050, $3FEC
+	dw $3060, $3FEC
+	dw $3070, $3FEC
 	dw $3080, $3FEC
-	dw $3090, $3FEC 
-	dw $30A0, $3FEC 
-	dw $9050, $BFEC 
+	dw $3090, $3FEC
+	dw $30A0, $3FEC
+	dw $9050, $BFEC
 	dw $9060, $BFEC
-	dw $9070, $BFEC 
-	dw $9080, $BFEC 
-	dw $9090, $BFEC 
+	dw $9070, $BFEC
+	dw $9080, $BFEC
+	dw $9090, $BFEC
 	dw $90A0, $BFEC
-	dw $4040, $3FEE 
-	dw $5040, $3FEE 
-	dw $6040, $3FEE 
+	dw $4040, $3FEE
+	dw $5040, $3FEE
+	dw $6040, $3FEE
 	dw $7040, $3FEE
-	dw $8040, $3FEE 
-	dw $40B0, $7FEE 
-	dw $50B0, $7FEE 
+	dw $8040, $3FEE
+	dw $40B0, $7FEE
+	dw $50B0, $7FEE
 	dw $60B0, $7FEE
-	dw $70B0, $7FEE 
-	dw $80B0, $7FEE 
-	dw $FFFF, $4828 
+	dw $70B0, $7FEE
+	dw $80B0, $7FEE
+	dw $FFFF, $4828
 	dw $3FEA, $4850
-	dw $7FEA, $8050 
-	dw $FFEA, $8028 
-	dw $BFEA, $4838 
+	dw $7FEA, $8050
+	dw $FFEA, $8028
+	dw $BFEA, $4838
 	dw $3FEC, $4840
-	dw $3FEC, $8038 
-	dw $BFEC, $8040 
-	dw $BFEC, $5828 
+	dw $3FEC, $8038
+	dw $BFEC, $8040
+	dw $BFEC, $5828
 	dw $3FEE, $6828
-	dw $3FEE, $7028 
-	dw $3FEE, $5850 
-	dw $7FEE, $6850 
+	dw $3FEE, $7028
+	dw $3FEE, $5850
+	dw $7FEE, $6850
 	dw $7FEE, $7050
-	dw $7FEE, $FFFF 
-	dw $48A0, $3FEA 
-	dw $48C8, $7FEA 
+	dw $7FEE, $FFFF
+	dw $48A0, $3FEA
+	dw $48C8, $7FEA
 	dw $80C8, $FFEA
-	dw $80A0, $BFEA 
-	dw $48B0, $3FEC 
-	dw $48B8, $3FEC 
+	dw $80A0, $BFEA
+	dw $48B0, $3FEC
+	dw $48B8, $3FEC
 	dw $80B0, $BFEC
-	dw $80B8, $BFEC 
-	dw $58A0, $3FEE 
-	dw $68A0, $3FEE 
+	dw $80B8, $BFEC
+	dw $58A0, $3FEE
+	dw $68A0, $3FEE
 	dw $70A0, $3FEE
-	dw $58C8, $7FEE 
-	dw $68C8, $7FEE 
-	dw $70C8, $7FEE 
+	dw $58C8, $7FEE
+	dw $68C8, $7FEE
+	dw $70C8, $7FEE
 	dw $FFFF, $3848
-	dw $3FEA, $38A8 
-	dw $7FEA, $A8A8 
-	dw $FFEA, $A848 
+	dw $3FEA, $38A8
+	dw $7FEA, $A8A8
+	dw $FFEA, $A848
 	dw $BFEA, $3858
-	dw $3FEC, $3868 
-	dw $3FEC, $3878 
-	dw $3FEC, $3888 
+	dw $3FEC, $3868
+	dw $3FEC, $3878
+	dw $3FEC, $3888
 	dw $3FEC, $3898
-	dw $3FEC, $A858 
-	dw $BFEC, $A868 
-	dw $BFEC, $A878 
+	dw $3FEC, $A858
+	dw $BFEC, $A868
+	dw $BFEC, $A878
 	dw $BFEC, $A888
-	dw $BFEC, $A898 
-	dw $BFEC, $4848 
-	dw $3FEE, $5848 
+	dw $BFEC, $A898
+	dw $BFEC, $4848
+	dw $3FEE, $5848
 	dw $3FEE, $6848
-	dw $3FEE, $7848 
-	dw $3FEE, $8848 
-	dw $3FEE, $9848 
+	dw $3FEE, $7848
+	dw $3FEE, $8848
+	dw $3FEE, $9848
 	dw $3FEE, $48A8
-	dw $7FEE, $58A8 
-	dw $7FEE, $68A8 
-	dw $7FEE, $78A8 
+	dw $7FEE, $58A8
+	dw $7FEE, $68A8
+	dw $7FEE, $78A8
 	dw $7FEE, $88A8
 	dw $7FEE, $98A8
 	dw $7FEE, $FFFF

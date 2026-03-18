@@ -1,7 +1,6 @@
 ;TODO: Start at 1 instead of 0
 
 player_interaction_table:
-	dw player_interaction_00		;00
 	dw player_interaction_01		;01
 	dw player_interaction_02		;02
 	dw player_interaction_03		;03
@@ -44,8 +43,9 @@ player_interaction_table:
 	dw player_interaction_28		;28
 	dw player_interaction_29		;29
 	dw player_interaction_2A		;2A
-	dw player_interaction_2B		;2B
+	dw player_interaction_2B		;2B Die in a pit?
 	dw player_interaction_2C		;2C
+	dw player_interaction_2D		;2D Exit level (Through any means except start/select)
 
 CODE_B8805A:
 	JMP CODE_B89C62				;$B8805A
@@ -202,13 +202,13 @@ CODE_B8810B:
 	CMP.w #$0003				;$B88119
 	BEQ.b CODE_B8812A			;$B8811C
 	LDA.w #$0005				;$B8811E
-	JSL.l CODE_B2800F			;$B88121
+	JSL.l transition_song		;$B88121
 	JSL.l CODE_B880F1			;$B88125
 	RTL					;$B88129
 
 CODE_B8812A:
 	LDA.w #$0002				;$B8812A
-	JSL.l CODE_B2800F			;$B8812D
+	JSL.l transition_song		;$B8812D
 	JSL.l CODE_B880F1			;$B88131
 	RTL					;$B88135
 
@@ -223,7 +223,7 @@ CODE_B8813B:
 	LDA.w $0777 				;$B88142 / Get level properties?
 	AND.w #$0400 				;$B88145 / Check bit 4 and 8
 	BEQ.b CODE_B88163 			;$B88148 / If not set branch
-	LDA.b $16,x 				;$B8814A / Else get Y position	
+	LDA.b $16,x 				;$B8814A / Else get Y position
 	SEC					;$B8814C
 	SBC.w $1883				;$B8814D
 	CMP.w #$0010				;$B88150
@@ -237,15 +237,15 @@ CODE_B8813B:
 	STA.b $2A,x				;$B88161
 CODE_B88163:
 	LDY.b $4C,x 				;$B88163 / Get index to platform sprite in sprite that is on it
-	CPY.w $0503 				;$B88165 
+	CPY.w $0503 				;$B88165
 	BNE.b CODE_B8816D 			;$B88168
 	JMP.w CODE_B881CB 			;$B8816A
 
 CODE_B8816D:
-	LDA.w $0000,y 				;$B8816D / Get id of standable sprite	
+	LDA.w $0000,y 				;$B8816D / Get id of standable sprite
 	CMP.w #!sprite_steel_keg  		;$B88170 / Check if its the steel keg
-	BNE.b CODE_B88180 			;$B88173 / If not, branch	
-	LDA.w $0038,y 				;$B88175 / Else get steel keg state	
+	BNE.b CODE_B88180 			;$B88173 / If not, branch
+	LDA.w $0038,y 				;$B88175 / Else get steel keg state
 	CMP.w #$0005				;$B88178
 	BNE.b CODE_B88180			;$B8817B
 	JMP.w CODE_B881DF			;$B8817D
@@ -256,7 +256,7 @@ CODE_B88180:
 	LDA.w #$0001				;$B88185
 	STA.b $38,x				;$B88188
 	LDA.w #$000B				;$B8818A
-	JSL.l set_anim_handle_kiddy 		;$B8818D / Set kong anim	
+	JSL.l set_anim_handle_kiddy 		;$B8818D / Set kong anim
 	LDY current_kong_control_variables	;$B88191
 	LDA.w $0006,y				;$B88193
 	AND.w #$0004				;$B88196
@@ -431,7 +431,7 @@ process_player_interaction_direct:
 	BEQ .get_and_process_interaction	;$B882EC
 	LDA screen_brightness			;$B882EE
 	BNE .get_and_process_interaction	;$B882F1
-	JMP player_interaction_2C		;$B882F3
+	JMP player_interaction_2D		;$B882F3
 
 .get_and_process_interaction:
 	PHK					;$B882F6
@@ -479,19 +479,19 @@ CODE_B88333:
 	PLX					;$B88334
 	RTL					;$B88335
 
-player_interaction_2C:
+player_interaction_2D:
 	JSL.l CODE_BB85C7			;$B88336
 	RTL					;$B8833A
 
-player_interaction_2A:
+player_interaction_2B:
 	RTL					;$B8833B
 
-player_interaction_26:
+player_interaction_27:
 	LDA.w #$0007				;$B8833C
 	LDY.w #$0100				;$B8833F
 	JSL.l enable_timestop			;$B88342
 	LDA.w #$0002				;$B88346
-	JSL.l CODE_B2800F			;$B88349
+	JSL.l transition_song			;$B88349
 	JSL.l CODE_B88352			;$B8834D
 	RTL					;$B88351
 
@@ -523,13 +523,13 @@ CODE_B8837A:
 CODE_B88389:
 	RTL					;$B88389
 
-player_interaction_27:
+player_interaction_28:
 	LDX.w $1B63				;$B8838A
 	BNE.b CODE_B883D9			;$B8838D
 	JSR.w CODE_B898AB			;$B8838F
 	JSL.l CODE_B89C01			;$B88392
 	LDA.w #$0003				;$B88396
-	JSL.l CODE_B2800F			;$B88399
+	JSL.l transition_song			;$B88399
 	JSL.l CODE_B89C4C			;$B8839D
 	JSR.w CODE_B8F285			;$B883A1
 	LDA.w #$0001				;$B883A4
@@ -559,7 +559,7 @@ CODE_B883C4:
 
 CODE_B883D9:
 	LDA.w #$0003				;$B883D9
-	JSL.l CODE_B2800F			;$B883DC
+	JSL.l transition_song		;$B883DC
 	LDX.w active_kong_sprite		;$B883E0
 	LDA.w #$005C				;$B883E3
 	STA.b $38,x				;$B883E6
@@ -662,7 +662,7 @@ CODE_B884B5:
 	JSL.l set_anim_handle_animal_and_kiddy	;$B884BC
 	RTS					;$B884C0
 
-player_interaction_1C:
+player_interaction_1D:
 	JSR.w CODE_B898AB			;$B884C1
 	JSL.l CODE_B89C01			;$B884C4
 	JSL.l CODE_B89C4C			;$B884C8
@@ -685,7 +685,7 @@ player_interaction_1C:
 	JSR.w CODE_B88417			;$B884F4
 	RTL					;$B884F7
 
-player_interaction_2B:
+player_interaction_2C:
 	JSL.l CODE_B89C4C			;$B884F8
 	LDX.b current_sprite			;$B884FC
 	LDA.w #$C000				;$B884FE
@@ -707,7 +707,7 @@ player_interaction_2B:
 CODE_B88529:
 	RTL					;$B88529
 
-player_interaction_1D:
+player_interaction_1E:
 	LDA.w #$0001				;$B8852A
 	JSR.w CODE_B8E24E			;$B8852D
 	BEQ.b CODE_B88533			;$B88530
@@ -726,7 +726,7 @@ CODE_B88533:
 	LDA.w #$0000				;$B88549
 	JSL.l set_riding_kong_anim_handle_kiddy	;$B8854C
 	LDA.w #$0708				;$B88550
-	JSL.l CODE_B28018			;$B88553
+	JSL.l play_high_priority_sound	;$B88553
 CODE_B88557:
 	LDA.b current_animal_type		;$B88557
 	SEC					;$B88559
@@ -858,14 +858,14 @@ CODE_B88643:
 	STA.b $2E,x				;$B8865D
 	RTS					;$B8865F
 
-player_interaction_21:
+player_interaction_22:
 	LDX.b current_mount			;$B88660
 	BNE.b CODE_B88665			;$B88662
 	RTL					;$B88664
 
 CODE_B88665:
 	PHX					;$B88665
-	JSL.l player_interaction_1E		;$B88666
+	JSL.l player_interaction_1F		;$B88666
 	LDX.w active_kong_sprite		;$B8866A
 	STZ.b $2E,x				;$B8866D
 	PLX					;$B8866F
@@ -884,7 +884,7 @@ CODE_B88665:
 	STA.b $5A,x				;$B88690
 	RTL					;$B88692
 
-player_interaction_1E:
+player_interaction_1F:
 	LDA.b current_mount			;$B88693
 	BNE.b CODE_B88698			;$B88695
 	RTL					;$B88697
@@ -996,7 +996,7 @@ DATA_B88783:
 	dw $0002,$FFED,$0005,$FFFF,$FFF9,$0018,$0000,$0000
 	dw $0000,$FFEF,$FFF7,$0006,$FFF9,$000E,$0000,$0000
 
-player_interaction_1F:
+player_interaction_20:
 	LDA.w #$001C				;$B887A3
 	LDY.w #$0014				;$B887A6
 	JSL.l enable_timestop			;$B887A9
@@ -1012,7 +1012,7 @@ player_interaction_1F:
 	STZ.b parry_index			;$B887C9
 	RTL					;$B887CB
 
-player_interaction_20:
+player_interaction_21:
 	LDA.b current_mount			;$B887CC
 	BNE.b CODE_B887D5			;$B887CE
 	LDA.b current_animal_type		;$B887D0
@@ -1197,7 +1197,7 @@ CODE_B88950:
 DATA_B88970:
 	db $01,$02,$04,$08,$10,$20,$40,$80
 
-player_interaction_19:
+player_interaction_1A:
 	JSL.l CODE_B89C01			;$B88978
 	LDX.w $17C8				;$B8897C
 	STX.b current_sprite			;$B8897F
@@ -1276,7 +1276,7 @@ CODE_B88A0A:
 CODE_B88A22:
 	RTS					;$B88A22
 
-player_interaction_18:
+player_interaction_19:
 	JSL.l CODE_B89C01			;$B88A23
 	LDX.w $17C8				;$B88A27
 	STX.b current_sprite			;$B88A2A
@@ -1352,7 +1352,7 @@ CODE_B88AC5:
 CODE_B88AD3:
 	RTL					;$B88AD3
 
-player_interaction_1A:
+player_interaction_1B:
 	JSR.w CODE_B88D13			;$B88AD4
 	LDX.w $17C8				;$B88AD7
 	LDY.w active_kong_sprite		;$B88ADA
@@ -1424,7 +1424,7 @@ CODE_B88B5F:
 	SBC.w #$0018				;$B88B6B
 	RTS					;$B88B6E
 
-player_interaction_1B:
+player_interaction_1C:
 	LDX.w $17C8				;$B88B6F
 	LDA.b $06,x				;$B88B72
 	STA.b $6A				;$B88B74
@@ -1665,14 +1665,14 @@ CODE_B88D88:
 	LDA.w CPU.multiply_result		;$B88D90
 	RTS					;$B88D93
 
-player_interaction_0A:
+player_interaction_0B:
 	JSL.l CODE_B89C4C			;$B88D94
 	LDA.w #$0010				;$B88D98
 	STA.b $5E,x				;$B88D9B
 	STZ.b $2A,x				;$B88D9D
 	BRA.b CODE_B88DA7			;$B88D9F
 
-player_interaction_08:
+player_interaction_09:
 	JSL.l CODE_B89C4C			;$B88DA1
 	STZ.b $5E,x				;$B88DA5
 CODE_B88DA7:
@@ -1698,7 +1698,7 @@ CODE_B88DA7:
 	STA.w $04AC				;$B88DD9
 	RTL					;$B88DDC
 
-player_interaction_06:
+player_interaction_07:
 	JSL.l CODE_B89C4C			;$B88DDD
 	LDA.w #$0014				;$B88DE1
 	STA.b $38,x				;$B88DE4
@@ -1725,7 +1725,7 @@ player_interaction_06:
 	STA.w $04AC				;$B88E1A
 	RTL					;$B88E1D
 
-player_interaction_0B:
+player_interaction_0C:
 	JSL.l CODE_B89C4C			;$B88E1E
 	CPY.w #$1480				;$B88E22
 	BNE.b CODE_B88E31			;$B88E25
@@ -1739,7 +1739,7 @@ CODE_B88E31:
 	STZ.b $2E,x				;$B88E36
 	BRA.b CODE_B88E40			;$B88E38
 
-player_interaction_09:
+player_interaction_0A:
 	JSL.l CODE_B89C4C			;$B88E3A
 	STZ.b $5E,x				;$B88E3E
 CODE_B88E40:
@@ -1768,7 +1768,7 @@ CODE_B88E40:
 	STA.w $04AC				;$B88E7C
 	RTL					;$B88E7F
 
-player_interaction_07:
+player_interaction_08:
 	JSL.l CODE_B89C4C			;$B88E80
 	LDY.w $17C8				;$B88E84
 	STY.b $4C,x				;$B88E87
@@ -1836,7 +1836,7 @@ CODE_B88EDD:
 	STA.w $04AC				;$B88F0C
 	RTL					;$B88F0F
 
-player_interaction_0C:
+player_interaction_0D:
 	LDA.w #$0020				;$B88F10
 	TRB.w $05AF				;$B88F13
 	BEQ.b CODE_B88F2E			;$B88F16
@@ -1849,7 +1849,7 @@ player_interaction_0C:
 CODE_B88F2E:
 	RTL					;$B88F2E
 
-player_interaction_0E:
+player_interaction_0F:
 	LDX.w $17C8				;$B88F2F
 	CPX.w active_kong_sprite		;$B88F32
 	BEQ.b CODE_B88F44			;$B88F35
@@ -1912,7 +1912,7 @@ CODE_B88FAE:
 	LDA.w #$0005				;$B88FB0
 	JML.l set_anim_handle_animal_and_kiddy	;$B88FB3
 
-player_interaction_0D:
+player_interaction_0E:
 	STZ.w $04AA				;$B88FB7
 	STZ.w $04AE				;$B88FBA
 	LDA.w #$001C				;$B88FBD
@@ -1941,7 +1941,7 @@ CODE_B88FF4:
 	STA.b $38,x				;$B88FFE
 	RTL					;$B89000
 
-player_interaction_10:
+player_interaction_11:
 	STZ.w $04AA				;$B89001
 	STZ.w $04AE				;$B89004
 	LDA.w #$001C				;$B89007
@@ -2018,7 +2018,7 @@ CODE_B89092:
 	STA.b $2E,x				;$B89097
 	RTS					;$B89099
 
-player_interaction_11:
+player_interaction_12:
 	LDA.w #$001C				;$B8909A
 	LDY.w #$0002				;$B8909D
 	JSL.l enable_timestop			;$B890A0
@@ -2056,29 +2056,29 @@ CODE_B890CF:
 CODE_B890F1:
 	RTL					;$B890F1
 
-player_interaction_13:
+player_interaction_14:
 	JSL.l CODE_B89C3C			;$B890F2
 	LDA.b $38,x				;$B890F6
 	CMP.w #$004A				;$B890F8
 	BNE.b CODE_B89103			;$B890FB
 	STX.w $17C8				;$B890FD
-	JMP.w player_interaction_22		;$B89100
+	JMP.w player_interaction_23		;$B89100
 
 CODE_B89103:
 	JSR.w CODE_B8B946			;$B89103
 	RTL					;$B89106
 
-player_interaction_14:
+player_interaction_15:
 	JSL.l CODE_B89C3C			;$B89107
 	JSR.w CODE_B8B946			;$B8910B
 	RTL					;$B8910E
 
-player_interaction_12:
+player_interaction_13:
 	LDA.w $1957				;$B8910F
 	AND.w #$4000				;$B89112
 	BEQ.b CODE_B8911A			;$B89115
 CODE_B89117:
-	JMP.w player_interaction_10		;$B89117
+	JMP.w player_interaction_11		;$B89117
 
 CODE_B8911A:
 	LDA.w #$2000				;$B8911A
@@ -2227,7 +2227,7 @@ CODE_B89251:
 	JSL.l CODE_B89C4C			;$B89251
 	RTS					;$B89255
 
-player_interaction_0F:
+player_interaction_10:
 	JSL.l CODE_B89C3C			;$B89256
 	LDX.b current_sprite			;$B8925A
 	LDA.w #$004C				;$B8925C
@@ -2237,12 +2237,12 @@ player_interaction_0F:
 	STA.w $192B				;$B89267
 	RTL					;$B8926A
 
-player_interaction_25:
+player_interaction_26:
 	LDA.w $075C				;$B8926B
 	AND.w #$00FF				;$B8926E
 	CMP.w #$0002				;$B89271
 	BNE.b CODE_B89279			;$B89274
-	JMP.w player_interaction_26		;$B89276
+	JMP.w player_interaction_27		;$B89276
 
 CODE_B89279:
 	JSL.l CODE_B89C4C			;$B89279
@@ -2284,11 +2284,11 @@ CODE_B892D2:
 	JSL.l enable_timestop			;$B892D8
 	RTL					;$B892DC
 
-player_interaction_24:
+player_interaction_25:
 	LDA.w $075C				;$B892DD
 	CMP.w #$0002				;$B892E0
 	BNE.b CODE_B892E8			;$B892E3
-	JMP.w player_interaction_26		;$B892E5
+	JMP.w player_interaction_27		;$B892E5
 
 CODE_B892E8:
 	LDA.w $17C8				;$B892E8
@@ -2303,11 +2303,11 @@ CODE_B892F9:
 	TSB.w $1957				;$B892FC
 	JMP.w CODE_B89318			;$B892FF
 
-player_interaction_22:
+player_interaction_23:
 	LDA.w $075C				;$B89302
 	CMP.w #$0002				;$B89305
 	BNE.b CODE_B8930D			;$B89308
-	JMP.w player_interaction_26		;$B8930A
+	JMP.w player_interaction_27		;$B8930A
 
 CODE_B8930D:
 	LDA.w $17C8				;$B8930D
@@ -2471,7 +2471,7 @@ CODE_B89461:
 	LDA.w $075C				;$B89461
 	CMP.w #$0002				;$B89464
 	BNE.b CODE_B8946C			;$B89467
-	JMP.w player_interaction_26		;$B89469
+	JMP.w player_interaction_27		;$B89469
 
 CODE_B8946C:
 	LDA.w #$4000				;$B8946C
@@ -2690,11 +2690,11 @@ CODE_B8965E:
 	JSR.w CODE_B89422			;$B89678
 	RTL					;$B8967B
 
-player_interaction_23:
+player_interaction_24:
 	LDA.w $075C				;$B8967C
 	CMP.w #$0002				;$B8967F
 	BNE.b CODE_B89687			;$B89682
-	JMP.w player_interaction_26		;$B89684
+	JMP.w player_interaction_27		;$B89684
 
 CODE_B89687:
 	LDY.w $1B63				;$B89687
@@ -2762,7 +2762,7 @@ CODE_B89702:
 	JSL.l enable_timestop			;$B89728
 	RTL					;$B8972C
 
-player_interaction_00:
+player_interaction_01:
 	JSR.w CODE_B8DD20			;$B8972D
 	BCS.b CODE_B8979B			;$B89730
 	LDA.w #$0007				;$B89732
@@ -2804,7 +2804,7 @@ CODE_B8977F:
 CODE_B8979B:
 	RTL					;$B8979B
 
-player_interaction_02:
+player_interaction_03:
 	LDA.w #$0011				;$B8979C
 	JSR.w CODE_B8E24E			;$B8979F
 	BNE.b CODE_B897F0			;$B897A2
@@ -2850,7 +2850,7 @@ CODE_B897F5:
 CODE_B89811:
 	RTL					;$B89811
 
-player_interaction_01:
+player_interaction_02:
 	LDA.w #$0011				;$B89812
 	JSR.w CODE_B8E24E			;$B89815
 	BNE.b CODE_B89859			;$B89818
@@ -2878,7 +2878,7 @@ player_interaction_01:
 CODE_B89859:
 	RTL					;$B89859
 
-player_interaction_03:
+player_interaction_04:
 	LDA.w #$0001				;$B8985A
 	JSR.w CODE_B8E24E			;$B8985D
 	BNE.b CODE_B898AA			;$B89860
@@ -2941,7 +2941,7 @@ CODE_B898C5:
 	JSR.w CODE_B8829F			;$B898E9
 	RTS					;$B898EC
 
-player_interaction_17:
+player_interaction_18:
 	JSR.w CODE_B898AB			;$B898ED
 	LDX.w $17CC				;$B898F0
 	JSL.l CODE_B89C37			;$B898F3
@@ -2989,7 +2989,7 @@ CODE_B8993E:
 CODE_B8995E:
 	RTL					;$B8995E
 
-player_interaction_15:
+player_interaction_16:
 	JSL.l CODE_B89C4C			;$B8995F
 	JSL.l CODE_B89C01			;$B89963
 	LDX.b current_sprite			;$B89967
@@ -3012,7 +3012,7 @@ player_interaction_15:
 	JSR.w CODE_B8C5C7			;$B89991
 	RTL					;$B89994
 
-player_interaction_16:
+player_interaction_17:
 	JSL.l CODE_B89C4C			;$B89995
 	LDA.w #$0056				;$B89999
 	JSL.l set_anim_handle_kiddy		;$B8999C
@@ -3024,7 +3024,7 @@ player_interaction_16:
 	TSB.w $1957				;$B899AF
 	RTL					;$B899B2
 
-player_interaction_05:
+player_interaction_06:
 	LDA.w #$0002				;$B899B3
 	BIT.w $05B1				;$B899B6
 	BNE.b CODE_B89A12			;$B899B9
@@ -3053,7 +3053,7 @@ player_interaction_05:
 	LDA.w #$0028				;$B899FA
 	JSL.l set_anim_handle_kiddy		;$B899FD
 	LDA.w #$0707				;$B89A01
-	JSL.l CODE_B28018			;$B89A04
+	JSL.l play_high_priority_sound		;$B89A04
 	LDA.w #$0007				;$B89A08
 	LDY.w #$0078				;$B89A0B
 	JSL.l enable_timestop			;$B89A0E
@@ -3078,7 +3078,7 @@ CODE_B89A13:
 	STA.b $2E,x				;$B89A29
 	RTS					;$B89A2B
 
-player_interaction_04:
+player_interaction_05:
 	LDX.w active_kong_sprite		;$B89A2C
 	LDY.w follower_kong_sprite		;$B89A2F
 	LDA.b $12,x				;$B89A32
@@ -3224,7 +3224,7 @@ CODE_B89B3E:
 	JSL.l set_anim_handle_kiddy		;$B89B61
 	JSL.l CODE_BB85FD			;$B89B65
 	LDA.w #$0707				;$B89B69
-	JSL.l CODE_B28018			;$B89B6C
+	JSL.l play_high_priority_sound	;$B89B6C
 	LDA.w #$0007				;$B89B70
 	LDY.w #$0078				;$B89B73
 	JSL.l enable_timestop			;$B89B76
@@ -3273,7 +3273,7 @@ CODE_B89BC1:
 	SEC					;$B89BC1
 	RTS					;$B89BC2
 
-player_interaction_29:
+player_interaction_2A:
 	LDA.w $05B1				;$B89BC3
 	AND.w #$0004				;$B89BC6
 	BNE.b CODE_B89BE6			;$B89BC9
@@ -3292,7 +3292,7 @@ CODE_B89BE6:
 	JSR.w CODE_B883E9			;$B89BE6
 	RTL					;$B89BE9
 
-player_interaction_28:
+player_interaction_29:
 	JSR.w CODE_B898AB			;$B89BEA
 	JSL.l CODE_B89C01			;$B89BED
 	JSL.l CODE_B89C4C			;$B89BF1
@@ -4786,7 +4786,7 @@ kong_state_19:
 	JMP.w (.sub_state_table,x)		;$B8A879
 
 .sub_state_table:
-	dw .sub_state_0   
+	dw .sub_state_0
 	dw .sub_state_1
 	dw .sub_state_2
 	dw .sub_state_1   ;03
@@ -7640,7 +7640,7 @@ CODE_B8BF59:
 	BCC.b CODE_B8BF79			;$B8BF6C
 	CMP.w #!boss_level_type_range_end	;$B8BF6E
 	BCS.b CODE_B8BF79			;$B8BF71
-	JSL.l player_interaction_29		;$B8BF73
+	JSL.l player_interaction_2A		;$B8BF73
 	BRA.b CODE_B8BF7C			;$B8BF77
 
 CODE_B8BF79:
@@ -7733,7 +7733,7 @@ CODE_B8C023:
 	CMP.w #!level_murky_mill		;$B8C028
 	BEQ.b CODE_B8C034			;$B8C02B
 	LDA.w #$062D				;$B8C02D
-	JSL.l CODE_B28018			;$B8C030
+	JSL.l play_high_priority_sound		;$B8C030
 CODE_B8C034:
 	JML [$04F5]				;$B8C034
 
@@ -10911,10 +10911,10 @@ CODE_B8D6B9:
 	LDA.w current_held_sprite 		;$B8D6B9 / get object carried by kong
 	ORA.b current_animal_type		;$B8D6BC
 	BNE.b CODE_B8D6F9			;$B8D6BE
-	LDA.w $050F 				;$B8D6C0 / get water y position	
-	BMI.b CODE_B8D6F9 			;$B8D6C3 / if level has no water, branch and do something lol	
+	LDA.w $050F 				;$B8D6C0 / get water y position
+	BMI.b CODE_B8D6F9 			;$B8D6C3 / if level has no water, branch and do something lol
 	SEC					;$B8D6C5
-	SBC.w #$0018 				;$B8D6C6 / get a distance from the kong	
+	SBC.w #$0018 				;$B8D6C6 / get a distance from the kong
 	CMP.b $16,x				;$B8D6C9
 	BCS.b CODE_B8D6F9 			;$B8D6CB / if not within distance, branch and do something lol
 	LDA.b $00,x 				;$B8D6CD / get sprite ID
@@ -14086,13 +14086,13 @@ CODE_B8EDEE:
 
 CODE_B8EDF1:
 	LDA.w #$0429				;$B8EDF1
-	JSL.l CODE_B28018			;$B8EDF4
+	JSL.l play_high_priority_sound	;$B8EDF4
 	LDA.w #$052A				;$B8EDF8
-	JSL.l CODE_B28018			;$B8EDFB
+	JSL.l play_high_priority_sound	;$B8EDFB
 	LDA.w #$062B				;$B8EDFF
-	JSL.l CODE_B28018			;$B8EE02
+	JSL.l play_high_priority_sound	;$B8EE02
 	LDA.w #$072C				;$B8EE06
-	JSL.l CODE_B28018			;$B8EE09
+	JSL.l play_high_priority_sound	;$B8EE09
 	LDX.w active_kong_sprite		;$B8EE0D
 	LDY.b current_sprite			;$B8EE10
 	LDA.w $005E,y				;$B8EE12
@@ -14213,13 +14213,13 @@ CODE_B8EEE6:
 	LDY.w #$0014				;$B8EEF8
 	JSL.l CODE_BB8585			;$B8EEFB
 	LDA.w #$041D				;$B8EEFF
-	JSL.l CODE_B28018			;$B8EF02
+	JSL.l play_high_priority_sound	;$B8EF02
 	LDA.w #$071E				;$B8EF06
-	JSL.l CODE_B28018			;$B8EF09
+	JSL.l play_high_priority_sound	;$B8EF09
 	LDA.w #$051F				;$B8EF0D
-	JSL.l CODE_B28018			;$B8EF10
+	JSL.l play_high_priority_sound	;$B8EF10
 	LDA.w #$0620				;$B8EF14
-	JSL.l CODE_B28018			;$B8EF17
+	JSL.l play_high_priority_sound	;$B8EF17
 	JML [$04F5]				;$B8EF1B
 
 CODE_B8EF1E:
@@ -14939,7 +14939,7 @@ DATA_B8F5A9:
 
 CODE_B8F5B9:
 	LDA.w #$0001				;$B8F5B9
-	JSL.l CODE_B2800F			;$B8F5BC
+	JSL.l transition_song		;$B8F5BC
 	LDA.w #$0004				;$B8F5C0
 	JMP.w CODE_B8F3CB			;$B8F5C3
 
@@ -14976,6 +14976,9 @@ CODE_B8F5E2:
 	LDA.w #$0008				;$B8F60F
 	JMP.w CODE_B8F3CB			;$B8F612
 
+
+;Runs during krool 1 cutscene after coin grab.
+;Game freezes for a while, CODE_BB85E2 might be decompression related?
 CODE_B8F615:
 	LDA.w $0004,x				;$B8F615
 	JSL.l CODE_BB85E2			;$B8F618

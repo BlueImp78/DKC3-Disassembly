@@ -88,7 +88,7 @@ animation_scripts_table:
 	dw DATA_F93FE4, $0700		;003B dixie_toboggan
 	dw DATA_F928CF, $0000		;003C dixie_swap_to_kiddy
 	dw DATA_F92911, $0000		;003D dixie_swap_to_kiddy_idle
-	dw DATA_F92920, $0000		;003E dixie_swap_from_kiddy 
+	dw DATA_F92920, $0000		;003E dixie_swap_from_kiddy
 	dw DATA_F93FBC, $0000		;003F
 	dw DATA_F97DE7, $0000		;0040 dixie_kastle_kaos_ending_idle
 	dw DATA_F92BE5, $0000		;0041 dixie_ride_land_animal
@@ -163,9 +163,9 @@ animation_scripts_table:
 	dw DATA_F96C8B, $0000		;0086
 	dw DATA_F96CA2, $0000		;0087
 	dw DATA_F910B6, $0000		;0088
-	dw DATA_F91322, $0000		;0089
-	dw DATA_F91363, $0000		;008A
-	dw DATA_F91377, $0000		;008B
+	dw DATA_F91322, $0000		;0089 kiddy_walk
+	dw DATA_F91363, $0000		;008A kiddy_turn
+	dw DATA_F91377, $0000		;008B kiddy_run
 	dw DATA_F913AC, $1002		;008C
 	dw DATA_F9142F, $0000		;008D
 	dw DATA_F9143B, $0000		;008E
@@ -259,7 +259,7 @@ animation_scripts_table:
 	dw DATA_F937BF, $1300		;00E6
 	dw DATA_F937DE, $0300		;00E7
 	dw DATA_F937FC, $0300		;00E8
-	dw DATA_F93809, $0300		;00E9
+	dw DATA_F93809, $0300		;00E9 enguarde_hurt
 	dw DATA_F93822, $0300		;00EA
 	dw DATA_F938A5, $0000		;00EB
 	dw DATA_F938C8, $0000		;00EC
@@ -331,7 +331,7 @@ animation_scripts_table:
 	dw DATA_F94744, $0000		;012E
 	dw DATA_F9475E, $0000		;012F barrel_particles
 	dw DATA_F94778, $0000		;0130 banana_bird_crystal_shards
-	dw DATA_F9478F, $0000		;0131 banana_bird_crystal_shards_2
+	dw DATA_F9478F, $0000		;0131 banana_bird_crystal_shards_2 (same as 0130 but backwards)
 	dw DATA_F949C4, $0000		;0132 squawks_egg
 	dw DATA_F949CC, $0000		;0133 ellie_horizontal_water_shot
 	dw DATA_F949F5, $0000		;0134 ellie_diagonal_water_shot
@@ -400,7 +400,7 @@ animation_scripts_table:
 	dw DATA_F945C5, $0000		;0173 some smoke effect
 	dw DATA_F945E2, $0000		;0174 some smoke effect
 	dw DATA_F9460C, $0000		;0175 tnt_explosion_flames
-	dw DATA_F9463C, $0000		;0176 
+	dw DATA_F9463C, $0000		;0176
 	dw DATA_F94646, $0000		;0177
 	dw DATA_F94650, $0000		;0178
 	dw DATA_F94685, $0000		;0179 kong_water_splash
@@ -775,7 +775,7 @@ animation_scripts_table:
 	dw DATA_F96F8B, $0000		;02EA
 	dw DATA_F96FA4, $0000		;02EB
 	dw DATA_F96FBD, $0000		;02EC
-	dw DATA_F96FD6, $0000		;02ED
+	dw DATA_F96FD6, $0000		;02ED map_dixie_down
 	dw DATA_F97177, $0000		;02EE
 	dw DATA_F97187, $0000		;02EF
 	dw DATA_F97197, $0000		;02F0
@@ -1027,7 +1027,6 @@ DATA_F90F9F:
 
 	db $00
 
-;dixie roll anim
 DATA_F90FE0:
 	%DKC3_AnS_Op81(CODE_B9A93C, DATA_F90FF3)
 	%DKC3_AnS_OpXX($02, $0D70)
@@ -1515,7 +1514,7 @@ DATA_F9147C:
 	%DKC3_AnS_Op85($0000) 			;null pointer
 	%DKC3_AnS_Op83(CODE_B9ABC0)
 	%DKC3_AnS_Op8C($6C, DATA_F914CA)
-	%DKC3_AnS_Op83(CODE_B9ABC8)		;call CODE_B9DEEF equivalent    
+	%DKC3_AnS_Op83(CODE_B9ABC8)		;call CODE_B9DEEF equivalent
 	%DKC3_AnS_Op9A()
 
 	db $00

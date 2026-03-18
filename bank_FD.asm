@@ -2003,13 +2003,13 @@ DATA_FD24E4:
 	db $00
 
 DATA_FD2516:
-	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression)
-	%vram_payload(DATA_D2FF14,$A000,$2FA0,!big_data_compression)
-	%vram_payload(DATA_FC0000,$5000,$0F00,!big_data_compression)
+	%vram_payload(DATA_FFE600,$1C00,$0400,!big_data_compression) ;bananas
+	%vram_payload(DATA_D2FF14,$A000,$2FA0,!big_data_compression) ;tv save screen tiledata
+	%vram_payload(DATA_FC0000,$5000,$0F00,!big_data_compression) ;area name font
 	%vram_payload(DATA_EA0B39,$E000,$01A0,!big_data_compression)
 	%vram_payload(DATA_EA0A88,$ECC0,$0240,!big_data_compression)
 	%vram_payload(DATA_EA0A88,$EE40,$0240,!big_data_compression)
-	%vram_payload(DATA_E88052,$FC00,$0700,!small_data_compression)
+	%vram_payload(DATA_E88052,$FC00,$0700,!small_data_compression);tv save screen tilemap
 	db $00
 
 DATA_FD2548:
@@ -3852,6 +3852,7 @@ bleaks_house_face_sprite_palette:
 cotton_top_cove_waterfalls_sprite_palette:
 	incbin "data/palettes/Sprite_CottonTopCoveWaterfalls.bin"
 
+;FD490D
 glacial_grotto_cover_sprite_palette:
 	incbin "data/palettes/Sprite_GlacialGrottoCover.bin"
 

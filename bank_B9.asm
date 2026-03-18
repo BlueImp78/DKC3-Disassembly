@@ -237,33 +237,33 @@ CODE_B9A14F:
 	JMP.w (animation_command_table,x)	;$B9A157
 
 animation_command_table:
-	dw anim_command_80			; $80 - 
-	dw anim_command_81			; $81 - 
-	dw anim_command_82			; $82 - 
-	dw anim_command_83			; $83 - 
-	dw anim_command_84			; $84 - 
-	dw anim_command_85			; $85 - 
-	dw anim_command_86_88			; $86 - 
+	dw anim_command_80			; $80 -
+	dw anim_command_81			; $81 -
+	dw anim_command_82			; $82 -
+	dw anim_command_83			; $83 -
+	dw anim_command_84			; $84 -
+	dw anim_command_85			; $85 -
+	dw anim_command_86_88			; $86 -
 	dw anim_command_87_89			; $87 - Set new anim, mask and handle kiddy if negative
-	dw anim_command_86_88			; $88 - 
+	dw anim_command_86_88			; $88 -
 	dw anim_command_87_89			; $89 - Set new anim, mask and handle kiddy if negative
-	dw anim_command_8A			; $8A - 
-	dw anim_command_8B			; $8B - 
-	dw anim_command_8C			; $8C - 
-	dw anim_command_8D			; $8D - 
-	dw anim_command_8E			; $8E - 
-	dw anim_command_8F			; $8F - 
-	dw anim_command_90			; $90 - 
-	dw anim_command_91			; $91 - 
-	dw anim_command_92			; $92 - 
-	dw anim_command_93			; $93 - 
-	dw anim_command_94			; $94 - 
-	dw anim_command_95			; $95 - 
-	dw anim_command_96			; $96 - 
-	dw anim_command_97			; $97 - 
-	dw anim_command_98			; $98 - 
-	dw anim_command_99			; $99 - 
-	dw anim_command_9A			; $9A - 
+	dw anim_command_8A			; $8A -
+	dw anim_command_8B			; $8B -
+	dw anim_command_8C			; $8C -
+	dw anim_command_8D			; $8D -
+	dw anim_command_8E			; $8E -
+	dw anim_command_8F			; $8F -
+	dw anim_command_90			; $90 -
+	dw anim_command_91			; $91 -
+	dw anim_command_92			; $92 -
+	dw anim_command_93			; $93 -
+	dw anim_command_94			; $94 -
+	dw anim_command_95			; $95 -
+	dw anim_command_96			; $96 -
+	dw anim_command_97			; $97 -
+	dw anim_command_98			; $98 -
+	dw anim_command_99			; $99 -
+	dw anim_command_9A			; $9A -
 
 anim_command_9A:
 	LDX.b current_sprite			;$B9A190
@@ -3457,6 +3457,7 @@ DATA_B9B6E7:
 	dw $226A
 
 
+;Graphic ID of dixie life icon
 DATA_B9B73D:
 	dw $22D3
 
@@ -3492,6 +3493,7 @@ DATA_B9B743:
 	dw $8005
 
 
+;Decompression related?
 DATA_B9B775:
 	dw !null_pointer
 	dw DATA_B9B78F
@@ -4982,7 +4984,7 @@ check bankcross off
 check bankcross full
 else
 	padbyte $00 : pad $B9E000
-endif	
+endif
 
 process_current_movement:
 	JMP process_current_movement_direct	;$B9E000
@@ -5045,7 +5047,7 @@ process_alternate_movement_direct:
 
 
 sprite_movement_routines:
-	dw CODE_B9E0E8			;00					
+	dw CODE_B9E0E8			;00
 	dw CODE_B9E0E9			;01
 	dw CODE_B9E0EC			;02
 	dw CODE_B9E108			;03
@@ -8582,5 +8584,5 @@ CODE_B9F8E9:
 CODE_B9F905:
 	CLC					;$B9F905
 	RTS					;$B9F906
-	
+
 ; Glitch: The first byte of the bank after this one must be $72 or the game will potentially freeze after taking Kuchuka's picture.

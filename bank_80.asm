@@ -282,7 +282,7 @@ RESET_start:
 	LDX #stack				;$808195
 	TXS					;$808198
 	%return(display_error_message)
-	%return(clear_VRAM_local)	
+	%return(clear_VRAM_local)
 	BRA init_registers_local		;$808199
 
 .final_piracy_test:
@@ -755,7 +755,7 @@ CODE_808550:
 	LDA #$0000				;$808550
 	STA $00044A				;$808553
 	LDA #$0778				;$808557
-	JSL CODE_B28018				;$80855A
+	JSL play_high_priority_sound		;$80855A
 	SEP #$20				;$80855E
 	LDA #$E0				;$808560
 	STA PPU.fixed_color			;$808562
@@ -1466,6 +1466,7 @@ CODE_808B88:
 CODE_808B8A:
 	RTS					;$808B8A
 
+;Inputs to invert in poisonous pipeline
 DATA_808B8B:
 	dw $0000
 	dw !input_left
@@ -1575,7 +1576,7 @@ CODE_808C43:
 	REP #$20				;$808C5D
 	RTS					;$808C5F
 
-;RNG routine?
+;Get RNG
 CODE_808C60:
 	LDA $02					;$808C60
 	STA temp_1C				;$808C62
@@ -2243,7 +2244,7 @@ CODE_8091B0:
 	JSR CODE_80920D				;$8091BB
 	JSR CODE_8091CB				;$8091BE
 	JSR CODE_80939D				;$8091C1
-CODE_8091C4:	
+CODE_8091C4:
 	JSR CODE_80920D				;$8091C4
 	JSR CODE_8091CB				;$8091C7
 	RTS					;$8091CA
@@ -2969,7 +2970,7 @@ CODE_8097E3:
 	JSR CODE_8096FD				;$8097F3
 	JSR CODE_809DD0				;$8097F6
 	LDA #$0666				;$8097F9
-	JSL CODE_B28018				;$8097FC
+	JSL play_high_priority_sound		;$8097FC
 	RTS					;$809800
 
 CODE_809801:
@@ -3007,7 +3008,7 @@ CODE_80983B:
 	JSR CODE_809731				;$809849
 	JSR CODE_80A1AA				;$80984C
 	LDA #$0666				;$80984F
-	JSL CODE_B28018				;$809852
+	JSL play_high_priority_sound		;$809852
 CODE_809856:
 	RTS					;$809856
 
@@ -4383,9 +4384,9 @@ CODE_80A3C3:
 
 CODE_80A3D8:
 	LDA #$0567				;$80A3D8
-	JSL CODE_B28018				;$80A3DB
+	JSL play_high_priority_sound		;$80A3DB
 	LDA #$0668				;$80A3DF
-	JSL CODE_B28018				;$80A3E2
+	JSL play_high_priority_sound		;$80A3E2
 	LDA #$0050				;$80A3E6
 CODE_80A3E9:
 	STA $1C87				;$80A3E9
@@ -6586,6 +6587,7 @@ CODE_80B582:
 	BCC CODE_80B582				;$80B590
 	RTS					;$80B592
 
+;Music test init
 CODE_80B593:
 	PHK					;$80B593
 	PLB					;$80B594
@@ -6719,7 +6721,7 @@ CODE_80B6C7:
 	CMP #$0A00				;$80B6E2
 	BCC CODE_80B6F0				;$80B6E5
 	LDA #$0000				;$80B6E7
-	JSL CODE_B2800F				;$80B6EA
+	JSL transition_song			;$80B6EA
 	STZ $F4					;$80B6EE
 CODE_80B6F0:
 	JMP CODE_808384				;$80B6F0
@@ -6815,7 +6817,7 @@ CODE_80B7C3:
 	BEQ CODE_80B7D5				;$80B7C9
 	LDY $1CCA				;$80B7CB
 	LDA DATA_80C385+$0A,y			;$80B7CE
-	JSL CODE_B2800C				;$80B7D1
+	JSL play_song_with_transition		;$80B7D1
 CODE_80B7D5:
 	JSL sprite_handler			;$80B7D5
 	JSL CODE_B7800C				;$80B7D9
@@ -7632,7 +7634,7 @@ DATA_80BEDB:
 	db "NEU REKORD!", $00
 
 boss_cutscene_text_main:
-	JMP (.state_table,x)			;$80BF03  
+	JMP (.state_table,x)			;$80BF03
 
 .state_table:
 	dw CODE_80BF0E
@@ -8133,7 +8135,7 @@ DATA_80C37A:
 	db $37,$32,$00
 
 
-;Music test song names
+;Music test song names + song id
 DATA_80C385:
 	dw DATA_80C421, $0000
 	dw DATA_80C421, $0000

@@ -1750,7 +1750,7 @@ DATA_FF1BEC:
 	dw $0018
 	dw $0800
 	dw $0007
-	
+
 DATA_FF1BF2:
 	dw $F740
 	dw $0070
@@ -2566,6 +2566,8 @@ DATA_FF20F8:
 	dw $0096
 	dw $FFFF
 
+;X and Y positions used by krematoa unlock controller.
+;$FFFF = sucessfully unlocked
 DATA_FF2116:
 	dw $029F
 	dw $01EA
@@ -3153,8 +3155,8 @@ DATA_FF218C:
 	dw DATA_FF5995		;03EA
 	dw DATA_FF59C8		;03EC
 	dw DATA_FF56DB		;03EE
-	
 
+;Breakable floor prize related
 DATA_FF257C:
 	dw $000F, $0144, $010C
 	dw $000F, $0145, $010E
@@ -3471,7 +3473,7 @@ DATA_FF2854:
 	db !spawn_command_success
 
 DATA_FF2864:
-	db !spawn_command_set_type : dw !sprite_KongWaterSplash 
+	db !spawn_command_set_type : dw !sprite_KongWaterSplash
 	db !spawn_command_spawn_relative, $00, $00
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_set_palette : dw $0022
@@ -4379,7 +4381,7 @@ DATA_FF302F:
 	db !spawn_command_success
 
 DATA_FF3048:
-	db !spawn_command_set_type : dw !sprite_unknown_sprite_03C4 
+	db !spawn_command_set_type : dw !sprite_unknown_sprite_03C4
 	db !spawn_command_spawn_relative, $00, $00
 	db sprite.render_order : dw $00D4
 	db sprite.movement_state : dw $0000

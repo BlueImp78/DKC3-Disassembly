@@ -2713,6 +2713,8 @@ CODE_B3A678:
 	JSL screen_fade_handler			;$B3A68C
 	JML CODE_808006				;$B3A690
 
+
+;Runs while paused
 CODE_B3A694:
 	DEC $00					;$B3A694
 	LDA $05B1				;$B3A696
@@ -4383,6 +4385,7 @@ CODE_B3B60F:
 	STA.b [$1A]				;$B3B61B
 	RTS					;$B3B61D
 
+;Pointers?
 DATA_B3B61E:
 	dw $05DC,$78B8,$0CBC,$7A38,$175C,$7AB8,$1F7C,$7938
 	dw $26FC,$7B38,$0792,$7A24,$1466,$7C2C,$20E8,$7E30
@@ -6629,7 +6632,7 @@ CODE_B3CAF9:
 	JSL.l CODE_BB8585			;$B3CB09
 CODE_B3CB0D:
 	LDA.w #$0766				;$B3CB0D
-	JSL.l CODE_B28018			;$B3CB10
+	JSL.l play_high_priority_sound	;$B3CB10
 	RTS					;$B3CB14
 
 CODE_B3CB15:

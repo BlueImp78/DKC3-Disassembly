@@ -178,7 +178,7 @@ CODE_B680DB:
 
 
 ;Sneek variables:
-;	$6A,x   Timer until idle sound effect plays	
+;	$6A,x   Timer until idle sound effect plays
 
 sneek_main:
 	JMP (.state_table,x)			;$B680DE
@@ -194,9 +194,9 @@ sneek_main:
 	INC sprite.general_purpose_6A,x		;$B680EA   | Increase sound effect timer
 	LDA sprite.general_purpose_6A,x		;$B680EC   |
 	CMP #$004B				;$B680EE   |
-	BNE ..no_sound				;$B680F1   | If timer not done, dont play sound 
+	BNE ..no_sound				;$B680F1   | If timer not done, dont play sound
 	STZ sprite.general_purpose_6A,x		;$B680F3   | Else reset timer
-	LDA #$063D				;$B680F5   | 
+	LDA #$063D				;$B680F5   |
 	JSL queue_sound_effect			;$B680F8  / Queue Sneek idle sound effect
 ..no_sound:
 	LDA #$0038				;$B680FC  \ Get collision flags
@@ -514,7 +514,7 @@ CODE_B68364:
 	LDX.b alternate_sprite			;$B68368 / Get sprite that just landed on platform
 	LDA.b $2E,x				;$B6836A
 	BMI.b CODE_B683A4			;$B6836C
-	LDY.b $00,x 				;$B6836E / Get sprite id	
+	LDY.b $00,x 				;$B6836E / Get sprite id
 	LDX.b current_sprite			;$B68370 / Get platform sprite
 	LDA.w #$0600				;$B68372
 	CPY.w #!sprite_dixie_kong 		;$B68375 / Check if sprite riding platform is dixie
@@ -923,8 +923,8 @@ klasp_follow_main:
 .following_klasp_init:
 	TYX					;$B68644  \ Get Klasp sprite
 	INC sprite.state,x			;$B68645   | Set idle state
-	LDA sprite.x_position,x			;$B68647   | 
-	STA sprite.general_purpose_64,x	;$B68649   | Store mirror of X position
+	LDA sprite.x_position,x			;$B68647   |
+	STA sprite.general_purpose_64,x	;	$B68649   | Store mirror of X position
 	CLC					;$B6864B   |
 	ADC sprite.general_purpose_5C,x		;$B6864C   | Add home X position
 	STA sprite.general_purpose_5C,x		;$B6864E   | Update home X position
@@ -932,10 +932,10 @@ klasp_follow_main:
 	CLC					;$B68652   |
 	ADC sprite.x_position,x			;$B68653   |
 	STA sprite.general_purpose_5E,x		;$B68655   |
-	LDA sprite.general_purpose_60,x	;$B68657   |
+	LDA sprite.general_purpose_60,x		;$B68657   |
 	CLC					;$B68659   |
 	ADC sprite.y_position,x			;$B6865A   |
-	STA sprite.general_purpose_60,x	;$B6865C   |
+	STA sprite.general_purpose_60,x		;$B6865C   |
 	LDA sprite.general_purpose_62,x		;$B6865E   |
 	CLC					;$B68660   |
 	ADC sprite.y_position,x			;$B68661   |
@@ -944,7 +944,7 @@ klasp_follow_main:
 	JSR .handle_collision			;$B68665  \ Handle collision
 	LDY active_kong_sprite			;$B68668   | Get kong sprite
 	LDA.w sprite.y_position,y		;$B6866B   | Get kong Y position
-	CMP sprite.general_purpose_60,x	;$B6866E   |
+	CMP sprite.general_purpose_60,x		;$B6866E   |
 	BCC ..CODE_B686AD			;$B68670   |
 	CMP sprite.general_purpose_62,x		;$B68672   |
 	BCS ..CODE_B686AD			;$B68674   |
@@ -986,7 +986,7 @@ klasp_follow_main:
 ..CODE_B686AD:
 	LDA sprite.x_position,x			;$B686AD  \
 	SEC					;$B686AF   |
-	SBC sprite.general_purpose_64,x	;$B686B0   |
+	SBC sprite.general_purpose_64,x		;$B686B0   |
 	BPL ..CODE_B686B8			;$B686B2   |
 	EOR #$FFFF				;$B686B4   |
 	INC					;$B686B7  /
@@ -1016,7 +1016,7 @@ klasp_follow_main:
 ..CODE_B686E0:
 	STA sprite.x_position,x			;$B686E0  \
 	SEC					;$B686E2   |
-	SBC sprite.general_purpose_64,x	;$B686E3   |
+	SBC sprite.general_purpose_64,x		;$B686E3   |
 	EOR sprite.max_x_speed,x		;$B686E5   |
 	BMI ..CODE_B686ED			;$B686E7   |
 	STZ sprite.max_x_speed,x		;$B686E9   | Clear target X speed
@@ -1041,7 +1041,7 @@ klasp_follow_main:
 .CODE_B6870D:
 	LDY sprite.general_purpose_66,x		;$B6870D  \
 	LDA sprite.x_position,x			;$B6870F   |
-	CMP sprite.general_purpose_64,x	;$B68711   |
+	CMP sprite.general_purpose_64,x		;$B68711   |
 	BCC ..CODE_B6871B			;$B68713   |
 	TYA					;$B68715   |
 	EOR #$FFFF				;$B68716   |
@@ -4417,7 +4417,7 @@ minkey_acorn_main:
 	STA sprite.general_purpose_5C,x		;$B69FEA  \ Update home X position
 	STZ sprite.state,x			;$B69FEC  / Set state 0 (travel)
 .travel:
-	LDX current_sprite			;$B69FEE  \ Get acorn sprite 
+	LDX current_sprite			;$B69FEE  \ Get acorn sprite
 	LDA sprite.x_position,x			;$B69FF0   | Get X position
 	LDY sprite.max_x_speed,x		;$B69FF2   | Get target X speed
 	BPL ..CODE_B69FFC			;$B69FF4   |
@@ -4433,7 +4433,7 @@ minkey_acorn_main:
 	LDA #$0000				;$B6A004   | Get collision flags (hurt always)
 	JSL CODE_BEC009				;$B6A007   | Check collision with kong
 	BCS ..CODE_B6A025			;$B6A00B   |
-	LDA #$0020				;$B6A00D   | 
+	LDA #$0020				;$B6A00D   |
 	LDY #$0000				;$B6A010   | Else get sprite collision flags
 	INC $1860				;$B6A013   |
 	JSL check_sprite_collision		;$B6A016   | Check sprite collision
@@ -4486,19 +4486,19 @@ CODE_B6A065:
 	JMP.w (DATA_B6A06D,x)			;$B6A06A
 
 DATA_B6A06D:
-	dw CODE_B6A073
-	dw CODE_B6A097
-	dw CODE_B6A0B2
+	dw CODE_B6A073				;Spawn Koin and DK Coin (Not collected)
+	dw CODE_B6A097				;Spawn DK Coin standalone
+	dw CODE_B6A0B2				;Spawn Koin (DK Coin collected)
 
 CODE_B6A073:
-	LDY.w #$00D0				;$B6A073
+	LDY.w #$00D0				;$B6A073 Spawn Koin
 	JSL.l CODE_BB8585			;$B6A076
 	LDX.b current_sprite			;$B6A07A
 	LDY.b alternate_sprite			;$B6A07C
 	STY.b $5C,x				;$B6A07E
 	STX.b $5E,y				;$B6A080
 	PHY					;$B6A082
-	LDY.w #$00D2				;$B6A083
+	LDY.w #$00D2				;$B6A083 Spawn DK Coin
 	JSL.l CODE_BB8585			;$B6A086
 	PLX					;$B6A08A
 	LDY.b alternate_sprite			;$B6A08B
@@ -5925,7 +5925,7 @@ krimp_main:
 
 ..defeat_krimp:
 	LDY #$0002				;$B6AB62  \ Load state to set (defeated)
-	LDA #$023D				;$B6AB65   | Load animation to play 
+	LDA #$023D				;$B6AB65   | Load animation to play
 	JMP CODE_B6878B				;$B6AB68  / Defeat sprite
 
 
@@ -6276,7 +6276,7 @@ krumple_main:
 	LDX current_sprite			;$B6ADE8   |
 	LDY #$0005				;$B6ADEA  /
 ..set_laugh_flip_state:
-	STY sprite.state,x			;$B6ADED  \ 
+	STY sprite.state,x			;$B6ADED  \
 	JML [$04F5]				;$B6ADEF  /
 
 ..return:
@@ -9649,11 +9649,11 @@ DATA_B6C71C:
 
 CODE_B6C72A:
 	LDA.w #$0518				;$B6C72A
-	JSL.l CODE_B28018			;$B6C72D
+	JSL.l play_high_priority_sound	;$B6C72D
 	LDA.w #$0217				;$B6C731
-	JSL.l CODE_B28018			;$B6C734
+	JSL.l play_high_priority_sound	;$B6C734
 	LDA.w #$0119				;$B6C738
-	JSL.l CODE_B28018			;$B6C73B
+	JSL.l play_high_priority_sound	;$B6C73B
 	LDA.w $005E,y				;$B6C73F
 	XBA					;$B6C742
 	STA.w $005E,y				;$B6C743
@@ -9709,7 +9709,7 @@ CODE_B6C790:
 	LDA.b $5C,x				;$B6C79C
 	BNE.b CODE_B6C7B0			;$B6C79E
 	LDA.w #$0001				;$B6C7A0
-	JSL.l CODE_B2800F			;$B6C7A3
+	JSL.l transition_song		;$B6C7A3
 	LDX.b current_sprite			;$B6C7A7
 	LDA.b $6C,x				;$B6C7A9
 	JSL.l CODE_BBC800			;$B6C7AB
@@ -17450,7 +17450,7 @@ CODE_B6FEB4:
 
 UNK_B6FEB8:
 	db $6E,$02
-	
+
 ADDR_B6FEBA:
 	LDX.b $38,y				;$B6FEB8
 	CPX.w #$0002				;$B6FEBA

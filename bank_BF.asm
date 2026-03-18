@@ -62,7 +62,7 @@ CODE_BFF048:
 	LDA $0001,y				;$BFF04A
 	PLY					;$BFF04D
 	PLB					;$BFF04E
-	JML CODE_B28018				;$BFF04F
+	JML play_high_priority_sound		;$BFF04F
 
 CODE_BFF053:
 	PHB					;$BFF053

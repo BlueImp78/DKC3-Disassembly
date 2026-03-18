@@ -1424,7 +1424,7 @@ CODE_B58A8E:
 	BNE.b CODE_B58ACF			;$B58AA0
 	JSL.l CODE_B6800C			;$B58AA2
 	LDA.w #$0001				;$B58AA6
-	JSL.l CODE_B2800F			;$B58AA9
+	JSL.l transition_song		;$B58AA9
 	LDY.w $1BBD				;$B58AAD
 	JSL.l CODE_B6800C			;$B58AB0
 	DEC.b $38,x				;$B58AB4
@@ -1475,7 +1475,7 @@ CODE_B58B03:
 	ASL					;$B58B0E
 	TAX					;$B58B0F
 	LDA.w DATA_B58B32,x			;$B58B10
-	JSL.l CODE_B2800F			;$B58B13
+	JSL.l transition_song		;$B58B13
 	LDX.b current_sprite			;$B58B17
 	LDA.w #$0005				;$B58B19
 	STA.b $38,x				;$B58B1C
@@ -4374,7 +4374,7 @@ CODE_B5A218:
 CODE_B5A243:
 	STZ.b $26,x				;$B5A243
 	LDA.w #$062D				;$B5A245
-	JSL.l CODE_B28018			;$B5A248
+	JSL.l play_high_priority_sound	;$B5A248
 CODE_B5A24C:
 	LDA.w player_active_pressed		;$B5A24C
 	BIT.w #!input_Y|!input_start		;$B5A24F
@@ -14539,6 +14539,7 @@ CODE_B5F2F0:
 	PLX					;$B5F2F4
 	RTL					;$B5F2F5
 
+;RNG
 CODE_B5F2F6:
 	LDA.b $02				;$B5F2F6
 	PHA					;$B5F2F8
@@ -15442,7 +15443,7 @@ CODE_B5F9BF:
 	BIT.w $05AF				;$B5F9C2
 	BNE.b CODE_B5F9D2			;$B5F9C5
 	LDA.w #$0002				;$B5F9C7
-	JSL.l CODE_B2800F			;$B5F9CA
+	JSL.l transition_song		;$B5F9CA
 	JSL.l CODE_B8808A			;$B5F9CE
 CODE_B5F9D2:
 	LDY.b $78				;$B5F9D2
@@ -15819,7 +15820,7 @@ DATA_B5FC79:
 ;Swanky game mode related
 ;Code exists that will attempt to load index 03 (scrapped 2p versus mode)
 DATA_B5FC85:
-	dw DATA_B5FC8B				;00 Head-To-Head			
+	dw DATA_B5FC8B				;00 Head-To-Head
 	dw DATA_B5FCB9				;01 Race to 25
 	dw DATA_B5FCE7				;02 Endurance
 

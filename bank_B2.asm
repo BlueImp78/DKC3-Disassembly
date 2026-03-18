@@ -1,28 +1,28 @@
 upload_spc_engine:
 	JMP .upload_spc_engine_wrapper		;$B28000
 
-#CODE_B28003:
-	JMP .queue_song				;$B28003
+#queue_song:
+	JMP .queue_song				;$B28003 (Unreferenced)
 
-#CODE_B28006:
-	JMP .play_queued_song			;$B28006
+#play_queued_song:
+	JMP .play_queued_song			;$B28006 (Unreferenced)
 
 #play_song:
 	JMP .play_song				;$B28009
 
-#CODE_B2800C:
+#play_song_with_transition:
 	JMP .play_song_with_transition		;$B2800C
 
-#CODE_B2800F:
+#transition_song:
 	JMP .transition_song			;$B2800F
 
 #queue_sound_effect:
 	JMP .queue_sound_effect			;$B28012
 
-#CODE_B28015:
+#play_queued_sound_effect:
 	JMP .play_queued_sound_effect		;$B28015
 
-#CODE_B28018:
+#play_high_priority_sound:
 	JMP .play_high_priority_sound		;$B28018
 
 #CODE_B2801B:
@@ -40,7 +40,7 @@ upload_spc_engine:
 #CODE_B28027:
 	JMP .CODE_B281FB			;$B28027
 
-#CODE_B2802A:
+#clear_sound_buffers:
 	JMP .clear_sound_buffers		;$B2802A
 
 .upload_spc_engine_wrapper:
@@ -1833,7 +1833,7 @@ rare_logo_main:
 	CMP #$0001				;$B28FEC   |
 	BEQ .CODE_B29003			;$B28FEF   |
 	LDA #$0764				;$B28FF1   |
-	JSL CODE_B28018				;$B28FF4   |
+	JSL play_high_priority_sound		;$B28FF4   |
 	LDA #$0001				;$B28FF8   |
 	STA $15FE				;$B28FFB   |
 	STA $1600				;$B28FFE   |
@@ -1848,7 +1848,7 @@ rare_logo_main:
 	BRA .CODE_B2900D			;$B2900B  /
 
 .CODE_B2900D:
-	JSL CODE_B28018				;$B2900D  \
+	JSL play_high_priority_sound		;$B2900D  \
 	LDA $7EA15A				;$B29011   |
 	INC					;$B29015   |
 	STA $7EA15A				;$B29016   |
@@ -2196,7 +2196,7 @@ title_screen_sign_main:
 	BNE ..return				;$B292E7   |
 	INC sprite.state,x			;$B292E9  /
 ..return:
-	JML [$04F5]				;$B292EB  |>	
+	JML [$04F5]				;$B292EB  |>
 
 .title_screen_sign_state_1:
 	TYX					;$B292EE  \
@@ -2261,7 +2261,7 @@ title_screen_sign_main:
 
 CODE_B2935C:
 	LDA #!music_bonus_time			;$B2935C
-	JSL CODE_B2800C				;$B2935F
+	JSL play_song_with_transition		;$B2935F
 	JSR CODE_B289D3				;$B29363
 	LDA #$7000				;$B29366
 	STA PPU.vram_address			;$B29369
@@ -2406,7 +2406,7 @@ CODE_B29496:
 	LDA #$880F				;$B294B2
 	STA screen_brightness			;$B294B5
 	LDA #$0003				;$B294B8
-	JSL CODE_B2800F				;$B294BB
+	JSL transition_song			;$B294BB
 CODE_B294BF:
 	JML CODE_808006				;$B294BF
 
@@ -2870,7 +2870,7 @@ CODE_B298BA:
 	BEQ CODE_B298F6				;$B298EA
 	JSR CODE_B28603				;$B298EC
 	LDA #$0001				;$B298EF
-	JSL CODE_B2800F				;$B298F2
+	JSL transition_song			;$B298F2
 CODE_B298F6:
 	JSL sprite_handler			;$B298F6
 	LDA #$1D93				;$B298FA
@@ -2891,7 +2891,7 @@ CODE_B2990E:
 	AND #$0001				;$B29920
 	BNE CODE_B2992C				;$B29923
 	LDA #$0001				;$B29925
-	JSL CODE_B2800F				;$B29928
+	JSL transition_song			;$B29928
 CODE_B2992C:
 	JSL CODE_B7800C				;$B2992C
 	JSL CODE_B29816				;$B29930
@@ -8468,7 +8468,7 @@ CODE_B2D0C9:
 
 CODE_B2D0E0:
 	AND #$7FFF				;$B2D0E0
-	JSL CODE_B28018				;$B2D0E3
+	JSL play_high_priority_sound		;$B2D0E3
 	TDC					;$B2D0E7
 	STA.w sprite.general_purpose_5C,y	;$B2D0E8
 CODE_B2D0EB:
@@ -10116,7 +10116,7 @@ banana_bird_cave_kong_main:
 	dw CODE_B2DD94
 
 CODE_B2DC9D:
-	LDA #$0012				;$B2DC9D
+	LDA #$0012				;$B2DC9D Movement state 12 seems to set carry if a target position has been reached
 	JSL process_alternate_movement		;$B2DCA0
 	BCC CODE_B2DCB3				;$B2DCA4
 	TYX					;$B2DCA6
@@ -10261,7 +10261,7 @@ CODE_B2DDC8:
 
 CODE_B2DDCB:
 	LDA #$0001				;$B2DDCB
-	JSL CODE_B2800F				;$B2DDCE
+	JSL transition_song			;$B2DDCE
 	BRA CODE_B2DDC8				;$B2DDD2
 
 CODE_B2DDD4:
@@ -10335,9 +10335,9 @@ banana_bird_crystal_main:
 	LDY #$02B8				;$B2DE7C   |
 	JSL CODE_BB85B8				;$B2DE7F   |
 	LDA #$0667				;$B2DE83   |
-	JSL queue_sound_effect			;$B2DE86   |
+	JSL queue_sound_effect			;$B2DE86   | Play crystal shatter sound 1
 	LDA #$0768				;$B2DE8A   |
-	JSL queue_sound_effect			;$B2DE8D   |
+	JSL queue_sound_effect			;$B2DE8D   | Play crystal shatter sound 2
 	JSL delete_sprite_handle_deallocation	;$B2DE91  /
 .return:
 	JML [$04F5]				;$B2DE95  |>
@@ -10389,8 +10389,8 @@ CODE_B2DEE2:
 	EOR $1C71				;$B2DEF4
 	STA $1C71				;$B2DEF7
 	LDA #$060E				;$B2DEFA
-	JSL queue_sound_effect			;$B2DEFD
-	JSL delete_sprite_handle_deallocation	;$B2DF01
+	JSL queue_sound_effect			;$B2DEFD Play rumbling sound
+	JSL delete_sprite_handle_deallocation	;$B2DF01 Delete self
 	JML [$04F5]				;$B2DF05
 
 CODE_B2DF08:
@@ -10506,6 +10506,7 @@ CODE_B2DFB2:
 DATA_B2DFD0:
 	db $01, $02, $04, $08
 
+;Number of inputs
 DATA_B2DFD4:
 	db $03,$04,$04,$04,$05,$05,$05,$06
 	db $06,$06,$06,$07,$07,$07,$08,$05
@@ -11090,7 +11091,7 @@ CODE_B2E418:
 	RTS					;$B2E419
 
 
-unknown_sprite_01B8_main:
+krematoa_unlock_controller:
 	JMP (.state_table,x)			;$B2E41A
 
 .state_table:
@@ -11159,7 +11160,7 @@ CODE_B2E48D:
 	BRA CODE_B2E467				;$B2E491
 
 
-unknown_sprite_01BC_main:
+map_bramble_flower_main:
 	JMP (.state_table,x)			;$B2E493
 
 .state_table:
@@ -11169,15 +11170,15 @@ unknown_sprite_01BC_main:
 CODE_B2E49A:
 	LDA #$0040				;$B2E49A
 	BIT $0605				;$B2E49D
-	BNE CODE_B2E4FA				;$B2E4A0
+	BNE CODE_B2E4FA				;$B2E4A0 If already collected
 	BIT $0619				;$B2E4A2
-	BNE CODE_B2E4FA				;$B2E4A5
+	BNE CODE_B2E4FA				;$B2E4A5 If traded with Bramble
 	LDA #$0002				;$B2E4A7
 	BIT $0694				;$B2E4AA
-	BEQ CODE_B2E4FA				;$B2E4AD
+	BEQ CODE_B2E4FA				;$B2E4AD If World 6 hasn't been beaten yet
 	LDA #$0004				;$B2E4AF
 	BIT $061D				;$B2E4B2
-	BEQ CODE_B2E4FA				;$B2E4B5
+	BEQ CODE_B2E4FA				;$B2E4B5 If haven't traded with Barnacle yet
 	LDA #$00CF				;$B2E4B7
 	LDY current_game_mode			;$B2E4BA
 	CPY #!gamemode_2_player_contest		;$B2E4BD
@@ -11186,7 +11187,7 @@ CODE_B2E49A:
 	BEQ CODE_B2E4CA				;$B2E4C5
 	LDA #$00D5				;$B2E4C7
 CODE_B2E4CA:
-	JSL CODE_BB859A				;$B2E4CA
+	JSL CODE_BB859A				;$B2E4CA Request sprite palette
 	LDX current_sprite			;$B2E4CE
 	INC sprite.state,x			;$B2E4D0
 	AND #$0E00				;$B2E4D2

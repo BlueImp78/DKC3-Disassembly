@@ -2461,7 +2461,7 @@ CODE_B49489:
 
 CODE_B49494:
 	LDA.w #$0062				;$B49494
-	JSL.l CODE_B28018			;$B49497
+	JSL.l play_high_priority_sound		;$B49497
 	LDA.w #$0010				;$B4949B
 	JSR.w CODE_B490D7			;$B4949E
 	JMP.w CODE_B48F7D			;$B494A1
@@ -3603,9 +3603,9 @@ CODE_B49E0F:
 	BNE.b CODE_B49E33			;$B49E21
 	PHA					;$B49E23
 	LDA.w #$066A				;$B49E24
-	JSL.l CODE_B28018			;$B49E27
+	JSL.l play_high_priority_sound		;$B49E27
 	LDA.w #$076B				;$B49E2B
-	JSL.l CODE_B28018			;$B49E2E
+	JSL.l play_high_priority_sound		;$B49E2E
 	PLA					;$B49E32
 CODE_B49E33:
 	CMP.w #$0000				;$B49E33
@@ -3624,9 +3624,9 @@ CODE_B49E4B:
 	BNE.b CODE_B49E60			;$B49E4E
 	PHA					;$B49E50
 	LDA.w #$0668				;$B49E51
-	JSL.l CODE_B28018			;$B49E54
+	JSL.l play_high_priority_sound		;$B49E54
 	LDA.w #$0769				;$B49E58
-	JSL.l CODE_B28018			;$B49E5B
+	JSL.l play_high_priority_sound		;$B49E5B
 	PLA					;$B49E5F
 CODE_B49E60:
 	CLC					;$B49E60
@@ -3686,7 +3686,6 @@ CODE_B49EBA:
 	BNE.b CODE_B49EAD			;$B49ECD
 	RTS					;$B49ECF
 
-;Unreferenced, look into
 CODE_B49ED0:
 	PHK					;$B49ED0
 	PLB					;$B49ED1
@@ -5217,7 +5216,7 @@ CODE_B4ABD2:
 	LDA.b $3E				;$B4ABE7
 	XBA					;$B4ABE9
 	ORA.w #!music_get_fit_a_gogo		;$B4ABEA
-	JSL.l CODE_B2800C			;$B4ABED
+	JSL.l play_song_with_transition		;$B4ABED
 CODE_B4ABF1:
 	LDA.w $05FD				;$B4ABF1
 	BIT.w #$8000				;$B4ABF4
@@ -5399,7 +5398,7 @@ CODE_B4AD89:
 	BIT.w $0621				;$B4ADAB
 	BNE.b CODE_B4ADB9			;$B4ADAE
 	LDA.w #!music_brothers_bear_blues	;$B4ADB0
-	JSL.l CODE_B2800C			;$B4ADB3
+	JSL.l play_song_with_transition		;$B4ADB3
 	BRA.b CODE_B4ADC0			;$B4ADB7
 
 CODE_B4ADB9:
@@ -5719,6 +5718,8 @@ CODE_B4B043:
 CODE_B4B062:
 	RTS					;$B4B062
 
+
+;Check for B/Start press on world map/submaps
 CODE_B4B063:
 	BIT.w #!input_B|!input_start		;$B4B063
 	BEQ.b CODE_B4B06F			;$B4B066
@@ -6079,6 +6080,7 @@ CODE_B4B37B:
 	LDX.w #CODE_808493>>16			;$B4B38A
 	JML.l CODE_808003			;$B4B38D
 
+;Preserves map kong's X/Y position on other stuff when entering a node.
 CODE_B4B391:
 	LDX.w active_kong_sprite		;$B4B391
 	LDY.b $12,x				;$B4B394
@@ -7261,63 +7263,65 @@ DATA_B4BC19:
 	dw CODE_B4CDC0
 	dw CODE_B4CDDD
 
+;Set initial state of map flags and path unlocks, etc.
 CODE_B4BC2B:
-	LDA.w #$0001				;$B4BC2B
-	TSB.w $0633				;$B4BC2E
-	TSB.w $067F				;$B4BC31
-	TSB.w $0635				;$B4BC34
-	TSB.w $0637				;$B4BC37
-	TSB.w $068F				;$B4BC3A
-	TSB.w $0657				;$B4BC3D
-	TSB.w $0639				;$B4BC40
-	TSB.w $0648				;$B4BC43
-	TSB.w $0662				;$B4BC46
-	TSB.w $0667				;$B4BC49
-	TSB.w $063B				;$B4BC4C
-	TSB.w $064A				;$B4BC4F
-	TSB.w $066D				;$B4BC52
-	TSB.w $064B				;$B4BC55
-	TSB.w $0673				;$B4BC58
-	TSB.w $0676				;$B4BC5B
-	TSB.w $0685				;$B4BC5E
-	TSB.w $064D				;$B4BC61
-	TSB.w $067A				;$B4BC64
-	TSB.w $0641				;$B4BC67
-	TSB.w $0687				;$B4BC6A
-	TSB.w $067B				;$B4BC6D
-	LDA.w #$0080				;$B4BC70
-	STA.b $1A				;$B4BC73
-	LDX.w #$000D				;$B4BC75
-	LDY.w #$0010				;$B4BC78
-	JSR.w CODE_B4BCC0			;$B4BC7B
-	LDX.w #$0008				;$B4BC7E
-	LDY.w #$001D				;$B4BC81
-	JSR.w CODE_B4BCC0			;$B4BC84
-	LDX.w #$0010				;$B4BC87
-	LDY.w #$004D				;$B4BC8A
-	JSR.w CODE_B4BCC0			;$B4BC8D
-	LDX.w #$000D				;$B4BC90
-	LDY.w #$0003				;$B4BC93
-	JSR.w CODE_B4BCC0			;$B4BC96
-	LDA.w #$0010				;$B4BC99
-	STA.b $1A				;$B4BC9C
-	LDX.w #$0028				;$B4BC9E
-	LDY.w #$0025				;$B4BCA1
-	JSR.w CODE_B4BCC0			;$B4BCA4
-	LDA.w #$001C				;$B4BCA7
-	TSB.w $067E				;$B4BCAA
-	LDA.w #$0010				;$B4BCAD
-	TRB.w $0663				;$B4BCB0
-	TRB.w $067D				;$B4BCB3
-	TRB.w $067B				;$B4BCB6
-	LDA.w #$0084				;$B4BCB9
-	TSB.w $0649				;$B4BCBC
+	LDA #$0001				;$B4BC2B
+	TSB $0633				;$B4BC2E
+	TSB $067F				;$B4BC31
+	TSB $0635				;$B4BC34
+	TSB $0637				;$B4BC37
+	TSB $068F				;$B4BC3A
+	TSB $0657				;$B4BC3D
+	TSB $0639				;$B4BC40
+	TSB $0648				;$B4BC43
+	TSB $0662				;$B4BC46
+	TSB $0667				;$B4BC49
+	TSB $063B				;$B4BC4C
+	TSB $064A				;$B4BC4F
+	TSB $066D				;$B4BC52
+	TSB $064B				;$B4BC55
+	TSB $0673				;$B4BC58
+	TSB $0676				;$B4BC5B
+	TSB $0685				;$B4BC5E
+	TSB $064D				;$B4BC61
+	TSB $067A				;$B4BC64
+	TSB $0641				;$B4BC67
+	TSB $0687				;$B4BC6A
+	TSB $067B				;$B4BC6D
+	LDA #$0080				;$B4BC70
+	STA temp_1A				;$B4BC73
+	LDX #$000D				;$B4BC75
+	LDY #$0010				;$B4BC78
+	JSR CODE_B4BCC0				;$B4BC7B
+	LDX #$0008				;$B4BC7E
+	LDY #$001D				;$B4BC81
+	JSR CODE_B4BCC0				;$B4BC84
+	LDX #$0010				;$B4BC87
+	LDY #$004D				;$B4BC8A
+	JSR CODE_B4BCC0				;$B4BC8D
+	LDX #$000D				;$B4BC90
+	LDY #$0003				;$B4BC93
+	JSR CODE_B4BCC0				;$B4BC96
+	LDA #$0010				;$B4BC99
+	STA temp_1A				;$B4BC9C
+	LDX #$0028				;$B4BC9E
+	LDY #$0025				;$B4BCA1
+	JSR CODE_B4BCC0				;$B4BCA4
+	LDA #$001C				;$B4BCA7
+	TSB $067E				;$B4BCAA
+	LDA #$0010				;$B4BCAD
+	TRB $0663				;$B4BCB0
+	TRB $067D				;$B4BCB3
+	TRB $067B				;$B4BCB6
+	LDA #$0084				;$B4BCB9
+	TSB $0649				;$B4BCBC
 	RTL					;$B4BCBF
 
+;Writes completion flags for nodes/paths
 CODE_B4BCC0:
-	LDA.w $0632,y				;$B4BCC0
-	ORA.b $1A				;$B4BCC3
-	STA.w $0632,y				;$B4BCC5
+	LDA $0632,y				;$B4BCC0
+	ORA temp_1A				;$B4BCC3
+	STA $0632,y				;$B4BCC5
 	INY					;$B4BCC8
 	DEX					;$B4BCC9
 	BNE.b CODE_B4BCC0			;$B4BCCA
@@ -7374,7 +7378,7 @@ CODE_B4BD15:
 	CMP.w #$0001				;$B4BD3B
 	BNE.b CODE_B4BD4E			;$B4BD3E
 	LDA.w player_active_held		;$B4BD40
-	JSR.w CODE_B4B063			;$B4BD43
+	JSR.w CODE_B4B063			;$B4BD43 ;Check B/Start press
 	BCC.b CODE_B4BD4E			;$B4BD46
 	LDY.w #$0000				;$B4BD48
 	JSR.w CODE_B4CC42			;$B4BD4B
@@ -7384,10 +7388,10 @@ CODE_B4BD4E:
 CODE_B4BD4F:
 	LDA.w #$1200				;$B4BD4F
 	STA.b $80				;$B4BD52
-	LDA.w current_map_vehicle		;$B4BD54
+	LDA.w current_map_vehicle		;$B4BD54 ;Either this isn't being used as the boat ID...
 	INC					;$B4BD57
 	INC					;$B4BD58
-	STA.b level_number			;$B4BD59
+	STA.b level_number			;$B4BD59 ;or C0 is probably not just for level number
 	JSR.w CODE_B4C93B			;$B4BD5B
 	LDX.w #DATA_B4D025			;$B4BD5E
 	JSR.w CODE_B4A159			;$B4BD61
@@ -9525,23 +9529,26 @@ DATA_B4CF99:
 	dw $00F3
 	dw $003F
 
-;spawn script indexes
+;Spawn script indexes
 DATA_B4CFB1:
 	dw $0200
 	dw $0202
 	dw $026A
 	dw $0204
 
+
+;Map node/level number related
 DATA_B4CFB9:
-	dw DATA_B4CFCB
-	dw DATA_B4CFD5
-	dw DATA_B4CFDF
-	dw DATA_B4CFE9
-	dw DATA_B4CFF3
-	dw DATA_B4CFFD
-	dw DATA_B4D007
-	dw DATA_B4D011
-	dw DATA_B4D01B
+	dw DATA_B4CFCB				;World 0 (Main map)
+	dw DATA_B4CFD5				;World 1
+	dw DATA_B4CFDF				;World 2
+	dw DATA_B4CFE9				;World 3
+	dw DATA_B4CFF3				;World 4
+	dw DATA_B4CFFD				;World 5
+	dw DATA_B4D007				;World 6
+	dw DATA_B4D011				;World 7
+	dw DATA_B4D01B				;World 8
+
 
 DATA_B4CFCB:
 	dw $0027,$0025,$0009
@@ -11177,23 +11184,26 @@ DATA_B4F689:
 DATA_B4F694:
 	dw $0028,$0026,$001D,CODE_B4AD50,CODE_B49CD3 : db $00
 
+;Banana bird cave related
 DATA_B4F69F:
 	dw $002B,$0029,$0031,CODE_B4AF94,CODE_B49ED0 : db $00
 
-DATA_B4F6AA:												; Note: Brothers Bear house related
-	dw DATA_B4F98E,$8412,$00AB,DATA_B4FAC7 : db $0D : dw DATA_B4FA1B,DATA_B4F77A : db $AC,$14,$07
-	dw DATA_B4F9A0,$0315,$00AF,DATA_B4FAEA : db $0C : dw !null_pointer,DATA_B4F7B0 : db $00,$FF,$08
-	dw DATA_B4F9A9,$0616,$009F,DATA_B4FB04 : db $0B : dw DATA_B4FA49,DATA_B4F7BC : db $AD,$19,$07
-	dw DATA_B4F9B2,$8612,$00B9,DATA_B4FB1B : db $0A : dw DATA_B4FA52,DATA_B4F7DD : db $C1,$1E,$07
-	dw DATA_B4F9BB,$0617,$00B8,DATA_B4FB35 : db $09 : dw DATA_B4FA6D,DATA_B4F80A : db $C0,$0A,$07
-	dw DATA_B4F9C4,$0318,$00AE,DATA_B4FB4F : db $08 : dw !null_pointer,DATA_B4F828 : db $B3,$13,$09
-	dw DATA_B4F9D3,$0519,$00BC,DATA_B4FB6C : db $07 : dw !null_pointer,DATA_B4F834 : db $00,$00,$07
-	dw DATA_B4F9DF,$0612,$00B5,DATA_B4FB80 : db $06 : dw DATA_B4FA76,DATA_B4F846 : db $BD,$19,$08
-	dw DATA_B4F9E8,$0514,$00A2,DATA_B4FB9D : db $05 : dw DATA_B4FA7F,DATA_B4F864 : db $B2,$0A,$08
-	dw DATA_B4F9F1,$051A,$00BA,DATA_B4FBC3 : db $04 : dw DATA_B4FA88,DATA_B4F87F : db $C2,$05,$08
-	dw DATA_B4F9F7,$061A,$00BB,DATA_B4FBDD : db $04 : dw DATA_B4FA91,DATA_B4F89A : db $C3,$05,$08
-	dw DATA_B4F9FD,$0612,$00B7,DATA_B4FBFA : db $03 : dw DATA_B4FAA3,DATA_B4F8BE : db $BF,$05,$07
-	dw DATA_B4FA09,$071B,$00B6,DATA_B4FC14 : db $02 : dw DATA_B4FABE,DATA_B4F8EB : db $BE,$14,$08
+
+;Brothers Bear house related
+DATA_B4F6AA:
+	dw DATA_B4F98E,$8412,$00AB,DATA_B4FAC7 : db $0D : dw DATA_B4FA1B,DATA_B4F77A 	: db $AC,$14,$07
+	dw DATA_B4F9A0,$0315,$00AF,DATA_B4FAEA : db $0C : dw !null_pointer,DATA_B4F7B0 	: db $00,$FF,$08
+	dw DATA_B4F9A9,$0616,$009F,DATA_B4FB04 : db $0B : dw DATA_B4FA49,DATA_B4F7BC 	: db $AD,$19,$07
+	dw DATA_B4F9B2,$8612,$00B9,DATA_B4FB1B : db $0A : dw DATA_B4FA52,DATA_B4F7DD 	: db $C1,$1E,$07
+	dw DATA_B4F9BB,$0617,$00B8,DATA_B4FB35 : db $09 : dw DATA_B4FA6D,DATA_B4F80A 	: db $C0,$0A,$07
+	dw DATA_B4F9C4,$0318,$00AE,DATA_B4FB4F : db $08 : dw !null_pointer,DATA_B4F828 	: db $B3,$13,$09
+	dw DATA_B4F9D3,$0519,$00BC,DATA_B4FB6C : db $07 : dw !null_pointer,DATA_B4F834 	: db $00,$00,$07
+	dw DATA_B4F9DF,$0612,$00B5,DATA_B4FB80 : db $06 : dw DATA_B4FA76,DATA_B4F846 	: db $BD,$19,$08
+	dw DATA_B4F9E8,$0514,$00A2,DATA_B4FB9D : db $05 : dw DATA_B4FA7F,DATA_B4F864 	: db $B2,$0A,$08
+	dw DATA_B4F9F1,$051A,$00BA,DATA_B4FBC3 : db $04 : dw DATA_B4FA88,DATA_B4F87F 	: db $C2,$05,$08
+	dw DATA_B4F9F7,$061A,$00BB,DATA_B4FBDD : db $04 : dw DATA_B4FA91,DATA_B4F89A 	: db $C3,$05,$08
+	dw DATA_B4F9FD,$0612,$00B7,DATA_B4FBFA : db $03 : dw DATA_B4FAA3,DATA_B4F8BE 	: db $BF,$05,$07
+	dw DATA_B4FA09,$071B,$00B6,DATA_B4FC14 : db $02 : dw DATA_B4FABE,DATA_B4F8EB 	: db $BE,$14,$08
 
 DATA_B4F77A:
 	dw CODE_B486A9 : db $00

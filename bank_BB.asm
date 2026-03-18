@@ -243,8 +243,8 @@ sprite_main_table:
 	dl brash_cabin_digital_display_main-1		: db $00	;01AC
 	dl file_select_number_main-1			: db $00	;01B0
 	dl banana_bird_cave_controller_main-1		: db $00	;01B4
-	dl unknown_sprite_01B8_main-1			: db $00	;01B8
-	dl unknown_sprite_01BC_main-1			: db $00	;01BC
+	dl krematoa_unlock_controller-1			: db $00	;01B8
+	dl map_bramble_flower_main-1			: db $00	;01BC
 	dl riverside_race_timer_main-1			: db $01	;01C0
 	dl unknown_sprite_01C4_main-1			: db $00	;01C4
 	dl unknown_sprite_01C8_main-1			: db $00	;01C8
@@ -254,7 +254,7 @@ sprite_main_table:
 	dl player_krosshair_controller_main-1		: db $00	;01D8
 	dl unknown_sprite_01DC_main-1			: db $00	;01DC
 	dl unknown_sprite_01E0_main-1			: db $00	;01E0
-	dl boss_cutscene_dialogue_handler_main-1	: db $00	;01E4
+	dl boss_cutscene_dialogue_handler_main-1	: db $00	;01E4 Also sets up the riverside race "New Record!" floating text
 	dl belcha_main-1				: db $01	;01E8
 	dl barbos_main-1				: db $01	;01EC
 	dl swoopy_spawner_main-1			: db $00	;01F0
@@ -345,7 +345,7 @@ sprite_main_table:
 	dl gyrocopter_blades_and_shadow_main-1		: db $00	;0344
 	dl banana_bird_cave_kong_main-1			: db $00	;0348
 	dl funky_rentals_particles_main-1		: db $00	;034C
-	dl save_cave_selection_text_main-1		: db $00	;0350
+	dl save_cave_selection_text_main-1		: db $00	;0350 Is also the Riverside Race "New Record!" Text
 	dl sky_high_secret_rock_main-1			: db $00	;0354
 	dl krosshair_main-1				: db $00	;0358
 	dl knautilus_main-1				: db $00	;035C
@@ -1305,7 +1305,7 @@ CODE_BB8A3F:
 	BNE .build_high_nibble			;$BB8A54   |/
 	LDY #$0100				;$BB8A56   | Prepare to generate the low nibble table
 	LDX #$0000				;$BB8A59   |
-.build_low_nibble:				;	
+.build_low_nibble:				;
 	TXA					;$BB8A5C
 	LSR					;$BB8A5D
 	LSR					;$BB8A5E
@@ -3575,7 +3575,7 @@ CODE_BB9957:
 	LDY.w #$7EA15A>>16			;$BB996C
 	LDA #$0660				;$BB996F
 	JSL CODE_808030				;$BB9972
-	JSL CODE_B2802A				;$BB9976
+	JSL clear_sound_buffers			;$BB9976
 	LDA $05AF				;$BB997A
 	AND #$D080				;$BB997D
 	STA $05AF				;$BB9980
@@ -3910,7 +3910,7 @@ CODE_BB9C49:
 	JSL CODE_BBBAAE				;$BB9C49
 	JSR CODE_BBA0D1				;$BB9C4D
 	LDA #$057C				;$BB9C50
-	JSL CODE_B28018				;$BB9C53
+	JSL play_high_priority_sound		;$BB9C53
 	RTS					;$BB9C57
 
 CODE_BB9C58:
@@ -4643,12 +4643,12 @@ CODE_BBA1F3:
 	CMP $08					;$BBA200
 	REP #$20				;$BBA202
 	BEQ CODE_BBA20B				;$BBA204
-	JSL CODE_B2800C				;$BBA206
+	JSL play_song_with_transition		;$BBA206
 	RTL					;$BBA20A
 
 CODE_BBA20B:
 	XBA					;$BBA20B
-	JSL CODE_B2800F				;$BBA20C
+	JSL transition_song			;$BBA20C
 	RTL					;$BBA210
 
 CODE_BBA211:
@@ -4720,7 +4720,7 @@ CODE_BBA27B:
 	JML CODE_808003				;$BBA295
 
 CODE_BBA299:
-	LDA current_game_mode		;$BBA299
+	LDA current_game_mode			;$BBA299
 	BEQ CODE_BBA2B1				;$BBA29C
 	CMP #!gamemode_2_player_team		;$BBA29E
 	BNE CODE_BBA2AB				;$BBA2A1
@@ -5255,7 +5255,7 @@ CODE_BBA6B2:
 	ASL					;$BBA6B9
 	ASL					;$BBA6BA
 	TAY					;$BBA6BB
-	LDA ($EA),y				;$BBA6BC
+	LDA ($EA),y				;$BBA6BC Get sprite spawn parameter
 	AND #$1F00				;$BBA6BE
 	BEQ CODE_BBA6CB				;$BBA6C1
 	STA $1A					;$BBA6C3
@@ -5558,6 +5558,8 @@ DATA_BBA8BE:
 	dw $0040, $01A0, $0020, $0120
 	dw $0048, $01B0, $0028, $0130
 
+
+;Sprite spawn parameter routines
 DATA_BBA93E:
 	dw CODE_BBA9AC
 	dw CODE_BBA9AE
@@ -6676,6 +6678,7 @@ CODE_BBB079:
 	STA next_oam_slot			;$BBB0EE
 	RTS					;$BBB0F0
 
+
 DATA_BBB0F1:
 ;(Found by Mattrizzle)
 ;Tile values for each state of Ellie's water meter
@@ -6687,21 +6690,23 @@ DATA_BBB0F1:
 ;$01C5+$0001=$01C6
 ;$01C6+$0000=$01C6
 ;$01C6+$0002=$01C8
-        dw $01C6, $0000, $0000, $0002      ;0/7 (Empty)
-        dw $01C5, $0001, $0000, $0002      ;1/7
-        dw $01C4, $0002, $0000, $0002      ;2/7
-        dw $01C4, $0001, $0001, $0002      ;3/7
-        dw $01C4, $0000, $0002, $0002      ;4/7
-        dw $01C4, $0000, $0001, $0003      ;5/7
-        dw $01C4, $0000, $0000, $0004      ;6/7
-        dw $01C4, $0000, $0000, $0003      ;7/7 (Full)
+        dw $01C6, $0000, $0000, $0002     	;0/7 (Empty)
+        dw $01C5, $0001, $0000, $0002     	;1/7
+        dw $01C4, $0002, $0000, $0002     	;2/7
+        dw $01C4, $0001, $0001, $0002     	;3/7
+        dw $01C4, $0000, $0002, $0002     	;4/7
+        dw $01C4, $0000, $0001, $0003     	;5/7
+        dw $01C4, $0000, $0000, $0004     	;6/7
+        dw $01C4, $0000, $0000, $0003     	;7/7 (Full)
+
 ;$BBB131
-        dw $01C6, $0000, $0002            ;0/5 (Empty)
-        dw $01C5, $0001, $0002            ;1/5
-        dw $01C4, $0002, $0002            ;2/5
-        dw $01C4, $0001, $0003            ;3/5
-        dw $01C4, $0000, $0004            ;4/5
-        dw $01C4, $0000, $0003            ;5/5 (Full)
+        dw $01C6, $0000, $0002           	;0/5 (Empty)
+        dw $01C5, $0001, $0002           	;1/5
+        dw $01C4, $0002, $0002           	;2/5
+        dw $01C4, $0001, $0003           	;3/5
+        dw $01C4, $0000, $0004           	;4/5
+        dw $01C4, $0000, $0003           	;5/5 (Full)
+
 
 CODE_BBB155:
 	LDY $18E1				;$BBB155
@@ -6716,36 +6721,38 @@ CODE_BBB162:
 CODE_BBB16B:
 	RTS					;$BBB16B
 
+
+;Handle HUD lives icon and giving lives
 CODE_BBB16C:
 	LDA hud_lives_display_timer		;$BBB16C
 	BEQ CODE_BBB16B				;$BBB16F
 	DEC					;$BBB171
 	BNE CODE_BBB188				;$BBB172
-	LDA $18DB				;$BBB174
+	LDA hud_lives_icon_y_pos		;$BBB174
 	SEC					;$BBB177
 	SBC #$0030				;$BBB178
 	BCS CODE_BBB183				;$BBB17B
 	LDA #$0000				;$BBB17D
 	STA hud_lives_display_timer		;$BBB180
 CODE_BBB183:
-	STA $18DB				;$BBB183
+	STA hud_lives_icon_y_pos		;$BBB183
 	BRA CODE_BBB19B				;$BBB186
 
 CODE_BBB188:
-	LDA $18DB				;$BBB188
+	LDA hud_lives_icon_y_pos		;$BBB188
 	CMP #$0180				;$BBB18B
 	BCS CODE_BBB198				;$BBB18E
 	ADC #$0030				;$BBB190
-	STA $18DB				;$BBB193
+	STA hud_lives_icon_y_pos		;$BBB193
 	BRA CODE_BBB19B				;$BBB196
 
 CODE_BBB198:
 	DEC hud_lives_display_timer		;$BBB198
 CODE_BBB19B:
 	LDA.l DATA_B9B73D			;$BBB19B
-	STA $18D7				;$BBB19F
+	STA hud_lives_icon_graphic_id		;$BBB19F
 	LDX #$1D40				;$BBB1A2
-	LDA $18DB				;$BBB1A5
+	LDA hud_lives_icon_y_pos		;$BBB1A5
 	CLC					;$BBB1A8
 	ADC #$1000				;$BBB1A9
 	TAY					;$BBB1AC
@@ -6782,10 +6789,10 @@ CODE_BBB1D7:
 	PHA					;$BBB1F6
 	STZ $044A				;$BBB1F7
 	LDA #$0716				;$BBB1FA
-	JSL CODE_B28018				;$BBB1FD
+	JSL play_high_priority_sound		;$BBB1FD
 	PLA					;$BBB201
 	STA $044A				;$BBB202
-	STZ $18DB				;$BBB205
+	STZ hud_lives_icon_y_pos		;$BBB205
 	LDA #$005A				;$BBB208
 	STA hud_lives_display_timer		;$BBB20B
 CODE_BBB20E:
@@ -6809,7 +6816,7 @@ CODE_BBB22C:
 	LDA #$0A				;$BBB231
 	STA CPU.divisor				;$BBB233
 	REP #$20				;$BBB236
-	LDA $18DB				;$BBB238
+	LDA hud_lives_icon_y_pos		;$BBB238
 	ASL					;$BBB23B
 	ASL					;$BBB23C
 	ASL					;$BBB23D
@@ -6834,7 +6841,7 @@ CODE_BBB261:
 	STA $0828				;$BBB264
 	LDA $18D9				;$BBB267
 	STA $082A				;$BBB26A
-	LDA $18D7				;$BBB26D
+	LDA hud_lives_icon_graphic_id		;$BBB26D
 	STA $082E				;$BBB270
 	STZ $0830				;$BBB273
 	TYA					;$BBB276
@@ -6844,16 +6851,18 @@ CODE_BBB261:
 	STA $18D9				;$BBB281
 	RTS					;$BBB284
 
+
+;Render hud stuff
 CODE_BBB285:
 	LDY next_oam_slot			;$BBB285
 	CLC					;$BBB287
 	ADC #$01CC				;$BBB288
-	ORA $3E					;$BBB28B
+	ORA temp_3E				;$BBB28B
 	STA $0002,y				;$BBB28D
 	ADC #$000A				;$BBB290
 	STA $0006,y				;$BBB293
 	TXA					;$BBB296
-	ORA $1A					;$BBB297
+	ORA temp_1A				;$BBB297
 	STA $0000,y				;$BBB299
 	CLC					;$BBB29C
 	ADC #$0800				;$BBB29D
@@ -7598,7 +7607,7 @@ sprite_handler_direct:
 	JSL process_player_interactions		;$BBB8F9   |
 	JSR process_platform_sprites		;$BBB8FD   |
 	JSR handle_kong_follow			;$BBB900   |
-	JSL CODE_B28015				;$BBB903   |> Play queued sound effect
+	JSL play_queued_sound_effect		;$BBB903   |
 	JMP CODE_BBB99A				;$BBB907  /
 
 .time_stop_sprite_handler:
@@ -7669,7 +7678,7 @@ sprite_handler_direct:
 	JSL process_player_interactions		;$BBB983   |
 	JSR process_platform_sprites		;$BBB987   |
 	JSR handle_kong_follow			;$BBB98A   |
-	JSL CODE_B28015				;$BBB98D   |
+	JSL play_queued_sound_effect		;$BBB98D   |
 	DEC timestop_timer			;$BBB991   |
 	BEQ CODE_BBB997				;$BBB994   |
 	RTL					;$BBB996  /
@@ -8605,7 +8614,7 @@ if !include_garbage_data == 1
 	incsrc "data/garbage_data/ADDR_BBC026.asm"
 else
 	padbyte $00 : pad $BBC800
-endif	
+endif
 
 org $BBC800
 CODE_BBC800:
@@ -8729,9 +8738,9 @@ CODE_BBC8C1:
 	STA $0533				;$BBC8C4
 CODE_BBC8C7:
 	LDA #$0004				;$BBC8C7
-	JSL CODE_B2800F				;$BBC8CA
+	JSL transition_song			;$BBC8CA
 	LDA #$074D				;$BBC8CE
-	JSL CODE_B28018				;$BBC8D1
+	JSL play_high_priority_sound		;$BBC8D1
 	LDX current_sprite			;$BBC8D5
 	LDA sprite.general_purpose_5E,x		;$BBC8D7
 	BEQ CODE_BBC907				;$BBC8D9
@@ -8744,11 +8753,11 @@ CODE_BBC8C7:
 CODE_BBC8EC:
 	JSL CODE_BB8585				;$BBC8EC
 	LDA #$0518				;$BBC8F0
-	JSL CODE_B28018				;$BBC8F3
+	JSL play_high_priority_sound		;$BBC8F3
 	LDA #$0217				;$BBC8F7
-	JSL CODE_B28018				;$BBC8FA
+	JSL play_high_priority_sound		;$BBC8FA
 	LDA #$0119				;$BBC8FE
-	JSL CODE_B28018				;$BBC901
+	JSL play_high_priority_sound		;$BBC901
 	LDX current_sprite			;$BBC905
 CODE_BBC907:
 	INC sprite.sub_state,x			;$BBC907
@@ -10113,7 +10122,7 @@ bonus_coin_main:
 	dw CODE_BBD350
 
 CODE_BBD2D8:
-	LDY #$0014				;$BBD2D8
+	LDY #$0014				;$BBD2D8 Spawn smoke puff
 	JSL CODE_BB8585				;$BBD2DB
 	BCS CODE_BBD2EE				;$BBD2DF
 	LDX current_sprite			;$BBD2E1
@@ -10135,7 +10144,7 @@ CODE_BBD2F1:
 	JML [$04F5]				;$BBD2FF
 
 CODE_BBD302:
-	LDY $78					;$BBD302
+	LDY current_colliding_sprite		;$BBD302
 	CPY follower_kong_sprite		;$BBD304
 	BNE CODE_BBD31B				;$BBD307
 	LDA.w sprite.state,y			;$BBD309
@@ -10162,7 +10171,7 @@ CODE_BBD31B:
 CODE_BBD334:
 	LDA #$0002				;$BBD334
 	LDY active_kong_sprite			;$BBD337
-	CPY $78					;$BBD33A
+	CPY current_colliding_sprite		;$BBD33A
 	BEQ CODE_BBD341				;$BBD33C
 	LDA #$0006				;$BBD33E
 CODE_BBD341:
@@ -10376,6 +10385,8 @@ CODE_BBD517:
 	STZ sprite.state,x			;$BBD519
 	RTS					;$BBD51B
 
+
+;Mark something as collected
 CODE_BBD51C:
 	LDX current_sprite			;$BBD51C
 	STZ sprite.state,x			;$BBD51E
@@ -10750,11 +10761,11 @@ CODE_BBD7B9:
 	TSB $194F				;$BBD7BC
 	BNE CODE_BBD7D8				;$BBD7BF
 	LDA #$0518				;$BBD7C1
-	JSL CODE_B28018				;$BBD7C4
+	JSL play_high_priority_sound		;$BBD7C4
 	LDA #$0217				;$BBD7C8
-	JSL CODE_B28018				;$BBD7CB
+	JSL play_high_priority_sound		;$BBD7CB
 	LDA #$0119				;$BBD7CF
-	JSL CODE_B28018				;$BBD7D2
+	JSL play_high_priority_sound		;$BBD7D2
 	BRA CODE_BBD7D8				;$BBD7D6
 
 CODE_BBD7D8:
@@ -10815,11 +10826,11 @@ CODE_BBD842:
 	TSB $194F				;$BBD84A
 	BNE CODE_BBD864				;$BBD84D
 	LDA #$0518				;$BBD84F
-	JSL CODE_B28018				;$BBD852
+	JSL play_high_priority_sound		;$BBD852
 	LDA #$0217				;$BBD856
-	JSL CODE_B28018				;$BBD859
+	JSL play_high_priority_sound		;$BBD859
 	LDA #$0119				;$BBD85D
-	JSL CODE_B28018				;$BBD860
+	JSL play_high_priority_sound		;$BBD860
 CODE_BBD864:
 	JSR CODE_BBD8C9				;$BBD864
 	JSR CODE_BBD944				;$BBD867
@@ -10835,14 +10846,14 @@ CODE_BBD876:
 	LDA #$0078				;$BBD87B
 	STA sprite.general_purpose_66,x		;$BBD87E
 	LDA #$0003				;$BBD880
-	JSL CODE_B2800F				;$BBD883
+	JSL transition_song			;$BBD883
 	JML [$04F5]				;$BBD887
 
 CODE_BBD88A:
 	LDA #$0007				;$BBD88A
 	STA sprite.state,x			;$BBD88D
 	LDA #$0002				;$BBD88F
-	JSL CODE_B2800F				;$BBD892
+	JSL transition_song			;$BBD892
 	JSR CODE_BBD89C				;$BBD896
 	JML [$04F5]				;$BBD899
 
@@ -10891,21 +10902,21 @@ CODE_BBD8D6:
 	CMP #$000B				;$BBD8EA
 	BCC CODE_BBD8F7				;$BBD8ED
 	LDA #$0563				;$BBD8EF
-	JSL CODE_B28018				;$BBD8F2
+	JSL play_high_priority_sound		;$BBD8F2
 	RTS					;$BBD8F6
 
 CODE_BBD8F7:
 	LDA #$0564				;$BBD8F7
-	JSL CODE_B28018				;$BBD8FA
+	JSL play_high_priority_sound		;$BBD8FA
 	LDA #$0062				;$BBD8FE
-	JSL CODE_B28018				;$BBD901
+	JSL play_high_priority_sound		;$BBD901
 	RTS					;$BBD905
 
 CODE_BBD906:
 	LDA #$0565				;$BBD906
-	JSL CODE_B28018				;$BBD909
+	JSL play_high_priority_sound		;$BBD909
 	LDA #$0062				;$BBD90D
-	JSL CODE_B28018				;$BBD910
+	JSL play_high_priority_sound		;$BBD910
 CODE_BBD914:
 	RTS					;$BBD914
 
@@ -11584,7 +11595,7 @@ CODE_BBDE22:
 	JSL check_sprite_collision		;$BBDE2C
 	BCC CODE_BBDE41				;$BBDE30
 	LDX current_sprite			;$BBDE32
-	LDY $78					;$BBDE34
+	LDY current_colliding_sprite		;$BBDE34
 	LDA #$0200				;$BBDE36
 	ORA.w sprite.carry_or_defeat_flags,y	;$BBDE39
 	STA.w sprite.carry_or_defeat_flags,y	;$BBDE3C
@@ -11596,7 +11607,7 @@ CODE_BBDE42:
 	LDA #$0020				;$BBDE42
 	JSL CODE_BCE58E				;$BBDE45
 	BCC CODE_BBDE61				;$BBDE49
-	LDY $78					;$BBDE4B
+	LDY current_colliding_sprite		;$BBDE4B
 	LDA.w sprite.state,y			;$BBDE4D
 	CMP #!kong_state_4F			;$BBDE50
 	BNE CODE_BBDE61				;$BBDE53
@@ -11754,7 +11765,7 @@ if !include_garbage_data == 1
 	incbin "data/garbage_data/DKC2_DATA_BBE800.bin"
 else
 	padbyte $00 : pad $BBF83E
-endif	
+endif
 
 UNK_BBF83E:
 	dw $0806,$0806,$0806,$0806,$0806,$0806,$146E,$0806

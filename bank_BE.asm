@@ -3144,9 +3144,9 @@ CODE_BED65A:
 	STZ.w current_held_sprite		;$BED661
 CODE_BED664:
 	LDA.w #$060E				;$BED664
-	JSL.l CODE_B28018			;$BED667
+	JSL.l play_high_priority_sound	;$BED667
 	LDA.w #$070F				;$BED66B
-	JSL.l CODE_B28018			;$BED66E
+	JSL.l play_high_priority_sound	;$BED66E
 	LDY.w #$001E				;$BED672
 	JSL.l CODE_BB85B5			;$BED675
 	LDY.w #$0020				;$BED679
@@ -3161,7 +3161,7 @@ steel_keg_main:
 	JMP.w (DATA_BED693,x)			;$BED690
 
 DATA_BED693:
-	dw CODE_BED6AE				;00 (Idle) 
+	dw CODE_BED6AE				;00 (Idle)
 	dw CODE_BED6D8				;01 (Held)
 	dw CODE_BED6EA				;02 (Put down)
 	dw CODE_BED6FC				;03 (Throw prep)
@@ -5284,7 +5284,7 @@ CODE_BEE6D6:
 	STA $3E					;$BEE6DC  /
 CODE_BEE6DE:
 	LDA.w sprite.general_purpose_4C,y	;$BEE6DE  \
-	BEQ CODE_BEE6E5				;$BEE6E1   | 
+	BEQ CODE_BEE6E5				;$BEE6E1   |
 	INC sprite.general_purpose_5C,x		;$BEE6E3  /
 CODE_BEE6E5:
 	INY					;$BEE6E5  \
@@ -5466,7 +5466,7 @@ CODE_BEE821:
 
 CODE_BEE83D:
 	LDA #$0766				;$BEE83D  \
-	JML CODE_B28018				;$BEE840  /
+	JML play_high_priority_sound		;$BEE840  /
 
 unknown_sprite_0174_main:
 	LDA.w sprite.general_purpose_60,y	;$BEE844

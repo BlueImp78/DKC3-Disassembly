@@ -137,6 +137,7 @@ includeonce
 !music_bonus_lose			= $0201
 !music_bonus_win			= $0301
 !music_bonus_time			= $0401
+!music_bonus_time_2			= $0402
 !music_brothers_bear			= $0004
 !music_brothers_bear_blues		= $0104
 !music_get_fit_a_gogo			= $0005
@@ -476,8 +477,8 @@ includeonce
 !sprite_brash_cabin_digital_display	= $01AC
 !sprite_file_select_number		= $01B0
 !sprite_banana_bird_cave_controller     = $01B4
-!sprite_unknown_01B8			= $01B8
-!sprite_unknown_01BC			= $01BC
+!sprite_krematoa_unlock_controller	= $01B8
+!sprite_map_bramble_flower		= $01BC
 !sprite_riverside_race_timer		= $01C0
 !sprite_unknown_01C4			= $01C4
 !sprite_unknown_01C8			= $01C8
@@ -865,6 +866,6 @@ includeonce
 !kong_state_76				= $0076
 !kong_state_77				= $0077
 
-!big_data_compression	= $000000
-!small_data_compression	= $000001
-!no_compression		= $000002
+!big_data_compression			= $000000
+!small_data_compression			= $000001
+!no_compression				= $000002
