@@ -5,11 +5,11 @@ optimize address mirrors
 !version = 0
 !include_garbage_data = 1
 
+	incsrc "structs.asm"
 	incsrc "ram.asm"
 	incsrc "macros.asm"
 	incsrc "constants.asm"
 	incsrc "old_defines.asm"
-	incsrc "structs.asm"
 	incsrc "mmio.asm"
 
 

@@ -3354,7 +3354,7 @@ CODE_BB97B1:
 	PLB					;$BB97C5
 	LDA.w level_config_table,y		;$BB97C6
 	TAY					;$BB97C9
-	LDA.w DATA_FD0400&$FF0000,y		;$BB97CA
+	LDA.w level_config_table,y		;$BB97CA
 	INY					;$BB97CD
 	INY					;$BB97CE
 	STA $00,x				;$BB97CF

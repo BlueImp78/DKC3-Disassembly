@@ -11,7 +11,7 @@ ADDR_B2FCBB:
 	LDA.w $005E,y
 	SEC
 	SBC.w #$006E
-	CMP.w #aux_sprite_slot
+	CMP.w #sprite_table.slot_0
 	BNE.b ADDR_B2FCCA
 	LDA.w #$1480
 ADDR_B2FCCA:

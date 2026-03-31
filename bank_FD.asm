@@ -1,172 +1,172 @@
 palette_bank:
 
 level_config_table:
-	dw DATA_FD0400
-	dw DATA_FD042D
-	dw DATA_FD042F
-	dw DATA_FD0431
-	dw DATA_FD0433
-	dw DATA_FD0435
-	dw DATA_FD0437
-	dw DATA_FD0439
-	dw DATA_FD043B
-	dw DATA_FD0452
-	dw DATA_FD0469
-	dw DATA_FD0480
-	dw DATA_FD0497
-	dw DATA_FD04AE
-	dw DATA_FD04C5
-	dw DATA_FD04DC
-	dw DATA_FD04F3
-	dw DATA_FD050A
-	dw DATA_FD0521
-	dw DATA_FD0538
-	dw DATA_FD054F
-	dw DATA_FD0566
-	dw DATA_FD057C
-	dw DATA_FD0593
-	dw DATA_FD0595
-	dw DATA_FD0597
-	dw DATA_FD0599
-	dw DATA_FD05B0
-	dw DATA_FD05C7
-	dw DATA_FD05DE
-	dw DATA_FD05FF
-	dw DATA_FD0616
-	dw DATA_FD062D
-	dw DATA_FD0649
-	dw DATA_FD0660
-	dw DATA_FD067C
-	dw DATA_FD0698
-	dw DATA_FD06AF
-	dw DATA_FD06E5
-	dw DATA_FD071B
-	dw DATA_FD0751
-	dw DATA_FD078C
-	dw DATA_FD07C2
-	dw DATA_FD07F8
-	dw DATA_FD082E
-	dw DATA_FD0864
-	dw DATA_FD0895
-	dw DATA_FD08CB
-	dw DATA_FD08FC
-	dw DATA_FD0932
-	dw DATA_FD096A
-	dw DATA_FD09AA
-	dw DATA_FD09DB
-	dw DATA_FD0A0C
-	dw DATA_FD0A43
-	dw DATA_FD0A7A
-	dw DATA_FD0AB1
-	dw DATA_FD0AE2
-	dw DATA_FD0B13
-	dw DATA_FD0B44
-	dw DATA_FD0B75
-	dw DATA_FD0BA6
-	dw DATA_FD0BD7
-	dw DATA_FD0C0D
-	dw DATA_FD0C3E
-	dw DATA_FD0C6F
-	dw DATA_FD0CA0
-	dw DATA_FD0CD1
-	dw DATA_FD0D02
-	dw DATA_FD0D33
-	dw DATA_FD0D64
-	dw DATA_FD0D95
-	dw DATA_FD0DC6
-	dw DATA_FD0DF7
-	dw DATA_FD0E2F
-	dw DATA_FD0E60
-	dw DATA_FD0E98
-	dw DATA_FD0EBB
-	dw DATA_FD0ED4
-	dw DATA_FD0ED6
-	dw DATA_FD0ED8
-	dw DATA_FD0EF1
-	dw DATA_FD0F0A
-	dw DATA_FD0F23
-	dw DATA_FD0F3C
-	dw DATA_FD0F55
-	dw DATA_FD0F6E
-	dw DATA_FD0F87
-	dw DATA_FD0FA0
-	dw DATA_FD0FB9
-	dw DATA_FD0FD2
-	dw DATA_FD0FEB
-	dw DATA_FD1004
-	dw DATA_FD101D
-	dw DATA_FD1036
-	dw DATA_FD104F
-	dw DATA_FD1068
-	dw DATA_FD1081
-	dw DATA_FD109A
-	dw DATA_FD10B3
-	dw DATA_FD10CC
-	dw DATA_FD10E5
-	dw DATA_FD10FE
-	dw DATA_FD1117
-	dw DATA_FD1130
-	dw DATA_FD1149
-	dw DATA_FD1162
-	dw DATA_FD117B
-	dw DATA_FD1194
-	dw DATA_FD11AD
-	dw DATA_FD11C6
-	dw DATA_FD11DF
-	dw DATA_FD11F8
-	dw DATA_FD1211
-	dw DATA_FD122A
-	dw DATA_FD1243
-	dw DATA_FD125C
-	dw DATA_FD1275
-	dw DATA_FD128E
-	dw DATA_FD12A7
-	dw DATA_FD12C0
-	dw DATA_FD12D9
-	dw DATA_FD12F2
-	dw DATA_FD130B
-	dw DATA_FD1324
-	dw DATA_FD133D
-	dw DATA_FD1356
-	dw DATA_FD136F
-	dw DATA_FD1388
-	dw DATA_FD13A1
-	dw DATA_FD13BA
-	dw DATA_FD13D3
-	dw DATA_FD13EC
-	dw DATA_FD1405
-	dw DATA_FD141E
-	dw DATA_FD1437
-	dw DATA_FD1450
-	dw DATA_FD1469
-	dw DATA_FD1482
-	dw DATA_FD149B
-	dw DATA_FD14B4
-	dw DATA_FD14CD
-	dw DATA_FD14E6
-	dw DATA_FD14FF
-	dw DATA_FD1518
-	dw DATA_FD1531
-	dw DATA_FD154A
-	dw DATA_FD1563
-	dw DATA_FD157C
-	dw DATA_FD1595
-	dw DATA_FD15AE
-	dw DATA_FD15C7
-	dw DATA_FD15E0
-	dw DATA_FD15F9
-	dw DATA_FD1612
-	dw DATA_FD162B
-	dw DATA_FD1644
-	dw DATA_FD165D
-	dw DATA_FD1676
-	dw DATA_FD168F
-	dw DATA_FD16A8
-	dw !null_pointer
+	dw empty_doorstop_dash_level_config		;00
+	dw level_01_level_config			;01
+	dw level_02_level_config			;02
+	dw level_03_level_config			;03
+	dw level_04_level_config			;04
+	dw level_05_level_config			;05
+	dw empty_krevice_kreepers_level_config		;06
+	dw level_07_level_config			;07
+	dw bazzas_blockade_photo_album_level_config	;08
+	dw doorstop_dash_photo_album_level_config	;09
+	dw lemguin_lunge_photo_album_level_config	;0A
+	dw ropey_rumpus_photo_album_level_config	;0B
+	dw skiddas_row_photo_album_level_config		;0C
+	dw squeals_on_wheels_photo_album_level_config	;0D
+	dw floodlit_fish_photo_album_level_config	;0E
+	dw brothers_bear_photo_album_level_config	;0F
+	dw swankys_sideshow_photo_album_level_config	;10
+	dw bosses_photo_album_level_config		;11
+	dw krool_hovercraft_ending_level_config		;12
+	dw kastle_kaos_photo_album_level_config		;13
+	dw bobbing_barrel_brawl_demo_level_config	;14
+	dw kiddy_kong_photo_album_level_config		;15
+	dw dixie_kong_photo_album_level_config		;16
+	dw level_17_level_config			;17
+	dw level_18_level_config			;18
+	dw level_19_level_config			;19
+	dw bazzas_blockade_exit_room_level_config	;1A
+	dw fish_food_frenzy_exit_room_level_config	;1B
+	dw floodlit_fish_exit_room_level_config		;1C
+	dw belchas_barn_level_config			;1D
+	dw arichs_ambush_level_config			;1E
+	dw squirts_showdown_level_config		;1F
+	dw kaos_karnage_level_config			;20
+	dw bleaks_house_level_config			;21
+	dw barbos_barrier_level_config			;22
+	dw kastle_kaos_level_config			;23
+	dw knautilus_level_config			;24
+	dw lakeside_limbo_level_config			;25
+	dw kreeping_klasps_level_config			;26
+	dw tidal_trouble_level_config			;27
+	dw doorstop_dash_level_config			;28
+	dw squeals_on_wheels_level_config		;29
+	dw murky_mill_level_config			;2A
+	dw skiddas_row_level_config			;2B
+	dw lemguin_lunge_level_config			;2C
+	dw tearaway_toboggan_level_config		;2D
+	dw ripsaw_rage_level_config			;2E
+	dw springin_spiders_level_config		;2F
+	dw barrel_shield_bust_up_level_config		;30
+	dw swoopy_salvo_level_config			;31
+	dw riverside_race_level_config			;32
+	dw lightning_lookout_level_config		;33
+	dw bobbing_barrel_brawl_level_config		;34
+	dw bazzas_blockade_level_config			;35
+	dw fish_food_frenzy_level_config		;36
+	dw floodlit_fish_level_config			;37
+	dw rocket_barrel_ride_level_config		;38
+	dw tracker_barel_trek_level_config		;39
+	dw barrel_drop_bounce_level_config		;3A
+	dw fireball_frenzy_level_config			;3B
+	dw blazing_bazukas_level_config			;3C
+	dw krackshot_krock_level_config			;3D
+	dw low_g_labyrinth_level_config			;3E
+	dw poisonous_pipeline_level_config		;3F
+	dw demolition_drainpipe_level_config		;40
+	dw krevice_kreepers_level_config		;41
+	dw kongfused_cliffs_level_config		;42
+	dw ropey_rumpus_level_config			;43
+	dw buzzer_barrage_level_config			;44
+	dw pothole_panic_level_config			;45
+	dw creepy_caverns_level_config			;46
+	dw koindozer_klamber_level_config		;47
+	dw konveyor_rope_klash_level_config		;48
+	dw stampede_sprint_level_config			;49
+	dw criss_kross_cliffs_level_config		;4A
+	dw tyrant_twin_tussle_level_config		;4B
+	dw rocket_rush_level_config			;4C
+	dw swankys_sideshow_inside_level_config		;4D
+	dw empty_buzzer_barrage_level_config		;4E
+	dw level_4F_level_config			;4F
+	dw lakeside_limbo_bonus_1_level_config		;50
+	dw lakeside_limbo_bonus_2_level_config		;51
+	dw doorstop_dash_bonus_1_level_config		;52
+	dw doorstop_dash_bonus_2_level_config		;53
+	dw tidal_trouble_bonus_1_level_config		;54
+	dw tidal_trouble_bonus_2_level_config		;55
+	dw skiddas_row_bonus_1_level_config		;56
+	dw skiddas_row_bonus_2_level_config		;57
+	dw squeals_on_wheels_bonus_1_level_config	;58
+	dw squeals_on_wheels_bonus_2_level_config	;59
+	dw barrel_shield_bust_up_bonus_1_level_config	;5A
+	dw barrel_shield_bust_up_bonus_2_level_config	;5B
+	dw riverside_race_bonus_1_level_config		;5C
+	dw riverside_race_bonus_2_level_config		;5D
+	dw murky_mill_bonus_1_level_config		;5E
+	dw murky_mill_bonus_2_level_config		;5F
+	dw springin_spiders_bonus_1_level_config	;60
+	dw springin_spiders_bonus_2_level_config	;61
+	dw lightning_lookout_bonus_1_level_config	;62
+	dw lightning_lookout_bonus_2_level_config	;63
+	dw bazzas_blockade_bonus_1_level_config		;64
+	dw bazzas_blockade_bonus_2_level_config		;65
+	dw rocket_barrel_ride_bonus_1_level_config	;66
+	dw rocket_barrel_ride_bonus_2_level_config	;67
+	dw kreeping_klasps_bonus_1_level_config		;68
+	dw kreeping_klasps_bonus_2_level_config		;69
+	dw tracker_barel_trek_bonus_1_level_config	;6A
+	dw tracker_barel_trek_bonus_2_level_config	;6B
+	dw fish_food_frenzy_bonus_1_level_config	;6C
+	dw fish_food_frenzy_bonus_2_level_config	;6D
+	dw fireball_frenzy_bonus_1_level_config		;6E
+	dw fireball_frenzy_bonus_2_level_config		;6F
+	dw demolition_drainpipe_bonus_1_level_config	;70
+	dw demolition_drainpipe_bonus_2_level_config	;71
+	dw ripsaw_rage_bonus_1_level_config		;72
+	dw ripsaw_rage_bonus_2_level_config		;73
+	dw blazing_bazukas_bonus_1_level_config		;74
+	dw blazing_bazukas_bonus_2_level_config		;75
+	dw low_g_labyrinth_bonus_1_level_config		;76
+	dw low_g_labyrinth_bonus_2_level_config		;77
+	dw krevice_kreepers_bonus_1_level_config	;78
+	dw krevice_kreepers_bonus_2_level_config	;79
+	dw tearaway_toboggan_bonus_1_level_config	;7A
+	dw tearaway_toboggan_bonus_2_level_config	;7B
+	dw barrel_drop_bounce_bonus_1_level_config	;7C
+	dw barrel_drop_bounce_bonus_2_level_config	;7D
+	dw krackshot_krock_bonus_1_level_config		;7E
+	dw krackshot_krock_bonus_2_level_config		;7F
+	dw lemguin_lunge_bonus_1_level_config		;80
+	dw lemguin_lunge_bonus_2_level_config		;81
+	dw buzzer_barrage_bonus_1_level_config		;82
+	dw buzzer_barrage_bonus_2_level_config		;83
+	dw kongfused_cliffs_bonus_1_level_config	;84
+	dw kongfused_cliffs_bonus_2_level_config	;85
+	dw floodlit_fish_bonus_1_level_config		;86
+	dw floodlit_fish_bonus_2_level_config		;87
+	dw pothole_panic_bonus_1_level_config		;88
+	dw pothole_panic_bonus_2_level_config		;89
+	dw ropey_rumpus_bonus_1_level_config		;8A
+	dw ropey_rumpus_bonus_2_level_config		;8B
+	dw koindozer_klamber_bonus_1_level_config	;8C
+	dw koindozer_klamber_bonus_2_level_config	;8D
+	dw creepy_caverns_bonus_1_level_config		;8E
+	dw creepy_caverns_bonus_2_level_config		;8F
+	dw bobbing_barrel_brawl_bonus_1_level_config	;90
+	dw bobbing_barrel_brawl_bonus_2_level_config	;91
+	dw konveyor_rope_klash_bonus_1_level_config	;92
+	dw konveyor_rope_klash_bonus_2_level_config	;93
+	dw poisonous_pipeline_bonus_1_level_config	;94
+	dw poisonous_pipeline_bonus_2_level_config	;95
+	dw swoopy_salvo_bonus_3_level_config		;96
+	dw swoopy_salvo_bonus_1_level_config		;97
+	dw swoopy_salvo_bonus_2_level_config		;98
+	dw criss_kross_cliffs_bonus_1_level_config	;99
+	dw criss_kross_cliffs_bonus_2_level_config	;9A
+	dw tyrant_twin_tussle_bonus_1_level_config	;9B
+	dw tyrant_twin_tussle_bonus_3_level_config	;9C
+	dw tyrant_twin_tussle_bonus_2_level_config	;9D
+	dw stampede_sprint_bonus_2_level_config		;9E
+	dw stampede_sprint_bonus_3_level_config		;9F
+	dw stampede_sprint_bonus_1_level_config		;A0
 
 padbyte $00 : pad $FD0400
 
-DATA_FD0400:
+;$FD0400
+empty_doorstop_dash_level_config:
 	dw $0001 : db $1E : dw DATA_FD198D : db $00,$0A,$00 : dw $0002 : db $00 : dw $0000,$0010 : db $00 : dw $0150,$086D
 	db $00,$90,$07,$00,$06
 	db $00,$65,$03,$00,$07
@@ -176,172 +176,209 @@ DATA_FD0400:
 	dw $FFFF
 	dw $FFFF
 
-DATA_FD042D:
+;$FD042D
+level_01_level_config:
 	dw $0000
 
-DATA_FD042F:
+;$FD042F
+level_02_level_config:
 	dw $0000
 
-DATA_FD0431:
+;$FD0431
+level_03_level_config:
 	dw $0000
 
-DATA_FD0433:
+;$FD0433
+level_04_level_config:
 	dw $0000
 
-DATA_FD0435:
+;$FD0435
+level_05_level_config:
 	dw $0000
 
-DATA_FD0437:
+;$FD0437
+empty_krevice_kreepers_level_config:
 	dw $0000
 
-DATA_FD0439:
+;$FD0439
+level_07_level_config:
 	dw $0000
 
-DATA_FD043B:
+;$FD043B
+bazzas_blockade_photo_album_level_config:
 	dw $0004 : db $00 : dw DATA_FD1AAB : db $00,$2C,$01 : dw $000B : db $00 : dw $0000,$0000 : db $00 : dw $0180,$0160
 	db $FF
 	dw $FFFF
 
-DATA_FD0452:
+;$FD0452
+doorstop_dash_photo_album_level_config:
 	dw $0004 : db $00 : dw DATA_FD1AA0 : db $00,$0A,$00 : dw $000B : db $00 : dw $0000,$0000 : db $00 : dw $0140,$086C
 	db $FF
 	dw $FFFF
 
-DATA_FD0469:
+;$FD0469
+lemguin_lunge_photo_album_level_config:
 	dw $0004 : db $00 : dw DATA_FD1AC1 : db $01,$08,$00 : dw $000B : db $00 : dw $0000,$0000 : db $00 : dw $0128,$02AD
 	db $FF
 	dw $FFFF
 
-DATA_FD0480:
+;$FD0480
+ropey_rumpus_photo_album_level_config:
 	dw $0004 : db $00 : dw DATA_FD1ACC : db $00,$33,$00 : dw $000B : db $00 : dw $0000,$0000 : db $00 : dw $070F,$05A3
 	db $FF
 	dw $FFFF
 
-DATA_FD0497:
+;$FD0497
+skiddas_row_photo_album_level_config:
 	dw $0004 : db $00 : dw DATA_FD1AC1 : db $00,$08,$00 : dw $000B : db $00 : dw $0000,$0000 : db $00 : dw $0160,$00CD
 	db $FF
 	dw $FFFF
 
-DATA_FD04AE:
+;$FD04AE
+squeals_on_wheels_photo_album_level_config:
 	dw $0004 : db $00 : dw DATA_FD1AA0 : db $01,$0A,$00 : dw $000B : db $00 : dw $0000,$0000 : db $00 : dw $05B0,$056D
 	db $FF
 	dw $FFFF
 
-DATA_FD04C5:
+;$FD04C5
+floodlit_fish_photo_album_level_config:
 	dw $0004 : db $00 : dw DATA_FD1AB6 : db $01,$48,$00 : dw $000B : db $00 : dw $0000,$0000 : db $00 : dw $0140,$086C
 	db $FF
 	dw $FFFF
 
-DATA_FD04DC:
+;$FD04DC
+brothers_bear_photo_album_level_config:
 	dw $0004 : db $00 : dw DATA_FD1AD7 : db $00,$48,$00 : dw $000B : db $00 : dw $0000,$0000 : db $00 : dw $0140,$086C
 	db $FF
 	dw $FFFF
 
-DATA_FD04F3:
+;$FD04F3
+swankys_sideshow_photo_album_level_config:
 	dw $0004 : db $00 : dw DATA_FD1AE2 : db $00,$05,$00 : dw $000B : db $00 : dw $0000,$0000 : db $00 : dw $0140,$086C
 	db $FF
 	dw $FFFF
 
-DATA_FD050A:
+;$FD050A
+bosses_photo_album_level_config:
 	dw $0004 : db $00 : dw DATA_FD1AD7 : db $00,$48,$00 : dw $000B : db $00 : dw $0000,$0000 : db $00 : dw $0140,$086C
 	db $FF
 	dw $FFFF
 
-DATA_FD0521:
+;$FD0521
+krool_hovercraft_ending_level_config:
 	dw $0001 : db $00 : dw DATA_FD1AED : db $02,$01,$00 : dw $001D : db $00 : dw $0000,$0000 : db $00 : dw $0A20,$0290
 	db $FF
 	dw $FFFF
 
-DATA_FD0538:
+;$FD0538
+kastle_kaos_photo_album_level_config:
 	dw $0004 : db $00 : dw DATA_FD1AF8 : db $00,$43,$00 : dw $0000 : db $00 : dw $0000,$0000 : db $00 : dw $01DF,$0259
 	db $FF
 	dw $FFFF
 
-DATA_FD054F:
+;$FD054F
+bobbing_barrel_brawl_demo_level_config:
 	dw $0001 : db $10 : dw DATA_FD19CF : db $08,$73,$02 : dw $0C00 : db $00 : dw $0000,$0420 : db $00 : dw $0FD0,$01E1
 	db $FF
 	dw $FFFF
 
-DATA_FD0566:
+;$FD0566
+kiddy_kong_photo_album_level_config:
 	dw $0004 : db $00 : dw DATA_FD1AC1 : db $02,$65,$00 : dw $000B : db $00 : dw $0000,$0000 : db $00 : dw $3000,$01CD
 	db $FF
 	db $FF
 
-DATA_FD057C:
+;$FD057C
+dixie_kong_photo_album_level_config:
 	dw $0004 : db $00 : dw DATA_FD1ACC : db $00,$6B,$01 : dw $000B : db $00 : dw $0000,$0000 : db $00 : dw $0790,$0215
 	db $FF
 	dw $FFFF
 
-DATA_FD0593:
+;$FD0593
+level_17_level_config:
 	dw $0000
 
-DATA_FD0595:
+;$FD0595
+level_18_level_config:
 	dw $0000
 
-DATA_FD0597:
+;$FD0597
+level_19_level_config:
 	dw $0000
 
-DATA_FD0599:
+;$FD0599
+bazzas_blockade_exit_room_level_config:
 	dw $0006 : db $00 : dw DATA_FD1909 : db $00,$4A,$00 : dw $0000 : db $00 : dw $0000,$2000 : db $00 : dw $0140,$0240
 	db $FF
 	dw $FFFF
 
-DATA_FD05B0:
+;$FD05B0
+fish_food_frenzy_exit_room_level_config:
 	dw $0006 : db $00 : dw DATA_FD1909 : db $01,$4A,$00 : dw $0000 : db $00 : dw $0000,$2000 : db $00 : dw $01A0,$02A0
 	db $FF
 	dw $FFFF
 
-DATA_FD05C7:
+;$FD05C7
+floodlit_fish_exit_room_level_config:
 	dw $0006 : db $00 : dw DATA_FD1909 : db $02,$4A,$00 : dw $0000 : db $00 : dw $0000,$2000 : db $00 : dw $0120,$0320
 	db $FF
 	dw $FFFF
 
-DATA_FD05DE:
+;$FD05DE
+belchas_barn_level_config:
 	dw $0003 : db $1F : dw DATA_FD19AE : db $03,$7F,$00 : dw $0000 : db $05 : dw $0000,$0800 : db $00 : dw $0138,$018D
 	db $00,$C0,$01,$10,$02
 	db $00,$60,$02,$AD,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD05FF:
+;$FD05FF
+arichs_ambush_level_config:
 	dw $0003 : db $0C : dw DATA_FD1A11 : db $02,$7E,$00 : dw $0001 : db $00 : dw $0000,$0800 : db $00 : dw $01DF,$0259
 	db $FF
 	dw $FFFF
 
-DATA_FD0616:
+;$FD0616
+squirts_showdown_level_config:
 	dw $0003 : db $28 : dw DATA_FD1A69 : db $06,$76,$01 : dw $0006 : db $04 : dw $0006,$0920 : db $00 : dw $0140,$0135
 	db $FF
 	dw $FFFF
 
-DATA_FD062D:
+;$FD062D
+kaos_karnage_level_config:
 	dw $0003 : db $28 : dw DATA_FD1A74 : db $08,$80,$00 : dw $0000 : db $00 : dw $0000,$0800 : db $00 : dw $01A0,$0200
 	db $00,$A0,$01,$59,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD0649:
+;$FD0649
+bleaks_house_level_config:
 	dw $0003 : db $0C : dw DATA_FD19E5 : db $00,$22,$00 : dw $0000 : db $02 : dw $0000,$0800 : db $00 : dw $0180,$0135
 	db $FF
 	dw $FFFF
 
-DATA_FD0660:
+;$FD0660
+barbos_barrier_level_config:
 	dw $0003 : db $1F : dw DATA_FD1940 : db $00,$60,$01 : dw $0006 : db $00 : dw $0000,$0840 : db $00 : dw $01C0,$0185
 	db $00,$10,$02,$41,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD067C:
+;$FD067C
+kastle_kaos_level_config:
 	dw $0003 : db $27 : dw DATA_FD1A7F : db $00,$43,$00 : dw $001F : db $13 : dw $0000,$0D00 : db $00 : dw $01DF,$0259
 	db $00,$DF,$01,$59,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD0698:
+;$FD0698
+knautilus_level_config:
 	dw $0003 : db $1A : dw DATA_FD1A8A : db $00,$5F,$05 : dw $001F : db $14 : dw $0000,$0800 : db $00 : dw $01DF,$0259
 	db $FF
 	dw $FFFF
 
-DATA_FD06AF:
+;$FD06AF
+lakeside_limbo_level_config:
 	dw $0001 : db $0F : dw DATA_FD19F0 : db $00,$01,$02 : dw $0004 : db $00 : dw $0000,$000A : db $00 : dw $0140,$0229
 	db $00,$00,$0D,$F8,$01
 	db $40,$70,$08,$78,$01
@@ -352,7 +389,8 @@ DATA_FD06AF:
 	dw $0250,$0351,$FFFF
 	dw $FFFF
 
-DATA_FD06E5:
+;$FD06E5
+kreeping_klasps_level_config:
 	dw $0001 : db $0F : dw DATA_FD19F0 : db $01,$62,$02 : dw $0003 : db $00 : dw $0000,$000A : db $00 : dw $0150,$0269
 	db $00,$70,$12,$28,$02
 	db $40,$B0,$0B,$D0,$01
@@ -363,7 +401,8 @@ DATA_FD06E5:
 	dw $0268,$0369,$FFFF
 	dw $FFFF
 
-DATA_FD071B:
+;$FD071B
+tidal_trouble_level_config:
 	dw $0001 : db $0F : dw DATA_FD19F0 : db $02,$63,$02 : dw $0003 : db $00 : dw $0000,$0000 : db $00 : dw $013C,$0269
 	db $00,$00,$10,$60,$02
 	db $00,$48,$0E,$D4,$02
@@ -374,7 +413,8 @@ DATA_FD071B:
 	dw $0254,$0355,$FFFF
 	dw $FFFF
 
-DATA_FD0751:
+;$FD0751
+doorstop_dash_level_config:
 	dw $0001 : db $0E : dw DATA_FD198D : db $00,$72,$00 : dw $0002 : db $00 : dw $0000,$1841 : db $00 : dw $0130,$086D
 	db $00,$ED,$07,$E4,$05
 	db $40,$65,$03,$08,$07
@@ -386,7 +426,8 @@ DATA_FD0751:
 	dw $0252,$0353,$FFFF
 	dw $FFFF
 
-DATA_FD078C:
+;$FD078C
+squeals_on_wheels_level_config:
 	dw $0001 : db $0E : dw DATA_FD198D : db $01,$0A,$00 : dw $0002 : db $03 : dw $0000,$0841 : db $00 : dw $0130,$0B4D
 	db $00,$30,$06,$B0,$06
 	db $40,$40,$03,$78,$08
@@ -397,7 +438,8 @@ DATA_FD078C:
 	dw $0258,$0359,$FFFF
 	dw $FFFF
 
-DATA_FD07C2:
+;$FD07C2
+murky_mill_level_config:
 	dw $0001 : db $0E : dw DATA_FD1998 : db $02,$11,$00 : dw $0402 : db $08 : dw $0000,$1000 : db $00 : dw $0130,$08CD
 	db $00,$B0,$04,$A0,$04
 	db $40,$D8,$05,$60,$04
@@ -408,7 +450,8 @@ DATA_FD07C2:
 	dw $025E,$035F,$FFFF
 	dw $FFFF
 
-DATA_FD07F8:
+;$FD07F8
+skiddas_row_level_config:
 	dw $0001 : db $17 : dw DATA_FD19DA : db $00,$08,$00 : dw $0000 : db $00 : dw $0000,$0000 : db $00 : dw $0130,$01CD
 	db $00,$50,$12,$70,$01
 	db $40,$30,$0F,$9C,$01
@@ -419,7 +462,8 @@ DATA_FD07F8:
 	dw $0256,$0357,$FFFF
 	dw $FFFF
 
-DATA_FD082E:
+;$FD082E
+lemguin_lunge_level_config:
 	dw $0001 : db $17 : dw DATA_FD19DA : db $01,$64,$00 : dw $0000 : db $00 : dw $0006,$0000 : db $00 : dw $0130,$02AD
 	db $00,$30,$18,$78,$01
 	db $40,$40,$02,$00,$02
@@ -430,7 +474,8 @@ DATA_FD082E:
 	dw $0280,$0381,$FFFF
 	dw $FFFF
 
-DATA_FD0864:
+;$FD0864
+tearaway_toboggan_level_config:
 	dw $0001 : db $07 : dw DATA_FD19DA : db $02,$65,$00 : dw $0000 : db $0C : dw $000C,$0000 : db $00 : dw $0130,$018D
 	db $00,$18,$26,$68,$01
 	db $40,$D8,$02,$00,$01
@@ -440,7 +485,8 @@ DATA_FD0864:
 	dw $027A,$037B,$FFFF
 	dw $FFFF
 
-DATA_FD0895:
+;$FD0895
+ripsaw_rage_level_config:
 	dw $0001 : db $0B : dw DATA_FD19FB : db $01,$67,$04 : dw $0010 : db $87 : dw $0000,$1000 : db $00 : dw $0180,$1995
 	db $00,$40,$03,$C0,$0F
 	db $00,$50,$02,$00,$12
@@ -451,7 +497,8 @@ DATA_FD0895:
 	dw $0272,$0373,$FFFF
 	dw $FFFF
 
-DATA_FD08CB:
+;$FD08CB
+springin_spiders_level_config:
 	dw $0001 : db $0B : dw DATA_FD1A06 : db $03,$66,$00 : dw $0011 : db $12 : dw $0000,$1480 : db $00 : dw $0180,$20B5
 	db $00,$F0,$01,$D8,$11
 	db $00,$70,$03,$64,$16
@@ -461,7 +508,8 @@ DATA_FD08CB:
 	dw $0260,$0361,$FFFF
 	dw $FFFF
 
-DATA_FD08FC:
+;$FD08FC
+barrel_shield_bust_up_level_config:
 	dw $0001 : db $0B : dw DATA_FD1A06 : db $00,$07,$00 : dw $0001 : db $12 : dw $0000,$0081 : db $00 : dw $0180,$20B5
 	db $00,$90,$02,$00,$12
 	db $00,$90,$02,$A0,$11
@@ -472,7 +520,8 @@ DATA_FD08FC:
 	dw $025A,$035B,$FFFF
 	dw $FFFF
 
-DATA_FD0932:
+;$FD0932
+swoopy_salvo_level_config:
 	dw $0001 : db $0B : dw DATA_FD1A06 : db $0D,$68,$00 : dw $0801 : db $12 : dw $0000,$0201 : db $00 : dw $01C0,$1E95
 	db $00,$7D,$03,$10,$10
 	db $00,$B8,$03,$C0,$19
@@ -483,7 +532,8 @@ DATA_FD0932:
 	dw $0297,$0398,$0496,$FFFF
 	dw $FFFF
 
-DATA_FD096A:
+;$FD096A
+riverside_race_level_config:
 	dw $0001 : db $07 : dw DATA_FD19B9 : db $00,$24,$02 : dw $000E : db $06 : dw $0000,$0000 : db $00 : dw $0118,$01D1
 	db $00,$E0,$15,$8A,$02
 	db $40,$D0,$0E,$48,$01
@@ -496,7 +546,8 @@ DATA_FD096A:
 	dw $025C,$035D,$FFFF
 	dw $FFFF
 
-DATA_FD09AA:
+;$FD09AA
+lightning_lookout_level_config:
 	dw $0001 : db $10 : dw DATA_FD19C4 : db $07,$49,$02 : dw $0000 : db $0E : dw $0000,$0400 : db $00 : dw $0120,$01E1
 	db $00,$60,$15,$B0,$01
 	db $40,$40,$0E,$60,$01
@@ -506,7 +557,8 @@ DATA_FD09AA:
 	dw $0262,$0363,$FFFF
 	dw $FFFF
 
-DATA_FD09DB:
+;$FD09DB
+bobbing_barrel_brawl_level_config:
 	dw $0001 : db $10 : dw DATA_FD19B9 : db $08,$73,$02 : dw $0C00 : db $00 : dw $0000,$0420 : db $00 : dw $0120,$01C9
 	db $00,$70,$17,$98,$01
 	db $40,$30,$0C,$48,$01
@@ -516,7 +568,8 @@ DATA_FD09DB:
 	dw $0290,$0391,$FFFF
 	dw $FFFF
 
-DATA_FD0A0C:
+;$FD0A0C
+bazzas_blockade_level_config:
 	dw $0001 : db $06 : dw DATA_FD191F : db $00,$2C,$01 : dw $0006 : db $00 : dw $0000,$0200 : db $00 : dw $0140,$0740
 	db $02,$35,$02,$60,$06
 	db $00,$A0,$06,$E0,$07
@@ -526,7 +579,8 @@ DATA_FD0A0C:
 	dw $0264,$0365,$0000,$0000,$001A,$FFFF
 	dw $FFFF
 
-DATA_FD0A43:
+;$FD0A43
+fish_food_frenzy_level_config:
 	dw $0001 : db $06 : dw DATA_FD191F : db $07,$61,$01 : dw $0006 : db $10 : dw $0000,$0000 : db $00 : dw $0140,$01A0
 	db $00,$30,$06,$18,$05
 	db $02,$20,$08,$00,$03
@@ -536,7 +590,8 @@ DATA_FD0A43:
 	dw $026C,$036D,$0000,$0000,$001B,$FFFF
 	dw $FFFF
 
-DATA_FD0A7A:
+;$FD0A7A
+floodlit_fish_level_config:
 	dw $0001 : db $06 : dw DATA_FD192A : db $01,$48,$01 : dw $0006 : db $00 : dw $0000,$0000 : db $00 : dw $0130,$0200
 	db $00,$A0,$03,$00,$0F
 	db $00,$70,$03,$28,$0D
@@ -546,7 +601,8 @@ DATA_FD0A7A:
 	dw $0286,$0387,$0000,$0000,$001C,$FFFF
 	dw $FFFF
 
-DATA_FD0AB1:
+;$FD0AB1
+rocket_barrel_ride_level_config:
 	dw $0001 : db $0A : dw DATA_FD1A53 : db $00,$02,$00 : dw $0013 : db $04 : dw $0000,$0000 : db $00 : dw $0120,$206D
 	db $02,$50,$04,$50,$10
 	db $42,$50,$04,$A0,$0F
@@ -556,7 +612,8 @@ DATA_FD0AB1:
 	dw $0266,$0367,$FFFF
 	dw $FFFF
 
-DATA_FD0AE2:
+;$FD0AE2
+tracker_barel_trek_level_config:
 	dw $0001 : db $0A : dw DATA_FD1A5E : db $00,$75,$00 : dw $000D : db $04 : dw $0002,$0220 : db $00 : dw $0120,$08CD
 	db $02,$74,$03,$00,$07
 	db $02,$40,$08,$E0,$06
@@ -566,7 +623,8 @@ DATA_FD0AE2:
 	dw $026A,$036B,$FFFF
 	dw $FFFF
 
-DATA_FD0B13:
+;$FD0B13
+barrel_drop_bounce_level_config:
 	dw $0001 : db $0A : dw DATA_FD1A5E : db $07,$74,$00 : dw $000D : db $04 : dw $000C,$0000 : db $00 : dw $0120,$0B4D
 	db $00,$00,$06,$D0,$07
 	db $40,$28,$04,$E0,$08
@@ -576,7 +634,8 @@ DATA_FD0B13:
 	dw $027C,$037D,$FFFF
 	dw $FFFF
 
-DATA_FD0B44:
+;$FD0B44
+fireball_frenzy_level_config:
 	dw $0001 : db $08 : dw DATA_FD1977 : db $00,$46,$00 : dw $0002 : db $00 : dw $0000,$0002 : db $00 : dw $0120,$0BD9
 	db $00,$40,$04,$70,$05
 	db $40,$00,$07,$A1,$07
@@ -586,7 +645,8 @@ DATA_FD0B44:
 	dw $026E,$036F,$FFFF
 	dw $FFFF
 
-DATA_FD0B75:
+;$FD0B75
+blazing_bazukas_level_config:
 	dw $0001 : db $08 : dw DATA_FD1977 : db $01,$78,$00 : dw $0002 : db $00 : dw $0000,$0002 : db $00 : dw $0120,$0BF9
 	db $02,$00,$03,$50,$07
 	db $02,$A0,$04,$F0,$08
@@ -596,7 +656,8 @@ DATA_FD0B75:
 	dw $0274,$0375,$FFFF
 	dw $FFFF
 
-DATA_FD0BA6:
+;$FD0BA6
+krackshot_krock_level_config:
 	dw $0001 : db $26 : dw DATA_FD1977 : db $02,$77,$00 : dw $0002 : db $00 : dw $0000,$0000 : db $00 : dw $0130,$07F9
 	db $00,$40,$06,$70,$05
 	db $00,$40,$05,$00,$07
@@ -606,7 +667,8 @@ DATA_FD0BA6:
 	dw $027E,$037F,$FFFF
 	dw $FFFF
 
-DATA_FD0BD7:
+;$FD0BD7
+low_g_labyrinth_level_config:
 	dw $0001 : db $19 : dw DATA_FD1A48 : db $00,$3E,$01 : dw $0012 : db $00 : dw $0000,$0210 : db $00 : dw $0120,$0B91
 	db $00,$10,$07,$40,$0B
 	db $00,$10,$07,$E0,$0A
@@ -617,7 +679,8 @@ DATA_FD0BD7:
 	dw $0276,$0377,$FFFF
 	dw $FFFF
 
-DATA_FD0C0D:
+;$FD0C0D
+poisonous_pipeline_level_config:
 	dw $0001 : db $19 : dw DATA_FD1A32 : db $00,$3D,$01 : dw $000C : db $00 : dw $0000,$0200 : db $00 : dw $0190,$0148
 	db $00,$D0,$07,$A0,$06
 	db $00,$40,$01,$E0,$04
@@ -627,7 +690,8 @@ DATA_FD0C0D:
 	dw $0295,$0394,$FFFF
 	dw $FFFF
 
-DATA_FD0C3E:
+;$FD0C3E
+demolition_drainpipe_level_config:
 	dw $0001 : db $07 : dw DATA_FD1A27 : db $00,$28,$00 : dw $0000 : db $0C : dw $0000,$0040 : db $02 : dw $0270,$01D9
 	db $00,$50,$1F,$50,$02
 	db $40,$60,$14,$D0,$01
@@ -637,7 +701,8 @@ DATA_FD0C3E:
 	dw $0270,$0371,$FFFF
 	dw $FFFF
 
-DATA_FD0C6F:
+;$FD0C6F
+krevice_kreepers_level_config:
 	dw $0001 : db $21 : dw DATA_FD194B : db $00,$6A,$03 : dw $000F : db $00 : dw $0000,$1003 : db $00 : dw $0138,$1C29
 	db $00,$18,$03,$A0,$0F
 	db $00,$30,$03,$E8,$17
@@ -647,7 +712,8 @@ DATA_FD0C6F:
 	dw $0278,$0379,$FFFF
 	dw $FFFF
 
-DATA_FD0CA0:
+;$FD0CA0
+kongfused_cliffs_level_config:
 	dw $0001 : db $21 : dw DATA_FD1956 : db $02,$33,$04 : dw $0016 : db $8A : dw $0000,$1080 : db $00 : dw $02AF,$1FC0
 	db $00,$75,$02,$90,$12
 	db $40,$F0,$01,$90,$14
@@ -657,7 +723,8 @@ DATA_FD0CA0:
 	dw $0284,$0385,$FFFF
 	dw $FFFF
 
-DATA_FD0CD1:
+;$FD0CD1
+ropey_rumpus_level_config:
 	dw $0001 : db $21 : dw DATA_FD1961 : db $00,$6B,$03 : dw $000F : db $00 : dw $0000,$0002 : db $00 : dw $0138,$0C61
 	db $00,$90,$06,$3C,$08
 	db $02,$80,$09,$D8,$09
@@ -667,7 +734,8 @@ DATA_FD0CD1:
 	dw $028A,$038B,$FFFF
 	dw $FFFF
 
-DATA_FD0D02:
+;$FD0D02
+buzzer_barrage_level_config:
 	dw $0001 : db $1E : dw DATA_FD18F3 : db $00,$6E,$00 : dw $0002 : db $00 : dw $0000,$0210 : db $00 : dw $0140,$03F0
 	db $00,$60,$07,$90,$05
 	db $00,$00,$0B,$D0,$03
@@ -677,7 +745,8 @@ DATA_FD0D02:
 	dw $0282,$0383,$FFFF
 	dw $FFFF
 
-DATA_FD0D33:
+;$FD0D33
+pothole_panic_level_config:
 	dw $0001 : db $29 : dw DATA_FD1909 : db $04,$6F,$02 : dw $1402 : db $00 : dw $0000,$0000 : db $00 : dw $0130,$0189
 	db $00,$BC,$12,$F8,$02
 	db $00,$E0,$18,$50,$03
@@ -687,7 +756,8 @@ DATA_FD0D33:
 	dw $0288,$0389,$FFFF
 	dw $FFFF
 
-DATA_FD0D64:
+;$FD0D64
+creepy_caverns_level_config:
 	dw $0001 : db $1E : dw DATA_FD18F3 : db $01,$70,$00 : dw $0002 : db $00 : dw $0000,$0000 : db $00 : dw $0150,$0A69
 	db $00,$A8,$06,$D0,$05
 	db $00,$E4,$02,$90,$05
@@ -697,7 +767,8 @@ DATA_FD0D64:
 	dw $028E,$038F,$FFFF
 	dw $FFFF
 
-DATA_FD0D95:
+;$FD0D95
+koindozer_klamber_level_config:
 	dw $0001 : db $1D : dw DATA_FD196C : db $00,$79,$00 : dw $0000 : db $00 : dw $0000,$000A : db $00 : dw $0120,$028D
 	db $00,$A8,$11,$CC,$01
 	db $40,$A8,$11,$58,$01
@@ -707,7 +778,8 @@ DATA_FD0D95:
 	dw $028C,$038D,$FFFF
 	dw $FFFF
 
-DATA_FD0DC6:
+;$FD0DC6
+konveyor_rope_klash_level_config:
 	dw $0001 : db $1D : dw DATA_FD196C : db $01,$7A,$00 : dw $0014 : db $00 : dw $0000,$000E : db $00 : dw $0120,$028D
 	db $00,$C0,$16,$65,$01
 	db $40,$10,$0F,$40,$01
@@ -717,7 +789,8 @@ DATA_FD0DC6:
 	dw $0292,$0393,$FFFF
 	dw $FFFF
 
-DATA_FD0DF7:
+;$FD0DF7
+stampede_sprint_level_config:
 	dw $0001 : db $07 : dw DATA_FD196C : db $02,$45,$00 : dw $0000 : db $00 : dw $0000,$0000 : db $00 : dw $0120,$028D
 	db $00,$20,$01,$8D,$02
 	db $40,$00,$02,$A8,$01
@@ -728,7 +801,8 @@ DATA_FD0DF7:
 	dw $02A0,$039F,$049E,$FFFF
 	dw $FFFF
 
-DATA_FD0E2F:
+;$FD0E2F
+criss_kross_cliffs_level_config:
 	dw $0001 : db $21 : dw DATA_FD194B : db $01,$6C,$03 : dw $001B : db $11 : dw $0000,$0002 : db $00 : dw $0190,$1F09
 	db $00,$50,$01,$00,$11
 	db $00,$E0,$01,$E0,$1C
@@ -739,7 +813,8 @@ DATA_FD0E2F:
 	dw $FFFF
 
 
-DATA_FD0E60:
+;$FD0E60
+tyrant_twin_tussle_level_config:
 	dw $0001 : db $1E : dw DATA_FD18FE : db $05,$4A,$00 : dw $0002 : db $00 : dw $0000,$0000 : db $00 : dw $0140,$03B0
 	db $00,$60,$11,$20,$03
 	db $00,$00,$10,$40,$03
@@ -750,7 +825,8 @@ DATA_FD0E60:
 	dw $029B,$039D,$049C,$FFFF
 	dw $FFFF
 
-DATA_FD0E98:
+;$FD0E98
+rocket_rush_level_config:
 	dw $0001 : db $1C : dw DATA_FD194B : db $03,$6D,$01 : dw $001C : db $00 : dw $0000,$0800 : db $00 : dw $0120,$0999
 	db $00,$60,$02,$18,$1A
 	db $00,$F0,$02,$99,$02
@@ -758,499 +834,582 @@ DATA_FD0E98:
 	dw $FFFF
 	dw $FFFF
 
-DATA_FD0EBB:
+;$FD0EBB
+swankys_sideshow_inside_level_config:
 	dw $0005 : db $49 : dw DATA_FD1A95 : db $00,$05,$00 : dw $0000 : db $01 : dw $0000,$0000 : db $00 : dw $0120,$01D8
 	db $FF
 	dw $FFFF
 	dw $FFFF
 
-DATA_FD0ED4:
+empty_buzzer_barrage_level_config:
 	dw $0000
 
-DATA_FD0ED6:
+;$FD0ED6
+level_4F_level_config:
 	dw $0000
 
-DATA_FD0ED8:
+;$FD0ED8
+lakeside_limbo_bonus_1_level_config:
 	dw $0002,$5003 : db $03 : dw DATA_FD19F0 : db $03,$01,$00 : dw $0000 : db $00 : dw $0000,$000A
 	db $00,$10,$01,$E9,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD0EF1:
+;$FD0EF1
+lakeside_limbo_bonus_2_level_config:
 	dw $0002,$1504 : db $03 : dw DATA_FD19F0 : db $04,$01,$00 : dw $0000 : db $00 : dw $0000,$000A
 	db $00,$28,$01,$69,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD0F0A:
+;$FD0F0A
+doorstop_dash_bonus_1_level_config:
 	dw $0002,$6003 : db $01 : dw DATA_FD19A3 : db $04,$72,$00 : dw $0000 : db $00 : dw $0000,$0840
 	db $02,$00,$03,$AD,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD0F23:
+;$FD0F23
+doorstop_dash_bonus_2_level_config:
 	dw $0002,$0101 : db $01 : dw DATA_FD19A3 : db $05,$72,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$40,$01,$AD,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD0F3C:
+;$FD0F3C
+tidal_trouble_bonus_1_level_config:
 	dw $0002,$3003 : db $03 : dw DATA_FD19F0 : db $05,$63,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$20,$01,$E0,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD0F55:
+;$FD0F55
+tidal_trouble_bonus_2_level_config:
 	dw $0002,$0402 : db $03 : dw DATA_FD19F0 : db $06,$63,$00 : dw $0000 : db $00 : dw $0000,$000A
 	db $00,$35,$01,$F0,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD0F6E:
+;$FD0F6E
+skiddas_row_bonus_1_level_config:
 	dw $0002,$0402 : db $03 : dw DATA_FD19DA : db $03,$08,$00 : dw $0000 : db $00 : dw $0002,$0000
 	db $00,$20,$01,$CD,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD0F87:
+;$FD0F87
+skiddas_row_bonus_2_level_config:
 	dw $0002,$0101 : db $03 : dw DATA_FD19DA : db $04,$08,$00 : dw $0000 : db $00 : dw $0004,$0000
 	db $00,$30,$01,$CD,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD0FA0:
+;$FD0FA0
+squeals_on_wheels_bonus_1_level_config:
 	dw $0002,$2003 : db $01 : dw DATA_FD19A3 : db $06,$0A,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$50,$01,$AD,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD0FB9:
+;$FD0FB9
+squeals_on_wheels_bonus_2_level_config:
 	dw $0002,$1504 : db $01 : dw DATA_FD19A3 : db $06,$0A,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$50,$01,$AD,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD0FD2:
+;$FD0FD2
+barrel_shield_bust_up_bonus_1_level_config:
 	dw $0002,$0101 : db $02 : dw DATA_FD1A06 : db $04,$07,$00 : dw $0000 : db $00 : dw $0000,$0001
 	db $00,$90,$01,$15,$04
 	db $FF
 	dw $FFFF
 
-DATA_FD0FEB:
+;$FD0FEB
+barrel_shield_bust_up_bonus_2_level_config:
 	dw $0002,$1504 : db $02 : dw DATA_FD1A06 : db $05,$07,$00 : dw $0000 : db $00 : dw $0000,$0001
 	db $00,$90,$01,$75,$03
 	db $FF
 	dw $FFFF
 
-DATA_FD1004:
+;$FD1004
+riverside_race_bonus_1_level_config:
 	dw $0002,$1504 : db $03 : dw DATA_FD19B9 : db $01,$24,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$58,$01,$48,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD101D:
+;$FD101D
+riverside_race_bonus_2_level_config:
 	dw $0002,$0402 : db $03 : dw DATA_FD19B9 : db $02,$24,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$20,$01,$21,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD1036:
+;$FD1036
+murky_mill_bonus_1_level_config:
 	dw $0002,$0402 : db $01 : dw DATA_FD1998 : db $07,$11,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$40,$01,$ED,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD104F:
+;$FD104F
+murky_mill_bonus_2_level_config:
 	dw $0002,$0101 : db $01 : dw DATA_FD1998 : db $08,$11,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$40,$01,$AD,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD1068:
+;$FD1068
+springin_spiders_bonus_1_level_config:
 	dw $0002,$1504 : db $02 : dw DATA_FD1A06 : db $06,$66,$00 : dw $0000 : db $00 : dw $0000,$0600
 	db $00,$50,$01,$F9,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD1081:
+;$FD1081
+springin_spiders_bonus_2_level_config:
 	dw $0002,$3003 : db $02 : dw DATA_FD1A06 : db $07,$66,$00 : dw $0000 : db $00 : dw $0000,$0400
 	db $00,$90,$01,$B5,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD109A:
+;$FD109A
+lightning_lookout_bonus_1_level_config:
 	dw $0002,$0702 : db $03 : dw DATA_FD19B9 : db $03,$49,$00 : dw $0000 : db $00 : dw $0000,$0400
 	db $00,$20,$01,$21,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD10B3:
+;$FD10B3
+lightning_lookout_bonus_2_level_config:
 	dw $0002,$1504 : db $03 : dw DATA_FD19B9 : db $04,$49,$00 : dw $0000 : db $0F : dw $0000,$0400
 	db $00,$10,$01,$E1,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD10CC:
+;$FD10CC
+bazzas_blockade_bonus_1_level_config:
 	dw $0002,$0101 : db $03 : dw DATA_FD191F : db $01,$2C,$01 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$20,$01,$F0,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD10E5:
+;$FD10E5
+bazzas_blockade_bonus_2_level_config:
 	dw $0002,$0A02 : db $03 : dw DATA_FD191F : db $02,$2C,$01 : dw $0000 : db $00 : dw $0000,$0200
 	db $00,$90,$01,$B8,$03
 	db $FF
 	dw $FFFF
 
-DATA_FD10FE:
+;$FD10FE
+rocket_barrel_ride_bonus_1_level_config:
 	dw $0002,$2003 : db $02 : dw DATA_FD1A5E : db $01,$02,$00 : dw $0000 : db $00 : dw $000A,$0000
 	db $00,$20,$01,$51,$04
 	db $FF
 	dw $FFFF
 
-DATA_FD1117:
+;$FD1117
+rocket_barrel_ride_bonus_2_level_config:
 	dw $0002,$6003 : db $02 : dw DATA_FD1A5E : db $02,$02,$00 : dw $0013 : db $00 : dw $0004,$0000
 	db $00,$20,$01,$55,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD1130:
+;$FD1130
+kreeping_klasps_bonus_1_level_config:
 	dw $0002,$1504 : db $03 : dw DATA_FD19F0 : db $07,$62,$00 : dw $0000 : db $00 : dw $0000,$000A
 	db $00,$20,$01,$69,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD1149:
+;$FD1149
+kreeping_klasps_bonus_2_level_config:
 	dw $0002,$0101 : db $03 : dw DATA_FD19F0 : db $08,$62,$00 : dw $0000 : db $00 : dw $0000,$000A
 	db $00,$20,$01,$69,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD1162:
+;$FD1162
+tracker_barel_trek_bonus_1_level_config:
 	dw $0002,$7003 : db $02 : dw DATA_FD1A5E : db $02,$75,$00 : dw $0000 : db $00 : dw $000E,$0000
 	db $00,$30,$01,$55,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD117B:
+;$FD117B
+tracker_barel_trek_bonus_2_level_config:
 	dw $0002,$0702 : db $02 : dw DATA_FD1A5E : db $03,$75,$00 : dw $0000 : db $00 : dw $0008,$0000
 	db $00,$30,$01,$55,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD1194:
+;$FD1194
+fish_food_frenzy_bonus_1_level_config:
 	dw $0002,$1504 : db $03 : dw DATA_FD191F : db $03,$61,$01 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$3A,$01,$D5,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD11AD:
+;$FD11AD
+fish_food_frenzy_bonus_2_level_config:
 	dw $0002,$0A02 : db $03 : dw DATA_FD191F : db $04,$61,$01 : dw $0006 : db $10 : dw $0000,$0000
 	db $00,$00,$03,$F0,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD11C6:
+;$FD11C6
+fireball_frenzy_bonus_1_level_config:
 	dw $0002,$0A02 : db $01 : dw DATA_FD1977 : db $04,$46,$00 : dw $0000 : db $00 : dw $0000,$0200
 	db $00,$20,$01,$F9,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD11DF:
+;$FD11DF
+fireball_frenzy_bonus_2_level_config:
 	dw $0002,$1504 : db $01 : dw DATA_FD1977 : db $05,$46,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$20,$01,$F9,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD11F8:
+;$FD11F8
+demolition_drainpipe_bonus_1_level_config:
 	dw $0002,$0602 : db $03 : dw DATA_FD1A27 : db $01,$28,$00 : dw $0000 : db $0C : dw $0000,$0000
 	db $00,$30,$01,$B9,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD1211:
+;$FD1211
+demolition_drainpipe_bonus_2_level_config:
 	dw $0002,$2003 : db $03 : dw DATA_FD1A27 : db $02,$28,$00 : dw $0000 : db $0C : dw $0000,$0000
 	db $00,$70,$01,$90,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD122A:
+;$FD122A
+ripsaw_rage_bonus_1_level_config:
 	dw $0002,$0101 : db $02 : dw DATA_FD19FB : db $08,$67,$04 : dw $0010 : db $87 : dw $0000,$0000
 	db $00,$90,$01,$35,$04
 	db $FF
 	dw $FFFF
 
-DATA_FD1243:
+;$FD1243
+ripsaw_rage_bonus_2_level_config:
 	dw $0002,$1504 : db $02 : dw DATA_FD19FB : db $09,$67,$04 : dw $0010 : db $87 : dw $0000,$0000
 	db $00,$90,$01,$90,$07
 	db $FF
 	dw $FFFF
 
-DATA_FD125C:
+;$FD125C
+blazing_bazukas_bonus_1_level_config:
 	dw $0002,$0101 : db $01 : dw DATA_FD1977 : db $03,$78,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$40,$01,$D9,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD1275:
+;$FD1275
+blazing_bazukas_bonus_2_level_config:
 	dw $0002,$0101 : db $01 : dw DATA_FD1977 : db $07,$78,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $02,$F0,$02,$79,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD128E:
+;$FD128E
+low_g_labyrinth_bonus_1_level_config:
 	dw $0002,$8003 : db $03 : dw DATA_FD1A48 : db $01,$3E,$00 : dw $0000 : db $00 : dw $0000,$0010
 	db $00,$40,$01,$D9,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD12A7:
+;$FD12A7
+low_g_labyrinth_bonus_2_level_config:
 	dw $0002,$0A02 : db $03 : dw DATA_FD1A48 : db $02,$3E,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$20,$01,$60,$04
 	db $FF
 	dw $FFFF
 
-DATA_FD12C0:
+;$FD12C0
+krevice_kreepers_bonus_1_level_config:
 	dw $0002,$3003 : db $02 : dw DATA_FD1961 : db $01,$6A,$00 : dw $000F : db $00 : dw $0000,$0002
 	db $00,$50,$01,$90,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD12D9:
+;$FD12D9
+krevice_kreepers_bonus_2_level_config:
 	dw $0002,$0101 : db $02 : dw DATA_FD1961 : db $02,$6A,$00 : dw $000F : db $00 : dw $0000,$0002
 	db $00,$50,$01,$D0,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD12F2:
+;$FD12F2
+tearaway_toboggan_bonus_1_level_config:
 	dw $0002,$0302 : db $03 : dw DATA_FD19DA : db $07,$65,$00 : dw $0000 : db $0C : dw $000E,$0000
 	db $00,$10,$01,$ED,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD130B:
+;$FD130B
+tearaway_toboggan_bonus_2_level_config:
 	dw $0002,$5003 : db $03 : dw DATA_FD19DA : db $08,$65,$00 : dw $0000 : db $00 : dw $0010,$0000
 	db $00,$20,$01,$8D,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD1324:
+;$FD1324
+barrel_drop_bounce_bonus_1_level_config:
 	dw $0002,$1504 : db $02 : dw DATA_FD1A5E : db $04,$74,$00 : dw $0000 : db $0D : dw $0010,$0000
 	db $00,$10,$01,$AD,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD133D:
+;$FD133D
+barrel_drop_bounce_bonus_2_level_config:
 	dw $0002,$0101 : db $02 : dw DATA_FD1A5E : db $05,$74,$00 : dw $0000 : db $0D : dw $0012,$0000
 	db $00,$10,$01,$ED,$03
 	db $FF
 	dw $FFFF
 
-DATA_FD1356:
+;$FD1356
+krackshot_krock_bonus_1_level_config:
 	dw $0002,$1504 : db $01 : dw DATA_FD1977 : db $05,$77,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$10,$01,$F9,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD136F:
+;$FD136F
+krackshot_krock_bonus_2_level_config:
 	dw $0002,$0A05 : db $01 : dw DATA_FD1982 : db $06,$77,$01 : dw $000B : db $00 : dw $0000,$0000
 	db $00,$60,$01,$99,$03
 	db $FF
 	dw $FFFF
 
-DATA_FD1388:
+;$FD1388
+lemguin_lunge_bonus_1_level_config:
 	dw $0002,$0101 : db $03 : dw DATA_FD19DA : db $05,$64,$00 : dw $0000 : db $00 : dw $0008,$0000
 	db $00,$20,$01,$2D,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD13A1:
+;$FD13A1
+lemguin_lunge_bonus_2_level_config:
 	dw $0002,$3003 : db $03 : dw DATA_FD19DA : db $06,$64,$00 : dw $0000 : db $00 : dw $000A,$0000
 	db $00,$60,$01,$0D,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD13BA:
+;$FD13BA
+buzzer_barrage_bonus_1_level_config:
 	dw $0002,$0702 : db $01 : dw DATA_FD18FE : db $03,$6E,$00 : dw $0000 : db $00 : dw $0000,$0210
 	db $00,$40,$01,$D1,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD13D3:
+;$FD13D3
+buzzer_barrage_bonus_2_level_config:
 	dw $0002,$4003 : db $01 : dw DATA_FD18FE : db $08,$6E,$00 : dw $0000 : db $00 : dw $0000,$0010
 	db $00,$28,$01,$62,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD13EC:
+;$FD13EC
+kongfused_cliffs_bonus_1_level_config:
 	dw $0002,$0101 : db $02 : dw DATA_FD1961 : db $03,$33,$04 : dw $000F : db $8A : dw $0001,$0080
 	db $00,$8F,$01,$E0,$04
 	db $FF
 	dw $FFFF
 
-DATA_FD1405:
+;$FD1405
+kongfused_cliffs_bonus_2_level_config:
 	dw $0002,$0101 : db $02 : dw DATA_FD1961 : db $03,$33,$04 : dw $000F : db $8A : dw $0002,$0080
 	db $00,$8F,$01,$10,$05
 	db $FF
 	dw $FFFF
 
-DATA_FD141E:
+;$FD141E
+floodlit_fish_bonus_1_level_config:
 	dw $0002,$9003 : db $03 : dw DATA_FD1935 : db $05,$48,$01 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$40,$01,$60,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD1437:
+;$FD1437
+floodlit_fish_bonus_2_level_config:
 	dw $0002,$4003 : db $03 : dw DATA_FD1935 : db $06,$48,$01 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$D0,$01,$D0,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD1450:
+;$FD1450
+pothole_panic_bonus_1_level_config:
 	dw $0002,$2003 : db $01 : dw DATA_FD1909 : db $06,$6F,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$20,$01,$F8,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD1469:
+;$FD1469
+pothole_panic_bonus_2_level_config:
 	dw $0002,$1504 : db $01 : dw DATA_FD18FE : db $07,$6F,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$B0,$01,$29,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD1482:
+;$FD1482
+ropey_rumpus_bonus_1_level_config:
 	dw $0002,$0101 : db $02 : dw DATA_FD1961 : db $04,$6B,$00 : dw $000F : db $00 : dw $0000,$0002
 	db $00,$50,$01,$90,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD149B:
+;$FD149B
+ropey_rumpus_bonus_2_level_config:
 	dw $0002,$1504 : db $02 : dw DATA_FD1961 : db $05,$6B,$00 : dw $000F : db $00 : dw $0000,$0002
 	db $00,$3F,$01,$B8,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD14B4:
+;$FD14B4
+koindozer_klamber_bonus_1_level_config:
 	dw $0002,$3003 : db $02 : dw DATA_FD196C : db $03,$79,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$30,$01,$AD,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD14CD:
+;$FD14CD
+koindozer_klamber_bonus_2_level_config:
 	dw $0002,$1504 : db $02 : dw DATA_FD196C : db $04,$79,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$58,$01,$AD,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD14E6:
+;$FD14E6
+creepy_caverns_bonus_1_level_config:
 	dw $0002,$5003 : db $01 : dw DATA_FD18FE : db $08,$70,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$30,$01,$69,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD14FF:
+;$FD14FF
+creepy_caverns_bonus_2_level_config:
 	dw $0002,$0101 : db $01 : dw DATA_FD18FE : db $09,$70,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$50,$01,$F1,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD1518:
+;$FD1518
+bobbing_barrel_brawl_bonus_1_level_config:
 	dw $0002,$0101 : db $03 : dw DATA_FD19B9 : db $06,$73,$00 : dw $0000 : db $00 : dw $0000,$0400
 	db $00,$20,$01,$21,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD1531:
+;$FD1531
+bobbing_barrel_brawl_bonus_2_level_config:
 	dw $0002,$1003 : db $03 : dw DATA_FD19B9 : db $05,$73,$00 : dw $0000 : db $00 : dw $0000,$0400
 	db $00,$20,$01,$21,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD154A:
+;$FD154A
+konveyor_rope_klash_bonus_1_level_config:
 	dw $0002,$3003 : db $02 : dw DATA_FD196C : db $05,$7A,$00 : dw $0000 : db $00 : dw $0000,$000E
 	db $00,$18,$01,$0D,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD1563:
+;$FD1563
+konveyor_rope_klash_bonus_2_level_config:
 	dw $0002,$1504 : db $02 : dw DATA_FD196C : db $06,$7A,$00 : dw $0000 : db $00 : dw $0000,$000E
 	db $00,$20,$01,$4D,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD157C:
+;$FD157C
+poisonous_pipeline_bonus_1_level_config:
 	dw $0002,$3003 : db $03 : dw DATA_FD1A3D : db $03,$3D,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$20,$02,$80,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD1595:
+;$FD1595
+poisonous_pipeline_bonus_2_level_config:
 	dw $0002,$0902 : db $03 : dw DATA_FD1A3D : db $04,$3D,$00 : dw $0000 : db $00 : dw $0000,$0200
 	db $02,$E0,$03,$80,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD15AE:
+;$FD15AE
+swoopy_salvo_bonus_3_level_config:
 	dw $0002,$2003 : db $02 : dw DATA_FD1A06 : db $0A,$68,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$60,$01,$59,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD15C7:
+;$FD15C7
+swoopy_salvo_bonus_1_level_config:
 	dw $0002,$0101 : db $02 : dw DATA_FD1A06 : db $0B,$68,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$38,$01,$D7,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD15E0:
+;$FD15E0
+swoopy_salvo_bonus_2_level_config:
 	dw $0002,$1504 : db $02 : dw DATA_FD1A06 : db $0C,$68,$00 : dw $0000 : db $00 : dw $0000,$0000
 	db $00,$40,$01,$C0,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD15F9:
+;$FD15F9
+criss_kross_cliffs_bonus_1_level_config:
 	dw $0002,$1504 : db $02 : dw DATA_FD1961 : db $06,$6C,$00 : dw $000F : db $00 : dw $0000,$0000
 	db $00,$60,$01,$F9,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD1612:
+;$FD1612
+criss_kross_cliffs_bonus_2_level_config:
 	dw $0002,$0502 : db $02 : dw DATA_FD1961 : db $07,$6C,$00 : dw $001B : db $00 : dw $0000,$0000
 	db $00,$70,$01,$15,$03
 	db $FF
 	dw $FFFF
 
-DATA_FD162B:
+;$FD162B
+tyrant_twin_tussle_bonus_1_level_config:
 	dw $0002,$4003 : db $01 : dw DATA_FD18FE : db $0A,$4A,$00 : dw $000B : db $00 : dw $0000,$0000
 	db $00,$50,$01,$F1,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD1644:
+;$FD1644
+tyrant_twin_tussle_bonus_3_level_config:
 	dw $0002,$1504 : db $01 : dw DATA_FD18FE : db $0B,$4A,$00 : dw $000B : db $00 : dw $0000,$0000
 	db $00,$50,$01,$B1,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD165D:
+;$FD165D
+tyrant_twin_tussle_bonus_2_level_config:
 	dw $0002,$0101 : db $01 : dw DATA_FD18FE : db $0C,$4A,$00 : dw $000B : db $00 : dw $0000,$0000
 	db $00,$40,$01,$B1,$01
 	db $FF
 	dw $FFFF
 
-DATA_FD1676:
+;$FD1676
+stampede_sprint_bonus_2_level_config:
 	dw $0002,$1504 : db $02 : dw DATA_FD196C : db $07,$45,$00 : dw $0000 : db $00 : dw $0000,$0200
 	db $00,$20,$01,$4D,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD168F:
+;$FD168F
+stampede_sprint_bonus_3_level_config:
 	dw $0002,$1504 : db $02 : dw DATA_FD196C : db $07,$45,$00 : dw $0000 : db $00 : dw $0000,$0200
 	db $00,$20,$01,$4D,$02
 	db $FF
 	dw $FFFF
 
-DATA_FD16A8:
+;$FD16A8
+stampede_sprint_bonus_1_level_config:
 	dw $0002,$1504 : db $02 : dw DATA_FD196C : db $08,$45,$00 : dw $0000 : db $00 : dw $0000,$0200
 	db $00,$58,$01,$48,$02
 	db $FF

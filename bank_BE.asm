@@ -5431,7 +5431,7 @@ CODE_BEE7D4:
 	SBC #sprite_table			;$BEE7FB   |
 	STA.w CPU.dividen_low			;$BEE7FE   |
 	SEP #$20				;$BEE801   |
-	LDA #sizeof(sprite)			;$BEE803   |
+	LDA.b #sizeof(sprite)			;$BEE803   |
 	STA.w CPU.divisor			;$BEE805   |
 	REP #$20				;$BEE808   |
 	LDA [$00]				;$BEE80A   |
