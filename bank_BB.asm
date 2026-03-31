@@ -2564,7 +2564,7 @@ CODE_BB9244:
 	SBC #$0008				;$BB9271
 	STA $155E				;$BB9274
 	TAX					;$BB9277
-	STZ sprite_DMA[0].terminate,x		;$BB9278
+	STZ sprite_dma[0].terminate,x		;$BB9278
 	LDA $24					;$BB927B
 	DEC					;$BB927D
 	BEQ CODE_BB9285				;$BB927E
@@ -3569,13 +3569,13 @@ CODE_BB9956:
 CODE_BB9957:
 	JSL disable_screen			;$BB9957
 	JSL init_registers			;$BB995B
-	JSL CODE_80801B				;$BB995F
-	JSL clear_VRAM				;$BB9963
+	JSL clear_noncritical_wram		;$BB995F
+	JSL clear_vram				;$BB9963
 	STZ active_frame_counter		;$BB9967
 	LDX #$7EA15A				;$BB9969
 	LDY.w #$7EA15A>>16			;$BB996C
 	LDA #$0660				;$BB996F
-	JSL CODE_808030				;$BB9972
+	JSL clear_wram_block			;$BB9972
 	JSL clear_sound_buffers			;$BB9976
 	LDA $05AF				;$BB997A
 	AND #$D080				;$BB997D
@@ -3679,7 +3679,7 @@ CODE_BB9A7A:
 	LDA $0775				;$BB9A7A
 	AND #$0800				;$BB9A7D
 	STA $F8					;$BB9A80
-	JSL DMA_queued_sprite_palettes		;$BB9A82
+	JSL dma_queued_sprite_palettes		;$BB9A82
 CODE_BB9A86:
 	RTL					;$BB9A86
 
@@ -4561,7 +4561,7 @@ CODE_BBA154:
 	LDX #$7E9882				;$BBA154
 	LDY.w #$7E9882>>16			;$BBA157
 	LDA #$0050				;$BBA15A
-	JSL CODE_808030				;$BBA15D
+	JSL clear_wram_block			;$BBA15D
 	STZ $18AB				;$BBA161
 	LDX #$188D				;$BBA164
 	JSR CODE_BB9507				;$BBA167
@@ -4659,7 +4659,7 @@ CODE_BBA211:
 	BPL CODE_BBA222				;$BBA216
 	LDA #CODE_80803F			;$BBA218
 	LDX.w #CODE_80803F>>16			;$BBA21B
-	JML CODE_808003				;$BBA21E
+	JML set_game_mode_wait_for_nmi		;$BBA21E
 
 CODE_BBA222:
 	LDA $05B7				;$BBA222
@@ -4693,12 +4693,12 @@ CODE_BBA250:
 	STZ current_animal_type			;$BBA256
 	STZ current_mount			;$BBA258
 	STZ parry_index				;$BBA25A
-	LDA #CODE_808362			;$BBA25C
+	LDA #CODE_808362_nmi			;$BBA25C
 	STA $4A					;$BBA25F
 	STA $4C					;$BBA261
 	LDA #CODE_B48009			;$BBA263
 	LDX.w #CODE_B48009>>16			;$BBA266
-	JML CODE_808003				;$BBA269
+	JML set_game_mode_wait_for_nmi		;$BBA269
 
 CODE_BBA26D:
 	STZ $05B7				;$BBA26D
@@ -4713,12 +4713,12 @@ CODE_BBA27B:
 	BPL CODE_BBA27B				;$BBA280
 	LDA #$0006				;$BBA282
 	STA $05E3				;$BBA285
-	LDA #CODE_808362			;$BBA288
+	LDA #CODE_808362_nmi			;$BBA288
 	STA $4A					;$BBA28B
 	STA $4C					;$BBA28D
 	LDA #CODE_B48000			;$BBA28F
 	LDX.w #CODE_B48000>>16			;$BBA292
-	JML CODE_808003				;$BBA295
+	JML set_game_mode_wait_for_nmi		;$BBA295
 
 CODE_BBA299:
 	LDA current_game_mode			;$BBA299
@@ -4736,12 +4736,12 @@ CODE_BBA2B1:
 	STZ current_animal_type			;$BBA2B1
 	STZ current_mount			;$BBA2B3
 	STZ parry_index				;$BBA2B5
-	LDA #CODE_808362			;$BBA2B7
+	LDA #CODE_808362_nmi			;$BBA2B7
 	STA $4A					;$BBA2BA
 	STA $4C					;$BBA2BC
 	LDA #CODE_B48009			;$BBA2BE
 	LDX.w #CODE_B48009>>16			;$BBA2C1
-	JML CODE_808003				;$BBA2C4
+	JML set_game_mode_wait_for_nmi		;$BBA2C4
 
 CODE_BBA2C8:
 	LDA $195B				;$BBA2C8
@@ -4777,12 +4777,12 @@ CODE_BBA2C8:
 CODE_BBA316:
 	LDA #CODE_808493			;$BBA316
 	LDX.w #CODE_808493>>16			;$BBA319
-	JML CODE_808003				;$BBA31C
+	JML set_game_mode_wait_for_nmi		;$BBA31C
 
 CODE_BBA320:
 	LDA #CODE_B29578			;$BBA320
 	LDX.w #CODE_B29578>>16			;$BBA323
-	JML CODE_808003				;$BBA326
+	JML set_game_mode_wait_for_nmi		;$BBA326
 
 CODE_BBA32A:
 	STZ kong_letter_flags			;$BBA32A
@@ -4803,12 +4803,12 @@ CODE_BBA32A:
 	LDA map_node_number			;$BBA352
 	ORA #$8000				;$BBA355
 	STA map_node_number			;$BBA358
-	LDA #CODE_808362			;$BBA35B
+	LDA #CODE_808362_nmi			;$BBA35B
 	STA $4A					;$BBA35E
 	STA $4C					;$BBA360
 	LDA #CODE_B48009			;$BBA362
 	LDX.w #CODE_B48009>>16			;$BBA365
-	JML CODE_808003				;$BBA368
+	JML set_game_mode_wait_for_nmi		;$BBA368
 
 CODE_BBA36C:
 	LDA $04EA				;$BBA36C
@@ -4830,7 +4830,7 @@ CODE_BBA38B:
 	STZ $04EA				;$BBA396
 	LDA #CODE_808493			;$BBA399
 	LDX.w #CODE_808493>>16			;$BBA39C
-	JML CODE_808003				;$BBA39F
+	JML set_game_mode_wait_for_nmi		;$BBA39F
 
 CODE_BBA3A3:
 	LDA #$0002				;$BBA3A3
@@ -4838,7 +4838,7 @@ CODE_BBA3A3:
 	LDA #$4000				;$BBA3A9
 	TSB $061D				;$BBA3AC
 	PHP					;$BBA3AF
-	JSL CODE_80802A				;$BBA3B0
+	JSL save_game				;$BBA3B0
 	LDY #CODE_808051			;$BBA3B4
 	LDX.w #CODE_808051>>16			;$BBA3B7
 	PLP					;$BBA3BA
@@ -4851,8 +4851,8 @@ CODE_BBA3A3:
 CODE_BBA3CB:
 	STY $4E					;$BBA3CB
 	STX $50					;$BBA3CD
-	LDA #CODE_808348			;$BBA3CF
-	JML set_and_wait_for_NMI		;$BBA3D2
+	LDA #CODE_808348_nmi			;$BBA3CF
+	JML set_and_wait_for_nmi		;$BBA3D2
 
 CODE_BBA3D6:
 	JSL CODE_B38009				;$BBA3D6
@@ -7226,7 +7226,7 @@ CODE_BBB51E:
 	BCS CODE_BBB591				;$BBB526
 	JSR CODE_BBB749				;$BBB528
 	BNE CODE_BBB591				;$BBB52B
-	JSL CODE_808018				;$BBB52D
+	JSL get_random_number			;$BBB52D
 	TAY					;$BBB531
 	AND #$01FF				;$BBB532
 	STA $1A					;$BBB535

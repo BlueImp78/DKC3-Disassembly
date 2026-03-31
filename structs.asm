@@ -25,7 +25,8 @@ struct sprite $0000
 	.current_graphic_mirror:	skip 2  	;22,x
 	.current_graphic:		skip 2  	;24,x
 	.display_mode:			skip 2  	;26,x
-	.terrain_interaction:		skip 2  	;28,x
+	.terrain_interaction:		skip 1  	;28,x
+	.last_terrain_interaction:	skip 1  	;29,x
 	.x_speed:			skip 2  	;2A,x
 	.unknown_2C:			skip 1  	;2C,x
 	.unknown_2D:			skip 1		;2D,x
@@ -66,7 +67,7 @@ struct sprite $0000
 	.general_purpose_6C:		skip 2  	;6C,x   movement behavior?
 endstruct
 
-struct sprite_DMA sprite_DMA_buffer
+struct sprite_dma sprite_dma_buffer
 	.size:		skip 2
 	.destination:	skip 2
 	.source_word:	skip 2

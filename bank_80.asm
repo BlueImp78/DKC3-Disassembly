@@ -1,35 +1,35 @@
-CODE_808000:
-	JMP CODE_808387				;$808000
+game_mode_return:
+	JMP game_mode_return_local		;$808000
 
-CODE_808003:
-	JMP CODE_8083C3				;$808003
+set_game_mode_wait_for_nmi:
+	JMP set_game_mode_wait_for_nmi_local	;$808003
 
-CODE_808006:
-	JMP CODE_808384				;$808006
+game_mode_return_with_oam:
+	JMP game_mode_return_with_oam_local	;$808006
 
 init_registers:
 	JMP init_registers_global		;$808009
 
-clear_VRAM:
-	JMP clear_VRAM_global			;$80800C
+clear_vram:
+	JMP clear_vram_global			;$80800C
 
-set_all_OAM_offscreen:
-	JMP set_all_OAM_offscreen_global	;$80800F
+set_all_oam_offscreen:
+	JMP set_all_oam_offscreen_global	;$80800F
 
-set_unused_OAM_offscreen:
-	JMP set_unused_OAM_offscreen_global	;$808012
+set_unused_oam_offscreen:
+	JMP set_unused_oam_offscreen_global	;$808012
 
 input_and_pause_handler:
 	JMP input_and_pause_handler_global	;$808015
 
-CODE_808018:
-	JMP CODE_808C60				;$808018
+get_random_number:
+	JMP get_random_number_local		;$808018
 
-CODE_80801B:
-	JMP CODE_808CB0				;$80801B
+clear_noncritical_wram:
+	JMP clear_noncritical_wram_global	;$80801B
 
-DMA_queued_sprite_palette:
-	JMP DMA_queued_sprite_palette_global	;$80801E
+dma_queued_sprite_palette:
+	JMP dma_queued_sprite_palette_global	;$80801E
 
 screen_fade_handler:
 	JMP screen_fade_handler_global		;$808021
@@ -40,14 +40,14 @@ set_screen_fade:
 throw_exception:
 	JMP throw_exception_global		;$808027
 
-CODE_80802A:
-	JMP CODE_8091A3				;$80802A
+save_game:
+	JMP save_game_global			;$80802A
 
-CODE_80802D:
-	JMP CODE_808C3F				;$80802D
+prepare_oam_dma_channel:
+	JMP prepare_oam_dma_channel_global	;$80802D
 
-CODE_808030:
-	JMP CODE_808CEC				;$808030
+clear_wram_block:
+	JMP clear_wram_block_global		;$808030
 
 CODE_808033:
 	JMP CODE_808D2B				;$808033
@@ -55,11 +55,11 @@ CODE_808033:
 CODE_808036:
 	JMP CODE_808D5A				;$808036
 
-CODE_808039:
-	JMP CODE_8084C7				;$808039
+set_sub_modes_wait_for_nmi:
+	JMP set_sub_modes_wait_for_nmi_local	;$808039
 
-set_and_wait_for_NMI:
-	JMP set_and_wait_for_NMI_global		;$80803C
+set_and_wait_for_nmi:
+	JMP set_and_wait_for_nmi_global		;$80803C
 
 CODE_80803F:
 	JMP CODE_808EE6				;$80803F
@@ -82,8 +82,8 @@ CODE_80804E:
 CODE_808051:
 	JMP CODE_80B2C8				;$808051
 
-DMA_to_VRAM:
-	JMP DMA_to_VRAM_global			;$808054
+dma_to_vram:
+	JMP dma_to_vram_global			;$808054
 
 CODE_808057:
 	JMP CODE_808669				;$808057
@@ -136,8 +136,8 @@ CODE_808084:
 throw_sprite_group_exception:
 	JMP throw_sprite_group_exception_global	;$808087 Unused
 
-DMA_queued_sprite_palettes:
-	JMP DMA_queued_sprite_palettes_global	;$80808A
+dma_queued_sprite_palettes:
+	JMP dma_queued_sprite_palettes_global	;$80808A
 
 
 
@@ -282,7 +282,7 @@ RESET_start:
 	LDX #stack				;$808195
 	TXS					;$808198
 	%return(display_error_message)
-	%return(clear_VRAM_local)
+	%return(clear_vram_local)
 	BRA init_registers_local		;$808199
 
 .final_piracy_test:
@@ -304,7 +304,7 @@ RESET_start:
 	LDX #stack				;$8081B5
 	TXS					;$8081B8
 	%return(start_engine)
-	%return(clear_VRAM_local)
+	%return(clear_vram_local)
 init_registers_local:
 	SEP #$30				;$8081C5
 	LDX #$00				;$8081C7
@@ -375,7 +375,7 @@ init_registers_global:
 VRAM_zero_fill:
 	dw $0000
 
-clear_VRAM_local:
+clear_vram_local:
 	STZ PPU.vram_address			;$80825E
 	LDA #VRAM_zero_fill			;$808261
 	STA DMA[0].source_word			;$808264
@@ -391,275 +391,275 @@ clear_VRAM_local:
 	REP #$20				;$80827F
 	RTS					;$808281
 
-clear_VRAM_global:
-	JSR clear_VRAM_local			;$808282
+clear_vram_global:
+	JSR clear_vram_local			;$808282
 	RTL					;$808285
 
 start_engine:
-	LDX #$0006				;$808286
-CODE_808289:
-	LDA piracy_string_result,x		;$808289
-	CMP rare_string,x			;$80828C
-	BNE CODE_808295				;$80828F
-	DEX					;$808291
-	DEX					;$808292
-	BPL CODE_808289				;$808293
-CODE_808295:
-	CPX #$8000				;$808295
-	STZ active_frame_counter		;$808298
-	LDX #$0000				;$80829A
-	LDY #$0001				;$80829D
-	LDA #$FFFF				;$8082A0
-	MVN $7E,$7E				;$8082A3
-	LDY #$0000				;$8082A6
-	TYX					;$8082A9
-	LDA #$FFFF				;$8082AA
-	MVN $7F,$7E				;$8082AD
-	PHK					;$8082B0
-	PLB					;$8082B1
-	TDC					;$8082B2
-	ROL					;$8082B3
-	STA $06AB				;$8082B4
-	LDX #$0006				;$8082B7
-CODE_8082BA:
-	LDA rare_string,x			;$8082BA
-	STA piracy_string_result,x		;$8082BD
-	DEX					;$8082C0
-	DEX					;$8082C1
-	BPL CODE_8082BA				;$8082C2
-	LDA #$3127				;$8082C4
-	STA $02					;$8082C7
-	STA $04					;$8082C9
-	JSL upload_spc_engine			;$8082CB
-	JSR CODE_80BBA6				;$8082CF
-	LDA #$0004				;$8082D2
-	TRB $06AB				;$8082D5
-	TDC					;$8082D8
-	SEP #$20				;$8082D9
-	LDA $B06008				;$8082DB
-	BPL CODE_8082E2				;$8082DF
-	TDC					;$8082E1
-CODE_8082E2:
-	CMP #$03				;$8082E2
-	BCC CODE_8082E7				;$8082E4
-	TDC					;$8082E6
-CODE_8082E7:
-	REP #$20				;$8082E7
-	STA language_select			;$8082E9
-CODE_8082EC:
-	LDA #$0000				;$8082EC
-	TCD					;$8082EF
-	LDX #stack				;$8082F0
-	TXS					;$8082F3
-	JSL disable_screen_wrapper		;$8082F4
-	JSR init_registers_local		;$8082F8
-	JSL CODE_808C77				;$8082FB
-	STZ $04C8				;$8082FF
-	LDA #$4000				;$808302
-	STA $053B				;$808305
-	LDA #$000F				;$808308
-	STA $06CF				;$80830B
-	JSR CODE_808EA8				;$80830E
-	STZ $BA					;$808311
-	LDX #CODE_B284D6			;$808313
-	LDY.w #CODE_B284D6>>16			;$808316
-	LDA #CODE_808370			;$808319
-	STX $4E					;$80831C
-	STY $50					;$80831E
-	JMP set_and_wait_for_NMI_global		;$808320
+	LDX #$0006				;$808286  \
+CODE_808289:					;	   |
+	LDA piracy_string_result,x		;$808289   |
+	CMP rare_string,x			;$80828C   |
+	BNE CODE_808295				;$80828F   |
+	DEX					;$808291   |
+	DEX					;$808292   |
+	BPL CODE_808289				;$808293   |
+CODE_808295:					;	   |
+	CPX #$8000				;$808295   |
+	STZ active_frame_counter		;$808298   |
+	LDX #$0000				;$80829A   |
+	LDY #$0001				;$80829D   |
+	LDA #$FFFF				;$8082A0   |
+	MVN $7E,$7E				;$8082A3   |
+	LDY #$0000				;$8082A6   |
+	TYX					;$8082A9   |
+	LDA #$FFFF				;$8082AA   |
+	MVN $7F,$7E				;$8082AD   |
+	PHK					;$8082B0   |
+	PLB					;$8082B1   |
+	TDC					;$8082B2   |
+	ROL					;$8082B3   |
+	STA $06AB				;$8082B4   |
+	LDX #$0006				;$8082B7   |
+CODE_8082BA:					;	   |
+	LDA rare_string,x			;$8082BA   |
+	STA piracy_string_result,x		;$8082BD   |
+	DEX					;$8082C0   |
+	DEX					;$8082C1   |
+	BPL CODE_8082BA				;$8082C2   |
+	LDA #$3127				;$8082C4   |
+	STA $02					;$8082C7   |
+	STA $04					;$8082C9   |
+	JSL upload_spc_engine			;$8082CB   |
+	JSR CODE_80BBA6				;$8082CF   |
+	LDA #$0004				;$8082D2   |
+	TRB $06AB				;$8082D5   |
+	TDC					;$8082D8   |
+	SEP #$20				;$8082D9   |
+	LDA $B06008				;$8082DB   |
+	BPL CODE_8082E2				;$8082DF   |
+	TDC					;$8082E1   |
+CODE_8082E2:					;	   |
+	CMP #$03				;$8082E2   |
+	BCC CODE_8082E7				;$8082E4   |
+	TDC					;$8082E6   |
+CODE_8082E7:					;	   |
+	REP #$20				;$8082E7   |
+	STA language_select			;$8082E9   |
+CODE_8082EC:					;	   |
+	LDA #$0000				;$8082EC   |
+	TCD					;$8082EF   |
+	LDX #stack				;$8082F0   |\ Reset the stack
+	TXS					;$8082F3   |/
+	JSL disable_screen_wrapper		;$8082F4   |
+	JSR init_registers_local		;$8082F8   |
+	JSL CODE_808C77				;$8082FB   |
+	STZ $04C8				;$8082FF   |
+	LDA #$4000				;$808302   |
+	STA $053B				;$808305   |
+	LDA #$000F				;$808308   |
+	STA $06CF				;$80830B   |
+	JSR CODE_808EA8				;$80830E   |
+	STZ $BA					;$808311   |
+	LDX #CODE_B284D6			;$808313   |
+	LDY.w #CODE_B284D6>>16			;$808316   |
+	LDA #CODE_808370_nmi			;$808319   |
+	STX $4E					;$80831C   |
+	STY $50					;$80831E   |
+	JMP set_and_wait_for_nmi_global		;$808320  /
 
 CODE_808323:
-	LDA #$0001				;$808323
-	STA CPU.enable_dma_hdma			;$808326
-	BRA nmi_return				;$808329
+	LDA #$0001				;$808323  \
+	STA CPU.enable_dma_hdma			;$808326   | Enable DMA on channel 1
+	BRA nmi_return				;$808329  / Return from NMI
 
-CODE_80832B:
-	PHK					;$80832B
-	%return(nmi_return)			;$80832C
-	JMP [$0052]				;$80832F
+incomplete_frame_nmi:
+	PHK					;$80832B  \ \
+	%return(nmi_return)			;$80832C   |/ Set return address to NMI return
+	JMP [$0052]				;$80832F  /> Execute incomplete frame game mode
 
 nmi_return:
-	PLY					;$808332
-	PLX					;$808333
-	PLA					;$808334
-	PLD					;$808335
-	RTI					;$808336
+	PLY					;$808332  \
+	PLX					;$808333   |
+	PLA					;$808334   |
+	PLD					;$808335   |
+	RTI					;$808336  /> Return from interrupt
 
-CODE_808337:
+apply_screen_brightness:
 	SEP #$20				;$808337
 	LDA.l screen_brightness			;$808339
 	STA.l PPU.screen			;$80833D
 	REP #$20				;$808341
 	RTL					;$808343
 
-CODE_808344:
-	JSL screen_fade_handler_global		;$808344
-CODE_808348:
-	LDA #stack				;$808348
-	TCS					;$80834B
-	PHK					;$80834C
-	PLB					;$80834D
-	LDA #CODE_80832B			;$80834E
-	STA NMI_pointer				;$808351
-	INC active_frame_counter		;$808353
-	INC $C2					;$808355
-	BNE CODE_80835F				;$808357
-	INC $C4					;$808359
-	BNE CODE_80835F				;$80835B
-	DEC $C4					;$80835D
-CODE_80835F:
-	JMP [$004E]				;$80835F
+CODE_808344_nmi:
+	JSL screen_fade_handler_global		;$808344  \
+CODE_808348_nmi:				;	   |
+	LDA #stack				;$808348   |\ Reset the stack
+	TCS					;$80834B   |/
+	PHK					;$80834C   |\ Use program bank as current bank
+	PLB					;$80834D   |/
+	LDA #incomplete_frame_nmi		;$80834E   |\ Setup incomplete frame NMI in case the game mode lags
+	STA nmi_pointer				;$808351   |/
+	INC active_frame_counter		;$808353   |> Increment the active frame counter
+	INC $C2					;$808355   |\ Increment the gameplay frame counter
+	BNE .run				;$808357   |/ If the low word didnt overflow then continue
+	INC $C4					;$808359   |\ Else, increment high word of frame counter
+	BNE .run				;$80835B   |/ If high word also didnt overflow then continue
+	DEC $C4					;$80835D   |> Else, cap the frame counter to prevent an overflow
+.run:						;	   |
+	JMP [$004E]				;$80835F  /> Execute game mode
 
-CODE_808362:
-	LDA #stack				;$808362
-	TCS					;$808365
-	LDA #CODE_80832B			;$808366
-	STA NMI_pointer				;$808369
-	INC active_frame_counter		;$80836B
-	JMP [$004E]				;$80836D
+CODE_808362_nmi:
+	LDA #stack				;$808362  \ \ Reset the stack
+	TCS					;$808365   |/
+	LDA #incomplete_frame_nmi		;$808366   |\ Setup incomplete frame NMI in case the game mode lags
+	STA nmi_pointer				;$808369   |/
+	INC active_frame_counter		;$80836B   |> Increment the active frame counter
+	JMP [$004E]				;$80836D  /> Execute game mode
 
-CODE_808370:
-	LDA #stack				;$808370
-	TCS					;$808373
-	LDA #CODE_80832B			;$808374
-	STA NMI_pointer				;$808377
-	INC active_frame_counter		;$808379
-	INC $F4					;$80837B
-	BNE CODE_808381				;$80837D
-	INC $F6					;$80837F
-CODE_808381:
-	JMP [$004E]				;$808381
+CODE_808370_nmi:
+	LDA #stack				;$808370  \ \ Reset the stack
+	TCS					;$808373   |/
+	LDA #incomplete_frame_nmi		;$808374   |\ Setup incomplete frame NMI in case the game mode lags
+	STA nmi_pointer				;$808377   |/
+	INC active_frame_counter		;$808379   |> Increment the active frame counter
+	INC $F4					;$80837B   |\ Increment the gameplay frame counter
+	BNE .run				;$80837D   |/ If the low word didnt overflow then continue
+	INC $F6					;$80837F   |> Else, increment high word of frame counter
+.run:						;	   |
+	JMP [$004E]				;$808381  /> Execute game mode
 
-CODE_808384:
-	JSR CODE_808C43				;$808384
-CODE_808387:
-	PHK					;$808387
-	PLB					;$808388
-	LDA $4C					;$808389
-	STA NMI_pointer				;$80838B
-	SEP #$20				;$80838D
-	LDA CPU.nmi_flag			;$80838F
-	LDA #$81				;$808392
-	STA CPU.enable_interrupts		;$808394
-	STZ joypad.port_0			;$808397
--:
-	WAI					;$80839A
-	BRA -					;$80839B
+game_mode_return_with_oam_local:
+	JSR prepare_oam_dma_channel_local	;$808384  \
+game_mode_return_local:				;	   |
+	PHK					;$808387   |\ Use program bank as current bank
+	PLB					;$808388   |/
+	LDA $4C					;$808389   |\ Get normal NMI pointer (effectively tells game no lag)
+	STA nmi_pointer				;$80838B   |/ Set it as the active NMI routine to run
+	SEP #$20				;$80838D   |\
+	LDA CPU.nmi_flag			;$80838F   | | Acknowledge NMI
+	LDA #$81				;$808392   | | Re-enable VBlank NMI and auto joy
+	STA CPU.enable_interrupts		;$808394   | |
+	STZ joypad.port_0			;$808397   |/ Clear joypad strobe
+.wait_for_interrupt:				;	   |
+	WAI					;$80839A   |\ Wait for the next NMI
+	BRA .wait_for_interrupt			;$80839B  /_/ If we somehow miss the WAI then WAI again
 
-set_and_wait_for_NMI_global:
-	STA NMI_pointer				;$80839D
-	STA $4C					;$80839F
-	LDA #CODE_808337			;$8083A1
-	STA $52					;$8083A4
-	LDA.w #CODE_808337>>16			;$8083A6
-	STA $54					;$8083A9
-	SEP #$20				;$8083AB
-	LDA CPU.irq_flag			;$8083AD
-	LDA CPU.nmi_flag			;$8083B0
-CODE_8083B3:
-	LDA CPU.nmi_flag			;$8083B3
-	BMI CODE_8083B3				;$8083B6
-	LDA #$81				;$8083B8
-	STA CPU.enable_interrupts		;$8083BA
-	STZ joypad.port_0			;$8083BD
-CODE_8083C0:
-	WAI					;$8083C0
-	BRA CODE_8083C0				;$8083C1
+set_and_wait_for_nmi_global:
+	STA nmi_pointer				;$80839D  \ \ Set active NMI pointer
+	STA $4C					;$80839F   |/ Set normal NMI (written to active NMI pointer if no lag)
+	LDA #apply_screen_brightness		;$8083A1   |\ Setup game mode code to run if a lag frame occurs
+	STA $52					;$8083A4   | |
+	LDA.w #apply_screen_brightness>>16	;$8083A6   | |
+	STA $54					;$8083A9   |/
+	SEP #$20				;$8083AB   |> 8 bit A
+	LDA CPU.irq_flag			;$8083AD   |\ Acknowledge IRQ
+	LDA CPU.nmi_flag			;$8083B0   |/ Acknowledge NMI
+.wait_for_nmi_clear:				;	   |\
+	LDA CPU.nmi_flag			;$8083B3   | |
+	BMI .wait_for_nmi_clear			;$8083B6   |/ If VBlank NMI is enabled then wait until it gets disabled
+	LDA #$81				;$8083B8   |\
+	STA CPU.enable_interrupts		;$8083BA   | | Re-enable VBlank NMI and auto joy
+	STZ joypad.port_0			;$8083BD   |/ Clear joypad strobe
+.wait_for_interrupt:				;	   |
+	WAI					;$8083C0   |\ Wait for the next NMI
+	BRA .wait_for_interrupt			;$8083C1  /_/ If we somehow miss the WAI then WAI again
 
-CODE_8083C3:
-	PHK					;$8083C3
-	PLB					;$8083C4
-	STA $4E					;$8083C5
-	STX $50					;$8083C7
-	JMP CODE_808384				;$8083C9
+set_game_mode_wait_for_nmi_local:
+	PHK					;$8083C3  \ \ Use program bank as current bank
+	PLB					;$8083C4   |/
+	STA $4E					;$8083C5   |\ Set current game mode
+	STX $50					;$8083C7   |/
+	JMP game_mode_return_with_oam_local	;$8083C9  /> Wait for next NMI
 
-CODE_8083CC:
-	LDA #$01FF				;$8083CC
-	TCS					;$8083CF
-	LDA #CODE_80832B			;$8083D0
-	STA $4A					;$8083D3
-	LDA #$2000				;$8083D5
-	BIT $05B1				;$8083D8
-	BEQ CODE_8083FB				;$8083DB
-	LDA #$0040				;$8083DD
-	TSB game_state_flags			;$8083E0
-	LDA $F4					;$8083E3
-	CMP $053D				;$8083E5
-	BCC CODE_80840A				;$8083E8
-	LDA screen_brightness			;$8083EA
-	AND #$FF00				;$8083ED
-	BNE CODE_80840A				;$8083F0
-	LDA #$810F				;$8083F2
-	JSL set_screen_fade_global		;$8083F5
-	BRA CODE_80840A				;$8083F9
+CODE_8083CC_nmi:
+	LDA #$01FF				;$8083CC  \ \ Reset the stack
+	TCS					;$8083CF   |/
+	LDA #incomplete_frame_nmi		;$8083D0   |\ Setup incomplete frame NMI in case the game mode lags
+	STA $4A					;$8083D3   |/
+	LDA #$2000				;$8083D5   |
+	BIT $05B1				;$8083D8   |
+	BEQ CODE_8083FB				;$8083DB   |
+	LDA #$0040				;$8083DD   |
+	TSB game_state_flags			;$8083E0   |
+	LDA $F4					;$8083E3   |
+	CMP $053D				;$8083E5   |
+	BCC CODE_80840A				;$8083E8   |
+	LDA screen_brightness			;$8083EA   |
+	AND #$FF00				;$8083ED   |
+	BNE CODE_80840A				;$8083F0   |
+	LDA #$810F				;$8083F2   |
+	JSL set_screen_fade_global		;$8083F5   |
+	BRA CODE_80840A				;$8083F9  /
 
 CODE_8083FB:
-	LDA $F4					;$8083FB
-	CMP $051D				;$8083FD
-	BCC CODE_80840A				;$808400
-	LDA #$0001				;$808402
-	STA $1D89				;$808405
-	STZ $F4					;$808408
-CODE_80840A:
-	INC active_frame_counter		;$80840A
-	INC $F4					;$80840C
-	JMP [$004E]				;$80840E
+	LDA $F4					;$8083FB  \
+	CMP $051D				;$8083FD   |
+	BCC CODE_80840A				;$808400   |
+	LDA #$0001				;$808402   |
+	STA $1D89				;$808405   |
+	STZ $F4					;$808408   |
+CODE_80840A:					;	   |
+	INC active_frame_counter		;$80840A   |
+	INC $F4					;$80840C   |
+	JMP [$004E]				;$80840E  /
 
 CODE_808411:
-	LDX #game_state_flags			;$808411
-	LDY #$00F3				;$808414
-CODE_808417:
-	STZ $00,x				;$808417
-	INX					;$808419
-	DEY					;$80841A
-	BNE CODE_808417				;$80841B
-	STZ $05BB				;$80841D
-	STZ $05BD				;$808420
-	STZ $05B7				;$808423
-	LDA $053B				;$808426
-	STA $06A1				;$808429
-	LDA #!level_lakeside_limbo		;$80842C
-	STA level_number			;$80842F
-	STA parent_level_number			;$808431
-	LDA #$0000				;$808434
-	STA current_kong			;$808437
-	STZ game_state_flags			;$80843A
-	STZ $05B1				;$80843D
-	STZ $C2					;$808440
-	STZ $C4					;$808442
-	JSR CODE_80912F				;$808444
-	LDA #$0959				;$808447
-	STA $0630				;$80844A
-	LDA #$000C				;$80844D
-	TSB $0615				;$808450
-	LDA #$0010				;$808453
-	TSB $0625				;$808456
-	LDA #$0080				;$808459
-	TSB $061B				;$80845C
-	LDA #$0020				;$80845F
-	TSB $0621				;$808462
-	LDA #$0400				;$808465
-	STA $0611				;$808468
-	LDA #$0004				;$80846B
-	STA $0613				;$80846E
-	JSL CODE_B4800C				;$808471
-	STZ $0523				;$808475
-	LDA #$0004				;$808478
-	STA $00052F				;$80847B
-	LDA #$0002				;$80847F
-	STA $000525				;$808482
-	STZ $0527				;$808486
-	LDA #$1D93				;$808489
-	STA $0541				;$80848C
-	STZ $0543				;$80848F
-	RTL					;$808492
+	LDX #game_state_flags			;$808411  \
+	LDY #$00F3				;$808414   |
+CODE_808417:					;	   |
+	STZ $00,x				;$808417   |
+	INX					;$808419   |
+	DEY					;$80841A   |
+	BNE CODE_808417				;$80841B   |
+	STZ $05BB				;$80841D   |
+	STZ $05BD				;$808420   |
+	STZ $05B7				;$808423   |
+	LDA $053B				;$808426   |
+	STA $06A1				;$808429   |
+	LDA #!level_lakeside_limbo		;$80842C   |
+	STA level_number			;$80842F   |
+	STA parent_level_number			;$808431   |
+	LDA #$0000				;$808434   |
+	STA current_kong			;$808437   |
+	STZ game_state_flags			;$80843A   |
+	STZ $05B1				;$80843D   |
+	STZ $C2					;$808440   |
+	STZ $C4					;$808442   |
+	JSR CODE_80912F				;$808444   |
+	LDA #$0959				;$808447   |
+	STA $0630				;$80844A   |
+	LDA #$000C				;$80844D   |
+	TSB $0615				;$808450   |
+	LDA #$0010				;$808453   |
+	TSB $0625				;$808456   |
+	LDA #$0080				;$808459   |
+	TSB $061B				;$80845C   |
+	LDA #$0020				;$80845F   |
+	TSB $0621				;$808462   |
+	LDA #$0400				;$808465   |
+	STA $0611				;$808468   |
+	LDA #$0004				;$80846B   |
+	STA $0613				;$80846E   |
+	JSL CODE_B4800C				;$808471   |
+	STZ $0523				;$808475   |
+	LDA #$0004				;$808478   |
+	STA $00052F				;$80847B   |
+	LDA #$0002				;$80847F   |
+	STA $000525				;$808482   |
+	STZ $0527				;$808486   |
+	LDA #$1D93				;$808489   |
+	STA $0541				;$80848C   |
+	STZ $0543				;$80848F   |
+	RTL					;$808492  /
 
 CODE_808493:
 	PHK					;$808493
 	PLB					;$808494
-	LDA #CODE_808337			;$808495
+	LDA #apply_screen_brightness		;$808495
 	STA $52					;$808498
-	LDA.w #CODE_808337>>16			;$80849A
+	LDA.w #apply_screen_brightness>>16	;$80849A
 	STA $54					;$80849D
 	JSL CODE_BB8576				;$80849F
 	PHK					;$8084A3
@@ -676,17 +676,17 @@ CODE_808493:
 	LDX.w #CODE_B38076>>16			;$8084BD
 	STA $4E					;$8084C0
 	STX $50					;$8084C2
-	JMP CODE_808384				;$8084C4
+	JMP game_mode_return_with_oam_local	;$8084C4
 
-CODE_8084C7:
-	SEP #$20				;$8084C7
-	STA $58					;$8084C9
-	XBA					;$8084CB
-	STA $56					;$8084CC
-	REP #$20				;$8084CE
-	LDA #CODE_B38076			;$8084D0
-	LDX.w #CODE_B38076>>16			;$8084D3
-	JMP CODE_8083C3				;$8084D6
+set_sub_modes_wait_for_nmi_local:
+	SEP #$20				;$8084C7  \
+	STA $58					;$8084C9   |
+	XBA					;$8084CB   |
+	STA $56					;$8084CC   |
+	REP #$20				;$8084CE   |
+	LDA #CODE_B38076			;$8084D0   |
+	LDX.w #CODE_B38076>>16			;$8084D3   |
+	JMP set_game_mode_wait_for_nmi_local	;$8084D6  /
 
 throw_sprite_group_exception_global:
 	PHX					;$8084D9
@@ -1008,7 +1008,7 @@ CODE_80872E:
 CODE_808769:
 	JSL CODE_B7800C				;$808769
 	JSL CODE_B78000				;$80876D
-	JSL set_unused_OAM_offscreen_global	;$808771
+	JSL set_unused_oam_offscreen_global	;$808771
 	JSR CODE_809741				;$808775
 	BEQ CODE_80877B				;$808778
 	RTL					;$80877A
@@ -1023,10 +1023,10 @@ CODE_80877B:
 	STA $4E					;$80878C
 	LDA.w #CODE_80B2C8>>16			;$80878E
 	STA $50					;$808791
-	LDA #CODE_808362			;$808793
-	JMP set_and_wait_for_NMI_global		;$808796
+	LDA #CODE_808362_nmi			;$808793
+	JMP set_and_wait_for_nmi_global		;$808796
 
-DMA_queued_sprite_palette_global:
+dma_queued_sprite_palette_global:
 	LDA $1D8B				;$808799
 	BNE CODE_8087F9				;$80879C
 	LDA $E6					;$80879E
@@ -1056,14 +1056,14 @@ DMA_queued_sprite_palette_global:
 CODE_8087D4:
 	RTL					;$8087D4
 
-DMA_queued_sprite_palettes_global:
-	JSL DMA_queued_sprite_palette_global	;$8087D5
+dma_queued_sprite_palettes_global:
+	JSL dma_queued_sprite_palette_global	;$8087D5
 	LDA $E6					;$8087D9
 	CMP $E8					;$8087DB
-	BNE DMA_queued_sprite_palettes_global	;$8087DD
+	BNE dma_queued_sprite_palettes_global	;$8087DD
 	RTL					;$8087DF
 
-DMA_to_VRAM_global:
+dma_to_vram_global:
 	STA DMA[0].source_word			;$8087E0
 	STY DMA[0].size				;$8087E3
 	LDA #$1801				;$8087E6
@@ -1145,88 +1145,88 @@ CODE_80889E:
 	LDX.w #(DATA_FC2F40+$C0)>>16		;$8088A4
 	LDA #DATA_FC2F40+$C0			;$8088A7
 	LDY #$0020				;$8088AA
-	JSL DMA_to_VRAM_global			;$8088AD
+	JSL dma_to_vram_global			;$8088AD
 	LDA #$1E90				;$8088B1
 	STA PPU.vram_address			;$8088B4
 	LDX.w #(DATA_FC2F40+$C0)>>16		;$8088B7
 	LDA #DATA_FC2F40+$C0			;$8088BA
 	LDY #$0020				;$8088BD
-	JSL DMA_to_VRAM_global			;$8088C0
+	JSL dma_to_vram_global			;$8088C0
 	LDA #$1F80				;$8088C4
 	STA PPU.vram_address			;$8088C7
 	LDX.w #(DATA_FC2F40+$C0)>>16		;$8088CA
 	LDA #DATA_FC2F40+$C0			;$8088CD
 	LDY #$0020				;$8088D0
-	JSL DMA_to_VRAM_global			;$8088D3
+	JSL dma_to_vram_global			;$8088D3
 	LDA #$1F90				;$8088D7
 	STA PPU.vram_address			;$8088DA
 	LDX.w #(DATA_FC2F40+$C0)>>16		;$8088DD
 	LDA #DATA_FC2F40+$C0			;$8088E0
 	LDY #$0020				;$8088E3
-	JSL DMA_to_VRAM_global			;$8088E6
+	JSL dma_to_vram_global			;$8088E6
 	LDA #$1EA0				;$8088EA
 	STA PPU.vram_address			;$8088ED
 	LDX.w #DATA_FC2F40>>16			;$8088F0
 	LDA #DATA_FC2F40			;$8088F3
 	LDY #$0060				;$8088F6
-	JSL DMA_to_VRAM_global			;$8088F9
+	JSL dma_to_vram_global			;$8088F9
 	LDA #$1ED0				;$8088FD
 	STA PPU.vram_address			;$808900
 	LDX.w #(DATA_FC2F40+$40)>>16		;$808903
 	LDA #DATA_FC2F40+$40			;$808906
 	LDY #$0060				;$808909
-	JSL DMA_to_VRAM_global			;$80890C
+	JSL dma_to_vram_global			;$80890C
 	LDA #$1FA0				;$808910
 	STA PPU.vram_address			;$808913
 	LDX.w #(DATA_FC2F40+$A0)>>16		;$808916
 	LDA #DATA_FC2F40+$A0			;$808919
 	LDY #$0020				;$80891C
-	JSL DMA_to_VRAM_global			;$80891F
+	JSL dma_to_vram_global			;$80891F
 	LDA #$1FB0				;$808923
 	STA PPU.vram_address			;$808926
 	LDX.w #(DATA_FC2F40+$80)>>16		;$808929
 	LDA #DATA_FC2F40+$80			;$80892C
 	LDY #$0020				;$80892F
-	JSL DMA_to_VRAM_global			;$808932
+	JSL dma_to_vram_global			;$808932
 	LDA #$1FC0				;$808936
 	STA PPU.vram_address			;$808939
 	LDX.w #(DATA_FC2F40+$80)>>16		;$80893C
 	LDA #DATA_FC2F40+$80			;$80893F
 	LDY #$0020				;$808942
-	JSL DMA_to_VRAM_global			;$808945
+	JSL dma_to_vram_global			;$808945
 	LDA #$1FD0				;$808949
 	STA PPU.vram_address			;$80894C
 	LDX.w #(DATA_FC2F40+$80)>>16		;$80894F
 	LDA #DATA_FC2F40+$80			;$808952
 	LDY #$0020				;$808955
-	JSL DMA_to_VRAM_global			;$808958
+	JSL dma_to_vram_global			;$808958
 	LDA #$1FF0				;$80895C
 	STA PPU.vram_address			;$80895F
 	LDX.w #(DATA_FC2F40+$80)>>16		;$808962
 	LDA #DATA_FC2F40+$80			;$808965
 	LDY #$0020				;$808968
-	JSL DMA_to_VRAM_global			;$80896B
+	JSL dma_to_vram_global			;$80896B
 	LDA #$1FE0				;$80896F
 	STA PPU.vram_address			;$808972
 	LDX.w #(DATA_FC2F40+$60)>>16		;$808975
 	LDA #DATA_FC2F40+$60			;$808978
 	LDY #$0020				;$80897B
-	JSL DMA_to_VRAM_global			;$80897E
+	JSL dma_to_vram_global			;$80897E
 	RTS					;$808982
 
-set_all_OAM_offscreen_global:
+set_all_oam_offscreen_global:
 	LDA #oam_table				;$808983
 	STA next_oam_slot			;$808986
-	JSR set_unused_OAM_offscreen_local	;$808988
+	JSR set_unused_oam_offscreen_local	;$808988
 	RTL					;$80898B
 
-set_unused_OAM_offscreen_global:
+set_unused_oam_offscreen_global:
 	PHB					;$80898C
-	JSR set_unused_OAM_offscreen_local	;$80898D
+	JSR set_unused_oam_offscreen_local	;$80898D
 	PLB					;$808990
 	RTL					;$808991
 
-set_unused_OAM_offscreen_local:
+set_unused_oam_offscreen_local:
 	PHK					;$808992
 	PLB					;$808993
 	LDX next_oam_slot			;$808994
@@ -1386,7 +1386,7 @@ CODE_808ADC:
 	JSR CODE_808B0B				;$808AE5
 CODE_808AE8:
 	LDA $4C					;$808AE8
-	CMP #CODE_8083CC			;$808AEA
+	CMP #CODE_8083CC_nmi			;$808AEA
 	BEQ CODE_808AF7				;$808AED
 	LDA player_active_pressed		;$808AEF
 	AND #!input_start			;$808AF2
@@ -1559,11 +1559,11 @@ DATA_808C35:
 	dw !input_select
 	dw $FFFF
 
-CODE_808C3F:
-	JSR CODE_808C43				;$808C3F
+prepare_oam_dma_channel_global:
+	JSR prepare_oam_dma_channel_local	;$808C3F
 	RTL					;$808C42
 
-CODE_808C43:
+prepare_oam_dma_channel_local:
 	LDA #$0200				;$808C43
 	STA DMA[0].source_word			;$808C46
 	STA DMA[0].unused_2			;$808C49
@@ -1577,7 +1577,7 @@ CODE_808C43:
 	RTS					;$808C5F
 
 ;Get RNG
-CODE_808C60:
+get_random_number_local:
 	LDA $02					;$808C60
 	STA temp_1C				;$808C62
 	ASL					;$808C64
@@ -1603,20 +1603,20 @@ CODE_808C77:
 	INX					;$808C84
 	LDY #$007E				;$808C85
 	LDA #$0683				;$808C88
-	JSL CODE_808CEC				;$808C8B
+	JSL clear_wram_block_global		;$808C8B
 	LDX #$06D8				;$808C8F
 	LDY #$007E				;$808C92
 	LDA #$F928				;$808C95
-	JSL CODE_808CEC				;$808C98
+	JSL clear_wram_block_global		;$808C98
 	LDX #$0000				;$808C9C
 	LDY #$007F				;$808C9F
 	LDA #$0000				;$808CA2
-	JSL CODE_808CEC				;$808CA5
+	JSL clear_wram_block_global		;$808CA5
 	LDX #$01FF				;$808CA9
 	TXS					;$808CAC
 	JMP [$001A]				;$808CAD
 
-CODE_808CB0:
+clear_noncritical_wram_global:
 	PHB					;$808CB0
 	PHK					;$808CB1
 	PLB					;$808CB2
@@ -1624,23 +1624,23 @@ CODE_808CB0:
 	LDX #$00C6				;$808CB6
 	LDY #$007E				;$808CB9
 	LDA #$0034				;$808CBC
-	JSL CODE_808CEC				;$808CBF
+	JSL clear_wram_block_global		;$808CBF
 	LDX #$06D8				;$808CC3
 	LDY #$007E				;$808CC6
 	LDA #$16C3				;$808CC9
-	JSL CODE_808CEC				;$808CCC
+	JSL clear_wram_block_global		;$808CCC
 	LDX #$2D80				;$808CD0
 	LDY #$007E				;$808CD3
 	LDA #$D280				;$808CD6
-	JSL CODE_808CEC				;$808CD9
+	JSL clear_wram_block_global		;$808CD9
 	LDX #$0000				;$808CDD
 	LDY #$007F				;$808CE0
 	LDA #$0000				;$808CE3
-	JSL CODE_808CEC				;$808CE6
+	JSL clear_wram_block_global		;$808CE6
 	PLB					;$808CEA
 	RTL					;$808CEB
 
-CODE_808CEC:
+clear_wram_block_global:
 	STA DMA[0].size				;$808CEC
 	TXA					;$808CEF
 	STA DMA[0].source_word			;$808CF0
@@ -1902,7 +1902,7 @@ CODE_808EBA:
 	RTL					;$808EBD
 
 CODE_808EBE:
-	JSL CODE_808C60				;$808EBE
+	JSL get_random_number_local		;$808EBE
 	AND $06CF				;$808EC2
 	TAX					;$808EC5
 	LDA $06AF,x				;$808EC6
@@ -1974,8 +1974,8 @@ CODE_808F33:
 	STA $4E					;$808F59
 	LDA.w #CODE_808493>>16			;$808F5B
 	STA $50					;$808F5E
-	LDA #CODE_808344			;$808F60
-	JMP set_and_wait_for_NMI_global		;$808F63
+	LDA #CODE_808344_nmi			;$808F60
+	JMP set_and_wait_for_nmi_global		;$808F63
 
 CODE_808F66:
 	LDX $052F				;$808F66
@@ -1992,16 +1992,16 @@ CODE_808F66:
 	LDY.w #CODE_B284D6>>16			;$808F86
 	STX $4E					;$808F89
 	STY $50					;$808F8B
-	LDA #CODE_808370			;$808F8D
-	JMP set_and_wait_for_NMI_global		;$808F90
+	LDA #CODE_808370_nmi			;$808F8D
+	JMP set_and_wait_for_nmi_global		;$808F90
 
 CODE_808F93:
 	LDA #CODE_809489			;$808F93
 	STA $4E					;$808F96
 	LDX.w #CODE_809489>>16			;$808F98
 	STX $50					;$808F9B
-	LDA #CODE_808370			;$808F9D
-	JMP set_and_wait_for_NMI_global		;$808FA0
+	LDA #CODE_808370_nmi			;$808F9D
+	JMP set_and_wait_for_nmi_global		;$808FA0
 
 CODE_808FA3:
 	CMP #$FFFF				;$808FA3
@@ -2025,8 +2025,8 @@ CODE_808FA3:
 	STA $4E					;$808FD8
 	LDA.w #CODE_B48009>>16			;$808FDA
 	STA $50					;$808FDD
-	LDA #CODE_808344			;$808FDF
-	JMP set_and_wait_for_NMI_global		;$808FE2
+	LDA #CODE_808344_nmi			;$808FDF
+	JMP set_and_wait_for_nmi_global		;$808FE2
 
 CODE_808FE5:
 	CMP #$FFFE				;$808FE5
@@ -2047,8 +2047,8 @@ CODE_808FE5:
 	STA $4E					;$809011
 	LDA.w #CODE_B48009>>16			;$809013
 	STA $50					;$809016
-	LDA #CODE_808344			;$809018
-	JMP set_and_wait_for_NMI_global		;$80901B
+	LDA #CODE_808344_nmi			;$809018
+	JMP set_and_wait_for_nmi_global		;$80901B
 
 CODE_80901E:
 	LDA #$040A				;$80901E
@@ -2061,8 +2061,8 @@ CODE_80901E:
 	STA $4E					;$809033
 	LDA.w #CODE_B48000>>16			;$809035
 	STA $50					;$809038
-	LDA #CODE_808344			;$80903A
-	JMP set_and_wait_for_NMI_global		;$80903D
+	LDA #CODE_808344_nmi			;$80903A
+	JMP set_and_wait_for_nmi_global		;$80903D
 
 CODE_809040:
 	LDA #!music_mama_bird_chase		;$809040
@@ -2108,7 +2108,7 @@ CODE_809040:
 	TSB $0696				;$8090B7
 	LDA #CODE_B48009			;$8090BA
 	LDX.w #CODE_B48009>>16			;$8090BD
-	JMP CODE_8083C3				;$8090C0
+	JMP set_game_mode_wait_for_nmi_local	;$8090C0
 
 CODE_8090C3:
 	LDA #$0001				;$8090C3
@@ -2122,12 +2122,12 @@ CODE_8090C3:
 	STZ $05B7				;$8090DA
 	LDA #$0563				;$8090DD
 	JSL CODE_B28027				;$8090E0
-	LDA #CODE_808348			;$8090E4
+	LDA #CODE_808348_nmi			;$8090E4
 	STA $4A					;$8090E7
 	STA $4C					;$8090E9
 	LDA #CODE_808493			;$8090EB
 	LDX.w #CODE_808493>>16			;$8090EE
-	JMP CODE_8083C3				;$8090F1
+	JMP set_game_mode_wait_for_nmi_local	;$8090F1
 
 CODE_8090F4:
 	STZ active_player			;$8090F4
@@ -2191,11 +2191,10 @@ CODE_80916F:
 	CLC					;$80916F
 	RTS					;$809170
 
-;SRAM addresses
-DATA_809171:
-	dw $B06062
-	dw $B062EC
-	dw $B06576
+save_file_sram_addresses:
+	dw $B06062				;1
+	dw $B062EC				;2
+	dw $B06576				;3
 
 CODE_809177:
 	STZ temp_3E				;$809177
@@ -2225,15 +2224,15 @@ CODE_80918F:
 CODE_8091A2:
 	RTS					;$8091A2
 
-CODE_8091A3:
+save_game_global:
 	PHB					;$8091A3
-	JSR CODE_8091A9				;$8091A4
+	JSR save_game_local			;$8091A4
 	PLB					;$8091A7
 	RTL					;$8091A8
 
-CODE_8091A9:
-	JSR CODE_80920D				;$8091A9
-	JSR CODE_8091CB				;$8091AC
+save_game_local:
+	JSR update_save_buffer			;$8091A9
+	JSR copy_save_file_to_sram		;$8091AC
 	RTS					;$8091AF
 
 CODE_8091B0:
@@ -2241,19 +2240,19 @@ CODE_8091B0:
 	CMP #!gamemode_2_player_contest		;$8091B3
 	BNE CODE_8091C4				;$8091B6
 	JSR CODE_80939D				;$8091B8
-	JSR CODE_80920D				;$8091BB
-	JSR CODE_8091CB				;$8091BE
+	JSR update_save_buffer			;$8091BB
+	JSR copy_save_file_to_sram		;$8091BE
 	JSR CODE_80939D				;$8091C1
 CODE_8091C4:
-	JSR CODE_80920D				;$8091C4
-	JSR CODE_8091CB				;$8091C7
+	JSR update_save_buffer			;$8091C4
+	JSR copy_save_file_to_sram		;$8091C7
 	RTS					;$8091CA
 
-CODE_8091CB:
+copy_save_file_to_sram:
 	LDA $04C8				;$8091CB
 	ASL					;$8091CE
 	TAX					;$8091CF
-	LDA.l DATA_809171,x			;$8091D0
+	LDA.l save_file_sram_addresses,x	;$8091D0
 	STA temp_1A				;$8091D4
 	LDA #$00B0				;$8091D6
 	STA temp_1C				;$8091D9
@@ -2272,7 +2271,7 @@ CODE_8091EC:
 	LDA $04C8				;$8091EC
 	ASL					;$8091EF
 	TAX					;$8091F0
-	LDA.l DATA_809171,x			;$8091F1
+	LDA.l save_file_sram_addresses,x	;$8091F1
 	STA temp_1A				;$8091F5
 	LDA #$00B0				;$8091F7
 	STA temp_1C				;$8091FA
@@ -2287,7 +2286,7 @@ CODE_809203:
 	PLB					;$80920B
 	RTS					;$80920C
 
-CODE_80920D:
+update_save_buffer:
 	LDA #$2AF4				;$80920D
 	STA $84					;$809210
 	LDA #$007E				;$809212
@@ -2571,20 +2570,20 @@ CODE_809428:
 	RTS					;$809436
 
 CODE_809437:
-	LDA #CODE_808337			;$809437
+	LDA #apply_screen_brightness		;$809437
 	STA $52					;$80943A
-	LDA.w #CODE_808337>>16			;$80943C
+	LDA.w #apply_screen_brightness>>16	;$80943C
 	STA $54					;$80943F
 	LDA #$1300				;$809441
 	STA $80					;$809444
 	JSL disable_screen_wrapper		;$809446
 	JSL init_registers_global		;$80944A
-	JSL CODE_808CB0				;$80944E
-	JSL clear_VRAM_global			;$809452
+	JSL clear_noncritical_wram_global	;$80944E
+	JSL clear_vram_global			;$809452
 	LDX #$A15A				;$809456
 	LDY #$007E				;$809459
 	LDA #$0660				;$80945C
-	JSL CODE_808CEC				;$80945F
+	JSL clear_wram_block_global		;$80945F
 	JSL CODE_BB857F				;$809463
 	LDA #$0200				;$809467
 	STA DMA[0].source_word			;$80946A
@@ -2645,7 +2644,7 @@ CODE_8094A8:
 	LDX #$F000				;$8094F7
 	LDY #$007E				;$8094FA
 	LDA #$0800				;$8094FD
-	JSL CODE_808CEC				;$809500
+	JSL clear_wram_block_global		;$809500
 	LDY #$000C				;$809504
 	JSR CODE_809E1A				;$809507
 	LDA #$5820				;$80950A
@@ -2675,15 +2674,15 @@ CODE_8094A8:
 	LDA #$0020				;$809551
 	JSR CODE_80A3E9				;$809554
 	STZ active_player			;$809557
-	JSL DMA_queued_sprite_palette_global	;$80955A
-	JSL DMA_queued_sprite_palette_global	;$80955E
-	JSL DMA_queued_sprite_palette_global	;$809562
-	JSL DMA_queued_sprite_palette_global	;$809566
+	JSL dma_queued_sprite_palette_global	;$80955A
+	JSL dma_queued_sprite_palette_global	;$80955E
+	JSL dma_queued_sprite_palette_global	;$809562
+	JSL dma_queued_sprite_palette_global	;$809566
 	LDA #$0200				;$80956A
 	JSL set_screen_fade_global		;$80956D
 	LDA #CODE_809586			;$809571
 	LDX.w #CODE_809586>>16			;$809574
-	JMP CODE_8083C3				;$809577
+	JMP set_game_mode_wait_for_nmi_local	;$809577
 
 CODE_80957A:
 	STZ $1E					;$80957A
@@ -2696,7 +2695,7 @@ CODE_809586:
 	LDA pending_dma_hdma_channels		;$809586
 	STA CPU.enable_dma_hdma			;$809589
 	JSL DMA_sprite_graphics			;$80958C
-	JSL DMA_queued_sprite_palette_global	;$809590
+	JSL dma_queued_sprite_palette_global	;$809590
 	LDX #$7C00				;$809594
 	STX PPU.vram_address			;$809597
 	LDA #$F000				;$80959A
@@ -2719,7 +2718,7 @@ CODE_809586:
 	REP #$20				;$8095C8
 	STZ $1560				;$8095CA
 	STZ $155E				;$8095CD
-	JSL CODE_808C60				;$8095D0
+	JSL get_random_number_local		;$8095D0
 	LDA $1C35				;$8095D4
 	BIT #$4000				;$8095D7
 	BNE CODE_8095E0				;$8095DA
@@ -2775,7 +2774,7 @@ CODE_809647:
 	BNE CODE_809652				;$80964D
 	JSR CODE_80A465				;$80964F
 CODE_809652:
-	JSL set_unused_OAM_offscreen_global	;$809652
+	JSL set_unused_oam_offscreen_global	;$809652
 	JSR CODE_809741				;$809656
 	BEQ CODE_80966E				;$809659
 	LDA $1C87				;$80965B
@@ -2785,7 +2784,7 @@ CODE_809652:
 	LDA #$4000				;$809665
 	TRB $1C35				;$809668
 CODE_80966B:
-	JMP CODE_808384				;$80966B
+	JMP game_mode_return_with_oam_local	;$80966B
 
 CODE_80966E:
 	LDA #$0001				;$80966E
@@ -2812,7 +2811,7 @@ CODE_80969A:
 	STA $BA					;$8096A3
 	LDA #CODE_80B593			;$8096A5
 	LDX.w #CODE_80B593>>16			;$8096A8
-	JMP CODE_8083C3				;$8096AB
+	JMP set_game_mode_wait_for_nmi_local	;$8096AB
 
 CODE_8096AE:
 	STZ $BA					;$8096AE
@@ -2820,7 +2819,7 @@ CODE_8096AE:
 	TRB piracy_string_result		;$8096B3
 	LDA #CODE_B284D6			;$8096B6
 	LDX.w #CODE_B284D6>>16			;$8096B9
-	JMP CODE_8083C3				;$8096BC
+	JMP set_game_mode_wait_for_nmi_local	;$8096BC
 
 CODE_8096BF:
 	JSR CODE_8091B0				;$8096BF
@@ -2829,8 +2828,8 @@ CODE_8096C2:
 	STA $4E					;$8096C5
 	LDX.w #CODE_B48009>>16			;$8096C7
 	STX $50					;$8096CA
-	LDA #CODE_808362			;$8096CC
-	JMP set_and_wait_for_NMI_global		;$8096CF
+	LDA #CODE_808362_nmi			;$8096CC
+	JMP set_and_wait_for_nmi_global		;$8096CF
 
 CODE_8096D2:
 	LDA $1C37				;$8096D2
@@ -2846,7 +2845,7 @@ CODE_8096D2:
 	JSR CODE_80939D				;$8096F1
 	LDA #CODE_80AE3E			;$8096F4
 	LDX.w #CODE_80AE3E>>16			;$8096F7
-	JMP CODE_8083C3				;$8096FA
+	JMP set_game_mode_wait_for_nmi_local	;$8096FA
 
 CODE_8096FD:
 	LDA #$0003				;$8096FD
@@ -2875,7 +2874,7 @@ CODE_809731:
 CODE_809734:
 	ASL					;$809734
 	TAY					;$809735
-	LDA DATA_809171,y			;$809736
+	LDA save_file_sram_addresses,y		;$809736
 	STA $84					;$809739
 	LDA #$00B0				;$80973B
 	STA $86					;$80973E
@@ -5800,7 +5799,7 @@ CODE_80AE3E:
 	LDX #$F000				;$80AE6F
 	LDY #$007E				;$80AE72
 	LDA #$0800				;$80AE75
-	JSL CODE_808CEC				;$80AE78
+	JSL clear_wram_block_global		;$80AE78
 	SEP #$20				;$80AE7C
 	LDX #$3001				;$80AE7E
 	STX HDMA[$01].settings			;$80AE81
@@ -5846,22 +5845,22 @@ CODE_80AE3E:
 	LDA #$0020				;$80AF04
 	BIT $05B1				;$80AF07
 	BEQ CODE_80AF0F				;$80AF0A
-	JSR CODE_8091A9				;$80AF0C
+	JSR save_game_local				;$80AF0C
 CODE_80AF0F:
 	LDA #$0001				;$80AF0F
 	STA $06DA				;$80AF12
 	JSR CODE_80AF3E				;$80AF15
-	JSL DMA_queued_sprite_palette_global	;$80AF18
-	JSL DMA_queued_sprite_palette_global	;$80AF1C
-	JSL DMA_queued_sprite_palette_global	;$80AF20
-	JSL DMA_queued_sprite_palette_global	;$80AF24
+	JSL dma_queued_sprite_palette_global	;$80AF18
+	JSL dma_queued_sprite_palette_global	;$80AF1C
+	JSL dma_queued_sprite_palette_global	;$80AF20
+	JSL dma_queued_sprite_palette_global	;$80AF24
 	LDA #$0200				;$80AF28
 	JSL set_screen_fade_global		;$80AF2B
 	LDA #$0001				;$80AF2F
 	TRB game_state_flags			;$80AF32
 	LDA #CODE_80B1ED			;$80AF35
 	LDX.w #CODE_80B1ED>>16			;$80AF38
-	JMP CODE_8083C3				;$80AF3B
+	JMP set_game_mode_wait_for_nmi_local	;$80AF3B
 
 CODE_80AF3E:
 	LDA #DATA_B6F42C			;$80AF3E
@@ -6194,7 +6193,7 @@ CODE_80B1ED:
 	STA CPU.enable_dma			;$80B217
 	REP #$20				;$80B21A
 	JSL DMA_sprite_graphics			;$80B21C
-	JSL DMA_queued_sprite_palette_global	;$80B220
+	JSL dma_queued_sprite_palette_global	;$80B220
 	SEP #$20				;$80B224
 	LDA screen_brightness			;$80B226
 	STA PPU.screen				;$80B229
@@ -6213,10 +6212,10 @@ CODE_80B24C:
 	JSL CODE_B7800C				;$80B24C
 	JSL sprite_handler			;$80B250
 	JSL CODE_B7800F				;$80B254
-	JSL set_unused_OAM_offscreen_global	;$80B258
+	JSL set_unused_oam_offscreen_global	;$80B258
 	JSR CODE_809741				;$80B25C
 	BEQ CODE_80B264				;$80B25F
-	JMP CODE_808384				;$80B261
+	JMP game_mode_return_with_oam_local	;$80B261
 
 CODE_80B264:
 	LDA #$0020				;$80B264
@@ -6228,13 +6227,13 @@ CODE_80B264:
 	TSB $05B1				;$80B276
 	LDA #CODE_809489			;$80B279
 	LDX.w #CODE_809489>>16			;$80B27C
-	JMP CODE_8083C3				;$80B27F
+	JMP set_game_mode_wait_for_nmi_local	;$80B27F
 
 CODE_80B282:
 	STZ $05E3				;$80B282
 	LDA #CODE_B48000			;$80B285
 	LDX.w #CODE_B48000>>16			;$80B288
-	JMP CODE_8083C3				;$80B28B
+	JMP set_game_mode_wait_for_nmi_local	;$80B28B
 
 CODE_80B28E:
 	LDA player_active_held			;$80B28E
@@ -6301,16 +6300,16 @@ CODE_80B2C8:
 	STA $4E					;$80B30E
 	LDA.w #CODE_80B378>>16			;$80B310
 	STA $50					;$80B313
-	LDA #CODE_808370			;$80B315
-	JMP set_and_wait_for_NMI_global		;$80B318
+	LDA #CODE_808370_nmi			;$80B315
+	JMP set_and_wait_for_nmi_global		;$80B318
 
 CODE_80B31B:
 	LDA #CODE_808493			;$80B31B
 	STA $4E					;$80B31E
 	LDA.w #CODE_808493>>16			;$80B320
 	STA $50					;$80B323
-	LDA #CODE_8083CC			;$80B325
-	JMP set_and_wait_for_NMI_global		;$80B328
+	LDA #CODE_8083CC_nmi			;$80B325
+	JMP set_and_wait_for_nmi_global		;$80B328
 
 CODE_80B32B:
 	LDX #CODE_80B33D			;$80B32B
@@ -6318,8 +6317,8 @@ CODE_80B32B:
 	STX $4E					;$80B331
 	STY $50					;$80B333
 	STZ active_frame_counter		;$80B335
-	LDA #CODE_808370			;$80B337
-	JMP set_and_wait_for_NMI_global		;$80B33A
+	LDA #CODE_808370_nmi			;$80B337
+	JMP set_and_wait_for_nmi_global		;$80B33A
 
 CODE_80B33D:
 	LDA active_frame_counter		;$80B33D
@@ -6335,7 +6334,7 @@ CODE_80B33D:
 	LDA.l DATA_80B35B,x			;$80B350
 	JSL CODE_B28027				;$80B354
 CODE_80B358:
-	JMP CODE_808387				;$80B358
+	JMP game_mode_return_local		;$80B358
 
 DATA_80B35B:
 	dw $0763
@@ -6350,16 +6349,16 @@ CODE_80B363:
 	LDY.w #CODE_B284D6>>16			;$80B36B
 	STX $4E					;$80B36E
 	STY $50					;$80B370
-	LDA #CODE_808370			;$80B372
-	JMP set_and_wait_for_NMI_global		;$80B375
+	LDA #CODE_808370_nmi			;$80B372
+	JMP set_and_wait_for_nmi_global		;$80B375
 
 CODE_80B378:
 	PHK					;$80B378
 	PLB					;$80B379
 	JSL disable_screen_wrapper		;$80B37A
 	JSL init_registers_global		;$80B37E
-	JSL clear_VRAM_global			;$80B382
-	JSL CODE_808CB0				;$80B386
+	JSL clear_vram_global			;$80B382
+	JSL clear_noncritical_wram_global	;$80B386
 	JSL CODE_BB857F				;$80B38A
 	LDA #$0200				;$80B38E
 	STA DMA[0].source_word			;$80B391
@@ -6436,13 +6435,13 @@ CODE_80B44D:
 	JSL set_screen_fade_global		;$80B450
 	LDA #CODE_80B45D			;$80B454
 	LDX.w #CODE_80B45D>>16			;$80B457
-	JMP CODE_8083C3				;$80B45A
+	JMP set_game_mode_wait_for_nmi_local	;$80B45A
 
 CODE_80B45D:
 	LDA pending_dma_hdma_channels		;$80B45D
 	STA CPU.enable_dma_hdma			;$80B460
 	JSL DMA_sprite_graphics			;$80B463
-	JSL DMA_queued_sprite_palette_global	;$80B467
+	JSL dma_queued_sprite_palette_global	;$80B467
 	SEP #$20				;$80B46B
 	LDA screen_brightness			;$80B46D
 	STA PPU.screen				;$80B470
@@ -6457,10 +6456,10 @@ CODE_80B45D:
 CODE_80B48A:
 	JSL CODE_B7800C				;$80B48A
 	JSL CODE_B6804B				;$80B48E
-	JSL set_unused_OAM_offscreen_global	;$80B492
+	JSL set_unused_oam_offscreen_global	;$80B492
 	JSR CODE_809741				;$80B496
 	BEQ CODE_80B49E				;$80B499
-	JMP CODE_808384				;$80B49B
+	JMP game_mode_return_with_oam_local	;$80B49B
 
 CODE_80B49E:
 	LDA $BA					;$80B49E
@@ -6470,8 +6469,8 @@ CODE_80B49E:
 	STA $4E					;$80B4A8
 	LDA.w #CODE_808493>>16			;$80B4AA
 	STA $50					;$80B4AD
-	LDA #CODE_8083CC			;$80B4AF
-	JMP set_and_wait_for_NMI_global		;$80B4B2
+	LDA #CODE_8083CC_nmi			;$80B4AF
+	JMP set_and_wait_for_nmi_global		;$80B4B2
 
 CODE_80B4B5:
 	INC $05E3				;$80B4B5
@@ -6479,8 +6478,8 @@ CODE_80B4B5:
 	STA $4E					;$80B4BB
 	LDA.w #CODE_80B2C8>>16			;$80B4BD
 	STA $50					;$80B4C0
-	LDA #CODE_808362			;$80B4C2
-	JMP set_and_wait_for_NMI_global		;$80B4C5
+	LDA #CODE_808362_nmi			;$80B4C2
+	JMP set_and_wait_for_nmi_global		;$80B4C5
 
 CODE_80B4C8:
 	JSL CODE_8092EB				;$80B4C8
@@ -6615,7 +6614,7 @@ CODE_80B593:
 	LDX #$F000				;$80B5D6
 	LDY #$007E				;$80B5D9
 	LDA #$0800				;$80B5DC
-	JSL CODE_808CEC				;$80B5DF
+	JSL clear_wram_block_global		;$80B5DF
 	JSR CODE_80B926				;$80B5E3
 	LDA #$7001				;$80B5E6
 	STA pending_dma_hdma_channels		;$80B5E9
@@ -6637,7 +6636,7 @@ CODE_80B605:
 	LDA pending_dma_hdma_channels		;$80B605
 	STA CPU.enable_dma_hdma			;$80B608
 	JSL DMA_sprite_graphics			;$80B60B
-	JSL DMA_queued_sprite_palette_global	;$80B60F
+	JSL dma_queued_sprite_palette_global	;$80B60F
 	LDA $1D39				;$80B613
 	CMP #$008F				;$80B616
 	BNE CODE_80B648				;$80B619
@@ -6703,7 +6702,7 @@ CODE_80B6A7:
 
 CODE_80B6B5:
 	JSR CODE_80B96B				;$80B6B5
-	JSL CODE_808C60				;$80B6B8
+	JSL get_random_number_local		;$80B6B8
 	AND #$00FF				;$80B6BC
 	BNE CODE_80B6C4				;$80B6BF
 	JSR CODE_80B98B				;$80B6C1
@@ -6714,7 +6713,7 @@ CODE_80B6C7:
 	JSL CODE_B7800C				;$80B6CB
 	JSL CODE_B6804B				;$80B6CF
 	JSL CODE_B7800F				;$80B6D3
-	JSL set_unused_OAM_offscreen_global	;$80B6D7
+	JSL set_unused_oam_offscreen_global	;$80B6D7
 	JSR CODE_809741				;$80B6DB
 	BEQ CODE_80B6F3				;$80B6DE
 	LDA $F4					;$80B6E0
@@ -6724,7 +6723,7 @@ CODE_80B6C7:
 	JSL transition_song			;$80B6EA
 	STZ $F4					;$80B6EE
 CODE_80B6F0:
-	JMP CODE_808384				;$80B6F0
+	JMP game_mode_return_with_oam_local	;$80B6F0
 
 CODE_80B6F3:
 	LDA current_game_mode			;$80B6F3
@@ -6761,7 +6760,7 @@ CODE_80B714:
 	STA CPU.enable_dma			;$80B73E
 	REP #$20				;$80B741
 	JSL DMA_sprite_graphics			;$80B743
-	JSL DMA_queued_sprite_palette_global	;$80B747
+	JSL dma_queued_sprite_palette_global	;$80B747
 	SEP #$20				;$80B74B
 	LDA screen_brightness			;$80B74D
 	STA PPU.screen				;$80B750
@@ -6769,7 +6768,7 @@ CODE_80B714:
 	STZ $1560				;$80B755
 	STZ $155E				;$80B758
 	JSR CODE_80B96B				;$80B75B
-	JSL CODE_808C60				;$80B75E
+	JSL get_random_number_local		;$80B75E
 	AND #$01FF				;$80B762
 	BNE CODE_80B76D				;$80B765
 	LDA #$0002				;$80B767
@@ -6822,18 +6821,18 @@ CODE_80B7D5:
 	JSL sprite_handler			;$80B7D5
 	JSL CODE_B7800C				;$80B7D9
 	JSL CODE_B7800F				;$80B7DD
-	JSL set_unused_OAM_offscreen_global	;$80B7E1
+	JSL set_unused_oam_offscreen_global	;$80B7E1
 	JSR CODE_809741				;$80B7E5
 	BEQ CODE_80B7ED				;$80B7E8
-	JMP CODE_808384				;$80B7EA
+	JMP game_mode_return_with_oam_local	;$80B7EA
 
 CODE_80B7ED:
 	LDX #CODE_809489			;$80B7ED
 	LDY.w #CODE_809489>>16			;$80B7F0
-	LDA #CODE_808370			;$80B7F3
+	LDA #CODE_808370_nmi			;$80B7F3
 	STX $4E					;$80B7F6
 	STY $50					;$80B7F8
-	JMP set_and_wait_for_NMI_global		;$80B7FA
+	JMP set_and_wait_for_nmi_global		;$80B7FA
 
 CODE_80B7FD:
 	LDA #DATA_B6F42C			;$80B7FD
@@ -6898,7 +6897,7 @@ CODE_80B86A:
 	JSL set_screen_fade_global		;$80B89A
 	LDA #CODE_80B714			;$80B89E
 	LDX.w #CODE_80B714>>16			;$80B8A1
-	JMP CODE_8083C3				;$80B8A4
+	JMP set_game_mode_wait_for_nmi_local	;$80B8A4
 
 CODE_80B8A7:
 	PHX					;$80B8A7
@@ -7017,7 +7016,7 @@ CODE_80B98B:
 	LDY #$007F				;$80B98B
 	LDX #$0000				;$80B98E
 CODE_80B991:
-	JSL CODE_808C60				;$80B991
+	JSL get_random_number_local		;$80B991
 	STA $7EA15A,x				;$80B995
 	INX					;$80B999
 	INX					;$80B99A
@@ -7147,12 +7146,12 @@ CODE_80BABD:
 	LDA #$0200				;$80BABD
 	JSL set_screen_fade_global		;$80BAC0
 	STZ $F4					;$80BAC4
-	LDA #CODE_808370			;$80BAC6
+	LDA #CODE_808370_nmi			;$80BAC6
 	STA $4A					;$80BAC9
 	STA $4C					;$80BACB
 	LDA #CODE_80B605			;$80BACD
 	LDX.w #CODE_80B605>>16			;$80BAD0
-	JMP CODE_8083C3				;$80BAD3
+	JMP set_game_mode_wait_for_nmi_local	;$80BAD3
 
 CODE_80BAD6:
 	STX $1CCA				;$80BAD6
@@ -8002,13 +8001,13 @@ CODE_80C181:
 	JSL play_song				;$80C19D
 	LDA #CODE_80C1AA			;$80C1A1
 	LDX.w #CODE_80C1AA>>16			;$80C1A4
-	JMP CODE_8083C3				;$80C1A7
+	JMP set_game_mode_wait_for_nmi_local	;$80C1A7
 
 CODE_80C1AA:
 	LDA pending_dma_hdma_channels		;$80C1AA
 	STA CPU.enable_dma_hdma			;$80C1AD
 	JSL DMA_sprite_graphics			;$80C1B0
-	JSL DMA_queued_sprite_palette_global	;$80C1B4
+	JSL dma_queued_sprite_palette_global	;$80C1B4
 	SEP #$20				;$80C1B8
 	LDA screen_brightness			;$80C1BA
 	STA PPU.screen				;$80C1BD
@@ -8029,18 +8028,18 @@ CODE_80C1E0:
 	STA $0541				;$80C1E7
 	JSL CODE_B7800C				;$80C1EA
 	JSL CODE_B284CD				;$80C1EE
-	JSL set_unused_OAM_offscreen_global	;$80C1F2
+	JSL set_unused_oam_offscreen_global	;$80C1F2
 	JSR CODE_809741				;$80C1F6
 	BEQ CODE_80C1FE				;$80C1F9
-	JMP CODE_808384				;$80C1FB
+	JMP game_mode_return_with_oam_local	;$80C1FB
 
 CODE_80C1FE:
 	LDA #CODE_80B2C8			;$80C1FE
 	STA $4E					;$80C201
 	LDA.w #CODE_80B2C8>>16			;$80C203
 	STA $50					;$80C206
-	LDA #CODE_808362			;$80C208
-	JMP set_and_wait_for_NMI_global		;$80C20B
+	LDA #CODE_808362_nmi			;$80C208
+	JMP set_and_wait_for_nmi_global		;$80C20B
 
 DATA_80C20E:
 	db $FF,$5A,$A1,$FF,$5A,$A1,$00
@@ -8586,7 +8585,7 @@ NMI_start:
 	LDA.l global_frame_counter		;$80CA62
 	INC					;$80CA66
 	STA.l global_frame_counter		;$80CA67
-	JMP.w (NMI_pointer)			;$80CA6B
+	JMP.w (nmi_pointer)			;$80CA6B
 
 IRQ_start:
 	SEI					;$80CA6E
@@ -8664,7 +8663,7 @@ CODE_80CB6E:
 	LDA.l global_frame_counter		;$80CB8B
 	INC					;$80CB8F
 	STA.l global_frame_counter		;$80CB90
-	JMP.w (NMI_pointer)			;$80CB94
+	JMP.w (nmi_pointer)			;$80CB94
 
 CODE_80CB97:
 	SEI					;$80CB97

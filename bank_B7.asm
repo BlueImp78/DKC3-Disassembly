@@ -55,7 +55,7 @@ CODE_B78033:
 CODE_B78036:
 	PHX					;$B78036
 	LDX.w $155E				;$B78037
-	STA.w sprite_DMA[0].destination,x	;$B7803A
+	STA.w sprite_dma[0].destination,x	;$B7803A
 	LDA.b $1D				;$B7803D
 	BRA.b CODE_B78054			;$B7803F
 
@@ -66,31 +66,31 @@ CODE_B78041:
 	ASL					;$B78046
 	ASL					;$B78047
 	ASL					;$B78048
-	STA.w sprite_DMA[0].destination,x	;$B78049
+	STA.w sprite_dma[0].destination,x	;$B78049
 	LDA.b $1C				;$B7804C
 	AND.w #$FF00				;$B7804E
 	LSR					;$B78051
 	LSR					;$B78052
 	LSR					;$B78053
 CODE_B78054:
-	STA.w sprite_DMA[0].size,x		;$B78054
+	STA.w sprite_dma[0].size,x		;$B78054
 	ADC.w #$0032				;$B78057
 	ADC.w $1560				;$B7805A
 	CMP.b $80				;$B7805D
 	BCS.b CODE_B7808B			;$B7805F
 	STA.w $1560				;$B78061
 	LDA.b $1A				;$B78064
-	STA.w sprite_DMA[0].source_word,x	;$B78066
+	STA.w sprite_dma[0].source_word,x	;$B78066
 	LDA.b $1C				;$B78069
 	AND.w #$00FF				;$B7806B
 	ORA.w #$8000				;$B7806E
-	STA.w sprite_DMA[0].source_bank,x	;$B78071
+	STA.w sprite_dma[0].source_bank,x	;$B78071
 	TXA					;$B78074
 	CLC					;$B78075
-	ADC.w #sizeof(sprite_DMA)		;$B78076
+	ADC.w #sizeof(sprite_dma)		;$B78076
 	STA.w $155E				;$B78079
 	TAX					;$B7807C
-	STZ.w sprite_DMA[0].terminate,x		;$B7807D
+	STZ.w sprite_dma[0].terminate,x		;$B7807D
 	CPX.w #$0070				;$B78080
 	BCC.b CODE_B7808B			;$B78083
 	LDA.b $80				;$B78085
@@ -324,7 +324,7 @@ CODE_B781F8:
 	TYA					;$B7820C
 	CLC					;$B7820D
 	ADC.b $28				;$B7820E
-	STA.w sprite_DMA[0].source_word,x	;$B78210
+	STA.w sprite_dma[0].source_word,x	;$B78210
 	LDA.b $23				;$B78213
 	AND.w #$00FF				;$B78215
 	ASL					;$B78218
@@ -332,8 +332,8 @@ CODE_B781F8:
 	ASL					;$B7821A
 	ASL					;$B7821B
 	ASL					;$B7821C
-	STA.w sprite_DMA[0].size,x		;$B7821D
-	ADC.w sprite_DMA[0].source_word,x	;$B78220
+	STA.w sprite_dma[0].size,x		;$B7821D
+	ADC.w sprite_dma[0].source_word,x	;$B78220
 	TAY					;$B78223
 	LDA.b $1A				;$B78224
 	AND.w #$01FF				;$B78226
@@ -341,17 +341,17 @@ CODE_B781F8:
 	ASL					;$B7822A
 	ASL					;$B7822B
 	ASL					;$B7822C
-	STA.w sprite_DMA[0].destination,x	;$B7822D
+	STA.w sprite_dma[0].destination,x	;$B7822D
 	LDA.b $2A				;$B78230
 	ORA.w #$FF00				;$B78232
-	STA.w sprite_DMA[0].source_bank,x	;$B78235
+	STA.w sprite_dma[0].source_bank,x	;$B78235
 	LDA.b $25				;$B78238
 	AND.w #$000F				;$B7823A
 	BNE.b CODE_B78254			;$B7823D
 	TXA					;$B7823F
-	ADC.w #sizeof(sprite_DMA)		;$B78240
+	ADC.w #sizeof(sprite_dma)		;$B78240
 	STA.w $155E				;$B78243
-	STZ.w sprite_DMA[1].terminate,x		;$B78246
+	STZ.w sprite_dma[1].terminate,x		;$B78246
 	CPX.w #$0070				;$B78249
 	BCC.b CODE_B78253			;$B7824C
 	LDA.b $80				;$B7824E
@@ -365,23 +365,23 @@ CODE_B78254:
 	ASL					;$B78256
 	ASL					;$B78257
 	ASL					;$B78258
-	STA.w sprite_DMA[1].size,x		;$B78259
+	STA.w sprite_dma[1].size,x		;$B78259
 	TXA					;$B7825C
-	ADC.w #sizeof(sprite_DMA)*2		;$B7825D
+	ADC.w #sizeof(sprite_dma)*2		;$B7825D
 	STA.w $155E				;$B78260
-	STZ.w sprite_DMA[2].terminate,x		;$B78263
+	STZ.w sprite_dma[2].terminate,x		;$B78263
 	LDA.b $24				;$B78266
 	AND.w #$00FF				;$B78268
 	ASL					;$B7826B
 	ASL					;$B7826C
 	ASL					;$B7826D
 	ASL					;$B7826E
-	ADC.w sprite_DMA[0].destination,x	;$B7826F
-	STA.w sprite_DMA[1].destination,x	;$B78272
+	ADC.w sprite_dma[0].destination,x	;$B7826F
+	STA.w sprite_dma[1].destination,x	;$B78272
 	TYA					;$B78275
-	STA.w sprite_DMA[1].source_word,x	;$B78276
-	LDA.w sprite_DMA[0].source_bank,x	;$B78279
-	STA.w sprite_DMA[1].source_bank,x	;$B7827C
+	STA.w sprite_dma[1].source_word,x	;$B78276
+	LDA.w sprite_dma[0].source_bank,x	;$B78279
+	STA.w sprite_dma[1].source_bank,x	;$B7827C
 	CPX.w #$0070				;$B7827F
 	BCC.b CODE_B78289			;$B78282
 	LDA.b $80				;$B78284
@@ -2290,14 +2290,14 @@ CODE_B790B9:
 	CLC					;$B790BF
 	ADC.b $28				;$B790C0
 	TAY					;$B790C2
-	STA.w sprite_DMA[0].source_word,x	;$B790C3
+	STA.w sprite_dma[0].source_word,x	;$B790C3
 	LDA.b $23				;$B790C6
 	AND.w #$00FF				;$B790C8
 	XBA					;$B790CB
 	LSR					;$B790CC
 	LSR					;$B790CD
 	LSR					;$B790CE
-	STA.w sprite_DMA[0].size,x		;$B790CF
+	STA.w sprite_dma[0].size,x		;$B790CF
 	STA.b $84				;$B790D2
 	TYA					;$B790D4
 	CLC					;$B790D5
@@ -2309,15 +2309,15 @@ CODE_B790B9:
 	ASL					;$B790DF
 	ASL					;$B790E0
 	ASL					;$B790E1
-	STA.w sprite_DMA[0].destination,x	;$B790E2
+	STA.w sprite_dma[0].destination,x	;$B790E2
 	LDA.b $2A				;$B790E5
 	ORA.w #$FF00				;$B790E7
-	STA.w sprite_DMA[0].source_bank,x	;$B790EA
+	STA.w sprite_dma[0].source_bank,x	;$B790EA
 	TXA					;$B790ED
 	CLC					;$B790EE
-	ADC.w #sizeof(sprite_DMA)		;$B790EF
+	ADC.w #sizeof(sprite_dma)		;$B790EF
 	TAX					;$B790F2
-	STZ.w sprite_DMA[0].terminate,x		;$B790F3
+	STZ.w sprite_dma[0].terminate,x		;$B790F3
 	LDA.b $25				;$B790F6
 	AND.w #$000F				;$B790F8
 	BEQ.b CODE_B79130			;$B790FB
@@ -2325,7 +2325,7 @@ CODE_B790B9:
 	LSR					;$B790FE
 	LSR					;$B790FF
 	LSR					;$B79100
-	STA.w sprite_DMA[0].size,x		;$B79101
+	STA.w sprite_dma[0].size,x		;$B79101
 	LDA.b $24				;$B79104
 	AND.w #$00FF				;$B79106
 	ASL					;$B79109
@@ -2341,19 +2341,19 @@ CODE_B790B9:
 	ASL					;$B79117
 	CLC					;$B79118
 	ADC.b $84				;$B79119
-	STA.w sprite_DMA[0].destination,x	;$B7911B
+	STA.w sprite_dma[0].destination,x	;$B7911B
 	TYA					;$B7911E
-	STA.w sprite_DMA[0].source_word,x	;$B7911F
+	STA.w sprite_dma[0].source_word,x	;$B7911F
 	LDA.b $2A				;$B79122
 	ORA.w #$FF00				;$B79124
-	STA.w sprite_DMA[0].source_bank,x	;$B79127
+	STA.w sprite_dma[0].source_bank,x	;$B79127
 	TXA					;$B7912A
 	CLC					;$B7912B
-	ADC.w #sizeof(sprite_DMA)		;$B7912C
+	ADC.w #sizeof(sprite_dma)		;$B7912C
 	TAX					;$B7912F
 CODE_B79130:
 	STX.w $155E				;$B79130
-	STZ.w sprite_DMA[0].terminate,x		;$B79133
+	STZ.w sprite_dma[0].terminate,x		;$B79133
 	CPX.w #$0070				;$B79136
 	BCC.b CODE_B79140			;$B79139
 	LDA.b $80				;$B7913B
@@ -4567,6 +4567,7 @@ CODE_B7B015:
 CODE_B7B018:
 	JMP CODE_B7BBF2				;$B7B018
 
+;Table that defines tileset terrain collision routines
 DATA_B7B01B:
 	dw DATA_B7B084
 	dw CODE_B7CC25
@@ -7381,113 +7382,113 @@ CODE_B7C93E:
 	RTL					;$B7C941
 
 CODE_B7C942:
-	LDA.b $1A				;$B7C942
-	AND.w #$001F				;$B7C944
-	STA.b $9A				;$B7C947
-	STZ.b $A0				;$B7C949
-	LDA.b $1C				;$B7C94B
-	SEC					;$B7C94D
-	SBC.w #$0100				;$B7C94E
-	EOR.w #$FFFF				;$B7C951
-	INC					;$B7C954
-	AND.w #$FFE0				;$B7C955
-	STA.b $98				;$B7C958
-	LDA.b $1A				;$B7C95A
-	AND.w #$FFE0				;$B7C95C
-	LSR					;$B7C95F
-	LSR					;$B7C960
-	LSR					;$B7C961
-	LSR					;$B7C962
-	STA.b $1A				;$B7C963
-	LDA.b $98				;$B7C965
-	EOR.w #$FFE0				;$B7C967
-	ASL					;$B7C96A
-	CLC					;$B7C96B
-	ADC.b $1A				;$B7C96C
-	TAY					;$B7C96E
-	JSR.w CODE_B7CF68			;$B7C96F
-	PHA					;$B7C972
-	LDA.b $A0				;$B7C973
-	STA.b $A2				;$B7C975
-	PLA					;$B7C977
-	BMI.b CODE_B7C987			;$B7C978
-	CMP.w #$001F				;$B7C97A
-	BNE.b CODE_B7C982			;$B7C97D
-	JMP.w CODE_B7CA0F			;$B7C97F
+	LDA.b $1A				;$B7C942  \ \
+	AND.w #$001F				;$B7C944   | | Get sprite x position on terrain tile
+	STA.b $9A				;$B7C947   |/
+	STZ.b $A0				;$B7C949   |
+	LDA.b $1C				;$B7C94B   |\ Calculate index into terrain map using sprite positions
+	SEC					;$B7C94D   | |
+	SBC.w #$0100				;$B7C94E   | |
+	EOR.w #$FFFF				;$B7C951   | |
+	INC					;$B7C954   | |
+	AND.w #$FFE0				;$B7C955   | |
+	STA.b $98				;$B7C958   | |
+	LDA.b $1A				;$B7C95A   | |
+	AND.w #$FFE0				;$B7C95C   | |
+	LSR					;$B7C95F   | |
+	LSR					;$B7C960   | |
+	LSR					;$B7C961   | |
+	LSR					;$B7C962   | |
+	STA.b $1A				;$B7C963   | |
+	LDA.b $98				;$B7C965   | |
+	EOR.w #$FFE0				;$B7C967   | |
+	ASL					;$B7C96A   | |
+	CLC					;$B7C96B   | |
+	ADC.b $1A				;$B7C96C   | |
+	TAY					;$B7C96E   |/
+	JSR.w CODE_B7CF68			;$B7C96F   |\ Get collision tile info
+	PHA					;$B7C972   |/ Preserve tile y edge position
+	LDA.b $A0				;$B7C973   |\
+	STA.b $A2				;$B7C975   |/ Copy collision tile
+	PLA					;$B7C977   |\
+	BMI.b CODE_B7C987			;$B7C978   |/ If no collision tile info
+	CMP.w #$001F				;$B7C97A   |\
+	BNE.b CODE_B7C982			;$B7C97D   |/
+	JMP.w CODE_B7CA0F			;$B7C97F  /
 
 CODE_B7C982:
-	TAY					;$B7C982
-	ORA.b $98				;$B7C983
-	BRA.b CODE_B7C9BB			;$B7C985
+	TAY					;$B7C982  \
+	ORA.b $98				;$B7C983   |
+	BRA.b CODE_B7C9BB			;$B7C985  /
 
 CODE_B7C987:
-	TYA					;$B7C987
-	CLC					;$B7C988
-	ADC.w #$0040				;$B7C989
-	TAY					;$B7C98C
-	LDA.w #$0001				;$B7C98D
-	STA.b $1C				;$B7C990
-	LDA.b $98				;$B7C992
-	SEC					;$B7C994
-	SBC.w #$0020				;$B7C995
-	STA.b $98				;$B7C998
-	JSR.w CODE_B7CF68			;$B7C99A
-	CMP.w #$0000				;$B7C99D
-	BPL.b CODE_B7C9B8			;$B7C9A0
-	TYA					;$B7C9A2
-	CLC					;$B7C9A3
-	ADC.w #$0040				;$B7C9A4
-	TAY					;$B7C9A7
-	LDA.b $98				;$B7C9A8
-	SEC					;$B7C9AA
-	SBC.w #$0020				;$B7C9AB
-	STA.b $98				;$B7C9AE
-	JSR.w CODE_B7CF68			;$B7C9B0
-	CMP.w #$0000				;$B7C9B3
-	BMI.b CODE_B7CA07			;$B7C9B6
-CODE_B7C9B8:
-	TAY					;$B7C9B8
-	ORA.b $98				;$B7C9B9
-CODE_B7C9BB:
-	PHA					;$B7C9BB
-	LDA.b $A0				;$B7C9BC
-	AND.w #$7FFF				;$B7C9BE
-	SEC					;$B7C9C1
-	SBC.w #$4000				;$B7C9C2
-	CMP.w #$0009				;$B7C9C5
-	BCS.b CODE_B7C9CF			;$B7C9C8
-	LDA.w #$2000				;$B7C9CA
-	TSB.b $A0				;$B7C9CD
-CODE_B7C9CF:
-	LDA.b $A0				;$B7C9CF
-	STA.b $1A				;$B7C9D1
-	AND.w #$007F				;$B7C9D3
-	TRB.b $A0				;$B7C9D6
-	ASL					;$B7C9D8
-	TAX					;$B7C9D9
-	LDA.w DATA_B7CFD0,x			;$B7C9DA
-	AND.w #$801F				;$B7C9DD
-	BPL.b CODE_B7C9EA			;$B7C9E0
-	CPY.w #$000F				;$B7C9E2
-	BEQ.b CODE_B7C9EC			;$B7C9E5
-	AND.w #$001F				;$B7C9E7
-CODE_B7C9EA:
-	TSB.b $A0				;$B7C9EA
-CODE_B7C9EC:
-	LDA.b $A2				;$B7C9EC
-	AND.w #$7FFF				;$B7C9EE
-	SEC					;$B7C9F1
-	SBC.w #$4000				;$B7C9F2
-	CMP.w #$0009				;$B7C9F5
-	BCS.b CODE_B7C9FF			;$B7C9F8
-	LDA.w #$2000				;$B7C9FA
-	TSB.b $A2				;$B7C9FD
-CODE_B7C9FF:
-	PLA					;$B7C9FF
-	LDX.b $6E				;$B7CA00
-	CLC					;$B7CA02
-	ADC.w #$6200				;$B7CA03
-	RTL					;$B7CA06
+	TYA					;$B7C987  \
+	CLC					;$B7C988   |
+	ADC.w #$0040				;$B7C989   |
+	TAY					;$B7C98C   |
+	LDA.w #$0001				;$B7C98D   |
+	STA.b $1C				;$B7C990   |
+	LDA.b $98				;$B7C992   |
+	SEC					;$B7C994   |
+	SBC.w #$0020				;$B7C995   |
+	STA.b $98				;$B7C998   |
+	JSR.w CODE_B7CF68			;$B7C99A   |
+	CMP.w #$0000				;$B7C99D   |
+	BPL.b CODE_B7C9B8			;$B7C9A0   |
+	TYA					;$B7C9A2   |
+	CLC					;$B7C9A3   |
+	ADC.w #$0040				;$B7C9A4   |
+	TAY					;$B7C9A7   |
+	LDA.b $98				;$B7C9A8   |
+	SEC					;$B7C9AA   |
+	SBC.w #$0020				;$B7C9AB   |
+	STA.b $98				;$B7C9AE   |
+	JSR.w CODE_B7CF68			;$B7C9B0   |
+	CMP.w #$0000				;$B7C9B3   |
+	BMI.b CODE_B7CA07			;$B7C9B6   |
+CODE_B7C9B8:					;	   |
+	TAY					;$B7C9B8   |
+	ORA.b $98				;$B7C9B9   |
+CODE_B7C9BB:					;	   |
+	PHA					;$B7C9BB   |
+	LDA.b $A0				;$B7C9BC   |\ Get collision tile
+	AND.w #$7FFF				;$B7C9BE   |/ Remove flipping
+	SEC					;$B7C9C1   |\
+	SBC.w #$4000				;$B7C9C2   | |
+	CMP.w #$0009				;$B7C9C5   | |
+	BCS.b CODE_B7C9CF			;$B7C9C8   |/ If not a semi-solid slope?
+	LDA.w #$2000				;$B7C9CA   |
+	TSB.b $A0				;$B7C9CD   |
+CODE_B7C9CF:					;	   |
+	LDA.b $A0				;$B7C9CF   |
+	STA.b $1A				;$B7C9D1   |
+	AND.w #$007F				;$B7C9D3   |
+	TRB.b $A0				;$B7C9D6   |
+	ASL					;$B7C9D8   |
+	TAX					;$B7C9D9   |
+	LDA.w DATA_B7CFD0,x			;$B7C9DA   |
+	AND.w #$801F				;$B7C9DD   |
+	BPL.b CODE_B7C9EA			;$B7C9E0   |
+	CPY.w #$000F				;$B7C9E2   |
+	BEQ.b CODE_B7C9EC			;$B7C9E5   |
+	AND.w #$001F				;$B7C9E7   |
+CODE_B7C9EA:					;	   |
+	TSB.b $A0				;$B7C9EA   |
+CODE_B7C9EC:					;	   |
+	LDA.b $A2				;$B7C9EC   |
+	AND.w #$7FFF				;$B7C9EE   |
+	SEC					;$B7C9F1   |
+	SBC.w #$4000				;$B7C9F2   |
+	CMP.w #$0009				;$B7C9F5   |
+	BCS.b CODE_B7C9FF			;$B7C9F8   |
+	LDA.w #$2000				;$B7C9FA   |
+	TSB.b $A2				;$B7C9FD   |
+CODE_B7C9FF:					;	   |
+	PLA					;$B7C9FF   |
+	LDX.b $6E				;$B7CA00   |
+	CLC					;$B7CA02   |
+	ADC.w #$6200				;$B7CA03   |
+	RTL					;$B7CA06  /
 
 CODE_B7CA07:
 	LDA.w #$FFC0				;$B7CA07
@@ -8276,176 +8277,241 @@ CODE_B7CF5C:
 	ORA.b $98				;$B7CF64
 	BRA.b CODE_B7CF51			;$B7CF66
 
-CODE_B7CF68:						; Note: Related to level collision.
-	LDA.b $9A				;$B7CF68
-	STA.b $96				;$B7CF6A
-	LDA.b [$8C],y				;$B7CF6C
-	TYX					;$B7CF6E
-	STA.b $9C				;$B7CF6F
-	BEQ.b CODE_B7CFCC			;$B7CF71
-	BIT.w #$4000				;$B7CF73
-	BEQ.b CODE_B7CF81			;$B7CF76
-	LDA.b $9A				;$B7CF78
-	EOR.w #$001F				;$B7CF7A
-	STA.b $96				;$B7CF7D
-	LDA.b $9C				;$B7CF7F
-CODE_B7CF81:
-	AND.w #$3FFF				;$B7CF81
-	CMP.b $94				;$B7CF84
-	BCS.b CODE_B7CFCC			;$B7CF86
-	ASL					;$B7CF88
-	ASL					;$B7CF89
-	TAY					;$B7CF8A
-	LDA.b $96				;$B7CF8B
-	AND.w #$0010				;$B7CF8D
-	BEQ.b CODE_B7CF94			;$B7CF90
-	INY					;$B7CF92
-	INY					;$B7CF93
-CODE_B7CF94:
-	LDA.b [$90],y				;$B7CF94
-	BIT.w #$8000				;$B7CF96
-	BEQ.b CODE_B7CFA4			;$B7CF99
-	LDA.b $96				;$B7CF9B
-	EOR.w #$000F				;$B7CF9D
-	STA.b $96				;$B7CFA0
-	LDA.b [$90],y				;$B7CFA2
-CODE_B7CFA4:
-	TXY					;$B7CFA4
-	BIT.b $9C				;$B7CFA5
-	BVC.b CODE_B7CFAC			;$B7CFA7
-	EOR.w #$8000				;$B7CFA9
-CODE_B7CFAC:
-	STA.b $A0				;$B7CFAC
-	AND.w #$00FF				;$B7CFAE
-	BEQ.b CODE_B7CFCC			;$B7CFB1
-	ASL					;$B7CFB3
-	TAX					;$B7CFB4
-	LDA.l DATA_B7D07B,x			;$B7CFB5
-	STA.b $9E				;$B7CFB9
-	LDA.b $96				;$B7CFBB
-	AND.w #$000F				;$B7CFBD
-	JSR.w CODE_B7D078			;$B7CFC0
-	CMP.w #$001F				;$B7CFC3
-	BMI.b CODE_B7CFCB			;$B7CFC6
-	LDA.w #$001F				;$B7CFC8
-CODE_B7CFCB:
-	RTS					;$B7CFCB
+; Note: Related to level collision.
+CODE_B7CF68:
+	LDA.b $9A				;$B7CF68  \ \
+	STA.b $96				;$B7CF6A   |/ Copy sprite x position on terrain tile
+	LDA.b [$8C],y				;$B7CF6C   |\ Get terrain tile
+	TYX					;$B7CF6E   | |
+	STA.b $9C				;$B7CF6F   |/ Save terrain tile
+	BEQ.b .return_no_collision		;$B7CF71   |> If no tile then return no collision
+	BIT.w #$4000				;$B7CF73   |\
+	BEQ.b .terrain_position_flip_done	;$B7CF76   |/ If tile isnt x flipped then dont flip coordinates
+	LDA.b $9A				;$B7CF78   |\ Get sprite x position on tile
+	EOR.w #$001F				;$B7CF7A   | | Flip x position
+	STA.b $96				;$B7CF7D   |/ Save sprite x position on tile
+	LDA.b $9C				;$B7CF7F   |\ Get terrain tile
+.terrain_position_flip_done:			;	   | |
+	AND.w #$3FFF				;$B7CF81   | | Get tile number
+	CMP.b $94				;$B7CF84   | | Compare to number of collision tiles
+	BCS.b .return_no_collision		;$B7CF86   |/ If tile number not in collision range, return no collision
+	ASL					;$B7CF88   |\
+	ASL					;$B7CF89   | |
+	TAY					;$B7CF8A   |/
+	LDA.b $96				;$B7CF8B   |\ Get sprite x position on tile
+	AND.w #$0010				;$B7CF8D   | |
+	BEQ.b .collision_half_selection_done	;$B7CF90   |/ If sprite on first half of tile use first collision tile
+	INY					;$B7CF92   |\ Else use second collision tile
+	INY					;$B7CF93   |/
+.collision_half_selection_done:			;	   |
+	LDA.b [$90],y				;$B7CF94   |\ Get collision tile
+	BIT.w #$8000				;$B7CF96   | |
+	BEQ.b .collision_position_flip_done	;$B7CF99   |/ If collision tile isnt flipped then continue
+	LDA.b $96				;$B7CF9B   |\ Get sprite x position on tile
+	EOR.w #$000F				;$B7CF9D   | | Flip x position
+	STA.b $96				;$B7CFA0   |/ Save sprite x position on tile
+	LDA.b [$90],y				;$B7CFA2   |> Get collision tile
+.collision_position_flip_done:			;	   |
+	TXY					;$B7CFA4   | 
+	BIT.b $9C				;$B7CFA5   |\
+	BVC.b .collision_tile_flip_done		;$B7CFA7   |/ If terrain isnt flipped then dont flip collision tile
+	EOR.w #$8000				;$B7CFA9   |\ Else flip collision
+.collision_tile_flip_done:			;	   | |
+	STA.b $A0				;$B7CFAC   |/ Save collision tile
+	AND.w #$00FF				;$B7CFAE   |\
+	BEQ.b .return_no_collision		;$B7CFB1   |/ If collision tile is empty, return no collision
+	ASL					;$B7CFB3   |\
+	TAX					;$B7CFB4   | |
+	LDA.l DATA_B7D07B,x			;$B7CFB5   | | Get tile collision routine
+	STA.b $9E				;$B7CFB9   |/ Save tile collision routine
+	LDA.b $96				;$B7CFBB   |\ Get sprite x position on collision tile
+	AND.w #$000F				;$B7CFBD   | |
+	JSR.w CODE_B7D078			;$B7CFC0   |/ Get y edge position of tile
+	CMP.w #$001F				;$B7CFC3   |\
+	BMI.b .return				;$B7CFC6   | | If edge is valid range then return
+	LDA.w #$001F				;$B7CFC8   |/ Else clamp edge to a max of 32 and return
+.return:					;	   |
+	RTS					;$B7CFCB  /
 
-CODE_B7CFCC:
+.return_no_collision:
 	LDA.w #$FFFF				;$B7CFCC
 	RTS					;$B7CFCF
 
 DATA_B7CFD0:
-	dw $0000, $0000, $0000, $0000
-	dw $0000, $0000, $0000, $0000
-	dw $0000, $0001, $0001, $0001
-	dw $0001, $0001, $0001, $0001
-	dw $0001, $0002, $0002, $0002
-	dw $0002, $0002, $0002, $0002
-	dw $0002, $0002, $0003, $0003
-	dw $0003, $0003, $0003, $0003
-	dw $0003, $0003, $0003, $0003
-	dw $0004, $0004, $0004, $0004
-	dw $0004, $0004, $0004, $0004
-	dw $0004, $0004, $0004, $0005
-	dw $0005, $0005, $0005, $0005
-	dw $0005, $0005, $0006, $0006
-	dw $0006, $0006, $0006, $8006
-	dw $8006, $0000, $0000, $0000
-	dw $0000, $0000, $0000, $0000
-	dw $0000, $0000, $0000, $0000
-	dw $0000, $8005, $8005, $0000
-	dw $0000, $0000, $0000, $0000
-	dw $0000, $0000, $0000, $0000
+	dw $0000				;00
+	dw $0000				;01
+	dw $0000				;02
+	dw $0000				;03
+	dw $0000				;04
+	dw $0000				;05
+	dw $0000				;06
+	dw $0000				;07
+	dw $0000				;08
+	dw $0001				;09
+	dw $0001				;0A
+	dw $0001				;0B
+	dw $0001				;0C
+	dw $0001				;0D
+	dw $0001				;0E
+	dw $0001				;0F
+	dw $0001				;10
+	dw $0002				;11
+	dw $0002				;12
+	dw $0002				;13
+	dw $0002				;14
+	dw $0002				;15
+	dw $0002				;16
+	dw $0002				;17
+	dw $0002				;18
+	dw $0002				;19
+	dw $0003				;1A
+	dw $0003				;1B
+	dw $0003				;1C
+	dw $0003				;1D
+	dw $0003				;1E
+	dw $0003				;1F
+	dw $0003				;20
+	dw $0003				;21
+	dw $0003				;22
+	dw $0003				;23
+	dw $0004				;24
+	dw $0004				;25
+	dw $0004				;26
+	dw $0004				;27
+	dw $0004				;28
+	dw $0004				;29
+	dw $0004				;2A
+	dw $0004				;2B
+	dw $0004				;2C
+	dw $0004				;2D
+	dw $0004				;2E
+	dw $0005				;2F
+	dw $0005				;30
+	dw $0005				;31
+	dw $0005				;32
+	dw $0005				;33
+	dw $0005				;34
+	dw $0005				;35
+	dw $0006				;36
+	dw $0006				;37
+	dw $0006				;38
+	dw $0006				;39
+	dw $0006				;3A
+	dw $8006				;3B
+	dw $8006				;3C
+	dw $0000				;3D
+	dw $0000				;3E
+	dw $0000				;3F
+	dw $0000				;40
+	dw $0000				;41
+	dw $0000				;42
+	dw $0000				;43
+	dw $0000				;44
+	dw $0000				;45
+	dw $0000				;46
+	dw $0000				;47
+	dw $0000				;48
+	dw $8005				;49
+	dw $8005				;4A
+	dw $0000				;4B
+	dw $0000				;4C
+	dw $0000				;4D
+	dw $0000				;4E
+	dw $0000				;4F
+	dw $0000				;50
+	dw $0000				;51
+	dw $0000				;52
+	dw $0000				;53
+
 
 CODE_B7D078:
 	JMP.w ($009E)				;$B7D078
 
 DATA_B7D07B:
-	dw CODE_B7D2DE
-	dw CODE_B7D2E2
-	dw CODE_B7D2E6
-	dw CODE_B7D2EA
-	dw CODE_B7D2EE
-	dw CODE_B7D2F2
-	dw CODE_B7D2F6
-	dw CODE_B7D2FA
-	dw CODE_B7D2FE
-	dw CODE_B7D45B
-	dw CODE_B7D454
-	dw CODE_B7D44D
-	dw CODE_B7D446
-	dw CODE_B7D43F
-	dw CODE_B7D438
-	dw CODE_B7D431
-	dw CODE_B7D42A
-	dw CODE_B7D45E
-	dw CODE_B7D464
-	dw CODE_B7D466
-	dw CODE_B7D46C
-	dw CODE_B7D472
-	dw CODE_B7D478
-	dw CODE_B7D47E
-	dw CODE_B7D484
-	dw CODE_B7D48A
-	dw CODE_B7D41D
-	dw CODE_B7D410
-	dw CODE_B7D407
-	dw CODE_B7D3FA
-	dw CODE_B7D3ED
-	dw CODE_B7D3E0
-	dw CODE_B7D3D3
-	dw CODE_B7D3C6
-	dw CODE_B7D3B9
-	dw CODE_B7D3AC
-	dw CODE_B7D379
-	dw CODE_B7D37E
-	dw CODE_B7D383
-	dw CODE_B7D388
-	dw CODE_B7D389
-	dw CODE_B7D38E
-	dw CODE_B7D393
-	dw CODE_B7D398
-	dw CODE_B7D39D
-	dw CODE_B7D3A2
-	dw CODE_B7D3A7
-	dw CODE_B7D373
-	dw CODE_B7D36D
-	dw CODE_B7D367
-	dw CODE_B7D365
-	dw CODE_B7D35F
-	dw CODE_B7D359
-	dw CODE_B7D353
-	dw CODE_B7D31A
-	dw CODE_B7D313
-	dw CODE_B7D30C
-	dw CODE_B7D309
-	dw CODE_B7D302
-	dw CODE_B7D321
-	dw CODE_B7D330
-	dw CODE_B7D2E2
-	dw CODE_B7D2F2
-	dw CODE_B7D26F
-	dw CODE_B7D27D
-	dw CODE_B7D286
-	dw CODE_B7D298
-	dw CODE_B7D218
-	dw CODE_B7D22C
-	dw CODE_B7D240
-	dw CODE_B7D25D
-	dw CODE_B7D206
-	dw CODE_B7D20F
-	dw CODE_B7D33F
-	dw CODE_B7D349
-	dw CODE_B7D123
-	dw CODE_B7D151
-	dw CODE_B7D183
-	dw CODE_B7D1A6
-	dw CODE_B7D1D6
-	dw CODE_B7D2C3
-	dw CODE_B7D1E3
-	dw CODE_B7D1F0
-	dw CODE_B7D2D5
+	dw CODE_B7D2DE				;00
+	dw CODE_B7D2E2				;01
+	dw CODE_B7D2E6				;02
+	dw CODE_B7D2EA				;03
+	dw CODE_B7D2EE				;04
+	dw CODE_B7D2F2				;05
+	dw CODE_B7D2F6				;06
+	dw CODE_B7D2FA				;07
+	dw CODE_B7D2FE				;08
+	dw CODE_B7D45B				;09
+	dw CODE_B7D454				;0A
+	dw CODE_B7D44D				;0B
+	dw CODE_B7D446				;0C
+	dw CODE_B7D43F				;0D
+	dw CODE_B7D438				;0E
+	dw CODE_B7D431				;0F
+	dw CODE_B7D42A				;10
+	dw CODE_B7D45E				;11
+	dw CODE_B7D464				;12
+	dw CODE_B7D466				;13
+	dw CODE_B7D46C				;14
+	dw CODE_B7D472				;15
+	dw CODE_B7D478				;16
+	dw CODE_B7D47E				;17
+	dw CODE_B7D484				;18
+	dw CODE_B7D48A				;19
+	dw CODE_B7D41D				;1A
+	dw CODE_B7D410				;1B
+	dw CODE_B7D407				;1C
+	dw CODE_B7D3FA				;1D
+	dw CODE_B7D3ED				;1E
+	dw CODE_B7D3E0				;1F
+	dw CODE_B7D3D3				;20
+	dw CODE_B7D3C6				;21
+	dw CODE_B7D3B9				;22
+	dw CODE_B7D3AC				;23
+	dw CODE_B7D379				;24
+	dw CODE_B7D37E				;25
+	dw CODE_B7D383				;26
+	dw CODE_B7D388				;27
+	dw CODE_B7D389				;28
+	dw CODE_B7D38E				;29
+	dw CODE_B7D393				;2A
+	dw CODE_B7D398				;2B
+	dw CODE_B7D39D				;2C
+	dw CODE_B7D3A2				;2D
+	dw CODE_B7D3A7				;2E
+	dw CODE_B7D373				;2F
+	dw CODE_B7D36D				;30
+	dw CODE_B7D367				;31
+	dw CODE_B7D365				;32
+	dw CODE_B7D35F				;33
+	dw CODE_B7D359				;34
+	dw CODE_B7D353				;35
+	dw CODE_B7D31A				;36
+	dw CODE_B7D313				;37
+	dw CODE_B7D30C				;38
+	dw CODE_B7D309				;39
+	dw CODE_B7D302				;3A
+	dw CODE_B7D321				;3B
+	dw CODE_B7D330				;3C
+	dw CODE_B7D2E2				;3D 16x32 ground (copy)
+	dw CODE_B7D2F2				;3E 16x16 ground (copy)
+	dw CODE_B7D26F				;3F 4x20 bottom vertical rope (sets $1400 in collision tile)
+	dw CODE_B7D27D				;40 16x4 horizontal rope (sets $0800 in collision tile)
+	dw CODE_B7D286				;41 4x32 vertical rope (sets $1000 in collision tile)
+	dw CODE_B7D298				;42 4x32 v/16x4 h rope (sets $1000/$0800 in collision tile)
+	dw CODE_B7D218				;43 4x24 top vertical rope (sets $1000 in collision tile)
+	dw CODE_B7D22C				;44 4x16 top vertical rope (sets $1000 in collision tile)
+	dw CODE_B7D240				;45 4x8 top vertical rope (sets $1000 in collision tile)
+	dw CODE_B7D25D				;46 4x32 v rope/12x20 ground intersection (sets $1000 in collision tile)
+	dw CODE_B7D206				;47 16x32 ground but (sets $0200 in collision tile)
+	dw CODE_B7D20F				;48 16x16 ground but (sets $0200 in collision tile)
+	dw CODE_B7D33F				;49
+	dw CODE_B7D349				;4A
+	dw CODE_B7D123				;4B
+	dw CODE_B7D151				;4C
+	dw CODE_B7D183				;4D
+	dw CODE_B7D1A6				;4E
+	dw CODE_B7D1D6				;4F
+	dw CODE_B7D2C3				;50 4x16 bottom vertical rope (sets $1000 in collision tile)
+	dw CODE_B7D1E3				;51 2x32 ground/wall
+	dw CODE_B7D1F0				;52 full ceiling? (riverbank/drain pipe)
+	dw CODE_B7D2D5				;53 16x32 horizontal conveyor rope (sets $1000 in collision tile)
 
 CODE_B7D123:
 	STA.b $1E				;$B7D123

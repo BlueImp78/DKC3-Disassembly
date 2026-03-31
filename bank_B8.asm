@@ -4166,15 +4166,15 @@ CODE_B8A38F:
 
 kong_state_01:
 	LDA.w #$0002				;$B8A39C
-	JSR.w CODE_B8CC29			;$B8A39F
-	JSR.w CODE_B8CBB2			;$B8A3A2
+	JSR.w player_action_handler		;$B8A39F
+	JSR.w player_slope_handler		;$B8A3A2
 	JSR.w CODE_B89FAE			;$B8A3A5
 	JSR.w CODE_B8C681			;$B8A3A8
 	JMP.w CODE_B8A075			;$B8A3AB
 
 kong_state_02:
 	LDA.w #$0003				;$B8A3AE
-	JSR.w CODE_B8CC29			;$B8A3B1
+	JSR.w player_action_handler		;$B8A3B1
 	JSR.w CODE_B8E0AE			;$B8A3B4
 	JSR.w CODE_B8E0BF			;$B8A3B7
 	JSR.w CODE_B89FAE			;$B8A3BA
@@ -4184,7 +4184,7 @@ kong_state_02:
 
 kong_state_03:
 	LDA.w #$0004				;$B8A3C6
-	JSR.w CODE_B8CC29			;$B8A3C9
+	JSR.w player_action_handler		;$B8A3C9
 	JSR.w CODE_B8E0AE			;$B8A3CC
 	JSR.w CODE_B8A3F2			;$B8A3CF
 	JSR.w CODE_B89FB1			;$B8A3D2
@@ -4245,7 +4245,7 @@ CODE_B8A436:
 
 kong_state_05:
 	LDA.w #$0004				;$B8A43A
-	JSR.w CODE_B8CC29			;$B8A43D
+	JSR.w player_action_handler		;$B8A43D
 	JSR.w CODE_B8E0AE			;$B8A440
 	JSR.w CODE_B89FAE			;$B8A443
 	JSR.w CODE_B8C681			;$B8A446
@@ -4262,7 +4262,7 @@ kong_state_08:
 	TSB.w $05AF				;$B8A455
 	JSR.w CODE_B8A532			;$B8A458
 	LDA.w #$0006				;$B8A45B
-	JSR.w CODE_B8CC29			;$B8A45E
+	JSR.w player_action_handler		;$B8A45E
 	LDA.b $38,x				;$B8A461
 	CMP.w #$0008				;$B8A463
 	BNE.b CODE_B8A482			;$B8A466
@@ -4385,7 +4385,7 @@ kong_state_09:
 	TSB.w $05AF				;$B8A53E
 	JSR.w CODE_B8A532			;$B8A541
 	LDA.w #$0009				;$B8A544
-	JSR.w CODE_B8CC29			;$B8A547
+	JSR.w player_action_handler		;$B8A547
 	LDA.b $38,x				;$B8A54A
 	CMP.w #$0009				;$B8A54C
 	BNE.b CODE_B8A56A			;$B8A54F
@@ -4413,7 +4413,7 @@ CODE_B8A571:
 
 kong_state_0A:
 	LDA.w #$0003				;$B8A57C
-	JSR.w CODE_B8CC29			;$B8A57F
+	JSR.w player_action_handler		;$B8A57F
 	JSR.w CODE_B8E0AE			;$B8A582
 	JSR.w CODE_B8E0BF			;$B8A585
 	JSR.w CODE_B89FB1			;$B8A588
@@ -4427,7 +4427,7 @@ kong_state_0B:
 	TSB.w $1927				;$B8A59A
 	JSR.w CODE_B8A532			;$B8A59D
 	LDA.w #$0007				;$B8A5A0
-	JSR.w CODE_B8CC29			;$B8A5A3
+	JSR.w player_action_handler		;$B8A5A3
 	LDA.b $38,x				;$B8A5A6
 	CMP.w #$000B				;$B8A5A8
 	BNE.b CODE_B8A5C1			;$B8A5AB
@@ -4491,7 +4491,7 @@ kong_state_0C:
 	TSB.w $05AF				;$B8A616
 	JSR.w CODE_B8A532			;$B8A619
 	LDA.w #$0008				;$B8A61C
-	JSR.w CODE_B8CC29			;$B8A61F
+	JSR.w player_action_handler		;$B8A61F
 	LDA.b $38,x				;$B8A622
 	CMP.w #$000C				;$B8A624
 	BNE.b CODE_B8A63F			;$B8A627
@@ -4532,7 +4532,7 @@ kong_state_0D:
 
 kong_state_0F:
 	LDA.w #$0003				;$B8A676
-	JSR.w CODE_B8CC29			;$B8A679
+	JSR.w player_action_handler		;$B8A679
 	JSR.w CODE_B8E0AE			;$B8A67C
 	JSR.w CODE_B8E0BF			;$B8A67F
 	JSR.w CODE_B89FAE			;$B8A682
@@ -4542,7 +4542,7 @@ kong_state_0F:
 
 kong_state_10:
 	LDA.w #$000A				;$B8A68E
-	JSR.w CODE_B8CC29			;$B8A691
+	JSR.w player_action_handler		;$B8A691
 	JSR.w CODE_B89FAE			;$B8A694
 	LDX.b current_sprite			;$B8A697
 	LDA.b $38,x				;$B8A699
@@ -4554,7 +4554,7 @@ CODE_B8A6A3:
 
 kong_state_11:
 	LDA.w #$000B				;$B8A6A6
-	JSR.w CODE_B8CC29			;$B8A6A9
+	JSR.w player_action_handler		;$B8A6A9
 	JSR.w CODE_B8E0AE			;$B8A6AC
 	JSR.w CODE_B8E0BF			;$B8A6AF
 	JSR.w CODE_B89FAE			;$B8A6B2
@@ -4563,13 +4563,13 @@ kong_state_11:
 
 kong_state_12:
 	LDA.w #$0001				;$B8A6BB
-	JSR.w CODE_B8CC29			;$B8A6BE
+	JSR.w player_action_handler		;$B8A6BE
 	JSR.w CODE_B89FAE			;$B8A6C1
 	JMP.w CODE_B8A075			;$B8A6C4
 
 kong_state_13:
 	LDA.w #$0001				;$B8A6C7
-	JSR.w CODE_B8CC29			;$B8A6CA
+	JSR.w player_action_handler		;$B8A6CA
 	LDA.w current_held_sprite		;$B8A6CD
 	BEQ.b CODE_B8A6E5			;$B8A6D0
 	LDX.b current_sprite			;$B8A6D2
@@ -4588,7 +4588,7 @@ kong_state_14:
 	LDA.w #$0002				;$B8A6EB
 	TSB.w $1927				;$B8A6EE
 	LDA.w #$000C				;$B8A6F1
-	JSR.w CODE_B8CC29			;$B8A6F4
+	JSR.w player_action_handler		;$B8A6F4
 	LDA.b $38,x				;$B8A6F7
 	CMP.w #$0014				;$B8A6F9
 	BNE.b CODE_B8A71E			;$B8A6FC
@@ -4618,7 +4618,7 @@ kong_state_16:
 	LDA.w #$0004				;$B8A72D
 	TSB.w $05AF				;$B8A730
 	LDA.w #$0007				;$B8A733
-	JSR.w CODE_B8CC29			;$B8A736
+	JSR.w player_action_handler		;$B8A736
 	LDA.b $38,x				;$B8A739
 	CMP.w #$0016				;$B8A73B
 	BNE.b CODE_B8A752			;$B8A73E
@@ -4732,7 +4732,7 @@ kong_state_17:
 	LDA.w #$0004				;$B8A805
 	TSB.w $05AF				;$B8A808
 	LDA.w #$0008				;$B8A80B
-	JSR.w CODE_B8CC29			;$B8A80E
+	JSR.w player_action_handler		;$B8A80E
 	LDA.b $38,x				;$B8A811
 	CMP.w #$0017				;$B8A813
 	BNE.b CODE_B8A835			;$B8A816
@@ -4770,7 +4770,7 @@ CODE_B8A84C:
 
 kong_state_18:
 	LDA.w #$000D				;$B8A85F
-	JSR.w CODE_B8CC29			;$B8A862
+	JSR.w player_action_handler		;$B8A862
 	LDX.b current_sprite			;$B8A865
 	LDA.b $38,x				;$B8A867
 	CMP.w #$0018				;$B8A869
@@ -4793,7 +4793,7 @@ kong_state_19:
 
 .sub_state_0:
 	LDA.w #$0001				;$B8A87C
-	JSR.w CODE_B8CC29			;$B8A87F
+	JSR.w player_action_handler		;$B8A87F
 	LDY.w #$01F8				;$B8A882
 #CODE_B8A88D:
 	LDX.b current_sprite			;$B8A885
@@ -4818,7 +4818,7 @@ kong_state_19:
 
 .sub_state_1:
 	LDA.w #$000E				;$B8A8AA
-	JSR.w CODE_B8CC29			;$B8A8AD
+	JSR.w player_action_handler		;$B8A8AD
 	JSR.w CODE_B89FAE			;$B8A8B0
 	JSR.w CODE_B8A8D2			;$B8A8B3
 	JSR.w CODE_B8C681			;$B8A8B6
@@ -4827,7 +4827,7 @@ kong_state_19:
 
 .sub_state_2:
 	LDA.w #$0001				;$B8A8BF
-	JSR.w CODE_B8CC29			;$B8A8C2
+	JSR.w player_action_handler		;$B8A8C2
 	LDY.w #$0200				;$B8A8C5
 	BRA.b CODE_B8A88D			;$B8A8C8
 
@@ -5008,7 +5008,7 @@ kong_state_1C:
 	LDA.w #$0002				;$B8AA0D
 	TSB.w $05AF				;$B8AA10
 	LDA.w #$0001				;$B8AA13
-	JSR.w CODE_B8CC29			;$B8AA16
+	JSR.w player_action_handler		;$B8AA16
 	LDX.b current_sprite			;$B8AA19
 	STZ.b $28,x				;$B8AA1B
 	LDA.w #$0001				;$B8AA1D
@@ -5040,7 +5040,7 @@ kong_state_1D:
 	STZ.b $64,x				;$B8AA58
 	LDA.w #$000F				;$B8AA5A
 CODE_B8AA5D:
-	JSR.w CODE_B8CC29			;$B8AA5D
+	JSR.w player_action_handler		;$B8AA5D
 	LDA.b $62,x				;$B8AA60
 	AND.w #$00FF				;$B8AA62
 	BEQ.b CODE_B8AA90			;$B8AA65
@@ -5194,7 +5194,7 @@ CODE_B8ABB0:
 
 kong_state_21:
 	LDA.w #$0001				;$B8ABB3
-	JSR.w CODE_B8CC29			;$B8ABB6
+	JSR.w player_action_handler		;$B8ABB6
 	JSR.w CODE_B8A035			;$B8ABB9
 	LDA.w #$0003				;$B8ABBC
 	JSL.l interpolate_x_speed		;$B8ABBF
@@ -5245,8 +5245,8 @@ CODE_B8AC1F:
 
 kong_state_23:
 	LDA.w #$0010				;$B8AC29
-	JSR.w CODE_B8CC29			;$B8AC2C
-	JSR.w CODE_B8CBB2			;$B8AC2F
+	JSR.w player_action_handler		;$B8AC2C
+	JSR.w player_slope_handler		;$B8AC2F
 	JSR.w CODE_B89FAE			;$B8AC32
 	JSR.w CODE_B8C681			;$B8AC35
 	JSR.w CODE_B8AD5C			;$B8AC38
@@ -5254,7 +5254,7 @@ kong_state_23:
 
 kong_state_24:
 	LDA.w #$0011				;$B8AC3E
-	JSR.w CODE_B8CC29			;$B8AC41
+	JSR.w player_action_handler		;$B8AC41
 	JSR.w CODE_B8E0AE			;$B8AC44
 	JSR.w CODE_B8E0BF			;$B8AC47
 	JSR.w CODE_B89FAE			;$B8AC4A
@@ -5264,7 +5264,7 @@ kong_state_24:
 
 kong_state_25:
 	LDA.w #$0015				;$B8AC56
-	JSR.w CODE_B8CC29			;$B8AC59
+	JSR.w player_action_handler		;$B8AC59
 	LDA.b $38,x				;$B8AC5C
 	CMP.w #$0025				;$B8AC5E
 	BNE.b CODE_B8AC75			;$B8AC61
@@ -5294,8 +5294,8 @@ CODE_B8AC93:
 
 kong_state_26:
 	LDA.w #$0012				;$B8AC94
-	JSR.w CODE_B8CC29			;$B8AC97
-	JSR.w CODE_B8CBB2			;$B8AC9A
+	JSR.w player_action_handler		;$B8AC97
+	JSR.w player_slope_handler		;$B8AC9A
 	JSR.w CODE_B89FAE			;$B8AC9D
 	JSR.w CODE_B8C681			;$B8ACA0
 	JSR.w CODE_B8AD5C			;$B8ACA3
@@ -5303,7 +5303,7 @@ kong_state_26:
 
 kong_state_27:
 	LDA.w #$0013				;$B8ACA9
-	JSR.w CODE_B8CC29			;$B8ACAC
+	JSR.w player_action_handler		;$B8ACAC
 	JSR.w CODE_B8E0AE			;$B8ACAF
 	JSR.w CODE_B8E0BF			;$B8ACB2
 	JSR.w CODE_B89FAE			;$B8ACB5
@@ -5313,8 +5313,8 @@ kong_state_27:
 
 kong_state_28:
 	LDA.w #$0001				;$B8ACC1
-	JSR.w CODE_B8CC29			;$B8ACC4
-	JSR.w CODE_B8CBB2			;$B8ACC7
+	JSR.w player_action_handler		;$B8ACC4
+	JSR.w player_slope_handler		;$B8ACC7
 	JSR.w CODE_B89FAE			;$B8ACCA
 	JSR.w CODE_B8C681			;$B8ACCD
 	JSR.w CODE_B8AD5C			;$B8ACD0
@@ -5339,9 +5339,9 @@ CODE_B8ACF1:
 
 kong_state_2A:
 	LDA.w #$0014				;$B8ACFA
-	JSR.w CODE_B8CC29			;$B8ACFD
+	JSR.w player_action_handler		;$B8ACFD
 	JSR.w CODE_B8C663			;$B8AD00
-	JSR.w CODE_B8CBB2			;$B8AD03
+	JSR.w player_slope_handler		;$B8AD03
 	JSR.w CODE_B89FAE			;$B8AD06
 	JSR.w CODE_B8C681			;$B8AD09
 	JSR.w CODE_B8AD5C			;$B8AD0C
@@ -5349,18 +5349,18 @@ kong_state_2A:
 
 kong_state_2B:
 	LDA.w #$0014				;$B8AD12
-	JSR.w CODE_B8CC29			;$B8AD15
+	JSR.w player_action_handler		;$B8AD15
 	LDX.b current_sprite			;$B8AD18
 	STZ.b $30,x				;$B8AD1A
-	JSR.w CODE_B8CBB2			;$B8AD1C
+	JSR.w player_slope_handler		;$B8AD1C
 	JSR.w CODE_B89FAE			;$B8AD1F
 	JSR.w CODE_B8C681			;$B8AD22
 	JMP.w CODE_B8A075			;$B8AD25
 
 kong_state_2C:
 	LDA.w #$0010				;$B8AD28
-	JSR.w CODE_B8CC29			;$B8AD2B
-	JSR.w CODE_B8CBB2			;$B8AD2E
+	JSR.w player_action_handler		;$B8AD2B
+	JSR.w player_slope_handler		;$B8AD2E
 	JSR.w CODE_B89FAE			;$B8AD31
 	JSR.w CODE_B8C681			;$B8AD34
 	JMP.w CODE_B8A075			;$B8AD37
@@ -5377,7 +5377,7 @@ kong_state_2D:
 
 CODE_B8AD4D:
 	LDA.w #$0016				;$B8AD4D
-	JSR.w CODE_B8CC29			;$B8AD50
+	JSR.w player_action_handler		;$B8AD50
 	JSR.w CODE_B89F50			;$B8AD53
 	JSR.w CODE_B8ADD8			;$B8AD56
 	JMP.w CODE_B8A075			;$B8AD59
@@ -5479,7 +5479,7 @@ CODE_B8AE09:
 
 kong_state_2E:
 	LDA.w #$0016				;$B8AE19
-	JSR.w CODE_B8CC29			;$B8AE1C
+	JSR.w player_action_handler		;$B8AE1C
 	LDA.w #$0010				;$B8AE1F
 	JSL.l CODE_BCE2CE			;$B8AE22
 	JSR.w CODE_B89F50			;$B8AE26
@@ -5497,14 +5497,14 @@ kong_state_2F:
 
 CODE_B8AE3F:
 	LDA.w #$0001				;$B8AE3F
-	JSR.w CODE_B8CC29			;$B8AE42
+	JSR.w player_action_handler		;$B8AE42
 	JSR.w CODE_B89F50			;$B8AE45
 	JSR.w CODE_B8ADD8			;$B8AE48
 	JMP.w CODE_B8A075			;$B8AE4B
 
 kong_state_30:
 	LDA.w #$0017				;$B8AE4E
-	JSR.w CODE_B8CC29			;$B8AE51
+	JSR.w player_action_handler		;$B8AE51
 	LDX.b current_sprite			;$B8AE54
 	LDA.b $5C,x				;$B8AE56
 	STA.b $2A,x				;$B8AE58
@@ -5526,7 +5526,7 @@ CODE_B8AE7E:
 
 kong_state_31:
 	LDA.w #$0001				;$B8AE81
-	JSR.w CODE_B8CC29			;$B8AE84
+	JSR.w player_action_handler		;$B8AE84
 	LDA.w #$0004				;$B8AE87
 	JSL.l interpolate_x_speed		;$B8AE8A
 	JSR.w CODE_B89F50			;$B8AE8E
@@ -5602,7 +5602,7 @@ kong_state_36:
 	LDA.w #$0002				;$B8AF27
 	TSB.w $05AF				;$B8AF2A
 	LDA.w #$0000				;$B8AF2D
-	JSR.w CODE_B8CC29			;$B8AF30
+	JSR.w player_action_handler		;$B8AF30
 	LDX.b current_sprite			;$B8AF33
 	STZ.b $60,x				;$B8AF35
 	JSR.w CODE_B89FED			;$B8AF37
@@ -5909,7 +5909,7 @@ CODE_B8B17F:
 	TRB.w $194F				;$B8B18F
 CODE_B8B192:
 	LDA.w #$0001				;$B8B192
-	JSR.w CODE_B8CC29			;$B8B195
+	JSR.w player_action_handler		;$B8B195
 	JSR.w CODE_B8B461			;$B8B198
 	JSR.w CODE_B8B30E			;$B8B19B
 	JSR.w CODE_B8A035			;$B8B19E
@@ -5920,7 +5920,7 @@ CODE_B8B192:
 
 CODE_B8B1AD:
 	LDA.w #$0018				;$B8B1AD
-	JSR.w CODE_B8CC29			;$B8B1B0
+	JSR.w player_action_handler		;$B8B1B0
 	JSR.w CODE_B8B461			;$B8B1B3
 	JSR.w CODE_B8B30E			;$B8B1B6
 	JSR.w CODE_B8A035			;$B8B1B9
@@ -5931,7 +5931,7 @@ CODE_B8B1AD:
 
 CODE_B8B1C8:
 	LDA.w #$0018				;$B8B1C8
-	JSR.w CODE_B8CC29			;$B8B1CB
+	JSR.w player_action_handler		;$B8B1CB
 	JSR.w CODE_B8DE74			;$B8B1CE
 	JSR.w CODE_B8B461			;$B8B1D1
 	JSR.w CODE_B8B30E			;$B8B1D4
@@ -5960,7 +5960,7 @@ CODE_B8B203:
 	LDA.w #$00B8				;$B8B203
 	STA.w $003A,y				;$B8B206
 	LDA.w #$0001				;$B8B209
-	JSR.w CODE_B8CC29			;$B8B20C
+	JSR.w player_action_handler		;$B8B20C
 	LDA.w #$0100				;$B8B20F
 	CMP.w $18E9				;$B8B212
 	BCC.b CODE_B8B21A			;$B8B215
@@ -5974,7 +5974,7 @@ CODE_B8B21A:
 
 CODE_B8B229:
 	LDA.w #$0001				;$B8B229
-	JSR.w CODE_B8CC29			;$B8B22C
+	JSR.w player_action_handler		;$B8B22C
 	JSR.w CODE_B89FC6			;$B8B22F
 	JMP.w CODE_B8A075			;$B8B232
 
@@ -6526,8 +6526,8 @@ CODE_B8B60D:
 
 kong_state_3F:
 	LDA.w #$0019				;$B8B614
-	JSR.w CODE_B8CC29			;$B8B617
-	JSR.w CODE_B8CBB2			;$B8B61A
+	JSR.w player_action_handler		;$B8B617
+	JSR.w player_slope_handler		;$B8B61A
 	JSR.w CODE_B89FAE			;$B8B61D
 	JSL.l CODE_B8EFE7			;$B8B620
 	JMP.w CODE_B8A075			;$B8B624
@@ -6571,7 +6571,7 @@ CODE_B8B654:
 
 kong_state_43:
 	LDA.w #$001A				;$B8B67B
-	JSR.w CODE_B8CC29			;$B8B67E
+	JSR.w player_action_handler		;$B8B67E
 	JSR.w CODE_B8E0AE			;$B8B681
 	JSR.w CODE_B8E0BF			;$B8B684
 	JSR.w CODE_B89FAE			;$B8B687
@@ -6581,7 +6581,7 @@ kong_state_43:
 
 kong_state_44:
 	LDA.w #$001B				;$B8B694
-	JSR.w CODE_B8CC29			;$B8B697
+	JSR.w player_action_handler		;$B8B697
 	JSR.w CODE_B8E0AE			;$B8B69A
 	JSR.w CODE_B8E0BF			;$B8B69D
 	JSR.w CODE_B89FAE			;$B8B6A0
@@ -6591,7 +6591,7 @@ kong_state_44:
 
 kong_state_45:
 	LDA.w #$001C				;$B8B6AD
-	JSR.w CODE_B8CC29			;$B8B6B0
+	JSR.w player_action_handler		;$B8B6B0
 	JSR.w CODE_B89FCB			;$B8B6B3
 	JSL.l CODE_B8EFE7			;$B8B6B6
 	JSR.w CODE_B89FC6			;$B8B6BA
@@ -6599,7 +6599,7 @@ kong_state_45:
 
 kong_state_46:
 	LDA.w #$001C				;$B8B6C0
-	JSR.w CODE_B8CC29			;$B8B6C3
+	JSR.w player_action_handler		;$B8B6C3
 	JSR.w CODE_B89FAE			;$B8B6C6
 	JMP.w CODE_B8A075			;$B8B6C9
 
@@ -6680,7 +6680,7 @@ kong_state_48:
 	LDA.w #$0002				;$B8B75D
 	TSB.w $05AF				;$B8B760
 	LDA.w #$0000				;$B8B763
-	JSR.w CODE_B8CC29			;$B8B766
+	JSR.w player_action_handler		;$B8B766
 	JSR.w CODE_B89FCB			;$B8B769
 	JMP.w CODE_B8A075			;$B8B76C
 
@@ -7554,15 +7554,15 @@ kong_state_52:
 	SBC.w $0012,y				;$B8BEBD
 	STA.w $0052,y				;$B8BEC0
 	LDA.w #$0021				;$B8BEC3
-	JSR.w CODE_B8CC29			;$B8BEC6
-	JSR.w CODE_B8CBB2			;$B8BEC9
+	JSR.w player_action_handler		;$B8BEC6
+	JSR.w player_slope_handler		;$B8BEC9
 	JSR.w CODE_B89FAE			;$B8BECC
 	JSR.w CODE_B8C681			;$B8BECF
 	JMP.w CODE_B8A075			;$B8BED2
 
 CODE_B8BED5:
 	LDA.w #$0021				;$B8BED5
-	JSR.w CODE_B8CC29			;$B8BED8
+	JSR.w player_action_handler		;$B8BED8
 	JSL.l CODE_B9A595			;$B8BEDB
 	JSR.w CODE_B89FAE			;$B8BEDF
 	JSR.w CODE_B8C681			;$B8BEE2
@@ -7679,7 +7679,7 @@ kong_state_58:
 	LDA.w #$0002				;$B8BFBD
 	TSB.w $05AF				;$B8BFC0
 	LDA.w #$0001				;$B8BFC3
-	JSR.w CODE_B8CC29			;$B8BFC6
+	JSR.w player_action_handler		;$B8BFC6
 	JSL.l process_sprite_animation		;$B8BFC9
 	JSR.w CODE_B89FC6			;$B8BFCD
 	JMP.w CODE_B8A075			;$B8BFD0
@@ -7690,7 +7690,7 @@ kong_state_59:
 
 kong_state_5A:
 	LDA.w #$0025				;$B8BFDA
-	JSR.w CODE_B8CC29			;$B8BFDD
+	JSR.w player_action_handler		;$B8BFDD
 	BCS.b CODE_B8BFE5			;$B8BFE0
 	JMP.w CODE_B8BFFC			;$B8BFE2
 
@@ -7739,7 +7739,7 @@ CODE_B8C034:
 
 kong_state_5B:
 	LDA.w #$0025				;$B8C037
-	JSR.w CODE_B8CC29			;$B8C03A
+	JSR.w player_action_handler		;$B8C03A
 	BCS.b CODE_B8C042			;$B8C03D
 	JMP.w CODE_B8BFFC			;$B8C03F
 
@@ -7775,7 +7775,7 @@ CODE_B8C075:
 
 kong_state_5E:
 	LDA.w #$0001				;$B8C07C
-	JSR.w CODE_B8CC29			;$B8C07F
+	JSR.w player_action_handler		;$B8C07F
 	JSR.w CODE_B8A035			;$B8C082
 	JSR.w CODE_B8A04C			;$B8C085
 	JSL.l CODE_B9E018			;$B8C088
@@ -7792,7 +7792,7 @@ kong_state_5F:
 
 kong_state_60:
 	LDA.w #$0001				;$B8C0A4
-	JSR.w CODE_B8CC29			;$B8C0A7
+	JSR.w player_action_handler		;$B8C0A7
 	LDX.b current_sprite			;$B8C0AA
 	LDA.b $12,x				;$B8C0AC
 	CMP.w $18A7				;$B8C0AE
@@ -8018,7 +8018,7 @@ kong_state_63:
 	LDA.w #$0001				;$B8C265
 	TSB.w $1927				;$B8C268
 	LDA.w #$001D				;$B8C26B
-	JSR.w CODE_B8CC29			;$B8C26E
+	JSR.w player_action_handler		;$B8C26E
 	JSR.w CODE_B8C33A			;$B8C271
 	LDX.b current_sprite			;$B8C274
 	LDA.b $16,x				;$B8C276
@@ -8079,7 +8079,7 @@ CODE_B8C2BD:
 	INC.b $5A,x				;$B8C2EA
 CODE_B8C2EC:
 	LDA.w #$0001				;$B8C2EC
-	JSR.w CODE_B8CC29			;$B8C2EF
+	JSR.w player_action_handler		;$B8C2EF
 	JSL.l process_sprite_animation		;$B8C2F2
 	JMP.w CODE_B8A075			;$B8C2F6
 
@@ -8096,7 +8096,7 @@ CODE_B8C306:
 	DEC.b $12,x				;$B8C306
 CODE_B8C308:
 	LDA.w #$0001				;$B8C308
-	JSR.w CODE_B8CC29			;$B8C30B
+	JSR.w player_action_handler		;$B8C30B
 	JSL.l process_sprite_animation		;$B8C30E
 	JMP.w CODE_B8A075			;$B8C312
 
@@ -8105,13 +8105,13 @@ CODE_B8C315:
 	LDA.w #$0065				;$B8C317
 	STA.b $38,x				;$B8C31A
 	LDA.w #$001E				;$B8C31C
-	JSR.w CODE_B8CC29			;$B8C31F
+	JSR.w player_action_handler		;$B8C31F
 	JSR.w CODE_B8C33A			;$B8C322
 	JMP.w CODE_B8A075			;$B8C325
 
 kong_state_65:
 	LDA.w #$001E				;$B8C328
-	JSR.w CODE_B8CC29			;$B8C32B
+	JSR.w player_action_handler		;$B8C32B
 	JSR.w CODE_B8C33A			;$B8C32E
 	JMP.w CODE_B8A075			;$B8C331
 
@@ -8223,15 +8223,15 @@ CODE_B8C3F9:
 
 kong_state_67:
 	LDA.w #$001F				;$B8C3FA
-	JSR.w CODE_B8CC29			;$B8C3FD
-	JSR.w CODE_B8CBB2			;$B8C400
+	JSR.w player_action_handler		;$B8C3FD
+	JSR.w player_slope_handler		;$B8C400
 	JSR.w CODE_B89FAE			;$B8C403
 	JSR.w CODE_B8C681			;$B8C406
 	JMP.w CODE_B8A075			;$B8C409
 
 kong_state_68:
 	LDA.w #$0020				;$B8C40C
-	JSR.w CODE_B8CC29			;$B8C40F
+	JSR.w player_action_handler		;$B8C40F
 	JSR.w CODE_B8E0AE			;$B8C412
 	JSR.w CODE_B8E0BF			;$B8C415
 	JSR.w CODE_B89FAE			;$B8C418
@@ -8240,7 +8240,7 @@ kong_state_68:
 
 kong_state_69:
 	LDA.w #$0011				;$B8C421
-	JSR.w CODE_B8CC29			;$B8C424
+	JSR.w player_action_handler		;$B8C424
 	JSR.w CODE_B8E0BF			;$B8C427
 	JSR.w CODE_B89FAE			;$B8C42A
 	JSR.w CODE_B8C681			;$B8C42D
@@ -8248,27 +8248,27 @@ kong_state_69:
 
 kong_state_6A:
 	LDA.w #$0022				;$B8C433
-	JSR.w CODE_B8CC29			;$B8C436
+	JSR.w player_action_handler		;$B8C436
 	JSR.w CODE_B89FAE			;$B8C439
 	JSR.w CODE_B8C681			;$B8C43C
 	JMP.w CODE_B8A075			;$B8C43F
 
 kong_state_6B:
 	LDA.w #$0001				;$B8C442
-	JSR.w CODE_B8CC29			;$B8C445
+	JSR.w player_action_handler		;$B8C445
 	JSR.w CODE_B8A035			;$B8C448
 	JSR.w CODE_B89FB4			;$B8C44B
 	JMP.w CODE_B8A075			;$B8C44E
 
 kong_state_6C:
 	LDA.w #$0023				;$B8C451
-	JSR.w CODE_B8CC29			;$B8C454
+	JSR.w player_action_handler		;$B8C454
 	JSR.w CODE_B89FAE			;$B8C457
 	JMP.w CODE_B8A075			;$B8C45A
 
 kong_state_6D:
 	LDA.w #$0024				;$B8C45D
-	JSR.w CODE_B8CC29			;$B8C460
+	JSR.w player_action_handler		;$B8C460
 	JSR.w CODE_B89FAE			;$B8C463
 	JMP.w CODE_B8A075			;$B8C466
 
@@ -8549,37 +8549,37 @@ CODE_B8C686:
 	RTS					;$B8C686
 
 CODE_B8C687:
-	LDA.w $050F				;$B8C687
-	BMI.b CODE_B8C694			;$B8C68A
-	JSR.w check_sprite_underwater		;$B8C68C
-	CMP.w #$0001				;$B8C68F
-	BCS.b CODE_B8C696			;$B8C692
-CODE_B8C694:
-	CLC					;$B8C694
-	RTS					;$B8C695
+	LDA.w $050F				;$B8C687  \
+	BMI.b CODE_B8C694			;$B8C68A   |
+	JSR.w check_sprite_underwater		;$B8C68C   |
+	CMP.w #$0001				;$B8C68F   |
+	BCS.b CODE_B8C696			;$B8C692   |
+CODE_B8C694:					;	   |
+	CLC					;$B8C694   |
+	RTS					;$B8C695  /
 
 CODE_B8C696:
-	BNE.b CODE_B8C69F			;$B8C696
-	LDA.b current_animal_type		;$B8C698
-	CMP.w #!sprite_ellie			;$B8C69A
-	BNE.b CODE_B8C694			;$B8C69D
-CODE_B8C69F:
-	LDA.b $38,x				;$B8C69F
-	CMP.w #$0024				;$B8C6A1
-	BEQ.b CODE_B8C6AB			;$B8C6A4
-	CMP.w #$0069				;$B8C6A6
-	BNE.b CODE_B8C6B3			;$B8C6A9
-CODE_B8C6AB:
-	LDA.b $2E,x				;$B8C6AB
-	CLC					;$B8C6AD
-	ADC.w #$0400				;$B8C6AE
-	BMI.b CODE_B8C694			;$B8C6B1
-CODE_B8C6B3:
-	JSR.w CODE_B898AB			;$B8C6B3
-	JSL.l CODE_B89C01			;$B8C6B6
-	JSR.w CODE_B8C6BF			;$B8C6BA
-	SEC					;$B8C6BD
-	RTS					;$B8C6BE
+	BNE.b CODE_B8C69F			;$B8C696  \
+	LDA.b current_animal_type		;$B8C698   |
+	CMP.w #!sprite_ellie			;$B8C69A   |
+	BNE.b CODE_B8C694			;$B8C69D   |
+CODE_B8C69F:					;	   |
+	LDA.b sprite.state,x			;$B8C69F   |
+	CMP.w #!kong_state_24			;$B8C6A1   |
+	BEQ.b CODE_B8C6AB			;$B8C6A4   |
+	CMP.w #!kong_state_69			;$B8C6A6   |
+	BNE.b CODE_B8C6B3			;$B8C6A9   |
+CODE_B8C6AB:					;	   |
+	LDA.b sprite.y_speed,x			;$B8C6AB   |
+	CLC					;$B8C6AD   |
+	ADC.w #$0400				;$B8C6AE   |
+	BMI.b CODE_B8C694			;$B8C6B1   |
+CODE_B8C6B3:					;	   |
+	JSR.w CODE_B898AB			;$B8C6B3   |
+	JSL.l CODE_B89C01			;$B8C6B6   |
+	JSR.w CODE_B8C6BF			;$B8C6BA   |
+	SEC					;$B8C6BD   |
+	RTS					;$B8C6BE  /
 
 CODE_B8C6BF:
 	STZ.w $04AA				;$B8C6BF
@@ -9318,7 +9318,7 @@ CODE_B8CB9A:
 	SEC					;$B8CBB0
 	RTS					;$B8CBB1
 
-CODE_B8CBB2:
+player_slope_handler:
 	LDX.b current_sprite			;$B8CBB2
 	LDA.b $4A,x				;$B8CBB4
 	AND.w #$0001				;$B8CBB6
@@ -9380,7 +9380,7 @@ CODE_B8CC13:
 	JSL.l set_anim_handle_kiddy		;$B8CC24
 	RTS					;$B8CC28
 
-CODE_B8CC29:
+player_action_handler:
 	ASL					;$B8CC29
 	STA.w $04DE				;$B8CC2A
 	LDA.w #$0001				;$B8CC2D
@@ -13099,7 +13099,7 @@ CODE_B8E670:
 	BCS.b CODE_B8E6A1			;$B8E68C
 	INC.b $62,x				;$B8E68E
 	STZ.b $2E,x				;$B8E690
-	JSL.l CODE_808018			;$B8E692
+	JSL.l get_random_number			;$B8E692
 	AND.w #$000F				;$B8E696
 	ADC.w $000D,y				;$B8E699
 	AND.w #$00FF				;$B8E69C
@@ -13127,7 +13127,7 @@ CODE_B8E6A2:
 	BCC.b CODE_B8E6D8			;$B8E6C3
 	DEC.b $62,x				;$B8E6C5
 	STZ.b $2E,x				;$B8E6C7
-	JSL.l CODE_808018			;$B8E6C9
+	JSL.l get_random_number			;$B8E6C9
 	AND.w #$003F				;$B8E6CD
 	ADC.w $000C,y				;$B8E6D0
 	AND.w #$00FF				;$B8E6D3

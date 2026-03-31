@@ -237,33 +237,33 @@ CODE_B9A14F:
 	JMP.w (animation_command_table,x)	;$B9A157
 
 animation_command_table:
-	dw anim_command_80			; $80 -
-	dw anim_command_81			; $81 -
-	dw anim_command_82			; $82 -
-	dw anim_command_83			; $83 -
-	dw anim_command_84			; $84 -
-	dw anim_command_85			; $85 -
-	dw anim_command_86_88			; $86 -
+	dw anim_command_80			; $80 - 
+	dw anim_command_81			; $81 - 
+	dw anim_command_82			; $82 - 
+	dw anim_command_83			; $83 - 
+	dw anim_command_84			; $84 - 
+	dw anim_command_85			; $85 - 
+	dw anim_command_86_88			; $86 - 
 	dw anim_command_87_89			; $87 - Set new anim, mask and handle kiddy if negative
-	dw anim_command_86_88			; $88 -
+	dw anim_command_86_88			; $88 - 
 	dw anim_command_87_89			; $89 - Set new anim, mask and handle kiddy if negative
-	dw anim_command_8A			; $8A -
-	dw anim_command_8B			; $8B -
-	dw anim_command_8C			; $8C -
-	dw anim_command_8D			; $8D -
-	dw anim_command_8E			; $8E -
-	dw anim_command_8F			; $8F -
-	dw anim_command_90			; $90 -
-	dw anim_command_91			; $91 -
-	dw anim_command_92			; $92 -
-	dw anim_command_93			; $93 -
-	dw anim_command_94			; $94 -
-	dw anim_command_95			; $95 -
-	dw anim_command_96			; $96 -
-	dw anim_command_97			; $97 -
-	dw anim_command_98			; $98 -
-	dw anim_command_99			; $99 -
-	dw anim_command_9A			; $9A -
+	dw anim_command_8A			; $8A - 
+	dw anim_command_8B			; $8B - 
+	dw anim_command_8C			; $8C - 
+	dw anim_command_8D			; $8D - 
+	dw anim_command_8E			; $8E - 
+	dw anim_command_8F			; $8F - 
+	dw anim_command_90			; $90 - 
+	dw anim_command_91			; $91 - 
+	dw anim_command_92			; $92 - 
+	dw anim_command_93			; $93 - 
+	dw anim_command_94			; $94 - 
+	dw anim_command_95			; $95 - 
+	dw anim_command_96			; $96 - 
+	dw anim_command_97			; $97 - 
+	dw anim_command_98			; $98 - 
+	dw anim_command_99			; $99 - 
+	dw anim_command_9A			; $9A - 
 
 anim_command_9A:
 	LDX.b current_sprite			;$B9A190
@@ -610,7 +610,7 @@ CODE_B9A38A:
 	BRA.b CODE_B9A37F			;$B9A391
 
 anim_command_93:
-	JSL.l CODE_808018			;$B9A393
+	JSL.l get_random_number			;$B9A393
 	STA.b $42				;$B9A397
 	SEP.b #$20				;$B9A399
 	STA.l CPU.multiply_A			;$B9A39B
@@ -3379,7 +3379,7 @@ CODE_B9B6A3:
 
 CODE_B9B6B4:
 	STA.b $1E				;$B9B6B4
-	JSL.l CODE_808018			;$B9B6B6
+	JSL.l get_random_number			;$B9B6B6
 	BIT.w #$003F				;$B9B6BA
 	BNE.b CODE_B9B6C8			;$B9B6BD
 	PLA					;$B9B6BF
@@ -4490,7 +4490,7 @@ DATA_B9BD8B:
 	dw $0004, $0003, $0002, $0001
 
 CODE_B9BD9B:
-	JSL.l CODE_808018			;$B9BD9B
+	JSL.l get_random_number			;$B9BD9B
 	BIT.w #$0001				;$B9BD9F
 	BNE.b CODE_B9BDA6			;$B9BDA2
 	CLC					;$B9BDA4
@@ -4517,7 +4517,7 @@ CODE_B9BDBF:
 	RTS					;$B9BDBF
 
 CODE_B9BDC0:
-	JSL.l CODE_808018			;$B9BDC0
+	JSL.l get_random_number			;$B9BDC0
 	AND.w #$0007				;$B9BDC4
 	RTS					;$B9BDC7
 
@@ -4569,7 +4569,7 @@ CODE_B9BE11:
 	RTS					;$B9BE17
 
 CODE_B9BE18:
-	JSL.l CODE_808018			;$B9BE18
+	JSL.l get_random_number			;$B9BE18
 	BIT.w #$001F				;$B9BE1C
 	BNE.b CODE_B9BE23			;$B9BE1F
 	CLC					;$B9BE21
@@ -4743,7 +4743,7 @@ CODE_B9BF05:
 	LDA.w #$0008				;$B9BF0F
 	STA.b $3E				;$B9BF12
 CODE_B9BF14:
-	JSL.l CODE_808018			;$B9BF14
+	JSL.l get_random_number			;$B9BF14
 	AND.w #$0006				;$B9BF18
 	CLC					;$B9BF1B
 	ADC.b $3E				;$B9BF1C
@@ -4771,7 +4771,7 @@ CODE_B9BF37:
 	LDA.w #$0008				;$B9BF41
 	STA.b $3E				;$B9BF44
 CODE_B9BF46:
-	JSL.l CODE_808018			;$B9BF46
+	JSL.l get_random_number			;$B9BF46
 	AND.w #$0006				;$B9BF4A
 	CLC					;$B9BF4D
 	ADC.b $3E				;$B9BF4E
@@ -4928,7 +4928,7 @@ CODE_B9C023:
 	LDA.w #$0008				;$B9C02D
 	STA.b $3E				;$B9C030
 CODE_B9C032:
-	JSL.l CODE_808018			;$B9C032
+	JSL.l get_random_number			;$B9C032
 	AND.w #$0006				;$B9C036
 	CLC					;$B9C039
 	ADC.b $3E				;$B9C03A
@@ -4956,7 +4956,7 @@ CODE_B9C055:
 	LDA.w #$0008				;$B9C05F
 	STA.b $3E				;$B9C062
 CODE_B9C064:
-	JSL.l CODE_808018			;$B9C064
+	JSL.l get_random_number			;$B9C064
 	AND.w #$0006				;$B9C068
 	CLC					;$B9C06B
 	ADC.b $3E				;$B9C06C
@@ -7286,22 +7286,22 @@ CODE_B9EEA0:
 	PHB					;$B9EEA0
 	LDX.b current_sprite			;$B9EEA1
 	SEP.b #$20				;$B9EEA3
-	LDA.b $28,x				;$B9EEA5
-	STA.b $29,x				;$B9EEA7
+	LDA.b sprite.terrain_interaction,x	;$B9EEA5
+	STA.b sprite.last_terrain_interaction,x	;$B9EEA7
 	LSR					;$B9EEA9
 	LSR					;$B9EEAA
 	LSR					;$B9EEAB
 	LSR					;$B9EEAC
-	STA.b $28,x				;$B9EEAD
+	STA sprite.terrain_interaction,x	;$B9EEAD
 	REP.b #$20				;$B9EEAF
-	LDA.b $12,x				;$B9EEB1
-	STA.b $54,x				;$B9EEB3
-	LDA.b $16,x				;$B9EEB5
-	STA.b $56,x				;$B9EEB7
-	LDA.b $29,x				;$B9EEB9
-	AND.w #$0004				;$B9EEBB
-	BEQ.b CODE_B9EEDF			;$B9EEBE
-	JSR.w CODE_B9F1E0			;$B9EEC0
+	LDA.b sprite.x_position,x		;$B9EEB1
+	STA.b sprite.unknown_54,x		;$B9EEB3
+	LDA.b sprite.y_position,x		;$B9EEB5
+	STA.b sprite.unknown_56,x		;$B9EEB7
+	LDA.b sprite.last_terrain_interaction,x	;$B9EEB9
+	AND.w #$0004				;$B9EEBB   |\
+	BEQ.b CODE_B9EEDF			;$B9EEBE   |/ If not interacting with rope tile?
+	JSR.w CODE_B9F1E0			;$B9EEC0   | Apply x speed to x position
 	JSR.w CODE_B9F13A			;$B9EEC3
 	STA.b $8A				;$B9EEC6
 	SEC					;$B9EEC8
@@ -7676,10 +7676,10 @@ CODE_B9F15E:
 	RTS					;$B9F162
 
 CODE_B9F163:
-	LDA.b $16,x				;$B9F163
+	LDA.b sprite.y_position,x		;$B9F163
 CODE_B9F165:
 	STA.b $1C				;$B9F165
-	LDA.b $12,x				;$B9F167
+	LDA.b sprite.x_position,x		;$B9F167
 CODE_B9F169:
 	SEC					;$B9F169
 	SBC.w #$0100				;$B9F16A
@@ -7690,7 +7690,7 @@ CODE_B9F173:
 	SEC					;$B9F173
 	SBC.w #$0100				;$B9F174
 	STA.b $1A				;$B9F177
-	LDA.b $16,x				;$B9F179
+	LDA.b sprite.y_position,x		;$B9F179
 	STA.b $1C				;$B9F17B
 	JML.l CODE_B7C766			;$B9F17D
 
@@ -7754,25 +7754,25 @@ CODE_B9F1D1:
 	RTS					;$B9F1DF
 
 CODE_B9F1E0:
-	LDX.b current_sprite			;$B9F1E0
-	LDA.b $29,x				;$B9F1E2
-	AND.w #$0010				;$B9F1E4
-	BNE.b CODE_B9F200			;$B9F1E7
-CODE_B9F1E9:
-	LDY.w #$0000				;$B9F1E9
-	LDA.b $2A,x				;$B9F1EC
-	BPL.b CODE_B9F1F1			;$B9F1EE
-	DEY					;$B9F1F0
-CODE_B9F1F1:
-	CLC					;$B9F1F1
-	ADC.b $11,x				;$B9F1F2
-	STA.b $11,x				;$B9F1F4
-	TYA					;$B9F1F6
-	ADC.b $13,x				;$B9F1F7
-	SEP.b #$20				;$B9F1F9
-	STA.b $13,x				;$B9F1FB
-	REP.b #$20				;$B9F1FD
-	RTS					;$B9F1FF
+	LDX.b current_sprite			;$B9F1E0  \
+	LDA.b $29,x				;$B9F1E2   |
+	AND.w #$0010				;$B9F1E4   |
+	BNE.b CODE_B9F200			;$B9F1E7   | If on platform sprite?
+CODE_B9F1E9:					;	   |
+	LDY.w #$0000				;$B9F1E9   |\
+	LDA.b sprite.x_speed,x			;$B9F1EC   | |
+	BPL.b CODE_B9F1F1			;$B9F1EE   |/ If moving right then dont subtract sub pixel
+	DEY					;$B9F1F0   |> Else subtract 1 from sub pixel
+CODE_B9F1F1:					;	   |
+	CLC					;$B9F1F1   |\
+	ADC.b $11,x				;$B9F1F2   | | Add x speed to current x position
+	STA.b $11,x				;$B9F1F4   |/ Update x position
+	TYA					;$B9F1F6   |
+	ADC.b $13,x				;$B9F1F7   |
+	SEP.b #$20				;$B9F1F9   |
+	STA.b $13,x				;$B9F1FB   |
+	REP.b #$20				;$B9F1FD   |
+	RTS					;$B9F1FF  /
 
 CODE_B9F200:
 	LDA.b $2E,x				;$B9F200

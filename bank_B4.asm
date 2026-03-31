@@ -34,9 +34,9 @@ CODE_B4801E:
 CODE_B48021:
 	PHK					;$B48021
 	PLB					;$B48022
-	LDA #CODE_808337			;$B48023
+	LDA #apply_screen_brightness		;$B48023
 	STA $52					;$B48026
-	LDA.w #CODE_808337>>16			;$B48028
+	LDA.w #apply_screen_brightness>>16	;$B48028
 	STA $54					;$B4802B
 	STZ current_animal_type			;$B4802D
 	LDA #$1400				;$B4802F
@@ -46,8 +46,8 @@ CODE_B48021:
 	TRB game_state_flags			;$B4803A
 	JSL disable_screen_wrapper		;$B4803D
 	JSL init_registers			;$B48041
-	JSL clear_VRAM				;$B48045
-	JSL CODE_80801B				;$B48049
+	JSL clear_vram				;$B48045
+	JSL clear_noncritical_wram		;$B48049
 	JSL CODE_BB857F				;$B4804D
 	LDA #$1D93				;$B48051
 	STA $0541				;$B48054
@@ -115,13 +115,13 @@ CODE_B480D9:
 	LDX.w DATA_B4F638,y			;$B480FE
 	LDA.w (DATA_B4F644&$FF0000)+$08,x	;$B48101
 	LDX.w #CODE_B4813A>>16			;$B48104
-	JML.l CODE_808003			;$B48107
+	JML.l set_game_mode_wait_for_nmi	;$B48107
 
 CODE_B4810B:
-	JSL DMA_queued_sprite_palette		;$B4810B
-	JSL DMA_queued_sprite_palette		;$B4810F
-	JSL DMA_queued_sprite_palette		;$B48113
-	JSL DMA_queued_sprite_palette		;$B48117
+	JSL dma_queued_sprite_palette		;$B4810B
+	JSL dma_queued_sprite_palette		;$B4810F
+	JSL dma_queued_sprite_palette		;$B48113
+	JSL dma_queued_sprite_palette		;$B48117
 	RTS					;$B4811B
 
 CODE_B4811C:
@@ -151,7 +151,7 @@ CODE_B4813A:
 	ORA.w #$7E00				;$B48142
 	STA.w CPU.enable_dma_hdma		;$B48145
 	JSL.l DMA_sprite_graphics		;$B48148
-	JSL DMA_queued_sprite_palette		;$B4814C
+	JSL dma_queued_sprite_palette		;$B4814C
 	LDX.w #$72E0				;$B48150
 	JSR.w CODE_B4A82A			;$B48153
 	LDA.w #$0100				;$B48156
@@ -230,7 +230,7 @@ CODE_B481F7:
 	BPL.b CODE_B4820B			;$B481FF
 	LDA.w #CODE_80803F			;$B48201
 	LDX.w #CODE_80803F>>16			;$B48204
-	JML.l CODE_808003			;$B48207
+	JML.l set_game_mode_wait_for_nmi	;$B48207
 
 CODE_B4820B:
 	STZ.w current_world			;$B4820B
@@ -247,7 +247,7 @@ CODE_B4820B:
 CODE_B48229:
 	LDA.w #CODE_B4B087			;$B48229
 	LDX.w #CODE_B4B087>>16			;$B4822C
-	JML.l CODE_808003			;$B4822F
+	JML.l set_game_mode_wait_for_nmi	;$B4822F
 
 CODE_B48233:
 	JSL.l sprite_handler			;$B48233
@@ -273,9 +273,9 @@ CODE_B48260:
 CODE_B48263:
 	TXA					;$B48263
 	STA.l $7EA18F				;$B48264
-	JSL.l set_unused_OAM_offscreen		;$B48268
+	JSL.l set_unused_oam_offscreen		;$B48268
 	JSL.l screen_fade_handler		;$B4826C
-	JML.l CODE_808006			;$B48270
+	JML.l game_mode_return_with_oam	;$B48270
 
 CODE_B48274:
 	LDA.w player_active_pressed		;$B48274
@@ -801,7 +801,7 @@ CODE_B486D5:
 	ADC.w #DATA_FC1F20			;$B486DD
 	LDY.w #$00A0				;$B486E0
 	LDX.w #DATA_FC1F20>>16			;$B486E3
-	JSL.l DMA_to_VRAM			;$B486E6
+	JSL.l dma_to_vram			;$B486E6
 CODE_B486EA:
 	RTS					;$B486EA
 
@@ -855,7 +855,7 @@ CODE_B4874E:
 	ORA.w #$FE00				;$B48756
 	STA.w CPU.enable_dma_hdma		;$B48759
 	JSL.l DMA_sprite_graphics		;$B4875C
-	JSL DMA_queued_sprite_palette		;$B48760
+	JSL dma_queued_sprite_palette		;$B48760
 	JSR.w CODE_B488DA			;$B48764
 	SEP.b #$20				;$B48767
 	LDA.w screen_brightness			;$B48769
@@ -949,7 +949,7 @@ CODE_B4882D:
 	BPL.b CODE_B48841			;$B48835
 	LDA.w #CODE_80803F			;$B48837
 	LDX.w #CODE_80803F>>16			;$B4883A
-	JML.l CODE_808003			;$B4883D
+	JML.l set_game_mode_wait_for_nmi	;$B4883D
 
 ;Entering swanky minigame
 CODE_B48841:
@@ -975,7 +975,7 @@ CODE_B48867:
 	LDA.w #CODE_B4B087			;$B48867
 	LDX.w #CODE_B4B087>>16			;$B4886A
 CODE_B4886D:
-	JML.l CODE_808003			;$B4886D
+	JML.l set_game_mode_wait_for_nmi	;$B4886D
 
 CODE_B48871:
 	SEP.b #$20				;$B48871
@@ -1016,9 +1016,9 @@ CODE_B488C5:
 	STA.l $7EA18F				;$B488C8
 	REP.b #$20				;$B488CC
 CODE_B488CE:
-	JSL.l set_unused_OAM_offscreen		;$B488CE
+	JSL.l set_unused_oam_offscreen		;$B488CE
 	JSL.l screen_fade_handler		;$B488D2
-	JML.l CODE_808006			;$B488D6
+	JML.l game_mode_return_with_oam	;$B488D6
 
 CODE_B488DA:
 	SEP.b #$20				;$B488DA
@@ -1582,7 +1582,7 @@ CODE_B48D82:
 	AND.w #$FF01				;$B48D87
 	STA.w CPU.enable_dma_hdma		;$B48D8A
 	JSL.l DMA_sprite_graphics		;$B48D8D
-	JSL DMA_queued_sprite_palette		;$B48D91
+	JSL dma_queued_sprite_palette		;$B48D91
 	LDX.w #$7EE0				;$B48D95
 	JSR.w CODE_B4A82A			;$B48D98
 	LDA.w #$0001				;$B48D9B
@@ -1667,13 +1667,13 @@ CODE_B48E44:
 	BPL.b CODE_B48E58			;$B48E4C
 	LDA.w #CODE_80803F			;$B48E4E
 	LDX.w #CODE_80803F>>16			;$B48E51
-	JML.l CODE_808003			;$B48E54
+	JML.l set_game_mode_wait_for_nmi	;$B48E54
 
 CODE_B48E58:
 	JSR.w CODE_B48E65			;$B48E58
 	LDA.w #CODE_B4B087			;$B48E5B
 	LDX.w #CODE_B4B087>>16			;$B48E5E
-	JML.l CODE_808003			;$B48E61
+	JML.l set_game_mode_wait_for_nmi	;$B48E61
 
 CODE_B48E65:
 	LDA.w $1D45				;$B48E65
@@ -1709,9 +1709,9 @@ CODE_B48EA2:
 	STA.b $46				;$B48EA9
 	JSL.l sprite_handler			;$B48EAB
 	JSL.l CODE_B7800F			;$B48EAF
-	JSL.l set_unused_OAM_offscreen		;$B48EB3
+	JSL.l set_unused_oam_offscreen		;$B48EB3
 	JSL.l screen_fade_handler		;$B48EB7
-	JML.l CODE_808006			;$B48EBB
+	JML.l game_mode_return_with_oam	;$B48EBB
 
 CODE_B48EBF:
 	LDA.w #$0004				;$B48EBF
@@ -3041,7 +3041,7 @@ CODE_B49930:
 	ORA.w #$FE00				;$B49938
 	STA.w CPU.enable_dma_hdma		;$B4993B
 	JSL.l DMA_sprite_graphics		;$B4993E
-	JSL DMA_queued_sprite_palette		;$B49942
+	JSL dma_queued_sprite_palette		;$B49942
 	LDX.w #$72E0				;$B49946
 	JSR.w CODE_B4A82A			;$B49949
 	JSR.w CODE_B49F4B			;$B4994C
@@ -3104,7 +3104,7 @@ CODE_B499C1:
 	BPL.b CODE_B499DD			;$B499D1
 	LDA.w #CODE_80803F			;$B499D3
 	LDX.w #CODE_80803F>>16			;$B499D6
-	JML.l CODE_808003			;$B499D9
+	JML.l set_game_mode_wait_for_nmi	;$B499D9
 
 CODE_B499DD:
 	LDA.w #$0020				;$B499DD
@@ -3112,21 +3112,21 @@ CODE_B499DD:
 	BNE.b CODE_B499EF			;$B499E3
 	LDA.w #CODE_B4B087			;$B499E5
 	LDX.w #CODE_B4B087>>16			;$B499E8
-	JML.l CODE_808003			;$B499EB
+	JML.l set_game_mode_wait_for_nmi	;$B499EB
 
 CODE_B499EF:
 	LDA.w #CODE_808048			;$B499EF
 	LDX.w #CODE_808048>>16			;$B499F2
-	JML.l CODE_808003			;$B499F5
+	JML.l set_game_mode_wait_for_nmi	;$B499F5
 
 CODE_B499F9:
 	JSL.l sprite_handler			;$B499F9
 	JSL.l CODE_B7800C			;$B499FD
 	JSL.l CODE_B6804B			;$B49A01
 	JSL.l CODE_B7800F			;$B49A05
-	JSL.l set_unused_OAM_offscreen		;$B49A09
+	JSL.l set_unused_oam_offscreen		;$B49A09
 	JSL.l screen_fade_handler		;$B49A0D
-	JML.l CODE_808006			;$B49A11
+	JML.l game_mode_return_with_oam	;$B49A11
 
 DATA_B49A15:
 	dw CODE_B486A9
@@ -3251,7 +3251,7 @@ CODE_B49AF2:
 	TRB.w $0611				;$B49B07
 	LDA.w #$2040				;$B49B0A
 	TRB.w $05FD				;$B49B0D
-	JSL.l CODE_80802A			;$B49B10
+	JSL.l save_game				;$B49B10
 	LDA.w #$2040				;$B49B14
 	TSB.w $05FD				;$B49B17
 	LDA.w #$0020				;$B49B1A
@@ -3454,7 +3454,7 @@ CODE_B49CD3:
 	LDA.w pending_dma_hdma_channels		;$B49CD5
 	STA.w CPU.enable_dma_hdma		;$B49CD8
 	JSL.l DMA_sprite_graphics		;$B49CDB
-	JSL DMA_queued_sprite_palette		;$B49CDF
+	JSL dma_queued_sprite_palette		;$B49CDF
 	JSR.w CODE_B49D54			;$B49CE3
 	SEP.b #$20				;$B49CE6
 	LDA.w screen_brightness			;$B49CE8
@@ -3488,7 +3488,7 @@ CODE_B49CD3:
 	JSL.l CODE_80804B			;$B49D2A
 	LDA.w #CODE_B4B087			;$B49D2E
 	LDX.w #CODE_B4B087>>16			;$B49D31
-	JML.l CODE_808003			;$B49D34
+	JML.l set_game_mode_wait_for_nmi	;$B49D34
 
 CODE_B49D38:
 	JML.l CODE_8082EC			;$B49D38
@@ -3497,9 +3497,9 @@ CODE_B49D3C:
 	JSL.l sprite_handler			;$B49D3C
 	JSL.l CODE_B7800C			;$B49D40
 	JSL.l CODE_B7800F			;$B49D44
-	JSL.l set_unused_OAM_offscreen		;$B49D48
+	JSL.l set_unused_oam_offscreen		;$B49D48
 	JSL.l screen_fade_handler		;$B49D4C
-	JML.l CODE_808006			;$B49D50
+	JML.l game_mode_return_with_oam	;$B49D50
 
 CODE_B49D54:
 	LDA.w $15E4				;$B49D54
@@ -3692,7 +3692,7 @@ CODE_B49ED0:
 	LDA.w pending_dma_hdma_channels		;$B49ED2
 	STA.w CPU.enable_dma_hdma		;$B49ED5
 	JSL.l DMA_sprite_graphics		;$B49ED8
-	JSL DMA_queued_sprite_palette		;$B49EDC
+	JSL dma_queued_sprite_palette		;$B49EDC
 	JSR.w CODE_B4C6F7			;$B49EE0
 	SEP.b #$20				;$B49EE3
 	STA.w PPU.layer_2_scroll_y		;$B49EE5
@@ -3717,23 +3717,23 @@ CODE_B49F0C:
 	JSL.l CODE_BB8606			;$B49F19
 CODE_B49F1D:
 	JSL.l CODE_B7800F			;$B49F1D
-	JSL.l set_unused_OAM_offscreen		;$B49F21
+	JSL.l set_unused_oam_offscreen		;$B49F21
 	JSL.l screen_fade_handler		;$B49F25
 	LDA.w screen_brightness			;$B49F29
 	BNE.b CODE_B49F33			;$B49F2C
 	CMP.w screen_fade_speed			;$B49F2E
 	BEQ.b CODE_B49F37			;$B49F31
 CODE_B49F33:
-	JML.l CODE_808006			;$B49F33
+	JML.l game_mode_return_with_oam	;$B49F33
 
 CODE_B49F37:
 	STZ.w $1C35				;$B49F37
-	LDA.w #CODE_808362			;$B49F3A
+	LDA.w #CODE_808362_nmi			;$B49F3A
 	STA.b $4A				;$B49F3D
 	STA.b $4C				;$B49F3F
 	LDA.w #CODE_B4B087			;$B49F41
 	LDX.w #CODE_B4B087>>16			;$B49F44
-	JML.l CODE_808003			;$B49F47
+	JML.l set_game_mode_wait_for_nmi	;$B49F47
 
 CODE_B49F4B:
 	LDA.l $7EA75C				;$B49F4B
@@ -3751,12 +3751,12 @@ CODE_B49F63:
 	DEC					;$B49F67
 	STA.l $7EA75A				;$B49F68
 	BNE.b CODE_B49F8F			;$B49F6C
-	JSL.l CODE_808018			;$B49F6E
+	JSL.l get_random_number			;$B49F6E
 	LDA.l $7EA75E				;$B49F72
 	EOR.w #$0003				;$B49F76
 	AND.w #$0003				;$B49F79
 	STA.l $7EA75E				;$B49F7C
-	JSL.l CODE_808018			;$B49F80
+	JSL.l get_random_number			;$B49F80
 	AND.w #$001F				;$B49F84
 	CLC					;$B49F87
 	ADC.w #$0003				;$B49F88
@@ -4275,7 +4275,7 @@ CODE_B4A3FF:
 	STX.w PPU.vram_address			;$B4A402
 	LDA.w #$7EF000				;$B4A405
 	LDX.w #$7EF000>>16			;$B4A408
-	JSL.l DMA_to_VRAM			;$B4A40B
+	JSL.l dma_to_vram			;$B4A40B
 	RTS					;$B4A40F
 
 CODE_B4A410:
@@ -4317,7 +4317,7 @@ CODE_B4A447:
 	LDA.w #$7EF000				;$B4A472
 	LDY.w #$1000				;$B4A475
 	LDX.w #$7EF000>>16			;$B4A478
-	JSL.l DMA_to_VRAM			;$B4A47B
+	JSL.l dma_to_vram			;$B4A47B
 	LDA.w #$F489				;$B4A47F
 	STA.l $7EA196				;$B4A482
 	STA.l $7EA199				;$B4A486
@@ -4808,7 +4808,7 @@ CODE_B4A7F8:
 	AND.w #$00FF				;$B4A7F8
 	STA.b $3E				;$B4A7FB
 CODE_B4A7FD:
-	JSL.l CODE_808018			;$B4A7FD
+	JSL.l get_random_number			;$B4A7FD
 	AND.b $3E				;$B4A801
 	CMP.w $0521				;$B4A803
 	BEQ.b CODE_B4A7FD			;$B4A806
@@ -5802,7 +5802,7 @@ CODE_B4B0C3:
 	LDA.w #$0002				;$B4B10F
 	BIT.w $053B				;$B4B112
 	BEQ.b CODE_B4B11B			;$B4B115
-	JSL.l CODE_80802A			;$B4B117
+	JSL.l save_game				;$B4B117
 CODE_B4B11B:
 	LDA.w #$000A				;$B4B11B
 	JSL.l CODE_BB859A			;$B4B11E
@@ -5834,7 +5834,7 @@ CODE_B4B161:
 	JSR.w CODE_B4810B			;$B4B168
 	LDA.w #CODE_B4B179			;$B4B16B
 	LDX.w #CODE_B4B179>>16			;$B4B16E
-	JML.l CODE_808003			;$B4B171
+	JML.l set_game_mode_wait_for_nmi	;$B4B171
 
 DATA_B4B175:
 	db !music_northern_kremisphere_3
@@ -5848,7 +5848,7 @@ CODE_B4B179:
 	LDA.w pending_dma_hdma_channels		;$B4B17B
 	STA.w CPU.enable_dma_hdma		;$B4B17E
 	JSL.l DMA_sprite_graphics		;$B4B181
-	JSL DMA_queued_sprite_palette		;$B4B185
+	JSL dma_queued_sprite_palette		;$B4B185
 	JSR.w CODE_B4BBF7			;$B4B189
 	SEP.b #$20				;$B4B18C
 	LDA.w screen_brightness			;$B4B18E
@@ -5946,7 +5946,7 @@ CODE_B4B25C:
 	BEQ.b CODE_B4B271			;$B4B26C
 	JSR.w CODE_B4B60B			;$B4B26E
 CODE_B4B271:
-	JSL.l set_unused_OAM_offscreen		;$B4B271
+	JSL.l set_unused_oam_offscreen		;$B4B271
 	LDA.w current_world			;$B4B275
 	BEQ.b CODE_B4B28F			;$B4B278
 	LDA.w map_node_number			;$B4B27A
@@ -5962,14 +5962,14 @@ CODE_B4B28F:
 	LDA.w screen_brightness			;$B4B293
 	BEQ.b CODE_B4B29C			;$B4B296
 CODE_B4B298:
-	JML.l CODE_808006			;$B4B298
+	JML.l game_mode_return_with_oam	;$B4B298
 
 CODE_B4B29C:
 	BIT.w game_state_flags			;$B4B29C
 	BPL.b CODE_B4B2AB			;$B4B29F
 	LDA.w #CODE_80803F			;$B4B2A1
 	LDX.w #CODE_80803F>>16			;$B4B2A4
-	JML.l CODE_808003			;$B4B2A7
+	JML.l set_game_mode_wait_for_nmi	;$B4B2A7
 
 CODE_B4B2AB:
 	LDA.w #$0400				;$B4B2AB
@@ -5977,7 +5977,7 @@ CODE_B4B2AB:
 	BEQ.b CODE_B4B2BD			;$B4B2B1
 	LDA.w #CODE_B284D0			;$B4B2B3
 	LDX.w #CODE_B284D0>>16			;$B4B2B6
-	JML.l CODE_808003			;$B4B2B9
+	JML.l set_game_mode_wait_for_nmi	;$B4B2B9
 
 CODE_B4B2BD:
 	PHK					;$B4B2BD
@@ -6018,7 +6018,7 @@ CODE_B4B305:
 	STA.w $05E3				;$B4B305
 	LDA.w #CODE_B4807B			;$B4B308
 	LDX.w #CODE_B4807B>>16			;$B4B30B
-	JML.l CODE_808003			;$B4B30E
+	JML.l set_game_mode_wait_for_nmi	;$B4B30E
 
 CODE_B4B312:
 	BIT.w #$0040				;$B4B312
@@ -6039,7 +6039,7 @@ CODE_B4B330:
 	JSL.l CODE_80804B			;$B4B330
 	LDA.w #CODE_B4B087			;$B4B334
 	LDX.w #CODE_B4B087>>16			;$B4B337
-	JML.l CODE_808003			;$B4B33A
+	JML.l set_game_mode_wait_for_nmi	;$B4B33A
 
 CODE_B4B33E:
 	JSR.w CODE_B4B3DF			;$B4B33E
@@ -6049,7 +6049,7 @@ CODE_B4B33E:
 CODE_B4B34A:
 	LDA.w #CODE_B4B087			;$B4B34A
 	LDX.w #CODE_B4B087>>16			;$B4B34D
-	JML.l CODE_808003			;$B4B350
+	JML.l set_game_mode_wait_for_nmi	;$B4B350
 
 CODE_B4B354:
 	BIT.w #$0080				;$B4B354
@@ -6064,22 +6064,22 @@ CODE_B4B364:
 	LDA.w #$0008				;$B4B364
 CODE_B4B367:
 	STA.w $05E3				;$B4B367
-	LDA.w #CODE_808348			;$B4B36A
+	LDA.w #CODE_808348_nmi			;$B4B36A
 	STA.b $4A				;$B4B36D
 	STA.b $4C				;$B4B36F
 	LDA.w #CODE_B4807B			;$B4B371
 	LDX.w #CODE_B4807B>>16			;$B4B374
-	JML.l CODE_808003			;$B4B377
+	JML.l set_game_mode_wait_for_nmi	;$B4B377
 
 CODE_B4B37B:
 	STA.b level_number			;$B4B37B
 	JSR.w CODE_B4B391			;$B4B37D
-	LDA.w #CODE_808348			;$B4B380
+	LDA.w #CODE_808348_nmi			;$B4B380
 	STA.b $4A				;$B4B383
 	STA.b $4C				;$B4B385
 	LDA.w #CODE_808493			;$B4B387
 	LDX.w #CODE_808493>>16			;$B4B38A
-	JML.l CODE_808003			;$B4B38D
+	JML.l set_game_mode_wait_for_nmi	;$B4B38D
 
 ;Preserves map kong's X/Y position on other stuff when entering a node.
 CODE_B4B391:
@@ -9000,11 +9000,11 @@ CODE_B4CBDF:
 	LDX.b alternate_sprite			;$B4CBF6
 	LDA.w #$0080				;$B4CBF8
 	STA.b $44,x				;$B4CBFB
-	JSL.l CODE_808018			;$B4CBFD
+	JSL.l get_random_number			;$B4CBFD
 	AND.w #$001F				;$B4CC01
 	ADC.w #$0278				;$B4CC04
 	STA.b $12,x				;$B4CC07
-	JSL.l CODE_808018			;$B4CC09
+	JSL.l get_random_number			;$B4CC09
 	AND.w #$000F				;$B4CC0D
 	ADC.w #$0170				;$B4CC10
 	STA.b $16,x				;$B4CC13

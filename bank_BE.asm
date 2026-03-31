@@ -2071,7 +2071,7 @@ CODE_BECE21:
 	ADC.w #$1000				;$BECE33
 	LDA.w #$F000				;$BECE36
 	BCC.b CODE_BECE6A			;$BECE39
-	JSL.l CODE_808018			;$BECE3B
+	JSL.l get_random_number			;$BECE3B
 	CLC					;$BECE3F
 	ADC.b $6A,x				;$BECE40
 	AND.w #$0007				;$BECE42

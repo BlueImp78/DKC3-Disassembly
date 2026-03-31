@@ -1,166 +1,165 @@
 level_objects_table:
-	dw beta_doorstop_dash_objects
-	dw null_level_1_objects
-	dw null_level_2_objects
-	dw null_level_3_objects
-	dw null_level_4_objects
-	dw null_level_5_objects
-	dw null_level_6_objects
-	dw null_level_7_objects
-	dw bazzas_blockade_photo_album_objects
-	dw doorstop_dash_photo_album_objects
-	dw lemguin_lunge_photo_album_objects
-	dw ropey_rumpus_photo_album_objects
-	dw skiddas_row_photo_album_objects
-	dw squeals_on_wheels_photo_album_objects
-	dw floodlit_fish_photo_album_objects
-	dw brothers_bear_photos_objects
-	dw swankys_sideshow_photo_album_objects
-	dw boss_photos_objects
-	dw krool_hovercraft_ending_objects
-	dw kastle_kaos_photo_album_objects
-	dw beta_bobbing_barrel_brawl_objects
-	dw kiddy_photo_album_objects
-	dw dixie_photo_album_objects
-	dw null_level_8_objects
-	dw null_level_9_objects
-	dw null_level_10_objects
-	dw bazzas_blockade_exit_objects
-	dw fish_food_frenzy_exit_objects
-	dw floodlit_fish_exit_objects
-	dw belchas_barn_objects
-	dw arichs_ambush_objects
-	dw squirts_showdown_objects
-	dw kaos_karnage_objects
-	dw bleaks_house_objects
-	dw barbos_barrier_objects
-	dw kastle_kaos_objects
-	dw knautilus_objects
-	dw lakeside_limbo_objects
-	dw kreeping_klasps_objects
-	dw tidal_trouble_objects
-	dw doorstop_dash_objects
-	dw squeals_on_wheels_objects
-	dw murky_mill_objects
-	dw skiddas_row_objects
-	dw lemguin_lunge_objects
-	dw tearaway_toboggan_objects
-	dw ripsaw_rage_objects
-	dw springin_spiders_objects
-	dw barrel_shield_bustup_objects
-	dw swoopy_salvo_objects
-	dw riverside_race_objects
-	dw lightning_lookout_objects
-	dw bobbing_barrel_brawl_objects
-	dw bazzas_blockade_objects
-	dw fish_food_frenzy_objects
-	dw floodlit_fish_objects
-	dw rocket_barrel_ride_objects
-	dw tracker_barrel_trek_objects
-	dw barrel_drop_bounce_objects
-	dw fireball_frenzy_objects
-	dw blazing_bazukas_objects
-	dw krackshot_kroc_objects
-	dw lowg_labyrinth_objects
-	dw poisonous_pipeline_objects
-	dw demolition_drainpipe_objects
-	dw krevice_kreepers_objects
-	dw kongfused_cliffs_objects
-	dw ropey_rumpus_objects
-	dw buzzer_barrage_objects
-	dw pothole_panic_objects
-	dw creepy_caverns_objects
-	dw koindozer_klamber_objects
-	dw konveyor_rope_klash_objects
-	dw stampede_sprint_objects
-	dw criss_kross_cliffs_objects
-	dw tyrant_twin_tussle_objects
-	dw rocket_rush_objects
-	dw swankys_sideshow_inside_objects
-	dw null_level_11_objects
-	dw null_level_12_objects
-	dw lakeside_limbo_b1_objects
-	dw lakeside_limbo_b2_objects
-	dw doorstop_dash_b1_objects
-	dw doorstop_dash_b2_objects
-	dw tidal_trouble_b1_objects
-	dw tidal_trouble_b2_objects
-	dw skiddas_row_b1_objects
-	dw skiddas_row_b2_objects
-	dw squeals_on_wheels_b1_objects
-	dw squeals_on_wheels_b2_objects
-	dw barrel_shield_bustup_b1_objects
-	dw barrel_shield_bustup_b2_objects
-	dw riverside_race_b1_objects
-	dw riverside_race_b2_objects
-	dw murky_mill_b1_objects
-	dw murky_mill_b2_objects
-	dw springin_spiders_b1_objects
-	dw springin_spiders_b2_objects
-	dw lightning_lookout_b1_objects
-	dw lightning_lookout_b2_objects
-	dw bazzas_blockad_b1_objects
-	dw bazzas_blockad_b2_objects
-	dw rocket_barrel_ride_b1_objects
-	dw rocket_barrel_ride_b2_objects
-	dw kreeping_klasps_b1_objects
-	dw kreeping_klasps_b2_objects
-	dw tracker_barrel_trek_b1_objects
-	dw tracker_barrel_trek_b2_objects
-	dw fish_food_frenzy_b1_objects
-	dw fish_food_frenzy_b2_objects
-	dw fireball_frenzy_b1_objects
-	dw fireball_frenzy_b2_objects
-	dw demolition_drainpipe_b1_objects
-	dw demolition_drainpipe_b2_objects
-	dw ripsaw_rage_b1_objects
-	dw ripsaw_rage_b2_objects
-	dw blazing_bazukas_b1_objects
-	dw blazing_bazukas_b2_objects
-	dw lowg_labyrinth_b1_objects
-	dw lowg_labyrinth_b2_objects
-	dw krevice_kreepers_b1_objects
-	dw krevice_kreepers_b2_objects
-	dw tearaway_toboggan_b1_objects
-	dw tearaway_toboggan_b2_objects
-	dw barrel_drop_bounce_b1_objects
-	dw barrel_drop_bounce_b2_objects
-	dw krackshot_kroc_b1_objects
-	dw krackshot_kroc_b2_objects
-	dw lemguin_lunge_b1_objects
-	dw lemguin_lunge_b2_objects
-	dw buzzer_barrage_b1_objects
-	dw buzzer_barrage_b2_objects
-	dw kongfused_cliffs_b1_objects
-	dw kongfused_cliffs_b2_objects
-	dw floodlit_fish_b1_objects
-	dw floodlit_fish_b2_objects
-	dw pothole_panic_b1_objects
-	dw pothole_panic_b2_objects
-	dw ropey_rumpus_b1_objects
-	dw ropey_rumpus_b2_objects
-	dw koindozer_klamber_b1_objects
-	dw koindozer_klamber_b2_objects
-	dw creepy_caverns_b1_objects
-	dw creepy_caverns_b2_objects
-	dw bobbing_barrel_brawl_b1_objects
-	dw bobbing_barrel_brawl_b2_objects
-	dw konveyor_rope_klash_b1_objects
-	dw konveyor_rope_klash_b2_objects
-	dw poisonou_pipeline_b1_objects
-	dw poisonou_pipeline_b2_objects
-	dw swoopy_salvo_b3_objects
-	dw swoopy_salvo_b1_objects
-	dw swoopy_salvo_b2_objects
-	dw criss_kross_cliffs_b1_objects
-	dw criss_kross_cliffs_b2_objects
-	dw tyrant_twin_tussle_b1_objects
-	dw tyrant_twin_tussle_b3_objects
-	dw tyrant_twin_tussle_b2_objects
-	dw stampede_sprint_b2_objects
-	dw stampede_sprint_b3_objects
-	dw stampede_sprint_b1_objects
-
+	dw beta_doorstop_dash_objects			; 00
+	dw null_level_1_objects				; 01
+	dw null_level_2_objects				; 02
+	dw null_level_3_objects				; 03
+	dw null_level_4_objects				; 04
+	dw null_level_5_objects				; 05
+	dw null_level_6_objects				; 06
+	dw null_level_7_objects				; 07
+	dw bazzas_blockade_photo_album_objects		; 08
+	dw doorstop_dash_photo_album_objects		; 09
+	dw lemguin_lunge_photo_album_objects		; 0A
+	dw ropey_rumpus_photo_album_objects		; 0B
+	dw skiddas_row_photo_album_objects		; 0C
+	dw squeals_on_wheels_photo_album_objects	; 0D
+	dw floodlit_fish_photo_album_objects		; 0E
+	dw brothers_bear_photos_objects			; 0F
+	dw swankys_sideshow_photo_album_objects		; 10
+	dw boss_photos_objects				; 11
+	dw krool_hovercraft_ending_objects		; 12
+	dw kastle_kaos_photo_album_objects		; 13
+	dw beta_bobbing_barrel_brawl_objects		; 14
+	dw kiddy_photo_album_objects			; 15
+	dw dixie_photo_album_objects			; 16
+	dw null_level_8_objects				; 17
+	dw null_level_9_objects				; 18
+	dw null_level_10_objects			; 19
+	dw bazzas_blockade_exit_objects			; 1A
+	dw fish_food_frenzy_exit_objects		; 1B
+	dw floodlit_fish_exit_objects			; 1C
+	dw belchas_barn_objects				; 1D
+	dw arichs_ambush_objects			; 1E
+	dw squirts_showdown_objects			; 1F
+	dw kaos_karnage_objects				; 20
+	dw bleaks_house_objects				; 21
+	dw barbos_barrier_objects			; 22
+	dw kastle_kaos_objects				; 23
+	dw knautilus_objects				; 24
+	dw lakeside_limbo_objects			; 25
+	dw kreeping_klasps_objects			; 26
+	dw tidal_trouble_objects			; 27
+	dw doorstop_dash_objects			; 28
+	dw squeals_on_wheels_objects			; 29
+	dw murky_mill_objects				; 2A
+	dw skiddas_row_objects				; 2B
+	dw lemguin_lunge_objects			; 2C
+	dw tearaway_toboggan_objects			; 2D
+	dw ripsaw_rage_objects				; 2E
+	dw springin_spiders_objects			; 2F
+	dw barrel_shield_bustup_objects			; 30
+	dw swoopy_salvo_objects				; 31
+	dw riverside_race_objects			; 32
+	dw lightning_lookout_objects			; 33
+	dw bobbing_barrel_brawl_objects			; 34
+	dw bazzas_blockade_objects			; 35
+	dw fish_food_frenzy_objects			; 36
+	dw floodlit_fish_objects			; 37
+	dw rocket_barrel_ride_objects			; 38
+	dw tracker_barrel_trek_objects			; 39
+	dw barrel_drop_bounce_objects			; 3A
+	dw fireball_frenzy_objects			; 3B
+	dw blazing_bazukas_objects			; 3C
+	dw krackshot_kroc_objects			; 3D
+	dw lowg_labyrinth_objects			; 3E
+	dw poisonous_pipeline_objects			; 3F
+	dw demolition_drainpipe_objects			; 40
+	dw krevice_kreepers_objects			; 41
+	dw kongfused_cliffs_objects			; 42
+	dw ropey_rumpus_objects				; 43
+	dw buzzer_barrage_objects			; 44
+	dw pothole_panic_objects			; 45
+	dw creepy_caverns_objects			; 46
+	dw koindozer_klamber_objects			; 47
+	dw konveyor_rope_klash_objects			; 48
+	dw stampede_sprint_objects			; 49
+	dw criss_kross_cliffs_objects			; 4A
+	dw tyrant_twin_tussle_objects			; 4B
+	dw rocket_rush_objects				; 4C
+	dw swankys_sideshow_inside_objects		; 4D
+	dw null_level_11_objects			; 4E
+	dw null_level_12_objects			; 4F
+	dw lakeside_limbo_b1_objects			; 50
+	dw lakeside_limbo_b2_objects			; 51
+	dw doorstop_dash_b1_objects			; 52
+	dw doorstop_dash_b2_objects			; 53
+	dw tidal_trouble_b1_objects			; 54
+	dw tidal_trouble_b2_objects			; 55
+	dw skiddas_row_b1_objects			; 56
+	dw skiddas_row_b2_objects			; 57
+	dw squeals_on_wheels_b1_objects			; 58
+	dw squeals_on_wheels_b2_objects			; 59
+	dw barrel_shield_bustup_b1_objects		; 5A
+	dw barrel_shield_bustup_b2_objects		; 5B
+	dw riverside_race_b1_objects			; 5C
+	dw riverside_race_b2_objects			; 5D
+	dw murky_mill_b1_objects			; 5E
+	dw murky_mill_b2_objects			; 5F
+	dw springin_spiders_b1_objects			; 60
+	dw springin_spiders_b2_objects			; 61
+	dw lightning_lookout_b1_objects			; 62
+	dw lightning_lookout_b2_objects			; 63
+	dw bazzas_blockad_b1_objects			; 64
+	dw bazzas_blockad_b2_objects			; 65
+	dw rocket_barrel_ride_b1_objects		; 66
+	dw rocket_barrel_ride_b2_objects		; 67
+	dw kreeping_klasps_b1_objects			; 68
+	dw kreeping_klasps_b2_objects			; 69
+	dw tracker_barrel_trek_b1_objects		; 6A
+	dw tracker_barrel_trek_b2_objects		; 6B
+	dw fish_food_frenzy_b1_objects			; 6C
+	dw fish_food_frenzy_b2_objects			; 6D
+	dw fireball_frenzy_b1_objects			; 6E
+	dw fireball_frenzy_b2_objects			; 6F
+	dw demolition_drainpipe_b1_objects		; 70
+	dw demolition_drainpipe_b2_objects		; 71
+	dw ripsaw_rage_b1_objects			; 72
+	dw ripsaw_rage_b2_objects			; 73
+	dw blazing_bazukas_b1_objects			; 74
+	dw blazing_bazukas_b2_objects			; 75
+	dw lowg_labyrinth_b1_objects			; 76
+	dw lowg_labyrinth_b2_objects			; 77
+	dw krevice_kreepers_b1_objects			; 78
+	dw krevice_kreepers_b2_objects			; 79
+	dw tearaway_toboggan_b1_objects			; 7A
+	dw tearaway_toboggan_b2_objects			; 7B
+	dw barrel_drop_bounce_b1_objects		; 7C
+	dw barrel_drop_bounce_b2_objects		; 7D
+	dw krackshot_kroc_b1_objects			; 7E
+	dw krackshot_kroc_b2_objects			; 7F
+	dw lemguin_lunge_b1_objects			; 80
+	dw lemguin_lunge_b2_objects			; 81
+	dw buzzer_barrage_b1_objects			; 82
+	dw buzzer_barrage_b2_objects			; 83
+	dw kongfused_cliffs_b1_objects			; 84
+	dw kongfused_cliffs_b2_objects			; 85
+	dw floodlit_fish_b1_objects			; 86
+	dw floodlit_fish_b2_objects			; 87
+	dw pothole_panic_b1_objects			; 88
+	dw pothole_panic_b2_objects			; 89
+	dw ropey_rumpus_b1_objects			; 8A
+	dw ropey_rumpus_b2_objects			; 8B
+	dw koindozer_klamber_b1_objects			; 8C
+	dw koindozer_klamber_b2_objects			; 8D
+	dw creepy_caverns_b1_objects			; 8E
+	dw creepy_caverns_b2_objects			; 8F
+	dw bobbing_barrel_brawl_b1_objects		; 90
+	dw bobbing_barrel_brawl_b2_objects		; 91
+	dw konveyor_rope_klash_b1_objects		; 92
+	dw konveyor_rope_klash_b2_objects		; 93
+	dw poisonou_pipeline_b1_objects			; 94
+	dw poisonou_pipeline_b2_objects			; 95
+	dw swoopy_salvo_b3_objects			; 96
+	dw swoopy_salvo_b1_objects			; 97
+	dw swoopy_salvo_b2_objects			; 98
+	dw criss_kross_cliffs_b1_objects		; 99
+	dw criss_kross_cliffs_b2_objects		; 9A
+	dw tyrant_twin_tussle_b1_objects		; 9B
+	dw tyrant_twin_tussle_b3_objects		; 9C
+	dw tyrant_twin_tussle_b2_objects		; 9D
+	dw stampede_sprint_b2_objects			; 9E
+	dw stampede_sprint_b3_objects			; 9F
+	dw stampede_sprint_b1_objects			; A0
 	padbyte $00 : pad $FE0400
 
 

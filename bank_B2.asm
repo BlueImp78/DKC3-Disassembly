@@ -738,12 +738,12 @@ CODE_B284D6:
 	PLB					;$B284D7
 	JSL disable_screen_wrapper		;$B284D8
 	JSL init_registers			;$B284DC
-	JSL CODE_80801B				;$B284E0
-	JSL clear_VRAM				;$B284E4
+	JSL clear_noncritical_wram		;$B284E0
+	JSL clear_vram				;$B284E4
 	LDX #$A15A				;$B284E8
 	LDY #$007E				;$B284EB
 	LDA #$0660				;$B284EE
-	JSL CODE_808030				;$B284F1
+	JSL clear_wram_block			;$B284F1
 	JSL CODE_BB857F				;$B284F5
 	STZ $BC					;$B284F9
 	STZ $F4					;$B284FB
@@ -765,8 +765,8 @@ CODE_B2850E:
 	LDY.w #CODE_B284D6>>16			;$B28513
 	STX $4E					;$B28516
 	STY $50					;$B28518
-	LDA #CODE_808370			;$B2851A
-	JML set_and_wait_for_NMI		;$B2851D
+	LDA #CODE_808370_nmi			;$B2851A
+	JML set_and_wait_for_nmi		;$B2851D
 
 CODE_B28521:
 	LDA #$1300				;$B28521
@@ -862,12 +862,12 @@ CODE_B2861E:
 CODE_B2861F:
 	JSL disable_screen_wrapper		;$B2861F
 	JSL init_registers			;$B28623
-	JSL CODE_80801B				;$B28627
-	JSL clear_VRAM				;$B2862B
+	JSL clear_noncritical_wram		;$B28627
+	JSL clear_vram				;$B2862B
 	LDX #$A15A				;$B2862F
 	LDY #$007E				;$B28632
 	LDA #$0660				;$B28635
-	JSL CODE_808030				;$B28638
+	JSL clear_wram_block			;$B28638
 	JSL CODE_BB857F				;$B2863C
 	LDA #$0040				;$B28640
 	JSL vram_payload_handler_global		;$B28643
@@ -982,27 +982,27 @@ CODE_B286A5:
 	PLB					;$B28746
 	LDA #CODE_B28751			;$B28747
 	LDX.w #CODE_B28751>>16			;$B2874A
-	JML CODE_808003				;$B2874D
+	JML set_game_mode_wait_for_nmi		;$B2874D
 
 CODE_B28751:
 	LDA pending_dma_hdma_channels		;$B28751
 	STA CPU.enable_dma_hdma			;$B28754
 	LDX #$0000				;$B28757
 CODE_B2875A:
-	LDA sprite_DMA[0].terminate,x		;$B2875A
+	LDA sprite_dma[0].terminate,x		;$B2875A
 	BPL CODE_B28770				;$B2875D
-	LDA sprite_DMA[0].destination,x		;$B2875F
+	LDA sprite_dma[0].destination,x		;$B2875F
 	ORA #$4000				;$B28762
-	STA sprite_DMA[0].destination,x		;$B28765
+	STA sprite_dma[0].destination,x		;$B28765
 	TXA					;$B28768
 	CLC					;$B28769
-	ADC #sizeof(sprite_DMA)			;$B2876A
+	ADC #sizeof(sprite_dma)			;$B2876A
 	TAX					;$B2876D
 	BRA CODE_B2875A				;$B2876E
 
 CODE_B28770:
 	JSL DMA_sprite_graphics			;$B28770
-	JSL DMA_queued_sprite_palette		;$B28774
+	JSL dma_queued_sprite_palette		;$B28774
 	SEP #$20				;$B28778
 	LDA screen_brightness			;$B2877A
 	STA PPU.screen				;$B2877D
@@ -1031,7 +1031,7 @@ CODE_B287AA:
 	JSL sprite_handler			;$B287B8
 	JSL CODE_B7800C				;$B287BC
 	JSL CODE_B7800F				;$B287C0
-	JSL set_unused_OAM_offscreen		;$B287C4
+	JSL set_unused_oam_offscreen		;$B287C4
 	JSR CODE_B28612				;$B287C8
 	BEQ CODE_B287DB				;$B287CB
 	LDA $F4					;$B287CD
@@ -1039,7 +1039,7 @@ CODE_B287AA:
 	BCC CODE_B287D7				;$B287D2
 	JSR CODE_B28603				;$B287D4
 CODE_B287D7:
-	JML CODE_808006				;$B287D7
+	JML game_mode_return_with_oam		;$B287D7
 
 CODE_B287DB:
 	LDA #$0002				;$B287DB
@@ -1189,17 +1189,17 @@ CODE_B289B9:
 	JSL CODE_BB85DF				;$B289C5
 	LDA #CODE_B28B2C			;$B289C9
 	LDX.w #CODE_B28B2C>>16			;$B289CC
-	JML CODE_808003				;$B289CF
+	JML set_game_mode_wait_for_nmi		;$B289CF
 
 CODE_B289D3:
 	JSL disable_screen_wrapper		;$B289D3
 	JSL init_registers			;$B289D7
-	JSL CODE_80801B				;$B289DB
-	JSL clear_VRAM				;$B289DF
+	JSL clear_noncritical_wram		;$B289DB
+	JSL clear_vram				;$B289DF
 	LDX #$A15A				;$B289E3
 	LDY #$007E				;$B289E6
 	LDA #$0660				;$B289E9
-	JSL CODE_808030				;$B289EC
+	JSL clear_wram_block			;$B289EC
 	JSL CODE_BB857F				;$B289F0
 	LDA #$0041				;$B289F4
 	JSL vram_payload_handler_global		;$B289F7
@@ -1339,7 +1339,7 @@ CODE_B28B52:
 	DEY					;$B28B5B
 	BNE CODE_B28B52				;$B28B5C
 	JSL DMA_sprite_graphics			;$B28B5E
-	JSL DMA_queued_sprite_palette		;$B28B62
+	JSL dma_queued_sprite_palette		;$B28B62
 	SEP #$20				;$B28B66
 	LDA screen_brightness			;$B28B68
 	STA PPU.screen				;$B28B6B
@@ -1491,7 +1491,7 @@ CODE_B28CC8:
 	INX					;$B28CC9
 	CPX #$0022				;$B28CCA
 	BNE CODE_B28CBB				;$B28CCD
-	JSL set_unused_OAM_offscreen		;$B28CCF
+	JSL set_unused_oam_offscreen		;$B28CCF
 	JSR CODE_B28612				;$B28CD3
 	BEQ CODE_B28CE6				;$B28CD6
 	LDA $F4					;$B28CD8
@@ -1499,7 +1499,7 @@ CODE_B28CC8:
 	BCC CODE_B28CE2				;$B28CDD
 	JSR CODE_B28603				;$B28CDF
 CODE_B28CE2:
-	JML CODE_808006				;$B28CE2
+	JML game_mode_return_with_oam		;$B28CE2
 
 CODE_B28CE6:
 	LDA $06AB				;$B28CE6
@@ -1517,12 +1517,12 @@ CODE_B28CF9:
 CODE_B28CFF:
 	JSL disable_screen_wrapper		;$B28CFF
 	JSL init_registers			;$B28D03
-	JSL CODE_80801B				;$B28D07
-	JSL clear_VRAM				;$B28D0B
+	JSL clear_noncritical_wram		;$B28D07
+	JSL clear_vram				;$B28D0B
 	LDX #$A15A				;$B28D0F
 	LDY #$007E				;$B28D12
 	LDA #$0660				;$B28D15
-	JSL CODE_808030				;$B28D18
+	JSL clear_wram_block			;$B28D18
 	JSL CODE_808042				;$B28D1C
 	JSL CODE_BB857F				;$B28D20
 	LDA #$0042				;$B28D24
@@ -1554,7 +1554,7 @@ CODE_B28CFF:
 	JSL set_screen_fade			;$B28D74
 	LDA #CODE_B28E05			;$B28D78
 	LDX.w #CODE_B28E05>>16			;$B28D7B
-	JML CODE_808003				;$B28D7E
+	JML set_game_mode_wait_for_nmi		;$B28D7E
 
 CODE_B28D82:
 	LDA $06AD				;$B28D82
@@ -1617,7 +1617,7 @@ CODE_B28E05:
 	LDA pending_dma_hdma_channels		;$B28E05
 	STA CPU.enable_dma_hdma			;$B28E08
 	JSL DMA_sprite_graphics			;$B28E0B
-	JSL DMA_queued_sprite_palette		;$B28E0F
+	JSL dma_queued_sprite_palette		;$B28E0F
 	LDX active_kong_sprite			;$B28E13
 	LDA sprite.y_position,x			;$B28E16
 	EOR #$FFFF				;$B28E18
@@ -1653,7 +1653,7 @@ CODE_B28E61:
 	JSL sprite_handler			;$B28E61
 	JSL CODE_B7800C				;$B28E65
 	JSL CODE_B7800F				;$B28E69
-	JSL set_unused_OAM_offscreen		;$B28E6D
+	JSL set_unused_oam_offscreen		;$B28E6D
 	JSR CODE_B28612				;$B28E71
 	BEQ CODE_B28E84				;$B28E74
 	LDA $F4					;$B28E76
@@ -1661,7 +1661,7 @@ CODE_B28E61:
 	BCC CODE_B28E80				;$B28E7B
 	JSR CODE_B28603				;$B28E7D
 CODE_B28E80:
-	JML CODE_808006				;$B28E80
+	JML game_mode_return_with_oam		;$B28E80
 
 CODE_B28E84:
 	LDA #$0002				;$B28E84
@@ -1671,8 +1671,8 @@ CODE_B28E84:
 	STA $4E					;$B28E8F
 	LDA.w #CODE_808045>>16			;$B28E91
 	STA $50					;$B28E94
-	LDA #CODE_808370			;$B28E96
-	JML set_and_wait_for_NMI		;$B28E99
+	LDA #CODE_808370_nmi			;$B28E96
+	JML set_and_wait_for_nmi		;$B28E99
 
 CODE_B28E9D:
 	LDA #$0001				;$B28E9D
@@ -1681,8 +1681,8 @@ CODE_B28E9D:
 	LDY.w #CODE_80803F>>16			;$B28EA6
 	STX $4E					;$B28EA9
 	STY $50					;$B28EAB
-	LDA #CODE_808344			;$B28EAD
-	JML set_and_wait_for_NMI		;$B28EB0
+	LDA #CODE_808344_nmi			;$B28EAD
+	JML set_and_wait_for_nmi		;$B28EB0
 
 CODE_B28EB4:
 	LDA #$0043				;$B28EB4
@@ -1700,13 +1700,13 @@ CODE_B28EB4:
 	JSL set_screen_fade			;$B28ED7
 	LDA #CODE_B28EE5			;$B28EDB
 	LDX.w #CODE_B28EE5>>16			;$B28EDE
-	JML CODE_808003				;$B28EE1
+	JML set_game_mode_wait_for_nmi		;$B28EE1
 
 CODE_B28EE5:
 	LDA pending_dma_hdma_channels		;$B28EE5
 	STA CPU.enable_dma_hdma			;$B28EE8
 	JSL DMA_sprite_graphics			;$B28EEB
-	JSL DMA_queued_sprite_palette		;$B28EEF
+	JSL dma_queued_sprite_palette		;$B28EEF
 	SEP #$20				;$B28EF3
 	LDA screen_brightness			;$B28EF5
 	STA PPU.screen				;$B28EF8
@@ -1727,7 +1727,7 @@ CODE_B28F15:
 	BCC CODE_B28F24				;$B28F1F
 	JSR CODE_B28603				;$B28F21
 CODE_B28F24:
-	JML CODE_808006				;$B28F24
+	JML game_mode_return_with_oam		;$B28F24
 
 CODE_B28F28:
 	LDA #$0001				;$B28F28
@@ -1751,7 +1751,7 @@ CODE_B28F46:
 CODE_B28F52:
 	LDA #CODE_808045			;$B28F52
 	LDX.w #CODE_808045>>16			;$B28F55
-	JML CODE_808003				;$B28F58
+	JML set_game_mode_wait_for_nmi		;$B28F58
 
 rotating_cylinder_handle_main:
 	LDY current_sprite			;$B28F5C  \
@@ -2315,7 +2315,7 @@ CODE_B293DF:
 	STX $15EC				;$B293E2
 	LDA #CODE_B293EF			;$B293E5
 	LDX.w #CODE_B293EF>>16			;$B293E8
-	JML CODE_808003				;$B293EB
+	JML set_game_mode_wait_for_nmi		;$B293EB
 
 CODE_B293EF:
 	LDA pending_dma_hdma_channels		;$B293EF
@@ -2352,7 +2352,7 @@ CODE_B29432:
 	DEX					;$B29435
 	BNE CODE_B29432				;$B29436
 	JSL DMA_sprite_graphics			;$B29438
-	JSL DMA_queued_sprite_palette		;$B2943C
+	JSL dma_queued_sprite_palette		;$B2943C
 	SEP #$20				;$B29440
 	LDA screen_brightness			;$B29442
 	STA PPU.screen				;$B29445
@@ -2397,7 +2397,7 @@ CODE_B29496:
 	JSL sprite_handler			;$B29496
 	JSL CODE_B7800C				;$B2949A
 	JSL CODE_B7800F				;$B2949E
-	JSL set_unused_OAM_offscreen		;$B294A2
+	JSL set_unused_oam_offscreen		;$B294A2
 	JSR CODE_B28612				;$B294A6
 	BEQ CODE_B294C3				;$B294A9
 	LDA $F4					;$B294AB
@@ -2408,14 +2408,14 @@ CODE_B29496:
 	LDA #$0003				;$B294B8
 	JSL transition_song			;$B294BB
 CODE_B294BF:
-	JML CODE_808006				;$B294BF
+	JML game_mode_return_with_oam		;$B294BF
 
 CODE_B294C3:
 	JSL CODE_80805D				;$B294C3
 	STZ $BA					;$B294C7
 	LDA #CODE_80805A			;$B294C9
 	LDX.w #CODE_80805A>>16			;$B294CC
-	JML CODE_808003				;$B294CF
+	JML set_game_mode_wait_for_nmi		;$B294CF
 
 CODE_B294D3:
 	STA temp_1A				;$B294D3
@@ -2514,14 +2514,14 @@ CODE_B2956E:
 CODE_B29578:
 	PHK					;$B29578
 	PLB					;$B29579
-	LDA #CODE_808337			;$B2957A
+	LDA #apply_screen_brightness		;$B2957A
 	STA $52					;$B2957D
-	LDA.w #CODE_808337>>16			;$B2957F
+	LDA.w #apply_screen_brightness>>16	;$B2957F
 	STA $54					;$B29582
 	JSL disable_screen_wrapper		;$B29584
 	JSL init_registers			;$B29588
-	JSL CODE_80801B				;$B2958C
-	JSL clear_VRAM				;$B29590
+	JSL clear_noncritical_wram		;$B2958C
+	JSL clear_vram				;$B29590
 	JSL CODE_BB857F				;$B29594
 	JSR CODE_B28521				;$B29598
 	LDA #$1D93				;$B2959B
@@ -2656,12 +2656,12 @@ CODE_B296CE:
 	JSL set_screen_fade			;$B296D1
 	LDA #$1D93				;$B296D5
 	STA $0541				;$B296D8
-	LDA #CODE_808370			;$B296DB
+	LDA #CODE_808370_nmi			;$B296DB
 	STA $4A					;$B296DE
 	STA $4C					;$B296E0
 	LDA #CODE_B298BA			;$B296E2
 	LDX.w #CODE_B298BA>>16			;$B296E5
-	JML CODE_808003				;$B296E8
+	JML set_game_mode_wait_for_nmi		;$B296E8
 
 ;Bonus screen text
 DATA_B296EC:
@@ -2854,7 +2854,7 @@ CODE_B298BA:
 	LDA pending_dma_hdma_channels		;$B298BA
 	STA CPU.enable_dma_hdma			;$B298BD
 	JSL DMA_sprite_graphics			;$B298C0
-	JSL DMA_queued_sprite_palette		;$B298C4
+	JSL dma_queued_sprite_palette		;$B298C4
 	SEP #$20				;$B298C8
 	LDA screen_brightness			;$B298CA
 	STA PPU.screen				;$B298CD
@@ -2895,31 +2895,31 @@ CODE_B2990E:
 CODE_B2992C:
 	JSL CODE_B7800C				;$B2992C
 	JSL CODE_B29816				;$B29930
-	JSL set_unused_OAM_offscreen		;$B29934
+	JSL set_unused_oam_offscreen		;$B29934
 	JSR CODE_B28612				;$B29938
 	BEQ CODE_B29941				;$B2993B
-	JML CODE_808006				;$B2993D
+	JML game_mode_return_with_oam		;$B2993D
 
 CODE_B29941:
 	LDX #CODE_808493			;$B29941
 	LDY.w #CODE_808493>>16			;$B29944
 	STX $4E					;$B29947
 	STY $50					;$B29949
-	LDA #CODE_808348			;$B2994B
-	JML set_and_wait_for_NMI		;$B2994E
+	LDA #CODE_808348_nmi			;$B2994B
+	JML set_and_wait_for_nmi		;$B2994E
 
 CODE_B29952:
 	PHK					;$B29952
 	PLB					;$B29953
-	LDA #CODE_808337			;$B29954
+	LDA #apply_screen_brightness		;$B29954
 	STA $52					;$B29957
-	LDA.w #CODE_808337>>16			;$B29959
+	LDA.w #apply_screen_brightness>>16	;$B29959
 	STA $54					;$B2995C
 	JSR CODE_B28521				;$B2995E
 	JSL disable_screen_wrapper		;$B29961
 	JSL init_registers			;$B29965
-	JSL clear_VRAM				;$B29969
-	JSL CODE_80801B				;$B2996D
+	JSL clear_vram				;$B29969
+	JSL clear_noncritical_wram		;$B2996D
 	JSL CODE_BB857F				;$B29971
 	LDA #!music_mama_bird			;$B29975
 	JSL play_song				;$B29978
@@ -3025,10 +3025,10 @@ CODE_B29952:
 	CLC					;$B29AA7
 	ADC #$01C0				;$B29AA8
 	STA $B4					;$B29AAB
-	JSL DMA_queued_sprite_palette		;$B29AAD
-	JSL DMA_queued_sprite_palette		;$B29AB1
-	JSL DMA_queued_sprite_palette		;$B29AB5
-	JSL DMA_queued_sprite_palette		;$B29AB9
+	JSL dma_queued_sprite_palette		;$B29AAD
+	JSL dma_queued_sprite_palette		;$B29AB1
+	JSL dma_queued_sprite_palette		;$B29AB5
+	JSL dma_queued_sprite_palette		;$B29AB9
 	LDA #$0200				;$B29ABD
 	JSL set_screen_fade			;$B29AC0
 	LDA #$0200				;$B29AC4
@@ -3045,13 +3045,13 @@ CODE_B29952:
 	REP #$20				;$B29AE3
 	LDA #CODE_B29AEF			;$B29AE5
 	LDX.w #CODE_B29AEF>>16			;$B29AE8
-	JML CODE_808003				;$B29AEB
+	JML set_game_mode_wait_for_nmi		;$B29AEB
 
 CODE_B29AEF:
 	LDA pending_dma_hdma_channels		;$B29AEF
 	STA CPU.enable_dma_hdma			;$B29AF2
 	JSL DMA_sprite_graphics			;$B29AF5
-	JSL DMA_queued_sprite_palette		;$B29AF9
+	JSL dma_queued_sprite_palette		;$B29AF9
 	JSR CODE_B29D64				;$B29AFD
 	LDA #$0001				;$B29B00
 	TRB $1C35				;$B29B03
@@ -3088,10 +3088,10 @@ CODE_B29B4A:
 	JSL sprite_handler			;$B29B4D
 	JSL CODE_B7800C				;$B29B51
 	JSL CODE_B7800F				;$B29B55
-	JSL set_unused_OAM_offscreen		;$B29B59
+	JSL set_unused_oam_offscreen		;$B29B59
 	JSR CODE_B28612				;$B29B5D
 	BEQ CODE_B29B66				;$B29B60
-	JML CODE_808006				;$B29B62
+	JML game_mode_return_with_oam		;$B29B62
 
 CODE_B29B66:
 	LDA #$0002				;$B29B66
@@ -3108,16 +3108,16 @@ CODE_B29B66:
 	LDY.w #CODE_808069>>16			;$B29B85
 	STX $4E					;$B29B88
 	STY $50					;$B29B8A
-	LDA #CODE_808362			;$B29B8C
-	JML set_and_wait_for_NMI		;$B29B8F
+	LDA #CODE_808362_nmi			;$B29B8C
+	JML set_and_wait_for_nmi		;$B29B8F
 
 CODE_B29B93:
 	LDX #CODE_B48009			;$B29B93
 	LDY.w #CODE_B48009>>16			;$B29B96
 	STX $4E					;$B29B99
 	STY $50					;$B29B9B
-	LDA #CODE_808362			;$B29B9D
-	JML set_and_wait_for_NMI		;$B29BA0
+	LDA #CODE_808362_nmi			;$B29B9D
+	JML set_and_wait_for_nmi		;$B29BA0
 
 CODE_B29BA4:
 	LDA $15E8				;$B29BA4
@@ -3417,7 +3417,7 @@ CODE_B29DB9:
 	LDA $15E4				;$B29DBE
 	CMP #$0100				;$B29DC1
 	BPL CODE_B29DD8				;$B29DC4
-	JSL CODE_808018				;$B29DC6
+	JSL get_random_number			;$B29DC6
 	AND #$0003				;$B29DCA
 	DEC					;$B29DCD
 	CLC					;$B29DCE
@@ -3780,7 +3780,7 @@ CODE_B2A0BE:
 	BRA CODE_B2A086				;$B2A0C4
 
 CODE_B2A0C6:
-	JSL CODE_808018				;$B2A0C6
+	JSL get_random_number			;$B2A0C6
 	AND #$0003				;$B2A0CA
 	ASL					;$B2A0CD
 	CLC					;$B2A0CE
@@ -6264,14 +6264,14 @@ CODE_B2BE7C:
 	AND #$00FF				;$B2BEA1
 	CMP #$0002				;$B2BEA4
 	BEQ CODE_B2BEB3				;$B2BEA7
-	JSL CODE_808018				;$B2BEA9
+	JSL get_random_number			;$B2BEA9
 	LSR					;$B2BEAD
 	CMP sprite.x_speed,x			;$B2BEAE
 	BCC CODE_B2BEBE				;$B2BEB0
 	RTS					;$B2BEB2
 
 CODE_B2BEB3:
-	JSL CODE_808018				;$B2BEB3
+	JSL get_random_number			;$B2BEB3
 	LSR					;$B2BEB7
 	LSR					;$B2BEB8
 	CMP sprite.x_speed,x			;$B2BEB9
@@ -9140,7 +9140,7 @@ game_over_blocks_main:
 	BEQ .CODE_B2D5B9			;$B2D543   |
 	TYX					;$B2D545   |
 	INC sprite.state,x			;$B2D546   |
-	JSL CODE_808018				;$B2D548   |
+	JSL get_random_number			;$B2D548   |
 	AND #$03FF				;$B2D54C   |
 	ORA #$0100				;$B2D54F   |
 	EOR #$FFFF				;$B2D552   |
@@ -9202,7 +9202,7 @@ game_over_blocks_main:
 .CODE_B2D5C0:
 	TYX					;$B2D5C0  \
 	INC sprite.state,x			;$B2D5C1   |
-	JSL CODE_808018				;$B2D5C3   |
+	JSL get_random_number			;$B2D5C3   |
 	AND #$03FF				;$B2D5C7   |
 	ORA #$0100				;$B2D5CA   |
 	EOR #$FFFF				;$B2D5CD   |
@@ -9666,7 +9666,7 @@ funky_rentals_particles_main:
 .init:
 	TYX					;$B2D911  \
 	INC sprite.state,x			;$B2D912   |
-	JSL CODE_808018				;$B2D914   | Get RNG?
+	JSL get_random_number			;$B2D914   | Get RNG?
 	AND #$03FF				;$B2D918   |
 	EOR #$FFFF				;$B2D91B   |
 	INC					;$B2D91E   |
@@ -9674,7 +9674,7 @@ funky_rentals_particles_main:
 	ADC sprite.y_speed,x			;$B2D920   |
 	STA sprite.y_speed,x			;$B2D922   |
 	STA sprite.max_y_speed,x		;$B2D924   |
-	JSL CODE_808018				;$B2D926   | Get RNG?
+	JSL get_random_number			;$B2D926   | Get RNG?
 	AND #$03FF				;$B2D92A   |
 	EOR #$FFFF				;$B2D92D   |
 	INC					;$B2D930   |
@@ -10489,7 +10489,7 @@ CODE_B2DFA5:
 	STA.w sprite.general_purpose_62,y	;$B2DFAE
 	TAX					;$B2DFB1
 CODE_B2DFB2:
-	JSL CODE_808018				;$B2DFB2
+	JSL get_random_number			;$B2DFB2
 	SEP #$30				;$B2DFB6
 	AND #$03				;$B2DFB8
 	TAY					;$B2DFBA
@@ -11288,12 +11288,12 @@ music_test_note_main:
 	CLC					;$B2E572   |
 	ADC #$0070				;$B2E573   |
 	STA sprite.x_position,x			;$B2E576   |
-	JSL CODE_808018				;$B2E578   |
+	JSL get_random_number			;$B2E578   |
 	AND #$003F				;$B2E57C   |
 	CLC					;$B2E57F   |
 	ADC #$0080				;$B2E580   |
 	STA sprite.y_position,x			;$B2E583   |
-	JSL CODE_808018				;$B2E585   |
+	JSL get_random_number			;$B2E585   |
 	AND #$01FF				;$B2E589   |
 	CLC					;$B2E58C   |
 	ADC #$0200				;$B2E58D   |
@@ -12388,12 +12388,12 @@ CODE_B2ED4A:
 	ASL					;$B2ED4B
 	ASL					;$B2ED4C
 	TAX					;$B2ED4D
-	JSL CODE_808018				;$B2ED4E
+	JSL get_random_number			;$B2ED4E
 	AND #$001F				;$B2ED52
 	CLC					;$B2ED55
 	ADC #$0298				;$B2ED56
 	STA $7EA258,x				;$B2ED59
-	JSL CODE_808018				;$B2ED5D
+	JSL get_random_number			;$B2ED5D
 	AND #$000F				;$B2ED61
 	CLC					;$B2ED64
 	ADC #$021F				;$B2ED65
@@ -12993,7 +12993,7 @@ CODE_B2F1A8:
 	BNE CODE_B2F1E6				;$B2F1B5
 	LDA $15E4				;$B2F1B7
 	BNE CODE_B2F1E6				;$B2F1BA
-	JSL CODE_808018				;$B2F1BC
+	JSL get_random_number			;$B2F1BC
 	BIT #$0001				;$B2F1C0
 	BNE CODE_B2F1E6				;$B2F1C3
 	LDA sprite.x_position+1,x		;$B2F1C5
@@ -13594,7 +13594,7 @@ mama_bird_barrier_gem_main:
 
 CODE_B2F684:
 	TYX					;$B2F684  \
-	JSL CODE_808018				;$B2F685   |
+	JSL get_random_number			;$B2F685   |
 	AND #$0101				;$B2F689   |
 	STA sprite.unknown_58,x			;$B2F68C  /
 CODE_B2F68E:
@@ -13729,7 +13729,7 @@ CODE_B2F763:
 	JSL CODE_BB8585				;$B2F77A
 	BCS CODE_B2F78D				;$B2F77E
 	LDX alternate_sprite			;$B2F780
-	JSL CODE_808018				;$B2F782
+	JSL get_random_number			;$B2F782
 	AND #$003F				;$B2F786
 	ADC sprite.x_position,x			;$B2F789
 	STA sprite.x_position,x			;$B2F78B
@@ -13902,7 +13902,7 @@ CODE_B2F8CC:
 	TYX					;$B2F8CC
 	DEC sprite.general_purpose_4C,x		;$B2F8CD
 	BPL CODE_B2F8F9				;$B2F8CF
-	JSL CODE_808018				;$B2F8D1
+	JSL get_random_number			;$B2F8D1
 	BIT #$003F				;$B2F8D5
 	BNE CODE_B2F8E1				;$B2F8D8
 	LDA #$0767				;$B2F8DA
