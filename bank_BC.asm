@@ -5951,7 +5951,7 @@ CODE_BCE905:
 	PLB					;$BCE907
 CODE_BCE908:
 	LDA.b $78				;$BCE908
-	CMP.w #$0878				;$BCE90A
+	CMP.w #sprite_table.slot_1		;$BCE90A
 	BCC.b CODE_BCE93B			;$BCE90D
 	SBC.w #$006E				;$BCE90F
 	STA.b $78				;$BCE912
@@ -6230,7 +6230,7 @@ CODE_BCF9D7:
 CODE_BCF9E6:
 	LDX.w active_kong_sprite		;$BCF9E6
 	LDY.w follower_kong_sprite		;$BCF9E9
-	CPY.w #$0878				;$BCF9EC
+	CPY.w #sprite_table.slot_1		;$BCF9EC
 	BNE.b CODE_BCF9FE			;$BCF9EF
 	LDA.w #$00F0				;$BCF9F1
 	STA.w $000E,y				;$BCF9F4
@@ -6247,7 +6247,7 @@ CODE_BCFA03:
 CODE_BCFA04:
 	LDX.w active_kong_sprite		;$BCFA04
 	LDY.w follower_kong_sprite		;$BCFA07
-	CPY.w #$0878				;$BCFA0A
+	CPY.w #sprite_table.slot_1		;$BCFA0A
 	BNE.b CODE_BCFA1C			;$BCFA0D
 	LDA.w #$00F0				;$BCFA0F
 	STA.w $000E,y				;$BCFA12

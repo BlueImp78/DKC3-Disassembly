@@ -150,7 +150,7 @@ make_sprite_fall_offscreen_global:
 	RTL					;$B680A8
 
 make_sprite_fall_offscreen_direct:
-	DEC $051D				;$B680A9
+	DEC RAM_051D				;$B680A9
 	LDX $78					;$B680AC
 	LDA #$0100				;$B680AE
 	BIT $1E,x				;$B680B1
@@ -9717,7 +9717,7 @@ CODE_B6C790:
 
 CODE_B6C7B0:
 	LDA.w #$0002				;$B6C7B0
-	TSB.w $05B1				;$B6C7B3
+	TSB.w RAM_05B1				;$B6C7B3
 	INC.b $38,x				;$B6C7B6
 CODE_B6C7B8:
 	RTS					;$B6C7B8
@@ -15394,7 +15394,7 @@ CODE_B6F1A3:
 	BEQ.b CODE_B6F1B1			;$B6F1AC
 	LDA.w #$0006				;$B6F1AE
 CODE_B6F1B1:
-	TSB.w $05B1				;$B6F1B1
+	TSB.w RAM_05B1				;$B6F1B1
 	LDA.w #$002A				;$B6F1B4
 	JSL.l CODE_B88069			;$B6F1B7
 	PLX					;$B6F1BB
@@ -15800,7 +15800,7 @@ CODE_B6F3F8:
 	CLC					;$B6F418
 	ADC.b current_sprite			;$B6F419
 	SEC					;$B6F41B
-	SBC.w #aux_sprite_slot			;$B6F41C
+	SBC.w #sprite_table			;$B6F41C
 	STA.w $003E,y				;$B6F41F
 	SEC					;$B6F422
 CODE_B6F423:
@@ -16167,7 +16167,7 @@ CODE_B6F694:
 CODE_B6F6A1:
 	JSL.l CODE_B7802D			;$B6F6A1
 	BEQ.b CODE_B6F6B0			;$B6F6A5
-	LDA.w $051D				;$B6F6A7
+	LDA.w RAM_051D				;$B6F6A7
 	DEC					;$B6F6AA
 	DEC					;$B6F6AB
 	BEQ.b CODE_B6F6B0			;$B6F6AC
@@ -16182,7 +16182,7 @@ CODE_B6F6B0:
 	PLX					;$B6F6BB
 	STX.b current_sprite			;$B6F6BC
 	JSL.l CODE_B6F3E7			;$B6F6BE
-	DEC.w $051D				;$B6F6C2
+	DEC.w RAM_051D				;$B6F6C2
 	LDA.w #$002F				;$B6F6C5
 	JSL.l CODE_BFF006			;$B6F6C8
 CODE_B6F6CC:

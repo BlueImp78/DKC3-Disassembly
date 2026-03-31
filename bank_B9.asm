@@ -1590,7 +1590,7 @@ CODE_B9AA33:
 	RTS					;$B9AA33
 
 CODE_B9AA34:
-	LDA.b $4E				;$B9AA34
+	LDA.b game_mode_pointer			;$B9AA34
 	CMP.w #CODE_B38076			;$B9AA36
 	BNE.b CODE_B9AA3D			;$B9AA39
 	CLC					;$B9AA3B
@@ -1604,7 +1604,7 @@ CODE_B9AA3F:
 	LDA.w $05AF				;$B9AA3F
 	AND.w #$4000				;$B9AA42
 	BEQ.b CODE_B9AA6B			;$B9AA45
-	LDA.b $4E				;$B9AA47
+	LDA.b game_mode_pointer			;$B9AA47
 	CMP.w #CODE_B38076			;$B9AA49
 	BNE.b CODE_B9AA64			;$B9AA4C
 	LDA.b $12,x				;$B9AA4E
@@ -1674,7 +1674,7 @@ CODE_B9AAA4:
 	LDA.w $0010,y				;$B9AAB9
 	CMP.w $001A,y				;$B9AABC
 	BEQ.b CODE_B9AAEB			;$B9AABF
-	LDA.b $00				;$B9AAC1
+	LDA active_frame_counter		;$B9AAC1
 	SEC					;$B9AAC3
 	SBC.w $001A,y				;$B9AAC4
 	CMP.w #$0006				;$B9AAC7

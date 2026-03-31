@@ -453,8 +453,8 @@ disable_screen_wrapper:
 vram_payload_handler_global:
 	JMP vram_payload_handler		;$BB8567
 
-set_PPU_registers_global:
-	JMP set_PPU_registers			;$BB856A
+set_ppu_registers_global:
+	JMP set_ppu_registers			;$BB856A
 
 CODE_BB856D:
 	JMP CODE_BB8DE8				;$BB856D
@@ -1695,7 +1695,7 @@ DATA_BB8CBC:
 	dw $0003, $000F
 	dw $003F, $00FF
 
-set_PPU_registers:
+set_ppu_registers:
 	PHB					;$BB8CC4
 	%pea_shift_dbr(ppu_config_table)
 	PLB					;$BB8CC5
@@ -2021,7 +2021,7 @@ CODE_BB8EAB:
 
 init_sprite_render_order:
 	LDX #$0000				;$BB8EFD
-	LDA #aux_sprite_slot			;$BB8F00
+	LDA #sprite_table.slot_0		;$BB8F00
 .next_slot:
 	STA sprite_render_table,x		;$BB8F03
 	CLC					;$BB8F06
@@ -2116,7 +2116,7 @@ CODE_BB8F8A:
 	RTS					;$BB8F8A
 
 CODE_BB8F8B:
-	LDX #main_sprite_table			;$BB8F8B
+	LDX #sprite_table.slot_1		;$BB8F8B
 	CLC					;$BB8F8E
 CODE_BB8F8F:
 	LDA sprite.type,x 			;$BB8F8F
@@ -2124,10 +2124,10 @@ CODE_BB8F8F:
 	TXA					;$BB8F93
 	ADC.w #sizeof(sprite)			;$BB8F94
 	TAX					;$BB8F97
-	CPX #main_sprite_table_end		;$BB8F98
+	CPX #sprite_table.end			;$BB8F98
 	BCC CODE_BB8F8F				;$BB8F9B
 	SEC					;$BB8F9D
-	LDX #aux_sprite_slot			;$BB8F9E
+	LDX #sprite_table.slot_0		;$BB8F9E
 CODE_BB8FA1:
 	STX alternate_sprite			;$BB8FA1
 	RTS					;$BB8FA3
@@ -2537,7 +2537,7 @@ spawn_command_setup_static:
 	AND #$0E00				;$BB923A
 	EOR sprite.oam_property,x		;$BB923D
 	STA sprite.oam_property,x		;$BB923F
-	LDX #main_sprite_table 			;$BB9241
+	LDX #sprite_table.slot_1		;$BB9241
 CODE_BB9244:
 	LDA $1E					;$BB9244
 	CMP sprite.type,x			;$BB9246
@@ -2546,7 +2546,7 @@ CODE_BB9244:
 	CLC					;$BB924B
 	ADC.w #sizeof(sprite)			;$BB924C
 	TAX					;$BB924F
-	CPX #main_sprite_table_end		;$BB9250
+	CPX #sprite_table.end			;$BB9250
 	BNE CODE_BB9244				;$BB9253
 	LDX alternate_sprite			;$BB9255
 	PHY					;$BB9257
@@ -2875,7 +2875,7 @@ CODE_BB94A6:
 
 CODE_BB94B2:
 	STA $1A					;$BB94B2
-	LDX #main_sprite_table			;$BB94B4
+	LDX #sprite_table.slot_1		;$BB94B4
 CODE_BB94B7:
 	LDA $1A					;$BB94B7
 	CMP sprite.type,x 			;$BB94B9
@@ -2885,7 +2885,7 @@ CODE_BB94BD:
 	CLC					;$BB94BE
 	ADC.w #sizeof(sprite)			;$BB94BF
 	TAX					;$BB94C2
-	CPX #main_sprite_table_end		;$BB94C3
+	CPX #sprite_table.end			;$BB94C3
 	BNE CODE_BB94B7				;$BB94C6
 	LDA $1A					;$BB94C8
 	CMP #$00D0				;$BB94CA
@@ -3581,7 +3581,7 @@ CODE_BB9957:
 	AND #$D080				;$BB997D
 	STA $05AF				;$BB9980
 	LDA #$0006				;$BB9983
-	TRB $05B1				;$BB9986
+	TRB RAM_05B1				;$BB9986
 	LDA #$FFFF				;$BB9989
 	STA $06F4				;$BB998C
 	STA $06F6				;$BB998F
@@ -3722,13 +3722,13 @@ CODE_BB9AC6:
 
 CODE_BB9AD3:
 	LDA level_number			;$BB9AD3
-	CMP $05BD				;$BB9AD5
+	CMP RAM_05BD				;$BB9AD5
 	BNE CODE_BB9B05				;$BB9AD8
 	LDA $05B7				;$BB9ADA
 	BNE CODE_BB9B05				;$BB9ADD
-	LDA $05BB				;$BB9ADF
+	LDA RAM_05BB				;$BB9ADF
 	STA $05B7				;$BB9AE2
-	LDA $05BD				;$BB9AE5
+	LDA RAM_05BD				;$BB9AE5
 	STA level_number			;$BB9AE8
 	LDA $05C1				;$BB9AEA
 	STA current_animal_type			;$BB9AED
@@ -3749,9 +3749,9 @@ CODE_BB9B06:
 	LDA #$0001				;$BB9B0C
 	STA $05B7				;$BB9B0F
 	STA $0533				;$BB9B12
-	STA $05BB				;$BB9B15
+	STA RAM_05BB				;$BB9B15
 	LDA level_number			;$BB9B18
-	STA $05BD				;$BB9B1A
+	STA RAM_05BD				;$BB9B1A
 	LDA parent_level_number			;$BB9B1D
 	STA $05BF				;$BB9B20
 	STZ $05C1				;$BB9B23
@@ -4641,7 +4641,7 @@ CODE_BBA1F3:
 	SEP #$20				;$BBA1FA
 	LDA $3E					;$BBA1FC
 	AND #$3F				;$BBA1FE
-	CMP $08					;$BBA200
+	CMP current_song			;$BBA200
 	REP #$20				;$BBA202
 	BEQ CODE_BBA20B				;$BBA204
 	JSL play_song_with_transition		;$BBA206
@@ -4694,8 +4694,8 @@ CODE_BBA250:
 	STZ current_mount			;$BBA258
 	STZ parry_index				;$BBA25A
 	LDA #CODE_808362_nmi			;$BBA25C
-	STA $4A					;$BBA25F
-	STA $4C					;$BBA261
+	STA nmi_pointer				;$BBA25F
+	STA complete_frame_nmi_pointer		;$BBA261
 	LDA #CODE_B48009			;$BBA263
 	LDX.w #CODE_B48009>>16			;$BBA266
 	JML set_game_mode_wait_for_nmi		;$BBA269
@@ -4707,15 +4707,15 @@ CODE_BBA26D:
 	BPL CODE_BBA299				;$BBA276
 	LDX #$000C				;$BBA278
 CODE_BBA27B:
-	STZ $05BB,x				;$BBA27B
+	STZ RAM_05BB,x				;$BBA27B
 	DEX					;$BBA27E
 	DEX					;$BBA27F
 	BPL CODE_BBA27B				;$BBA280
 	LDA #$0006				;$BBA282
 	STA $05E3				;$BBA285
 	LDA #CODE_808362_nmi			;$BBA288
-	STA $4A					;$BBA28B
-	STA $4C					;$BBA28D
+	STA nmi_pointer				;$BBA28B
+	STA complete_frame_nmi_pointer		;$BBA28D
 	LDA #CODE_B48000			;$BBA28F
 	LDX.w #CODE_B48000>>16			;$BBA292
 	JML set_game_mode_wait_for_nmi		;$BBA295
@@ -4737,8 +4737,8 @@ CODE_BBA2B1:
 	STZ current_mount			;$BBA2B3
 	STZ parry_index				;$BBA2B5
 	LDA #CODE_808362_nmi			;$BBA2B7
-	STA $4A					;$BBA2BA
-	STA $4C					;$BBA2BC
+	STA nmi_pointer				;$BBA2BA
+	STA complete_frame_nmi_pointer		;$BBA2BC
 	LDA #CODE_B48009			;$BBA2BE
 	LDX.w #CODE_B48009>>16			;$BBA2C1
 	JML set_game_mode_wait_for_nmi		;$BBA2C4
@@ -4787,8 +4787,8 @@ CODE_BBA320:
 CODE_BBA32A:
 	STZ kong_letter_flags			;$BBA32A
 	STZ $05B7				;$BBA32D
-	STZ $05BB				;$BBA330
-	STZ $05BD				;$BBA333
+	STZ RAM_05BB				;$BBA330
+	STZ RAM_05BD				;$BBA333
 	STZ $05BF				;$BBA336
 	STZ $05C1				;$BBA339
 	STZ $05C3				;$BBA33C
@@ -4804,8 +4804,8 @@ CODE_BBA32A:
 	ORA #$8000				;$BBA355
 	STA map_node_number			;$BBA358
 	LDA #CODE_808362_nmi			;$BBA35B
-	STA $4A					;$BBA35E
-	STA $4C					;$BBA360
+	STA nmi_pointer				;$BBA35E
+	STA complete_frame_nmi_pointer		;$BBA360
 	LDA #CODE_B48009			;$BBA362
 	LDX.w #CODE_B48009>>16			;$BBA365
 	JML set_game_mode_wait_for_nmi		;$BBA368
@@ -4849,8 +4849,8 @@ CODE_BBA3A3:
 	LDY #CODE_808084			;$BBA3C5
 	LDX.w #CODE_808084>>16			;$BBA3C8
 CODE_BBA3CB:
-	STY $4E					;$BBA3CB
-	STX $50					;$BBA3CD
+	STY game_mode_pointer			;$BBA3CB
+	STX game_mode_pointer_bank		;$BBA3CD
 	LDA #CODE_808348_nmi			;$BBA3CF
 	JML set_and_wait_for_nmi		;$BBA3D2
 
@@ -6229,35 +6229,35 @@ CODE_BBAD61:
 	RTL					;$BBAD63
 
 sprite_slots_table:
-	dw aux_sprite_slot
-	dw dixie_sprite_slot
-	dw kiddy_sprite_slot
-	dw $0954
-	dw $09C2
-	dw $0A30
-	dw $0A9E
-	dw $0B0C
-	dw $0B7A
-	dw $0BE8
-	dw $0C56
-	dw $0CC4
-	dw $0D32
-	dw $0DA0
-	dw $0E0E
-	dw $0E7C
-	dw $0EEA
-	dw $0F58
-	dw $0FC6
-	dw $1034
-	dw $10A2
-	dw $1110
-	dw $117E
-	dw $11EC
-	dw $125A
-	dw $12C8
-	dw $1336
-	dw $13A4
-	dw $1412
+	dw sprite_table.slot_0			;$080A
+	dw sprite_table.slot_1			;$0878
+	dw sprite_table.slot_2			;$08E6
+	dw sprite_table.slot_3			;$0954
+	dw sprite_table.slot_4			;$09C2
+	dw sprite_table.slot_5			;$0A30
+	dw sprite_table.slot_6			;$0A9E
+	dw sprite_table.slot_7			;$0B0C
+	dw sprite_table.slot_8			;$0B7A
+	dw sprite_table.slot_9			;$0BE8
+	dw sprite_table.slot_10			;$0C56
+	dw sprite_table.slot_11			;$0CC4
+	dw sprite_table.slot_12			;$0D32
+	dw sprite_table.slot_13			;$0DA0
+	dw sprite_table.slot_14			;$0E0E
+	dw sprite_table.slot_15			;$0E7C
+	dw sprite_table.slot_16			;$0EEA
+	dw sprite_table.slot_17			;$0F58
+	dw sprite_table.slot_18			;$0FC6
+	dw sprite_table.slot_19			;$1034
+	dw sprite_table.slot_20			;$10A2
+	dw sprite_table.slot_21			;$1110
+	dw sprite_table.slot_22			;$117E
+	dw sprite_table.slot_23			;$11EC
+	dw sprite_table.slot_24			;$125A
+	dw sprite_table.slot_25			;$12C8
+	dw sprite_table.slot_26			;$1336
+	dw sprite_table.slot_27			;$13A4
+	dw sprite_table.slot_28			;$1412
 
 CODE_BBAD9E:
 	LDX #$03FE				;$BBAD9E
@@ -6846,7 +6846,7 @@ CODE_BBB261:
 	STA $082E				;$BBB270
 	STZ $0830				;$BBB273
 	TYA					;$BBB276
-	LDY #aux_sprite_slot			;$BBB277
+	LDY #sprite_table.slot_0		;$BBB277
 	JSL CODE_B78015				;$BBB27A
 	LDA $082C				;$BBB27E
 	STA $18D9				;$BBB281
@@ -7578,7 +7578,7 @@ sprite_handler_direct:
 	STA sprite_return_bank			;$BBB8C2   |/
 	LDA #.sprite_return			;$BBB8C5   |\ Write sprite return pointer
 	STA sprite_return_address		;$BBB8C8   |/
-	LDY #main_sprite_table			;$BBB8CB   | Load sprite base pointer
+	LDY #sprite_table.slot_1		;$BBB8CB   | Load sprite base pointer
 .next_slot:					;	   |
 	LDA.w sprite.type,y			;$BBB8CE   |\ If the sprite doesn't exist
 	BEQ .get_next_slot			;$BBB8D1   |/ Get the next sprite
@@ -7603,7 +7603,7 @@ sprite_handler_direct:
 	CLC					;$BBB8EF   |
 	ADC.w #sizeof(sprite)			;$BBB8F0   |
 	TAY					;$BBB8F3   |
-	CPY #main_sprite_table_end		;$BBB8F4   |
+	CPY #sprite_table.end			;$BBB8F4   |
 	BNE .next_slot				;$BBB8F7   |
 	JSL process_player_interactions		;$BBB8F9   |
 	JSR process_platform_sprites		;$BBB8FD   |
@@ -7618,7 +7618,7 @@ sprite_handler_direct:
 	STA $04F7				;$BBB912   |/
 	LDA #..sprite_return			;$BBB915   |\ Write sprite return pointer
 	STA $04F5				;$BBB918   |/
-	LDY #main_sprite_table			;$BBB91B   | Load sprite base pointer
+	LDY #sprite_table.slot_1		;$BBB91B   | Load sprite base pointer
 ..next_slot:					;	   |
 	LDX sprite.type,y			;$BBB91E   |\ If the sprite doesn't exist
 	BEQ ..get_next_slot			;$BBB920   |/ Get the next sprite
@@ -7673,7 +7673,7 @@ sprite_handler_direct:
 	CLC					;$BBB979   |
 	ADC.w #sizeof(sprite)			;$BBB97A   |
 	TAY					;$BBB97D   |
-	CPY #main_sprite_table_end		;$BBB97E   |
+	CPY #sprite_table.end			;$BBB97E   |
 	BNE ..next_slot				;$BBB981   |
 .dont_process_any_sprites:			;	   |
 	JSL process_player_interactions		;$BBB983   |
@@ -9827,7 +9827,7 @@ CODE_BBD085:
 	LDA sprite.general_purpose_5E,x		;$BBD08B
 	STA $1C3F				;$BBD08D
 	LDA #$001F				;$BBD090
-	STA $06CF				;$BBD093
+	STA RAM_06CF				;$BBD093
 	JSL CODE_808060				;$BBD096
 	JML [$04F5]				;$BBD09A
 
@@ -10176,7 +10176,7 @@ CODE_BBD334:
 	BEQ CODE_BBD341				;$BBD33C
 	LDA #$0006				;$BBD33E
 CODE_BBD341:
-	TSB $05B1				;$BBD341
+	TSB RAM_05B1				;$BBD341
 	INC sprite.state,x			;$BBD344
 	JML [$04F5]				;$BBD346
 
@@ -10202,7 +10202,7 @@ CODE_BBD364:
 
 CODE_BBD373:
 	LDA #$0002				;$BBD373
-	TSB $05B1				;$BBD376
+	TSB RAM_05B1				;$BBD376
 	LDA #$0002				;$BBD379
 	STA sprite.state,x			;$BBD37C
 	JML [$04F5]				;$BBD37E
@@ -10417,7 +10417,7 @@ CODE_BBD544:
 	BEQ CODE_BBD55A				;$BBD555
 	LDA #$0006				;$BBD557
 CODE_BBD55A:
-	TSB $05B1				;$BBD55A
+	TSB RAM_05B1				;$BBD55A
 	LDA #$0008				;$BBD55D
 	AND active_cheats			;$BBD560
 	BEQ CODE_BBD56A				;$BBD563
@@ -10691,7 +10691,7 @@ CODE_BBD729:
 	STA.w sprite.state,y			;$BBD72C
 	LDA $075F				;$BBD72F
 	AND #$00FF				;$BBD732
-	STA $051D				;$BBD735
+	STA RAM_051D				;$BBD735
 	RTS					;$BBD738
 
 CODE_BBD739:
@@ -10729,7 +10729,7 @@ CODE_BBD783:
 	STA.w sprite.state,y			;$BBD786
 	LDA $075F				;$BBD789
 	AND #$00FF				;$BBD78C
-	STA $051D				;$BBD78F
+	STA RAM_051D				;$BBD78F
 	RTS					;$BBD792
 
 CODE_BBD793:
@@ -10739,7 +10739,7 @@ CODE_BBD796:
 	BRA CODE_BBD7D8				;$BBD796
 
 CODE_BBD798:
-	LDA $051D				;$BBD798
+	LDA RAM_051D				;$BBD798
 	BNE CODE_BBD7D8				;$BBD79B
 	BRA CODE_BBD7B9				;$BBD79D
 
@@ -10821,7 +10821,7 @@ CODE_BBD83C:
 	JML [$04F5]				;$BBD83F
 
 CODE_BBD842:
-	LDA $051D				;$BBD842
+	LDA RAM_051D				;$BBD842
 	BNE CODE_BBD864				;$BBD845
 	LDA #$0001				;$BBD847
 	TSB $194F				;$BBD84A
@@ -10978,7 +10978,7 @@ CODE_BBD973:
 	RTS					;$BBD973
 
 CODE_BBD974:
-	LDA $05B1				;$BBD974
+	LDA RAM_05B1				;$BBD974
 	AND #$0002				;$BBD977
 	CMP #$0001				;$BBD97A
 	RTS					;$BBD97D

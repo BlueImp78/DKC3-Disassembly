@@ -2276,8 +2276,8 @@ CODE_B590FE:
 	LDX.w #CODE_B48000			;$B590FE
 	LDY.w #CODE_B48000>>16			;$B59101
 	LDA.w #CODE_808348_nmi 			;$B59104
-	STX.b $4E				;$B59107
-	STY.b $50				;$B59109
+	STX.b game_mode_pointer			;$B59107
+	STY.b game_mode_pointer_bank		;$B59109
 	LDA.w #$4000				;$B5910B
 	TSB.w $0613				;$B5910E
 	RTS					;$B59111
@@ -3979,7 +3979,7 @@ CODE_B59F51:
 	CMP.b $38,x				;$B59F69
 	BEQ.b CODE_B59F73			;$B59F6B
 	LDA.w #$0010				;$B59F6D
-	TSB.w $05B1				;$B59F70
+	TSB.w RAM_05B1				;$B59F70
 CODE_B59F73:
 	RTS					;$B59F73
 
@@ -4375,7 +4375,7 @@ CODE_B5A218:
 CODE_B5A243:
 	STZ.b $26,x				;$B5A243
 	LDA.w #$062D				;$B5A245
-	JSL.l play_high_priority_sound	;$B5A248
+	JSL.l play_high_priority_sound		;$B5A248
 CODE_B5A24C:
 	LDA.w player_active_pressed		;$B5A24C
 	BIT.w #!input_Y|!input_start		;$B5A24F
@@ -14542,19 +14542,19 @@ CODE_B5F2F0:
 
 ;RNG
 CODE_B5F2F6:
-	LDA.b $02				;$B5F2F6
+	LDA.b rng_result			;$B5F2F6
 	PHA					;$B5F2F8
-	LDA.b $04				;$B5F2F9
+	LDA.b rng_seed_2			;$B5F2F9
 	ROL					;$B5F2FB
 	PHA					;$B5F2FC
-	LDA.b $03				;$B5F2FD
+	LDA.b rng_seed_1			;$B5F2FD
 	EOR.b $01,S				;$B5F2FF
-	STA.b $02				;$B5F301
+	STA.b rng_result			;$B5F301
 	PLA					;$B5F303
 	PLA					;$B5F304
-	STA.b $04				;$B5F305
-	LDA.b $02				;$B5F307
-	INC.b $02				;$B5F309
+	STA.b rng_seed_2			;$B5F305
+	LDA.b rng_result			;$B5F307
+	INC.b rng_result			;$B5F309
 	RTL					;$B5F30B
 
 CODE_B5F30C:
@@ -15639,9 +15639,9 @@ CODE_B5FB29:
 	LDA.w current_game_mode			;$B5FB4D
 	DEC					;$B5FB50
 	BNE.b CODE_B5FB5C			;$B5FB51
-	LDA.w $05B3				;$B5FB53
+	LDA.w RAM_05B3				;$B5FB53
 	EOR.w #$0002				;$B5FB56
-	STA.w $05B3				;$B5FB59
+	STA.w RAM_05B3				;$B5FB59
 CODE_B5FB5C:
 	LDX.b current_sprite			;$B5FB5C
 	LDA.w #$0004				;$B5FB5E

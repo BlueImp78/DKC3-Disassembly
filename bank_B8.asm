@@ -585,7 +585,7 @@ CODE_B883E9:
 	RTS					;$B88416
 
 CODE_B88417:
-	LDA.w $05B1				;$B88417
+	LDA.w RAM_05B1				;$B88417
 	AND.w #$0004				;$B8841A
 	BNE.b CODE_B883E9			;$B8841D
 	LDX.b current_sprite			;$B8841F
@@ -1052,7 +1052,7 @@ CODE_B887F5:
 	STA.b $1E,x				;$B88821
 CODE_B88823:
 	JSL.l CODE_BB85FD			;$B88823
-	LDX.w #aux_sprite_slot			;$B88827
+	LDX.w #sprite_table.slot_0		;$B88827
 	LDY.w active_kong_sprite		;$B8882A
 	LDA.w $0016,y				;$B8882D
 	SEC					;$B88830
@@ -3026,7 +3026,7 @@ player_interaction_17:
 
 player_interaction_06:
 	LDA.w #$0002				;$B899B3
-	BIT.w $05B1				;$B899B6
+	BIT.w RAM_05B1				;$B899B6
 	BNE.b CODE_B89A12			;$B899B9
 	LDX.w follower_kong_sprite		;$B899BB
 	LDA.b $16,x				;$B899BE
@@ -3274,7 +3274,7 @@ CODE_B89BC1:
 	RTS					;$B89BC2
 
 player_interaction_2A:
-	LDA.w $05B1				;$B89BC3
+	LDA.w RAM_05B1				;$B89BC3
 	AND.w #$0004				;$B89BC6
 	BNE.b CODE_B89BE6			;$B89BC9
 	JSR.w CODE_B898AB			;$B89BCB
@@ -3365,25 +3365,25 @@ CODE_B89C5C:
 CODE_B89C62:
 	STA.w current_kong			;$B89C62
 	INC					;$B89C65
-	STA.w $05B3				;$B89C66
+	STA.w RAM_05B3				;$B89C66
 	DEC					;$B89C69
 	BNE.b CODE_B89C86			;$B89C6A
-	LDA.w #$0878				;$B89C6C
+	LDA.w #sprite_table.slot_1		;$B89C6C
 	STA.w active_kong_sprite		;$B89C6F
 	LDA.w #$1480				;$B89C72
 	STA.w $04FB				;$B89C75
-	LDA.w #$08E6				;$B89C78
+	LDA.w #sprite_table.slot_2		;$B89C78
 	STA.w follower_kong_sprite		;$B89C7B
 	LDA.w #$14D2				;$B89C7E
 	STA.w $04FF				;$B89C81
 	BRA.b CODE_B89C9E			;$B89C84
 
 CODE_B89C86:
-	LDA.w #$08E6				;$B89C86
+	LDA.w #sprite_table.slot_2		;$B89C86
 	STA.w active_kong_sprite		;$B89C89
 	LDA.w #$14D2				;$B89C8C
 	STA.w $04FB				;$B89C8F
-	LDA.w #$0878				;$B89C92
+	LDA.w #sprite_table.slot_1		;$B89C92
 	STA.w follower_kong_sprite		;$B89C95
 	LDA.w #$1480				;$B89C98
 	STA.w $04FF				;$B89C9B
@@ -7077,7 +7077,7 @@ CODE_B8BA8A:
 	STX.w CPU.divisor			;$B8BA9C
 	LDA.b ($00)				;$B8BA9F
 	LDA.b ($00)				;$B8BAA1
-	LDA.b $00				;$B8BAA3
+	LDA $00					;$B8BAA3
 	LDA.w CPU.divide_result			;$B8BAA5
 	DEY					;$B8BAA8
 	BMI.b CODE_B8BAAF			;$B8BAA9
@@ -7634,7 +7634,7 @@ CODE_B8BF59:
 	LDA.w $0028,y				;$B8BF5C
 	STA.b $28,x				;$B8BF5F
 	LDA.w #$0004				;$B8BF61
-	TRB.w $05B1				;$B8BF64
+	TRB.w RAM_05B1				;$B8BF64
 	LDA level_number			;$B8BF67
 	CMP.w #!boss_level_type_range_start	;$B8BF69
 	BCC.b CODE_B8BF79			;$B8BF6C
@@ -8070,7 +8070,7 @@ CODE_B8C2BD:
 	LDA.b $16,x				;$B8C2D1
 	STA.w $0820				;$B8C2D3
 	STY.w active_kong_sprite		;$B8C2D6
-	LDX.w #aux_sprite_slot			;$B8C2D9
+	LDX.w #sprite_table.slot_0		;$B8C2D9
 	JSL.l CODE_B9E021			;$B8C2DC
 	LDX.b current_sprite			;$B8C2E0
 	STX.w active_kong_sprite		;$B8C2E2
@@ -9384,7 +9384,7 @@ player_action_handler:
 	ASL					;$B8CC29
 	STA.w $04DE				;$B8CC2A
 	LDA.w #$0001				;$B8CC2D
-	TRB.w $05B1				;$B8CC30
+	TRB.w RAM_05B1				;$B8CC30
 	LDX.b current_sprite			;$B8CC33
 	CPX.w active_kong_sprite		;$B8CC35
 	BNE.b CODE_B8CC4C			;$B8CC38
@@ -9470,7 +9470,7 @@ CODE_B8CCDD:
 	LDA.w $04E0				;$B8CCDD
 CODE_B8CCE0:
 	LDX.b current_sprite			;$B8CCE0
-	LDA.w $05B1				;$B8CCE2
+	LDA.w RAM_05B1				;$B8CCE2
 	AND.w #$0001				;$B8CCE5
 	CMP.w #$0001				;$B8CCE8
 	RTS					;$B8CCEB
@@ -10255,7 +10255,7 @@ pause_game_action:
 	BIT $05AF				;$B8D283
 	BNE ..return				;$B8D286
 	LDA #$0010				;$B8D288
-	TSB $05B1				;$B8D28B
+	TSB RAM_05B1				;$B8D28B
 ..return:
 	RTS					;$B8D28E
 
@@ -10277,7 +10277,7 @@ CODE_B8D2A1:
 	CMP.w #$0020				;$B8D2A5
 	BCC.b CODE_B8D2BA			;$B8D2A8
 	LDA.w #$0001				;$B8D2AA
-	TSB.w $05B1				;$B8D2AD
+	TSB.w RAM_05B1				;$B8D2AD
 	LDA.w #$0100				;$B8D2B0
 	TRB.w $05AF				;$B8D2B3
 	JSL.l disable_timestop			;$B8D2B6
@@ -11045,7 +11045,7 @@ CODE_B8D7BC:
 	JSL.l CODE_B8E198			;$B8D7CC
 	JSL.l CODE_B8E15A			;$B8D7D0
 	LDA.w #$0001				;$B8D7D4
-	TSB.w $05B1				;$B8D7D7
+	TSB.w RAM_05B1				;$B8D7D7
 	RTS					;$B8D7DA
 
 CODE_B8D7DB:
@@ -11116,7 +11116,7 @@ CODE_B8D83E:
 	JSL.l CODE_B8E198			;$B8D85F
 	JSL.l CODE_B8E15A			;$B8D863
 	LDA.w #$0001				;$B8D867
-	TSB.w $05B1				;$B8D86A
+	TSB.w RAM_05B1				;$B8D86A
 	RTS					;$B8D86D
 
 CODE_B8D86E:
@@ -11168,7 +11168,7 @@ CODE_B8D8AF:
 	JSL.l CODE_B8E198			;$B8D8C8
 	JSL.l CODE_B8E15A			;$B8D8CC
 	LDA.w #$0001				;$B8D8D0
-	TSB.w $05B1				;$B8D8D3
+	TSB.w RAM_05B1				;$B8D8D3
 	RTS					;$B8D8D6
 
 CODE_B8D8D7:
@@ -11235,7 +11235,7 @@ CODE_B8D919:
 	JSL.l CODE_B8E198			;$B8D94B
 	JSL.l CODE_B8E15A			;$B8D94F
 	LDA.w #$0001				;$B8D953
-	TSB.w $05B1				;$B8D956
+	TSB.w RAM_05B1				;$B8D956
 	RTS					;$B8D959
 
 CODE_B8D95A:
@@ -12208,7 +12208,7 @@ CODE_B8E07F:
 	RTS					;$B8E07F
 
 CODE_B8E080:
-	LDX.w #main_sprite_table		;$B8E080
+	LDX.w #sprite_table.slot_1		;$B8E080
 	STZ.b $1A				;$B8E083
 	STZ.b $1C				;$B8E085
 	STZ.b $1E				;$B8E087
@@ -12229,7 +12229,7 @@ CODE_B8E0A0:
 	CLC					;$B8E0A1
 	ADC.w #sizeof(sprite)			;$B8E0A2
 	TAX					;$B8E0A5
-	CPX.w #main_sprite_table_end		;$B8E0A6
+	CPX.w #sprite_table.end			;$B8E0A6
 	BNE.b CODE_B8E089			;$B8E0A9
 	LDA.b $1A				;$B8E0AB
 	RTS					;$B8E0AD
@@ -14012,7 +14012,7 @@ CODE_B8ED5F:
 	LDA.w $005C,y				;$B8ED5F
 	LDX.b parry_index			;$B8ED62
 	BEQ.b CODE_B8ED6D			;$B8ED64
-	CMP.b $00,x				;$B8ED66
+	CMP.b sprite.type,x			;$B8ED66
 	BNE.b CODE_B8ED6D			;$B8ED68
 	JMP.w CODE_B8EDC8			;$B8ED6A
 
@@ -14022,16 +14022,16 @@ CODE_B8ED6D:
 	LDA.b current_animal_type		;$B8ED72
 	CMP.b $1A				;$B8ED74
 	BEQ.b CODE_B8ED8F			;$B8ED76
-	LDX.w #$0954				;$B8ED78
+	LDX.w #sprite_table.slot_3		;$B8ED78
 CODE_B8ED7B:
-	LDA.b $00,x				;$B8ED7B
+	LDA.b sprite.type,x			;$B8ED7B
 	CMP.b $1A				;$B8ED7D
 	BEQ.b CODE_B8ED8F			;$B8ED7F
 	TXA					;$B8ED81
 	CLC					;$B8ED82
 	ADC.w #sizeof(sprite)			;$B8ED83
 	TAX					;$B8ED86
-	CPX.w #main_sprite_table_end		;$B8ED87
+	CPX.w #sprite_table.end			;$B8ED87
 	BNE.b CODE_B8ED7B			;$B8ED8A
 CODE_B8ED8C:
 	JMP.w CODE_B8EDC1			;$B8ED8C
@@ -14161,7 +14161,7 @@ DATA_B8EE8B:
 CODE_B8EE91:
 	TYX					;$B8EE91
 	INC.b $38,x				;$B8EE92
-	LDA.w #main_sprite_table		;$B8EE94
+	LDA.w #sprite_table.slot_1		;$B8EE94
 CODE_B8EE97:
 	TAY					;$B8EE97
 	LDA.w sprite.type,y 			;$B8EE98
@@ -14170,7 +14170,7 @@ CODE_B8EE97:
 	TYA					;$B8EE9F
 	CLC					;$B8EEA0
 	ADC.w #sizeof(sprite)			;$B8EEA1
-	CMP.w #main_sprite_table_end		;$B8EEA4
+	CMP.w #sprite_table.end			;$B8EEA4
 	BCC.b CODE_B8EE97			;$B8EEA7
 	STZ.b $60,x				;$B8EEA9
 	BRA.b CODE_B8EEC1			;$B8EEAB

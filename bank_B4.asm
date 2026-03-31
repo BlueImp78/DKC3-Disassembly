@@ -35,9 +35,9 @@ CODE_B48021:
 	PHK					;$B48021
 	PLB					;$B48022
 	LDA #apply_screen_brightness		;$B48023
-	STA $52					;$B48026
+	STA incomplete_frame_game_mode_ptr	;$B48026
 	LDA.w #apply_screen_brightness>>16	;$B48028
-	STA $54					;$B4802B
+	STA incomplete_frame_game_mode_bank	;$B4802B
 	STZ current_animal_type			;$B4802D
 	LDA #$1400				;$B4802F
 	STA $80					;$B48032
@@ -90,7 +90,7 @@ CODE_B4807B:
 	JSL.l vram_payload_handler_global	;$B480B4
 	LDX.w $1C61				;$B480B8
 	LDA.w $0002,x				;$B480BB
-	JSL.l set_PPU_registers_global		;$B480BE
+	JSL.l set_ppu_registers_global		;$B480BE
 	LDX.w $1C61				;$B480C2
 	LDA.w $000A,x				;$B480C5
 	AND.w #$00FF				;$B480C8
@@ -275,7 +275,7 @@ CODE_B48263:
 	STA.l $7EA18F				;$B48264
 	JSL.l set_unused_oam_offscreen		;$B48268
 	JSL.l screen_fade_handler		;$B4826C
-	JML.l game_mode_return_with_oam	;$B48270
+	JML.l game_mode_return_with_oam		;$B48270
 
 CODE_B48274:
 	LDA.w player_active_pressed		;$B48274
@@ -1018,7 +1018,7 @@ CODE_B488C5:
 CODE_B488CE:
 	JSL.l set_unused_oam_offscreen		;$B488CE
 	JSL.l screen_fade_handler		;$B488D2
-	JML.l game_mode_return_with_oam	;$B488D6
+	JML.l game_mode_return_with_oam		;$B488D6
 
 CODE_B488DA:
 	SEP.b #$20				;$B488DA
@@ -1711,7 +1711,7 @@ CODE_B48EA2:
 	JSL.l CODE_B7800F			;$B48EAF
 	JSL.l set_unused_oam_offscreen		;$B48EB3
 	JSL.l screen_fade_handler		;$B48EB7
-	JML.l game_mode_return_with_oam	;$B48EBB
+	JML.l game_mode_return_with_oam		;$B48EBB
 
 CODE_B48EBF:
 	LDA.w #$0004				;$B48EBF
@@ -3087,7 +3087,7 @@ CODE_B499AE:
 	BRL CODE_B499C1				;$B499AE
 
 CODE_B499B1:
-	LDA.w $05B1				;$B499B1
+	LDA.w RAM_05B1				;$B499B1
 	BIT.w #$0020				;$B499B4
 	BNE.b CODE_B499BC			;$B499B7
 	JSR.w CODE_B49C06			;$B499B9
@@ -3108,7 +3108,7 @@ CODE_B499C1:
 
 CODE_B499DD:
 	LDA.w #$0020				;$B499DD
-	BIT.w $05B1				;$B499E0
+	BIT.w RAM_05B1				;$B499E0
 	BNE.b CODE_B499EF			;$B499E3
 	LDA.w #CODE_B4B087			;$B499E5
 	LDX.w #CODE_B4B087>>16			;$B499E8
@@ -3126,7 +3126,7 @@ CODE_B499F9:
 	JSL.l CODE_B7800F			;$B49A05
 	JSL.l set_unused_oam_offscreen		;$B49A09
 	JSL.l screen_fade_handler		;$B49A0D
-	JML.l game_mode_return_with_oam	;$B49A11
+	JML.l game_mode_return_with_oam		;$B49A11
 
 DATA_B49A15:
 	dw CODE_B486A9
@@ -3217,7 +3217,7 @@ CODE_B49ABB:
 
 CODE_B49AC2:
 	LDA.w #$0020				;$B49AC2
-	BIT.w $05B1				;$B49AC5
+	BIT.w RAM_05B1				;$B49AC5
 	BEQ.b CODE_B49AD4			;$B49AC8
 	LDA.w #$0001				;$B49ACA
 	STA.w $1C39				;$B49ACD
@@ -3255,7 +3255,7 @@ CODE_B49AF2:
 	LDA.w #$2040				;$B49B14
 	TSB.w $05FD				;$B49B17
 	LDA.w #$0020				;$B49B1A
-	TSB.w $05B1				;$B49B1D
+	TSB.w RAM_05B1				;$B49B1D
 	LDA.w #$0001				;$B49B20
 	STA.w $1C39				;$B49B23
 	STA.w $1C3B				;$B49B26
@@ -3318,7 +3318,7 @@ CODE_B49B97:
 	BNE.b CODE_B49BDF			;$B49BA7
 	JSR.w CODE_B49BF3			;$B49BA9
 	LDA.w #$0020				;$B49BAC
-	TRB.w $05B1				;$B49BAF
+	TRB.w RAM_05B1				;$B49BAF
 	BNE.b CODE_B49BD4			;$B49BB2
 	LDA.w #$066D				;$B49BB4
 	JSL.l queue_sound_effect		;$B49BB7
@@ -3343,7 +3343,7 @@ CODE_B49BDF:
 	JSL.l queue_sound_effect		;$B49BE2
 	JSR.w CODE_B49BF3			;$B49BE6
 	LDA.w #$0020				;$B49BE9
-	TSB.w $05B1				;$B49BEC
+	TSB.w RAM_05B1				;$B49BEC
 	JSR.w CODE_B4A80C			;$B49BEF
 	RTS					;$B49BF2
 
@@ -3377,7 +3377,7 @@ CODE_B49C06:
 	TSB.w $1C35				;$B49C35
 	BNE.b CODE_B49C6C			;$B49C38
 	LDA.w #$0020				;$B49C3A
-	BIT.w $05B1				;$B49C3D
+	BIT.w RAM_05B1				;$B49C3D
 	BNE.b CODE_B49C49			;$B49C40
 	LDA.w #$076C				;$B49C42
 	JSL.l queue_sound_effect		;$B49C45
@@ -3405,7 +3405,7 @@ CODE_B49C6C:
 	BNE.b CODE_B49C49			;$B49C77
 	JSR.w CODE_B49BF3			;$B49C79
 	LDA.w #$0020				;$B49C7C
-	TRB.w $05B1				;$B49C7F
+	TRB.w RAM_05B1				;$B49C7F
 	STZ.w $1C3B				;$B49C82
 	LDA.w #$0006				;$B49C85
 	LDX.w $0547				;$B49C88
@@ -3474,17 +3474,17 @@ CODE_B49CD3:
 	LDA.w current_game_mode			;$B49D0C
 	CMP.w #!gamemode_2_player_contest	;$B49D0F
 	BNE.b CODE_B49D38			;$B49D12
-	LDA.b $C2				;$B49D14
+	LDA gameplay_frame_counter		;$B49D14
 	PHA					;$B49D16
-	LDA.b $C4				;$B49D17
+	LDA.b gameplay_frame_counter_high	;$B49D17
 	PHA					;$B49D19
 	JSL.l CODE_808066			;$B49D1A
 	LDA.w #$0005				;$B49D1E
 	STA.w $05D5				;$B49D21
 	PLA					;$B49D24
-	STA.b $C4				;$B49D25
+	STA.b gameplay_frame_counter_high	;$B49D25
 	PLA					;$B49D27
-	STA.b $C2				;$B49D28
+	STA gameplay_frame_counter		;$B49D28
 	JSL.l CODE_80804B			;$B49D2A
 	LDA.w #CODE_B4B087			;$B49D2E
 	LDX.w #CODE_B4B087>>16			;$B49D31
@@ -3499,7 +3499,7 @@ CODE_B49D3C:
 	JSL.l CODE_B7800F			;$B49D44
 	JSL.l set_unused_oam_offscreen		;$B49D48
 	JSL.l screen_fade_handler		;$B49D4C
-	JML.l game_mode_return_with_oam	;$B49D50
+	JML.l game_mode_return_with_oam		;$B49D50
 
 CODE_B49D54:
 	LDA.w $15E4				;$B49D54
@@ -3724,13 +3724,13 @@ CODE_B49F1D:
 	CMP.w screen_fade_speed			;$B49F2E
 	BEQ.b CODE_B49F37			;$B49F31
 CODE_B49F33:
-	JML.l game_mode_return_with_oam	;$B49F33
+	JML.l game_mode_return_with_oam		;$B49F33
 
 CODE_B49F37:
 	STZ.w $1C35				;$B49F37
 	LDA.w #CODE_808362_nmi			;$B49F3A
-	STA.b $4A				;$B49F3D
-	STA.b $4C				;$B49F3F
+	STA.b nmi_pointer			;$B49F3D
+	STA.b complete_frame_nmi_pointer	;$B49F3F
 	LDA.w #CODE_B4B087			;$B49F41
 	LDX.w #CODE_B4B087>>16			;$B49F44
 	JML.l set_game_mode_wait_for_nmi	;$B49F47
@@ -5155,9 +5155,9 @@ CODE_B4AB25:
 	RTS					;$B4AB45
 
 CODE_B4AB46:
-	LDA.b $C2				;$B4AB46
+	LDA gameplay_frame_counter		;$B4AB46
 	STA.l $7EA8DA				;$B4AB48
-	LDA.b $C4				;$B4AB4C
+	LDA.b gameplay_frame_counter_high	;$B4AB4C
 	STA.l $7EA8DC				;$B4AB4E
 	LDA.w #$05FD				;$B4AB52
 	STA.b $B8				;$B4AB55
@@ -5178,13 +5178,13 @@ CODE_B4AB46:
 	CMP.w #$000F				;$B4AB84
 	BCC.b CODE_B4ABB8			;$B4AB87
 	LDA.w #$0080				;$B4AB89
-	TRB.w $05B1				;$B4AB8C
+	TRB.w RAM_05B1				;$B4AB8C
 	LDX.w #$0000				;$B4AB8F
 	LDA.w #$0040				;$B4AB92
-	TSB.w $05B1				;$B4AB95
+	TSB.w RAM_05B1				;$B4AB95
 	BNE.b CODE_B4ABA0			;$B4AB98
 	LDA.w #$0080				;$B4AB9A
-	TSB.w $05B1				;$B4AB9D
+	TSB.w RAM_05B1				;$B4AB9D
 CODE_B4ABA0:
 	LDA.w #$4000				;$B4ABA0
 	TSB.w $1C35				;$B4ABA3
@@ -5212,7 +5212,7 @@ CODE_B4ABD2:
 	STA.w $044A				;$B4ABDA
 	BMI.b CODE_B4ABF1			;$B4ABDD
 	LDA.w #$0020				;$B4ABDF
-	BIT.w $05B1				;$B4ABE2
+	BIT.w RAM_05B1				;$B4ABE2
 	BNE.b CODE_B4ABF1			;$B4ABE5
 	LDA.b $3E				;$B4ABE7
 	XBA					;$B4ABE9
@@ -5314,7 +5314,7 @@ CODE_B4ACD3:
 	STA.l $7EA171				;$B4ACE5
 	STA.w $1C49				;$B4ACE9
 	LDA.w #$0020				;$B4ACEC
-	BIT.w $05B1				;$B4ACEF
+	BIT.w RAM_05B1				;$B4ACEF
 	BNE.b CODE_B4AD01			;$B4ACF2
 	JSL.l CODE_BCF99E			;$B4ACF4
 	LDX.w $1C3D				;$B4ACF8
@@ -5788,7 +5788,7 @@ CODE_B4B0C3:
 	JSL.l vram_payload_handler_global	;$B4B0E4
 	LDX.w $1C3F				;$B4B0E8
 	LDA.w $0002,x				;$B4B0EB
-	JSL.l set_PPU_registers_global		;$B4B0EE
+	JSL.l set_ppu_registers_global		;$B4B0EE
 	LDA.w #$FFF0				;$B4B0F2
 	STA.w $1C47				;$B4B0F5
 	STZ.w $1C35				;$B4B0F8
@@ -5800,7 +5800,7 @@ CODE_B4B0C3:
 	LDA.w $1C8D				;$B4B10A
 	BEQ.b CODE_B4B11B			;$B4B10D
 	LDA.w #$0002				;$B4B10F
-	BIT.w $053B				;$B4B112
+	BIT.w active_cheats			;$B4B112
 	BEQ.b CODE_B4B11B			;$B4B115
 	JSL.l save_game				;$B4B117
 CODE_B4B11B:
@@ -5962,7 +5962,7 @@ CODE_B4B28F:
 	LDA.w screen_brightness			;$B4B293
 	BEQ.b CODE_B4B29C			;$B4B296
 CODE_B4B298:
-	JML.l game_mode_return_with_oam	;$B4B298
+	JML.l game_mode_return_with_oam		;$B4B298
 
 CODE_B4B29C:
 	BIT.w game_state_flags			;$B4B29C
@@ -6065,8 +6065,8 @@ CODE_B4B364:
 CODE_B4B367:
 	STA.w $05E3				;$B4B367
 	LDA.w #CODE_808348_nmi			;$B4B36A
-	STA.b $4A				;$B4B36D
-	STA.b $4C				;$B4B36F
+	STA.b nmi_pointer			;$B4B36D
+	STA.b complete_frame_nmi_pointer	;$B4B36F
 	LDA.w #CODE_B4807B			;$B4B371
 	LDX.w #CODE_B4807B>>16			;$B4B374
 	JML.l set_game_mode_wait_for_nmi	;$B4B377
@@ -6075,8 +6075,8 @@ CODE_B4B37B:
 	STA.b level_number			;$B4B37B
 	JSR.w CODE_B4B391			;$B4B37D
 	LDA.w #CODE_808348_nmi			;$B4B380
-	STA.b $4A				;$B4B383
-	STA.b $4C				;$B4B385
+	STA.b nmi_pointer			;$B4B383
+	STA.b complete_frame_nmi_pointer	;$B4B385
 	LDA.w #CODE_808493			;$B4B387
 	LDX.w #CODE_808493>>16			;$B4B38A
 	JML.l set_game_mode_wait_for_nmi	;$B4B38D
@@ -7518,9 +7518,9 @@ CODE_B4BE73:
 	PHK					;$B4BE84
 	PLB					;$B4BE85
 	LDA.w #CODE_B4C685			;$B4BE86
-	STA.b $52				;$B4BE89
+	STA incomplete_frame_game_mode_ptr	;$B4BE89
 	LDA.w #CODE_B4C685>>16			;$B4BE8B
-	STA.b $54				;$B4BE8E
+	STA incomplete_frame_game_mode_bank	;$B4BE8E
 	JSR.w CODE_B4C0EF			;$B4BE90
 	STZ.w $1C67				;$B4BE93
 	RTS					;$B4BE96
@@ -8459,7 +8459,7 @@ CODE_B4C739:
 	SBC $1A					;$B4C745
 	STA $7EA16C				;$B4C747
 	REP #$20				;$B4C74B
-	LDA $00					;$B4C74D
+	LDA active_frame_counter		;$B4C74D
 	BIT #$0003				;$B4C74F
 	BNE CODE_B4C7AD				;$B4C752
 	LSR					;$B4C754

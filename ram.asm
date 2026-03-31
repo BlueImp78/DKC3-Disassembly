@@ -1,267 +1,304 @@
 includeonce
 
-active_frame_counter = $00
+active_frame_counter			= $00
+rng_result				= $02
+rng_seed_1				= $03
+rng_seed_2				= $04
+rng_seed_3				= $05
+spc_transaction				= $06
+current_song				= $08
 
-rng_result = $02
-rng_seed_1 = $03
-rng_seed_2 = $04
-;rng_seed_3 = $05
+temp_1A					= $1A
+temp_1B					= $1B
+temp_1C					= $1C
+temp_1D					= $1D
+temp_1E					= $1E
+temp_1F					= $1F
+temp_20					= $20
+temp_21					= $21
+temp_22					= $22
+temp_23					= $23
+temp_24					= $24
+temp_25					= $25
+temp_26					= $26
+temp_27					= $27
+temp_28					= $28
+temp_29					= $29
+temp_2A					= $2A
+temp_2B					= $2B
+temp_2C					= $2C
+temp_2D					= $2D
+temp_2E					= $2E
+temp_2F					= $2F
+temp_30					= $30
+temp_31					= $31
+temp_32					= $32
+temp_33					= $33
+temp_34					= $34
+temp_35					= $35
+temp_36					= $36
+temp_37					= $37
+temp_38					= $38
+temp_39					= $39
+temp_3A					= $3A
+temp_3B					= $3B
+temp_3C					= $3C
+temp_3D					= $3D
+temp_3E					= $3E
+temp_3F					= $3F
+temp_40					= $40
 
-spc_transaction = $06
-current_song = $08
+nmi_pointer				= $4A
+complete_frame_nmi_pointer		= $4C
+game_mode_pointer			= $4E
+game_mode_pointer_bank			= $50
+incomplete_frame_game_mode_ptr		= $52
+incomplete_frame_game_mode_bank		= $54
+nmi_sub_mode				= $56
+game_sub_mode				= $58
+global_frame_counter			= $5A
 
-temp_1A = $1A
-temp_1B = $1B
-temp_1C = $1C
-temp_1D = $1D
-temp_1E = $1E
-temp_1F = $1F
-temp_20 = $20
-temp_21 = $21
-temp_22 = $22
-temp_23 = $23
-temp_24 = $24
-temp_25 = $25
-temp_26 = $26
-temp_27 = $27
-temp_28 = $28
-temp_29 = $29
-temp_2A = $2A
-temp_2B = $2B
-temp_2C = $2C
-temp_2D = $2D
-temp_2E = $2E
-temp_2F = $2F
-temp_30 = $30
-temp_31 = $31
-temp_32 = $32
-temp_33 = $33
-temp_34 = $34
-temp_35 = $35
-temp_36 = $36
-temp_37 = $37
-temp_38 = $38
-temp_39 = $39
-temp_3A = $3A
-temp_3B = $3B
-temp_3C = $3C
-temp_3D = $3D
-temp_3E = $3E
-temp_3F = $3F
-temp_40 = $40
+current_sprite_constants		= $6A
+sprite_constants_bank			= $6B
 
+current_sprite				= $70
+current_kong_control_variables		= $72
+alternate_kong_control_variables	= $74
+alternate_sprite			= $76
+current_colliding_sprite		= $78
+parry_index				= $7A
+current_mount				= $7C
+current_animal_type			= $7E
 
-nmi_pointer = $4A
+next_oam_slot				= $82
 
-tileset_NMI_index = $56
-tileset_logic_index = $58
+RAM_00BA				= $BA
 
-global_frame_counter = $5A
+level_number				= $C0
+gameplay_frame_counter			= $C2
+gameplay_frame_counter_high		= $C4
 
-current_sprite_constants = $6A
-sprite_constants_bank = $6B
+invincibility_timer			= $CA
 
-current_sprite = $70
-current_kong_control_variables = $72
-alternate_kong_control_variables = $74
-alternate_sprite = $76
-current_colliding_sprite = $78
-parry_index = $7A
-current_mount = $7C
-current_animal_type = $7E
+RAM_00F4				= $F4
+RAM_00F6				= $F6
 
-next_oam_slot = $82
+stack_end				= $0100
+stack					= $01FF
+oam_table				= $0200
+oam_attribute_table			= $0400
 
-level_number = $C0
-invincibility_timer = $CA
+stereo_select				= $0432
 
+camera_x_position			= $0493
 
-stack_end = $0100
-stack = $01FF
+camera_y_position			= $0497
 
-oam_table = $0200
-oam_attribute_table = $0400
+camera_shake_properties			= $04B2
 
-
-
-stereo_select = $0432
-camera_x_position = $0493
-camera_y_position = $0497
-camera_shake_properties = $04B2
-current_game_mode = $04C4
-active_player = $04C6
-
-
+current_game_mode			= $04C4
+active_player				= $04C6
+RAM_04C8				= $04C8
 ;controller logic
-player_1_held = $04CA
-player_2_held = $04CC
+player_1_held				= $04CA
+player_2_held				= $04CC
+player_1_pressed			= $04CE
+player_2_pressed			= $04D0
+player_1_release			= $04D2
+player_2_release			= $04D4
+player_active_held			= $04D6
+player_inactive_held			= $04D8
+player_active_pressed			= $04DA
+player_inactive_pressed			= $04DC
+player_action				= $04DE
+player_action_button_held		= $04E0
+player_action_button_pressed		= $04E2
+pending_dma_hdma_channels		= $04E4
 
-player_1_pressed = $04CE
-player_2_pressed = $04D0
+screen_brightness			= $04EC
+screen_fade_speed			= $04ED
+screen_fade_timer			= $04EE
 
-player_1_release = $04D2
-player_2_release = $04D4
+sprite_return_address			= $04F5
+sprite_return_bank			= $04F7
+active_kong_sprite			= $04F9
+active_kong_control_variables		= $04FB
+follower_kong_sprite			= $04FD
+follower_kong_control_variables		= $04FF
 
-player_active_held = $04D6
-player_inactive_held = $04D8
-player_active_pressed = $04DA
-player_inactive_pressed = $04DC
+water_bubbles_x_speed			= $0509
 
-player_action = $04DE
-player_action_button_held = $04E0
-player_action_button_pressed = $04E2
+water_y_position			= $050F
 
-pending_dma_hdma_channels = $04E4
+RAM_051D				= $051D
 
+riverside_race_timer			= $0535
 
-screen_brightness = $04EC
-screen_fade_speed = $04ED
-screen_fade_timer = $04EE
+active_cheats				= $053B
+RAM_053D				= $053D
 
+game_state_flags			= $05AF
+RAM_05B1				= $05B1
+RAM_05B3				= $05B3
+current_kong				= $05B5
+current_entrance			= $05B7
+parent_level_number			= $05B9
+RAM_05BB				= $05BB
+RAM_05BD				= $05BD
 
-sprite_return_address = $04F5
-sprite_return_bank = $04F7
+bear_coin_count				= $05C9
+bonus_coin_count			= $05CB
+banana_bird_count			= $05CD
+dk_coin_count				= $05CF
+krematoa_gear_count			= $05D1
+banana_count				= $05D3
+lives_count				= $05D5
+kong_letter_flags			= $05D7
 
-active_kong_sprite = $04F9
-active_kong_control_variables = $04FB
-follower_kong_sprite = $04FD
-follower_kong_control_variables = $04FF
+current_world				= $05E5
+map_node_number				= $05E7
 
+current_map_vehicle			= $05EB
 
-water_bubbles_x_speed = $0509
-water_y_position = $050F
-riverside_race_timer = $0535
-active_cheats = $053B
+boomer_explosive_count			= $05FF
 
-game_state_flags = $05AF
+boomer_cog_count			= $0603
 
-current_kong = $05B5
-current_entrance = $05B7
-parent_level_number = $05B9
+inventory_flags				= $0609
 
+brother_bear_dialogue_flags_start	= $0615
 
-bear_coin_count = $05C9
-bonus_coin_count = $05CB
-banana_bird_count = $05CD
-dk_coin_count = $05CF
-krematoa_gear_count = $05D1
-banana_count = $05D3
-lives_count = $05D5
-kong_letter_flags = $05D7
+riverside_race_player_time		= $062F
 
+banana_bird_cave_flags			= $0635
 
-current_world = $05E5
-map_node_number = $05E7
-current_map_vehicle = $05EB
+piracy_string_result			= $06A3
 
+intro_cutscene_flags			= $06AB
 
-boomer_explosive_count	= $05FF
-boomer_cog_count = $0603
-inventory_flags = $0609
-brother_bear_dialogue_flags_start = $0615
+RAM_06CF				= $06CF
 
+language_select				= $06D6
 
-riverside_race_player_time = $062F
+sprite_vram_allocation_table		= $06D8
 
+palette_upload_ring_buffer		= $06FC
 
-banana_bird_cave_flags = $0635
+active_sprite_palettes_table		= $073C
 
-piracy_string_result = $06A3
-intro_cutscene_flags = $06AB
+sprite_palette_reference_count		= $074C
 
+struct sprite_table $080A
+	.slot_0:	skip sizeof(sprite)	;$080A (aux)
+	.slot_1:	skip sizeof(sprite)	;$0878 (dixie)
+	.slot_2:	skip sizeof(sprite)	;$08E6 (kiddy)
+	.slot_3:	skip sizeof(sprite)	;$0954
+	.slot_4:	skip sizeof(sprite)	;$09C2
+	.slot_5:	skip sizeof(sprite)	;$0A30
+	.slot_6:	skip sizeof(sprite)	;$0A9E
+	.slot_7:	skip sizeof(sprite)	;$0B0C
+	.slot_8:	skip sizeof(sprite)	;$0B7A
+	.slot_9:	skip sizeof(sprite)	;$0BE8
+	.slot_10:	skip sizeof(sprite)	;$0C56
+	.slot_11:	skip sizeof(sprite)	;$0CC4
+	.slot_12:	skip sizeof(sprite)	;$0D32
+	.slot_13:	skip sizeof(sprite)	;$0DA0
+	.slot_14:	skip sizeof(sprite)	;$0E0E
+	.slot_15:	skip sizeof(sprite)	;$0E7C
+	.slot_16:	skip sizeof(sprite)	;$0EEA
+	.slot_17:	skip sizeof(sprite)	;$0F58
+	.slot_18:	skip sizeof(sprite)	;$0FC6
+	.slot_19:	skip sizeof(sprite)	;$1034
+	.slot_20:	skip sizeof(sprite)	;$10A2
+	.slot_21:	skip sizeof(sprite)	;$1110
+	.slot_22:	skip sizeof(sprite)	;$117E
+	.slot_23:	skip sizeof(sprite)	;$11EC
+	.slot_24:	skip sizeof(sprite)	;$125A
+	.slot_25:	skip sizeof(sprite)	;$12C8
+	.slot_26:	skip sizeof(sprite)	;$1336
+	.slot_27:	skip sizeof(sprite)	;$13A4
+	.slot_28:	skip sizeof(sprite)	;$1412
+	.end:
+endstruct
 
+dixie_control_variables			= $1480
 
-language_select = $06D6
+kiddy_control_variables			= $14D2
 
+sprite_render_table			= $1524
 
-sprite_vram_allocation_table = $06D8
-palette_upload_ring_buffer = $06FC
+struct sprite_dma $1562
+	.size:				skip 2
+	.destination:			skip 2
+	.source_word:			skip 2
+	.terminate:
+	.source_bank:			skip 2
+endstruct
 
-active_sprite_palettes_table = $073C
-sprite_palette_reference_count = $074C
+current_interaction			= $17C6
 
+contact_flash_x_position		= $1867
+contact_flash_y_position		= $1869
 
+current_held_sprite			= $186B
 
+kong_animal_x_offset			= $1885
 
-aux_sprite_slot = $080A
-main_sprite_table = $0878
-main_sprite_table_end = $1480
-;main_sprite_table_end = $0878+(sizeof(sprite)*24)
+kong_animal_y_offset			= $1889
+ellie_ammo_count			= $1891
 
+hud_current_banana_count		= $18CB
+hud_final_banana_count			= $18CD
+hud_banana_display_timer		= $18CF
+hud_lives_count				= $18D1
+hud_lives_to_add			= $18D3
+hud_lives_display_timer			= $18D5
+hud_lives_icon_graphic_id		= $18D7
 
-dixie_sprite_slot = $0878
-kiddy_sprite_slot = $08E6
-non_kong_sprite_slots = $0954
+hud_lives_icon_y_pos			= $18DB
 
+bonus_timer_index			= $18E1
 
-dixie_control_variables = $1480
-kiddy_control_variables = $14D2
+rocket_rush_fuel_amount			= $18E9
 
-sprite_render_table = $1524
+timestop_flags				= $194B
+timestop_timer				= $194D
 
-sprite_dma_buffer = $1562
-
-current_interaction = $17C6
-
-
-contact_flash_x_position = $1867
-contact_flash_y_position = $1869
-
-
-current_held_sprite = $186B
-kong_animal_x_offset = $1885
-kong_animal_y_offset = $1889
-ellie_ammo_count = $1891
-
-
-hud_current_banana_count = $18CB
-hud_final_banana_count = $18CD
-hud_banana_display_timer = $18CF
-hud_lives_count = $18D1
-hud_lives_to_add = $18D3
-hud_lives_display_timer = $18D5
-hud_lives_icon_graphic_id = $18D7
-hud_lives_icon_y_pos = $18DB
-
-bonus_timer_index = $18E1
-rocket_rush_fuel_amount = $18E9
-
-
-timestop_flags = $194B
-timestop_timer = $194D
-
-
-boss_hit_points = $1B75
-
+boss_hit_points				= $1B75
 
 ;Swanky minigame RAM/$1Bxx range looks like is also used by bosses
-swanky_race_to_25_player_score = $1BAF
-swanky_race_to_25_cranky_score = $1BB1
-swanky_minigame_transition_timer = $1BC3
-swanky_minigame_winner = $1BC5
-swanky_minigame_cranky_dialogue_step = $1C33
+swanky_race_to_25_player_score		= $1BAF
+swanky_race_to_25_cranky_score		= $1BB1
 
+swanky_minigame_transition_timer	= $1BC3
+swanky_minigame_winner			= $1BC5
 
-file_select_cursor_position = $1C37
-npc_screen_cursor_position = $1C49
-kong_npc_chosen_option = $1C4A
-file_select_file_to_copy = $1C89
-file_select_gamemode_cursor_position = $1C8F
-file_select_character_count = $1C91
-file_select_current_character = $1CA0
-music_test_cursor_position = $1CCA
-file_select_sucessful_cheat_inputs = $1CCE
+swanky_minigame_cranky_dialogue_step	= $1C33
 
+file_select_cursor_position		= $1C37
 
-game_completion_percentage = $2B08
+npc_screen_cursor_position		= $1C49
+kong_npc_chosen_option			= $1C4A
 
+file_select_file_to_copy		= $1C89
 
+file_select_gamemode_cursor_position	= $1C8F
+file_select_character_count		= $1C91
 
+file_select_current_character		= $1CA0
 
-wram_base = $7E0000
-wram_base_high = $7F0000
+music_test_cursor_position		= $1CCA
 
-sram_base = $B06000
+file_select_sucessful_cheat_inputs	= $1CCE
+
+RAM_1D89				= $1D89
+
+game_completion_percentage		= $2B08
+
+wram_base				= $7E0000
+wram_base_high				= $7F0000
+
+sram_base				= $B06000
 
 
 ;SPECULATIVE

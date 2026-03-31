@@ -293,7 +293,7 @@ check_sprite_collision_direct:
 	CLC					;$BEC1D4
 	ADC.b current_sprite			;$BEC1D5
 	SEC					;$BEC1D7
-	SBC.w #aux_sprite_slot			;$BEC1D8
+	SBC.w #sprite_table			;$BEC1D8
 	STA.w $003E,y				;$BEC1DB
 	SEC					;$BEC1DE
 .return:
@@ -412,7 +412,7 @@ check_throwable_collision_direct:
 	LDA.b $3E,x				;$BEC2AF
 	AND.w #$3FFF				;$BEC2B1
 	CLC					;$BEC2B4
-	ADC.w #aux_sprite_slot			;$BEC2B5
+	ADC.w #sprite_table			;$BEC2B5
 	STA.b $78				;$BEC2B8
 	LDA.b $3E				;$BEC2BA
 	BIT.b $40				;$BEC2BC
@@ -5428,10 +5428,10 @@ CODE_BEE7D4:
 	STA.w sprite.y_position,y		;$BEE7F6   |
 	TXA					;$BEE7F9   |
 	SEC					;$BEE7FA   |
-	SBC #aux_sprite_slot			;$BEE7FB   |
+	SBC #sprite_table			;$BEE7FB   |
 	STA.w CPU.dividen_low			;$BEE7FE   |
 	SEP #$20				;$BEE801   |
-	LDA #$6E				;$BEE803   |
+	LDA #sizeof(sprite)			;$BEE803   |
 	STA.w CPU.divisor			;$BEE805   |
 	REP #$20				;$BEE808   |
 	LDA [$00]				;$BEE80A   |

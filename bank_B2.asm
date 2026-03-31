@@ -384,14 +384,14 @@ upload_spc_engine:
 	TXA					;$B2825D
 .write_spc_command_a:
 	SEP #$10				;$B2825E
-	LDX $06					;$B28260
+	LDX spc_transaction			;$B28260
 ..wait_for_echo:
 	CPX APU.IO1				;$B28262
 	BNE ..wait_for_echo			;$B28265
 	STA APU.IO2				;$B28267
 	INX					;$B2826A
 	STX APU.IO1				;$B2826B
-	STX $06					;$B2826E
+	STX spc_transaction			;$B2826E
 	REP #$10				;$B28270
 	RTS					;$B28272
 
@@ -684,7 +684,7 @@ upload_spc_engine:
 	STZ $1F					;$B28483
 .upload_spc_block:
 	SEP #$10				;$B28485
-	LDX $06					;$B28487
+	LDX spc_transaction			;$B28487
 -
 	CPX APU.IO1				;$B28489
 	BNE -					;$B2848C
@@ -718,7 +718,7 @@ upload_spc_engine:
 	DEC $1F					;$B284C1
 	BNE ..next_byte				;$B284C3
 .return:
-	STX $06					;$B284C5
+	STX spc_transaction			;$B284C5
 	REP #$10				;$B284C7
 	LDA $21					;$B284C9
 	ASL					;$B284CB
@@ -746,8 +746,8 @@ CODE_B284D6:
 	JSL clear_wram_block			;$B284F1
 	JSL CODE_BB857F				;$B284F5
 	STZ $BC					;$B284F9
-	STZ $F4					;$B284FB
-	LDA $BA					;$B284FD
+	STZ RAM_00F4				;$B284FB
+	LDA RAM_00BA				;$B284FD
 	ASL					;$B284FF
 	TAX					;$B28500
 	JMP (DATA_B28504,x)			;$B28501
@@ -760,11 +760,11 @@ DATA_B28504:
 	dw CODE_B2935C
 
 CODE_B2850E:
-	STA $BA					;$B2850E
+	STA RAM_00BA				;$B2850E
 	LDX #CODE_B284D6			;$B28510
 	LDY.w #CODE_B284D6>>16			;$B28513
-	STX $4E					;$B28516
-	STY $50					;$B28518
+	STX game_mode_pointer			;$B28516
+	STY game_mode_pointer_bank		;$B28518
 	LDA #CODE_808370_nmi			;$B2851A
 	JML set_and_wait_for_nmi		;$B2851D
 
@@ -872,7 +872,7 @@ CODE_B2861F:
 	LDA #$0040				;$B28640
 	JSL vram_payload_handler_global		;$B28643
 	LDA #$0035				;$B28647
-	JSL set_PPU_registers_global		;$B2864A
+	JSL set_ppu_registers_global		;$B2864A
 	LDX #DATA_F6008E			;$B2864E
 	LDY.w #DATA_F6008E>>16			;$B28651
 	LDA #$0000				;$B28654
@@ -971,7 +971,7 @@ CODE_B286A5:
 	LDA #!music_fanfare			;$B28728
 	JSL play_song				;$B2872B
 	LDA #$0002				;$B2872F
-	TRB $06AB				;$B28732
+	TRB intro_cutscene_flags		;$B28732
 	PHK					;$B28735
 	PLB					;$B28736
 	LDA #$0200				;$B28737
@@ -1009,7 +1009,7 @@ CODE_B28770:
 	REP #$20				;$B28780
 	STZ $1560				;$B28782
 	STZ $155E				;$B28785
-	LDA $06AB				;$B28788
+	LDA intro_cutscene_flags		;$B28788
 	BEQ CODE_B287AA				;$B2878B
 	LDA screen_brightness			;$B2878D
 	BIT #$FF00				;$B28790
@@ -1019,7 +1019,7 @@ CODE_B28770:
 	AND #$9080				;$B2879C
 	BEQ CODE_B287AA				;$B2879F
 	LDA #$0002				;$B287A1
-	TSB $06AB				;$B287A4
+	TSB intro_cutscene_flags		;$B287A4
 	JSR CODE_B28603				;$B287A7
 CODE_B287AA:
 	LDA $5E					;$B287AA
@@ -1034,7 +1034,7 @@ CODE_B287AA:
 	JSL set_unused_oam_offscreen		;$B287C4
 	JSR CODE_B28612				;$B287C8
 	BEQ CODE_B287DB				;$B287CB
-	LDA $F4					;$B287CD
+	LDA RAM_00F4				;$B287CD
 	CMP #$00E2				;$B287CF
 	BCC CODE_B287D7				;$B287D2
 	JSR CODE_B28603				;$B287D4
@@ -1043,15 +1043,15 @@ CODE_B287D7:
 
 CODE_B287DB:
 	LDA #$0002				;$B287DB
-	BIT $06AB				;$B287DE
+	BIT intro_cutscene_flags		;$B287DE
 	BNE CODE_B287E9				;$B287E1
 	LDA #$0001				;$B287E3
 	JMP CODE_B2850E				;$B287E6
 
 CODE_B287E9:
-	TRB $06AB				;$B287E9
+	TRB intro_cutscene_flags		;$B287E9
 	LDA #$0004				;$B287EC
-	BIT $06AB				;$B287EF
+	BIT intro_cutscene_flags		;$B287EF
 	BEQ CODE_B287FA				;$B287F2
 	LDA #$0002				;$B287F4
 	JMP CODE_B2850E				;$B287F7
@@ -1204,7 +1204,7 @@ CODE_B289D3:
 	LDA #$0041				;$B289F4
 	JSL vram_payload_handler_global		;$B289F7
 	LDA #$0036				;$B289FB
-	JSL set_PPU_registers_global		;$B289FE
+	JSL set_ppu_registers_global		;$B289FE
 	LDA #$0020				;$B28A02
 	LDX #$0020				;$B28A05
 	LDY #$0000				;$B28A08
@@ -1346,7 +1346,7 @@ CODE_B28B52:
 	REP #$20				;$B28B6E
 	STZ $1560				;$B28B70
 	STZ $155E				;$B28B73
-	LDA $06AB				;$B28B76
+	LDA intro_cutscene_flags		;$B28B76
 	BEQ CODE_B28B92				;$B28B79
 	LDA screen_brightness			;$B28B7B
 	BIT #$FF00				;$B28B7E
@@ -1494,7 +1494,7 @@ CODE_B28CC8:
 	JSL set_unused_oam_offscreen		;$B28CCF
 	JSR CODE_B28612				;$B28CD3
 	BEQ CODE_B28CE6				;$B28CD6
-	LDA $F4					;$B28CD8
+	LDA RAM_00F4				;$B28CD8
 	CMP #$0276				;$B28CDA
 	BCC CODE_B28CE2				;$B28CDD
 	JSR CODE_B28603				;$B28CDF
@@ -1502,7 +1502,7 @@ CODE_B28CE2:
 	JML game_mode_return_with_oam		;$B28CE2
 
 CODE_B28CE6:
-	LDA $06AB				;$B28CE6
+	LDA intro_cutscene_flags		;$B28CE6
 	BIT #$0004				;$B28CE9
 	BEQ CODE_B28CF9				;$B28CEC
 	BIT #$0001				;$B28CEE
@@ -1528,7 +1528,7 @@ CODE_B28CFF:
 	LDA #$0042				;$B28D24
 	JSL vram_payload_handler_global		;$B28D27
 	LDA #$0037				;$B28D2B
-	JSL set_PPU_registers_global		;$B28D2E
+	JSL set_ppu_registers_global		;$B28D2E
 	LDA #$001E				;$B28D32
 	LDX #$0020				;$B28D35
 	LDY #$0000				;$B28D38
@@ -1543,7 +1543,7 @@ CODE_B28CFF:
 	LDX alternate_sprite			;$B28D57
 	STX active_kong_sprite			;$B28D59
 	LDA #$0002				;$B28D5C
-	TRB $06AB				;$B28D5F
+	TRB intro_cutscene_flags		;$B28D5F
 	JSR CODE_B28D82				;$B28D62
 	JSR CODE_B28521				;$B28D65
 	LDA #!music_dixie_beat			;$B28D68
@@ -1647,7 +1647,7 @@ CODE_B28E05:
 	BIT #$9080				;$B28E53
 	BEQ CODE_B28E61				;$B28E56
 	LDA #$0002				;$B28E58
-	TSB $06AB				;$B28E5B
+	TSB intro_cutscene_flags		;$B28E5B
 	JSR CODE_B28603				;$B28E5E
 CODE_B28E61:
 	JSL sprite_handler			;$B28E61
@@ -1656,7 +1656,7 @@ CODE_B28E61:
 	JSL set_unused_oam_offscreen		;$B28E6D
 	JSR CODE_B28612				;$B28E71
 	BEQ CODE_B28E84				;$B28E74
-	LDA $F4					;$B28E76
+	LDA RAM_00F4				;$B28E76
 	CMP $1D37				;$B28E78
 	BCC CODE_B28E80				;$B28E7B
 	JSR CODE_B28603				;$B28E7D
@@ -1665,12 +1665,12 @@ CODE_B28E80:
 
 CODE_B28E84:
 	LDA #$0002				;$B28E84
-	BIT $06AB				;$B28E87
+	BIT intro_cutscene_flags		;$B28E87
 	BEQ CODE_B28E9D				;$B28E8A
 	LDA #CODE_808045			;$B28E8C
-	STA $4E					;$B28E8F
+	STA game_mode_pointer			;$B28E8F
 	LDA.w #CODE_808045>>16			;$B28E91
-	STA $50					;$B28E94
+	STA game_mode_pointer_bank		;$B28E94
 	LDA #CODE_808370_nmi			;$B28E96
 	JML set_and_wait_for_nmi		;$B28E99
 
@@ -1679,8 +1679,8 @@ CODE_B28E9D:
 	STA $0523				;$B28EA0
 	LDX #CODE_80803F			;$B28EA3
 	LDY.w #CODE_80803F>>16			;$B28EA6
-	STX $4E					;$B28EA9
-	STY $50					;$B28EAB
+	STX game_mode_pointer			;$B28EA9
+	STY game_mode_pointer_bank		;$B28EAB
 	LDA #CODE_808344_nmi			;$B28EAD
 	JML set_and_wait_for_nmi		;$B28EB0
 
@@ -1688,7 +1688,7 @@ CODE_B28EB4:
 	LDA #$0043				;$B28EB4
 	JSL vram_payload_handler_global		;$B28EB7
 	LDA #$0038				;$B28EBB
-	JSL set_PPU_registers_global		;$B28EBE
+	JSL set_ppu_registers_global		;$B28EBE
 	LDA #$0023				;$B28EC2
 	LDX #$0004				;$B28EC5
 	LDY #$0000				;$B28EC8
@@ -1718,11 +1718,11 @@ CODE_B28EE5:
 	BIT #$9080				;$B28F0A
 	BEQ CODE_B28F15				;$B28F0D
 	LDA #$0002				;$B28F0F
-	TSB $06AB				;$B28F12
+	TSB intro_cutscene_flags		;$B28F12
 CODE_B28F15:
 	JSR CODE_B28612				;$B28F15
 	BEQ CODE_B28F28				;$B28F18
-	LDA $F4					;$B28F1A
+	LDA RAM_00F4				;$B28F1A
 	CMP #$005A				;$B28F1C
 	BCC CODE_B28F24				;$B28F1F
 	JSR CODE_B28603				;$B28F21
@@ -1731,20 +1731,20 @@ CODE_B28F24:
 
 CODE_B28F28:
 	LDA #$0001				;$B28F28
-	TSB $06AB				;$B28F2B
+	TSB intro_cutscene_flags		;$B28F2B
 	BEQ CODE_B28F46				;$B28F2E
 	LDA #$0004				;$B28F30
-	TSB $06AB				;$B28F33
+	TSB intro_cutscene_flags		;$B28F33
 	BEQ CODE_B28F46				;$B28F36
 	LDA #$0002				;$B28F38
-	BIT $06AB				;$B28F3B
+	BIT intro_cutscene_flags		;$B28F3B
 	BNE CODE_B28F52				;$B28F3E
 	LDA #$0000				;$B28F40
 	JMP CODE_B2850E				;$B28F43
 
 CODE_B28F46:
 	LDA #$0004				;$B28F46
-	TSB $06AB				;$B28F49
+	TSB intro_cutscene_flags		;$B28F49
 	LDA #$0002				;$B28F4C
 	JMP CODE_B2850E				;$B28F4F
 
@@ -2172,7 +2172,7 @@ CODE_B29277:
 	RTS					;$B292BD
 
 title_screen_sign_main:
-	LDA $06AB				;$B292BE  \
+	LDA intro_cutscene_flags		;$B292BE  \
 	BIT #$0002				;$B292C1   |
 	BEQ .handle_title_screen_sign_state	;$B292C4   |
 	LDA.w sprite.general_purpose_5C,y	;$B292C6   |
@@ -2214,7 +2214,7 @@ title_screen_sign_main:
 	JML [$04F5]				;$B29302  |>
 
 #title_screen_logo_main:
-	LDA $06AB				;$B29305  \
+	LDA intro_cutscene_flags		;$B29305  \
 	BIT #$0002				;$B29308   |
 	BEQ .handle_title_screen_logo_state	;$B2930B   |
 	LDA.w sprite.general_purpose_6A,y	;$B2930D   |
@@ -2400,7 +2400,7 @@ CODE_B29496:
 	JSL set_unused_oam_offscreen		;$B294A2
 	JSR CODE_B28612				;$B294A6
 	BEQ CODE_B294C3				;$B294A9
-	LDA $F4					;$B294AB
+	LDA RAM_00F4				;$B294AB
 	CMP $15EC				;$B294AD
 	BNE CODE_B294BF				;$B294B0
 	LDA #$880F				;$B294B2
@@ -2412,7 +2412,7 @@ CODE_B294BF:
 
 CODE_B294C3:
 	JSL CODE_80805D				;$B294C3
-	STZ $BA					;$B294C7
+	STZ RAM_00BA				;$B294C7
 	LDA #CODE_80805A			;$B294C9
 	LDX.w #CODE_80805A>>16			;$B294CC
 	JML set_game_mode_wait_for_nmi		;$B294CF
@@ -2515,9 +2515,9 @@ CODE_B29578:
 	PHK					;$B29578
 	PLB					;$B29579
 	LDA #apply_screen_brightness		;$B2957A
-	STA $52					;$B2957D
+	STA incomplete_frame_game_mode_ptr	;$B2957D
 	LDA.w #apply_screen_brightness>>16	;$B2957F
-	STA $54					;$B29582
+	STA incomplete_frame_game_mode_bank	;$B29582
 	JSL disable_screen_wrapper		;$B29584
 	JSL init_registers			;$B29588
 	JSL clear_noncritical_wram		;$B2958C
@@ -2536,7 +2536,7 @@ CODE_B29578:
 	JSL CODE_BB85F4				;$B295B3
 	LDA #$A000				;$B295B7
 	TRB $0775				;$B295BA
-	STZ $F4					;$B295BD
+	STZ RAM_00F4				;$B295BD
 	STZ $BC					;$B295BF
 	LDA #$0001				;$B295C1
 	TRB game_state_flags			;$B295C4
@@ -2580,7 +2580,7 @@ CODE_B29604:
 	LDA #$0035				;$B29620
 	JSL vram_payload_handler_global		;$B29623
 	LDA #$002A				;$B29627
-	JSL set_PPU_registers_global		;$B2962A
+	JSL set_ppu_registers_global		;$B2962A
 	LDY #$0208				;$B2962E
 	JSL CODE_BB8588				;$B29631
 	LDX alternate_sprite			;$B29635
@@ -2650,15 +2650,15 @@ CODE_B2969B:
 	SEC					;$B296C5
 	SBC #$002A				;$B296C6
 	STA $0765				;$B296C9
-	STA $08					;$B296CC
+	STA current_song			;$B296CC
 CODE_B296CE:
 	LDA #$0200				;$B296CE
 	JSL set_screen_fade			;$B296D1
 	LDA #$1D93				;$B296D5
 	STA $0541				;$B296D8
 	LDA #CODE_808370_nmi			;$B296DB
-	STA $4A					;$B296DE
-	STA $4C					;$B296E0
+	STA nmi_pointer				;$B296DE
+	STA complete_frame_nmi_pointer		;$B296E0
 	LDA #CODE_B298BA			;$B296E2
 	LDX.w #CODE_B298BA>>16			;$B296E5
 	JML set_game_mode_wait_for_nmi		;$B296E8
@@ -2881,7 +2881,7 @@ CODE_B298F6:
 	BNE CODE_B2990E				;$B29909
 	LDY #$025D				;$B2990B
 CODE_B2990E:
-	CPY $F4					;$B2990E
+	CPY RAM_00F4				;$B2990E
 	BCS CODE_B2992C				;$B29910
 	JSR CODE_B28603				;$B29912
 	LDA #$0001				;$B29915
@@ -2903,8 +2903,8 @@ CODE_B2992C:
 CODE_B29941:
 	LDX #CODE_808493			;$B29941
 	LDY.w #CODE_808493>>16			;$B29944
-	STX $4E					;$B29947
-	STY $50					;$B29949
+	STX game_mode_pointer			;$B29947
+	STY game_mode_pointer_bank		;$B29949
 	LDA #CODE_808348_nmi			;$B2994B
 	JML set_and_wait_for_nmi		;$B2994E
 
@@ -2912,9 +2912,9 @@ CODE_B29952:
 	PHK					;$B29952
 	PLB					;$B29953
 	LDA #apply_screen_brightness		;$B29954
-	STA $52					;$B29957
+	STA incomplete_frame_game_mode_ptr	;$B29957
 	LDA.w #apply_screen_brightness>>16	;$B29959
-	STA $54					;$B2995C
+	STA incomplete_frame_game_mode_bank	;$B2995C
 	JSR CODE_B28521				;$B2995E
 	JSL disable_screen_wrapper		;$B29961
 	JSL init_registers			;$B29965
@@ -2930,7 +2930,7 @@ CODE_B29952:
 	LDA #$0037				;$B29989
 	JSL vram_payload_handler_global		;$B2998C
 	LDA #$0030				;$B29990
-	JSL set_PPU_registers_global		;$B29993
+	JSL set_ppu_registers_global		;$B29993
 	LDA #$FFFF				;$B29997
 	STA sprite_vram_allocation_table	;$B2999A
 	STA $06DA				;$B2999D
@@ -3106,16 +3106,16 @@ CODE_B29B66:
 	STZ active_frame_counter		;$B29B80
 	LDX #CODE_808069			;$B29B82
 	LDY.w #CODE_808069>>16			;$B29B85
-	STX $4E					;$B29B88
-	STY $50					;$B29B8A
+	STX game_mode_pointer			;$B29B88
+	STY game_mode_pointer_bank		;$B29B8A
 	LDA #CODE_808362_nmi			;$B29B8C
 	JML set_and_wait_for_nmi		;$B29B8F
 
 CODE_B29B93:
 	LDX #CODE_B48009			;$B29B93
 	LDY.w #CODE_B48009>>16			;$B29B96
-	STX $4E					;$B29B99
-	STY $50					;$B29B9B
+	STX game_mode_pointer			;$B29B99
+	STY game_mode_pointer_bank		;$B29B9B
 	LDA #CODE_808362_nmi			;$B29B9D
 	JML set_and_wait_for_nmi		;$B29BA0
 
@@ -13147,7 +13147,7 @@ CODE_B2F2C7:
 	CLC					;$B2F2F9
 	ADC current_sprite			;$B2F2FA
 	SEC					;$B2F2FC
-	SBC #aux_sprite_slot			;$B2F2FD
+	SBC #sprite_table			;$B2F2FD
 	STA.w sprite.unknown_3E,y		;$B2F300
 CODE_B2F303:
 	JSL CODE_BEC012				;$B2F303
@@ -13401,7 +13401,7 @@ CODE_B2F4D8:
 	BIT game_state_flags			;$B2F4E5
 	BNE CODE_B2F4F0				;$B2F4E8
 	LDA #$0010				;$B2F4EA
-	TSB $05B1				;$B2F4ED
+	TSB RAM_05B1				;$B2F4ED
 CODE_B2F4F0:
 	RTS					;$B2F4F0
 
@@ -14388,7 +14388,7 @@ CODE_B2FB7F:
 	LDA player_2_pressed			;$B2FC73  \
 	BIT #!input_start			;$B2FC76   |
 	BEQ ..no_start_press			;$B2FC79   |
-	LDA #main_sprite_table			;$B2FC7B   |
+	LDA #sprite_table.slot_1		;$B2FC7B   |
 	STA.w sprite.general_purpose_5E,y	;$B2FC7E
 ..no_start_press:
 	LDA player_2_pressed			;$B2FC81  \
@@ -14398,9 +14398,9 @@ CODE_B2FB7F:
 	LDA.w sprite.general_purpose_5E,y	;$B2FC89  \
 	SEC					;$B2FC8C   |
 	SBC.w #sizeof(sprite)			;$B2FC8D   |
-	CMP #aux_sprite_slot			;$B2FC90   |
+	CMP #sprite_table			;$B2FC90   |
 	BNE ..CODE_B2FC98			;$B2FC93   |
-	LDA #main_sprite_table_end		;$B2FC95  /
+	LDA #sprite_table.end			;$B2FC95  /
 ..CODE_B2FC98:
 	STA.w sprite.general_purpose_5E,y	;$B2FC98  \
 	TAX					;$B2FC9B   |
