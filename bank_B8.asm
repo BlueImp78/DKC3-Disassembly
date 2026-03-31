@@ -202,13 +202,13 @@ CODE_B8810B:
 	CMP.w #$0003				;$B88119
 	BEQ.b CODE_B8812A			;$B8811C
 	LDA.w #$0005				;$B8811E
-	JSL.l transition_song		;$B88121
+	JSL.l transition_song			;$B88121
 	JSL.l CODE_B880F1			;$B88125
 	RTL					;$B88129
 
 CODE_B8812A:
 	LDA.w #$0002				;$B8812A
-	JSL.l transition_song		;$B8812D
+	JSL.l transition_song			;$B8812D
 	JSL.l CODE_B880F1			;$B88131
 	RTL					;$B88135
 
@@ -559,7 +559,7 @@ CODE_B883C4:
 
 CODE_B883D9:
 	LDA.w #$0003				;$B883D9
-	JSL.l transition_song		;$B883DC
+	JSL.l transition_song			;$B883DC
 	LDX.w active_kong_sprite		;$B883E0
 	LDA.w #$005C				;$B883E3
 	STA.b $38,x				;$B883E6
@@ -14127,7 +14127,7 @@ CODE_B8EE45:
 	STA.w $17D2				;$B8EE54
 	RTS					;$B8EE57
 
-unknown_sprite_025C_main:
+animal_buddy_sign_prize_main:
 	JSL.l process_current_movement		;$B8EE58
 	BCS.b CODE_B8EE61			;$B8EE5C
 	JML [$04F5]				;$B8EE5E
@@ -14939,7 +14939,7 @@ DATA_B8F5A9:
 
 CODE_B8F5B9:
 	LDA.w #$0001				;$B8F5B9
-	JSL.l transition_song		;$B8F5BC
+	JSL.l transition_song			;$B8F5BC
 	LDA.w #$0004				;$B8F5C0
 	JMP.w CODE_B8F3CB			;$B8F5C3
 

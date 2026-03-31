@@ -82,7 +82,7 @@ if !include_garbage_data == 1
 	incsrc "data/garbage_data/ADDR_B2FCAB.asm"
 	incbin "data/garbage_data/DATA_B2FEAA.bin"
 else
-	padbyte $00 : pad $B30000	
+	padbyte $00 : pad $B30000
 endif
 
 org $F30000
@@ -205,13 +205,13 @@ if !include_garbage_data == 1
 	incbin "data/garbage_data/DKC2_DATA_F99400.bin"
 else
 	padbyte $00 : pad $B9A000
-endif	
+endif
 	incsrc "bank_B9.asm"
 if !include_garbage_data == 1
 	incbin "data/garbage_data/DATA_B9F907.bin"
 else
 	padbyte $00 : pad $BA0000
-endif	
+endif
 
 
 org $FA0000
@@ -224,7 +224,7 @@ if !include_garbage_data == 1
 	;check bankcross full
 else
 	padbyte $00 : pad $BAFFFC
-endif	
+endif
 
 org $BAFFFC
 	incsrc "bank_BA.asm"
@@ -245,7 +245,7 @@ if !include_garbage_data == 1
 	;check bankcross full
 else
 	padbyte $00 : pad $FC8000
-endif	
+endif
 
 org $BC8000
 	incsrc "bank_BC.asm"

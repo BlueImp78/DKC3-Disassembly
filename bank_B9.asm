@@ -5048,7 +5048,7 @@ process_alternate_movement_direct:
 
 sprite_movement_routines:
 	dw CODE_B9E0E8			;00
-	dw CODE_B9E0E9			;01
+	dw CODE_B9E0E9			;01 Used by banana bird
 	dw CODE_B9E0EC			;02
 	dw CODE_B9E108			;03
 	dw CODE_B9E124			;04
@@ -5064,8 +5064,8 @@ sprite_movement_routines:
 	dw CODE_B9E5D8			;0E
 	dw CODE_B9E626			;0F
 	dw CODE_B9E629			;10
-	dw CODE_B9E68D			;11
-	dw CODE_B9E6A5			;12
+	dw CODE_B9E68D			;11 ;Sets carry if sprite reached home Y position
+	dw CODE_B9E6A5			;12 ;Sets carry if sprite reached home X position
 	dw CODE_B9E6C2			;13
 	dw CODE_B9E7B6			;14
 	dw CODE_B9E7DE			;15
@@ -6028,6 +6028,7 @@ CODE_B9E68B:
 	CLC					;$B9E68B
 	RTS					;$B9E68C
 
+;Sets carry if sprite reached home Y position and flips Y speed
 CODE_B9E68D:
 	PLA					;$B9E68D
 	JSR.w CODE_B9E5CF			;$B9E68E
@@ -6046,6 +6047,7 @@ CODE_B9E6A3:
 	CLC					;$B9E6A3
 	RTL					;$B9E6A4
 
+;Sets carry if sprite reached home X position and caps it
 CODE_B9E6A5:
 	PLA					;$B9E6A5
 	JSR.w CODE_B9E0EC			;$B9E6A6

@@ -102,6 +102,7 @@ CODE_B58066:
 	LDY.w #$0000				;$B58082
 	BRA.b CODE_B58087			;$B58085
 
+;Tries to load index 03 for DATA_B5FC85 which is invalid (would have been for scrapped 2p versus mode)
 CODE_B58087:
 	STY.w $0547				;$B58087
 	JSL.l set_sprite_animation		;$B5808A
@@ -165,7 +166,7 @@ CODE_B580D1:
 	REP.b #$20				;$B5811B
 	JML [$04F5]				;$B5811D
 
-;Spawns kong in swanky's minigame. (And possibly in kaos kore end cutscene?) Called by cranky_kong_main
+;Spawns kong in swanky's minigame and in kaos kore end cutscene. Called by cranky_kong_main
 CODE_B58120:
 	LDA.w $0547				;$B58120
 	ASL					;$B58123
@@ -267,7 +268,7 @@ CODE_B581D1:
 	JMP.w (DATA_B5850F,x)			;$B581DD
 
 CODE_B581E0:
-	JMP.w (CODE_B581E6,x) 			;$B581E0 / Glitch: This will crash the game if it executes!
+	JMP.w (CODE_B581E6,x) 			;$B581E0 Never executed, jumps to code instead of data (crashes if executed, possible leftover stuff)
 
 CODE_B581E3:
 	JMP.w CODE_B5F164			;$B581E3
@@ -722,7 +723,7 @@ CODE_B584F9:
 	RTS					;$B5850E
 
 DATA_B5850F:
-	dw $0000
+	dw !null_pointer
 	dw CODE_B58547
 	dw CODE_B5863F
 	dw CODE_B58634
@@ -841,7 +842,7 @@ CODE_B585EE:
 	LDA.w #$0300				;$B585EE
 CODE_B585F1:
 	STA.b $30,x				;$B585F1
-	LDA.w #$0198				;$B585F3
+	LDA.w #$0198				;$B585F3 cranky_move
 	JSL.l set_sprite_animation		;$B585F6
 	JMP.w CODE_B581E3			;$B585FA
 
@@ -1424,7 +1425,7 @@ CODE_B58A8E:
 	BNE.b CODE_B58ACF			;$B58AA0
 	JSL.l CODE_B6800C			;$B58AA2
 	LDA.w #$0001				;$B58AA6
-	JSL.l transition_song		;$B58AA9
+	JSL.l transition_song			;$B58AA9
 	LDY.w $1BBD				;$B58AAD
 	JSL.l CODE_B6800C			;$B58AB0
 	DEC.b $38,x				;$B58AB4
@@ -1475,7 +1476,7 @@ CODE_B58B03:
 	ASL					;$B58B0E
 	TAX					;$B58B0F
 	LDA.w DATA_B58B32,x			;$B58B10
-	JSL.l transition_song		;$B58B13
+	JSL.l transition_song			;$B58B13
 	LDX.b current_sprite			;$B58B17
 	LDA.w #$0005				;$B58B19
 	STA.b $38,x				;$B58B1C
@@ -15443,7 +15444,7 @@ CODE_B5F9BF:
 	BIT.w $05AF				;$B5F9C2
 	BNE.b CODE_B5F9D2			;$B5F9C5
 	LDA.w #$0002				;$B5F9C7
-	JSL.l transition_song		;$B5F9CA
+	JSL.l transition_song			;$B5F9CA
 	JSL.l CODE_B8808A			;$B5F9CE
 CODE_B5F9D2:
 	LDY.b $78				;$B5F9D2

@@ -9709,7 +9709,7 @@ CODE_B6C790:
 	LDA.b $5C,x				;$B6C79C
 	BNE.b CODE_B6C7B0			;$B6C79E
 	LDA.w #$0001				;$B6C7A0
-	JSL.l transition_song		;$B6C7A3
+	JSL.l transition_song			;$B6C7A3
 	LDX.b current_sprite			;$B6C7A7
 	LDA.b $6C,x				;$B6C7A9
 	JSL.l CODE_BBC800			;$B6C7AB

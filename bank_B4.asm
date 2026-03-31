@@ -4103,6 +4103,7 @@ CODE_B4A20B:
 	STA.w $0030,y				;$B4A261
 	BRA.b CODE_B4A295			;$B4A264
 
+;Runs when entering npc screen from right side
 CODE_B4A266:
 	LDA.w #$0100				;$B4A266
 	STA.w $1C59				;$B4A269
@@ -4141,7 +4142,7 @@ CODE_B4A295:
 	BEQ.b CODE_B4A2CE			;$B4A2BF
 	LDA.w $1C3D				;$B4A2C1
 	CLC					;$B4A2C4
-	ADC.w #$006E				;$B4A2C5
+	ADC.w #$006E				;$B4A2C5 might be sizeof(sprite)
 	TAX					;$B4A2C8
 	LDA.w #$004B				;$B4A2C9
 	STA.b $5E,x				;$B4A2CC
@@ -5086,7 +5087,7 @@ CODE_B4AA03:
 	JSL CODE_BB856D				;$B4AA95
 	STZ $1C59				;$B4AA99
 	JSR CODE_B4A8C6				;$B4AA9C
-	LDA #$F322				;$B4AA9F
+	LDA #$F322				;$B4AA9F address?
 	STA $42					;$B4AAA2
 	LDA #$2D7F				;$B4AAA4
 	LDX #$000E				;$B4AAA7

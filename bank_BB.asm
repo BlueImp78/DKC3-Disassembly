@@ -284,7 +284,7 @@ sprite_main_table:
 	dl animal_buddy_box_main-1			: db $00	;0250
 	dl animal_buddy_icon_main-1			: db $01	;0254
 	dl no_animal_buddy_sign_main-1			: db $01	;0258
-	dl unknown_sprite_025C_main-1			: db $01	;025C
+	dl animal_buddy_sign_prize_main-1		: db $01	;025C
 	dl respawn_suppressor_main-1			: db $00	;0260
 	dl unknown_sprite_0264_main-1			: db $00	;0264
 	dl fireball_landing_particles_main-1		: db $00	;0268
@@ -404,7 +404,7 @@ sprite_main_table:
 	dl bounty_bass_main-1				: db $00	;0430
 	dl booty_bird_main-1				: db $00	;0434
 	dl unknown_sprite_0438_main-1			: db $00	;0438 \
-	dl unknown_sprite_043C_main-1			: db $00	;043C  | No spawn script, moves
+	dl unknown_sprite_043C_main-1			: db $00	;043C  | No spawn, version of banana/kong letter/bear coin that does terrain if it has x speed
 	dl unknown_sprite_0440_main-1			: db $00	;0440 /
 	dl nid_main-1					: db $00	;0444
 	dl bazuka_main-1				: db $00	;0448
@@ -1669,6 +1669,7 @@ CODE_BB8C76:
 	XBA					;$BB8CA1
 	JMP ($001E)				;$BB8CA2
 
+;very sus
 CODE_BB8CA5:
 	LSR					;$BB8CA5
 	LSR					;$BB8CA6

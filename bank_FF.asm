@@ -2650,6 +2650,7 @@ DATA_FF2186:
 	dw $0580
 	dw $0008
 
+;Not giga table
 DATA_FF218C:
 	dw DATA_FF25FE		;0000
 	dw DATA_FF2636		;0002

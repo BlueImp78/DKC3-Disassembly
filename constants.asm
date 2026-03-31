@@ -520,7 +520,7 @@ includeonce
 !sprite_animal_buddy_box		= $0250
 !sprite_animal_buddy_icon		= $0254
 !sprite_no_animal_buddy_sign		= $0258
-!sprite_unknown_025C			= $025C
+!sprite_animal_buddy_sign_prize		= $025C
 !sprite_respawn_suppressor		= $0260
 !sprite_unknown_0264			= $0264
 !sprite_fireball_landing_particles	= $0268
