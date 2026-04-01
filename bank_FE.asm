@@ -99,8 +99,8 @@ level_objects_table:
 	dw springin_spiders_b2_objects			; 61
 	dw lightning_lookout_b1_objects			; 62
 	dw lightning_lookout_b2_objects			; 63
-	dw bazzas_blockad_b1_objects			; 64
-	dw bazzas_blockad_b2_objects			; 65
+	dw bazzas_blockade_b1_objects			; 64
+	dw bazzas_blockade_b2_objects			; 65
 	dw rocket_barrel_ride_b1_objects		; 66
 	dw rocket_barrel_ride_b2_objects		; 67
 	dw kreeping_klasps_b1_objects			; 68
@@ -164,488 +164,489 @@ level_objects_table:
 
 
 beta_doorstop_dash_objects:
-	incbin "data/levels/object_placement/EmptyDoorStopDashSublevel.bin"
+	incsrc "data/levels/object_placement/EmptyDoorStopDashSublevel.asm"
 
 null_level_1_objects:
-	incbin "data/levels/object_placement/NullLevel1.bin"
+	incsrc "data/levels/object_placement/NullLevel1.asm"
 
 null_level_2_objects:
-	incbin "data/levels/object_placement/NullLevel2.bin"
+	incsrc "data/levels/object_placement/NullLevel2.asm"
 
 null_level_3_objects:
-	incbin "data/levels/object_placement/NullLevel3.bin"
+	incsrc "data/levels/object_placement/NullLevel3.asm"
 
 null_level_4_objects:
-	incbin "data/levels/object_placement/NullLevel4.bin"
+	incsrc "data/levels/object_placement/NullLevel4.asm"
 
 null_level_5_objects:
-	incbin "data/levels/object_placement/NullLevel5.bin"
+	incsrc "data/levels/object_placement/NullLevel5.asm"
 
 null_level_6_objects:
-	incbin "data/levels/object_placement/NullLevel6.bin"
+	incsrc "data/levels/object_placement/NullLevel6.asm"
 
 null_level_7_objects:
-	incbin "data/levels/object_placement/NullLevel7.bin"
+	incsrc "data/levels/object_placement/NullLevel7.asm"
 
 bazzas_blockade_photo_album_objects:
-	incbin "data/levels/object_placement/BazzasBlockade_PhotoAlbum.bin"
+	incsrc "data/levels/object_placement/BazzasBlockade_PhotoAlbum.asm"
 
 doorstop_dash_photo_album_objects:
-	incbin "data/levels/object_placement/DoorstopDash_PhotoAlbum.bin"
+	incsrc "data/levels/object_placement/DoorstopDash_PhotoAlbum.asm"
 
 lemguin_lunge_photo_album_objects:
-	incbin "data/levels/object_placement/LemguinLunge_PhotoAlbum.bin"
+	incsrc "data/levels/object_placement/LemguinLunge_PhotoAlbum.asm"
 
 ropey_rumpus_photo_album_objects:
-	incbin "data/levels/object_placement/RopeyRumpus_PhotoAlbum.bin"
+	incsrc "data/levels/object_placement/RopeyRumpus_PhotoAlbum.asm"
 
 skiddas_row_photo_album_objects:
-	incbin "data/levels/object_placement/SkiddasRow_PhotoAlbum.bin"
+	incsrc "data/levels/object_placement/SkiddasRow_PhotoAlbum.asm"
 
 squeals_on_wheels_photo_album_objects:
-	incbin "data/levels/object_placement/SquealsOnWheels_PhotoAlbum.bin"
+	incsrc "data/levels/object_placement/SquealsOnWheels_PhotoAlbum.asm"
 
 floodlit_fish_photo_album_objects:
-	incbin "data/levels/object_placement/FloodlitFish_PhotoAlbum.bin"
+	incsrc "data/levels/object_placement/FloodlitFish_PhotoAlbum.asm"
 
 brothers_bear_photos_objects:
-	incbin "data/levels/object_placement/BrothersBearPhotos.bin"
+	incsrc "data/levels/object_placement/BrothersBearPhotos.asm"
 
 swankys_sideshow_photo_album_objects:
-	incbin "data/levels/object_placement/SwankysSideshow_PhotoAlbum.bin"
+	incsrc "data/levels/object_placement/SwankysSideshow_PhotoAlbum.asm"
 
 boss_photos_objects:
-	incbin "data/levels/object_placement/BossPhotos.bin"
+	incsrc "data/levels/object_placement/BossPhotos.asm"
 
 krool_hovercraft_ending_objects:
-	incbin "data/levels/object_placement/CloseupOfKRoolDrivingHovercraft.bin"
+	incsrc "data/levels/object_placement/CloseupOfKRoolDrivingHovercraft.asm"
 
 kastle_kaos_photo_album_objects:
-	incbin "data/levels/object_placement/KastleKAOS_PhotoAlbum.bin"
+	incsrc "data/levels/object_placement/KastleKAOS_PhotoAlbum.asm"
 
 beta_bobbing_barrel_brawl_objects:
-	incbin "data/levels/object_placement/EarlyBobbingBarrelBrawl.bin"
+	incsrc "data/levels/object_placement/EarlyBobbingBarrelBrawl.asm"
 
 kiddy_photo_album_objects:
-	incbin "data/levels/object_placement/KiddysPhotoAlbumArea.bin"
+	incsrc "data/levels/object_placement/KiddysPhotoAlbumArea.asm"
 
 dixie_photo_album_objects:
-	incbin "data/levels/object_placement/DixiesPhotoAlbumArea.bin"
+	incsrc "data/levels/object_placement/DixiesPhotoAlbumArea.asm"
 
 null_level_8_objects:
-	incbin "data/levels/object_placement/NullLevel8.bin"
+	incsrc "data/levels/object_placement/NullLevel8.asm"
 
 null_level_9_objects:
-	incbin "data/levels/object_placement/NullLevel9.bin"
+	incsrc "data/levels/object_placement/NullLevel9.asm"
 
 null_level_10_objects:
-	incbin "data/levels/object_placement/NullLevel10.bin"
+	incsrc "data/levels/object_placement/NullLevel10.asm"
 
 bazzas_blockade_exit_objects:
-	incbin "data/levels/object_placement/BazzasBlockade_ExitSublevel.bin"
+	incsrc "data/levels/object_placement/BazzasBlockade_ExitSublevel.asm"
 
 fish_food_frenzy_exit_objects:
-	incbin "data/levels/object_placement/FishfoodFrenzy_ExitSublevel.bin"
+	incsrc "data/levels/object_placement/FishfoodFrenzy_ExitSublevel.asm"
 
 floodlit_fish_exit_objects:
-	incbin "data/levels/object_placement/FloodlitFish_ExitSublevel.bin"
+	incsrc "data/levels/object_placement/FloodlitFish_ExitSublevel.asm"
 
 belchas_barn_objects:
-	incbin "data/levels/object_placement/BelchasBarn.bin"
+	incsrc "data/levels/object_placement/BelchasBarn.asm"
 
 arichs_ambush_objects:
-	incbin "data/levels/object_placement/ArichsAmbush.bin"
+	incsrc "data/levels/object_placement/ArichsAmbush.asm"
 
 squirts_showdown_objects:
-	incbin "data/levels/object_placement/SquirtsShowdown.bin"
+	incsrc "data/levels/object_placement/SquirtsShowdown.asm"
 
 kaos_karnage_objects:
-	incbin "data/levels/object_placement/KAOSKarnage.bin"
+	incsrc "data/levels/object_placement/KAOSKarnage.asm"
 
 bleaks_house_objects:
-	incbin "data/levels/object_placement/BleaksHouse.bin"
+	incsrc "data/levels/object_placement/BleaksHouse.asm"
 
 barbos_barrier_objects:
-	incbin "data/levels/object_placement/BarbossBarrier.bin"
+	incsrc "data/levels/object_placement/BarbossBarrier.asm"
 
 kastle_kaos_objects:
-	incbin "data/levels/object_placement/KastleKAOS.bin"
+	incsrc "data/levels/object_placement/KastleKAOS.asm"
 
 knautilus_objects:
-	incbin "data/levels/object_placement/Knautilus.bin"
+	incsrc "data/levels/object_placement/Knautilus.asm"
 
 lakeside_limbo_objects:
-	incbin "data/levels/object_placement/LakesideLimbo_Main.bin"
+	incsrc "data/levels/object_placement/LakesideLimbo_Main.asm"
 
 kreeping_klasps_objects:
-	incbin "data/levels/object_placement/KreepingKlasps_Main.bin"
+	incsrc "data/levels/object_placement/KreepingKlasps_Main.asm"
 
 tidal_trouble_objects:
-	incbin "data/levels/object_placement/TidalTrouble_Main.bin"
+	incsrc "data/levels/object_placement/TidalTrouble_Main.asm"
 
 doorstop_dash_objects:
-	incbin "data/levels/object_placement/DoorstopDash_Main.bin"
+	incsrc "data/levels/object_placement/DoorstopDash_Main.asm"
 
 squeals_on_wheels_objects:
-	incbin "data/levels/object_placement/SquealsOnWheels_Main.bin"
+	incsrc "data/levels/object_placement/SquealsOnWheels_Main.asm"
 
 murky_mill_objects:
-	incbin "data/levels/object_placement/MurkyMill_Main.bin"
+	incsrc "data/levels/object_placement/MurkyMill_Main.asm"
 
 skiddas_row_objects:
-	incbin "data/levels/object_placement/SkiddasRow_Main.bin"
+	incsrc "data/levels/object_placement/SkiddasRow_Main.asm"
 
 lemguin_lunge_objects:
-	incbin "data/levels/object_placement/LemguinLunge_Main.bin"
+	incsrc "data/levels/object_placement/LemguinLunge_Main.asm"
 
 tearaway_toboggan_objects:
-	incbin "data/levels/object_placement/TearawayToboggan_Main.bin"
+	incsrc "data/levels/object_placement/TearawayToboggan_Main.asm"
 
 ripsaw_rage_objects:
-	incbin "data/levels/object_placement/RipsawRage_Main.bin"
+	incsrc "data/levels/object_placement/RipsawRage_Main.asm"
 
 springin_spiders_objects:
-	incbin "data/levels/object_placement/SpringinSpiders_Main.bin"
+	incsrc "data/levels/object_placement/SpringinSpiders_Main.asm"
 
 barrel_shield_bustup_objects:
-	incbin "data/levels/object_placement/BarrelShieldBustUp_Main.bin"
+	incsrc "data/levels/object_placement/BarrelShieldBustUp_Main.asm"
 
 swoopy_salvo_objects:
-	incbin "data/levels/object_placement/SwoopySalvo_Main.bin"
+	incsrc "data/levels/object_placement/SwoopySalvo_Main.asm"
 
 riverside_race_objects:
-	incbin "data/levels/object_placement/RiversideRace_Main.bin"
+	incsrc "data/levels/object_placement/RiversideRace_Main.asm"
 
 lightning_lookout_objects:
-	incbin "data/levels/object_placement/LightningLookOut_Main.bin"
+	incsrc "data/levels/object_placement/LightningLookOut_Main.asm"
 
 bobbing_barrel_brawl_objects:
-	incbin "data/levels/object_placement/BobbingBarrelBrawl_Main.bin"
+	incsrc "data/levels/object_placement/BobbingBarrelBrawl_Main.asm"
 
 bazzas_blockade_objects:
-	incbin "data/levels/object_placement/BazzasBlockade_Main.bin"
+	incsrc "data/levels/object_placement/BazzasBlockade_Main.asm"
 
 fish_food_frenzy_objects:
-	incbin "data/levels/object_placement/FishFoodFrenzy_Main.bin"
+	incsrc "data/levels/object_placement/FishFoodFrenzy_Main.asm"
 
 floodlit_fish_objects:
-	incbin "data/levels/object_placement/FloodlitFish_Main.bin"
+	incsrc "data/levels/object_placement/FloodlitFish_Main.asm"
 
 rocket_barrel_ride_objects:
-	incbin "data/levels/object_placement/RocketBarrelRide_Main.bin"
+	incsrc "data/levels/object_placement/RocketBarrelRide_Main.asm"
 
 tracker_barrel_trek_objects:
-	incbin "data/levels/object_placement/TrackerBarrelTrek_Main.bin"
+	incsrc "data/levels/object_placement/TrackerBarrelTrek_Main.asm"
 
 barrel_drop_bounce_objects:
-	incbin "data/levels/object_placement/BarrelDropBounce_Main.bin"
+	incsrc "data/levels/object_placement/BarrelDropBounce_Main.asm"
 
 fireball_frenzy_objects:
-	incbin "data/levels/object_placement/FireballFrenzy_Main.bin"
+	incsrc "data/levels/object_placement/FireballFrenzy_Main.asm"
 
 blazing_bazukas_objects:
-	incbin "data/levels/object_placement/BlazingBazukas_Main.bin"
+	incsrc "data/levels/object_placement/BlazingBazukas_Main.asm"
 
 krackshot_kroc_objects:
-	incbin "data/levels/object_placement/KrackshotKroc_Main.bin"
+	incsrc "data/levels/object_placement/KrackshotKroc_Main.asm"
 
 lowg_labyrinth_objects:
-	incbin "data/levels/object_placement/LowGLabyrinth_Main.bin"
+	incsrc "data/levels/object_placement/LowGLabyrinth_Main.asm"
 
 poisonous_pipeline_objects:
-	incbin "data/levels/object_placement/PoisonousPipeline_Main.bin"
+	incsrc "data/levels/object_placement/PoisonousPipeline_Main.asm"
 
 demolition_drainpipe_objects:
-	incbin "data/levels/object_placement/DemolitionDrainPipe_Main.bin"
+	incsrc "data/levels/object_placement/DemolitionDrainPipe_Main.asm"
 
 krevice_kreepers_objects:
-	incbin "data/levels/object_placement/KreviceKreepers_Main.bin"
+	incsrc "data/levels/object_placement/KreviceKreepers_Main.asm"
 
 kongfused_cliffs_objects:
-	incbin "data/levels/object_placement/KongFusedCliffs_Main.bin"
+	incsrc "data/levels/object_placement/KongFusedCliffs_Main.asm"
 
 ropey_rumpus_objects:
-	incbin "data/levels/object_placement/RopeyRumpus_Main.bin"
+	incsrc "data/levels/object_placement/RopeyRumpus_Main.asm"
 
 buzzer_barrage_objects:
-	incbin "data/levels/object_placement/BuzzerBarrage_Main.bin"
+	incsrc "data/levels/object_placement/BuzzerBarrage_Main.asm"
 
 pothole_panic_objects:
-	incbin "data/levels/object_placement/PotHolePanic_Main.bin"
+	incsrc "data/levels/object_placement/PotHolePanic_Main.asm"
 
 creepy_caverns_objects:
-	incbin "data/levels/object_placement/CreepyCaverns_Main.bin"
+	incsrc "data/levels/object_placement/CreepyCaverns_Main.asm"
 
 koindozer_klamber_objects:
-	incbin "data/levels/object_placement/KoindozerKlamber_Main.bin"
+	incsrc "data/levels/object_placement/KoindozerKlamber_Main.asm"
 
 konveyor_rope_klash_objects:
-	incbin "data/levels/object_placement/KonveyorRopeKlash_Main.bin"
+	incsrc "data/levels/object_placement/KonveyorRopeKlash_Main.asm"
 
 stampede_sprint_objects:
-	incbin "data/levels/object_placement/StampedeSprint_Main.bin"
+	incsrc "data/levels/object_placement/StampedeSprint_Main.asm"
 
 criss_kross_cliffs_objects:
-	incbin "data/levels/object_placement/CrissKrossCliffs_Main.bin"
+	incsrc "data/levels/object_placement/CrissKrossCliffs_Main.asm"
 
 tyrant_twin_tussle_objects:
-	incbin "data/levels/object_placement/TyrantTwinTussle_Main.bin"
+	incsrc "data/levels/object_placement/TyrantTwinTussle_Main.asm"
 
 rocket_rush_objects:
-	incbin "data/levels/object_placement/RocketRush_Main.bin"
+	incsrc "data/levels/object_placement/RocketRush_Main.asm"
 
 swankys_sideshow_inside_objects:
-	incbin "data/levels/object_placement/SwankysSideshow_InTent.bin"
+	incsrc "data/levels/object_placement/SwankysSideshow_InTent.asm"
 
 null_level_11_objects:
-	incbin "data/levels/object_placement/NullLevel11.bin"
+	incsrc "data/levels/object_placement/NullLevel11.asm"
 
 null_level_12_objects:
-	incbin "data/levels/object_placement/NullLevel12.bin"
+	incsrc "data/levels/object_placement/NullLevel12.asm"
 
 lakeside_limbo_b1_objects:
-	incbin "data/levels/object_placement/LakesideLimbo_Bonus1.bin"
+	incsrc "data/levels/object_placement/LakesideLimbo_Bonus1.asm"
 
 lakeside_limbo_b2_objects:
-	incbin "data/levels/object_placement/LakesideLimbo_Bonus2.bin"
+	incsrc "data/levels/object_placement/LakesideLimbo_Bonus2.asm"
 
 doorstop_dash_b1_objects:
-	incbin "data/levels/object_placement/DoorstopDash_Bonus1.bin"
+	incsrc "data/levels/object_placement/DoorstopDash_Bonus1.asm"
 
 doorstop_dash_b2_objects:
-	incbin "data/levels/object_placement/DoorstopDash_Bonus2.bin"
+	incsrc "data/levels/object_placement/DoorstopDash_Bonus2.asm"
 
 tidal_trouble_b1_objects:
-	incbin "data/levels/object_placement/TidalTrouble_Bonus1.bin"
+	incsrc "data/levels/object_placement/TidalTrouble_Bonus1.asm"
 
 tidal_trouble_b2_objects:
-	incbin "data/levels/object_placement/TidalTrouble_Bonus2.bin"
+	incsrc "data/levels/object_placement/TidalTrouble_Bonus2.asm"
 
 skiddas_row_b1_objects:
-	incbin "data/levels/object_placement/SkiddasRow_Bonus1.bin"
+	incsrc "data/levels/object_placement/SkiddasRow_Bonus1.asm"
 
 skiddas_row_b2_objects:
-	incbin "data/levels/object_placement/SkiddasRow_Bonus2.bin"
+	incsrc "data/levels/object_placement/SkiddasRow_Bonus2.asm"
 
 squeals_on_wheels_b1_objects:
-	incbin "data/levels/object_placement/SquealsOnWheels_Bonus1.bin"
+	incsrc "data/levels/object_placement/SquealsOnWheels_Bonus1.asm"
 
 squeals_on_wheels_b2_objects:
-	incbin "data/levels/object_placement/SquealsOnWheels_Bonus2.bin"
+	incsrc "data/levels/object_placement/SquealsOnWheels_Bonus2.asm"
 
 barrel_shield_bustup_b1_objects:
-	incbin "data/levels/object_placement/BarrelShieldBustUp_Bonus1.bin"
+	incsrc "data/levels/object_placement/BarrelShieldBustUp_Bonus1.asm"
 
 barrel_shield_bustup_b2_objects:
-	incbin "data/levels/object_placement/BarrelShieldBustUp_Bonus2.bin"
+	incsrc "data/levels/object_placement/BarrelShieldBustUp_Bonus2.asm"
 
 riverside_race_b1_objects:
-	incbin "data/levels/object_placement/RiverbankRace_Bonus1.bin"
+	incsrc "data/levels/object_placement/RiverbankRace_Bonus1.asm"
 
 riverside_race_b2_objects:
-	incbin "data/levels/object_placement/RiverbankRace_Bonus2.bin"
+	incsrc "data/levels/object_placement/RiverbankRace_Bonus2.asm"
 
 murky_mill_b1_objects:
-	incbin "data/levels/object_placement/MurkyMill_Bonus1.bin"
+	incsrc "data/levels/object_placement/MurkyMill_Bonus1.asm"
 
 murky_mill_b2_objects:
-	incbin "data/levels/object_placement/MurkyMill_Bonus2.bin"
+	incsrc "data/levels/object_placement/MurkyMill_Bonus2.asm"
 
 springin_spiders_b1_objects:
-	incbin "data/levels/object_placement/SpringinSpiders_Bonus1.bin"
+	incsrc "data/levels/object_placement/SpringinSpiders_Bonus1.asm"
 
 springin_spiders_b2_objects:
-	incbin "data/levels/object_placement/SpringinSpiders_Bonus2.bin"
+	incsrc "data/levels/object_placement/SpringinSpiders_Bonus2.asm"
 
 lightning_lookout_b1_objects:
-	incbin "data/levels/object_placement/LightningLookOut_Bonus1.bin"
+	incsrc "data/levels/object_placement/LightningLookOut_Bonus1.asm"
 
 lightning_lookout_b2_objects:
-	incbin "data/levels/object_placement/LightningLookOut_Bonus2.bin"
+	incsrc "data/levels/object_placement/LightningLookOut_Bonus2.asm"
 
-bazzas_blockad_b1_objects:
-	incbin "data/levels/object_placement/BazzasBlockade_Bonus1.bin"
+bazzas_blockade_b1_objects:
+	incsrc "data/levels/object_placement/BazzasBlockade_Bonus1.asm"
 
-bazzas_blockad_b2_objects:
-	incbin "data/levels/object_placement/BazzasBlockade_Bonus2.bin"
+bazzas_blockade_b2_objects:
+	incsrc "data/levels/object_placement/BazzasBlockade_Bonus2.asm"
 
 rocket_barrel_ride_b1_objects:
-	incbin "data/levels/object_placement/RocketBarrelRide_Bonus1.bin"
+	incsrc "data/levels/object_placement/RocketBarrelRide_Bonus1.asm"
 
 rocket_barrel_ride_b2_objects:
-	incbin "data/levels/object_placement/RocketBarrelRide_Bonus2.bin"
+	incsrc "data/levels/object_placement/RocketBarrelRide_Bonus2.asm"
 
 kreeping_klasps_b1_objects:
-	incbin "data/levels/object_placement/KreepingKlasps_Bonus1.bin"
+	incsrc "data/levels/object_placement/KreepingKlasps_Bonus1.asm"
 
 kreeping_klasps_b2_objects:
-	incbin "data/levels/object_placement/KreepingKlasps_Bonus2.bin"
+	incsrc "data/levels/object_placement/KreepingKlasps_Bonus2.asm"
 
 tracker_barrel_trek_b1_objects:
-	incbin "data/levels/object_placement/TrackerBarrelTrek_Bonus1.bin"
+	incsrc "data/levels/object_placement/TrackerBarrelTrek_Bonus1.asm"
 
 tracker_barrel_trek_b2_objects:
-	incbin "data/levels/object_placement/TrackerBarrelTrek_Bonus2.bin"
+	incsrc "data/levels/object_placement/TrackerBarrelTrek_Bonus2.asm"
 
 fish_food_frenzy_b1_objects:
-	incbin "data/levels/object_placement/FishFoodFrenzy_Bonus1.bin"
+	incsrc "data/levels/object_placement/FishFoodFrenzy_Bonus1.asm"
 
 fish_food_frenzy_b2_objects:
-	incbin "data/levels/object_placement/FishFoodFrenzy_Bonus2.bin"
+	incsrc "data/levels/object_placement/FishFoodFrenzy_Bonus2.asm"
 
 fireball_frenzy_b1_objects:
-	incbin "data/levels/object_placement/FireballFrenzy_Bonus1.bin"
+	incsrc "data/levels/object_placement/FireballFrenzy_Bonus1.asm"
 
 fireball_frenzy_b2_objects:
-	incbin "data/levels/object_placement/FireballFrenzy_Bonus2.bin"
+	incsrc "data/levels/object_placement/FireballFrenzy_Bonus2.asm"
 
 demolition_drainpipe_b1_objects:
-	incbin "data/levels/object_placement/DemolitionDrainPipe_Bonus1.bin"
+	incsrc "data/levels/object_placement/DemolitionDrainPipe_Bonus1.asm"
 
 demolition_drainpipe_b2_objects:
-	incbin "data/levels/object_placement/DemolitionDrainPipe_Bonus2.bin"
+	incsrc "data/levels/object_placement/DemolitionDrainPipe_Bonus2.asm"
 
 ripsaw_rage_b1_objects:
-	incbin "data/levels/object_placement/RipsawRage_Bonus1.bin"
+	incsrc "data/levels/object_placement/RipsawRage_Bonus1.asm"
 
 ripsaw_rage_b2_objects:
-	incbin "data/levels/object_placement/RipsawRage_Bonus2.bin"
+	incsrc "data/levels/object_placement/RipsawRage_Bonus2.asm"
 
 blazing_bazukas_b1_objects:
-	incbin "data/levels/object_placement/BlazingBazukas_Bonus1.bin"
+	incsrc "data/levels/object_placement/BlazingBazukas_Bonus1.asm"
 
 blazing_bazukas_b2_objects:
-	incbin "data/levels/object_placement/BlazingBazukas_Bonus2.bin"
+	incsrc "data/levels/object_placement/BlazingBazukas_Bonus2.asm"
 
 lowg_labyrinth_b1_objects:
-	incbin "data/levels/object_placement/LowGLabyrinth_Bonus1.bin"
+	incsrc "data/levels/object_placement/LowGLabyrinth_Bonus1.asm"
 
 lowg_labyrinth_b2_objects:
-	incbin "data/levels/object_placement/LowGLabyrinth_Bonus2.bin"
+	incsrc "data/levels/object_placement/LowGLabyrinth_Bonus2.asm"
 
 krevice_kreepers_b1_objects:
-	incbin "data/levels/object_placement/KreviceKreepers_Bonus1.bin"
+	incsrc "data/levels/object_placement/KreviceKreepers_Bonus1.asm"
 
 krevice_kreepers_b2_objects:
-	incbin "data/levels/object_placement/KreviceKreepers_Bonus2.bin"
+	incsrc "data/levels/object_placement/KreviceKreepers_Bonus2.asm"
 
 tearaway_toboggan_b1_objects:
-	incbin "data/levels/object_placement/TearawayToboggan_Bonus1.bin"
+	incsrc "data/levels/object_placement/TearawayToboggan_Bonus1.asm"
 
 tearaway_toboggan_b2_objects:
-	incbin "data/levels/object_placement/TearawayToboggan_Bonus2.bin"
+	incsrc "data/levels/object_placement/TearawayToboggan_Bonus2.asm"
 
 barrel_drop_bounce_b1_objects:
-	incbin "data/levels/object_placement/BarrelDropBounce_Bonus1.bin"
+	incsrc "data/levels/object_placement/BarrelDropBounce_Bonus1.asm"
 
 barrel_drop_bounce_b2_objects:
-	incbin "data/levels/object_placement/BarrelDropBounce_Bonus2.bin"
+	incsrc "data/levels/object_placement/BarrelDropBounce_Bonus2.asm"
 
 krackshot_kroc_b1_objects:
-	incbin "data/levels/object_placement/KrackshotKroc_Bonus1.bin"
+	incsrc "data/levels/object_placement/KrackshotKroc_Bonus1.asm"
 
 krackshot_kroc_b2_objects:
-	incbin "data/levels/object_placement/KrackshotKroc_Bonus2.bin"
+	incsrc "data/levels/object_placement/KrackshotKroc_Bonus2.asm"
 
 lemguin_lunge_b1_objects:
-	incbin "data/levels/object_placement/LemguinLunge_Bonus1.bin"
+	incsrc "data/levels/object_placement/LemguinLunge_Bonus1.asm"
 
 lemguin_lunge_b2_objects:
-	incbin "data/levels/object_placement/LemguinLunge_Bonus2.bin"
+	incsrc "data/levels/object_placement/LemguinLunge_Bonus2.asm"
 
 buzzer_barrage_b1_objects:
-	incbin "data/levels/object_placement/BuzzerBarrage_Bonus1.bin"
+	incsrc "data/levels/object_placement/BuzzerBarrage_Bonus1.asm"
 
 buzzer_barrage_b2_objects:
-	incbin "data/levels/object_placement/BuzzerBarrage_Bonus2.bin"
+	incsrc "data/levels/object_placement/BuzzerBarrage_Bonus2.asm"
 
 kongfused_cliffs_b1_objects:
-	incbin "data/levels/object_placement/KongFusedCliffs_Bonus1.bin"
+	incsrc "data/levels/object_placement/KongFusedCliffs_Bonus1.asm"
 
 kongfused_cliffs_b2_objects:
-	incbin "data/levels/object_placement/KongFusedCliffs_Bonus2.bin"
+	incsrc "data/levels/object_placement/KongFusedCliffs_Bonus2.asm"
 
 floodlit_fish_b1_objects:
-	incbin "data/levels/object_placement/FloodlitFish_Bonus1.bin"
+	incsrc "data/levels/object_placement/FloodlitFish_Bonus1.asm"
 
 floodlit_fish_b2_objects:
-	incbin "data/levels/object_placement/FloodlitFish_Bonus2.bin"
+	incsrc "data/levels/object_placement/FloodlitFish_Bonus2.asm"
 
 pothole_panic_b1_objects:
-	incbin "data/levels/object_placement/PotHolePanic_Bonus1.bin"
+	incsrc "data/levels/object_placement/PotHolePanic_Bonus1.asm"
 
 pothole_panic_b2_objects:
-	incbin "data/levels/object_placement/PotHolePanic_Bonus2.bin"
+	incsrc "data/levels/object_placement/PotHolePanic_Bonus2.asm"
 
 ropey_rumpus_b1_objects:
-	incbin "data/levels/object_placement/RopeyRumpus_Bonus1.bin"
+	incsrc "data/levels/object_placement/RopeyRumpus_Bonus1.asm"
 
 ropey_rumpus_b2_objects:
-	incbin "data/levels/object_placement/RopeyRumpus_Bonus2.bin"
+	incsrc "data/levels/object_placement/RopeyRumpus_Bonus2.asm"
 
 koindozer_klamber_b1_objects:
-	incbin "data/levels/object_placement/KoindozerKlamber_Bonus1.bin"
+	incsrc "data/levels/object_placement/KoindozerKlamber_Bonus1.asm"
 
 koindozer_klamber_b2_objects:
-	incbin "data/levels/object_placement/KoindozerKlamber_Bonus2.bin"
+	incsrc "data/levels/object_placement/KoindozerKlamber_Bonus2.asm"
 
 creepy_caverns_b1_objects:
-	incbin "data/levels/object_placement/CreepyCaverns_Bonus1.bin"
+	incsrc "data/levels/object_placement/CreepyCaverns_Bonus1.asm"
 
 creepy_caverns_b2_objects:
-	incbin "data/levels/object_placement/CreepyCaverns_Bonus2.bin"
+	incsrc "data/levels/object_placement/CreepyCaverns_Bonus2.asm"
 
 bobbing_barrel_brawl_b1_objects:
-	incbin "data/levels/object_placement/BobbingBarrelBrawl_Bonus1.bin"
+	incsrc "data/levels/object_placement/BobbingBarrelBrawl_Bonus1.asm"
 
 bobbing_barrel_brawl_b2_objects:
-	incbin "data/levels/object_placement/BobbingBarrelBrawl_Bonus2.bin"
+	incsrc "data/levels/object_placement/BobbingBarrelBrawl_Bonus2.asm"
 
 konveyor_rope_klash_b1_objects:
-	incbin "data/levels/object_placement/KonveyorRopeKlash_Bonus1.bin"
+	incsrc "data/levels/object_placement/KonveyorRopeKlash_Bonus1.asm"
 
 konveyor_rope_klash_b2_objects:
-	incbin "data/levels/object_placement/KonveyorRopeKlash_Bonus2.bin"
+	incsrc "data/levels/object_placement/KonveyorRopeKlash_Bonus2.asm"
 
 poisonou_pipeline_b1_objects:
-	incbin "data/levels/object_placement/PoisonousPipeline_Bonus1.bin"
+	incsrc "data/levels/object_placement/PoisonousPipeline_Bonus1.asm"
 
 poisonou_pipeline_b2_objects:
-	incbin "data/levels/object_placement/PoisonousPipeline_Bonus2.bin"
+	incsrc "data/levels/object_placement/PoisonousPipeline_Bonus2.asm"
 
 swoopy_salvo_b3_objects:
-	incbin "data/levels/object_placement/SwoopySalvo_Bonus3.bin"
+	incsrc "data/levels/object_placement/SwoopySalvo_Bonus3.asm"
 
 swoopy_salvo_b1_objects:
-	incbin "data/levels/object_placement/SwoopySalvo_Bonus1.bin"
+	incsrc "data/levels/object_placement/SwoopySalvo_Bonus1.asm"
 
 swoopy_salvo_b2_objects:
-	incbin "data/levels/object_placement/SwoopySalvo_Bonus2.bin"
+	incsrc "data/levels/object_placement/SwoopySalvo_Bonus2.asm"
 
 criss_kross_cliffs_b1_objects:
-	incbin "data/levels/object_placement/CrissKrossCliffs_Bonus1.bin"
+	incsrc "data/levels/object_placement/CrissKrossCliffs_Bonus1.asm"
 
 criss_kross_cliffs_b2_objects:
-	incbin "data/levels/object_placement/CrissKrossCliffs_Bonus2.bin"
+	incsrc "data/levels/object_placement/CrissKrossCliffs_Bonus2.asm"
 
 tyrant_twin_tussle_b1_objects:
-	incbin "data/levels/object_placement/TyrantTwinTussle_Bonus1.bin"
+	incsrc "data/levels/object_placement/TyrantTwinTussle_Bonus1.asm"
 
 tyrant_twin_tussle_b3_objects:
-	incbin "data/levels/object_placement/TyrantTwinTussle_Bonus3.bin"
+	incsrc "data/levels/object_placement/TyrantTwinTussle_Bonus3.asm"
 
 tyrant_twin_tussle_b2_objects:
-	incbin "data/levels/object_placement/TyrantTwinTussle_Bonus2.bin"
+	incsrc "data/levels/object_placement/TyrantTwinTussle_Bonus2.asm"
 
 stampede_sprint_b2_objects:
-	incbin "data/levels/object_placement/StampedeSprint_Bonus2.bin"
+	incsrc "data/levels/object_placement/StampedeSprint_Bonus2.asm"
 
 stampede_sprint_b3_objects:
-	incbin "data/levels/object_placement/StampedeSprint_Bonus3.bin"
+	incsrc "data/levels/object_placement/StampedeSprint_Bonus3.asm"
 
 stampede_sprint_b1_objects:
-	incbin "data/levels/object_placement/StampedeSprint_Bonus1.bin"
+	incsrc "data/levels/object_placement/StampedeSprint_Bonus1.asm"
 
+	db $FF, $03, $25, $00
 
 demo_scripts_table:
 	dw .main_map_demo_script			;00

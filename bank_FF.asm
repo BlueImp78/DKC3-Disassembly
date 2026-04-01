@@ -10,1372 +10,1372 @@ UNK_FF0000:
 
 ;DKC2 BB giga table equivalent
 DATA_FF0040:
-	dw DATA_FF2A9A				;0000
-	dw DATA_FF2AC5				;0002
-	dw DATA_FF2AF0				;0004
-	dw DATA_FF2B29				;0006
-	dw DATA_FF2B54				;0008
-	dw DATA_FF5A2D				;000A
-	dw DATA_FF5A34				;000C
-	dw DATA_FF5A41				;000E
-	dw DATA_FF5A4E				;0010
-	dw DATA_FF5A5B				;0012
-	dw DATA_FF5A65				;0014
-	dw DATA_FF5A82				;0016
-	dw DATA_FF5A89				;0018
-	dw DATA_FF5A90				;001A
-	dw DATA_FF5A97				;001C
-	dw DATA_FF5A9E				;001E
-	dw DATA_FF5AA5				;0020
-	dw DATA_FF5AC8				;0022
-	dw DATA_FF5ACF				;0024
-	dw DATA_FF5AD6				;0026
-	dw DATA_FF5ADD				;0028
-	dw DATA_FF5AE4				;002A
-	dw DATA_FF5AF4				;002C
-	dw DATA_FF5B04				;002E
-	dw DATA_FF5B14				;0030
-	dw DATA_FF5B24				;0032
-	dw DATA_FF5B34				;0034
-	dw DATA_FF5B44				;0036
-	dw DATA_FF5B54				;0038
-	dw DATA_FF5B64				;003A
-	dw DATA_FF5B74				;003C
-	dw DATA_FF5B84				;003E
-	dw DATA_FF5B94				;0040
-	dw DATA_FF5BA4				;0042
-	dw DATA_FF5BB4				;0044
-	dw DATA_FF5BC4				;0046
-	dw DATA_FF5BD4				;0048
-	dw DATA_FF5BE4				;004A
-	dw DATA_FF5BF4				;004C
-	dw DATA_FF5C04				;004E
-	dw DATA_FF5C14				;0050
-	dw DATA_FF5C24				;0052
-	dw DATA_FF5C34				;0054
-	dw DATA_FF5C44				;0056
-	dw DATA_FF5C54				;0058
-	dw DATA_FF5C64				;005A
-	dw DATA_FF5C77				;005C
-	dw DATA_FF5C9A				;005E
-	dw DATA_FF5CAD				;0060
-	dw DATA_FF5CC0				;0062
-	dw DATA_FF5CEC				;0064
-	dw DATA_FF5D02				;0066
-	dw DATA_FF5D18				;0068
-	dw DATA_FF5D2E				;006A
-	dw DATA_FF5D66				;006C
-	dw DATA_FF5D96				;006E
-	dw DATA_FF5DA9				;0070
-	dw DATA_FF5DC2				;0072
-	dw DATA_FF5DDB				;0074
-	dw DATA_FF5DF4				;0076
-	dw DATA_FF5E0D				;0078
-	dw DATA_FF5E26				;007A
-	dw DATA_FF5E3F				;007C
-	dw DATA_FF5E58				;007E
-	dw DATA_FF5E71				;0080
-	dw DATA_FF5E8A				;0082
-	dw DATA_FF5EA3				;0084
-	dw DATA_FF5EBC				;0086
-	dw DATA_FF5ED5				;0088
-	dw DATA_FF5EEE				;008A
-	dw DATA_FF5F07				;008C
-	dw DATA_FF5F20				;008E
-	dw DATA_FF5F39				;0090
-	dw DATA_FF60E7				;0092
-	dw DATA_FF60F1				;0094
-	dw DATA_FF60FE				;0096
-	dw DATA_FF610B				;0098
-	dw DATA_FF6118				;009A
-	dw DATA_FF6125				;009C
-	dw DATA_FF612C				;009E
-	dw DATA_FF6133				;00A0
-	dw DATA_FF613A				;00A2
-	dw DATA_FF6141				;00A4
-	dw DATA_FF6148				;00A6
-	dw DATA_FF6161				;00A8
-	dw DATA_FF619F				;00AA
-	dw DATA_FF61A6				;00AC
-	dw DATA_FF61AD				;00AE
-	dw DATA_FF61B4				;00B0
-	dw DATA_FF61BB				;00B2
-	dw DATA_FF61C2				;00B4
-	dw DATA_FF61C9				;00B6
-	dw DATA_FF61D0				;00B8
-	dw DATA_FF61D7				;00BA
-	dw DATA_FF61DE				;00BC
-	dw DATA_FF61E5				;00BE
-	dw DATA_FF61EC				;00C0
-	dw DATA_FF61F6				;00C2
-	dw DATA_FF622A				;00C4
-	dw DATA_FF6234				;00C6
-	dw DATA_FF624A				;00C8
-	dw DATA_FF6263				;00CA
-	dw DATA_FF6279				;00CC
-	dw DATA_FF62B1				;00CE
-	dw DATA_FF62BE				;00D0
-	dw DATA_FF62CE				;00D2
-	dw DATA_FF62DB				;00D4
-	dw DATA_FF62EB				;00D6
-	dw DATA_FF62FB				;00D8
-	dw DATA_FF630B				;00DA
-	dw DATA_FF631B				;00DC
-	dw DATA_FF632B				;00DE
-	dw DATA_FF633B				;00E0
-	dw DATA_FF6348				;00E2
-	dw DATA_FF6355				;00E4
-	dw DATA_FF6365				;00E6
-	dw DATA_FF6375				;00E8
-	dw DATA_FF6382				;00EA
-	dw DATA_FF638F				;00EC
-	dw DATA_FF63CA				;00EE
-	dw DATA_FF63CE				;00F0
-	dw DATA_FF63D8				;00F2
-	dw DATA_FF63F4				;00F4
-	dw DATA_FF63FB				;00F6
-	dw DATA_FF63FF				;00F8
-	dw DATA_FF6446				;00FA
-	dw DATA_FF644D				;00FC
-	dw DATA_FF6457				;00FE
-	dw DATA_FF6461				;0100
-	dw DATA_FF6468				;0102
-	dw DATA_FF646F				;0104
-	dw DATA_FF6479				;0106
-	dw DATA_FF6480				;0108
-	dw DATA_FF648A				;010A
-	dw DATA_FF64C5				;010C
-	dw DATA_FF64D5				;010E
-	dw DATA_FF64E5				;0110
-	dw DATA_FF64F5				;0112
-	dw DATA_FF6505				;0114
-	dw DATA_FF6515				;0116
-	dw DATA_FF6525				;0118
-	dw DATA_FF6555				;011A
-	dw DATA_FF655C				;011C
-	dw DATA_FF6566				;011E
-	dw DATA_FF6586				;0120
-	dw DATA_FF6590				;0122
-	dw DATA_FF659D				;0124
-	dw DATA_FF65A7				;0126
-	dw DATA_FF65B1				;0128
-	dw DATA_FF669D				;012A
-	dw DATA_FF66A4				;012C
-	dw DATA_FF66AB				;012E
-	dw DATA_FF66B2				;0130
-	dw DATA_FF66B9				;0132
-	dw DATA_FF66F3				;0134
-	dw DATA_FF66FD				;0136
-	dw DATA_FF6707				;0138
-	dw DATA_FF6711				;013A
-	dw DATA_FF671B				;013C
-	dw DATA_FF6725				;013E
-	dw DATA_FF6755				;0140
-	dw DATA_FF6782				;0142
-	dw DATA_FF67A6				;0144
-	dw DATA_FF67AD				;0146
-	dw DATA_FF67B4				;0148
-	dw DATA_FF67BB				;014A
-	dw DATA_FF67C2				;014C
-	dw DATA_FF67C9				;014E
-	dw DATA_FF67D0				;0150
-	dw DATA_FF681A				;0152
-	dw DATA_FF6821				;0154
-	dw DATA_FF6828				;0156
-	dw DATA_FF682F				;0158
-	dw DATA_FF6836				;015A
-	dw DATA_FF683D				;015C
-	dw DATA_FF6844				;015E
-	dw DATA_FF684B				;0160
-	dw DATA_FF6852				;0162
-	dw DATA_FF6866				;0164
-	dw DATA_FF6870				;0166
-	dw DATA_FF6883				;0168
-	dw DATA_FF6896				;016A
-	dw DATA_FF68A0				;016C
-	dw DATA_FF68B6				;016E
-	dw DATA_FF68C3				;0170
-	dw DATA_FF68D9				;0172
-	dw DATA_FF68EF				;0174
-	dw DATA_FF6902				;0176
-	dw DATA_FF6915				;0178
-	dw DATA_FF6928				;017A
-	dw DATA_FF693B				;017C
-	dw DATA_FF694E				;017E
-	dw DATA_FF6961				;0180
-	dw DATA_FF6974				;0182
-	dw DATA_FF6987				;0184
-	dw DATA_FF699D				;0186
-	dw DATA_FF69B0				;0188
-	dw DATA_FF69C3				;018A
-	dw DATA_FF69D9				;018C
-	dw DATA_FF69EC				;018E
-	dw DATA_FF69FF				;0190
-	dw DATA_FF6A0F				;0192
-	dw DATA_FF6A25				;0194
-	dw DATA_FF6A35				;0196
-	dw DATA_FF6A42				;0198
-	dw DATA_FF6A4F				;019A
-	dw DATA_FF6A5C				;019C
-	dw DATA_FF6A6C				;019E
-	dw DATA_FF6A7C				;01A0
-	dw DATA_FF6A8C				;01A2
-	dw DATA_FF6A9F				;01A4
-	dw DATA_FF6AAF				;01A6
-	dw DATA_FF6ABF				;01A8
-	dw DATA_FF6ACF				;01AA
-	dw DATA_FF6ADF				;01AC
-	dw DATA_FF6AEF				;01AE
-	dw DATA_FF6AFF				;01B0
-	dw DATA_FF6B15				;01B2
-	dw DATA_FF6B2B				;01B4
-	dw DATA_FF6B41				;01B6
-	dw DATA_FF6B51				;01B8
-	dw DATA_FF6B61				;01BA
-	dw DATA_FF6B71				;01BC
-	dw DATA_FF6B87				;01BE
-	dw DATA_FF6B97				;01C0
-	dw DATA_FF6BAD				;01C2
-	dw DATA_FF6BC3				;01C4
-	dw DATA_FF6BD9				;01C6
-	dw DATA_FF6BEC				;01C8
-	dw DATA_FF6BF9				;01CA
-	dw DATA_FF6C0F				;01CC
-	dw DATA_FF6C25				;01CE
-	dw DATA_FF6C38				;01D0
-	dw DATA_FF6C4B				;01D2
-	dw DATA_FF6C5E				;01D4
-	dw DATA_FF6C6E				;01D6
-	dw DATA_FF6C7E				;01D8
-	dw DATA_FF6C8E				;01DA
-	dw DATA_FF6CA1				;01DC
-	dw DATA_FF6CB4				;01DE
-	dw DATA_FF6CCA				;01E0
-	dw DATA_FF6CDA				;01E2
-	dw DATA_FF6CF0				;01E4
-	dw DATA_FF6D06				;01E6
-	dw DATA_FF6D13				;01E8
-	dw DATA_FF6D20				;01EA
-	dw DATA_FF6D3A				;01EC
-	dw DATA_FF6D4D				;01EE
-	dw DATA_FF6D60				;01F0
-	dw DATA_FF6D73				;01F2
-	dw DATA_FF6D86				;01F4
-	dw DATA_FF6D99				;01F6
-	dw DATA_FF6DAC				;01F8
-	dw DATA_FF6DBF				;01FA
-	dw DATA_FF6DD2				;01FC
-	dw DATA_FF6DE5				;01FE
-	dw DATA_FF6DF8				;0200
-	dw DATA_FF6E0B				;0202
-	dw DATA_FF6E1B				;0204
-	dw DATA_FF6E2B				;0206
-	dw DATA_FF6E3B				;0208
-	dw DATA_FF6E4B				;020A
-	dw DATA_FF6E5B				;020C
-	dw DATA_FF6E6B				;020E
-	dw DATA_FF6E7B				;0210
-	dw DATA_FF6E8B				;0212
-	dw DATA_FF6E9B				;0214
-	dw DATA_FF6EAB				;0216
-	dw DATA_FF6EBB				;0218
-	dw DATA_FF6ECB				;021A
-	dw DATA_FF6EDE				;021C
-	dw DATA_FF6EEE				;021E
-	dw DATA_FF6F01				;0220
-	dw DATA_FF6F11				;0222
-	dw DATA_FF6F21				;0224
-	dw DATA_FF6F31				;0226
-	dw DATA_FF6F41				;0228
-	dw DATA_FF6F51				;022A
-	dw DATA_FF6F61				;022C
-	dw DATA_FF6F90				;022E
-	dw DATA_FF6FA3				;0230
-	dw DATA_FF6FB6				;0232
-	dw DATA_FF6FCC				;0234
-	dw DATA_FF6FDF				;0236
-	dw DATA_FF6FF2				;0238
-	dw DATA_FF7008				;023A
-	dw DATA_FF701E				;023C
-	dw DATA_FF7034				;023E
-	dw DATA_FF7047				;0240
-	dw DATA_FF705A				;0242
-	dw DATA_FF706D				;0244
-	dw DATA_FF7080				;0246
-	dw DATA_FF7093				;0248
-	dw DATA_FF70A6				;024A
-	dw DATA_FF70BC				;024C
-	dw DATA_FF70CF				;024E
-	dw DATA_FF70E2				;0250
-	dw DATA_FF70F5				;0252
-	dw DATA_FF7108				;0254
-	dw DATA_FF711E				;0256
-	dw DATA_FF7131				;0258
-	dw DATA_FF7144				;025A
-	dw DATA_FF7157				;025C
-	dw DATA_FF717D				;025E
-	dw DATA_FF718A				;0260
-	dw DATA_FF7197				;0262
-	dw DATA_FF719E				;0264
-	dw DATA_FF71A5				;0266
-	dw DATA_FF71B2				;0268
-	dw DATA_FF71C8				;026A
-	dw DATA_FF71DE				;026C
-	dw DATA_FF71E5				;026E
-	dw DATA_FF71FF				;0270
-	dw DATA_FF7206				;0272
-	dw DATA_FF720D				;0274
-	dw DATA_FF7268				;0276
-	dw DATA_FF7278				;0278
-	dw DATA_FF7288				;027A
-	dw DATA_FF7298				;027C
-	dw DATA_FF729F				;027E
-	dw DATA_FF72A6				;0280
-	dw DATA_FF72AD				;0282
-	dw DATA_FF72B4				;0284
-	dw DATA_FF72BE				;0286
-	dw DATA_FF72C5				;0288
-	dw DATA_FF72CC				;028A
-	dw DATA_FF72D3				;028C
-	dw DATA_FF72DA				;028E
-	dw DATA_FF72E1				;0290
-	dw DATA_FF72EB				;0292
-	dw DATA_FF72F2				;0294
-	dw DATA_FF72FC				;0296
-	dw DATA_FF7306				;0298
-	dw DATA_FF730D				;029A
-	dw DATA_FF7317				;029C
-	dw DATA_FF731E				;029E
-	dw DATA_FF7325				;02A0
-	dw DATA_FF732C				;02A2
-	dw DATA_FF7336				;02A4
-	dw DATA_FF7340				;02A6
-	dw DATA_FF734A				;02A8
-	dw DATA_FF7351				;02AA
-	dw DATA_FF735B				;02AC
-	dw DATA_FF7362				;02AE
-	dw DATA_FF7369				;02B0
-	dw DATA_FF7370				;02B2
-	dw DATA_FF7377				;02B4
-	dw DATA_FF737E				;02B6
-	dw DATA_FF73F9				;02B8
-	dw DATA_FF7403				;02BA
-	dw DATA_FF740A				;02BC
-	dw DATA_FF7414				;02BE
-	dw DATA_FF741B				;02C0
-	dw DATA_FF7428				;02C2
-	dw DATA_FF742F				;02C4
-	dw DATA_FF7436				;02C6
-	dw DATA_FF7440				;02C8
-	dw DATA_FF744A				;02CA
-	dw DATA_FF7454				;02CC
-	dw DATA_FF7461				;02CE
-	dw DATA_FF746B				;02D0
-	dw DATA_FF7478				;02D2
-	dw DATA_FF7482				;02D4
-	dw DATA_FF748C				;02D6
-	dw DATA_FF7499				;02D8
-	dw DATA_FF74A6				;02DA
-	dw DATA_FF74B3				;02DC
-	dw DATA_FF74C0				;02DE
-	dw DATA_FF74CD				;02E0
-	dw DATA_FF74DA				;02E2
-	dw DATA_FF74E4				;02E4
-	dw DATA_FF74F1				;02E6
-	dw DATA_FF74FB				;02E8
-	dw DATA_FF7505				;02EA
-	dw DATA_FF750F				;02EC
-	dw DATA_FF7519				;02EE
-	dw DATA_FF7526				;02F0
-	dw DATA_FF7530				;02F2
-	dw DATA_FF753D				;02F4
-	dw DATA_FF7547				;02F6
-	dw DATA_FF7551				;02F8
-	dw DATA_FF755B				;02FA
-	dw DATA_FF7565				;02FC
-	dw DATA_FF756F				;02FE
-	dw DATA_FF7579				;0300
-	dw DATA_FF7586				;0302
-	dw DATA_FF7590				;0304
-	dw DATA_FF759A				;0306
-	dw DATA_FF75A4				;0308
-	dw DATA_FF75AB				;030A
-	dw DATA_FF75DF				;030C
-	dw DATA_FF75E9				;030E
-	dw DATA_FF75F3				;0310
-	dw DATA_FF75FD				;0312
-	dw DATA_FF7607				;0314
-	dw DATA_FF7611				;0316
-	dw DATA_FF761B				;0318
-	dw DATA_FF7625				;031A
-	dw DATA_FF762F				;031C
-	dw DATA_FF7639				;031E
-	dw DATA_FF7643				;0320
-	dw DATA_FF764D				;0322
-	dw DATA_FF7657				;0324
-	dw DATA_FF7661				;0326
-	dw DATA_FF766B				;0328
-	dw DATA_FF7675				;032A
-	dw DATA_FF767F				;032C
-	dw DATA_FF7689				;032E
-	dw DATA_FF7693				;0330
-	dw DATA_FF769D				;0332
-	dw DATA_FF76A7				;0334
-	dw DATA_FF76B1				;0336
-	dw DATA_FF76BB				;0338
-	dw DATA_FF76C5				;033A
-	dw DATA_FF76CF				;033C
-	dw DATA_FF76D9				;033E
-	dw DATA_FF76E3				;0340
-	dw DATA_FF76ED				;0342
-	dw DATA_FF76F7				;0344
-	dw DATA_FF7715				;0346
-	dw DATA_FF7725				;0348
-	dw DATA_FF7735				;034A
-	dw DATA_FF7745				;034C
-	dw DATA_FF7755				;034E
-	dw DATA_FF7765				;0350
-	dw DATA_FF7775				;0352
-	dw DATA_FF7785				;0354
-	dw DATA_FF7795				;0356
-	dw DATA_FF77A5				;0358
-	dw DATA_FF77B5				;035A
-	dw DATA_FF77C5				;035C
-	dw DATA_FF77D5				;035E
-	dw DATA_FF77E5				;0360
-	dw DATA_FF77F5				;0362
-	dw DATA_FF7805				;0364
-	dw DATA_FF7844				;0366
-	dw DATA_FF7857				;0368
-	dw DATA_FF786A				;036A
-	dw DATA_FF787D				;036C
-	dw DATA_FF7890				;036E
-	dw DATA_FF78A3				;0370
-	dw DATA_FF78B6				;0372
-	dw DATA_FF78CF				;0374
-	dw DATA_FF78FF				;0376
-	dw DATA_FF7906				;0378
-	dw DATA_FF7910				;037A
-	dw DATA_FF7917				;037C
-	dw DATA_FF7921				;037E
-	dw DATA_FF792E				;0380
-	dw DATA_FF793B				;0382
-	dw DATA_FF7945				;0384
-	dw DATA_FF794F				;0386
-	dw DATA_FF7959				;0388
-	dw DATA_FF7963				;038A
-	dw DATA_FF7970				;038C
-	dw DATA_FF797A				;038E
-	dw DATA_FF7A26				;0390
-	dw DATA_FF7A36				;0392
-	dw DATA_FF7A46				;0394
-	dw DATA_FF7A50				;0396
-	dw DATA_FF7A5A				;0398
-	dw DATA_FF7A6A				;039A
-	dw DATA_FF7A7A				;039C
-	dw DATA_FF7A84				;039E
-	dw DATA_FF7A8E				;03A0
-	dw DATA_FF7A98				;03A2
-	dw DATA_FF7AA2				;03A4
-	dw DATA_FF7AAC				;03A6
-	dw DATA_FF7AB6				;03A8
-	dw DATA_FF7AC0				;03AA
-	dw DATA_FF7ACA				;03AC
-	dw DATA_FF7AD4				;03AE
-	dw DATA_FF7ADE				;03B0
-	dw DATA_FF7AE8				;03B2
-	dw DATA_FF7AF2				;03B4
-	dw DATA_FF7AFF				;03B6
-	dw DATA_FF7B0C				;03B8
-	dw DATA_FF7B19				;03BA
-	dw DATA_FF7B23				;03BC
-	dw DATA_FF7B2D				;03BE
-	dw DATA_FF7B37				;03C0
-	dw DATA_FF7B44				;03C2
-	dw DATA_FF7B51				;03C4
-	dw DATA_FF7B5E				;03C6
-	dw DATA_FF7B68				;03C8
-	dw DATA_FF7B72				;03CA
-	dw DATA_FF7B7F				;03CC
-	dw DATA_FF7B89				;03CE
-	dw DATA_FF7B96				;03D0
-	dw DATA_FF7BA3				;03D2
-	dw DATA_FF7BB0				;03D4
-	dw DATA_FF7BBA				;03D6
-	dw DATA_FF7BC7				;03D8
-	dw DATA_FF7BD4				;03DA
-	dw DATA_FF7BE1				;03DC
-	dw DATA_FF7BEE				;03DE
-	dw DATA_FF7BFB				;03E0
-	dw DATA_FF7C08				;03E2
-	dw DATA_FF7C15				;03E4
-	dw DATA_FF7C22				;03E6
-	dw DATA_FF7C2F				;03E8
-	dw DATA_FF7C3C				;03EA
-	dw DATA_FF7C49				;03EC
-	dw DATA_FF7C56				;03EE
-	dw DATA_FF7C63				;03F0
-	dw DATA_FF7C70				;03F2
-	dw DATA_FF7C7D				;03F4
-	dw DATA_FF7C8A				;03F6
-	dw DATA_FF7C97				;03F8
-	dw DATA_FF7CA4				;03FA
-	dw DATA_FF7CB1				;03FC
-	dw DATA_FF7CC1				;03FE
-	dw DATA_FF7CD1				;0400
-	dw DATA_FF7CE1				;0402
-	dw DATA_FF7CF1				;0404
-	dw DATA_FF7CFB				;0406
-	dw DATA_FF7D05				;0408
-	dw DATA_FF7D0F				;040A
-	dw DATA_FF7D19				;040C
-	dw DATA_FF7D23				;040E
-	dw DATA_FF7D2D				;0410
-	dw DATA_FF7D37				;0412
-	dw DATA_FF7D41				;0414
-	dw DATA_FF7D4B				;0416
-	dw DATA_FF7D55				;0418
-	dw DATA_FF7D5F				;041A
-	dw DATA_FF7D69				;041C
-	dw DATA_FF7D73				;041E
-	dw DATA_FF7D7D				;0420
-	dw DATA_FF7D87				;0422
-	dw DATA_FF7D91				;0424
-	dw DATA_FF7D9B				;0426
-	dw DATA_FF7DA5				;0428
-	dw DATA_FF7DAF				;042A
-	dw DATA_FF7DB9				;042C
-	dw DATA_FF7DC6				;042E
-	dw DATA_FF7DD3				;0430
-	dw DATA_FF7DE0				;0432
-	dw DATA_FF7DED				;0434
-	dw DATA_FF7DFA				;0436
-	dw DATA_FF7E07				;0438
-	dw DATA_FF7E14				;043A
-	dw DATA_FF7E21				;043C
-	dw DATA_FF7E2E				;043E
-	dw DATA_FF7E3B				;0440
-	dw DATA_FF7E48				;0442
-	dw DATA_FF7E55				;0444
-	dw DATA_FF7E62				;0446
-	dw DATA_FF7E6F				;0448
-	dw DATA_FF7E7C				;044A
-	dw DATA_FF7E89				;044C
-	dw DATA_FF7E96				;044E
-	dw DATA_FF7EA3				;0450
-	dw DATA_FF7EB0				;0452
-	dw DATA_FF7EBD				;0454
-	dw DATA_FF7ECA				;0456
-	dw DATA_FF7ED7				;0458
-	dw DATA_FF7EE4				;045A
-	dw DATA_FF7EF7				;045C
-	dw DATA_FF7F1C				;045E
-	dw DATA_FF7F41				;0460
-	dw DATA_FF7F66				;0462
-	dw DATA_FF7F8B				;0464
-	dw DATA_FF7FB0				;0466
-	dw DATA_FF7FD5				;0468
-	dw DATA_FF7FFA				;046A
-	dw DATA_FF801F				;046C
-	dw DATA_FF8044				;046E
-	dw DATA_FF806C				;0470
-	dw DATA_FF8094				;0472
-	dw DATA_FF80A7				;0474
-	dw DATA_FF8109				;0476
-	dw DATA_FF8110				;0478
-	dw DATA_FF8117				;047A
-	dw DATA_FF811E				;047C
-	dw DATA_FF8125				;047E
-	dw DATA_FF8135				;0480
-	dw DATA_FF813F				;0482
-	dw DATA_FF8149				;0484
-	dw DATA_FF8153				;0486
-	dw DATA_FF8163				;0488
-	dw DATA_FF8173				;048A
-	dw DATA_FF817D				;048C
-	dw DATA_FF8187				;048E
-	dw DATA_FF8191				;0490
-	dw DATA_FF81A1				;0492
-	dw DATA_FF81B1				;0494
-	dw DATA_FF81BB				;0496
-	dw DATA_FF81C5				;0498
-	dw DATA_FF81CF				;049A
-	dw DATA_FF81DC				;049C
-	dw DATA_FF81E9				;049E
-	dw DATA_FF81F9				;04A0
-	dw DATA_FF8209				;04A2
-	dw DATA_FF8219				;04A4
-	dw DATA_FF8226				;04A6
-	dw DATA_FF8233				;04A8
-	dw DATA_FF8240				;04AA
-	dw DATA_FF824D				;04AC
-	dw DATA_FF825A				;04AE
-	dw DATA_FF826A				;04B0
-	dw DATA_FF827A				;04B2
-	dw DATA_FF8287				;04B4
-	dw DATA_FF8294				;04B6
-	dw DATA_FF82A1				;04B8
-	dw DATA_FF82AB				;04BA
-	dw DATA_FF82B5				;04BC
-	dw DATA_FF82BF				;04BE
-	dw DATA_FF82C9				;04C0
-	dw DATA_FF82D3				;04C2
-	dw DATA_FF82E0				;04C4
-	dw DATA_FF82EA				;04C6
-	dw DATA_FF82F4				;04C8
-	dw DATA_FF8301				;04CA
-	dw DATA_FF8308				;04CC
-	dw DATA_FF8340				;04CE
-	dw DATA_FF834A				;04D0
-	dw DATA_FF8354				;04D2
-	dw DATA_FF835E				;04D4
-	dw DATA_FF8368				;04D6
-	dw DATA_FF83AD				;04D8
-	dw DATA_FF83C3				;04DA
-	dw DATA_FF842F				;04DC
-	dw DATA_FF8436				;04DE
-	dw DATA_FF843D				;04E0
-	dw DATA_FF8444				;04E2
-	dw DATA_FF844B				;04E4
-	dw DATA_FF8452				;04E6
-	dw DATA_FF8460				;04E8
-	dw DATA_FF846D				;04EA
-	dw DATA_FF847A				;04EC
-	dw DATA_FF8487				;04EE
-	dw DATA_FF8491				;04F0
-	dw DATA_FF849B				;04F2
-	dw DATA_FF84A5				;04F4
-	dw DATA_FF84AF				;04F6
-	dw DATA_FF84BC				;04F8
-	dw DATA_FF84C9				;04FA
-	dw DATA_FF84D6				;04FC
-	dw DATA_FF84E0				;04FE
-	dw DATA_FF84EA				;0500
-	dw DATA_FF84F4				;0502
-	dw DATA_FF84FE				;0504
-	dw DATA_FF850B				;0506
-	dw DATA_FF8518				;0508
-	dw DATA_FF8522				;050A
-	dw DATA_FF852C				;050C
-	dw DATA_FF853C				;050E
-	dw DATA_FF8549				;0510
-	dw DATA_FF8553				;0512
-	dw DATA_FF8560				;0514
-	dw DATA_FF856A				;0516
-	dw DATA_FF8574				;0518
-	dw DATA_FF857E				;051A
-	dw DATA_FF8588				;051C
-	dw DATA_FF858F				;051E
-	dw DATA_FF8596				;0520
-	dw DATA_FF859D				;0522
-	dw DATA_FF85FA				;0524
-	dw DATA_FF860A				;0526
-	dw DATA_FF861A				;0528
-	dw DATA_FF862A				;052A
-	dw DATA_FF863A				;052C
-	dw DATA_FF864A				;052E
-	dw DATA_FF8654				;0530
-	dw DATA_FF865E				;0532
-	dw DATA_FF8668				;0534
-	dw DATA_FF8672				;0536
-	dw DATA_FF867C				;0538
-	dw DATA_FF8686				;053A
-	dw DATA_FF8690				;053C
-	dw DATA_FF869A				;053E
-	dw DATA_FF86A7				;0540
-	dw DATA_FF86B4				;0542
-	dw DATA_FF8708				;0544
-	dw DATA_FF871E				;0546
-	dw DATA_FF8731				;0548
-	dw DATA_FF8744				;054A
-	dw DATA_FF8757				;054C
-	dw DATA_FF876D				;054E
-	dw DATA_FF8780				;0550
-	dw DATA_FF8796				;0552
-	dw DATA_FF87A9				;0554
-	dw DATA_FF87BF				;0556
-	dw DATA_FF87D5				;0558
-	dw DATA_FF87E8				;055A
-	dw DATA_FF87FE				;055C
-	dw DATA_FF8808				;055E
-	dw DATA_FF8812				;0560
-	dw DATA_FF881F				;0562
-	dw DATA_FF882C				;0564
-	dw DATA_FF8836				;0566
-	dw DATA_FF8843				;0568
-	dw DATA_FF884D				;056A
-	dw DATA_FF8857				;056C
-	dw DATA_FF886D				;056E
-	dw DATA_FF8883				;0570
-	dw DATA_FF88D0				;0572
-	dw DATA_FF88DA				;0574
-	dw DATA_FF88E7				;0576
-	dw DATA_FF88F1				;0578
-	dw DATA_FF88FB				;057A
-	dw DATA_FF8905				;057C
-	dw DATA_FF890F				;057E
-	dw DATA_FF8919				;0580
-	dw DATA_FF894C				;0582
-	dw DATA_FF8959				;0584
-	dw DATA_FF8966				;0586
-	dw DATA_FF8973				;0588
-	dw DATA_FF8980				;058A
-	dw DATA_FF89B7				;058C
-	dw DATA_FF89C7				;058E
-	dw DATA_FF89D7				;0590
-	dw DATA_FF89E7				;0592
-	dw DATA_FF89F7				;0594
-	dw DATA_FF8A07				;0596
-	dw DATA_FF8A17				;0598
-	dw DATA_FF8A27				;059A
-	dw DATA_FF8A37				;059C
-	dw DATA_FF8A47				;059E
-	dw DATA_FF8A57				;05A0
-	dw DATA_FF8A67				;05A2
-	dw DATA_FF8A6B				;05A4
-	dw DATA_FF8AB2				;05A6
-	dw DATA_FF8ABC				;05A8
-	dw DATA_FF8AC9				;05AA
-	dw DATA_FF8AD9				;05AC
-	dw DATA_FF8B2E				;05AE
-	dw DATA_FF8B38				;05B0
-	dw DATA_FF8B42				;05B2
-	dw DATA_FF8B4C				;05B4
-	dw DATA_FF8B56				;05B6
-	dw DATA_FF8B60				;05B8
-	dw DATA_FF8B6A				;05BA
-	dw DATA_FF8B74				;05BC
-	dw DATA_FF8B7E				;05BE
-	dw DATA_FF8B88				;05C0
-	dw DATA_FF8B92				;05C2
-	dw DATA_FF8B9C				;05C4
-	dw DATA_FF8BA6				;05C6
-	dw DATA_FF8BB6				;05C8
-	dw DATA_FF8BBD				;05CA
-	dw DATA_FF8BC4				;05CC
-	dw DATA_FF8BCB				;05CE
-	dw DATA_FF8BD2				;05D0
-	dw DATA_FF8BD9				;05D2
-	dw DATA_FF8C7C				;05D4
-	dw DATA_FF8C86				;05D6
-	dw DATA_FF8C90				;05D8
-	dw DATA_FF8C9A				;05DA
-	dw DATA_FF8CA4				;05DC
-	dw DATA_FF8CAE				;05DE
-	dw DATA_FF8CB8				;05E0
-	dw DATA_FF8CC2				;05E2
-	dw DATA_FF8CCC				;05E4
-	dw DATA_FF8CD6				;05E6
-	dw DATA_FF8CDD				;05E8
-	dw DATA_FF8CE4				;05EA
-	dw DATA_FF8CEB				;05EC
-	dw DATA_FF8CF2				;05EE
-	dw DATA_FF8CFC				;05F0
-	dw DATA_FF8D03				;05F2
-	dw DATA_FF8D13				;05F4
-	dw DATA_FF8D68				;05F6
-	dw DATA_FF8D72				;05F8
-	dw DATA_FF8D7C				;05FA
-	dw DATA_FF8D86				;05FC
-	dw DATA_FF8D90				;05FE
-	dw DATA_FF8D9A				;0600
-	dw DATA_FF8DAA				;0602
-	dw DATA_FF8DB1				;0604
-	dw DATA_FF8DB8				;0606
-	dw DATA_FF8DBF				;0608
-	dw DATA_FF8DC6				;060A
-	dw DATA_FF8DE6				;060C
-	dw DATA_FF8DF6				;060E
-	dw DATA_FF8E03				;0610
-	dw DATA_FF8E10				;0612
-	dw DATA_FF8E20				;0614
-	dw DATA_FF8E30				;0616
-	dw DATA_FF8E43				;0618
-	dw DATA_FF8E50				;061A
-	dw DATA_FF8E60				;061C
-	dw DATA_FF8E73				;061E
-	dw DATA_FF8E86				;0620
-	dw DATA_FF8E93				;0622
-	dw DATA_FF8EA3				;0624
-	dw DATA_FF8EB9				;0626
-	dw DATA_FF8EC6				;0628
-	dw DATA_FF8ED3				;062A
-	dw DATA_FF8EE0				;062C
-	dw DATA_FF8EF0				;062E
-	dw DATA_FF8F03				;0630
-	dw DATA_FF8F16				;0632
-	dw DATA_FF8F52				;0634
-	dw DATA_FF8F65				;0636
-	dw DATA_FF8F78				;0638
-	dw DATA_FF8F8B				;063A
-	dw DATA_FF8F9E				;063C
-	dw DATA_FF8FB1				;063E
-	dw DATA_FF8FC4				;0640
-	dw DATA_FF8FD7				;0642
-	dw DATA_FF901C				;0644
-	dw DATA_FF903B				;0646
-	dw DATA_FF905A				;0648
-	dw DATA_FF9076				;064A
-	dw DATA_FF9095				;064C
-	dw DATA_FF90B4				;064E
-	dw DATA_FF90D3				;0650
-	dw DATA_FF90F2				;0652
-	dw DATA_FF9111				;0654
-	dw DATA_FF9229				;0656
-	dw DATA_FF922D				;0658
-	dw DATA_FF9231				;065A
-	dw DATA_FF923B				;065C
-	dw DATA_FF9242				;065E
-	dw DATA_FF9249				;0660
-	dw DATA_FF9253				;0662
-	dw DATA_FF925A				;0664
-	dw DATA_FF926A				;0666
-	dw DATA_FF927A				;0668
-	dw DATA_FF928A				;066A
-	dw DATA_FF929A				;066C
-	dw DATA_FF92BD				;066E
-	dw DATA_FF92CA				;0670
-	dw DATA_FF92D4				;0672
-	dw DATA_FF92DE				;0674
-	dw DATA_FF92E8				;0676
-	dw DATA_FF92F5				;0678
-	dw DATA_FF92FF				;067A
-	dw DATA_FF9309				;067C
-	dw DATA_FF9313				;067E
-	dw DATA_FF931D				;0680
-	dw DATA_FF9327				;0682
-	dw DATA_FF9331				;0684
-	dw DATA_FF933E				;0686
-	dw DATA_FF934E				;0688
-	dw DATA_FF935E				;068A
-	dw DATA_FF9368				;068C
-	dw DATA_FF9372				;068E
-	dw DATA_FF937C				;0690
-	dw DATA_FF9386				;0692
-	dw DATA_FF9396				;0694
-	dw DATA_FF93A0				;0696
-	dw DATA_FF93AD				;0698
-	dw DATA_FF93BA				;069A
-	dw DATA_FF93C7				;069C
-	dw DATA_FF93D4				;069E
-	dw DATA_FF93DE				;06A0
-	dw DATA_FF93E8				;06A2
-	dw DATA_FF93F5				;06A4
-	dw DATA_FF9402				;06A6
-	dw DATA_FF940F				;06A8
-	dw DATA_FF941C				;06AA
-	dw DATA_FF942C				;06AC
-	dw DATA_FF943C				;06AE
-	dw DATA_FF944C				;06B0
-	dw DATA_FF9459				;06B2
-	dw DATA_FF9469				;06B4
-	dw DATA_FF9479				;06B6
-	dw DATA_FF952F				;06B8
-	dw DATA_FF953C				;06BA
-	dw DATA_FF9549				;06BC
-	dw DATA_FF9556				;06BE
-	dw DATA_FF9563				;06C0
-	dw DATA_FF9570				;06C2
-	dw DATA_FF957D				;06C4
-	dw DATA_FF958A				;06C6
-	dw DATA_FF9591				;06C8
-	dw DATA_FF9598				;06CA
-	dw DATA_FF959F				;06CC
-	dw DATA_FF95A6				;06CE
-	dw DATA_FF95AD				;06D0
-	dw DATA_FF95B4				;06D2
-	dw DATA_FF95BB				;06D4
-	dw DATA_FF95C2				;06D6
-	dw DATA_FF95C9				;06D8
-	dw DATA_FF95D0				;06DA
-	dw DATA_FF95DD				;06DC
-	dw DATA_FF95EA				;06DE
-	dw DATA_FF95F7				;06E0
-	dw DATA_FF9604				;06E2
-	dw DATA_FF9611				;06E4
-	dw DATA_FF961E				;06E6
-	dw DATA_FF9625				;06E8
-	dw DATA_FF962C				;06EA
-	dw DATA_FF9633				;06EC
-	dw DATA_FF96C5				;06EE
-	dw DATA_FF96D8				;06F0
-	dw DATA_FF96E8				;06F2
-	dw DATA_FF96F5				;06F4
-	dw DATA_FF9702				;06F6
-	dw DATA_FF9712				;06F8
-	dw DATA_FF9722				;06FA
-	dw DATA_FF972F				;06FC
-	dw DATA_FF973C				;06FE
-	dw DATA_FF9749				;0700
-	dw DATA_FF9756				;0702
-	dw DATA_FF9766				;0704
-	dw DATA_FF9779				;0706
-	dw DATA_FF9786				;0708
-	dw DATA_FF9793				;070A
-	dw DATA_FF979D				;070C
-	dw DATA_FF97AD				;070E
-	dw DATA_FF97BD				;0710
-	dw DATA_FF97CD				;0712
-	dw DATA_FF97DD				;0714
-	dw DATA_FF97F0				;0716
-	dw DATA_FF9800				;0718
-	dw DATA_FF9810				;071A
-	dw DATA_FF9826				;071C
-	dw DATA_FF983C				;071E
-	dw DATA_FF98D3				;0720
-	dw DATA_FF98E0				;0722
-	dw DATA_FF98EA				;0724
-	dw DATA_FF98F4				;0726
-	dw DATA_FF9907				;0728
-	dw DATA_FF991A				;072A
-	dw DATA_FF992D				;072C
-	dw DATA_FF9940				;072E
-	dw DATA_FF9953				;0730
-	dw DATA_FF9966				;0732
-	dw DATA_FF9979				;0734
-	dw DATA_FF998C				;0736
-	dw DATA_FF999F				;0738
-	dw DATA_FF99B2				;073A
-	dw DATA_FF99C5				;073C
-	dw DATA_FF99D2				;073E
-	dw DATA_FF99DF				;0740
-	dw DATA_FF99EC				;0742
-	dw DATA_FF99F9				;0744
-	dw DATA_FF9A06				;0746
-	dw DATA_FF9A13				;0748
-	dw DATA_FF9A20				;074A
-	dw DATA_FF9A2D				;074C
-	dw DATA_FF9A3A				;074E
-	dw DATA_FF9A47				;0750
-	dw DATA_FF9A54				;0752
-	dw DATA_FF9A61				;0754
-	dw DATA_FF9A6E				;0756
-	dw DATA_FF9A7B				;0758
-	dw DATA_FF9A88				;075A
-	dw DATA_FF9A95				;075C
-	dw DATA_FF9AA2				;075E
-	dw DATA_FF9AAF				;0760
-	dw DATA_FF9ABC				;0762
-	dw DATA_FF9AC9				;0764
-	dw DATA_FF9AD6				;0766
-	dw DATA_FF9AE3				;0768
-	dw DATA_FF9AF0				;076A
-	dw DATA_FF9B04				;076C
-	dw DATA_FF9B14				;076E
-	dw DATA_FF9B24				;0770
-	dw DATA_FF9B34				;0772
-	dw DATA_FF9B44				;0774
-	dw DATA_FF9B54				;0776
-	dw DATA_FF9B64				;0778
-	dw DATA_FF9B74				;077A
-	dw DATA_FF9B84				;077C
-	dw DATA_FF9B94				;077E
-	dw DATA_FF9BA4				;0780
-	dw DATA_FF9BB4				;0782
-	dw DATA_FF9BC4				;0784
-	dw DATA_FF9BD4				;0786
-	dw DATA_FF9BE4				;0788
-	dw DATA_FF9BF4				;078A
-	dw DATA_FF9C04				;078C
-	dw DATA_FF9C65				;078E
-	dw DATA_FF9C72				;0790
-	dw DATA_FF9C79				;0792
-	dw DATA_FF9CCF				;0794
-	dw DATA_FF9CD9				;0796
-	dw DATA_FF9CE3				;0798
-	dw DATA_FF9CED				;079A
-	dw DATA_FF9CF7				;079C
-	dw DATA_FF9D01				;079E
-	dw DATA_FF9D0B				;07A0
-	dw DATA_FF9D15				;07A2
-	dw DATA_FF9D1F				;07A4
-	dw DATA_FF9D2C				;07A6
-	dw DATA_FF9D39				;07A8
-	dw DATA_FF9D46				;07AA
-	dw DATA_FF9D75				;07AC
-	dw DATA_FF9D97				;07AE
-	dw DATA_FF9DD7				;07B0
-	dw DATA_FF9EA5				;07B2
-	dw DATA_FF9EC8				;07B4
-	dw DATA_FF9ED3				;07B6
-	dw DATA_FF9EE1				;07B8
-	dw DATA_FF9EEF				;07BA
-	dw DATA_FF9F19				;07BC
-	dw DATA_FF9F24				;07BE
-	dw DATA_FF9F35				;07C0
-	dw DATA_FF9F46				;07C2
-	dw DATA_FF9F57				;07C4
-	dw DATA_FF9F62				;07C6
-	dw DATA_FFA10B				;07C8
-	dw DATA_FFA124				;07CA
-	dw DATA_FFA12E				;07CC
-	dw DATA_FFA138				;07CE
-	dw DATA_FFA148				;07D0
-	dw DATA_FFA158				;07D2
-	dw DATA_FFA168				;07D4
-	dw DATA_FFA172				;07D6
-	dw DATA_FFA17C				;07D8
-	dw DATA_FFA186				;07DA
-	dw DATA_FFA190				;07DC
-	dw DATA_FFA19A				;07DE
-	dw DATA_FFA1A4				;07E0
-	dw DATA_FFA1AE				;07E2
-	dw DATA_FFA1B8				;07E4
-	dw DATA_FFA1C2				;07E6
-	dw DATA_FFA1CC				;07E8
-	dw DATA_FFA1D6				;07EA
-	dw DATA_FFA1E0				;07EC
-	dw DATA_FFA1EA				;07EE
-	dw DATA_FFA1F4				;07F0
-	dw DATA_FFA1FE				;07F2
-	dw DATA_FFA208				;07F4
-	dw DATA_FFA212				;07F6
-	dw DATA_FFA21C				;07F8
-	dw DATA_FFA226				;07FA
-	dw DATA_FFA230				;07FC
-	dw DATA_FFA23D				;07FE
-	dw DATA_FFA24A				;0800
-	dw DATA_FFA257				;0802
-	dw DATA_FFA264				;0804
-	dw DATA_FFA271				;0806
-	dw DATA_FFA27B				;0808
-	dw DATA_FFA285				;080A
-	dw DATA_FFA28F				;080C
-	dw DATA_FFA29C				;080E
-	dw DATA_FFA2A6				;0810
-	dw DATA_FFA2B0				;0812
-	dw DATA_FFA2BA				;0814
-	dw DATA_FFA2C4				;0816
-	dw DATA_FFA2CE				;0818
-	dw DATA_FFA2D8				;081A
-	dw DATA_FFA2E5				;081C
-	dw DATA_FFA2EF				;081E
-	dw DATA_FFA2F9				;0820
-	dw DATA_FFA303				;0822
-	dw DATA_FFA310				;0824
-	dw DATA_FFA31A				;0826
-	dw DATA_FFA324				;0828
-	dw DATA_FFA32E				;082A
-	dw DATA_FFA338				;082C
-	dw DATA_FFA342				;082E
-	dw DATA_FFA34F				;0830
-	dw DATA_FFA359				;0832
-	dw DATA_FFA363				;0834
-	dw DATA_FFA36D				;0836
-	dw DATA_FFA377				;0838
-	dw DATA_FFA381				;083A
-	dw DATA_FFA38B				;083C
-	dw DATA_FFA395				;083E
-	dw DATA_FFA39F				;0840
-	dw DATA_FFA3A9				;0842
-	dw DATA_FFA3B3				;0844
-	dw DATA_FFA3BD				;0846
-	dw DATA_FFA3C7				;0848
-	dw DATA_FFA3D1				;084A
-	dw DATA_FFA3DB				;084C
-	dw DATA_FFA3E8				;084E
-	dw DATA_FFA3F5				;0850
-	dw DATA_FFA402				;0852
-	dw DATA_FFA40F				;0854
-	dw DATA_FFA41C				;0856
-	dw DATA_FFA429				;0858
-	dw DATA_FFA436				;085A
-	dw DATA_FFA443				;085C
-	dw DATA_FFA450				;085E
-	dw DATA_FFA45D				;0860
-	dw DATA_FFA46A				;0862
-	dw DATA_FFA477				;0864
-	dw DATA_FFA484				;0866
-	dw DATA_FFA491				;0868
-	dw DATA_FFA49E				;086A
-	dw DATA_FFA4AB				;086C
-	dw DATA_FFA4B8				;086E
-	dw DATA_FFA4C5				;0870
-	dw DATA_FFA4D2				;0872
-	dw DATA_FFA4DF				;0874
-	dw DATA_FFA4EC				;0876
-	dw DATA_FFA4F9				;0878
-	dw DATA_FFA506				;087A
-	dw DATA_FFA513				;087C
-	dw DATA_FFA520				;087E
-	dw DATA_FFA52D				;0880
-	dw DATA_FFA53A				;0882
-	dw DATA_FFA547				;0884
-	dw DATA_FFA554				;0886
-	dw DATA_FFA561				;0888
-	dw DATA_FFA56E				;088A
-	dw DATA_FFA57B				;088C
-	dw DATA_FFA588				;088E
-	dw DATA_FFA595				;0890
-	dw DATA_FFA5A2				;0892
-	dw DATA_FFA5AF				;0894
-	dw DATA_FFA5BC				;0896
-	dw DATA_FFA5C9				;0898
-	dw DATA_FFA5D6				;089A
-	dw DATA_FFA5E3				;089C
-	dw DATA_FFA5F0				;089E
-	dw DATA_FFA5FD				;08A0
-	dw DATA_FFA60A				;08A2
-	dw DATA_FFA617				;08A4
-	dw DATA_FFA624				;08A6
-	dw DATA_FFA62E				;08A8
-	dw DATA_FFA638				;08AA
-	dw DATA_FFA642				;08AC
-	dw DATA_FFA64C				;08AE
-	dw DATA_FFA656				;08B0
-	dw DATA_FFA660				;08B2
-	dw DATA_FFA66A				;08B4
-	dw DATA_FFA674				;08B6
-	dw DATA_FFA67E				;08B8
-	dw DATA_FFA691				;08BA
-	dw DATA_FFA69B				;08BC
-	dw DATA_FFA6B9				;08BE
-	dw DATA_FFA6C3				;08C0
-	dw DATA_FFA6CD				;08C2
-	dw DATA_FFA6D7				;08C4
-	dw DATA_FFA6E1				;08C6
-	dw DATA_FFA6EB				;08C8
-	dw DATA_FFA6F5				;08CA
-	dw DATA_FFA6FF				;08CC
-	dw DATA_FFA706				;08CE
-	dw DATA_FFA70D				;08D0
-	dw DATA_FFA714				;08D2
-	dw DATA_FFA71E				;08D4
-	dw DATA_FFA725				;08D6
-	dw DATA_FFA72C				;08D8
-	dw DATA_FFA733				;08DA
-	dw DATA_FFA743				;08DC
-	dw DATA_FFA7A3				;08DE
-	dw DATA_FFA7B0				;08E0
-	dw DATA_FFA7BD				;08E2
-	dw DATA_FFA7CA				;08E4
-	dw DATA_FFA7D7				;08E6
-	dw DATA_FFA7E4				;08E8
-	dw DATA_FFA7F1				;08EA
-	dw DATA_FFA7FE				;08EC
-	dw DATA_FFA80B				;08EE
-	dw DATA_FFA818				;08F0
-	dw DATA_FFA828				;08F2
-	dw DATA_FFA838				;08F4
-	dw DATA_FFA848				;08F6
-	dw DATA_FFA858				;08F8
-	dw DATA_FFA868				;08FA
-	dw DATA_FFA878				;08FC
-	dw DATA_FFA888				;08FE
-	dw DATA_FFA898				;0900
-	dw DATA_FFA8A8				;0902
-	dw DATA_FFA8B8				;0904
-	dw DATA_FFA8C5				;0906
-	dw DATA_FFA8D2				;0908
-	dw DATA_FFA8DF				;090A
-	dw DATA_FFA8EC				;090C
-	dw DATA_FFA8F9				;090E
-	dw DATA_FFA906				;0910
-	dw DATA_FFA913				;0912
-	dw DATA_FFA920				;0914
-	dw DATA_FFA92D				;0916
-	dw DATA_FFA93A				;0918
-	dw DATA_FFA983				;091A
-	dw DATA_FFA99C				;091C
-	dw DATA_FFA9B5				;091E
-	dw DATA_FFA9CE				;0920
-	dw DATA_FFA9E7				;0922
-	dw DATA_FFAA00				;0924
-	dw DATA_FFAA19				;0926
-	dw DATA_FFAA32				;0928
-	dw DATA_FFAA4B				;092A
-	dw DATA_FFAA64				;092C
-	dw DATA_FFAA7D				;092E
-	dw DATA_FFAA96				;0930
-	dw DATA_FFAAAF				;0932
-	dw DATA_FFAAC8				;0934
-	dw DATA_FFAAE1				;0936
-	dw DATA_FFAAFA				;0938
-	dw DATA_FFAB13				;093A
-	dw DATA_FFAB2C				;093C
-	dw DATA_FFAB45				;093E
-	dw DATA_FFAB67				;0940
-	dw DATA_FFAB89				;0942
-	dw DATA_FFABAB				;0944
-	dw DATA_FFABCD				;0946
-	dw DATA_FFABEF				;0948
-	dw DATA_FFAC11				;094A
-	dw DATA_FFAC33				;094C
-	dw DATA_FFAC55				;094E
-	dw DATA_FFAC77				;0950
-	dw DATA_FFAC99				;0952
-	dw DATA_FFACBB				;0954
-	dw DATA_FFACDD				;0956
-	dw DATA_FFACFF				;0958
-	dw DATA_FFAD21				;095A
-	dw DATA_FFAD43				;095C
-	dw DATA_FFAD65				;095E
-	dw DATA_FFAD87				;0960
-	dw DATA_FFAD94				;0962
-	dw DATA_FFADA1				;0964
-	dw DATA_FFADAE				;0966
-	dw DATA_FFADBB				;0968
-	dw DATA_FFADC5				;096A
-	dw DATA_FFADCE				;096C
-	dw DATA_FFADD8				;096E
-	dw DATA_FFADE2				;0970
-	dw DATA_FFADEC				;0972
-	dw DATA_FFADF6				;0974
-	dw DATA_FFADFD				;0976
-	dw DATA_FFAE04				;0978
-	dw DATA_FFAE0B				;097A
-	dw DATA_FFAE12				;097C
-	dw DATA_FFAE1C				;097E
-	dw DATA_FFAE26				;0980
-	dw DATA_FFAE30				;0982
-	dw DATA_FFAE3A				;0984
-	dw DATA_FFAE44				;0986
-	dw DATA_FFAE4E				;0988
-	dw DATA_FFAE58				;098A
-	dw DATA_FFAE62				;098C
-	dw DATA_FFAE6C				;098E
-	dw DATA_FFAE76				;0990
-	dw DATA_FFAE80				;0992
-	dw DATA_FFAE8A				;0994
-	dw DATA_FFAE91				;0996
-	dw DATA_FFAE98				;0998
-	dw DATA_FFAE9F				;099A
-	dw DATA_FFAEA9				;099C
-	dw DATA_FFAEB3				;099E
-	dw DATA_FFAEBD				;09A0
-	dw DATA_FFAEC7				;09A2
-	dw DATA_FFAED1				;09A4
-	dw DATA_FFAEDB				;09A6
-	dw DATA_FFAEE5				;09A8
-	dw DATA_FFAEEF				;09AA
-	dw DATA_FFAEF9				;09AC
-	dw DATA_FFAF09				;09AE
-	dw DATA_FFAF19				;09B0
-	dw DATA_FFAF29				;09B2
-	dw DATA_FFAF39				;09B4
-	dw DATA_FFAF49				;09B6
-	dw DATA_FFAF59				;09B8
-	dw DATA_FFAF69				;09BA
-	dw DATA_FFAF79				;09BC
-	dw DATA_FFAF89				;09BE
-	dw DATA_FFAF99				;09C0
-	dw DATA_FFAFA9				;09C2
-	dw DATA_FFAFBC				;09C4
-	dw DATA_FFAFCC				;09C6
-	dw DATA_FFAFDC				;09C8
-	dw DATA_FFAFEC				;09CA
-	dw DATA_FFAFFC				;09CC
-	dw DATA_FFB00C				;09CE
-	dw DATA_FFB01C				;09D0
-	dw DATA_FFB02C				;09D2
-	dw DATA_FFB03C				;09D4
-	dw DATA_FFB04C				;09D6
-	dw DATA_FFB05C				;09D8
-	dw DATA_FFB06C				;09DA
-	dw DATA_FFB07C				;09DC
-	dw DATA_FFB08C				;09DE
-	dw DATA_FFB09C				;09E0
-	dw DATA_FFB0AC				;09E2
-	dw DATA_FFB0BC				;09E4
-	dw DATA_FFB0D2				;09E6
-	dw DATA_FFB0E2				;09E8
-	dw DATA_FFB0F2				;09EA
-	dw DATA_FFB102				;09EC
-	dw DATA_FFB112				;09EE
-	dw DATA_FFB122				;09F0
-	dw DATA_FFB132				;09F2
-	dw DATA_FFB142				;09F4
-	dw DATA_FFB152				;09F6
-	dw DATA_FFB162				;09F8
-	dw DATA_FFB172				;09FA
-	dw DATA_FFB182				;09FC
-	dw DATA_FFB192				;09FE
-	dw DATA_FFB1A2				;0A00
-	dw DATA_FFB1B2				;0A02
-	dw DATA_FFB1C2				;0A04
-	dw DATA_FFB1D2				;0A06
-	dw DATA_FFB1E2				;0A08
-	dw DATA_FFB1F2				;0A0A
-	dw DATA_FFB202				;0A0C
-	dw DATA_FFB212				;0A0E
-	dw DATA_FFB222				;0A10
-	dw DATA_FFB232				;0A12
-	dw DATA_FFB245				;0A14
-	dw DATA_FFB258				;0A16
-	dw DATA_FFB2A6				;0A18
-	dw DATA_FFB2B6				;0A1A
-	dw DATA_FFB2C9				;0A1C
-	dw DATA_FFB2DC				;0A1E
-	dw DATA_FFB2EF				;0A20
-	dw DATA_FFB302				;0A22
-	dw DATA_FFB315				;0A24
-	dw DATA_FFB328				;0A26
-	dw DATA_FFB33B				;0A28
-	dw DATA_FFB34E				;0A2A
-	dw DATA_FFB361				;0A2C
-	dw DATA_FFB374				;0A2E
-	dw DATA_FFB387				;0A30
-	dw DATA_FFB39A				;0A32
-	dw DATA_FFB3AD				;0A34
-	dw DATA_FFB3C0				;0A36
-	dw DATA_FFB3D3				;0A38
-	dw DATA_FFB3DA				;0A3A
-	dw DATA_FFB49F				;0A3C
-	dw DATA_FFB4AF				;0A3E
-	dw DATA_FFB4BC				;0A40
-	dw DATA_FFB4CC				;0A42
-	dw DATA_FFB4DC				;0A44
-	dw DATA_FFB4EC				;0A46
-	dw DATA_FFB4F9				;0A48
-	dw DATA_FFB506				;0A4A
-	dw DATA_FFB513				;0A4C
-	dw DATA_FFB520				;0A4E
-	dw DATA_FFB536				;0A50
-	dw DATA_FFB566				;0A52
-	dw DATA_FFB5A3				;0A54
-	dw DATA_FFB5E9				;0A56
-	dw DATA_FFB62F				;0A58
-	dw DATA_FFB675				;0A5A
-	dw DATA_FFB6BB				;0A5C
-	dw DATA_FFB701				;0A5E
-	dw DATA_FFB747				;0A60
-	dw DATA_FFB78D				;0A62
-	dw DATA_FFB7D6				;0A64
-	dw DATA_FFB81C				;0A66
-	dw DATA_FFB862				;0A68
-	dw DATA_FFB8BC				;0A6A
-	dw DATA_FFB902				;0A6C
-	dw DATA_FFB948				;0A6E
-	dw DATA_FFB98E				;0A70
-	dw DATA_FFB9D4				;0A72
-	dw DATA_FFBA1A				;0A74
-	dw DATA_FFBA60				;0A76
-	dw DATA_FFBAA6				;0A78
-	dw DATA_FFBAEC				;0A7A
-	dw DATA_FFBB32				;0A7C
-	dw DATA_FFBB78				;0A7E
-	dw DATA_FFBBC1				;0A80
-	dw DATA_FFBC07				;0A82
-	dw DATA_FFBC70				;0A84
-	dw DATA_FFBC7A				;0A86
-	dw DATA_FFBCA0				;0A88
-	dw DATA_FFBCAA				;0A8A
-	dw DATA_FFBCD0				;0A8C
-	dw DATA_FFBCDA				;0A8E
-	dw DATA_FFBD00				;0A90
-	dw DATA_FFBD0A				;0A92
-	dw DATA_FFBD30				;0A94
-	dw DATA_FFBD3A				;0A96
-	dw DATA_FFBD44				;0A98
-	dw DATA_FFBD54				;0A9A
-	dw DATA_FFBD7F				;0A9C
-	dw DATA_FFBD86				;0A9E
-	dw DATA_FFBD93				;0AA0
-	dw DATA_FFBDA0				;0AA2
-	dw DATA_FFBDAA				;0AA4
-	dw DATA_FFBDCC				;0AA6
-	dw DATA_FFBDFB				;0AA8
-	dw DATA_FFBE08				;0AAA
+	dw unplaced_level_sprite_0000_spawn_script	;0000
+	dw unplaced_level_sprite_0002_spawn_script	;0002
+	dw unplaced_level_sprite_0004_spawn_script	;0004
+	dw unplaced_level_sprite_0006_spawn_script	;0006
+	dw unplaced_level_sprite_0008_spawn_script	;0008
+	dw level_sprite_000A_spawn_script		;000A
+	dw level_sprite_000C_spawn_script		;000C
+	dw level_sprite_000E_spawn_script		;000E
+	dw level_sprite_0010_spawn_script		;0010
+	dw level_sprite_0012_spawn_script		;0012
+	dw level_sprite_0014_spawn_script		;0014
+	dw level_sprite_0016_spawn_script		;0016
+	dw level_sprite_0018_spawn_script		;0018
+	dw level_sprite_001A_spawn_script		;001A
+	dw level_sprite_001C_spawn_script		;001C
+	dw level_sprite_001E_spawn_script		;001E
+	dw level_sprite_0020_spawn_script		;0020
+	dw level_sprite_0022_spawn_script		;0022
+	dw unplaced_level_sprite_0024_spawn_script	;0024
+	dw level_sprite_0026_spawn_script		;0026
+	dw level_sprite_0028_spawn_script		;0028
+	dw level_sprite_002A_spawn_script		;002A
+	dw level_sprite_002C_spawn_script		;002C
+	dw level_sprite_002E_spawn_script		;002E
+	dw level_sprite_0030_spawn_script		;0030
+	dw level_sprite_0032_spawn_script		;0032
+	dw level_sprite_0034_spawn_script		;0034
+	dw level_sprite_0036_spawn_script		;0036
+	dw level_sprite_0038_spawn_script		;0038
+	dw level_sprite_003A_spawn_script		;003A
+	dw level_sprite_003C_spawn_script		;003C
+	dw level_sprite_003E_spawn_script		;003E
+	dw level_sprite_0040_spawn_script		;0040
+	dw level_sprite_0042_spawn_script		;0042
+	dw level_sprite_0044_spawn_script		;0044
+	dw level_sprite_0046_spawn_script		;0046
+	dw level_sprite_0048_spawn_script		;0048
+	dw level_sprite_004A_spawn_script		;004A
+	dw level_sprite_004C_spawn_script		;004C
+	dw level_sprite_004E_spawn_script		;004E
+	dw level_sprite_0050_spawn_script		;0050
+	dw level_sprite_0052_spawn_script		;0052
+	dw level_sprite_0054_spawn_script		;0054
+	dw level_sprite_0056_spawn_script		;0056
+	dw level_sprite_0058_spawn_script		;0058
+	dw level_sprite_005A_spawn_script		;005A
+	dw level_sprite_005C_spawn_script		;005C
+	dw level_sprite_005E_spawn_script		;005E
+	dw level_sprite_0060_spawn_script		;0060
+	dw level_sprite_0062_spawn_script		;0062
+	dw level_sprite_0064_spawn_script		;0064
+	dw level_sprite_0066_spawn_script		;0066
+	dw level_sprite_0068_spawn_script		;0068
+	dw level_sprite_006A_spawn_script		;006A
+	dw level_sprite_006C_spawn_script		;006C
+	dw level_sprite_006E_spawn_script		;006E
+	dw level_sprite_0070_spawn_script		;0070
+	dw level_sprite_0072_spawn_script		;0072
+	dw level_sprite_0074_spawn_script		;0074
+	dw level_sprite_0076_spawn_script		;0076
+	dw level_sprite_0078_spawn_script		;0078
+	dw level_sprite_007A_spawn_script		;007A
+	dw level_sprite_007C_spawn_script		;007C
+	dw level_sprite_007E_spawn_script		;007E
+	dw level_sprite_0080_spawn_script		;0080
+	dw level_sprite_0082_spawn_script		;0082
+	dw level_sprite_0084_spawn_script		;0084
+	dw level_sprite_0086_spawn_script		;0086
+	dw unplaced_level_sprite_0088_spawn_script	;0088
+	dw level_sprite_008A_spawn_script		;008A
+	dw level_sprite_008C_spawn_script		;008C
+	dw unplaced_level_sprite_008E_spawn_script	;008E
+	dw unplaced_level_sprite_0090_spawn_script	;0090
+	dw level_sprite_0092_spawn_script		;0092
+	dw level_sprite_0094_spawn_script		;0094
+	dw level_sprite_0096_spawn_script		;0096
+	dw level_sprite_0098_spawn_script		;0098
+	dw level_sprite_009A_spawn_script		;009A
+	dw level_sprite_009C_spawn_script		;009C
+	dw level_sprite_009E_spawn_script		;009E
+	dw level_sprite_00A0_spawn_script		;00A0
+	dw level_sprite_00A2_spawn_script		;00A2
+	dw level_sprite_00A4_spawn_script		;00A4
+	dw level_sprite_00A6_spawn_script		;00A6
+	dw level_sprite_00A8_spawn_script		;00A8
+	dw level_sprite_00AA_spawn_script		;00AA
+	dw level_sprite_00AC_spawn_script		;00AC
+	dw level_sprite_00AE_spawn_script		;00AE
+	dw level_sprite_00B0_spawn_script		;00B0
+	dw level_sprite_00B2_spawn_script		;00B2
+	dw level_sprite_00B4_spawn_script		;00B4
+	dw level_sprite_00B6_spawn_script		;00B6
+	dw level_sprite_00B8_spawn_script		;00B8
+	dw level_sprite_00BA_spawn_script		;00BA
+	dw level_sprite_00BC_spawn_script		;00BC
+	dw unplaced_level_sprite_00BE_spawn_script	;00BE
+	dw level_sprite_00C0_spawn_script		;00C0
+	dw level_sprite_00C2_spawn_script		;00C2
+	dw level_sprite_00C4_spawn_script		;00C4
+	dw level_sprite_00C6_spawn_script		;00C6
+	dw level_sprite_00C8_spawn_script		;00C8
+	dw unplaced_level_sprite_00CA_spawn_script	;00CA
+	dw level_sprite_00CC_spawn_script		;00CC
+	dw level_sprite_00CE_spawn_script		;00CE
+	dw level_sprite_00D0_spawn_script		;00D0
+	dw level_sprite_00D2_spawn_script		;00D2
+	dw level_sprite_00D4_spawn_script		;00D4
+	dw level_sprite_00D6_spawn_script		;00D6
+	dw level_sprite_00D8_spawn_script		;00D8
+	dw level_sprite_00DA_spawn_script		;00DA
+	dw level_sprite_00DC_spawn_script		;00DC
+	dw unplaced_level_sprite_00DE_spawn_script	;00DE
+	dw level_sprite_00E0_spawn_script		;00E0
+	dw level_sprite_00E2_spawn_script		;00E2
+	dw unplaced_level_sprite_00E4_spawn_script	;00E4
+	dw level_sprite_00E6_spawn_script		;00E6
+	dw level_sprite_00E8_spawn_script		;00E8
+	dw level_sprite_00EA_spawn_script		;00EA
+	dw level_sprite_00EC_spawn_script		;00EC
+	dw level_sprite_00EE_spawn_script		;00EE
+	dw level_sprite_00F0_spawn_script		;00F0
+	dw level_sprite_00F2_spawn_script		;00F2
+	dw level_sprite_00F4_spawn_script		;00F4
+	dw level_sprite_00F6_spawn_script		;00F6
+	dw level_sprite_00F8_spawn_script		;00F8
+	dw level_sprite_00FA_spawn_script		;00FA
+	dw level_sprite_00FC_spawn_script		;00FC
+	dw level_sprite_00FE_spawn_script		;00FE
+	dw level_sprite_0100_spawn_script		;0100
+	dw level_sprite_0102_spawn_script		;0102
+	dw level_sprite_0104_spawn_script		;0104
+	dw level_sprite_0106_spawn_script		;0106
+	dw level_sprite_0108_spawn_script		;0108
+	dw unplaced_level_sprite_010A_spawn_script	;010A
+	dw level_sprite_010C_spawn_script		;010C
+	dw level_sprite_010E_spawn_script		;010E
+	dw level_sprite_0110_spawn_script		;0110
+	dw level_sprite_0112_spawn_script		;0112
+	dw level_sprite_0114_spawn_script		;0114
+	dw unplaced_level_sprite_0116_spawn_script	;0116
+	dw level_sprite_0118_spawn_script		;0118
+	dw unplaced_level_sprite_011A_spawn_script	;011A
+	dw unplaced_level_sprite_011C_spawn_script	;011C
+	dw level_sprite_011E_spawn_script		;011E
+	dw level_sprite_0120_spawn_script		;0120
+	dw level_sprite_0122_spawn_script		;0122
+	dw level_sprite_0124_spawn_script		;0124
+	dw level_sprite_0126_spawn_script		;0126
+	dw level_sprite_0128_spawn_script		;0128
+	dw level_sprite_012A_spawn_script		;012A
+	dw level_sprite_012C_spawn_script		;012C
+	dw level_sprite_012E_spawn_script		;012E
+	dw level_sprite_0130_spawn_script		;0130
+	dw level_sprite_0132_spawn_script		;0132
+	dw level_sprite_0134_spawn_script		;0134
+	dw level_sprite_0136_spawn_script		;0136
+	dw level_sprite_0138_spawn_script		;0138
+	dw level_sprite_013A_spawn_script		;013A
+	dw level_sprite_013C_spawn_script		;013C
+	dw unplaced_level_sprite_013E_spawn_script	;013E
+	dw level_sprite_0140_spawn_script		;0140
+	dw level_sprite_0142_spawn_script		;0142
+	dw level_sprite_0144_spawn_script		;0144
+	dw level_sprite_0146_spawn_script		;0146
+	dw level_sprite_0148_spawn_script		;0148
+	dw level_sprite_014A_spawn_script		;014A
+	dw level_sprite_014C_spawn_script		;014C
+	dw level_sprite_014E_spawn_script		;014E
+	dw level_sprite_0150_spawn_script		;0150
+	dw level_sprite_0152_spawn_script		;0152
+	dw level_sprite_0154_spawn_script		;0154
+	dw unplaced_level_sprite_0156_spawn_script	;0156
+	dw level_sprite_0158_spawn_script		;0158
+	dw level_sprite_015A_spawn_script		;015A
+	dw unplaced_level_sprite_015C_spawn_script	;015C
+	dw level_sprite_015E_spawn_script		;015E
+	dw unplaced_level_sprite_0160_spawn_script	;0160
+	dw level_sprite_0162_spawn_script		;0162
+	dw level_sprite_0164_spawn_script		;0164
+	dw level_sprite_0166_spawn_script		;0166
+	dw level_sprite_0168_spawn_script		;0168
+	dw level_sprite_016A_spawn_script		;016A
+	dw level_sprite_016C_spawn_script		;016C
+	dw level_sprite_016E_spawn_script		;016E
+	dw unplaced_level_sprite_0170_spawn_script	;0170
+	dw level_sprite_0172_spawn_script		;0172
+	dw level_sprite_0174_spawn_script		;0174
+	dw level_sprite_0176_spawn_script		;0176
+	dw level_sprite_0178_spawn_script		;0178
+	dw level_sprite_017A_spawn_script		;017A
+	dw unplaced_level_sprite_017C_spawn_script	;017C
+	dw level_sprite_017E_spawn_script		;017E
+	dw level_sprite_0180_spawn_script		;0180
+	dw level_sprite_0182_spawn_script		;0182
+	dw level_sprite_0184_spawn_script		;0184
+	dw level_sprite_0186_spawn_script		;0186
+	dw level_sprite_0188_spawn_script		;0188
+	dw level_sprite_018A_spawn_script		;018A
+	dw level_sprite_018C_spawn_script		;018C
+	dw level_sprite_018E_spawn_script		;018E
+	dw level_sprite_0190_spawn_script		;0190
+	dw level_sprite_0192_spawn_script		;0192
+	dw level_sprite_0194_spawn_script		;0194
+	dw unplaced_level_sprite_0196_spawn_script	;0196
+	dw unplaced_level_sprite_0198_spawn_script	;0198
+	dw unplaced_level_sprite_019A_spawn_script	;019A
+	dw level_sprite_019C_spawn_script		;019C
+	dw level_sprite_019E_spawn_script		;019E
+	dw level_sprite_01A0_spawn_script		;01A0
+	dw unplaced_level_sprite_01A2_spawn_script	;01A2
+	dw level_sprite_01A4_spawn_script		;01A4
+	dw level_sprite_01A6_spawn_script		;01A6
+	dw level_sprite_01A8_spawn_script		;01A8
+	dw level_sprite_01AA_spawn_script		;01AA
+	dw level_sprite_01AC_spawn_script		;01AC
+	dw level_sprite_01AE_spawn_script		;01AE
+	dw level_sprite_01B0_spawn_script		;01B0
+	dw unplaced_level_sprite_01B2_spawn_script	;01B2
+	dw level_sprite_01B4_spawn_script		;01B4
+	dw level_sprite_01B6_spawn_script		;01B6
+	dw level_sprite_01B8_spawn_script		;01B8
+	dw level_sprite_01BA_spawn_script		;01BA
+	dw level_sprite_01BC_spawn_script		;01BC
+	dw level_sprite_01BE_spawn_script		;01BE
+	dw level_sprite_01C0_spawn_script		;01C0
+	dw level_sprite_01C2_spawn_script		;01C2
+	dw level_sprite_01C4_spawn_script		;01C4
+	dw level_sprite_01C6_spawn_script		;01C6
+	dw level_sprite_01C8_spawn_script		;01C8
+	dw unplaced_level_sprite_01CA_spawn_script	;01CA
+	dw level_sprite_01CC_spawn_script		;01CC
+	dw level_sprite_01CE_spawn_script		;01CE
+	dw level_sprite_01D0_spawn_script		;01D0
+	dw level_sprite_01D2_spawn_script		;01D2
+	dw level_sprite_01D4_spawn_script		;01D4
+	dw level_sprite_01D6_spawn_script		;01D6
+	dw level_sprite_01D8_spawn_script		;01D8
+	dw unplaced_level_sprite_01DA_spawn_script	;01DA
+	dw level_sprite_01DC_spawn_script		;01DC
+	dw level_sprite_01DE_spawn_script		;01DE
+	dw level_sprite_01E0_spawn_script		;01E0
+	dw unplaced_level_sprite_01E2_spawn_script	;01E2
+	dw level_sprite_01E4_spawn_script		;01E4
+	dw unplaced_level_sprite_01E6_spawn_script	;01E6
+	dw unplaced_level_sprite_01E8_spawn_script	;01E8
+	dw unplaced_level_sprite_01EA_spawn_script	;01EA
+	dw level_sprite_01EC_spawn_script		;01EC
+	dw level_sprite_01EE_spawn_script		;01EE
+	dw level_sprite_01F0_spawn_script		;01F0
+	dw level_sprite_01F2_spawn_script		;01F2
+	dw level_sprite_01F4_spawn_script		;01F4
+	dw level_sprite_01F6_spawn_script		;01F6
+	dw level_sprite_01F8_spawn_script		;01F8
+	dw level_sprite_01FA_spawn_script		;01FA
+	dw level_sprite_01FC_spawn_script		;01FC
+	dw level_sprite_01FE_spawn_script		;01FE
+	dw level_sprite_0200_spawn_script		;0200
+	dw level_sprite_0202_spawn_script		;0202
+	dw level_sprite_0204_spawn_script		;0204
+	dw level_sprite_0206_spawn_script		;0206
+	dw level_sprite_0208_spawn_script		;0208
+	dw level_sprite_020A_spawn_script		;020A
+	dw level_sprite_020C_spawn_script		;020C
+	dw level_sprite_020E_spawn_script		;020E
+	dw level_sprite_0210_spawn_script		;0210
+	dw level_sprite_0212_spawn_script		;0212
+	dw unplaced_level_sprite_0214_spawn_script	;0214
+	dw unplaced_level_sprite_0216_spawn_script	;0216
+	dw level_sprite_0218_spawn_script		;0218
+	dw level_sprite_021A_spawn_script		;021A
+	dw level_sprite_021C_spawn_script		;021C
+	dw level_sprite_021E_spawn_script		;021E
+	dw level_sprite_0220_spawn_script		;0220
+	dw level_sprite_0222_spawn_script		;0222
+	dw level_sprite_0224_spawn_script		;0224
+	dw level_sprite_0226_spawn_script		;0226
+	dw unplaced_level_sprite_0228_spawn_script	;0228
+	dw level_sprite_022A_spawn_script		;022A
+	dw level_sprite_022C_spawn_script		;022C
+	dw level_sprite_022E_spawn_script		;022E
+	dw level_sprite_0230_spawn_script		;0230
+	dw level_sprite_0232_spawn_script		;0232
+	dw level_sprite_0234_spawn_script		;0234
+	dw level_sprite_0236_spawn_script		;0236
+	dw level_sprite_0238_spawn_script		;0238
+	dw level_sprite_023A_spawn_script		;023A
+	dw level_sprite_023C_spawn_script		;023C
+	dw level_sprite_023E_spawn_script		;023E
+	dw level_sprite_0240_spawn_script		;0240
+	dw level_sprite_0242_spawn_script		;0242
+	dw level_sprite_0244_spawn_script		;0244
+	dw level_sprite_0246_spawn_script		;0246
+	dw level_sprite_0248_spawn_script		;0248
+	dw level_sprite_024A_spawn_script		;024A
+	dw level_sprite_024C_spawn_script		;024C
+	dw level_sprite_024E_spawn_script		;024E
+	dw level_sprite_0250_spawn_script		;0250
+	dw level_sprite_0252_spawn_script		;0252
+	dw level_sprite_0254_spawn_script		;0254
+	dw unplaced_level_sprite_0256_spawn_script	;0256
+	dw level_sprite_0258_spawn_script		;0258
+	dw unplaced_level_sprite_025A_spawn_script	;025A
+	dw level_sprite_025C_spawn_script		;025C
+	dw level_sprite_025E_spawn_script		;025E
+	dw level_sprite_0260_spawn_script		;0260
+	dw level_sprite_0262_spawn_script		;0262
+	dw level_sprite_0264_spawn_script		;0264
+	dw level_sprite_0266_spawn_script		;0266
+	dw level_sprite_0268_spawn_script		;0268
+	dw level_sprite_026A_spawn_script		;026A
+	dw unplaced_level_sprite_026C_spawn_script	;026C
+	dw unplaced_level_sprite_026E_spawn_script	;026E
+	dw unplaced_level_sprite_0270_spawn_script	;0270
+	dw level_sprite_0272_spawn_script		;0272
+	dw level_sprite_0274_spawn_script		;0274
+	dw level_sprite_0276_spawn_script		;0276
+	dw level_sprite_0278_spawn_script		;0278
+	dw level_sprite_027A_spawn_script		;027A
+	dw level_sprite_027C_spawn_script		;027C
+	dw unplaced_level_sprite_027E_spawn_script	;027E
+	dw level_sprite_0280_spawn_script		;0280
+	dw unplaced_level_sprite_0282_spawn_script	;0282
+	dw level_sprite_0284_spawn_script		;0284
+	dw level_sprite_0286_spawn_script		;0286
+	dw unplaced_level_sprite_0288_spawn_script	;0288
+	dw level_sprite_028A_spawn_script		;028A
+	dw level_sprite_028C_spawn_script		;028C
+	dw level_sprite_028E_spawn_script		;028E
+	dw unplaced_level_sprite_0290_spawn_script	;0290
+	dw level_sprite_0292_spawn_script		;0292
+	dw level_sprite_0294_spawn_script		;0294
+	dw unplaced_level_sprite_0296_spawn_script	;0296
+	dw level_sprite_0298_spawn_script		;0298
+	dw level_sprite_029A_spawn_script		;029A
+	dw level_sprite_029C_spawn_script		;029C
+	dw unplaced_level_sprite_029E_spawn_script	;029E
+	dw level_sprite_02A0_spawn_script		;02A0
+	dw level_sprite_02A2_spawn_script		;02A2
+	dw unplaced_level_sprite_02A4_spawn_script	;02A4
+	dw level_sprite_02A6_spawn_script		;02A6
+	dw unplaced_level_sprite_02A8_spawn_script	;02A8
+	dw level_sprite_02AA_spawn_script		;02AA
+	dw unplaced_level_sprite_02AC_spawn_script	;02AC
+	dw unplaced_level_sprite_02AE_spawn_script	;02AE
+	dw level_sprite_02B0_spawn_script		;02B0
+	dw unplaced_level_sprite_02B2_spawn_script	;02B2
+	dw level_sprite_02B4_spawn_script		;02B4
+	dw level_sprite_02B6_spawn_script		;02B6
+	dw level_sprite_02B8_spawn_script		;02B8
+	dw level_sprite_02BA_spawn_script		;02BA
+	dw level_sprite_02BC_spawn_script		;02BC
+	dw level_sprite_02BE_spawn_script		;02BE
+	dw unplaced_level_sprite_02C0_spawn_script	;02C0
+	dw level_sprite_02C2_spawn_script		;02C2
+	dw level_sprite_02C4_spawn_script		;02C4
+	dw level_sprite_02C6_spawn_script		;02C6
+	dw level_sprite_02C8_spawn_script		;02C8
+	dw level_sprite_02CA_spawn_script		;02CA
+	dw unplaced_level_sprite_02CC_spawn_script	;02CC
+	dw level_sprite_02CE_spawn_script		;02CE
+	dw level_sprite_02D0_spawn_script		;02D0
+	dw level_sprite_02D2_spawn_script		;02D2
+	dw level_sprite_02D4_spawn_script		;02D4
+	dw level_sprite_02D6_spawn_script		;02D6
+	dw level_sprite_02D8_spawn_script		;02D8
+	dw level_sprite_02DA_spawn_script		;02DA
+	dw level_sprite_02DC_spawn_script		;02DC
+	dw level_sprite_02DE_spawn_script		;02DE
+	dw level_sprite_02E0_spawn_script		;02E0
+	dw level_sprite_02E2_spawn_script		;02E2
+	dw level_sprite_02E4_spawn_script		;02E4
+	dw level_sprite_02E6_spawn_script		;02E6
+	dw level_sprite_02E8_spawn_script		;02E8
+	dw level_sprite_02EA_spawn_script		;02EA
+	dw level_sprite_02EC_spawn_script		;02EC
+	dw level_sprite_02EE_spawn_script		;02EE
+	dw unplaced_level_sprite_02F0_spawn_script	;02F0
+	dw level_sprite_02F2_spawn_script		;02F2
+	dw level_sprite_02F4_spawn_script		;02F4
+	dw level_sprite_02F6_spawn_script		;02F6
+	dw level_sprite_02F8_spawn_script		;02F8
+	dw level_sprite_02FA_spawn_script		;02FA
+	dw level_sprite_02FC_spawn_script		;02FC
+	dw level_sprite_02FE_spawn_script		;02FE
+	dw level_sprite_0300_spawn_script		;0300
+	dw level_sprite_0302_spawn_script		;0302
+	dw level_sprite_0304_spawn_script		;0304
+	dw level_sprite_0306_spawn_script		;0306
+	dw level_sprite_0308_spawn_script		;0308
+	dw level_sprite_030A_spawn_script		;030A
+	dw level_sprite_030C_spawn_script		;030C
+	dw level_sprite_030E_spawn_script		;030E
+	dw level_sprite_0310_spawn_script		;0310
+	dw level_sprite_0312_spawn_script		;0312
+	dw level_sprite_0314_spawn_script		;0314
+	dw level_sprite_0316_spawn_script		;0316
+	dw level_sprite_0318_spawn_script		;0318
+	dw level_sprite_031A_spawn_script		;031A
+	dw level_sprite_031C_spawn_script		;031C
+	dw level_sprite_031E_spawn_script		;031E
+	dw level_sprite_0320_spawn_script		;0320
+	dw unplaced_level_sprite_0322_spawn_script	;0322
+	dw level_sprite_0324_spawn_script		;0324
+	dw unplaced_level_sprite_0326_spawn_script	;0326
+	dw level_sprite_0328_spawn_script		;0328
+	dw level_sprite_032A_spawn_script		;032A
+	dw level_sprite_032C_spawn_script		;032C
+	dw level_sprite_032E_spawn_script		;032E
+	dw level_sprite_0330_spawn_script		;0330
+	dw level_sprite_0332_spawn_script		;0332
+	dw level_sprite_0334_spawn_script		;0334
+	dw level_sprite_0336_spawn_script		;0336
+	dw level_sprite_0338_spawn_script		;0338
+	dw level_sprite_033A_spawn_script		;033A
+	dw level_sprite_033C_spawn_script		;033C
+	dw level_sprite_033E_spawn_script		;033E
+	dw level_sprite_0340_spawn_script		;0340
+	dw level_sprite_0342_spawn_script		;0342
+	dw level_sprite_0344_spawn_script		;0344
+	dw level_sprite_0346_spawn_script		;0346
+	dw level_sprite_0348_spawn_script		;0348
+	dw level_sprite_034A_spawn_script		;034A
+	dw level_sprite_034C_spawn_script		;034C
+	dw level_sprite_034E_spawn_script		;034E
+	dw level_sprite_0350_spawn_script		;0350
+	dw level_sprite_0352_spawn_script		;0352
+	dw level_sprite_0354_spawn_script		;0354
+	dw level_sprite_0356_spawn_script		;0356
+	dw level_sprite_0358_spawn_script		;0358
+	dw level_sprite_035A_spawn_script		;035A
+	dw level_sprite_035C_spawn_script		;035C
+	dw level_sprite_035E_spawn_script		;035E
+	dw level_sprite_0360_spawn_script		;0360
+	dw level_sprite_0362_spawn_script		;0362
+	dw level_sprite_0364_spawn_script		;0364
+	dw level_sprite_0366_spawn_script		;0366
+	dw unplaced_level_sprite_0368_spawn_script	;0368
+	dw level_sprite_036A_spawn_script		;036A
+	dw level_sprite_036C_spawn_script		;036C
+	dw level_sprite_036E_spawn_script		;036E
+	dw level_sprite_0370_spawn_script		;0370
+	dw level_sprite_0372_spawn_script		;0372
+	dw level_sprite_0374_spawn_script		;0374
+	dw level_sprite_0376_spawn_script		;0376
+	dw level_sprite_0378_spawn_script		;0378
+	dw level_sprite_037A_spawn_script		;037A
+	dw level_sprite_037C_spawn_script		;037C
+	dw level_sprite_037E_spawn_script		;037E
+	dw level_sprite_0380_spawn_script		;0380
+	dw unplaced_level_sprite_0382_spawn_script	;0382
+	dw level_sprite_0384_spawn_script		;0384
+	dw level_sprite_0386_spawn_script		;0386
+	dw level_sprite_0388_spawn_script		;0388
+	dw level_sprite_038A_spawn_script		;038A
+	dw level_sprite_038C_spawn_script		;038C
+	dw level_sprite_038E_spawn_script		;038E
+	dw level_sprite_0390_spawn_script		;0390
+	dw level_sprite_0392_spawn_script		;0392
+	dw level_sprite_0394_spawn_script		;0394
+	dw level_sprite_0396_spawn_script		;0396
+	dw level_sprite_0398_spawn_script		;0398
+	dw level_sprite_039A_spawn_script		;039A
+	dw level_sprite_039C_spawn_script		;039C
+	dw level_sprite_039E_spawn_script		;039E
+	dw level_sprite_03A0_spawn_script		;03A0
+	dw level_sprite_03A2_spawn_script		;03A2
+	dw level_sprite_03A4_spawn_script		;03A4
+	dw level_sprite_03A6_spawn_script		;03A6
+	dw level_sprite_03A8_spawn_script		;03A8
+	dw level_sprite_03AA_spawn_script		;03AA
+	dw level_sprite_03AC_spawn_script		;03AC
+	dw level_sprite_03AE_spawn_script		;03AE
+	dw level_sprite_03B0_spawn_script		;03B0
+	dw level_sprite_03B2_spawn_script		;03B2
+	dw level_sprite_03B4_spawn_script		;03B4
+	dw level_sprite_03B6_spawn_script		;03B6
+	dw level_sprite_03B8_spawn_script		;03B8
+	dw level_sprite_03BA_spawn_script		;03BA
+	dw level_sprite_03BC_spawn_script		;03BC
+	dw unplaced_level_sprite_03BE_spawn_script	;03BE
+	dw level_sprite_03C0_spawn_script		;03C0
+	dw level_sprite_03C2_spawn_script		;03C2
+	dw unplaced_level_sprite_03C4_spawn_script	;03C4
+	dw unplaced_level_sprite_03C6_spawn_script	;03C6
+	dw unplaced_level_sprite_03C8_spawn_script	;03C8
+	dw level_sprite_03CA_spawn_script		;03CA
+	dw unplaced_level_sprite_03CC_spawn_script	;03CC
+	dw level_sprite_03CE_spawn_script		;03CE
+	dw unplaced_level_sprite_03D0_spawn_script	;03D0
+	dw level_sprite_03D2_spawn_script		;03D2
+	dw level_sprite_03D4_spawn_script		;03D4
+	dw level_sprite_03D6_spawn_script		;03D6
+	dw level_sprite_03D8_spawn_script		;03D8
+	dw level_sprite_03DA_spawn_script		;03DA
+	dw level_sprite_03DC_spawn_script		;03DC
+	dw level_sprite_03DE_spawn_script		;03DE
+	dw level_sprite_03E0_spawn_script		;03E0
+	dw level_sprite_03E2_spawn_script		;03E2
+	dw level_sprite_03E4_spawn_script		;03E4
+	dw level_sprite_03E6_spawn_script		;03E6
+	dw level_sprite_03E8_spawn_script		;03E8
+	dw unplaced_level_sprite_03EA_spawn_script	;03EA
+	dw level_sprite_03EC_spawn_script		;03EC
+	dw level_sprite_03EE_spawn_script		;03EE
+	dw level_sprite_03F0_spawn_script		;03F0
+	dw level_sprite_03F2_spawn_script		;03F2
+	dw level_sprite_03F4_spawn_script		;03F4
+	dw level_sprite_03F6_spawn_script		;03F6
+	dw level_sprite_03F8_spawn_script		;03F8
+	dw unplaced_level_sprite_03FA_spawn_script	;03FA
+	dw level_sprite_03FC_spawn_script		;03FC
+	dw level_sprite_03FE_spawn_script		;03FE
+	dw level_sprite_0400_spawn_script		;0400
+	dw level_sprite_0402_spawn_script		;0402
+	dw level_sprite_0404_spawn_script		;0404
+	dw level_sprite_0406_spawn_script		;0406
+	dw level_sprite_0408_spawn_script		;0408
+	dw unplaced_level_sprite_040A_spawn_script	;040A
+	dw unplaced_level_sprite_040C_spawn_script	;040C
+	dw level_sprite_040E_spawn_script		;040E
+	dw level_sprite_0410_spawn_script		;0410
+	dw level_sprite_0412_spawn_script		;0412
+	dw level_sprite_0414_spawn_script		;0414
+	dw level_sprite_0416_spawn_script		;0416
+	dw level_sprite_0418_spawn_script		;0418
+	dw unplaced_level_sprite_041A_spawn_script	;041A
+	dw unplaced_level_sprite_041C_spawn_script	;041C
+	dw unplaced_level_sprite_041E_spawn_script	;041E
+	dw unplaced_level_sprite_0420_spawn_script	;0420
+	dw level_sprite_0422_spawn_script		;0422
+	dw level_sprite_0424_spawn_script		;0424
+	dw level_sprite_0426_spawn_script		;0426
+	dw unplaced_level_sprite_0428_spawn_script	;0428
+	dw level_sprite_042A_spawn_script		;042A
+	dw level_sprite_042C_spawn_script		;042C
+	dw level_sprite_042E_spawn_script		;042E
+	dw level_sprite_0430_spawn_script		;0430
+	dw level_sprite_0432_spawn_script		;0432
+	dw level_sprite_0434_spawn_script		;0434
+	dw unplaced_level_sprite_0436_spawn_script	;0436
+	dw unplaced_level_sprite_0438_spawn_script	;0438
+	dw level_sprite_043A_spawn_script		;043A
+	dw level_sprite_043C_spawn_script		;043C
+	dw level_sprite_043E_spawn_script		;043E
+	dw level_sprite_0440_spawn_script		;0440
+	dw unplaced_level_sprite_0442_spawn_script	;0442
+	dw unplaced_level_sprite_0444_spawn_script	;0444
+	dw level_sprite_0446_spawn_script		;0446
+	dw level_sprite_0448_spawn_script		;0448
+	dw level_sprite_044A_spawn_script		;044A
+	dw level_sprite_044C_spawn_script		;044C
+	dw level_sprite_044E_spawn_script		;044E
+	dw level_sprite_0450_spawn_script		;0450
+	dw level_sprite_0452_spawn_script		;0452
+	dw level_sprite_0454_spawn_script		;0454
+	dw level_sprite_0456_spawn_script		;0456
+	dw unplaced_level_sprite_0458_spawn_script	;0458
+	dw unplaced_level_sprite_045A_spawn_script	;045A
+	dw level_sprite_045C_spawn_script		;045C
+	dw level_sprite_045E_spawn_script		;045E
+	dw level_sprite_0460_spawn_script		;0460
+	dw unplaced_level_sprite_0462_spawn_script	;0462
+	dw level_sprite_0464_spawn_script		;0464
+	dw unplaced_level_sprite_0466_spawn_script	;0466
+	dw level_sprite_0468_spawn_script		;0468
+	dw level_sprite_046A_spawn_script		;046A
+	dw unplaced_level_sprite_046C_spawn_script	;046C
+	dw level_sprite_046E_spawn_script		;046E
+	dw unplaced_level_sprite_0470_spawn_script	;0470
+	dw level_sprite_0472_spawn_script		;0472
+	dw level_sprite_0474_spawn_script		;0474
+	dw level_sprite_0476_spawn_script		;0476
+	dw level_sprite_0478_spawn_script		;0478
+	dw level_sprite_047A_spawn_script		;047A
+	dw level_sprite_047C_spawn_script		;047C
+	dw level_sprite_047E_spawn_script		;047E
+	dw level_sprite_0480_spawn_script		;0480
+	dw level_sprite_0482_spawn_script		;0482
+	dw level_sprite_0484_spawn_script		;0484
+	dw level_sprite_0486_spawn_script		;0486
+	dw level_sprite_0488_spawn_script		;0488
+	dw level_sprite_048A_spawn_script		;048A
+	dw level_sprite_048C_spawn_script		;048C
+	dw level_sprite_048E_spawn_script		;048E
+	dw level_sprite_0490_spawn_script		;0490
+	dw level_sprite_0492_spawn_script		;0492
+	dw level_sprite_0494_spawn_script		;0494
+	dw level_sprite_0496_spawn_script		;0496
+	dw level_sprite_0498_spawn_script		;0498
+	dw level_sprite_049A_spawn_script		;049A
+	dw level_sprite_049C_spawn_script		;049C
+	dw level_sprite_049E_spawn_script		;049E
+	dw level_sprite_04A0_spawn_script		;04A0
+	dw level_sprite_04A2_spawn_script		;04A2
+	dw level_sprite_04A4_spawn_script		;04A4
+	dw level_sprite_04A6_spawn_script		;04A6
+	dw level_sprite_04A8_spawn_script		;04A8
+	dw level_sprite_04AA_spawn_script		;04AA
+	dw level_sprite_04AC_spawn_script		;04AC
+	dw level_sprite_04AE_spawn_script		;04AE
+	dw level_sprite_04B0_spawn_script		;04B0
+	dw level_sprite_04B2_spawn_script		;04B2
+	dw level_sprite_04B4_spawn_script		;04B4
+	dw level_sprite_04B6_spawn_script		;04B6
+	dw level_sprite_04B8_spawn_script		;04B8
+	dw level_sprite_04BA_spawn_script		;04BA
+	dw level_sprite_04BC_spawn_script		;04BC
+	dw level_sprite_04BE_spawn_script		;04BE
+	dw level_sprite_04C0_spawn_script		;04C0
+	dw level_sprite_04C2_spawn_script		;04C2
+	dw level_sprite_04C4_spawn_script		;04C4
+	dw level_sprite_04C6_spawn_script		;04C6
+	dw unplaced_level_sprite_04C8_spawn_script	;04C8
+	dw unplaced_level_sprite_04CA_spawn_script	;04CA
+	dw level_sprite_04CC_spawn_script		;04CC
+	dw level_sprite_04CE_spawn_script		;04CE
+	dw level_sprite_04D0_spawn_script		;04D0
+	dw level_sprite_04D2_spawn_script		;04D2
+	dw level_sprite_04D4_spawn_script		;04D4
+	dw unplaced_level_sprite_04D6_spawn_script	;04D6
+	dw level_sprite_04D8_spawn_script		;04D8
+	dw level_sprite_04DA_spawn_script		;04DA
+	dw level_sprite_04DC_spawn_script		;04DC
+	dw level_sprite_04DE_spawn_script		;04DE
+	dw level_sprite_04E0_spawn_script		;04E0
+	dw level_sprite_04E2_spawn_script		;04E2
+	dw level_sprite_04E4_spawn_script		;04E4
+	dw level_sprite_04E6_spawn_script		;04E6
+	dw level_sprite_04E8_spawn_script		;04E8
+	dw level_sprite_04EA_spawn_script		;04EA
+	dw level_sprite_04EC_spawn_script		;04EC
+	dw level_sprite_04EE_spawn_script		;04EE
+	dw level_sprite_04F0_spawn_script		;04F0
+	dw level_sprite_04F2_spawn_script		;04F2
+	dw level_sprite_04F4_spawn_script		;04F4
+	dw level_sprite_04F6_spawn_script		;04F6
+	dw level_sprite_04F8_spawn_script		;04F8
+	dw level_sprite_04FA_spawn_script		;04FA
+	dw level_sprite_04FC_spawn_script		;04FC
+	dw level_sprite_04FE_spawn_script		;04FE
+	dw level_sprite_0500_spawn_script		;0500
+	dw level_sprite_0502_spawn_script		;0502
+	dw level_sprite_0504_spawn_script		;0504
+	dw level_sprite_0506_spawn_script		;0506
+	dw level_sprite_0508_spawn_script		;0508
+	dw level_sprite_050A_spawn_script		;050A
+	dw level_sprite_050C_spawn_script		;050C
+	dw level_sprite_050E_spawn_script		;050E
+	dw level_sprite_0510_spawn_script		;0510
+	dw level_sprite_0512_spawn_script		;0512
+	dw level_sprite_0514_spawn_script		;0514
+	dw level_sprite_0516_spawn_script		;0516
+	dw level_sprite_0518_spawn_script		;0518
+	dw level_sprite_051A_spawn_script		;051A
+	dw level_sprite_051C_spawn_script		;051C
+	dw level_sprite_051E_spawn_script		;051E
+	dw level_sprite_0520_spawn_script		;0520
+	dw unplaced_level_sprite_0522_spawn_script	;0522
+	dw level_sprite_0524_spawn_script		;0524
+	dw level_sprite_0526_spawn_script		;0526
+	dw level_sprite_0528_spawn_script		;0528
+	dw level_sprite_052A_spawn_script		;052A
+	dw level_sprite_052C_spawn_script		;052C
+	dw level_sprite_052E_spawn_script		;052E
+	dw level_sprite_0530_spawn_script		;0530
+	dw unplaced_level_sprite_0532_spawn_script	;0532
+	dw level_sprite_0534_spawn_script		;0534
+	dw level_sprite_0536_spawn_script		;0536
+	dw level_sprite_0538_spawn_script		;0538
+	dw level_sprite_053A_spawn_script		;053A
+	dw level_sprite_053C_spawn_script		;053C
+	dw level_sprite_053E_spawn_script		;053E
+	dw level_sprite_0540_spawn_script		;0540
+	dw level_sprite_0542_spawn_script		;0542
+	dw level_sprite_0544_spawn_script		;0544
+	dw level_sprite_0546_spawn_script		;0546
+	dw level_sprite_0548_spawn_script		;0548
+	dw level_sprite_054A_spawn_script		;054A
+	dw level_sprite_054C_spawn_script		;054C
+	dw level_sprite_054E_spawn_script		;054E
+	dw level_sprite_0550_spawn_script		;0550
+	dw level_sprite_0552_spawn_script		;0552
+	dw level_sprite_0554_spawn_script		;0554
+	dw level_sprite_0556_spawn_script		;0556
+	dw level_sprite_0558_spawn_script		;0558
+	dw level_sprite_055A_spawn_script		;055A
+	dw level_sprite_055C_spawn_script		;055C
+	dw level_sprite_055E_spawn_script		;055E
+	dw level_sprite_0560_spawn_script		;0560
+	dw level_sprite_0562_spawn_script		;0562
+	dw level_sprite_0564_spawn_script		;0564
+	dw level_sprite_0566_spawn_script		;0566
+	dw level_sprite_0568_spawn_script		;0568
+	dw level_sprite_056A_spawn_script		;056A
+	dw level_sprite_056C_spawn_script		;056C
+	dw level_sprite_056E_spawn_script		;056E
+	dw unplaced_level_sprite_0570_spawn_script	;0570
+	dw level_sprite_0572_spawn_script		;0572
+	dw level_sprite_0574_spawn_script		;0574
+	dw level_sprite_0576_spawn_script		;0576
+	dw level_sprite_0578_spawn_script		;0578
+	dw level_sprite_057A_spawn_script		;057A
+	dw level_sprite_057C_spawn_script		;057C
+	dw unplaced_level_sprite_057E_spawn_script	;057E
+	dw level_sprite_0580_spawn_script		;0580
+	dw level_sprite_0582_spawn_script		;0582
+	dw level_sprite_0584_spawn_script		;0584
+	dw level_sprite_0586_spawn_script		;0586
+	dw level_sprite_0588_spawn_script		;0588
+	dw level_sprite_058A_spawn_script		;058A
+	dw level_sprite_058C_spawn_script		;058C
+	dw level_sprite_058E_spawn_script		;058E
+	dw level_sprite_0590_spawn_script		;0590
+	dw level_sprite_0592_spawn_script		;0592
+	dw level_sprite_0594_spawn_script		;0594
+	dw level_sprite_0596_spawn_script		;0596
+	dw level_sprite_0598_spawn_script		;0598
+	dw level_sprite_059A_spawn_script		;059A
+	dw unplaced_level_sprite_059C_spawn_script	;059C
+	dw level_sprite_059E_spawn_script		;059E
+	dw level_sprite_05A0_spawn_script		;05A0
+	dw level_sprite_05A2_spawn_script		;05A2
+	dw level_sprite_05A4_spawn_script		;05A4
+	dw level_sprite_05A6_spawn_script		;05A6
+	dw level_sprite_05A8_spawn_script		;05A8
+	dw level_sprite_05AA_spawn_script		;05AA
+	dw level_sprite_05AC_spawn_script		;05AC
+	dw level_sprite_05AE_spawn_script		;05AE
+	dw level_sprite_05B0_spawn_script		;05B0
+	dw level_sprite_05B2_spawn_script		;05B2
+	dw level_sprite_05B4_spawn_script		;05B4
+	dw level_sprite_05B6_spawn_script		;05B6
+	dw level_sprite_05B8_spawn_script		;05B8
+	dw level_sprite_05BA_spawn_script		;05BA
+	dw level_sprite_05BC_spawn_script		;05BC
+	dw level_sprite_05BE_spawn_script		;05BE
+	dw level_sprite_05C0_spawn_script		;05C0
+	dw level_sprite_05C2_spawn_script		;05C2
+	dw level_sprite_05C4_spawn_script		;05C4
+	dw level_sprite_05C6_spawn_script		;05C6
+	dw level_sprite_05C8_spawn_script		;05C8
+	dw unplaced_level_sprite_05CA_spawn_script	;05CA
+	dw level_sprite_05CC_spawn_script		;05CC
+	dw level_sprite_05CE_spawn_script		;05CE
+	dw level_sprite_05D0_spawn_script		;05D0
+	dw level_sprite_05D2_spawn_script		;05D2
+	dw level_sprite_05D4_spawn_script		;05D4
+	dw level_sprite_05D6_spawn_script		;05D6
+	dw unplaced_level_sprite_05D8_spawn_script	;05D8
+	dw unplaced_level_sprite_05DA_spawn_script	;05DA
+	dw level_sprite_05DC_spawn_script		;05DC
+	dw unplaced_level_sprite_05DE_spawn_script	;05DE
+	dw level_sprite_05E0_spawn_script		;05E0
+	dw level_sprite_05E2_spawn_script		;05E2
+	dw level_sprite_05E4_spawn_script		;05E4
+	dw level_sprite_05E6_spawn_script		;05E6
+	dw level_sprite_05E8_spawn_script		;05E8
+	dw unplaced_level_sprite_05EA_spawn_script	;05EA
+	dw level_sprite_05EC_spawn_script		;05EC
+	dw unplaced_level_sprite_05EE_spawn_script	;05EE
+	dw unplaced_level_sprite_05F0_spawn_script	;05F0
+	dw unplaced_level_sprite_05F2_spawn_script	;05F2
+	dw unplaced_level_sprite_05F4_spawn_script	;05F4
+	dw level_sprite_05F6_spawn_script		;05F6
+	dw level_sprite_05F8_spawn_script		;05F8
+	dw level_sprite_05FA_spawn_script		;05FA
+	dw level_sprite_05FC_spawn_script		;05FC
+	dw level_sprite_05FE_spawn_script		;05FE
+	dw level_sprite_0600_spawn_script		;0600
+	dw level_sprite_0602_spawn_script		;0602
+	dw level_sprite_0604_spawn_script		;0604
+	dw level_sprite_0606_spawn_script		;0606
+	dw level_sprite_0608_spawn_script		;0608
+	dw level_sprite_060A_spawn_script		;060A
+	dw level_sprite_060C_spawn_script		;060C
+	dw level_sprite_060E_spawn_script		;060E
+	dw level_sprite_0610_spawn_script		;0610
+	dw level_sprite_0612_spawn_script		;0612
+	dw level_sprite_0614_spawn_script		;0614
+	dw level_sprite_0616_spawn_script		;0616
+	dw level_sprite_0618_spawn_script		;0618
+	dw level_sprite_061A_spawn_script		;061A
+	dw level_sprite_061C_spawn_script		;061C
+	dw level_sprite_061E_spawn_script		;061E
+	dw level_sprite_0620_spawn_script		;0620
+	dw level_sprite_0622_spawn_script		;0622
+	dw level_sprite_0624_spawn_script		;0624
+	dw level_sprite_0626_spawn_script		;0626
+	dw level_sprite_0628_spawn_script		;0628
+	dw level_sprite_062A_spawn_script		;062A
+	dw level_sprite_062C_spawn_script		;062C
+	dw level_sprite_062E_spawn_script		;062E
+	dw level_sprite_0630_spawn_script		;0630
+	dw level_sprite_0632_spawn_script		;0632
+	dw unplaced_level_sprite_0634_spawn_script	;0634
+	dw level_sprite_0636_spawn_script		;0636
+	dw level_sprite_0638_spawn_script		;0638
+	dw level_sprite_063A_spawn_script		;063A
+	dw level_sprite_063C_spawn_script		;063C
+	dw level_sprite_063E_spawn_script		;063E
+	dw level_sprite_0640_spawn_script		;0640
+	dw level_sprite_0642_spawn_script		;0642
+	dw level_sprite_0644_spawn_script		;0644
+	dw level_sprite_0646_spawn_script		;0646
+	dw unplaced_level_sprite_0648_spawn_script	;0648
+	dw level_sprite_064A_spawn_script		;064A
+	dw level_sprite_064C_spawn_script		;064C
+	dw level_sprite_064E_spawn_script		;064E
+	dw level_sprite_0650_spawn_script		;0650
+	dw unplaced_level_sprite_0652_spawn_script	;0652
+	dw unplaced_level_sprite_0654_spawn_script	;0654
+	dw level_sprite_0656_spawn_script		;0656
+	dw level_sprite_0658_spawn_script		;0658
+	dw level_sprite_065A_spawn_script		;065A
+	dw level_sprite_065C_spawn_script		;065C
+	dw level_sprite_065E_spawn_script		;065E
+	dw level_sprite_0660_spawn_script		;0660
+	dw unplaced_level_sprite_0662_spawn_script	;0662
+	dw unplaced_level_sprite_0664_spawn_script	;0664
+	dw level_sprite_0666_spawn_script		;0666
+	dw level_sprite_0668_spawn_script		;0668
+	dw unplaced_level_sprite_066A_spawn_script	;066A
+	dw unplaced_level_sprite_066C_spawn_script	;066C
+	dw level_sprite_066E_spawn_script		;066E
+	dw level_sprite_0670_spawn_script		;0670
+	dw level_sprite_0672_spawn_script		;0672
+	dw level_sprite_0674_spawn_script		;0674
+	dw level_sprite_0676_spawn_script		;0676
+	dw level_sprite_0678_spawn_script		;0678
+	dw level_sprite_067A_spawn_script		;067A
+	dw level_sprite_067C_spawn_script		;067C
+	dw level_sprite_067E_spawn_script		;067E
+	dw level_sprite_0680_spawn_script		;0680
+	dw level_sprite_0682_spawn_script		;0682
+	dw level_sprite_0684_spawn_script		;0684
+	dw level_sprite_0686_spawn_script		;0686
+	dw level_sprite_0688_spawn_script		;0688
+	dw level_sprite_068A_spawn_script		;068A
+	dw level_sprite_068C_spawn_script		;068C
+	dw level_sprite_068E_spawn_script		;068E
+	dw level_sprite_0690_spawn_script		;0690
+	dw level_sprite_0692_spawn_script		;0692
+	dw level_sprite_0694_spawn_script		;0694
+	dw level_sprite_0696_spawn_script		;0696
+	dw level_sprite_0698_spawn_script		;0698
+	dw level_sprite_069A_spawn_script		;069A
+	dw level_sprite_069C_spawn_script		;069C
+	dw level_sprite_069E_spawn_script		;069E
+	dw level_sprite_06A0_spawn_script		;06A0
+	dw level_sprite_06A2_spawn_script		;06A2
+	dw level_sprite_06A4_spawn_script		;06A4
+	dw level_sprite_06A6_spawn_script		;06A6
+	dw level_sprite_06A8_spawn_script		;06A8
+	dw level_sprite_06AA_spawn_script		;06AA
+	dw level_sprite_06AC_spawn_script		;06AC
+	dw level_sprite_06AE_spawn_script		;06AE
+	dw level_sprite_06B0_spawn_script		;06B0
+	dw level_sprite_06B2_spawn_script		;06B2
+	dw level_sprite_06B4_spawn_script		;06B4
+	dw level_sprite_06B6_spawn_script		;06B6
+	dw unplaced_level_sprite_06B8_spawn_script	;06B8
+	dw unplaced_level_sprite_06BA_spawn_script	;06BA
+	dw level_sprite_06BC_spawn_script		;06BC
+	dw level_sprite_06BE_spawn_script		;06BE
+	dw level_sprite_06C0_spawn_script		;06C0
+	dw level_sprite_06C2_spawn_script		;06C2
+	dw level_sprite_06C4_spawn_script		;06C4
+	dw level_sprite_06C6_spawn_script		;06C6
+	dw level_sprite_06C8_spawn_script		;06C8
+	dw level_sprite_06CA_spawn_script		;06CA
+	dw level_sprite_06CC_spawn_script		;06CC
+	dw level_sprite_06CE_spawn_script		;06CE
+	dw level_sprite_06D0_spawn_script		;06D0
+	dw level_sprite_06D2_spawn_script		;06D2
+	dw level_sprite_06D4_spawn_script		;06D4
+	dw level_sprite_06D6_spawn_script		;06D6
+	dw level_sprite_06D8_spawn_script		;06D8
+	dw level_sprite_06DA_spawn_script		;06DA
+	dw unplaced_level_sprite_06DC_spawn_script	;06DC
+	dw level_sprite_06DE_spawn_script		;06DE
+	dw level_sprite_06E0_spawn_script		;06E0
+	dw unplaced_level_sprite_06E2_spawn_script	;06E2
+	dw level_sprite_06E4_spawn_script		;06E4
+	dw level_sprite_06E6_spawn_script		;06E6
+	dw unplaced_level_sprite_06E8_spawn_script	;06E8
+	dw level_sprite_06EA_spawn_script		;06EA
+	dw unplaced_level_sprite_06EC_spawn_script	;06EC
+	dw level_sprite_06EE_spawn_script		;06EE
+	dw level_sprite_06F0_spawn_script		;06F0
+	dw level_sprite_06F2_spawn_script		;06F2
+	dw level_sprite_06F4_spawn_script		;06F4
+	dw level_sprite_06F6_spawn_script		;06F6
+	dw level_sprite_06F8_spawn_script		;06F8
+	dw level_sprite_06FA_spawn_script		;06FA
+	dw level_sprite_06FC_spawn_script		;06FC
+	dw level_sprite_06FE_spawn_script		;06FE
+	dw level_sprite_0700_spawn_script		;0700
+	dw level_sprite_0702_spawn_script		;0702
+	dw level_sprite_0704_spawn_script		;0704
+	dw level_sprite_0706_spawn_script		;0706
+	dw level_sprite_0708_spawn_script		;0708
+	dw level_sprite_070A_spawn_script		;070A
+	dw level_sprite_070C_spawn_script		;070C
+	dw level_sprite_070E_spawn_script		;070E
+	dw level_sprite_0710_spawn_script		;0710
+	dw level_sprite_0712_spawn_script		;0712
+	dw level_sprite_0714_spawn_script		;0714
+	dw level_sprite_0716_spawn_script		;0716
+	dw level_sprite_0718_spawn_script		;0718
+	dw level_sprite_071A_spawn_script		;071A
+	dw level_sprite_071C_spawn_script		;071C
+	dw level_sprite_071E_spawn_script		;071E
+	dw unplaced_level_sprite_0720_spawn_script	;0720
+	dw unplaced_level_sprite_0722_spawn_script	;0722
+	dw unplaced_level_sprite_0724_spawn_script	;0724
+	dw level_sprite_0726_spawn_script		;0726
+	dw level_sprite_0728_spawn_script		;0728
+	dw level_sprite_072A_spawn_script		;072A
+	dw level_sprite_072C_spawn_script		;072C
+	dw level_sprite_072E_spawn_script		;072E
+	dw level_sprite_0730_spawn_script		;0730
+	dw level_sprite_0732_spawn_script		;0732
+	dw level_sprite_0734_spawn_script		;0734
+	dw level_sprite_0736_spawn_script		;0736
+	dw level_sprite_0738_spawn_script		;0738
+	dw level_sprite_073A_spawn_script		;073A
+	dw unplaced_level_sprite_073C_spawn_script	;073C
+	dw level_sprite_073E_spawn_script		;073E
+	dw level_sprite_0740_spawn_script		;0740
+	dw level_sprite_0742_spawn_script		;0742
+	dw level_sprite_0744_spawn_script		;0744
+	dw level_sprite_0746_spawn_script		;0746
+	dw level_sprite_0748_spawn_script		;0748
+	dw level_sprite_074A_spawn_script		;074A
+	dw level_sprite_074C_spawn_script		;074C
+	dw level_sprite_074E_spawn_script		;074E
+	dw level_sprite_0750_spawn_script		;0750
+	dw level_sprite_0752_spawn_script		;0752
+	dw level_sprite_0754_spawn_script		;0754
+	dw level_sprite_0756_spawn_script		;0756
+	dw level_sprite_0758_spawn_script		;0758
+	dw unplaced_level_sprite_075A_spawn_script	;075A
+	dw level_sprite_075C_spawn_script		;075C
+	dw unplaced_level_sprite_075E_spawn_script	;075E
+	dw level_sprite_0760_spawn_script		;0760
+	dw unplaced_level_sprite_0762_spawn_script	;0762
+	dw level_sprite_0764_spawn_script		;0764
+	dw level_sprite_0766_spawn_script		;0766
+	dw level_sprite_0768_spawn_script		;0768
+	dw level_sprite_076A_spawn_script		;076A
+	dw level_sprite_076C_spawn_script		;076C
+	dw level_sprite_076E_spawn_script		;076E
+	dw level_sprite_0770_spawn_script		;0770
+	dw level_sprite_0772_spawn_script		;0772
+	dw level_sprite_0774_spawn_script		;0774
+	dw level_sprite_0776_spawn_script		;0776
+	dw level_sprite_0778_spawn_script		;0778
+	dw level_sprite_077A_spawn_script		;077A
+	dw level_sprite_077C_spawn_script		;077C
+	dw level_sprite_077E_spawn_script		;077E
+	dw level_sprite_0780_spawn_script		;0780
+	dw level_sprite_0782_spawn_script		;0782
+	dw level_sprite_0784_spawn_script		;0784
+	dw level_sprite_0786_spawn_script		;0786
+	dw level_sprite_0788_spawn_script		;0788
+	dw level_sprite_078A_spawn_script		;078A
+	dw level_sprite_078C_spawn_script		;078C
+	dw level_sprite_078E_spawn_script		;078E
+	dw level_sprite_0790_spawn_script		;0790
+	dw level_sprite_0792_spawn_script		;0792
+	dw level_sprite_0794_spawn_script		;0794
+	dw level_sprite_0796_spawn_script		;0796
+	dw level_sprite_0798_spawn_script		;0798
+	dw level_sprite_079A_spawn_script		;079A
+	dw level_sprite_079C_spawn_script		;079C
+	dw level_sprite_079E_spawn_script		;079E
+	dw level_sprite_07A0_spawn_script		;07A0
+	dw unplaced_level_sprite_07A2_spawn_script	;07A2
+	dw level_sprite_07A4_spawn_script		;07A4
+	dw level_sprite_07A6_spawn_script		;07A6
+	dw level_sprite_07A8_spawn_script		;07A8
+	dw level_sprite_07AA_spawn_script		;07AA
+	dw level_sprite_07AC_spawn_script		;07AC
+	dw level_sprite_07AE_spawn_script		;07AE
+	dw level_sprite_07B0_spawn_script		;07B0
+	dw level_sprite_07B2_spawn_script		;07B2
+	dw level_sprite_07B4_spawn_script		;07B4
+	dw level_sprite_07B6_spawn_script		;07B6
+	dw level_sprite_07B8_spawn_script		;07B8
+	dw level_sprite_07BA_spawn_script		;07BA
+	dw level_sprite_07BC_spawn_script		;07BC
+	dw level_sprite_07BE_spawn_script		;07BE
+	dw level_sprite_07C0_spawn_script		;07C0
+	dw level_sprite_07C2_spawn_script		;07C2
+	dw level_sprite_07C4_spawn_script		;07C4
+	dw level_sprite_07C6_spawn_script		;07C6
+	dw level_sprite_07C8_spawn_script		;07C8
+	dw level_sprite_07CA_spawn_script		;07CA
+	dw level_sprite_07CC_spawn_script		;07CC
+	dw unplaced_level_sprite_07CE_spawn_script	;07CE
+	dw level_sprite_07D0_spawn_script		;07D0
+	dw unplaced_level_sprite_07D2_spawn_script	;07D2
+	dw level_sprite_07D4_spawn_script		;07D4
+	dw level_sprite_07D6_spawn_script		;07D6
+	dw level_sprite_07D8_spawn_script		;07D8
+	dw level_sprite_07DA_spawn_script		;07DA
+	dw level_sprite_07DC_spawn_script		;07DC
+	dw level_sprite_07DE_spawn_script		;07DE
+	dw level_sprite_07E0_spawn_script		;07E0
+	dw level_sprite_07E2_spawn_script		;07E2
+	dw level_sprite_07E4_spawn_script		;07E4
+	dw level_sprite_07E6_spawn_script		;07E6
+	dw level_sprite_07E8_spawn_script		;07E8
+	dw unplaced_level_sprite_07EA_spawn_script	;07EA
+	dw level_sprite_07EC_spawn_script		;07EC
+	dw level_sprite_07EE_spawn_script		;07EE
+	dw unplaced_level_sprite_07F0_spawn_script	;07F0
+	dw level_sprite_07F2_spawn_script		;07F2
+	dw level_sprite_07F4_spawn_script		;07F4
+	dw level_sprite_07F6_spawn_script		;07F6
+	dw level_sprite_07F8_spawn_script		;07F8
+	dw level_sprite_07FA_spawn_script		;07FA
+	dw level_sprite_07FC_spawn_script		;07FC
+	dw level_sprite_07FE_spawn_script		;07FE
+	dw level_sprite_0800_spawn_script		;0800
+	dw level_sprite_0802_spawn_script		;0802
+	dw level_sprite_0804_spawn_script		;0804
+	dw level_sprite_0806_spawn_script		;0806
+	dw level_sprite_0808_spawn_script		;0808
+	dw level_sprite_080A_spawn_script		;080A
+	dw level_sprite_080C_spawn_script		;080C
+	dw level_sprite_080E_spawn_script		;080E
+	dw unplaced_level_sprite_0810_spawn_script	;0810
+	dw level_sprite_0812_spawn_script		;0812
+	dw unplaced_level_sprite_0814_spawn_script	;0814
+	dw unplaced_level_sprite_0816_spawn_script	;0816
+	dw level_sprite_0818_spawn_script		;0818
+	dw level_sprite_081A_spawn_script		;081A
+	dw level_sprite_081C_spawn_script		;081C
+	dw level_sprite_081E_spawn_script		;081E
+	dw unplaced_level_sprite_0820_spawn_script	;0820
+	dw level_sprite_0822_spawn_script		;0822
+	dw level_sprite_0824_spawn_script		;0824
+	dw level_sprite_0826_spawn_script		;0826
+	dw unplaced_level_sprite_0828_spawn_script	;0828
+	dw unplaced_level_sprite_082A_spawn_script	;082A
+	dw unplaced_level_sprite_082C_spawn_script	;082C
+	dw level_sprite_082E_spawn_script		;082E
+	dw level_sprite_0830_spawn_script		;0830
+	dw level_sprite_0832_spawn_script		;0832
+	dw level_sprite_0834_spawn_script		;0834
+	dw level_sprite_0836_spawn_script		;0836
+	dw level_sprite_0838_spawn_script		;0838
+	dw level_sprite_083A_spawn_script		;083A
+	dw level_sprite_083C_spawn_script		;083C
+	dw level_sprite_083E_spawn_script		;083E
+	dw level_sprite_0840_spawn_script		;0840
+	dw level_sprite_0842_spawn_script		;0842
+	dw level_sprite_0844_spawn_script		;0844
+	dw level_sprite_0846_spawn_script		;0846
+	dw level_sprite_0848_spawn_script		;0848
+	dw level_sprite_084A_spawn_script		;084A
+	dw level_sprite_084C_spawn_script		;084C
+	dw level_sprite_084E_spawn_script		;084E
+	dw level_sprite_0850_spawn_script		;0850
+	dw unplaced_level_sprite_0852_spawn_script	;0852
+	dw level_sprite_0854_spawn_script		;0854
+	dw level_sprite_0856_spawn_script		;0856
+	dw unplaced_level_sprite_0858_spawn_script	;0858
+	dw unplaced_level_sprite_085A_spawn_script	;085A
+	dw unplaced_level_sprite_085C_spawn_script	;085C
+	dw unplaced_level_sprite_085E_spawn_script	;085E
+	dw level_sprite_0860_spawn_script		;0860
+	dw level_sprite_0862_spawn_script		;0862
+	dw unplaced_level_sprite_0864_spawn_script	;0864
+	dw unplaced_level_sprite_0866_spawn_script	;0866
+	dw level_sprite_0868_spawn_script		;0868
+	dw level_sprite_086A_spawn_script		;086A
+	dw level_sprite_086C_spawn_script		;086C
+	dw level_sprite_086E_spawn_script		;086E
+	dw unplaced_level_sprite_0870_spawn_script	;0870
+	dw level_sprite_0872_spawn_script		;0872
+	dw level_sprite_0874_spawn_script		;0874
+	dw level_sprite_0876_spawn_script		;0876
+	dw level_sprite_0878_spawn_script		;0878
+	dw level_sprite_087A_spawn_script		;087A
+	dw level_sprite_087C_spawn_script		;087C
+	dw level_sprite_087E_spawn_script		;087E
+	dw unplaced_level_sprite_0880_spawn_script	;0880
+	dw level_sprite_0882_spawn_script		;0882
+	dw level_sprite_0884_spawn_script		;0884
+	dw unplaced_level_sprite_0886_spawn_script	;0886
+	dw level_sprite_0888_spawn_script		;0888
+	dw level_sprite_088A_spawn_script		;088A
+	dw level_sprite_088C_spawn_script		;088C
+	dw level_sprite_088E_spawn_script		;088E
+	dw level_sprite_0890_spawn_script		;0890
+	dw unplaced_level_sprite_0892_spawn_script	;0892
+	dw unplaced_level_sprite_0894_spawn_script	;0894
+	dw level_sprite_0896_spawn_script		;0896
+	dw level_sprite_0898_spawn_script		;0898
+	dw level_sprite_089A_spawn_script		;089A
+	dw level_sprite_089C_spawn_script		;089C
+	dw level_sprite_089E_spawn_script		;089E
+	dw level_sprite_08A0_spawn_script		;08A0
+	dw level_sprite_08A2_spawn_script		;08A2
+	dw level_sprite_08A4_spawn_script		;08A4
+	dw unplaced_level_sprite_08A6_spawn_script	;08A6
+	dw unplaced_level_sprite_08A8_spawn_script	;08A8
+	dw unplaced_level_sprite_08AA_spawn_script	;08AA
+	dw unplaced_level_sprite_08AC_spawn_script	;08AC
+	dw level_sprite_08AE_spawn_script		;08AE
+	dw unplaced_level_sprite_08B0_spawn_script	;08B0
+	dw unplaced_level_sprite_08B2_spawn_script	;08B2
+	dw unplaced_level_sprite_08B4_spawn_script	;08B4
+	dw level_sprite_08B6_spawn_script		;08B6
+	dw unplaced_level_sprite_08B8_spawn_script	;08B8
+	dw level_sprite_08BA_spawn_script		;08BA
+	dw level_sprite_08BC_spawn_script		;08BC
+	dw unplaced_level_sprite_08BE_spawn_script	;08BE
+	dw level_sprite_08C0_spawn_script		;08C0
+	dw level_sprite_08C2_spawn_script		;08C2
+	dw level_sprite_08C4_spawn_script		;08C4
+	dw unplaced_level_sprite_08C6_spawn_script	;08C6
+	dw level_sprite_08C8_spawn_script		;08C8
+	dw level_sprite_08CA_spawn_script		;08CA
+	dw level_sprite_08CC_spawn_script		;08CC
+	dw unplaced_level_sprite_08CE_spawn_script	;08CE
+	dw level_sprite_08D0_spawn_script		;08D0
+	dw unplaced_level_sprite_08D2_spawn_script	;08D2
+	dw level_sprite_08D4_spawn_script		;08D4
+	dw level_sprite_08D6_spawn_script		;08D6
+	dw level_sprite_08D8_spawn_script		;08D8
+	dw unplaced_level_sprite_08DA_spawn_script	;08DA
+	dw unplaced_level_sprite_08DC_spawn_script	;08DC
+	dw unplaced_level_sprite_08DE_spawn_script	;08DE
+	dw level_sprite_08E0_spawn_script		;08E0
+	dw level_sprite_08E2_spawn_script		;08E2
+	dw level_sprite_08E4_spawn_script		;08E4
+	dw level_sprite_08E6_spawn_script		;08E6
+	dw level_sprite_08E8_spawn_script		;08E8
+	dw unplaced_level_sprite_08EA_spawn_script	;08EA
+	dw level_sprite_08EC_spawn_script		;08EC
+	dw unplaced_level_sprite_08EE_spawn_script	;08EE
+	dw unplaced_level_sprite_08F0_spawn_script	;08F0
+	dw level_sprite_08F2_spawn_script		;08F2
+	dw level_sprite_08F4_spawn_script		;08F4
+	dw unplaced_level_sprite_08F6_spawn_script	;08F6
+	dw level_sprite_08F8_spawn_script		;08F8
+	dw level_sprite_08FA_spawn_script		;08FA
+	dw level_sprite_08FC_spawn_script		;08FC
+	dw level_sprite_08FE_spawn_script		;08FE
+	dw unplaced_level_sprite_0900_spawn_script	;0900
+	dw unplaced_level_sprite_0902_spawn_script	;0902
+	dw level_sprite_0904_spawn_script		;0904
+	dw level_sprite_0906_spawn_script		;0906
+	dw unplaced_level_sprite_0908_spawn_script	;0908
+	dw level_sprite_090A_spawn_script		;090A
+	dw level_sprite_090C_spawn_script		;090C
+	dw level_sprite_090E_spawn_script		;090E
+	dw level_sprite_0910_spawn_script		;0910
+	dw level_sprite_0912_spawn_script		;0912
+	dw level_sprite_0914_spawn_script		;0914
+	dw level_sprite_0916_spawn_script		;0916
+	dw level_sprite_0918_spawn_script		;0918
+	dw level_sprite_091A_spawn_script		;091A
+	dw level_sprite_091C_spawn_script		;091C
+	dw level_sprite_091E_spawn_script		;091E
+	dw level_sprite_0920_spawn_script		;0920
+	dw level_sprite_0922_spawn_script		;0922
+	dw unplaced_level_sprite_0924_spawn_script	;0924
+	dw level_sprite_0926_spawn_script		;0926
+	dw level_sprite_0928_spawn_script		;0928
+	dw level_sprite_092A_spawn_script		;092A
+	dw level_sprite_092C_spawn_script		;092C
+	dw level_sprite_092E_spawn_script		;092E
+	dw level_sprite_0930_spawn_script		;0930
+	dw level_sprite_0932_spawn_script		;0932
+	dw level_sprite_0934_spawn_script		;0934
+	dw level_sprite_0936_spawn_script		;0936
+	dw level_sprite_0938_spawn_script		;0938
+	dw level_sprite_093A_spawn_script		;093A
+	dw level_sprite_093C_spawn_script		;093C
+	dw unplaced_level_sprite_093E_spawn_script	;093E
+	dw level_sprite_0940_spawn_script		;0940
+	dw level_sprite_0942_spawn_script		;0942
+	dw level_sprite_0944_spawn_script		;0944
+	dw unplaced_level_sprite_0946_spawn_script	;0946
+	dw level_sprite_0948_spawn_script		;0948
+	dw level_sprite_094A_spawn_script		;094A
+	dw level_sprite_094C_spawn_script		;094C
+	dw level_sprite_094E_spawn_script		;094E
+	dw unplaced_level_sprite_0950_spawn_script	;0950
+	dw level_sprite_0952_spawn_script		;0952
+	dw level_sprite_0954_spawn_script		;0954
+	dw level_sprite_0956_spawn_script		;0956
+	dw level_sprite_0958_spawn_script		;0958
+	dw level_sprite_095A_spawn_script		;095A
+	dw level_sprite_095C_spawn_script		;095C
+	dw level_sprite_095E_spawn_script		;095E
+	dw level_sprite_0960_spawn_script		;0960
+	dw level_sprite_0962_spawn_script		;0962
+	dw level_sprite_0964_spawn_script		;0964
+	dw level_sprite_0966_spawn_script		;0966
+	dw level_sprite_0968_spawn_script		;0968
+	dw unplaced_level_sprite_096A_spawn_script	;096A
+	dw level_sprite_096C_spawn_script		;096C
+	dw level_sprite_096E_spawn_script		;096E
+	dw level_sprite_0970_spawn_script		;0970
+	dw level_sprite_0972_spawn_script		;0972
+	dw level_sprite_0974_spawn_script		;0974
+	dw level_sprite_0976_spawn_script		;0976
+	dw level_sprite_0978_spawn_script		;0978
+	dw level_sprite_097A_spawn_script		;097A
+	dw unplaced_level_sprite_097C_spawn_script	;097C
+	dw level_sprite_097E_spawn_script		;097E
+	dw unplaced_level_sprite_0980_spawn_script	;0980
+	dw level_sprite_0982_spawn_script		;0982
+	dw unplaced_level_sprite_0984_spawn_script	;0984
+	dw unplaced_level_sprite_0986_spawn_script	;0986
+	dw level_sprite_0988_spawn_script		;0988
+	dw unplaced_level_sprite_098A_spawn_script	;098A
+	dw unplaced_level_sprite_098C_spawn_script	;098C
+	dw unplaced_level_sprite_098E_spawn_script	;098E
+	dw level_sprite_0990_spawn_script		;0990
+	dw unplaced_level_sprite_0992_spawn_script	;0992
+	dw unplaced_level_sprite_0994_spawn_script	;0994
+	dw unplaced_level_sprite_0996_spawn_script	;0996
+	dw unplaced_level_sprite_0998_spawn_script	;0998
+	dw level_sprite_099A_spawn_script		;099A
+	dw level_sprite_099C_spawn_script		;099C
+	dw level_sprite_099E_spawn_script		;099E
+	dw unplaced_level_sprite_09A0_spawn_script	;09A0
+	dw level_sprite_09A2_spawn_script		;09A2
+	dw unplaced_level_sprite_09A4_spawn_script	;09A4
+	dw unplaced_level_sprite_09A6_spawn_script	;09A6
+	dw level_sprite_09A8_spawn_script		;09A8
+	dw level_sprite_09AA_spawn_script		;09AA
+	dw unplaced_level_sprite_09AC_spawn_script	;09AC
+	dw unplaced_level_sprite_09AE_spawn_script	;09AE
+	dw unplaced_level_sprite_09B0_spawn_script	;09B0
+	dw unplaced_level_sprite_09B2_spawn_script	;09B2
+	dw level_sprite_09B4_spawn_script		;09B4
+	dw level_sprite_09B6_spawn_script		;09B6
+	dw unplaced_level_sprite_09B8_spawn_script	;09B8
+	dw unplaced_level_sprite_09BA_spawn_script	;09BA
+	dw level_sprite_09BC_spawn_script		;09BC
+	dw unplaced_level_sprite_09BE_spawn_script	;09BE
+	dw level_sprite_09C0_spawn_script		;09C0
+	dw level_sprite_09C2_spawn_script		;09C2
+	dw unplaced_level_sprite_09C4_spawn_script	;09C4
+	dw level_sprite_09C6_spawn_script		;09C6
+	dw level_sprite_09C8_spawn_script		;09C8
+	dw unplaced_level_sprite_09CA_spawn_script	;09CA
+	dw level_sprite_09CC_spawn_script		;09CC
+	dw level_sprite_09CE_spawn_script		;09CE
+	dw unplaced_level_sprite_09D0_spawn_script	;09D0
+	dw level_sprite_09D2_spawn_script		;09D2
+	dw level_sprite_09D4_spawn_script		;09D4
+	dw level_sprite_09D6_spawn_script		;09D6
+	dw unplaced_level_sprite_09D8_spawn_script	;09D8
+	dw level_sprite_09DA_spawn_script		;09DA
+	dw level_sprite_09DC_spawn_script		;09DC
+	dw unplaced_level_sprite_09DE_spawn_script	;09DE
+	dw level_sprite_09E0_spawn_script		;09E0
+	dw level_sprite_09E2_spawn_script		;09E2
+	dw level_sprite_09E4_spawn_script		;09E4
+	dw level_sprite_09E6_spawn_script		;09E6
+	dw level_sprite_09E8_spawn_script		;09E8
+	dw level_sprite_09EA_spawn_script		;09EA
+	dw level_sprite_09EC_spawn_script		;09EC
+	dw level_sprite_09EE_spawn_script		;09EE
+	dw level_sprite_09F0_spawn_script		;09F0
+	dw level_sprite_09F2_spawn_script		;09F2
+	dw level_sprite_09F4_spawn_script		;09F4
+	dw level_sprite_09F6_spawn_script		;09F6
+	dw level_sprite_09F8_spawn_script		;09F8
+	dw unplaced_level_sprite_09FA_spawn_script	;09FA
+	dw unplaced_level_sprite_09FC_spawn_script	;09FC
+	dw unplaced_level_sprite_09FE_spawn_script	;09FE
+	dw level_sprite_0A00_spawn_script		;0A00
+	dw level_sprite_0A02_spawn_script		;0A02
+	dw level_sprite_0A04_spawn_script		;0A04
+	dw level_sprite_0A06_spawn_script		;0A06
+	dw level_sprite_0A08_spawn_script		;0A08
+	dw level_sprite_0A0A_spawn_script		;0A0A
+	dw unplaced_level_sprite_0A0C_spawn_script	;0A0C
+	dw level_sprite_0A0E_spawn_script		;0A0E
+	dw unplaced_level_sprite_0A10_spawn_script	;0A10
+	dw unplaced_level_sprite_0A12_spawn_script	;0A12
+	dw level_sprite_0A14_spawn_script		;0A14
+	dw unplaced_level_sprite_0A16_spawn_script	;0A16
+	dw level_sprite_0A18_spawn_script		;0A18
+	dw level_sprite_0A1A_spawn_script		;0A1A
+	dw level_sprite_0A1C_spawn_script		;0A1C
+	dw level_sprite_0A1E_spawn_script		;0A1E
+	dw level_sprite_0A20_spawn_script		;0A20
+	dw level_sprite_0A22_spawn_script		;0A22
+	dw unplaced_level_sprite_0A24_spawn_script	;0A24
+	dw level_sprite_0A26_spawn_script		;0A26
+	dw level_sprite_0A28_spawn_script		;0A28
+	dw level_sprite_0A2A_spawn_script		;0A2A
+	dw level_sprite_0A2C_spawn_script		;0A2C
+	dw level_sprite_0A2E_spawn_script		;0A2E
+	dw level_sprite_0A30_spawn_script		;0A30
+	dw level_sprite_0A32_spawn_script		;0A32
+	dw level_sprite_0A34_spawn_script		;0A34
+	dw level_sprite_0A36_spawn_script		;0A36
+	dw level_sprite_0A38_spawn_script		;0A38
+	dw level_sprite_0A3A_spawn_script		;0A3A
+	dw level_sprite_0A3C_spawn_script		;0A3C
+	dw level_sprite_0A3E_spawn_script		;0A3E
+	dw level_sprite_0A40_spawn_script		;0A40
+	dw level_sprite_0A42_spawn_script		;0A42
+	dw level_sprite_0A44_spawn_script		;0A44
+	dw unplaced_level_sprite_0A46_spawn_script	;0A46
+	dw level_sprite_0A48_spawn_script		;0A48
+	dw level_sprite_0A4A_spawn_script		;0A4A
+	dw level_sprite_0A4C_spawn_script		;0A4C
+	dw level_sprite_0A4E_spawn_script		;0A4E
+	dw unplaced_level_sprite_0A50_spawn_script	;0A50
+	dw unplaced_level_sprite_0A52_spawn_script	;0A52
+	dw level_sprite_0A54_spawn_script		;0A54
+	dw level_sprite_0A56_spawn_script		;0A56
+	dw level_sprite_0A58_spawn_script		;0A58
+	dw level_sprite_0A5A_spawn_script		;0A5A
+	dw level_sprite_0A5C_spawn_script		;0A5C
+	dw level_sprite_0A5E_spawn_script		;0A5E
+	dw level_sprite_0A60_spawn_script		;0A60
+	dw level_sprite_0A62_spawn_script		;0A62
+	dw level_sprite_0A64_spawn_script		;0A64
+	dw level_sprite_0A66_spawn_script		;0A66
+	dw unplaced_level_sprite_0A68_spawn_script	;0A68
+	dw level_sprite_0A6A_spawn_script		;0A6A
+	dw level_sprite_0A6C_spawn_script		;0A6C
+	dw level_sprite_0A6E_spawn_script		;0A6E
+	dw level_sprite_0A70_spawn_script		;0A70
+	dw level_sprite_0A72_spawn_script		;0A72
+	dw level_sprite_0A74_spawn_script		;0A74
+	dw level_sprite_0A76_spawn_script		;0A76
+	dw level_sprite_0A78_spawn_script		;0A78
+	dw unplaced_level_sprite_0A7A_spawn_script	;0A7A
+	dw level_sprite_0A7C_spawn_script		;0A7C
+	dw level_sprite_0A7E_spawn_script		;0A7E
+	dw level_sprite_0A80_spawn_script		;0A80
+	dw level_sprite_0A82_spawn_script		;0A82
+	dw level_sprite_0A84_spawn_script		;0A84
+	dw level_sprite_0A86_spawn_script		;0A86
+	dw level_sprite_0A88_spawn_script		;0A88
+	dw level_sprite_0A8A_spawn_script		;0A8A
+	dw level_sprite_0A8C_spawn_script		;0A8C
+	dw level_sprite_0A8E_spawn_script		;0A8E
+	dw level_sprite_0A90_spawn_script		;0A90
+	dw level_sprite_0A92_spawn_script		;0A92
+	dw level_sprite_0A94_spawn_script		;0A94
+	dw level_sprite_0A96_spawn_script		;0A96
+	dw level_sprite_0A98_spawn_script		;0A98
+	dw level_sprite_0A9A_spawn_script		;0A9A
+	dw level_sprite_0A9C_spawn_script		;0A9C
+	dw level_sprite_0A9E_spawn_script		;0A9E
+	dw level_sprite_0AA0_spawn_script		;0AA0
+	dw unplaced_level_sprite_0AA2_spawn_script	;0AA2
+	dw level_sprite_0AA4_spawn_script		;0AA4
+	dw level_sprite_0AA6_spawn_script		;0AA6
+	dw level_sprite_0AA8_spawn_script		;0AA8
+	dw level_sprite_0AAA_spawn_script		;0AAA
 
 ;pointers?
 UNK_FF0AEC:
@@ -2700,11 +2700,11 @@ DATA_FF218C:
 	dw DATA_FF2A4E		;005A
 	dw DATA_FF2A6E		;005C
 	dw DATA_FF2A84		;005E
-	dw DATA_FF2A9A		;0060
-	dw DATA_FF2AC5		;0062
-	dw DATA_FF2AF0		;0064
-	dw DATA_FF2B29		;0066
-	dw DATA_FF2B54		;0068
+	dw unplaced_level_sprite_0000_spawn_script		;0060
+	dw unplaced_level_sprite_0002_spawn_script		;0062
+	dw unplaced_level_sprite_0004_spawn_script		;0064
+	dw unplaced_level_sprite_0006_spawn_script		;0066
+	dw unplaced_level_sprite_0008_spawn_script		;0068
 	dw DATA_FF2B7F		;006A
 	dw DATA_FF2B95		;006C
 	dw DATA_FF25EE		;006E
@@ -3746,7 +3746,8 @@ DATA_FF2A8E:
 DATA_FF2A98:
 	dw $0800
 
-DATA_FF2A9A:
+;$FF2A9A
+unplaced_level_sprite_0000_spawn_script:
 	db !spawn_command_set_type : dw !sprite_Ellie
 	db sprite.constants_address : dw DATA_FF1CE4
 	db sprite.render_order : dw $00D4
@@ -3763,7 +3764,8 @@ DATA_FF2A9A:
 	db sprite.offscreen_despawn_time : dw $00FF
 	db !spawn_command_success
 
-DATA_FF2AC5:
+;$FF2AC5
+unplaced_level_sprite_0002_spawn_script:
 	db !spawn_command_set_type : dw !sprite_Enguarde
 	db sprite.constants_address : dw DATA_FF1CF6
 	db sprite.render_order : dw $00D0
@@ -3780,7 +3782,8 @@ DATA_FF2AC5:
 	db sprite.offscreen_despawn_time : dw $00FF
 	db !spawn_command_success
 
-DATA_FF2AF0:
+;$FF2AF0
+unplaced_level_sprite_0004_spawn_script:
 	db !spawn_command_set_type : dw !sprite_Squawks
 	db sprite.constants_address : dw DATA_FF1D08
 	db sprite.render_order : dw $00D0
@@ -3805,7 +3808,8 @@ DATA_FF2B25:
 	db !spawn_command_set_palette : dw $001E
 	db !spawn_command_success
 
-DATA_FF2B29:
+;$FF2B29
+unplaced_level_sprite_0006_spawn_script:
 	db !spawn_command_set_type : dw !sprite_Squitter
 	db sprite.constants_address : dw DATA_FF1D1A
 	db sprite.render_order : dw $00D0
@@ -3822,7 +3826,8 @@ DATA_FF2B29:
 	db sprite.offscreen_despawn_time : dw $00FF
 	db !spawn_command_success
 
-DATA_FF2B54:
+;$FF2B54
+unplaced_level_sprite_0008_spawn_script:
 	db !spawn_command_set_type : dw !sprite_Parry
 	db sprite.constants_address : dw DATA_FF1BCE
 	db sprite.render_order : dw $00D0
@@ -9087,39 +9092,45 @@ DATA_FF5A20:
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_success
 
-DATA_FF5A2D:
+;$FF2B54
+level_sprite_000A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5A06
 	db sprite.general_purpose_5C : dw $0006
 	db !spawn_command_success
 
-DATA_FF5A34:
+;$FF2B54
+level_sprite_000C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5A06
 	db sprite.general_purpose_5C : dw $0021
 	db sprite.general_purpose_60 : dw $007E
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_success
 
-DATA_FF5A41:
+;$FF2B54
+level_sprite_000E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5A06
 	db sprite.general_purpose_5C : dw $0002
 	db sprite.general_purpose_60 : dw $007E
 	db sprite.general_purpose_62 : dw $0234
 	db !spawn_command_success
 
-DATA_FF5A4E:
+;$FF2B54
+level_sprite_0010_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5A13
 	db sprite.general_purpose_5C : dw $0006
 	db sprite.general_purpose_60 : dw $007E
 	db sprite.general_purpose_62 : dw $0234
 	db !spawn_command_success
 
-DATA_FF5A5B:
+;$FF2B54
+level_sprite_0012_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5A20
 	db sprite.general_purpose_5C : dw $0024
 	db sprite.general_purpose_5E : dw $0023
 	db !spawn_command_success
 
-DATA_FF5A65:
+;$FF2B54
+level_sprite_0014_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5A20
 	db sprite.general_purpose_5C : dw $0005
 	db sprite.general_purpose_5E : dw $0007
@@ -9134,32 +9145,38 @@ DATA_FF5A6F:
 	db sprite.general_purpose_6C : dw $FFFF
 	db !spawn_command_success
 
-DATA_FF5A82:
+;$FF2B54
+level_sprite_0016_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5A6F
 	db sprite.general_purpose_60 : dw $0101
 	db !spawn_command_success
 
-DATA_FF5A89:
+;$FF2B54
+level_sprite_0018_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5A6F
 	db sprite.general_purpose_60 : dw $0201
 	db !spawn_command_success
 
-DATA_FF5A90:
+;$FF2B54
+level_sprite_001A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5A6F
 	db sprite.general_purpose_60 : dw $0301
 	db !spawn_command_success
 
-DATA_FF5A97:
+;$FF2B54
+level_sprite_001C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5A6F
 	db sprite.general_purpose_60 : dw $0401
 	db !spawn_command_success
 
-DATA_FF5A9E:
+;$FF2B54
+level_sprite_001E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5A6F
 	db sprite.general_purpose_60 : dw $0501
 	db !spawn_command_success
 
-DATA_FF5AA5:
+;$FF2B54
+level_sprite_0020_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5A6F
 	db sprite.general_purpose_5E : dw $15E6
 	db sprite.general_purpose_60 : dw $1E01
@@ -9176,27 +9193,32 @@ DATA_FF5AAF:
 	db sprite.general_purpose_6C : dw $FFFF
 	db !spawn_command_success
 
-DATA_FF5AC8:
+;$FF2B54
+level_sprite_0022_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $0101
 	db !spawn_command_success
 
-DATA_FF5ACF:
+;$FF5ACF
+unplaced_level_sprite_0024_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $0201
 	db !spawn_command_success
 
-DATA_FF5AD6:
+;$FF5ACF
+level_sprite_0026_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $0301
 	db !spawn_command_success
 
-DATA_FF5ADD:
+;$FF5ACF
+level_sprite_0028_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $1601
 	db !spawn_command_success
 
-DATA_FF5AE4:
+;$FF5ACF
+level_sprite_002A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $0501
 	db sprite.general_purpose_6C : dw $0005
@@ -9204,7 +9226,8 @@ DATA_FF5AE4:
 	db sprite.general_purpose_4E : dw $01C0
 	db !spawn_command_success
 
-DATA_FF5AF4:
+;$FF5ACF
+level_sprite_002C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $0601
 	db sprite.general_purpose_6C : dw $000C
@@ -9212,7 +9235,8 @@ DATA_FF5AF4:
 	db sprite.general_purpose_4E : dw $0220
 	db !spawn_command_success
 
-DATA_FF5B04:
+;$FF5ACF
+level_sprite_002E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $0701
 	db sprite.general_purpose_6C : dw $0005
@@ -9220,7 +9244,8 @@ DATA_FF5B04:
 	db sprite.general_purpose_4E : dw $01C0
 	db !spawn_command_success
 
-DATA_FF5B14:
+;$FF5ACF
+level_sprite_0030_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $0801
 	db sprite.general_purpose_6C : dw $000C
@@ -9228,7 +9253,8 @@ DATA_FF5B14:
 	db sprite.general_purpose_4E : dw $01B0
 	db !spawn_command_success
 
-DATA_FF5B24:
+;$FF5ACF
+level_sprite_0032_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $0901
 	db sprite.general_purpose_6C : dw $000C
@@ -9236,7 +9262,8 @@ DATA_FF5B24:
 	db sprite.general_purpose_4E : dw $0390
 	db !spawn_command_success
 
-DATA_FF5B34:
+;$FF5ACF
+level_sprite_0034_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $0A01
 	db sprite.general_purpose_6C : dw $0005
@@ -9244,7 +9271,8 @@ DATA_FF5B34:
 	db sprite.general_purpose_4E : dw $03D0
 	db !spawn_command_success
 
-DATA_FF5B44:
+;$FF5ACF
+level_sprite_0036_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $0B01
 	db sprite.general_purpose_6C : dw $000B
@@ -9252,7 +9280,8 @@ DATA_FF5B44:
 	db sprite.general_purpose_4E : dw $0630
 	db !spawn_command_success
 
-DATA_FF5B54:
+;$FF5ACF
+level_sprite_0038_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $0C01
 	db sprite.general_purpose_6C : dw $0005
@@ -9260,7 +9289,8 @@ DATA_FF5B54:
 	db sprite.general_purpose_4E : dw $0C00
 	db !spawn_command_success
 
-DATA_FF5B64:
+;$FF5ACF
+level_sprite_003A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $0D01
 	db sprite.general_purpose_6C : dw $000D
@@ -9268,7 +9298,8 @@ DATA_FF5B64:
 	db sprite.general_purpose_4E : dw $0C20
 	db !spawn_command_success
 
-DATA_FF5B74:
+;$FF5ACF
+level_sprite_003C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $0E01
 	db sprite.general_purpose_6C : dw $000C
@@ -9276,7 +9307,8 @@ DATA_FF5B74:
 	db sprite.general_purpose_4E : dw $0480
 	db !spawn_command_success
 
-DATA_FF5B84:
+;$FF5ACF
+level_sprite_003E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $0F01
 	db sprite.general_purpose_6C : dw $0005
@@ -9284,7 +9316,8 @@ DATA_FF5B84:
 	db sprite.general_purpose_4E : dw $0A40
 	db !spawn_command_success
 
-DATA_FF5B94:
+;$FF5ACF
+level_sprite_0040_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $1001
 	db sprite.general_purpose_6C : dw $000C
@@ -9292,7 +9325,8 @@ DATA_FF5B94:
 	db sprite.general_purpose_4E : dw $0390
 	db !spawn_command_success
 
-DATA_FF5BA4:
+;$FF5ACF
+level_sprite_0042_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $1101
 	db sprite.general_purpose_6C : dw $0009
@@ -9300,7 +9334,8 @@ DATA_FF5BA4:
 	db sprite.general_purpose_4E : dw $042D
 	db !spawn_command_success
 
-DATA_FF5BB4:
+;$FF5ACF
+level_sprite_0044_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $1201
 	db sprite.general_purpose_6C : dw $000E
@@ -9308,7 +9343,8 @@ DATA_FF5BB4:
 	db sprite.general_purpose_4E : dw $01E0
 	db !spawn_command_success
 
-DATA_FF5BC4:
+;$FF5ACF
+level_sprite_0046_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $1301
 	db sprite.general_purpose_6C : dw $0005
@@ -9316,7 +9352,8 @@ DATA_FF5BC4:
 	db sprite.general_purpose_4E : dw $01D0
 	db !spawn_command_success
 
-DATA_FF5BD4:
+;$FF5ACF
+level_sprite_0048_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $1401
 	db sprite.general_purpose_6C : dw $0005
@@ -9324,7 +9361,8 @@ DATA_FF5BD4:
 	db sprite.general_purpose_4E : dw $0180
 	db !spawn_command_success
 
-DATA_FF5BE4:
+;$FF5ACF
+level_sprite_004A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $1501
 	db sprite.general_purpose_6C : dw $000E
@@ -9332,7 +9370,8 @@ DATA_FF5BE4:
 	db sprite.general_purpose_4E : dw $01C0
 	db !spawn_command_success
 
-DATA_FF5BF4:
+;$FF5ACF
+level_sprite_004C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $1701
 	db sprite.general_purpose_6C : dw $0005
@@ -9340,7 +9379,8 @@ DATA_FF5BF4:
 	db sprite.general_purpose_4E : dw $0300
 	db !spawn_command_success
 
-DATA_FF5C04:
+;$FF5ACF
+level_sprite_004E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $1801
 	db sprite.general_purpose_6C : dw $0005
@@ -9348,7 +9388,8 @@ DATA_FF5C04:
 	db sprite.general_purpose_4E : dw $04C0
 	db !spawn_command_success
 
-DATA_FF5C14:
+;$FF5ACF
+level_sprite_0050_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $1901
 	db sprite.general_purpose_6C : dw $0005
@@ -9356,7 +9397,8 @@ DATA_FF5C14:
 	db sprite.general_purpose_4E : dw $1940
 	db !spawn_command_success
 
-DATA_FF5C24:
+;$FF5ACF
+level_sprite_0052_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $1A01
 	db sprite.general_purpose_6C : dw $0005
@@ -9364,7 +9406,8 @@ DATA_FF5C24:
 	db sprite.general_purpose_4E : dw $0840
 	db !spawn_command_success
 
-DATA_FF5C34:
+;$FF5ACF
+level_sprite_0054_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $1B01
 	db sprite.general_purpose_6C : dw $000C
@@ -9372,7 +9415,8 @@ DATA_FF5C34:
 	db sprite.general_purpose_4E : dw $01D0
 	db !spawn_command_success
 
-DATA_FF5C44:
+;$FF5ACF
+level_sprite_0056_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $1C01
 	db sprite.general_purpose_6C : dw $0005
@@ -9380,7 +9424,8 @@ DATA_FF5C44:
 	db sprite.general_purpose_4E : dw $0820
 	db !spawn_command_success
 
-DATA_FF5C54:
+;$FF5ACF
+level_sprite_0058_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5AAF
 	db sprite.general_purpose_60 : dw $1D01
 	db sprite.general_purpose_6C : dw $0005
@@ -9388,7 +9433,8 @@ DATA_FF5C54:
 	db sprite.general_purpose_4E : dw $0C40
 	db !spawn_command_success
 
-DATA_FF5C64:
+;$FF5ACF
+level_sprite_005A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79F4
 	db sprite.state : dw $0003
 	db sprite.general_purpose_60 : dw $0202
@@ -9397,7 +9443,8 @@ DATA_FF5C64:
 	db sprite.max_y_speed : dw $0060
 	db !spawn_command_success
 
-DATA_FF5C77:
+;$FF5ACF
+level_sprite_005C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A08
 	db sprite.state : dw $0003
 	db sprite.general_purpose_60 : dw $4848
@@ -9414,7 +9461,8 @@ DATA_FF5C84:
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
-DATA_FF5C9A:
+;$FF5ACF
+level_sprite_005E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5C84
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_5E : dw $0037
@@ -9423,7 +9471,8 @@ DATA_FF5C9A:
 	db sprite.general_purpose_6A : dw $0080
 	db !spawn_command_success
 
-DATA_FF5CAD:
+;$FF5ACF
+level_sprite_0060_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5C84
 	db sprite.general_purpose_5C : dw $0001
 	db sprite.general_purpose_5E : dw $002D
@@ -9432,7 +9481,8 @@ DATA_FF5CAD:
 	db sprite.general_purpose_6A : dw $8040
 	db !spawn_command_success
 
-DATA_FF5CC0:
+;$FF5ACF
+level_sprite_0062_spawn_script:
 	db !spawn_command_set_type : dw !sprite_FuelCan
 	db sprite.render_order : dw $00C8
 	db !spawn_command_set_oam : dw $2000
@@ -9452,7 +9502,8 @@ DATA_FF5CD6:
 	db sprite.animation_id : dw $0000
 	db !spawn_command_success
 
-DATA_FF5CEC:
+;$FF5ACF
+level_sprite_0064_spawn_script:
 	db !spawn_command_set_type : dw !sprite_FuelCan
 	db sprite.state : dw $0001
 	db sprite.render_order : dw $00C8
@@ -9462,7 +9513,8 @@ DATA_FF5CEC:
 	db sprite.general_purpose_5C : dw $0050
 	db !spawn_command_success
 
-DATA_FF5D02:
+;$FF5ACF
+level_sprite_0066_spawn_script:
 	db !spawn_command_set_type : dw !sprite_FuelCan
 	db sprite.state : dw $0001
 	db sprite.render_order : dw $00C8
@@ -9472,7 +9524,8 @@ DATA_FF5D02:
 	db sprite.general_purpose_5C : dw $0030
 	db !spawn_command_success
 
-DATA_FF5D18:
+;$FF5ACF
+level_sprite_0068_spawn_script:
 	db !spawn_command_set_type : dw !sprite_FuelCan
 	db sprite.state : dw $0001
 	db sprite.render_order : dw $00C8
@@ -9482,7 +9535,8 @@ DATA_FF5D18:
 	db sprite.general_purpose_5C : dw $0010
 	db !spawn_command_success
 
-DATA_FF5D2E:
+;$FF5ACF
+level_sprite_006A_spawn_script:
 	db !spawn_command_set_type : dw !sprite_FuelCan
 	db sprite.state : dw $0001
 	db sprite.render_order : dw $00C8
@@ -9506,7 +9560,8 @@ DATA_FF5D44:
 	db sprite.animation_address : dw $0000
 	db !spawn_command_success
 
-DATA_FF5D66:
+;$FF5ACF
+level_sprite_006C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5D44
 	db sprite.movement_state : dw $0000
 	db sprite.general_purpose_5C : dw DATA_FF5D82
@@ -9531,7 +9586,8 @@ DATA_FF5D82:
 	dw $0000
 
 
-DATA_FF5D96:
+;$FF5ACF
+level_sprite_006E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF5D44
 	db sprite.movement_state : dw $0000
 	db !spawn_command_set_oam : dw $6000
@@ -9540,7 +9596,8 @@ DATA_FF5D96:
 	db sprite.animation_routine : dw $002F
 	db !spawn_command_success
 
-DATA_FF5DA9:
+;$FF5ACF
+level_sprite_0070_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0001
@@ -9551,7 +9608,8 @@ DATA_FF5DA9:
 	db sprite.general_purpose_6C : dw $0468
 	db !spawn_command_success
 
-DATA_FF5DC2:
+;$FF5ACF
+level_sprite_0072_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0001
@@ -9562,7 +9620,8 @@ DATA_FF5DC2:
 	db sprite.general_purpose_6C : dw $0468
 	db !spawn_command_success
 
-DATA_FF5DDB:
+;$FF5ACF
+level_sprite_0074_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0001
@@ -9573,7 +9632,8 @@ DATA_FF5DDB:
 	db sprite.general_purpose_6C : dw $0468
 	db !spawn_command_success
 
-DATA_FF5DF4:
+;$FF5ACF
+level_sprite_0076_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0001
@@ -9584,7 +9644,8 @@ DATA_FF5DF4:
 	db sprite.general_purpose_6C : dw $0468
 	db !spawn_command_success
 
-DATA_FF5E0D:
+;$FF5ACF
+level_sprite_0078_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0001
@@ -9595,7 +9656,8 @@ DATA_FF5E0D:
 	db sprite.general_purpose_6C : dw $0468
 	db !spawn_command_success
 
-DATA_FF5E26:
+;$FF5ACF
+level_sprite_007A_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0101
@@ -9606,7 +9668,8 @@ DATA_FF5E26:
 	db sprite.general_purpose_6C : dw $0468
 	db !spawn_command_success
 
-DATA_FF5E3F:
+;$FF5ACF
+level_sprite_007C_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0001
@@ -9617,7 +9680,8 @@ DATA_FF5E3F:
 	db sprite.general_purpose_6C : dw $0468
 	db !spawn_command_success
 
-DATA_FF5E58:
+;$FF5ACF
+level_sprite_007E_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0001
@@ -9628,7 +9692,8 @@ DATA_FF5E58:
 	db sprite.general_purpose_6C : dw $0468
 	db !spawn_command_success
 
-DATA_FF5E71:
+;$FF5ACF
+level_sprite_0080_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0001
@@ -9639,7 +9704,8 @@ DATA_FF5E71:
 	db sprite.general_purpose_6C : dw $0468
 	db !spawn_command_success
 
-DATA_FF5E8A:
+;$FF5ACF
+level_sprite_0082_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0101
@@ -9650,7 +9716,8 @@ DATA_FF5E8A:
 	db sprite.general_purpose_6C : dw $0468
 	db !spawn_command_success
 
-DATA_FF5EA3:
+;$FF5ACF
+level_sprite_0084_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0001
@@ -9661,7 +9728,8 @@ DATA_FF5EA3:
 	db sprite.general_purpose_6C : dw $045C
 	db !spawn_command_success
 
-DATA_FF5EBC:
+;$FF5ACF
+level_sprite_0086_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0102
@@ -9672,7 +9740,8 @@ DATA_FF5EBC:
 	db sprite.general_purpose_6C : dw $045C
 	db !spawn_command_success
 
-DATA_FF5ED5:
+;$FF5ED5
+unplaced_level_sprite_0088_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0101
@@ -9683,7 +9752,8 @@ DATA_FF5ED5:
 	db sprite.general_purpose_6C : dw $045C
 	db !spawn_command_success
 
-DATA_FF5EEE:
+;$FF5ED5
+level_sprite_008A_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0102
@@ -9694,7 +9764,8 @@ DATA_FF5EEE:
 	db sprite.general_purpose_6C : dw $045C
 	db !spawn_command_success
 
-DATA_FF5F07:
+;$FF5ED5
+level_sprite_008C_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0001
@@ -9705,7 +9776,8 @@ DATA_FF5F07:
 	db sprite.general_purpose_6C : dw $0464
 	db !spawn_command_success
 
-DATA_FF5F20:
+;$FF5F20
+unplaced_level_sprite_008E_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0101
@@ -9716,7 +9788,8 @@ DATA_FF5F20:
 	db sprite.general_purpose_6C : dw $046E
 	db !spawn_command_success
 
-DATA_FF5F39:
+;$FF5F39
+unplaced_level_sprite_0090_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelRespawner
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5E : dw $0102
@@ -9777,66 +9850,77 @@ DATA_FF60DA:
 	db sprite.general_purpose_60 : dw $0000
 	db !spawn_command_success
 
-DATA_FF60E7:
+;$FF5F39
+level_sprite_0092_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF60DA
 	db sprite.state : dw $0001
 	db sprite.general_purpose_5C : dw $0000
 	db !spawn_command_success
 
-DATA_FF60F1:
+;$FF5F39
+level_sprite_0094_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF60DA
 	db sprite.general_purpose_5C : dw $0004
 	db sprite.state : dw $0002
 	db sprite.general_purpose_5E : dw $0001
 	db !spawn_command_success
 
-DATA_FF60FE:
+;$FF5F39
+level_sprite_0096_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF60DA
 	db sprite.general_purpose_5C : dw $0008
 	db sprite.state : dw $0002
 	db sprite.general_purpose_5E : dw $0002
 	db !spawn_command_success
 
-DATA_FF610B:
+;$FF5F39
+level_sprite_0098_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF60DA
 	db sprite.general_purpose_5C : dw $000C
 	db sprite.state : dw $0002
 	db sprite.general_purpose_5E : dw $0004
 	db !spawn_command_success
 
-DATA_FF6118:
+;$FF5F39
+level_sprite_009A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF60DA
 	db sprite.general_purpose_5C : dw $0010
 	db sprite.state : dw $0002
 	db sprite.general_purpose_5E : dw $0008
 	db !spawn_command_success
 
-DATA_FF6125:
+;$FF5F39
+level_sprite_009C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF60DA
 	db sprite.general_purpose_5C : dw $0014
 	db !spawn_command_success
 
-DATA_FF612C:
+;$FF5F39
+level_sprite_009E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF60DA
 	db sprite.general_purpose_5C : dw $0018
 	db !spawn_command_success
 
-DATA_FF6133:
+;$FF5F39
+level_sprite_00A0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF60DA
 	db sprite.general_purpose_5C : dw $001C
 	db !spawn_command_success
 
-DATA_FF613A:
+;$FF5F39
+level_sprite_00A2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF60DA
 	db sprite.general_purpose_5C : dw $0020
 	db !spawn_command_success
 
-DATA_FF6141:
+;$FF5F39
+level_sprite_00A4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF60DA
 	db sprite.general_purpose_5C : dw $0024
 	db !spawn_command_success
 
-DATA_FF6148:
+;$FF5F39
+level_sprite_00A6_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BonusBCoin
 	db sprite.state : dw $0000
 	db !spawn_command_set_animation : dw $014A
@@ -9847,7 +9931,8 @@ DATA_FF6148:
 	db sprite.general_purpose_6C : dw $0002
 	db !spawn_command_success
 
-DATA_FF6161:
+;$FF5F39
+level_sprite_00A8_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BonusBCoin
 	db sprite.state : dw $0003
 	db !spawn_command_set_animation : dw $014A
@@ -9873,68 +9958,81 @@ DATA_FF617A:
 	db sprite.general_purpose_66 : dw $0000
 	db !spawn_command_success
 
-DATA_FF619F:
+;$FF5F39
+level_sprite_00AA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF617A
 	db sprite.general_purpose_62 : dw $000A
 	db !spawn_command_success
 
-DATA_FF61A6:
+;$FF5F39
+level_sprite_00AC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF617A
 	db sprite.general_purpose_62 : dw $000F
 	db !spawn_command_success
 
-DATA_FF61AD:
+;$FF5F39
+level_sprite_00AE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF617A
 	db sprite.general_purpose_62 : dw $0014
 	db !spawn_command_success
 
-DATA_FF61B4:
+;$FF5F39
+level_sprite_00B0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF617A
 	db sprite.general_purpose_62 : dw $0019
 	db !spawn_command_success
 
-DATA_FF61BB:
+;$FF5F39
+level_sprite_00B2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF617A
 	db sprite.general_purpose_62 : dw $001E
 	db !spawn_command_success
 
-DATA_FF61C2:
+;$FF5F39
+level_sprite_00B4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF617A
 	db sprite.general_purpose_62 : dw $0023
 	db !spawn_command_success
 
-DATA_FF61C9:
+;$FF5F39
+level_sprite_00B6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF617A
 	db sprite.general_purpose_62 : dw $0028
 	db !spawn_command_success
 
-DATA_FF61D0:
+;$FF5F39
+level_sprite_00B8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF617A
 	db sprite.general_purpose_62 : dw $002D
 	db !spawn_command_success
 
-DATA_FF61D7:
+;$FF5F39
+level_sprite_00BA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF617A
 	db sprite.general_purpose_62 : dw $0032
 	db !spawn_command_success
 
-DATA_FF61DE:
+;$FF5F39
+level_sprite_00BC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF617A
 	db sprite.general_purpose_62 : dw $0037
 	db !spawn_command_success
 
-DATA_FF61E5:
+;$FF61E5
+unplaced_level_sprite_00BE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF617A
 	db sprite.general_purpose_62 : dw $003C
 	db !spawn_command_success
 
-DATA_FF61EC:
+;$FF61E5
+level_sprite_00C0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF617A
 	db sprite.general_purpose_62 : dw $0023
 	db sprite.general_purpose_66 : dw $4001
 	db !spawn_command_success
 
-DATA_FF61F6:
+;$FF61E5
+level_sprite_00C2_spawn_script:
 	db !spawn_command_set_type : dw !sprite_LevelEndFlagpole
 	db sprite.constants_address : dw DATA_FF1BCE
 	db sprite.render_order : dw $00C4
@@ -9954,13 +10052,15 @@ DATA_FF61F6:
 	db sprite.general_purpose_60 : dw $0078
 	db !spawn_command_success
 
-DATA_FF622A:
-	db !spawn_command_load_subconfig : dw DATA_FF61F6
+;$FF61E5
+level_sprite_00C4_spawn_script:
+	db !spawn_command_load_subconfig : dw level_sprite_00C2_spawn_script
 	db sprite.general_purpose_5E : dw $0001
 	db sprite.general_purpose_60 : dw $0096
 	db !spawn_command_success
 
-DATA_FF6234:
+;$FF61E5
+level_sprite_00C6_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BearCoin
 	db !spawn_command_set_animation : dw $0148
 	db !spawn_command_set_palette : dw $00C8
@@ -9970,7 +10070,8 @@ DATA_FF6234:
 	db sprite.general_purpose_6C : dw $0000
 	db !spawn_command_success
 
-DATA_FF624A:
+;$FF61E5
+level_sprite_00C8_spawn_script:
 	db sprite.display_mode : dw $C000
 	db !spawn_command_set_type : dw !sprite_BearCoin
 	db !spawn_command_set_animation : dw $0148
@@ -9981,7 +10082,8 @@ DATA_FF624A:
 	db sprite.general_purpose_6C : dw $0000
 	db !spawn_command_success
 
-DATA_FF6263:
+;$FF6263
+unplaced_level_sprite_00CA_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BearCoin
 	db !spawn_command_set_animation : dw $0148
 	db !spawn_command_set_palette : dw $00C8
@@ -9991,7 +10093,8 @@ DATA_FF6263:
 	db sprite.general_purpose_6C : dw $0000
 	db !spawn_command_F0
 
-DATA_FF6279:
+;$FF6263
+level_sprite_00CC_spawn_script:
 	db sprite.display_mode : dw $C000
 	db !spawn_command_set_type : dw !sprite_BearCoin
 	db !spawn_command_set_animation : dw $0148
@@ -10015,14 +10118,16 @@ DATA_FF6292:
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
-DATA_FF62B1:
+;$FF6263
+level_sprite_00CE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0005
 	db sprite.max_x_speed : dw $0100
 	db sprite.general_purpose_60 : dw $1E1E
 	db !spawn_command_success
 
-DATA_FF62BE:
+;$FF6263
+level_sprite_00D0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $01C0
@@ -10030,14 +10135,16 @@ DATA_FF62BE:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF62CE:
+;$FF6263
+level_sprite_00D2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $01C0
 	db sprite.general_purpose_64 : dw $0064
 	db !spawn_command_success
 
-DATA_FF62DB:
+;$FF6263
+level_sprite_00D4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $0200
@@ -10045,7 +10152,8 @@ DATA_FF62DB:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF62EB:
+;$FF6263
+level_sprite_00D6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $01C0
@@ -10053,7 +10161,8 @@ DATA_FF62EB:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF62FB:
+;$FF6263
+level_sprite_00D8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $0000
@@ -10061,7 +10170,8 @@ DATA_FF62FB:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF630B:
+;$FF6263
+level_sprite_00DA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $01C0
@@ -10069,7 +10179,8 @@ DATA_FF630B:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF631B:
+;$FF6263
+level_sprite_00DC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $FE40
@@ -10077,7 +10188,8 @@ DATA_FF631B:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF632B:
+;$FF632B
+unplaced_level_sprite_00DE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $F800
@@ -10085,21 +10197,24 @@ DATA_FF632B:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF633B:
+;$FF632B
+level_sprite_00E0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $FE40
 	db sprite.general_purpose_64 : dw $50FA
 	db !spawn_command_success
 
-DATA_FF6348:
+;$FF632B
+level_sprite_00E2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $FE40
 	db sprite.general_purpose_64 : dw $3250
 	db !spawn_command_success
 
-DATA_FF6355:
+;$FF6355
+unplaced_level_sprite_00E4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $01C0
@@ -10107,7 +10222,8 @@ DATA_FF6355:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF6365:
+;$FF6355
+level_sprite_00E6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $FE40
@@ -10115,21 +10231,24 @@ DATA_FF6365:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF6375:
+;$FF6355
+level_sprite_00E8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $01C0
 	db sprite.general_purpose_64 : dw $783C
 	db !spawn_command_success
 
-DATA_FF6382:
+;$FF6355
+level_sprite_00EA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $FE40
 	db sprite.general_purpose_64 : dw $50C8
 	db !spawn_command_success
 
-DATA_FF638F:
+;$FF6355
+level_sprite_00EC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6292
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $01C0
@@ -10154,17 +10273,20 @@ DATA_FF639C:
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_success
 
-DATA_FF63CA:
+;$FF6355
+level_sprite_00EE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF639C
 	db !spawn_command_success
 
-DATA_FF63CE:
+;$FF6355
+level_sprite_00F0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF639C
 	db sprite.max_y_speed : dw $F980
 	db sprite.state : dw $0003
 	db !spawn_command_success
 
-DATA_FF63D8:
+;$FF6355
+level_sprite_00F2_spawn_script:
 	db !spawn_command_set_type : dw !sprite_Bananas
 	db sprite.constants_address : dw DATA_FF1BCE
 	db !spawn_command_set_animation : dw $014D
@@ -10176,17 +10298,20 @@ DATA_FF63D8:
 	db sprite.general_purpose_68 : dw $000A
 	db !spawn_command_success
 
-DATA_FF63F4:
-	db !spawn_command_load_subconfig : dw DATA_FF63D8
+;$FF6355
+level_sprite_00F4_spawn_script:
+	db !spawn_command_load_subconfig : dw level_sprite_00F2_spawn_script
 	db sprite.display_mode : dw $C000
 	db !spawn_command_success
 
-DATA_FF63FB:
-	db !spawn_command_load_subconfig : dw DATA_FF63D8
+;$FF6355
+level_sprite_00F6_spawn_script:
+	db !spawn_command_load_subconfig : dw level_sprite_00F2_spawn_script
 	db !spawn_command_F0
 
-DATA_FF63FF:
-	db !spawn_command_load_subconfig : dw DATA_FF63D8
+;$FF6355
+level_sprite_00F8_spawn_script:
+	db !spawn_command_load_subconfig : dw level_sprite_00F2_spawn_script
 	db sprite.display_mode : dw $C000
 	db !spawn_command_F0
 
@@ -10222,51 +10347,60 @@ DATA_FF643C:
 	db sprite.general_purpose_5C : dw $0003
 	db !spawn_command_success
 
-DATA_FF6446:
+;$FF6355
+level_sprite_00FA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF643C
 	db sprite.general_purpose_6C : dw $8000
 	db !spawn_command_F0
 
-DATA_FF644D:
+;$FF6355
+level_sprite_00FC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6428
 	db sprite.general_purpose_6C : dw $8000
 	db sprite.max_y_speed : dw $FF80
 	db !spawn_command_success
 
-DATA_FF6457:
+;$FF6355
+level_sprite_00FE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6428
 	db sprite.general_purpose_6C : dw $8000
 	db sprite.display_mode : dw $C000
 	db !spawn_command_success
 
-DATA_FF6461:
+;$FF6355
+level_sprite_0100_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6428
 	db sprite.max_y_speed : dw $FF80
 	db !spawn_command_success
 
-DATA_FF6468:
+;$FF6355
+level_sprite_0102_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6432
 	db sprite.general_purpose_6C : dw $8000
 	db !spawn_command_success
 
-DATA_FF646F:
+;$FF6355
+level_sprite_0104_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6432
 	db sprite.display_mode : dw $C000
 	db sprite.general_purpose_6C : dw $8000
 	db !spawn_command_success
 
-DATA_FF6479:
+;$FF6355
+level_sprite_0106_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF643C
 	db sprite.general_purpose_6C : dw $8000
 	db !spawn_command_success
 
-DATA_FF6480:
+;$FF6355
+level_sprite_0108_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF643C
 	db sprite.display_mode : dw $C000
 	db sprite.general_purpose_6C : dw $8000
 	db !spawn_command_success
 
-DATA_FF648A:
+;$FF648A
+unplaced_level_sprite_010A_spawn_script:
 	db !spawn_command_set_type : dw !sprite_SpawnedRegularBanana
 	db sprite.constants_address : dw DATA_FF1BCE
 	db sprite.animation_id : dw $014C
@@ -10291,7 +10425,8 @@ DATA_FF64A0:
 	db sprite.general_purpose_6C : dw $0078
 	db !spawn_command_success
 
-DATA_FF64C5:
+;$FF648A
+level_sprite_010C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF64A0
 	db !spawn_command_set_animation : dw $0144
 	db sprite.general_purpose_64 : dw $005C
@@ -10299,7 +10434,8 @@ DATA_FF64C5:
 	db sprite.general_purpose_68 : dw $0710
 	db !spawn_command_success
 
-DATA_FF64D5:
+;$FF648A
+level_sprite_010E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF64A0
 	db !spawn_command_set_animation : dw $0145
 	db sprite.general_purpose_64 : dw $005E
@@ -10307,7 +10443,8 @@ DATA_FF64D5:
 	db sprite.general_purpose_68 : dw $0711
 	db !spawn_command_success
 
-DATA_FF64E5:
+;$FF648A
+level_sprite_0110_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF64A0
 	db !spawn_command_set_animation : dw $0146
 	db sprite.general_purpose_64 : dw $0060
@@ -10315,7 +10452,8 @@ DATA_FF64E5:
 	db sprite.general_purpose_68 : dw $0712
 	db !spawn_command_success
 
-DATA_FF64F5:
+;$FF648A
+level_sprite_0112_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF64A0
 	db !spawn_command_set_animation : dw $0147
 	db sprite.general_purpose_64 : dw $0062
@@ -10323,7 +10461,8 @@ DATA_FF64F5:
 	db sprite.general_purpose_68 : dw $0713
 	db !spawn_command_success
 
-DATA_FF6505:
+;$FF648A
+level_sprite_0114_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF64A0
 	db !spawn_command_set_animation : dw $0145
 	db sprite.general_purpose_64 : dw $005E
@@ -10331,7 +10470,8 @@ DATA_FF6505:
 	db sprite.general_purpose_68 : dw $0711
 	db !spawn_command_F0
 
-DATA_FF6515:
+;$FF6515
+unplaced_level_sprite_0116_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF64A0
 	db !spawn_command_set_animation : dw $0146
 	db sprite.general_purpose_64 : dw $0060
@@ -10339,7 +10479,8 @@ DATA_FF6515:
 	db sprite.general_purpose_68 : dw $0712
 	db !spawn_command_F0
 
-DATA_FF6525:
+;$FF6515
+level_sprite_0118_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF64A0
 	db !spawn_command_set_animation : dw $0147
 	db sprite.general_purpose_64 : dw $0062
@@ -10363,18 +10504,21 @@ DATA_FF653F:
 	db sprite.general_purpose_62 : dw $1818
 	db !spawn_command_success
 
-DATA_FF6555:
+;$FF6555
+unplaced_level_sprite_011A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF653F
 	db sprite.general_purpose_4C : dw $0001
 	db !spawn_command_success
 
-DATA_FF655C:
+;$FF655C
+unplaced_level_sprite_011C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF653F
 	db sprite.general_purpose_4C : dw $0002
 	db sprite.oam_property : dw $4000
 	db !spawn_command_success
 
-DATA_FF6566:
+;$FF655C
+level_sprite_011E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF653F
 	db sprite.general_purpose_4C : dw $0005
 	db !spawn_command_success
@@ -10390,32 +10534,37 @@ DATA_FF656D:
 	db sprite.interaction_flags : dw $0240
 	db !spawn_command_success
 
-DATA_FF6586:
+;$FF655C
+level_sprite_0120_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF656D
 	db !spawn_command_F3, $30, $01
 	db sprite.general_purpose_5C : dw !sprite_Ellie
 	db !spawn_command_success
 
-DATA_FF6590:
+;$FF655C
+level_sprite_0122_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF656D
 	db !spawn_command_F3, $30, $02
 	db sprite.general_purpose_5C : dw !sprite_Enguarde
 	db sprite.general_purpose_5E : dw $0001
 	db !spawn_command_success
 
-DATA_FF659D:
+;$FF655C
+level_sprite_0124_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF656D
 	db !spawn_command_F3, $30, $03
 	db sprite.general_purpose_5C : dw !sprite_Squitter
 	db !spawn_command_success
 
-DATA_FF65A7:
+;$FF655C
+level_sprite_0126_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF656D
 	db !spawn_command_F3, $30, $04
 	db sprite.general_purpose_5C : dw !sprite_Squawks
 	db !spawn_command_success
 
-DATA_FF65B1:
+;$FF655C
+level_sprite_0128_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF656D
 	db sprite.general_purpose_5E : dw $0001
 	db !spawn_command_F3, $30, $05
@@ -10531,27 +10680,32 @@ DATA_FF6690:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF666D : db $0C, $00, $00, $00, $00, $00, $00, $00, $FF
 	db !spawn_command_success
 
-DATA_FF669D:
+;$FF655C
+level_sprite_012A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6683
 	db sprite.general_purpose_4C : dw $0001
 	db !spawn_command_success
 
-DATA_FF66A4:
+;$FF655C
+level_sprite_012C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6683
 	db sprite.general_purpose_4C : dw $0002
 	db !spawn_command_success
 
-DATA_FF66AB:
+;$FF655C
+level_sprite_012E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6683
 	db sprite.general_purpose_4C : dw $0003
 	db !spawn_command_success
 
-DATA_FF66B2:
+;$FF655C
+level_sprite_0130_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6690
 	db sprite.general_purpose_4C : dw $0002
 	db !spawn_command_success
 
-DATA_FF66B9:
+;$FF655C
+level_sprite_0132_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6690
 	db sprite.general_purpose_4C : dw $0003
 	db !spawn_command_success
@@ -10575,37 +10729,43 @@ DATA_FF66E6:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF66C0 : db $09, $88, $00, $00, $00, $00, $00, $00, $00
 	db !spawn_command_success
 
-DATA_FF66F3:
+;$FF655C
+level_sprite_0134_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF66D9
 	db sprite.terrain_attributes : dw $0002
 	db sprite.max_y_speed : dw $0100
 	db !spawn_command_success
 
-DATA_FF66FD:
+;$FF655C
+level_sprite_0136_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF66D9
 	db sprite.terrain_attributes : dw $0003
 	db sprite.max_y_speed : dw $0100
 	db !spawn_command_success
 
-DATA_FF6707:
+;$FF655C
+level_sprite_0138_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF66E6
 	db sprite.terrain_attributes : dw $0002
 	db sprite.max_y_speed : dw $0100
 	db !spawn_command_success
 
-DATA_FF6711:
+;$FF655C
+level_sprite_013A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF66E6
 	db sprite.terrain_attributes : dw $0003
 	db sprite.max_y_speed : dw $0100
 	db !spawn_command_success
 
-DATA_FF671B:
+;$FF655C
+level_sprite_013C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF66D9
 	db sprite.terrain_attributes : dw $0004
 	db sprite.max_y_speed : dw $0100
 	db !spawn_command_success
 
-DATA_FF6725:
+;$FF6725
+unplaced_level_sprite_013E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF66E6
 	db sprite.terrain_attributes : dw $0004
 	db sprite.max_y_speed : dw $0100
@@ -10626,7 +10786,8 @@ DATA_FF6748:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF672F : db $0C, $00, $00, $00, $00, $00, $00, $00, $FF
 	db !spawn_command_success
 
-DATA_FF6755:
+;$FF6725
+level_sprite_0140_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6748
 	db sprite.general_purpose_4C : dw $0084
 	db !spawn_command_success
@@ -10646,7 +10807,8 @@ DATA_FF6775:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF675C : db $08, $88, $00, $00, $00, $00, $00, $00, $00
 	db !spawn_command_success
 
-DATA_FF6782:
+;$FF6725
+level_sprite_0142_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6775
 	db sprite.terrain_attributes : dw $0004
 	db sprite.max_y_speed : dw $0100
@@ -10660,37 +10822,44 @@ DATA_FF6799:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65EE : db $0C, $00, $00, $00, $00, $00, $C0, $20, $FF
 	db !spawn_command_success
 
-DATA_FF67A6:
+;$FF6725
+level_sprite_0144_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF678C
 	db sprite.general_purpose_4C : dw $0001
 	db !spawn_command_F0
 
-DATA_FF67AD:
+;$FF6725
+level_sprite_0146_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF678C
 	db sprite.general_purpose_4C : dw $0002
 	db !spawn_command_F0
 
-DATA_FF67B4:
+;$FF6725
+level_sprite_0148_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF678C
 	db sprite.general_purpose_4C : dw $0001
 	db !spawn_command_success
 
-DATA_FF67BB:
+;$FF6725
+level_sprite_014A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF678C
 	db sprite.general_purpose_4C : dw $0002
 	db !spawn_command_success
 
-DATA_FF67C2:
+;$FF6725
+level_sprite_014C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF678C
 	db sprite.general_purpose_4C : dw $0003
 	db !spawn_command_success
 
-DATA_FF67C9:
+;$FF6725
+level_sprite_014E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6799
 	db sprite.general_purpose_4C : dw $0001
 	db !spawn_command_success
 
-DATA_FF67D0:
+;$FF6725
+level_sprite_0150_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6799
 	db sprite.general_purpose_4C : dw $0002
 	db !spawn_command_success
@@ -10719,47 +10888,56 @@ DATA_FF680D:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF67D7 : db $0D, $88, $00, $00, $00, $00, $40, $00, $FF
 	db !spawn_command_success
 
-DATA_FF681A:
+;$FF6725
+level_sprite_0152_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF67F3
 	db sprite.terrain_attributes : dw $0002
 	db !spawn_command_success
 
-DATA_FF6821:
+;$FF6725
+level_sprite_0154_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF67F3
 	db sprite.terrain_attributes : dw $0003
 	db !spawn_command_success
 
-DATA_FF6828:
+;$FF6828
+unplaced_level_sprite_0156_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF67F3
 	db sprite.terrain_attributes : dw $0004
 	db !spawn_command_success
 
-DATA_FF682F:
+;$FF6828
+level_sprite_0158_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF680D
 	db sprite.terrain_attributes : dw $0002
 	db !spawn_command_success
 
-DATA_FF6836:
+;$FF6828
+level_sprite_015A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF680D
 	db sprite.terrain_attributes : dw $0003
 	db !spawn_command_success
 
-DATA_FF683D:
+;$FF683D
+unplaced_level_sprite_015C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF680D
 	db sprite.terrain_attributes : dw $0004
 	db !spawn_command_success
 
-DATA_FF6844:
+;$FF683D
+level_sprite_015E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6800
 	db sprite.terrain_attributes : dw $0002
 	db !spawn_command_success
 
-DATA_FF684B:
+;$FF684B
+unplaced_level_sprite_0160_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6800
 	db sprite.terrain_attributes : dw $0003
 	db !spawn_command_success
 
-DATA_FF6852:
+;$FF684B
+level_sprite_0162_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6800
 	db sprite.terrain_attributes : dw $0004
 	db !spawn_command_success
@@ -10768,397 +10946,465 @@ DATA_FF6859:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $88, $00, $40, $40, $10, $80, $24, $00
 	db !spawn_command_success
 
-DATA_FF6866:
+;$FF684B
+level_sprite_0164_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6859
 	db sprite.general_purpose_4C : dw $0100
 	db sprite.animation_flags : dw DATA_FF6621
 	db !spawn_command_success
 
-DATA_FF6870:
+;$FF684B
+level_sprite_0166_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $88, $00, $40, $40, $10, $10, $10, $00
 	db sprite.general_purpose_4C : dw $0200
 	db sprite.animation_flags : dw DATA_FF662B
 	db !spawn_command_success
 
-DATA_FF6883:
+;$FF684B
+level_sprite_0168_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $88, $00, $40, $40, $10, $10, $10, $00
 	db sprite.general_purpose_4C : dw $0300
 	db sprite.animation_flags : dw DATA_FF6635
 	db !spawn_command_success
 
-DATA_FF6896:
+;$FF684B
+level_sprite_016A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6859
 	db sprite.general_purpose_4C : dw $0400
 	db sprite.animation_flags : dw DATA_FF6645
 	db !spawn_command_success
 
-DATA_FF68A0:
+;$FF684B
+level_sprite_016C_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $88, $00, $00, $00, $00, $20, $40, $14
 	db sprite.general_purpose_4C : dw $0200
 	db sprite.animation_flags : dw DATA_FF662B
 	db sprite.constants_address : dw $0208
 	db !spawn_command_success
 
-DATA_FF68B6:
+;$FF684B
+level_sprite_016E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF6859
 	db sprite.general_purpose_4C : dw $0100
 	db sprite.animation_flags : dw DATA_FF6621
 	db sprite.unknown_58 : dw $00EC
 	db !spawn_command_success
 
-DATA_FF68C3:
+;$FF68C3
+unplaced_level_sprite_0170_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $88, $00, $40, $40, $10, $10, $10, $00
 	db sprite.general_purpose_4C : dw $0200
 	db sprite.animation_flags : dw DATA_FF662B
 	db sprite.unknown_58 : dw $0100
 	db !spawn_command_success
 
-DATA_FF68D9:
+;$FF68C3
+level_sprite_0172_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $09, $88, $00, $40, $40, $10, $10, $10, $00
 	db sprite.general_purpose_4C : dw $0200
 	db sprite.animation_flags : dw DATA_FF662B
 	db sprite.unknown_58 : dw $0100
 	db !spawn_command_success
 
-DATA_FF68EF:
+;$FF68C3
+level_sprite_0174_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $09, $88, $00, $40, $40, $10, $10, $10, $00
 	db sprite.general_purpose_4C : dw $0300
 	db sprite.animation_flags : dw DATA_FF6635
 	db !spawn_command_success
 
-DATA_FF6902:
+;$FF68C3
+level_sprite_0176_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $22, $D0, $00, $00, $00, $80, $14, $00
 	db sprite.movement_state : dw $0004
 	db sprite.unknown_58 : dw $141E
 	db !spawn_command_success
 
-DATA_FF6915:
+;$FF68C3
+level_sprite_0178_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $EE, $30, $00, $00, $00, $80, $18, $00
 	db sprite.movement_state : dw $0004
 	db sprite.unknown_58 : dw $0AE2
 	db !spawn_command_success
 
-DATA_FF6928:
+;$FF68C3
+level_sprite_017A_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $88, $30, $00, $00, $00, $80, $10, $00
 	db sprite.movement_state : dw $0004
 	db sprite.unknown_58 : dw $0AE2
 	db !spawn_command_success
 
-DATA_FF693B:
+;$FF693B
+unplaced_level_sprite_017C_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $0A, $30, $00, $00, $00, $80, $10, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $2D00
 	db !spawn_command_success
 
-DATA_FF694E:
+;$FF693B
+level_sprite_017E_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $04, $00, $60, $00, $00, $00, $80, $0C, $00
 	db sprite.movement_state : dw $0000
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF6961:
+;$FF693B
+level_sprite_0180_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $08, $60, $00, $00, $00, $70, $0A, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF6974:
+;$FF693B
+level_sprite_0182_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $06, $60, $00, $00, $00, $90, $18, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF6987:
+;$FF693B
+level_sprite_0184_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $08, $60, $00, $00, $00, $90, $0C, $00
 	db sprite.movement_state : dw $0001
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF699D:
+;$FF693B
+level_sprite_0186_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $08, $30, $00, $00, $00, $80, $0E, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $2D00
 	db !spawn_command_success
 
-DATA_FF69B0:
+;$FF693B
+level_sprite_0188_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $0E, $40, $00, $00, $00, $70, $18, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $28EC
 	db !spawn_command_success
 
-DATA_FF69C3:
+;$FF693B
+level_sprite_018A_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $06, $A0, $00, $00, $00, $78, $10, $00
 	db sprite.movement_state : dw $0001
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $1E28
 	db !spawn_command_success
 
-DATA_FF69D9:
+;$FF693B
+level_sprite_018C_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $00, $30, $00, $00, $00, $60, $08, $00
 	db sprite.movement_state : dw $0004
 	db sprite.unknown_58 : dw $0AE2
 	db !spawn_command_success
 
-DATA_FF69EC:
+;$FF693B
+level_sprite_018E_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $08, $30, $00, $00, $00, $70, $0B, $00
 	db sprite.movement_state : dw $0004
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF69FF:
+;$FF693B
+level_sprite_0190_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $CC, $30, $00, $00, $00, $78, $16, $00
 	db sprite.movement_state : dw $0004
 	db !spawn_command_success
 
-DATA_FF6A0F:
+;$FF693B
+level_sprite_0192_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $06, $A0, $00, $00, $00, $70, $10, $00
 	db sprite.movement_state : dw $0001
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2828
 	db !spawn_command_success
 
-DATA_FF6A25:
+;$FF693B
+level_sprite_0194_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $A6, $30, $00, $00, $00, $50, $10, $FF
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FF6A35:
+;$FF6A35
+unplaced_level_sprite_0196_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $00, $00, $40, $40, $10, $20, $30, $00
 	db !spawn_command_success
 
-DATA_FF6A42:
+;$FF6A42
+unplaced_level_sprite_0198_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $88, $40, $40, $40, $10, $20, $30, $00
 	db !spawn_command_success
 
-DATA_FF6A4F:
+;$FF6A4F
+unplaced_level_sprite_019A_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $88, $40, $40, $40, $10, $20, $30, $00
 	db !spawn_command_success
 
-DATA_FF6A5C:
+;$FF6A4F
+level_sprite_019C_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $40, $40, $00, $00, $00, $A0, $30, $00
 	db sprite.movement_state : dw $0004
 	db !spawn_command_success
 
-DATA_FF6A6C:
+;$FF6A4F
+level_sprite_019E_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $04, $00, $00, $00, $00, $00, $80, $0C, $00
 	db sprite.movement_state : dw $0004
 	db !spawn_command_success
 
-DATA_FF6A7C:
+;$FF6A4F
+level_sprite_01A0_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $00, $00, $00, $00, $00, $80, $18, $00
 	db sprite.movement_state : dw $0004
 	db !spawn_command_success
 
-DATA_FF6A8C:
+;$FF6A8C
+unplaced_level_sprite_01A2_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $00, $00, $00, $00, $00, $80, $60, $00
 	db sprite.movement_state : dw $0004
 	db sprite.unknown_58 : dw $F600
 	db !spawn_command_success
 
-DATA_FF6A9F:
+;$FF6A8C
+level_sprite_01A4_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $E8, $40, $00, $00, $00, $C0, $28, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FF6AAF:
+;$FF6A8C
+level_sprite_01A6_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $26, $C0, $00, $00, $00, $58, $0C, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FF6ABF:
+;$FF6A8C
+level_sprite_01A8_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $2E, $60, $00, $00, $00, $60, $10, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FF6ACF:
+;$FF6A8C
+level_sprite_01AA_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $E8, $C0, $00, $00, $00, $58, $08, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FF6ADF:
+;$FF6A8C
+level_sprite_01AC_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $26, $C0, $00, $00, $00, $5C, $08, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FF6AEF:
+;$FF6A8C
+level_sprite_01AE_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $EA, $40, $00, $00, $00, $90, $0C, $10
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FF6AFF:
+;$FF6A8C
+level_sprite_01B0_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $18, $08, $40, $00, $00, $00, $80, $18, $00
 	db sprite.movement_state : dw $0001
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF6B15:
+;$FF6B15
+unplaced_level_sprite_01B2_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $02, $C0, $00, $00, $00, $80, $18, $00
 	db sprite.movement_state : dw $0001
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF6B2B:
+;$FF6B15
+level_sprite_01B4_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $0A, $40, $00, $00, $00, $90, $20, $00
 	db sprite.movement_state : dw $0001
 	db sprite.ground_distance : dw $000A
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF6B41:
+;$FF6B15
+level_sprite_01B6_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $08, $40, $00, $00, $00, $70, $10, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FF6B51:
+;$FF6B15
+level_sprite_01B8_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $08, $40, $00, $00, $00, $90, $20, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FF6B61:
+;$FF6B15
+level_sprite_01BA_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $2A, $40, $00, $00, $00, $70, $1C, $40
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FF6B71:
+;$FF6B15
+level_sprite_01BC_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $09, $08, $40, $00, $00, $00, $80, $20, $00
 	db sprite.movement_state : dw $0001
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF6B87:
+;$FF6B15
+level_sprite_01BE_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $20, $40, $00, $00, $00, $8C, $24, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FF6B97:
+;$FF6B15
+level_sprite_01C0_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $09, $08, $40, $00, $00, $00, $70, $22, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $2800
 	db sprite.ground_distance : dw $0014
 	db !spawn_command_success
 
-DATA_FF6BAD:
+;$FF6B15
+level_sprite_01C2_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $0E, $40, $00, $00, $00, $70, $F0, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $F600
 	db sprite.ground_distance : dw $1000
 	db !spawn_command_success
 
-DATA_FF6BC3:
+;$FF6B15
+level_sprite_01C4_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $08, $C0, $00, $00, $00, $70, $F0, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $F600
 	db sprite.ground_distance : dw $1000
 	db !spawn_command_success
 
-DATA_FF6BD9:
+;$FF6B15
+level_sprite_01C6_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $00, $00, $00, $00, $00, $70, $18, $00
 	db sprite.movement_state : dw $0000
 	db sprite.unknown_58 : dw $28EC
 	db !spawn_command_success
 
-DATA_FF6BEC:
+;$FF6B15
+level_sprite_01C8_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $2E, $40, $00, $00, $00, $58, $34, $FF
 	db !spawn_command_success
 
-DATA_FF6BF9:
+;$FF6BF9
+unplaced_level_sprite_01CA_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $09, $48, $C0, $00, $00, $00, $A0, $29, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $D800
 	db sprite.ground_distance : dw $0014
 	db !spawn_command_success
 
-DATA_FF6C0F:
+;$FF6BF9
+level_sprite_01CC_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $09, $E8, $C0, $00, $00, $00, $50, $08, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $1400
 	db sprite.ground_distance : dw $0014
 	db !spawn_command_success
 
-DATA_FF6C25:
+;$FF6BF9
+level_sprite_01CE_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $08, $40, $00, $00, $00, $60, $0C, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF6C38:
+;$FF6BF9
+level_sprite_01D0_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $08, $40, $00, $00, $00, $40, $08, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF6C4B:
+;$FF6BF9
+level_sprite_01D2_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $28, $B0, $00, $00, $00, $40, $10, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF6C5E:
+;$FF6BF9
+level_sprite_01D4_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $C8, $40, $00, $00, $00, $4C, $04, $00
 	db sprite.movement_state : dw $0201
 	db !spawn_command_success
 
-DATA_FF6C6E:
+;$FF6BF9
+level_sprite_01D6_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $48, $C0, $00, $00, $00, $4C, $04, $00
 	db sprite.movement_state : dw $0201
 	db !spawn_command_success
 
-DATA_FF6C7E:
+;$FF6BF9
+level_sprite_01D8_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $48, $C0, $00, $00, $00, $58, $08, $00
 	db sprite.movement_state : dw $0201
 	db !spawn_command_success
 
-DATA_FF6C8E:
+;$FF6C8E
+unplaced_level_sprite_01DA_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $28, $B0, $00, $00, $00, $70, $01, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF6CA1:
+;$FF6C8E
+level_sprite_01DC_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $0A, $30, $00, $00, $00, $80, $10, $00
 	db sprite.movement_state : dw $0001
 	db sprite.unknown_58 : dw $2D00
 	db !spawn_command_success
 
-DATA_FF6CB4:
+;$FF6C8E
+level_sprite_01DE_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $00, $00, $00, $00, $00, $70, $18, $00
 	db sprite.movement_state : dw $0000
 	db sprite.unknown_58 : dw $28EC
 	db sprite.ground_distance : dw $0001
 	db !spawn_command_success
 
-DATA_FF6CCA:
+;$FF6C8E
+level_sprite_01E0_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $18, $08, $40, $00, $00, $00, $70, $10, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FF6CDA:
+;$FF6CDA
+unplaced_level_sprite_01E2_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $08, $40, $00, $00, $00, $80, $18, $00
 	db sprite.movement_state : dw $0001
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF6CF0:
+;$FF6CDA
+level_sprite_01E4_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $02, $C0, $00, $00, $00, $88, $40, $00
 	db sprite.movement_state : dw $0001
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF6D06:
+;$FF6D06
+unplaced_level_sprite_01E6_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $00, $00, $40, $40, $10, $20, $30, $00
 	db !spawn_command_success
 
-DATA_FF6D13:
+;$FF6D13
+unplaced_level_sprite_01E8_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $88, $40, $40, $40, $10, $20, $30, $00
 	db !spawn_command_success
 
-DATA_FF6D20:
+;$FF6D20
+unplaced_level_sprite_01EA_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $88, $40, $40, $40, $10, $20, $30, $00
 	db !spawn_command_success
 
@@ -11169,180 +11415,213 @@ DATA_FF6D2D:
 	db sprite.animation_id : dw $0060
 	db !spawn_command_success
 
-DATA_FF6D3A:
+;$FF6D20
+level_sprite_01EC_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6D2D : db $0A, $00, $00, $04, $0C, $00, $80, $0C, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2B00
 	db !spawn_command_success
 
-DATA_FF6D4D:
+;$FF6D20
+level_sprite_01EE_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6D2D : db $0B, $00, $00, $1B, $07, $00, $80, $0C, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2B00
 	db !spawn_command_success
 
-DATA_FF6D60:
+;$FF6D20
+level_sprite_01F0_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6D2D : db $0A, $00, $00, $06, $2A, $00, $80, $0C, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2B00
 	db !spawn_command_success
 
-DATA_FF6D73:
+;$FF6D20
+level_sprite_01F2_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6D2D : db $0A, $00, $00, $04, $2E, $00, $80, $0C, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2B00
 	db !spawn_command_success
 
-DATA_FF6D86:
+;$FF6D20
+level_sprite_01F4_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6D2D : db $0A, $00, $00, $00, $11, $00, $80, $0C, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2B00
 	db !spawn_command_success
 
-DATA_FF6D99:
+;$FF6D20
+level_sprite_01F6_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6D2D : db $0B, $00, $00, $21, $02, $00, $80, $0C, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2B00
 	db !spawn_command_success
 
-DATA_FF6DAC:
+;$FF6D20
+level_sprite_01F8_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6D2D : db $0A, $00, $00, $1C, $03, $00, $80, $0C, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2B00
 	db !spawn_command_F0
 
-DATA_FF6DBF:
+;$FF6D20
+level_sprite_01FA_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6D2D : db $0B, $00, $00, $20, $02, $00, $80, $0C, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2D00
 	db !spawn_command_F0
 
-DATA_FF6DD2:
+;$FF6D20
+level_sprite_01FC_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6D2D : db $0A, $00, $00, $01, $23, $00, $80, $0C, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2B00
 	db !spawn_command_F0
 
-DATA_FF6DE5:
+;$FF6D20
+level_sprite_01FE_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6D2D : db $0B, $00, $00, $1C, $04, $00, $80, $0C, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2B00
 	db !spawn_command_F0
 
-DATA_FF6DF8:
+;$FF6D20
+level_sprite_0200_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6D2D : db $0B, $00, $00, $22, $01, $00, $80, $0C, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2B00
 	db !spawn_command_F0
 
-DATA_FF6E0B:
+;$FF6D20
+level_sprite_0202_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $A0, $08, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6E1B:
+;$FF6D20
+level_sprite_0204_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $04, $00, $00, $00, $00, $00, $80, $05, $20
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6E2B:
+;$FF6D20
+level_sprite_0206_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $90, $06, $20
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6E3B:
+;$FF6D20
+level_sprite_0208_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $80, $08, $20
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6E4B:
+;$FF6D20
+level_sprite_020A_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $C0, $08, $20
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6E5B:
+;$FF6D20
+level_sprite_020C_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $80, $07, $01
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6E6B:
+;$FF6D20
+level_sprite_020E_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $90, $24, $20
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6E7B:
+;$FF6D20
+level_sprite_0210_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $80, $10, $01
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6E8B:
+;$FF6D20
+level_sprite_0212_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $80, $20, $20
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6E9B:
+;$FF6E9B
+unplaced_level_sprite_0214_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $04, $00, $00, $00, $00, $00, $80, $28, $20
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6EAB:
+;$FF6EAB
+unplaced_level_sprite_0216_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $50, $0C, $20
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6EBB:
+;$FF6EAB
+level_sprite_0218_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $00, $88, $00, $00, $00, $00, $B0, $0C, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6ECB:
+;$FF6EAB
+level_sprite_021A_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $6C, $18, $00
 	db sprite.movement_state : dw $0000
 	db sprite.ground_distance : dw $0000
 	db !spawn_command_success
 
-DATA_FF6EDE:
+;$FF6EAB
+level_sprite_021C_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $44, $00, $00, $00, $00, $D0, $08, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6EEE:
+;$FF6EAB
+level_sprite_021E_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $04, $00, $00, $00, $00, $00, $80, $0E, $80
 	db sprite.movement_state : dw $0000
 	db sprite.unknown_58 : dw $0014
 	db !spawn_command_success
 
-DATA_FF6F01:
+;$FF6EAB
+level_sprite_0220_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $09, $00, $00, $00, $00, $00, $A0, $08, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6F11:
+;$FF6EAB
+level_sprite_0222_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $09, $00, $00, $00, $00, $00, $90, $06, $20
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6F21:
+;$FF6EAB
+level_sprite_0224_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $09, $00, $00, $00, $00, $00, $C0, $08, $20
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF6F31:
+;$FF6EAB
+level_sprite_0226_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $9C, $08, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_F0
 
-DATA_FF6F41:
+;$FF6F41
+unplaced_level_sprite_0228_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $A0, $08, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_F0
 
-DATA_FF6F51:
+;$FF6F41
+level_sprite_022A_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $09, $00, $00, $00, $00, $00, $88, $20, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_F0
 
-DATA_FF6F61:
+;$FF6F41
+level_sprite_022C_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $09, $00, $00, $00, $00, $00, $9C, $08, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_F0
@@ -11360,151 +11639,175 @@ DATA_FF6F71:
 	db sprite.constants_address : dw $0100
 	db !spawn_command_success
 
-DATA_FF6F90:
+;$FF6F41
+level_sprite_022E_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $50, $0C, $00
 	db sprite.animation_address : dw $0080
 	db sprite.general_purpose_6C : dw $1E1C
 	db !spawn_command_success
 
-DATA_FF6FA3:
+;$FF6F41
+level_sprite_0230_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $50, $0C, $00
 	db sprite.animation_address : dw $0080
 	db sprite.general_purpose_6C : dw $4619
 	db !spawn_command_success
 
-DATA_FF6FB6:
+;$FF6F41
+level_sprite_0232_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $85, $15, $FF
 	db sprite.animation_address : dw $00C9
 	db sprite.general_purpose_6C : dw $1723
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF6FCC:
+;$FF6F41
+level_sprite_0234_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $EE, $00, $00, $00, $00, $70, $15, $00
 	db sprite.animation_address : dw $0055
 	db sprite.general_purpose_6C : dw $1732
 	db !spawn_command_success
 
-DATA_FF6FDF:
+;$FF6F41
+level_sprite_0236_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $88, $00, $00, $00, $00, $50, $0C, $00
 	db sprite.animation_address : dw $0008
 	db sprite.general_purpose_6C : dw $4619
 	db !spawn_command_success
 
-DATA_FF6FF2:
+;$FF6F41
+level_sprite_0238_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $01, $00, $00, $00, $00, $00, $60, $10, $00
 	db sprite.animation_address : dw $00E3
 	db sprite.general_purpose_6C : dw $1723
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF7008:
+;$FF6F41
+level_sprite_023A_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $01, $00, $00, $00, $00, $00, $80, $28, $FF
 	db sprite.animation_address : dw $0080
 	db sprite.general_purpose_6C : dw $3246
 	db sprite.unknown_58 : dw $2800
 	db !spawn_command_success
 
-DATA_FF701E:
+;$FF6F41
+level_sprite_023C_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $70, $2E, $FF
 	db sprite.animation_address : dw $00C1
 	db sprite.general_purpose_6C : dw $1432
 	db sprite.unknown_58 : dw $1400
 	db !spawn_command_success
 
-DATA_FF7034:
+;$FF6F41
+level_sprite_023E_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $50, $0C, $00
 	db sprite.animation_address : dw $0080
 	db sprite.general_purpose_6C : dw $3219
 	db !spawn_command_success
 
-DATA_FF7047:
+;$FF6F41
+level_sprite_0240_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $75, $15, $00
 	db sprite.animation_address : dw $00C1
 	db sprite.general_purpose_6C : dw $142D
 	db !spawn_command_success
 
-DATA_FF705A:
+;$FF6F41
+level_sprite_0242_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $88, $00, $00, $00, $00, $9A, $15, $00
 	db sprite.animation_address : dw $0008
 	db sprite.general_purpose_6C : dw $5A1E
 	db !spawn_command_success
 
-DATA_FF706D:
+;$FF6F41
+level_sprite_0244_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $88, $00, $00, $00, $00, $70, $15, $00
 	db sprite.animation_address : dw $0008
 	db sprite.general_purpose_6C : dw $321E
 	db !spawn_command_success
 
-DATA_FF7080:
+;$FF6F41
+level_sprite_0246_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $70, $32, $FF
 	db sprite.animation_address : dw $0080
 	db sprite.general_purpose_6C : dw $2828
 	db !spawn_command_success
 
-DATA_FF7093:
+;$FF6F41
+level_sprite_0248_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $70, $15, $FF
 	db sprite.animation_address : dw $00C1
 	db sprite.general_purpose_6C : dw $2823
 	db !spawn_command_success
 
-DATA_FF70A6:
+;$FF6F41
+level_sprite_024A_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $22, $00, $00, $00, $00, $B0, $04, $00
 	db sprite.unknown_58 : dw $ECCE
 	db sprite.animation_address : dw $0040
 	db sprite.general_purpose_6C : dw $4628
 	db !spawn_command_success
 
-DATA_FF70BC:
+;$FF6F41
+level_sprite_024C_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $22, $00, $00, $00, $00, $70, $12, $00
 	db sprite.animation_address : dw $0055
 	db sprite.general_purpose_6C : dw $141E
 	db !spawn_command_success
 
-DATA_FF70CF:
+;$FF6F41
+level_sprite_024E_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $88, $00, $00, $00, $00, $70, $15, $00
 	db sprite.animation_address : dw $0008
 	db sprite.general_purpose_6C : dw $3232
 	db !spawn_command_success
 
-DATA_FF70E2:
+;$FF6F41
+level_sprite_0250_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $70, $15, $00
 	db sprite.animation_address : dw $0080
 	db sprite.general_purpose_6C : dw $3232
 	db !spawn_command_success
 
-DATA_FF70F5:
+;$FF6F41
+level_sprite_0252_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $50, $0C, $00
 	db sprite.animation_address : dw $0080
 	db sprite.general_purpose_6C : dw $281E
 	db !spawn_command_success
 
-DATA_FF7108:
+;$FF6F41
+level_sprite_0254_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $75, $15, $00
 	db sprite.animation_address : dw $00C9
 	db sprite.general_purpose_6C : dw $0528
 	db sprite.ground_distance : dw $0004
 	db !spawn_command_success
 
-DATA_FF711E:
+;$FF711E
+unplaced_level_sprite_0256_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $75, $04, $00
 	db sprite.animation_address : dw $00C9
 	db sprite.general_purpose_6C : dw $2346
 	db !spawn_command_success
 
-DATA_FF7131:
+;$FF711E
+level_sprite_0258_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $00, $00, $00, $00, $00, $50, $0C, $00
 	db sprite.animation_address : dw $0080
 	db sprite.general_purpose_6C : dw $B414
 	db !spawn_command_success
 
-DATA_FF7144:
+;$FF7144
+unplaced_level_sprite_025A_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $88, $00, $00, $00, $00, $50, $0C, $00
 	db sprite.animation_address : dw $0008
 	db sprite.general_purpose_6C : dw $B414
 	db !spawn_command_success
 
-DATA_FF7157:
+;$FF7144
+level_sprite_025C_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF6F71 : db $00, $88, $00, $00, $00, $00, $50, $0C, $00
 	db sprite.animation_address : dw $0080
 	db sprite.general_purpose_6C : dw $4619
@@ -11519,38 +11822,44 @@ DATA_FF716A:
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
-DATA_FF717D:
+;$FF7144
+level_sprite_025E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF716A
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_02C8
 	db sprite.interaction_flags : dw $0000
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF718A:
+;$FF7144
+level_sprite_0260_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF716A
 	db !spawn_command_set_type : dw !sprite_DKBarrel
 	db sprite.interaction_flags : dw $0000
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FF7197:
+;$FF7144
+level_sprite_0262_spawn_script:
 	db sprite.display_mode : dw $C000
-	db !spawn_command_load_subconfig : dw DATA_FF718A
+	db !spawn_command_load_subconfig : dw level_sprite_0260_spawn_script
 	db !spawn_command_success
 
-DATA_FF719E:
-	db !spawn_command_load_subconfig : dw DATA_FF718A
+;$FF7144
+level_sprite_0264_spawn_script:
+	db !spawn_command_load_subconfig : dw level_sprite_0260_spawn_script
 	db sprite.animation_speed : dw $00A0
 	db !spawn_command_success
 
-DATA_FF71A5:
+;$FF7144
+level_sprite_0266_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF716A
 	db !spawn_command_set_type : dw !sprite_DKBarrel
 	db sprite.interaction_flags : dw $0000
 	db sprite.movement_state : dw $0000
 	db !spawn_command_F0
 
-DATA_FF71B2:
+;$FF7144
+level_sprite_0268_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF716A
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_02CC
 	db sprite.x_speed : dw $0000
@@ -11560,7 +11869,8 @@ DATA_FF71B2:
 	db sprite.movement_state : dw $004F
 	db !spawn_command_success
 
-DATA_FF71C8:
+;$FF7144
+level_sprite_026A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF716A
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_02CC
 	db sprite.x_speed : dw $0000
@@ -11570,13 +11880,15 @@ DATA_FF71C8:
 	db sprite.movement_state : dw $004F
 	db !spawn_command_F0
 
-DATA_FF71DE:
+;$FF71DE
+unplaced_level_sprite_026C_spawn_script:
 	db sprite.display_mode : dw $C000
-	db !spawn_command_load_subconfig : dw DATA_FF71B2
+	db !spawn_command_load_subconfig : dw level_sprite_0268_spawn_script
 	db !spawn_command_success
 
-DATA_FF71E5:
-	db !spawn_command_load_subconfig : dw DATA_FF71B2
+;$FF71E5
+unplaced_level_sprite_026E_spawn_script:
+	db !spawn_command_load_subconfig : dw level_sprite_0268_spawn_script
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_success
 
@@ -11589,17 +11901,20 @@ DATA_FF71EC:
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
-DATA_FF71FF:
+;$FF71FF
+unplaced_level_sprite_0270_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF71EC
 	db sprite.general_purpose_5C : dw $0708
 	db !spawn_command_success
 
-DATA_FF7206:
+;$FF71FF
+level_sprite_0272_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF71EC
 	db sprite.general_purpose_5C : dw $0258
 	db !spawn_command_success
 
-DATA_FF720D:
+;$FF71FF
+level_sprite_0274_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF71EC
 	db sprite.general_purpose_5C : dw $041A
 	db !spawn_command_success
@@ -11648,7 +11963,8 @@ DATA_FF725E:
 	db sprite.general_purpose_5C : dw $0244
 	db !spawn_command_success
 
-DATA_FF7268:
+;$FF71FF
+level_sprite_0276_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelSwitchS
 	db sprite.render_order : dw $00C0
 	db !spawn_command_set_oam : dw $2000
@@ -11656,7 +11972,8 @@ DATA_FF7268:
 	db !spawn_command_F3, $28, $05
 	db !spawn_command_success
 
-DATA_FF7278:
+;$FF71FF
+level_sprite_0278_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelSwitchS
 	db sprite.render_order : dw $00C0
 	db !spawn_command_set_oam : dw $2000
@@ -11664,7 +11981,8 @@ DATA_FF7278:
 	db !spawn_command_F3, $28, $07
 	db !spawn_command_success
 
-DATA_FF7288:
+;$FF71FF
+level_sprite_027A_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelSwitchS
 	db sprite.render_order : dw $00C0
 	db !spawn_command_set_oam : dw $2000
@@ -11672,161 +11990,191 @@ DATA_FF7288:
 	db !spawn_command_F3, $28, $06
 	db !spawn_command_success
 
-DATA_FF7298:
+;$FF71FF
+level_sprite_027C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7233
 	db sprite.general_purpose_5E : dw $0005
 	db !spawn_command_success
 
-DATA_FF729F:
+;$FF729F
+unplaced_level_sprite_027E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7233
 	db sprite.general_purpose_5E : dw $0008
 	db !spawn_command_success
 
-DATA_FF72A6:
+;$FF729F
+level_sprite_0280_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7233
 	db sprite.general_purpose_5E : dw $0004
 	db !spawn_command_success
 
-DATA_FF72AD:
+;$FF72AD
+unplaced_level_sprite_0282_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7233
 	db sprite.general_purpose_5E : dw $000C
 	db !spawn_command_success
 
-DATA_FF72B4:
+;$FF72AD
+level_sprite_0284_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7233
 	db sprite.general_purpose_5E : dw $0008
 	db sprite.general_purpose_64 : dw $F840
 	db !spawn_command_success
 
-DATA_FF72BE:
+;$FF72AD
+level_sprite_0286_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF723D
 	db sprite.general_purpose_5E : dw $0004
 	db !spawn_command_success
 
-DATA_FF72C5:
+;$FF72C5
+unplaced_level_sprite_0288_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF723D
 	db sprite.general_purpose_5E : dw $0005
 	db !spawn_command_success
 
-DATA_FF72CC:
+;$FF72C5
+level_sprite_028A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF723D
 	db sprite.general_purpose_5E : dw $000C
 	db !spawn_command_success
 
-DATA_FF72D3:
+;$FF72C5
+level_sprite_028C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF723D
 	db sprite.general_purpose_5E : dw $0003
 	db !spawn_command_success
 
-DATA_FF72DA:
+;$FF72C5
+level_sprite_028E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF724A
 	db sprite.general_purpose_5E : dw $0005
 	db !spawn_command_success
 
-DATA_FF72E1:
+;$FF72E1
+unplaced_level_sprite_0290_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF724A
 	db sprite.general_purpose_5E : dw $0008
 	db sprite.general_purpose_64 : dw $F840
 	db !spawn_command_success
 
-DATA_FF72EB:
+;$FF72E1
+level_sprite_0292_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF724A
 	db sprite.general_purpose_5E : dw $0004
 	db !spawn_command_success
 
-DATA_FF72F2:
+;$FF72E1
+level_sprite_0294_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF724A
 	db sprite.general_purpose_5E : dw $0008
 	db sprite.general_purpose_64 : dw $FC28
 	db !spawn_command_success
 
-DATA_FF72FC:
+;$FF72FC
+unplaced_level_sprite_0296_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF724A
 	db sprite.general_purpose_5E : dw $000A
 	db sprite.general_purpose_64 : dw $F840
 	db !spawn_command_success
 
-DATA_FF7306:
+;$FF72FC
+level_sprite_0298_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF724A
 	db sprite.general_purpose_5E : dw $0000
 	db !spawn_command_success
 
-DATA_FF730D:
+;$FF72FC
+level_sprite_029A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF724A
 	db sprite.general_purpose_5E : dw $0004
 	db sprite.general_purpose_64 : dw $D020
 	db !spawn_command_success
 
-DATA_FF7317:
+;$FF72FC
+level_sprite_029C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7254
 	db sprite.general_purpose_5E : dw $0005
 	db !spawn_command_success
 
-DATA_FF731E:
+;$FF731E
+unplaced_level_sprite_029E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7254
 	db sprite.general_purpose_5E : dw $0008
 	db !spawn_command_success
 
-DATA_FF7325:
+;$FF731E
+level_sprite_02A0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7254
 	db sprite.general_purpose_5E : dw $0004
 	db !spawn_command_success
 
-DATA_FF732C:
+;$FF731E
+level_sprite_02A2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7254
 	db sprite.general_purpose_5E : dw $0005
 	db sprite.general_purpose_64 : dw $F830
 	db !spawn_command_success
 
-DATA_FF7336:
+;$FF7336
+unplaced_level_sprite_02A4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7254
 	db sprite.general_purpose_5E : dw $0007
 	db sprite.general_purpose_64 : dw $F8C0
 	db !spawn_command_success
 
-DATA_FF7340:
+;$FF7336
+level_sprite_02A6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7254
 	db sprite.general_purpose_5E : dw $0008
 	db sprite.general_purpose_64 : dw $F840
 	db !spawn_command_success
 
-DATA_FF734A:
+;$FF734A
+unplaced_level_sprite_02A8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7254
 	db sprite.general_purpose_5E : dw $0000
 	db !spawn_command_success
 
-DATA_FF7351:
+;$FF734A
+level_sprite_02AA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7254
 	db sprite.general_purpose_5E : dw $0008
 	db sprite.general_purpose_64 : dw $FC28
 	db !spawn_command_success
 
-DATA_FF735B:
+;$FF735B
+unplaced_level_sprite_02AC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF725E
 	db sprite.general_purpose_5E : dw $0004
 	db !spawn_command_success
 
-DATA_FF7362:
+;$FF7362
+unplaced_level_sprite_02AE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF725E
 	db sprite.general_purpose_5E : dw $000C
 	db !spawn_command_success
 
-DATA_FF7369:
+;$FF7362
+level_sprite_02B0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF725E
 	db sprite.general_purpose_5E : dw $0006
 	db !spawn_command_success
 
-DATA_FF7370:
+;$FF7370
+unplaced_level_sprite_02B2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF725E
 	db sprite.general_purpose_5E : dw $0003
 	db !spawn_command_success
 
-DATA_FF7377:
+;$FF7370
+level_sprite_02B4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF725E
 	db sprite.general_purpose_5E : dw $000E
 	db !spawn_command_success
 
-DATA_FF737E:
+;$FF7370
+level_sprite_02B6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF725E
 	db sprite.general_purpose_5E : dw $000D
 	db !spawn_command_success
@@ -11883,261 +12231,303 @@ DATA_FF73E0:
 	db !spawn_command_set_palette : dw $007B
 	db !spawn_command_success
 
-DATA_FF73F9:
+;$FF7370
+level_sprite_02B8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF739E
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF7403:
+;$FF7370
+level_sprite_02BA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF739E
 	db sprite.max_x_speed : dw $0080
 	db !spawn_command_success
 
-DATA_FF740A:
+;$FF7370
+level_sprite_02BC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF739E
 	db sprite.max_x_speed : dw $FF80
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF7414:
+;$FF7370
+level_sprite_02BE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF739E
 	db sprite.max_x_speed : dw $0001
 	db !spawn_command_success
 
-DATA_FF741B:
+;$FF741B
+unplaced_level_sprite_02C0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF739E
 	db sprite.max_x_speed : dw $FFFF
 	db sprite.max_y_speed : dw $FFC0
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF7428:
+;$FF741B
+level_sprite_02C2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF739E
 	db sprite.max_x_speed : dw $0100
 	db !spawn_command_success
 
-DATA_FF742F:
+;$FF741B
+level_sprite_02C4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF739E
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF7436:
+;$FF741B
+level_sprite_02C6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF739E
 	db sprite.max_x_speed : dw $FE80
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF7440:
+;$FF741B
+level_sprite_02C8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $0150
 	db sprite.general_purpose_60 : dw $4040
 	db !spawn_command_success
 
-DATA_FF744A:
+;$FF741B
+level_sprite_02CA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $00C0
 	db sprite.general_purpose_60 : dw $0080
 	db !spawn_command_success
 
-DATA_FF7454:
+;$FF7454
+unplaced_level_sprite_02CC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $FF40
 	db sprite.general_purpose_60 : dw $7020
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF7461:
+;$FF7454
+level_sprite_02CE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $0100
 	db sprite.general_purpose_60 : dw $2020
 	db !spawn_command_success
 
-DATA_FF746B:
+;$FF7454
+level_sprite_02D0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $00C0
 	db sprite.general_purpose_60 : dw $8000
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF7478:
+;$FF7454
+level_sprite_02D2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $00A0
 	db sprite.general_purpose_60 : dw $8020
 	db !spawn_command_success
 
-DATA_FF7482:
+;$FF7454
+level_sprite_02D4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $0280
 	db sprite.general_purpose_60 : dw $4040
 	db !spawn_command_success
 
-DATA_FF748C:
+;$FF7454
+level_sprite_02D6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $FD80
 	db sprite.general_purpose_60 : dw $4040
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF7499:
+;$FF7454
+level_sprite_02D8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $FEA0
 	db sprite.general_purpose_60 : dw $4848
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF74A6:
+;$FF7454
+level_sprite_02DA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $FE80
 	db sprite.general_purpose_60 : dw $3838
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF74B3:
+;$FF7454
+level_sprite_02DC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $FE40
 	db sprite.general_purpose_60 : dw $C000
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF74C0:
+;$FF7454
+level_sprite_02DE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $FE00
 	db sprite.general_purpose_60 : dw $5858
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF74CD:
+;$FF7454
+level_sprite_02E0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $FE00
 	db sprite.general_purpose_60 : dw $6050
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF74DA:
+;$FF7454
+level_sprite_02E2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $0180
 	db sprite.general_purpose_60 : dw $4040
 	db !spawn_command_success
 
-DATA_FF74E4:
+;$FF7454
+level_sprite_02E4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $FE80
 	db sprite.general_purpose_60 : dw $4040
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF74F1:
+;$FF7454
+level_sprite_02E6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $0280
 	db sprite.general_purpose_60 : dw $10B0
 	db !spawn_command_success
 
-DATA_FF74FB:
+;$FF7454
+level_sprite_02E8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $0280
 	db sprite.general_purpose_60 : dw $3090
 	db !spawn_command_success
 
-DATA_FF7505:
+;$FF7454
+level_sprite_02EA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $0280
 	db sprite.general_purpose_60 : dw $5070
 	db !spawn_command_success
 
-DATA_FF750F:
+;$FF7454
+level_sprite_02EC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $0200
 	db sprite.general_purpose_60 : dw $2828
 	db !spawn_command_success
 
-DATA_FF7519:
+;$FF7454
+level_sprite_02EE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $FE00
 	db sprite.general_purpose_60 : dw $2828
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF7526:
+;$FF7526
+unplaced_level_sprite_02F0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $00C0
 	db sprite.general_purpose_60 : dw $0080
 	db !spawn_command_success
 
-DATA_FF7530:
+;$FF7526
+level_sprite_02F2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $FF40
 	db sprite.general_purpose_60 : dw $4050
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF753D:
+;$FF7526
+level_sprite_02F4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $00C0
 	db sprite.general_purpose_60 : dw $5040
 	db !spawn_command_success
 
-DATA_FF7547:
+;$FF7526
+level_sprite_02F6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $0130
 	db sprite.general_purpose_60 : dw $8080
 	db !spawn_command_success
 
-DATA_FF7551:
+;$FF7526
+level_sprite_02F8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $0160
 	db sprite.general_purpose_60 : dw $4848
 	db !spawn_command_success
 
-DATA_FF755B:
+;$FF7526
+level_sprite_02FA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $00C0
 	db sprite.general_purpose_60 : dw $2020
 	db !spawn_command_success
 
-DATA_FF7565:
+;$FF7526
+level_sprite_02FC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $0150
 	db sprite.general_purpose_60 : dw $5858
 	db !spawn_command_success
 
-DATA_FF756F:
+;$FF7526
+level_sprite_02FE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $0120
 	db sprite.general_purpose_60 : dw $4040
 	db !spawn_command_success
 
-DATA_FF7579:
+;$FF7526
+level_sprite_0300_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $FEA0
 	db sprite.general_purpose_60 : dw $C000
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF7586:
+;$FF7526
+level_sprite_0302_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73C7
 	db sprite.max_x_speed : dw $0150
 	db sprite.general_purpose_60 : dw $1010
 	db !spawn_command_success
 
-DATA_FF7590:
+;$FF7526
+level_sprite_0304_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73C7
 	db sprite.max_x_speed : dw $0150
 	db sprite.general_purpose_60 : dw $2020
 	db !spawn_command_success
 
-DATA_FF759A:
+;$FF7526
+level_sprite_0306_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73C7
 	db sprite.max_x_speed : dw $0150
 	db sprite.general_purpose_60 : dw $3030
 	db !spawn_command_success
 
-DATA_FF75A4:
+;$FF7526
+level_sprite_0308_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73E0
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF75AB:
+;$FF7526
+level_sprite_030A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73E0
 	db sprite.max_y_speed : dw $0040
 	db !spawn_command_set_oam : dw $6000
@@ -12165,175 +12555,204 @@ DATA_FF75CF:
 	db !spawn_command_set_animation : dw $01C4
 	db !spawn_command_success
 
-DATA_FF75DF:
+;$FF7526
+level_sprite_030C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $FE00
 	db sprite.general_purpose_5C : dw $3F3F
 	db !spawn_command_success
 
-DATA_FF75E9:
+;$FF7526
+level_sprite_030E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $0200
 	db sprite.general_purpose_5C : dw $3F3F
 	db !spawn_command_success
 
-DATA_FF75F3:
+;$FF7526
+level_sprite_0310_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $FD00
 	db sprite.general_purpose_5C : dw $5469
 	db !spawn_command_success
 
-DATA_FF75FD:
+;$FF7526
+level_sprite_0312_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $FE00
 	db sprite.general_purpose_5C : dw $6915
 	db !spawn_command_success
 
-DATA_FF7607:
+;$FF7526
+level_sprite_0314_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $0200
 	db sprite.general_purpose_5C : dw $1569
 	db !spawn_command_success
 
-DATA_FF7611:
+;$FF7526
+level_sprite_0316_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $FC80
 	db sprite.general_purpose_5C : dw $93BD
 	db !spawn_command_success
 
-DATA_FF761B:
+;$FF7526
+level_sprite_0318_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $FD00
 	db sprite.general_purpose_5C : dw $6915
 	db !spawn_command_success
 
-DATA_FF7625:
+;$FF7526
+level_sprite_031A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $0300
 	db sprite.general_purpose_5C : dw $1569
 	db !spawn_command_success
 
-DATA_FF762F:
+;$FF7526
+level_sprite_031C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $0400
 	db sprite.general_purpose_5C : dw $6969
 	db !spawn_command_success
 
-DATA_FF7639:
+;$FF7526
+level_sprite_031E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $FE00
 	db sprite.general_purpose_5C : dw $5454
 	db !spawn_command_success
 
-DATA_FF7643:
+;$FF7526
+level_sprite_0320_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $0200
 	db sprite.general_purpose_5C : dw $5454
 	db !spawn_command_success
 
-DATA_FF764D:
+;$FF764D
+unplaced_level_sprite_0322_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $0240
 	db sprite.general_purpose_5C : dw $1593
 	db !spawn_command_success
 
-DATA_FF7657:
+;$FF764D
+level_sprite_0324_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $FD80
 	db sprite.general_purpose_5C : dw $2AFC
 	db !spawn_command_success
 
-DATA_FF7661:
+;$FF7661
+unplaced_level_sprite_0326_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $0100
 	db sprite.general_purpose_5C : dw $1515
 	db !spawn_command_success
 
-DATA_FF766B:
+;$FF7661
+level_sprite_0328_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $0300
 	db sprite.general_purpose_5C : dw $00A8
 	db !spawn_command_success
 
-DATA_FF7675:
+;$FF7661
+level_sprite_032A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $FD80
 	db sprite.general_purpose_5C : dw $1593
 	db !spawn_command_success
 
-DATA_FF767F:
+;$FF7661
+level_sprite_032C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $FD00
 	db sprite.general_purpose_5C : dw $1569
 	db !spawn_command_success
 
-DATA_FF7689:
+;$FF7661
+level_sprite_032E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $FD80
 	db sprite.general_purpose_5C : dw $1569
 	db !spawn_command_success
 
-DATA_FF7693:
+;$FF7661
+level_sprite_0330_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $0100
 	db sprite.general_purpose_5C : dw $0015
 	db !spawn_command_success
 
-DATA_FF769D:
+;$FF7661
+level_sprite_0332_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $0100
 	db sprite.general_purpose_5C : dw $152A
 	db !spawn_command_success
 
-DATA_FF76A7:
+;$FF7661
+level_sprite_0334_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $0300
 	db sprite.general_purpose_5C : dw $A800
 	db !spawn_command_success
 
-DATA_FF76B1:
+;$FF7661
+level_sprite_0336_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $0300
 	db sprite.general_purpose_5C : dw $5454
 	db !spawn_command_success
 
-DATA_FF76BB:
+;$FF7661
+level_sprite_0338_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $FD00
 	db sprite.general_purpose_5C : dw $2A93
 	db !spawn_command_success
 
-DATA_FF76C5:
+;$FF7661
+level_sprite_033A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $FD00
 	db sprite.general_purpose_5C : dw $69E7
 	db !spawn_command_success
 
-DATA_FF76CF:
+;$FF7661
+level_sprite_033C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $FC80
 	db sprite.general_purpose_5C : dw $2A7E
 	db !spawn_command_success
 
-DATA_FF76D9:
+;$FF7661
+level_sprite_033E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $0380
 	db sprite.general_purpose_5C : dw $7E2A
 	db !spawn_command_success
 
-DATA_FF76E3:
+;$FF7661
+level_sprite_0340_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $FDC0
 	db sprite.general_purpose_5C : dw $3F7E
 	db !spawn_command_success
 
-DATA_FF76ED:
+;$FF7661
+level_sprite_0342_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75C2
 	db sprite.y_speed : dw $0280
 	db sprite.general_purpose_5C : dw $00A8
 	db !spawn_command_success
 
-DATA_FF76F7:
+;$FF7661
+level_sprite_0344_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF75CF
 	db sprite.general_purpose_68 : dw $0014
 	db sprite.general_purpose_6A : dw $0100
@@ -12351,112 +12770,128 @@ DATA_FF770E:
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF7715:
+;$FF7661
+level_sprite_0346_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF7701
 	db sprite.general_purpose_5C : dw $5001
 	db sprite.general_purpose_5E : dw $02E0
 	db !spawn_command_success
 
-DATA_FF7725:
+;$FF7661
+level_sprite_0348_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF7701
 	db sprite.general_purpose_5C : dw $5004
 	db sprite.general_purpose_5E : dw $02E0
 	db !spawn_command_success
 
-DATA_FF7735:
+;$FF7661
+level_sprite_034A_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF7701
 	db sprite.general_purpose_5C : dw $3C01
 	db sprite.general_purpose_5E : dw $0360
 	db !spawn_command_success
 
-DATA_FF7745:
+;$FF7661
+level_sprite_034C_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF7701
 	db sprite.general_purpose_5C : dw $3C06
 	db sprite.general_purpose_5E : dw $0360
 	db !spawn_command_success
 
-DATA_FF7755:
+;$FF7661
+level_sprite_034E_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF7701
 	db sprite.general_purpose_5C : dw $5041
 	db sprite.general_purpose_5E : dw $0360
 	db !spawn_command_success
 
-DATA_FF7765:
+;$FF7661
+level_sprite_0350_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF7701
 	db sprite.general_purpose_5C : dw $5031
 	db sprite.general_purpose_5E : dw $0360
 	db !spawn_command_success
 
-DATA_FF7775:
+;$FF7661
+level_sprite_0352_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF7701
 	db sprite.general_purpose_5C : dw $5021
 	db sprite.general_purpose_5E : dw $0360
 	db !spawn_command_success
 
-DATA_FF7785:
+;$FF7661
+level_sprite_0354_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF7701
 	db sprite.general_purpose_5C : dw $5011
 	db sprite.general_purpose_5E : dw $0360
 	db !spawn_command_success
 
-DATA_FF7795:
+;$FF7661
+level_sprite_0356_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF7701
 	db sprite.general_purpose_5C : dw $5001
 	db sprite.general_purpose_5E : dw $0360
 	db !spawn_command_success
 
-DATA_FF77A5:
+;$FF7661
+level_sprite_0358_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF770E
 	db sprite.general_purpose_5C : dw $5001
 	db sprite.general_purpose_5E : dw $02E0
 	db !spawn_command_success
 
-DATA_FF77B5:
+;$FF7661
+level_sprite_035A_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF770E
 	db sprite.general_purpose_5C : dw $5004
 	db sprite.general_purpose_5E : dw $02E0
 	db !spawn_command_success
 
-DATA_FF77C5:
+;$FF7661
+level_sprite_035C_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF770E
 	db sprite.general_purpose_5C : dw $5041
 	db sprite.general_purpose_5E : dw $0360
 	db !spawn_command_success
 
-DATA_FF77D5:
+;$FF7661
+level_sprite_035E_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF770E
 	db sprite.general_purpose_5C : dw $5031
 	db sprite.general_purpose_5E : dw $0360
 	db !spawn_command_success
 
-DATA_FF77E5:
+;$FF7661
+level_sprite_0360_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF770E
 	db sprite.general_purpose_5C : dw $5021
 	db sprite.general_purpose_5E : dw $0360
 	db !spawn_command_success
 
-DATA_FF77F5:
+;$FF7661
+level_sprite_0362_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF770E
 	db sprite.general_purpose_5C : dw $5011
 	db sprite.general_purpose_5E : dw $0360
 	db !spawn_command_success
 
-DATA_FF7805:
+;$FF7661
+level_sprite_0364_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Minkey, $0056 : db $08
 	db !spawn_command_load_subconfig : dw DATA_FF770E
 	db sprite.general_purpose_5C : dw $5001
@@ -12484,7 +12919,8 @@ DATA_FF782E:
 	db sprite.state : dw $0002
 	db !spawn_command_success
 
-DATA_FF7844:
+;$FF7661
+level_sprite_0366_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_BarrelShield, $0025 : db $06
 	db !spawn_command_load_subconfig : dw DATA_FF7815
 	db !spawn_command_set_oam : dw $2000
@@ -12492,7 +12928,8 @@ DATA_FF7844:
 	db sprite.general_purpose_64 : dw $1E1E
 	db !spawn_command_success
 
-DATA_FF7857:
+;$FF7857
+unplaced_level_sprite_0368_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_BarrelShield, $0025 : db $06
 	db !spawn_command_load_subconfig : dw DATA_FF7815
 	db !spawn_command_set_oam : dw $6000
@@ -12500,7 +12937,8 @@ DATA_FF7857:
 	db sprite.general_purpose_64 : dw $1E1E
 	db !spawn_command_success
 
-DATA_FF786A:
+;$FF7857
+level_sprite_036A_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_BarrelShield, $0025 : db $06
 	db !spawn_command_load_subconfig : dw DATA_FF7815
 	db !spawn_command_set_oam : dw $2000
@@ -12508,7 +12946,8 @@ DATA_FF786A:
 	db sprite.general_purpose_64 : dw $0000
 	db !spawn_command_success
 
-DATA_FF787D:
+;$FF7857
+level_sprite_036C_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_BarrelShield, $0025 : db $06
 	db !spawn_command_load_subconfig : dw DATA_FF7815
 	db !spawn_command_set_oam : dw $6000
@@ -12516,7 +12955,8 @@ DATA_FF787D:
 	db sprite.general_purpose_64 : dw $0000
 	db !spawn_command_success
 
-DATA_FF7890:
+;$FF7857
+level_sprite_036E_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_BarrelShield, $0025 : db $06
 	db !spawn_command_load_subconfig : dw DATA_FF7815
 	db !spawn_command_set_oam : dw $6000
@@ -12524,7 +12964,8 @@ DATA_FF7890:
 	db sprite.general_purpose_64 : dw $4646
 	db !spawn_command_success
 
-DATA_FF78A3:
+;$FF7857
+level_sprite_0370_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_BarrelShield, $0025 : db $06
 	db !spawn_command_load_subconfig : dw DATA_FF7815
 	db !spawn_command_set_oam : dw $2000
@@ -12532,7 +12973,8 @@ DATA_FF78A3:
 	db sprite.general_purpose_64 : dw $4646
 	db !spawn_command_success
 
-DATA_FF78B6:
+;$FF7857
+level_sprite_0372_spawn_script:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_0280
 	db !spawn_command_set_animation : dw $019D
 	db !spawn_command_set_palette : dw $0048
@@ -12543,7 +12985,8 @@ DATA_FF78B6:
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
-DATA_FF78CF:
+;$FF7857
+level_sprite_0374_spawn_script:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_0138
 	db !spawn_command_success
 
@@ -12567,80 +13010,93 @@ DATA_FF78F8:
 	db sprite.movement_state : dw $0043
 	db !spawn_command_success
 
-DATA_FF78FF:
+;$FF7857
+level_sprite_0376_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78D3
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FF7906:
+;$FF7857
+level_sprite_0378_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78D3
 	db sprite.max_x_speed : dw $0100
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF7910:
+;$FF7857
+level_sprite_037A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78D3
 	db sprite.max_x_speed : dw $FF40
 	db !spawn_command_success
 
-DATA_FF7917:
+;$FF7857
+level_sprite_037C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78D3
 	db sprite.max_x_speed : dw $00C0
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF7921:
+;$FF7857
+level_sprite_037E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78F8
 	db sprite.max_x_speed : dw $0100
 	db sprite.general_purpose_60 : dw $0040
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF792E:
+;$FF7857
+level_sprite_0380_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78F8
 	db sprite.max_x_speed : dw $0100
 	db sprite.general_purpose_60 : dw $0090
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF793B:
+;$FF793B
+unplaced_level_sprite_0382_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78F8
 	db sprite.max_x_speed : dw $FE80
 	db sprite.general_purpose_60 : dw $0808
 	db !spawn_command_success
 
-DATA_FF7945:
+;$FF793B
+level_sprite_0384_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78F8
 	db sprite.max_x_speed : dw $0180
 	db sprite.general_purpose_60 : dw $2020
 	db !spawn_command_success
 
-DATA_FF794F:
+;$FF793B
+level_sprite_0386_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78F8
 	db sprite.max_x_speed : dw $FF00
 	db sprite.general_purpose_60 : dw $4000
 	db !spawn_command_success
 
-DATA_FF7959:
+;$FF793B
+level_sprite_0388_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78F8
 	db sprite.max_x_speed : dw $FF00
 	db sprite.general_purpose_60 : dw $9000
 	db !spawn_command_success
 
-DATA_FF7963:
+;$FF793B
+level_sprite_038A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78F8
 	db sprite.max_x_speed : dw $0100
 	db sprite.general_purpose_60 : dw $1414
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF7970:
+;$FF793B
+level_sprite_038C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78F8
 	db sprite.max_x_speed : dw $0100
 	db sprite.general_purpose_60 : dw $1010
 	db !spawn_command_success
 
-DATA_FF797A:
+;$FF793B
+level_sprite_038E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78F8
 	db sprite.max_x_speed : dw $FF00
 	db sprite.general_purpose_60 : dw $F008
@@ -12732,7 +13188,8 @@ DATA_FF7A1C:
 	db sprite.movement_state : dw $000B
 	db !spawn_command_success
 
-DATA_FF7A26:
+;$FF793B
+level_sprite_0390_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79A3
 	db sprite.general_purpose_60 : dw $0101
 	db sprite.max_x_speed : dw $0030
@@ -12740,7 +13197,8 @@ DATA_FF7A26:
 	db sprite.max_y_speed : dw $0040
 	db !spawn_command_F0
 
-DATA_FF7A36:
+;$FF793B
+level_sprite_0392_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79A3
 	db sprite.general_purpose_60 : dw $0101
 	db sprite.max_x_speed : dw $FFD0
@@ -12748,19 +13206,22 @@ DATA_FF7A36:
 	db sprite.max_y_speed : dw $0040
 	db !spawn_command_F0
 
-DATA_FF7A46:
+;$FF793B
+level_sprite_0394_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $5010
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_F0
 
-DATA_FF7A50:
+;$FF793B
+level_sprite_0396_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $5010
 	db sprite.max_y_speed : dw $0140
 	db !spawn_command_F0
 
-DATA_FF7A5A:
+;$FF793B
+level_sprite_0398_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79A3
 	db sprite.general_purpose_60 : dw $0101
 	db sprite.max_x_speed : dw $0030
@@ -12768,7 +13229,8 @@ DATA_FF7A5A:
 	db sprite.max_y_speed : dw $0040
 	db !spawn_command_success
 
-DATA_FF7A6A:
+;$FF793B
+level_sprite_039A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79A3
 	db sprite.general_purpose_60 : dw $0101
 	db sprite.max_x_speed : dw $FFD0
@@ -12776,324 +13238,373 @@ DATA_FF7A6A:
 	db sprite.max_y_speed : dw $0040
 	db !spawn_command_success
 
-DATA_FF7A7A:
+;$FF793B
+level_sprite_039C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $7020
 	db sprite.max_y_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FF7A84:
+;$FF793B
+level_sprite_039E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $5040
 	db sprite.max_y_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FF7A8E:
+;$FF793B
+level_sprite_03A0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $3060
 	db sprite.max_y_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FF7A98:
+;$FF793B
+level_sprite_03A2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $9000
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF7AA2:
+;$FF793B
+level_sprite_03A4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $7020
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF7AAC:
+;$FF793B
+level_sprite_03A6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $5040
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF7AB6:
+;$FF793B
+level_sprite_03A8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $3030
 	db sprite.max_y_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF7AC0:
+;$FF793B
+level_sprite_03AA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $2020
 	db sprite.max_y_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FF7ACA:
+;$FF793B
+level_sprite_03AC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $6010
 	db sprite.max_y_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FF7AD4:
+;$FF793B
+level_sprite_03AE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $3838
 	db sprite.max_y_speed : dw $FD00
 	db !spawn_command_success
 
-DATA_FF7ADE:
+;$FF793B
+level_sprite_03B0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $3838
 	db sprite.max_y_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF7AE8:
+;$FF793B
+level_sprite_03B2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $0060
 	db sprite.max_y_speed : dw $0120
 	db !spawn_command_success
 
-DATA_FF7AF2:
+;$FF793B
+level_sprite_03B4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $5060
 	db sprite.max_x_speed : dw $0100
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF7AFF:
+;$FF793B
+level_sprite_03B6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $5050
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF7B0C:
+;$FF793B
+level_sprite_03B8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $6020
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF7B19:
+;$FF793B
+level_sprite_03BA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $A030
 	db sprite.max_x_speed : dw $0120
 	db !spawn_command_success
 
-DATA_FF7B23:
+;$FF793B
+level_sprite_03BC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $5050
 	db sprite.max_x_speed : dw $FEC0
 	db !spawn_command_success
 
-DATA_FF7B2D:
+;$FF7B2D
+unplaced_level_sprite_03BE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.max_x_speed : dw $FEE0
 	db !spawn_command_success
 
-DATA_FF7B37:
+;$FF7B2D
+level_sprite_03C0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $0060
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF7B44:
+;$FF7B2D
+level_sprite_03C2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $3030
 	db sprite.max_x_speed : dw $0150
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF7B51:
+;$FF7B51
+unplaced_level_sprite_03C4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $2020
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF7B5E:
+;$FF7B5E
+unplaced_level_sprite_03C6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $2020
 	db sprite.max_x_speed : dw $FEC0
 	db !spawn_command_success
 
-DATA_FF7B68:
+;$FF7B68
+unplaced_level_sprite_03C8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $2020
 	db sprite.max_x_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FF7B72:
+;$FF7B68
+level_sprite_03CA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.max_x_speed : dw $0100
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF7B7F:
+;$FF7B7F
+unplaced_level_sprite_03CC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $8000
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FF7B89:
+;$FF7B7F
+level_sprite_03CE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $6020
 	db sprite.max_x_speed : dw $0100
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF7B96:
+;$FF7B96
+unplaced_level_sprite_03D0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $0080
 	db sprite.max_x_speed : dw $0100
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF7BA3:
+;$FF7B96
+level_sprite_03D2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $0080
 	db sprite.max_x_speed : dw $0120
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF7BB0:
+;$FF7B96
+level_sprite_03D4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $0848
 	db sprite.max_x_speed : dw $FF20
 	db !spawn_command_success
 
-DATA_FF7BBA:
+;$FF7B96
+level_sprite_03D6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $4000
 	db sprite.general_purpose_62 : dw $3000
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF7BC7:
+;$FF7B96
+level_sprite_03D8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF7BD4:
+;$FF7B96
+level_sprite_03DA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $8000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF7BE1:
+;$FF7B96
+level_sprite_03DC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF7BEE:
+;$FF7B96
+level_sprite_03DE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $6000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF7BFB:
+;$FF7B96
+level_sprite_03E0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $A000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF7C08:
+;$FF7B96
+level_sprite_03E2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $2000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF7C15:
+;$FF7B96
+level_sprite_03E4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $4000
 	db sprite.general_purpose_62 : dw $3000
 	db sprite.max_x_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF7C22:
+;$FF7B96
+level_sprite_03E6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $3000
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF7C2F:
+;$FF7B96
+level_sprite_03E8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $6000
 	db sprite.general_purpose_62 : dw $3000
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF7C3C:
+;$FF7C3C
+unplaced_level_sprite_03EA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $8000
 	db sprite.general_purpose_62 : dw $1000
 	db sprite.max_x_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF7C49:
+;$FF7C3C
+level_sprite_03EC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $C000
 	db sprite.general_purpose_62 : dw $1000
 	db sprite.max_x_speed : dw $FD00
 	db !spawn_command_success
 
-DATA_FF7C56:
+;$FF7C3C
+level_sprite_03EE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $4000
 	db sprite.general_purpose_62 : dw $3000
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF7C63:
+;$FF7C3C
+level_sprite_03F0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $D000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF7C70:
+;$FF7C3C
+level_sprite_03F2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $5000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF7C7D:
+;$FF7C3C
+level_sprite_03F4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF7C8A:
+;$FF7C3C
+level_sprite_03F6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $6000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF7C97:
+;$FF7C3C
+level_sprite_03F8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $3000
 	db sprite.max_x_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF7CA4:
+;$FF7CA4
+unplaced_level_sprite_03FA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $4000
 	db sprite.general_purpose_62 : dw $3000
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_F0
 
-DATA_FF7CB1:
+;$FF7CA4
+level_sprite_03FC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79CB
 	db sprite.general_purpose_60 : dw $2000
 	db sprite.general_purpose_62 : dw $4000
@@ -13101,7 +13612,8 @@ DATA_FF7CB1:
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF7CC1:
+;$FF7CA4
+level_sprite_03FE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79CB
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $4000
@@ -13109,7 +13621,8 @@ DATA_FF7CC1:
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FF7CD1:
+;$FF7CA4
+level_sprite_0400_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79F4
 	db sprite.general_purpose_60 : dw $0101
 	db sprite.max_x_speed : dw $0030
@@ -13117,7 +13630,8 @@ DATA_FF7CD1:
 	db sprite.max_y_speed : dw $0040
 	db !spawn_command_success
 
-DATA_FF7CE1:
+;$FF7CA4
+level_sprite_0402_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79F4
 	db sprite.general_purpose_60 : dw $0101
 	db sprite.max_x_speed : dw $FFD0
@@ -13125,288 +13639,332 @@ DATA_FF7CE1:
 	db sprite.max_y_speed : dw $0040
 	db !spawn_command_success
 
-DATA_FF7CF1:
+;$FF7CA4
+level_sprite_0404_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $500D
 	db sprite.max_y_speed : dw $FEF0
 	db !spawn_command_success
 
-DATA_FF7CFB:
+;$FF7CA4
+level_sprite_0406_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $500D
 	db sprite.max_y_speed : dw $0110
 	db !spawn_command_success
 
-DATA_FF7D05:
+;$FF7CA4
+level_sprite_0408_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $7070
 	db sprite.max_y_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF7D0F:
+;$FF7D0F
+unplaced_level_sprite_040A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $3838
 	db sprite.max_y_speed : dw $FD00
 	db !spawn_command_success
 
-DATA_FF7D19:
+;$FF7D19
+unplaced_level_sprite_040C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $3838
 	db sprite.max_y_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF7D23:
+;$FF7D19
+level_sprite_040E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $1848
 	db sprite.max_y_speed : dw $00C0
 	db !spawn_command_success
 
-DATA_FF7D2D:
+;$FF7D19
+level_sprite_0410_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $1848
 	db sprite.max_y_speed : dw $0080
 	db !spawn_command_success
 
-DATA_FF7D37:
+;$FF7D19
+level_sprite_0412_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $1010
 	db sprite.max_y_speed : dw $0068
 	db !spawn_command_success
 
-DATA_FF7D41:
+;$FF7D19
+level_sprite_0414_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $1010
 	db sprite.max_y_speed : dw $FF98
 	db !spawn_command_success
 
-DATA_FF7D4B:
+;$FF7D19
+level_sprite_0416_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $2020
 	db sprite.max_y_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF7D55:
+;$FF7D19
+level_sprite_0418_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $0040
 	db sprite.max_y_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF7D5F:
+;$FF7D5F
+unplaced_level_sprite_041A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $3838
 	db sprite.max_y_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF7D69:
+;$FF7D69
+unplaced_level_sprite_041C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $2828
 	db sprite.max_y_speed : dw $FEC0
 	db !spawn_command_success
 
-DATA_FF7D73:
+;$FF7D73
+unplaced_level_sprite_041E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $2828
 	db sprite.max_y_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF7D7D:
+;$FF7D7D
+unplaced_level_sprite_0420_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $500D
 	db sprite.max_y_speed : dw $FEA0
 	db !spawn_command_success
 
-DATA_FF7D87:
+;$FF7D7D
+level_sprite_0422_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $7070
 	db sprite.max_y_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FF7D91:
+;$FF7D7D
+level_sprite_0424_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A08
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.max_x_speed : dw $FEA4
 	db !spawn_command_success
 
-DATA_FF7D9B:
+;$FF7D7D
+level_sprite_0426_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A08
 	db sprite.general_purpose_60 : dw $0848
 	db sprite.max_x_speed : dw $FEE0
 	db !spawn_command_success
 
-DATA_FF7DA5:
+;$FF7DA5
+unplaced_level_sprite_0428_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A08
 	db sprite.general_purpose_60 : dw $2828
 	db sprite.max_x_speed : dw $FEA0
 	db !spawn_command_success
 
-DATA_FF7DAF:
+;$FF7DA5
+level_sprite_042A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A08
 	db sprite.general_purpose_60 : dw $2828
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FF7DB9:
+;$FF7DA5
+level_sprite_042C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $8000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF7DC6:
+;$FF7DA5
+level_sprite_042E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $2000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $FE50
 	db !spawn_command_success
 
-DATA_FF7DD3:
+;$FF7DA5
+level_sprite_0430_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $A000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $FE50
 	db !spawn_command_success
 
-DATA_FF7DE0:
+;$FF7DA5
+level_sprite_0432_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $D000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $FEC0
 	db !spawn_command_success
 
-DATA_FF7DED:
+;$FF7DA5
+level_sprite_0434_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $2000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF7DFA:
+;$FF7DFA
+unplaced_level_sprite_0436_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $7800
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $01C0
 	db !spawn_command_success
 
-DATA_FF7E07:
+;$FF7E07
+unplaced_level_sprite_0438_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $D000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $01C0
 	db !spawn_command_success
 
-DATA_FF7E14:
+;$FF7E07
+level_sprite_043A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $5000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $FEC0
 	db !spawn_command_success
 
-DATA_FF7E21:
+;$FF7E07
+level_sprite_043C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $D000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $FDB0
 	db !spawn_command_success
 
-DATA_FF7E2E:
+;$FF7E07
+level_sprite_043E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $5000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $FDB0
 	db !spawn_command_success
 
-DATA_FF7E3B:
+;$FF7E07
+level_sprite_0440_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $D000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FF7E48:
+;$FF7E48
+unplaced_level_sprite_0442_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $D000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF7E55:
+;$FF7E55
+unplaced_level_sprite_0444_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $5000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF7E62:
+;$FF7E55
+level_sprite_0446_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $D000
 	db sprite.general_purpose_62 : dw $3000
 	db sprite.max_x_speed : dw $0350
 	db !spawn_command_success
 
-DATA_FF7E6F:
+;$FF7E55
+level_sprite_0448_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $5000
 	db sprite.general_purpose_62 : dw $3000
 	db sprite.max_x_speed : dw $0350
 	db !spawn_command_success
 
-DATA_FF7E7C:
+;$FF7E55
+level_sprite_044A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $D000
 	db sprite.general_purpose_62 : dw $2800
 	db sprite.max_x_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FF7E89:
+;$FF7E55
+level_sprite_044C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $D000
 	db sprite.general_purpose_62 : dw $3000
 	db sprite.max_x_speed : dw $FEC0
 	db !spawn_command_success
 
-DATA_FF7E96:
+;$FF7E55
+level_sprite_044E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $5000
 	db sprite.general_purpose_62 : dw $3000
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF7EA3:
+;$FF7E55
+level_sprite_0450_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $D000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FF7EB0:
+;$FF7E55
+level_sprite_0452_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $5000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FF7EBD:
+;$FF7E55
+level_sprite_0454_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $D000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FF7ECA:
+;$FF7E55
+level_sprite_0456_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $5000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FF7ED7:
+;$FF7ED7
+unplaced_level_sprite_0458_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A12
 	db sprite.general_purpose_60 : dw $D000
 	db sprite.general_purpose_62 : dw $3800
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FF7EE4:
+;$FF7EE4
+unplaced_level_sprite_045A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A1C
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.general_purpose_62 : dw $3000
@@ -13415,7 +13973,8 @@ DATA_FF7EE4:
 	db sprite.max_x_speed : dw $0100
 	db !spawn_command_success
 
-DATA_FF7EF7:
+;$FF7EE4
+level_sprite_045C_spawn_script:
 	db !spawn_command_set_type : dw !sprite_Barrel
 	db sprite.constants_address : dw DATA_FF1D2C
 	db sprite.render_order : dw $00C8
@@ -13430,7 +13989,8 @@ DATA_FF7EF7:
 	db sprite.movement_state : dw $004F
 	db !spawn_command_success
 
-DATA_FF7F1C:
+;$FF7EE4
+level_sprite_045E_spawn_script:
 	db !spawn_command_set_type : dw !sprite_Barrel
 	db sprite.constants_address : dw DATA_FF1D2C
 	db sprite.render_order : dw $00C8
@@ -13445,7 +14005,8 @@ DATA_FF7F1C:
 	db sprite.movement_state : dw $004B
 	db !spawn_command_success
 
-DATA_FF7F41:
+;$FF7EE4
+level_sprite_0460_spawn_script:
 	db !spawn_command_set_type : dw !sprite_Barrel
 	db sprite.constants_address : dw DATA_FF1D2C
 	db sprite.render_order : dw $00C8
@@ -13460,7 +14021,8 @@ DATA_FF7F41:
 	db sprite.movement_state : dw $004F
 	db !spawn_command_F0
 
-DATA_FF7F66:
+;$FF7F66
+unplaced_level_sprite_0462_spawn_script:
 	db !spawn_command_set_type : dw !sprite_Barrel
 	db sprite.constants_address : dw DATA_FF1D2C
 	db sprite.render_order : dw $00C8
@@ -13475,7 +14037,8 @@ DATA_FF7F66:
 	db sprite.movement_state : dw $004F
 	db !spawn_command_success
 
-DATA_FF7F8B:
+;$FF7F66
+level_sprite_0464_spawn_script:
 	db !spawn_command_set_type : dw !sprite_TNTBarrel
 	db sprite.constants_address : dw DATA_FF1D64
 	db sprite.render_order : dw $00C8
@@ -13490,7 +14053,8 @@ DATA_FF7F8B:
 	db sprite.movement_state : dw $0040
 	db !spawn_command_success
 
-DATA_FF7FB0:
+;$FF7FB0
+unplaced_level_sprite_0466_spawn_script:
 	db !spawn_command_set_type : dw !sprite_TNTBarrel
 	db sprite.constants_address : dw DATA_FF1D64
 	db sprite.render_order : dw $00C8
@@ -13505,7 +14069,8 @@ DATA_FF7FB0:
 	db sprite.movement_state : dw $0040
 	db !spawn_command_success
 
-DATA_FF7FD5:
+;$FF7FB0
+level_sprite_0468_spawn_script:
 	db !spawn_command_set_type : dw !sprite_SteelKeg
 	db sprite.constants_address : dw DATA_FF1DD4
 	db sprite.render_order : dw $00C8
@@ -13520,7 +14085,8 @@ DATA_FF7FD5:
 	db sprite.movement_state : dw $004F
 	db !spawn_command_success
 
-DATA_FF7FFA:
+;$FF7FB0
+level_sprite_046A_spawn_script:
 	db !spawn_command_set_type : dw !sprite_SteelKeg
 	db sprite.constants_address : dw DATA_FF1DD4
 	db sprite.render_order : dw $00C8
@@ -13535,7 +14101,8 @@ DATA_FF7FFA:
 	db sprite.movement_state : dw $004B
 	db !spawn_command_success
 
-DATA_FF801F:
+;$FF801F
+unplaced_level_sprite_046C_spawn_script:
 	db !spawn_command_set_type : dw !sprite_SteelKeg
 	db sprite.constants_address : dw DATA_FF1DD4
 	db sprite.render_order : dw $00C8
@@ -13550,7 +14117,8 @@ DATA_FF801F:
 	db sprite.movement_state : dw $004F
 	db !spawn_command_success
 
-DATA_FF8044:
+;$FF801F
+level_sprite_046E_spawn_script:
 	db !spawn_command_set_type : dw !sprite_WoodenBox
 	db sprite.constants_address : dw DATA_FF1E0C
 	db sprite.render_order : dw $00C8
@@ -13566,7 +14134,8 @@ DATA_FF8044:
 	db sprite.general_purpose_6C : dw $0078
 	db !spawn_command_success
 
-DATA_FF806C:
+;$FF806C
+unplaced_level_sprite_0470_spawn_script:
 	db !spawn_command_set_type : dw !sprite_WoodenBox
 	db sprite.constants_address : dw DATA_FF1E0C
 	db sprite.render_order : dw $00C8
@@ -13582,7 +14151,8 @@ DATA_FF806C:
 	db sprite.general_purpose_6C : dw $0078
 	db !spawn_command_success
 
-DATA_FF8094:
+;$FF806C
+level_sprite_0472_spawn_script:
 	db !spawn_command_set_type : dw !sprite_CheckpointBarrel
 	db sprite.render_order : dw $00C8
 	db !spawn_command_set_oam : dw $2000
@@ -13591,7 +14161,8 @@ DATA_FF8094:
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
-DATA_FF80A7:
+;$FF806C
+level_sprite_0474_spawn_script:
 	db !spawn_command_set_type : dw !sprite_CheckpointBarrel
 	db sprite.render_order : dw $00F0
 	db !spawn_command_set_oam : dw $3000
@@ -13637,27 +14208,32 @@ DATA_FF80FC:
 	db !spawn_command_set_animation : dw $01AC
 	db !spawn_command_success
 
-DATA_FF8109:
+;$FF806C
+level_sprite_0476_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_66 : dw $0190
 	db !spawn_command_success
 
-DATA_FF8110:
+;$FF806C
+level_sprite_0478_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80F2
 	db sprite.general_purpose_66 : dw $0190
 	db !spawn_command_success
 
-DATA_FF8117:
+;$FF806C
+level_sprite_047A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80F2
 	db sprite.general_purpose_66 : dw $0210
 	db !spawn_command_success
 
-DATA_FF811E:
+;$FF806C
+level_sprite_047C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_66 : dw $0210
 	db !spawn_command_success
 
-DATA_FF8125:
+;$FF806C
+level_sprite_047E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80F2
 	db sprite.general_purpose_62 : dw $0008
 	db sprite.general_purpose_5C : dw $FF10
@@ -13665,25 +14241,29 @@ DATA_FF8125:
 	db sprite.general_purpose_66 : dw $02A0
 	db !spawn_command_success
 
-DATA_FF8135:
+;$FF806C
+level_sprite_0480_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80F2
 	db sprite.general_purpose_62 : dw $0001
 	db sprite.general_purpose_66 : dw $0160
 	db !spawn_command_success
 
-DATA_FF813F:
+;$FF806C
+level_sprite_0482_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80F2
 	db sprite.general_purpose_62 : dw $0042
 	db sprite.general_purpose_66 : dw $0160
 	db !spawn_command_success
 
-DATA_FF8149:
+;$FF806C
+level_sprite_0484_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80F2
 	db sprite.general_purpose_62 : dw $0082
 	db sprite.general_purpose_66 : dw $0160
 	db !spawn_command_success
 
-DATA_FF8153:
+;$FF806C
+level_sprite_0486_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_62 : dw $0004
 	db sprite.general_purpose_5C : dw $FFF4
@@ -13691,7 +14271,8 @@ DATA_FF8153:
 	db sprite.general_purpose_66 : dw $0360
 	db !spawn_command_success
 
-DATA_FF8163:
+;$FF806C
+level_sprite_0488_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_62 : dw $0001
 	db sprite.general_purpose_5C : dw $FE6C
@@ -13699,25 +14280,29 @@ DATA_FF8163:
 	db sprite.general_purpose_66 : dw $0360
 	db !spawn_command_success
 
-DATA_FF8173:
+;$FF806C
+level_sprite_048A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_62 : dw $0005
 	db sprite.general_purpose_66 : dw $01F0
 	db !spawn_command_success
 
-DATA_FF817D:
+;$FF806C
+level_sprite_048C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_62 : dw $0045
 	db sprite.general_purpose_66 : dw $01F0
 	db !spawn_command_success
 
-DATA_FF8187:
+;$FF806C
+level_sprite_048E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_62 : dw $0085
 	db sprite.general_purpose_66 : dw $01F0
 	db !spawn_command_success
 
-DATA_FF8191:
+;$FF806C
+level_sprite_0490_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_62 : dw $0060
 	db sprite.general_purpose_5C : dw $FFC4
@@ -13725,7 +14310,8 @@ DATA_FF8191:
 	db sprite.general_purpose_66 : dw $0260
 	db !spawn_command_success
 
-DATA_FF81A1:
+;$FF806C
+level_sprite_0492_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_62 : dw $0060
 	db sprite.general_purpose_5C : dw $FF8C
@@ -13733,39 +14319,45 @@ DATA_FF81A1:
 	db sprite.general_purpose_66 : dw $0260
 	db !spawn_command_success
 
-DATA_FF81B1:
+;$FF806C
+level_sprite_0494_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80F2
 	db sprite.general_purpose_62 : dw $0001
 	db sprite.general_purpose_66 : dw $0260
 	db !spawn_command_success
 
-DATA_FF81BB:
+;$FF806C
+level_sprite_0496_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_62 : dw $0082
 	db sprite.general_purpose_66 : dw $0200
 	db !spawn_command_success
 
-DATA_FF81C5:
+;$FF806C
+level_sprite_0498_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_62 : dw $0042
 	db sprite.general_purpose_66 : dw $0200
 	db !spawn_command_success
 
-DATA_FF81CF:
+;$FF806C
+level_sprite_049A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_5C : dw $FFB4
 	db sprite.general_purpose_5E : dw $0050
 	db sprite.general_purpose_66 : dw $0170
 	db !spawn_command_success
 
-DATA_FF81DC:
+;$FF806C
+level_sprite_049C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_5C : dw $FFB4
 	db sprite.general_purpose_5E : dw $0130
 	db sprite.general_purpose_66 : dw $0160
 	db !spawn_command_success
 
-DATA_FF81E9:
+;$FF806C
+level_sprite_049E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_62 : dw $0060
 	db sprite.general_purpose_5C : dw $FF74
@@ -13773,7 +14365,8 @@ DATA_FF81E9:
 	db sprite.general_purpose_66 : dw $02E0
 	db !spawn_command_success
 
-DATA_FF81F9:
+;$FF806C
+level_sprite_04A0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_62 : dw $0060
 	db sprite.general_purpose_5C : dw $FFB4
@@ -13781,7 +14374,8 @@ DATA_FF81F9:
 	db sprite.general_purpose_66 : dw $02E0
 	db !spawn_command_success
 
-DATA_FF8209:
+;$FF806C
+level_sprite_04A2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_62 : dw $0001
 	db sprite.general_purpose_5C : dw $FFFF
@@ -13789,42 +14383,48 @@ DATA_FF8209:
 	db sprite.general_purpose_66 : dw $0320
 	db !spawn_command_success
 
-DATA_FF8219:
+;$FF806C
+level_sprite_04A4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_5C : dw $FED4
 	db sprite.general_purpose_5E : dw $0150
 	db sprite.general_purpose_66 : dw $03A0
 	db !spawn_command_success
 
-DATA_FF8226:
+;$FF806C
+level_sprite_04A6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_5C : dw $FFB4
 	db sprite.general_purpose_5E : dw $0050
 	db sprite.general_purpose_66 : dw $0320
 	db !spawn_command_success
 
-DATA_FF8233:
+;$FF806C
+level_sprite_04A8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_5C : dw $FF7C
 	db sprite.general_purpose_5E : dw $0088
 	db sprite.general_purpose_66 : dw $0360
 	db !spawn_command_success
 
-DATA_FF8240:
+;$FF806C
+level_sprite_04AA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80F2
 	db sprite.general_purpose_5C : dw $FFB4
 	db sprite.general_purpose_5E : dw $0050
 	db sprite.general_purpose_66 : dw $01B0
 	db !spawn_command_success
 
-DATA_FF824D:
+;$FF806C
+level_sprite_04AC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_5C : dw $FF78
 	db sprite.general_purpose_5E : dw $0088
 	db sprite.general_purpose_66 : dw $02D0
 	db !spawn_command_success
 
-DATA_FF825A:
+;$FF806C
+level_sprite_04AE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_5C : dw $FFC4
 	db sprite.general_purpose_5E : dw $00A0
@@ -13832,7 +14432,8 @@ DATA_FF825A:
 	db sprite.general_purpose_62 : dw $0060
 	db !spawn_command_success
 
-DATA_FF826A:
+;$FF806C
+level_sprite_04B0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_5C : dw $FFC4
 	db sprite.general_purpose_5E : dw $00A0
@@ -13840,89 +14441,103 @@ DATA_FF826A:
 	db sprite.general_purpose_62 : dw $0060
 	db !spawn_command_success
 
-DATA_FF827A:
+;$FF806C
+level_sprite_04B2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80F2
 	db sprite.general_purpose_5C : dw $FF7A
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.general_purpose_66 : dw $0340
 	db !spawn_command_success
 
-DATA_FF8287:
+;$FF806C
+level_sprite_04B4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80D9
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_5E : dw $0086
 	db sprite.general_purpose_66 : dw $0340
 	db !spawn_command_success
 
-DATA_FF8294:
+;$FF806C
+level_sprite_04B6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80F2
 	db sprite.general_purpose_5C : dw $FF60
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.general_purpose_66 : dw $0200
 	db !spawn_command_success
 
-DATA_FF82A1:
+;$FF806C
+level_sprite_04B8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80FC
 	db sprite.general_purpose_64 : dw $6C00
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF82AB:
+;$FF806C
+level_sprite_04BA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80FC
 	db sprite.general_purpose_64 : dw $006C
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF82B5:
+;$FF806C
+level_sprite_04BC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80FC
 	db sprite.general_purpose_64 : dw $0062
 	db sprite.max_x_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF82BF:
+;$FF806C
+level_sprite_04BE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80FC
 	db sprite.general_purpose_64 : dw $00C4
 	db sprite.max_x_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF82C9:
+;$FF806C
+level_sprite_04C0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80FC
 	db sprite.general_purpose_64 : dw $0040
 	db sprite.max_x_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF82D3:
+;$FF806C
+level_sprite_04C2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80FC
 	db sprite.general_purpose_64 : dw $4000
 	db sprite.max_x_speed : dw $FD00
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF82E0:
+;$FF806C
+level_sprite_04C4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80FC
 	db sprite.general_purpose_64 : dw $3030
 	db sprite.max_x_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF82EA:
+;$FF806C
+level_sprite_04C6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80FC
 	db sprite.general_purpose_64 : dw $0060
 	db sprite.max_x_speed : dw $FD00
 	db !spawn_command_success
 
-DATA_FF82F4:
+;$FF82F4
+unplaced_level_sprite_04C8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80FC
 	db sprite.general_purpose_64 : dw $4A4A
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF8301:
+;$FF8301
+unplaced_level_sprite_04CA_spawn_script:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_00D4
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
-DATA_FF8308:
+;$FF8301
+level_sprite_04CC_spawn_script:
 	db !spawn_command_set_type : dw !sprite_CrankyKong
 	db sprite.x_speed : dw $0000
 	db sprite.max_x_speed : dw $0000
@@ -13946,31 +14561,36 @@ DATA_FF8327:
 	db sprite.general_purpose_66 : dw $0010
 	db !spawn_command_success
 
-DATA_FF8340:
+;$FF8301
+level_sprite_04CE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8327
 	db sprite.general_purpose_68 : dw $00E0
 	db !spawn_command_set_palette : dw $0048
 	db !spawn_command_success
 
-DATA_FF834A:
+;$FF8301
+level_sprite_04D0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8327
 	db sprite.general_purpose_68 : dw $0020
 	db !spawn_command_set_palette : dw $0049
 	db !spawn_command_success
 
-DATA_FF8354:
+;$FF8301
+level_sprite_04D2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8327
 	db sprite.general_purpose_68 : dw $0020
 	db !spawn_command_set_palette : dw $0048
 	db !spawn_command_success
 
-DATA_FF835E:
+;$FF8301
+level_sprite_04D4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8327
 	db sprite.general_purpose_68 : dw $00F0
 	db !spawn_command_set_palette : dw $0048
 	db !spawn_command_success
 
-DATA_FF8368:
+;$FF8368
+unplaced_level_sprite_04D6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8327
 	db sprite.general_purpose_68 : dw $0000
 	db !spawn_command_set_palette : dw $0048
@@ -14001,7 +14621,8 @@ DATA_FF8391:
 	db !spawn_command_set_palette : dw $0048
 	db !spawn_command_success
 
-DATA_FF83AD:
+;$FF8368
+level_sprite_04D8_spawn_script:
 	db !spawn_command_set_type : dw !sprite_DoorGear
 	db sprite.render_order : dw $00D4
 	db sprite.state : dw $0000
@@ -14011,7 +14632,8 @@ DATA_FF83AD:
 	db !spawn_command_set_palette : dw $0049
 	db !spawn_command_success
 
-DATA_FF83C3:
+;$FF8368
+level_sprite_04DA_spawn_script:
 	db !spawn_command_set_type : dw !sprite_DoorGear
 	db sprite.render_order : dw $00D4
 	db sprite.state : dw $0000
@@ -14063,32 +14685,38 @@ DATA_FF8419:
 	db !spawn_command_set_animation : dw $019C
 	db !spawn_command_success
 
-DATA_FF842F:
+;$FF8368
+level_sprite_04DC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8391
 	db sprite.general_purpose_64 : dw $00C0
 	db !spawn_command_success
 
-DATA_FF8436:
+;$FF8368
+level_sprite_04DE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8391
 	db sprite.general_purpose_64 : dw $0040
 	db !spawn_command_success
 
-DATA_FF843D:
+;$FF8368
+level_sprite_04E0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8391
 	db sprite.general_purpose_64 : dw $0020
 	db !spawn_command_success
 
-DATA_FF8444:
+;$FF8368
+level_sprite_04E2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8372
 	db sprite.general_purpose_64 : dw $0040
 	db !spawn_command_success
 
-DATA_FF844B:
+;$FF8368
+level_sprite_04E4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8372
 	db sprite.general_purpose_64 : dw $0060
 	db !spawn_command_success
 
-DATA_FF8452:
+;$FF8368
+level_sprite_04E6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8372
 	db sprite.general_purpose_64 : dw $0020
 	db !spawn_command_success
@@ -14098,123 +14726,142 @@ DATA_FF8459:
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
-DATA_FF8460:
+;$FF8368
+level_sprite_04E8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8459
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_5E : dw $0001
 	db sprite.general_purpose_60 : dw $0004
 	db !spawn_command_success
 
-DATA_FF846D:
+;$FF8368
+level_sprite_04EA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8459
 	db sprite.general_purpose_5C : dw $0001
 	db sprite.general_purpose_5E : dw $0006
 	db sprite.general_purpose_60 : dw $0004
 	db !spawn_command_success
 
-DATA_FF847A:
+;$FF8368
+level_sprite_04EC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8459
 	db sprite.general_purpose_5C : dw $0002
 	db sprite.general_purpose_5E : dw $000A
 	db sprite.general_purpose_60 : dw $0004
 	db !spawn_command_success
 
-DATA_FF8487:
+;$FF8368
+level_sprite_04EE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_success
 
-DATA_FF8491:
+;$FF8368
+level_sprite_04F0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0100
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_success
 
-DATA_FF849B:
+;$FF8368
+level_sprite_04F2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0101
 	db sprite.general_purpose_62 : dw $0001
 	db !spawn_command_success
 
-DATA_FF84A5:
+;$FF8368
+level_sprite_04F4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0102
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_success
 
-DATA_FF84AF:
+;$FF8368
+level_sprite_04F6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0103
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF84BC:
+;$FF8368
+level_sprite_04F8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0104
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF84C9:
+;$FF8368
+level_sprite_04FA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0105
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF84D6:
+;$FF8368
+level_sprite_04FC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0200
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_success
 
-DATA_FF84E0:
+;$FF8368
+level_sprite_04FE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0201
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_success
 
-DATA_FF84EA:
+;$FF8368
+level_sprite_0500_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0202
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_success
 
-DATA_FF84F4:
+;$FF8368
+level_sprite_0502_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83FC
 	db sprite.general_purpose_5C : dw $0203
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_success
 
-DATA_FF84FE:
+;$FF8368
+level_sprite_0504_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0204
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF850B:
+;$FF8368
+level_sprite_0506_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0205
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF8518:
+;$FF8368
+level_sprite_0508_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0206
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_success
 
-DATA_FF8522:
+;$FF8368
+level_sprite_050A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83FC
 	db sprite.general_purpose_5C : dw $0207
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_success
 
-DATA_FF852C:
+;$FF8368
+level_sprite_050C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_66 : dw $0100
 	db sprite.general_purpose_5C : dw $0208
@@ -14222,66 +14869,77 @@ DATA_FF852C:
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF853C:
+;$FF8368
+level_sprite_050E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0209
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF8549:
+;$FF8368
+level_sprite_0510_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0300
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_success
 
-DATA_FF8553:
+;$FF8368
+level_sprite_0512_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF83F5
 	db sprite.general_purpose_5C : dw $0300
 	db sprite.general_purpose_62 : dw $0000
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF8560:
+;$FF8368
+level_sprite_0514_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8403
 	db sprite.general_purpose_5E : dw $0040
 	db sprite.general_purpose_60 : dw $0000
 	db !spawn_command_success
 
-DATA_FF856A:
+;$FF8368
+level_sprite_0516_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8403
 	db sprite.general_purpose_5E : dw $0040
 	db sprite.general_purpose_60 : dw $0001
 	db !spawn_command_success
 
-DATA_FF8574:
+;$FF8368
+level_sprite_0518_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8419
 	db sprite.general_purpose_5E : dw $0040
 	db sprite.general_purpose_60 : dw $0002
 	db !spawn_command_success
 
-DATA_FF857E:
+;$FF8368
+level_sprite_051A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8403
 	db sprite.general_purpose_5E : dw $0040
 	db sprite.general_purpose_60 : dw $0002
 	db !spawn_command_success
 
-DATA_FF8588:
+;$FF8368
+level_sprite_051C_spawn_script:
 	db !spawn_command_set_type : dw !sprite_SquealsOnWheelsTracker
 	db sprite.general_purpose_5C : dw $0000
 	db !spawn_command_success
 
-DATA_FF858F:
+;$FF8368
+level_sprite_051E_spawn_script:
 	db !spawn_command_set_type : dw !sprite_SquealsOnWheelsTracker
 	db sprite.general_purpose_5C : dw $0001
 	db !spawn_command_success
 
-DATA_FF8596:
+;$FF8368
+level_sprite_0520_spawn_script:
 	db !spawn_command_set_type : dw !sprite_SquealsOnWheelsTracker
 	db sprite.general_purpose_5C : dw $0002
 	db !spawn_command_success
 
-DATA_FF859D:
+;$FF859D
+unplaced_level_sprite_0522_spawn_script:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_0188
 	db sprite.general_purpose_5C : dw $0014
 	db sprite.general_purpose_5E : dw $97C2
@@ -14336,7 +14994,8 @@ DATA_FF85F3:
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF85FA:
+;$FF859D
+level_sprite_0524_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85DE
 	db sprite.general_purpose_5C : dw $0050
 	db sprite.general_purpose_5E : dw $0001
@@ -14344,7 +15003,8 @@ DATA_FF85FA:
 	db sprite.general_purpose_6A : dw $0032
 	db !spawn_command_success
 
-DATA_FF860A:
+;$FF859D
+level_sprite_0526_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85E5
 	db sprite.general_purpose_5C : dw $0050
 	db sprite.general_purpose_5E : dw $0001
@@ -14352,7 +15012,8 @@ DATA_FF860A:
 	db sprite.general_purpose_6A : dw $0032
 	db !spawn_command_success
 
-DATA_FF861A:
+;$FF859D
+level_sprite_0528_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85DE
 	db sprite.general_purpose_5C : dw $0060
 	db sprite.general_purpose_5E : dw $0001
@@ -14360,7 +15021,8 @@ DATA_FF861A:
 	db sprite.general_purpose_6A : dw $0037
 	db !spawn_command_success
 
-DATA_FF862A:
+;$FF859D
+level_sprite_052A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85E5
 	db sprite.general_purpose_5C : dw $0060
 	db sprite.general_purpose_5E : dw $0001
@@ -14368,7 +15030,8 @@ DATA_FF862A:
 	db sprite.general_purpose_6A : dw $0037
 	db !spawn_command_success
 
-DATA_FF863A:
+;$FF859D
+level_sprite_052C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85DE
 	db sprite.general_purpose_5C : dw $0060
 	db sprite.general_purpose_5E : dw $0001
@@ -14376,69 +15039,80 @@ DATA_FF863A:
 	db sprite.general_purpose_6A : dw $0028
 	db !spawn_command_success
 
-DATA_FF864A:
+;$FF859D
+level_sprite_052E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85CA
 	db sprite.general_purpose_66 : dw $0048
 	db sprite.general_purpose_6A : dw $002D
 	db !spawn_command_success
 
-DATA_FF8654:
+;$FF859D
+level_sprite_0530_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85CA
 	db sprite.general_purpose_66 : dw $0038
 	db sprite.general_purpose_6A : dw $0028
 	db !spawn_command_success
 
-DATA_FF865E:
+;$FF865E
+unplaced_level_sprite_0532_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85CA
 	db sprite.general_purpose_66 : dw $0038
 	db sprite.general_purpose_6A : dw $002D
 	db !spawn_command_success
 
-DATA_FF8668:
+;$FF865E
+level_sprite_0534_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85CA
 	db sprite.general_purpose_66 : dw $004C
 	db sprite.general_purpose_6A : dw $0030
 	db !spawn_command_success
 
-DATA_FF8672:
+;$FF865E
+level_sprite_0536_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85CA
 	db sprite.general_purpose_66 : dw $0068
 	db sprite.general_purpose_6A : dw $0023
 	db !spawn_command_success
 
-DATA_FF867C:
+;$FF865E
+level_sprite_0538_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85CA
 	db sprite.general_purpose_66 : dw $0060
 	db sprite.general_purpose_6A : dw $001E
 	db !spawn_command_success
 
-DATA_FF8686:
+;$FF865E
+level_sprite_053A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85CA
 	db sprite.general_purpose_66 : dw $0050
 	db sprite.general_purpose_6A : dw $0032
 	db !spawn_command_success
 
-DATA_FF8690:
+;$FF865E
+level_sprite_053C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85A7
 	db sprite.state : dw $0006
 	db !spawn_command_set_animation : dw $01F2
 	db !spawn_command_success
 
-DATA_FF869A:
+;$FF865E
+level_sprite_053E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85EC
 	db sprite.general_purpose_5C : dw $0040
 	db sprite.general_purpose_66 : dw $0048
 	db sprite.general_purpose_6A : dw $0037
 	db !spawn_command_success
 
-DATA_FF86A7:
+;$FF865E
+level_sprite_0540_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85EC
 	db sprite.general_purpose_5C : dw $0030
 	db sprite.general_purpose_66 : dw $0060
 	db sprite.general_purpose_6A : dw $001E
 	db !spawn_command_success
 
-DATA_FF86B4:
+;$FF865E
+level_sprite_0542_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85F3
 	db sprite.general_purpose_5C : dw $0040
 	db sprite.general_purpose_66 : dw $0066
@@ -14482,7 +15156,8 @@ DATA_FF86FB:
 	db sprite.general_purpose_62 : dw $0020
 	db !spawn_command_success
 
-DATA_FF8708:
+;$FF865E
+level_sprite_0544_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86D7
 	db sprite.general_purpose_64 : dw $0004
 	db sprite.general_purpose_62 : dw $0020
@@ -14492,7 +15167,8 @@ DATA_FF8708:
 	db sprite.oam_property : dw $0000
 	db !spawn_command_success
 
-DATA_FF871E:
+;$FF865E
+level_sprite_0546_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86D7
 	db sprite.general_purpose_64 : dw $0005
 	db sprite.general_purpose_62 : dw $001C
@@ -14501,7 +15177,8 @@ DATA_FF871E:
 	db sprite.general_purpose_6C : dw $0150
 	db !spawn_command_success
 
-DATA_FF8731:
+;$FF865E
+level_sprite_0548_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86D7
 	db sprite.general_purpose_64 : dw $0003
 	db sprite.general_purpose_62 : dw $0060
@@ -14510,7 +15187,8 @@ DATA_FF8731:
 	db sprite.general_purpose_6C : dw $0120
 	db !spawn_command_success
 
-DATA_FF8744:
+;$FF865E
+level_sprite_054A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86D7
 	db sprite.general_purpose_64 : dw $0006
 	db sprite.general_purpose_62 : dw $0030
@@ -14519,7 +15197,8 @@ DATA_FF8744:
 	db sprite.general_purpose_6C : dw $0120
 	db !spawn_command_success
 
-DATA_FF8757:
+;$FF865E
+level_sprite_054C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86D7
 	db sprite.general_purpose_64 : dw $0006
 	db sprite.general_purpose_62 : dw $0028
@@ -14529,7 +15208,8 @@ DATA_FF8757:
 	db sprite.oam_property : dw $0000
 	db !spawn_command_success
 
-DATA_FF876D:
+;$FF865E
+level_sprite_054E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86D7
 	db sprite.general_purpose_64 : dw $0006
 	db sprite.general_purpose_62 : dw $0030
@@ -14538,7 +15218,8 @@ DATA_FF876D:
 	db sprite.general_purpose_6C : dw $01F0
 	db !spawn_command_success
 
-DATA_FF8780:
+;$FF865E
+level_sprite_0550_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86D7
 	db sprite.general_purpose_64 : dw $0002
 	db sprite.general_purpose_62 : dw $0028
@@ -14548,7 +15229,8 @@ DATA_FF8780:
 	db sprite.oam_property : dw $0000
 	db !spawn_command_success
 
-DATA_FF8796:
+;$FF865E
+level_sprite_0552_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86D7
 	db sprite.general_purpose_64 : dw $0002
 	db sprite.general_purpose_62 : dw $0028
@@ -14557,7 +15239,8 @@ DATA_FF8796:
 	db sprite.general_purpose_6C : dw $0090
 	db !spawn_command_success
 
-DATA_FF87A9:
+;$FF865E
+level_sprite_0554_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86D7
 	db sprite.general_purpose_64 : dw $0003
 	db sprite.general_purpose_62 : dw $0060
@@ -14567,7 +15250,8 @@ DATA_FF87A9:
 	db sprite.oam_property : dw $0000
 	db !spawn_command_success
 
-DATA_FF87BF:
+;$FF865E
+level_sprite_0556_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86D7
 	db sprite.general_purpose_64 : dw $0007
 	db sprite.general_purpose_62 : dw $0030
@@ -14577,7 +15261,8 @@ DATA_FF87BF:
 	db sprite.oam_property : dw $0000
 	db !spawn_command_success
 
-DATA_FF87D5:
+;$FF865E
+level_sprite_0558_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86D7
 	db sprite.general_purpose_64 : dw $0002
 	db sprite.general_purpose_62 : dw $0028
@@ -14586,7 +15271,8 @@ DATA_FF87D5:
 	db sprite.general_purpose_6C : dw $0090
 	db !spawn_command_success
 
-DATA_FF87E8:
+;$FF865E
+level_sprite_055A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86D7
 	db sprite.general_purpose_64 : dw $0002
 	db sprite.general_purpose_62 : dw $0028
@@ -14596,58 +15282,67 @@ DATA_FF87E8:
 	db sprite.oam_property : dw $0000
 	db !spawn_command_success
 
-DATA_FF87FE:
+;$FF865E
+level_sprite_055C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86E4
 	db sprite.general_purpose_6C : dw $00C0
 	db sprite.unknown_32 : dw $0300
 	db !spawn_command_success
 
-DATA_FF8808:
+;$FF865E
+level_sprite_055E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86E4
 	db sprite.general_purpose_6C : dw $00C0
 	db sprite.unknown_32 : dw $0480
 	db !spawn_command_success
 
-DATA_FF8812:
+;$FF865E
+level_sprite_0560_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86E4
 	db sprite.general_purpose_6C : dw $01C0
 	db sprite.unknown_32 : dw $0500
 	db sprite.oam_property : dw $0000
 	db !spawn_command_success
 
-DATA_FF881F:
+;$FF865E
+level_sprite_0562_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86E4
 	db sprite.general_purpose_6C : dw $0138
 	db sprite.unknown_32 : dw $0480
 	db sprite.oam_property : dw $0000
 	db !spawn_command_success
 
-DATA_FF882C:
+;$FF865E
+level_sprite_0564_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86E4
 	db sprite.general_purpose_6C : dw $0100
 	db sprite.unknown_32 : dw $0310
 	db !spawn_command_success
 
-DATA_FF8836:
+;$FF865E
+level_sprite_0566_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86E4
 	db sprite.general_purpose_6C : dw $0150
 	db sprite.unknown_32 : dw $0380
 	db sprite.oam_property : dw $0000
 	db !spawn_command_success
 
-DATA_FF8843:
+;$FF865E
+level_sprite_0568_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86E4
 	db sprite.general_purpose_6C : dw $0180
 	db sprite.unknown_32 : dw $0400
 	db !spawn_command_success
 
-DATA_FF884D:
+;$FF865E
+level_sprite_056A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86E4
 	db sprite.general_purpose_6C : dw $0138
 	db sprite.unknown_32 : dw $0480
 	db !spawn_command_success
 
-DATA_FF8857:
+;$FF865E
+level_sprite_056C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86EE
 	db sprite.general_purpose_64 : dw $0004
 	db sprite.general_purpose_66 : dw $6060
@@ -14657,7 +15352,8 @@ DATA_FF8857:
 	db sprite.oam_property : dw $0000
 	db !spawn_command_success
 
-DATA_FF886D:
+;$FF865E
+level_sprite_056E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86EE
 	db sprite.general_purpose_62 : dw $0020
 	db sprite.general_purpose_64 : dw $0004
@@ -14667,7 +15363,8 @@ DATA_FF886D:
 	db sprite.unknown_32 : dw $0300
 	db !spawn_command_success
 
-DATA_FF8883:
+;$FF8883
+unplaced_level_sprite_0570_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF86FB
 	db sprite.general_purpose_64 : dw $0004
 	db sprite.general_purpose_66 : dw $6060
@@ -14706,50 +15403,58 @@ DATA_FF88C9:
 	db sprite.movement_state : dw $0042
 	db !spawn_command_success
 
-DATA_FF88D0:
+;$FF8883
+level_sprite_0572_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8899
 	db sprite.general_purpose_60 : dw $4600
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF88DA:
+;$FF8883
+level_sprite_0574_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8899
 	db sprite.general_purpose_60 : dw $9828
 	db sprite.max_x_speed : dw $0180
 	db sprite.y_speed : dw $1000
 	db !spawn_command_success
 
-DATA_FF88E7:
+;$FF8883
+level_sprite_0576_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8899
 	db sprite.general_purpose_60 : dw $C000
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF88F1:
+;$FF8883
+level_sprite_0578_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF88BB
 	db sprite.general_purpose_60 : dw $007C
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF88FB:
+;$FF8883
+level_sprite_057A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8899
 	db sprite.general_purpose_60 : dw $7C00
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF8905:
+;$FF8883
+level_sprite_057C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8899
 	db sprite.general_purpose_60 : dw $2020
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF890F:
+;$FF890F
+unplaced_level_sprite_057E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF88BB
 	db sprite.general_purpose_60 : dw $6030
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF8919:
+;$FF890F
+level_sprite_0580_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF88C2
 	db sprite.x_speed : dw $0000
 	db sprite.max_x_speed : dw $0180
@@ -14774,35 +15479,40 @@ DATA_FF8945:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF894C:
+;$FF890F
+level_sprite_0582_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8923
 	db sprite.general_purpose_60 : dw $3030
 	db sprite.x_speed : dw $0000
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF8959:
+;$FF890F
+level_sprite_0584_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8945
 	db sprite.general_purpose_60 : dw $2020
 	db sprite.x_speed : dw $0000
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF8966:
+;$FF890F
+level_sprite_0586_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8945
 	db sprite.general_purpose_60 : dw $3030
 	db sprite.x_speed : dw $0000
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF8973:
+;$FF890F
+level_sprite_0588_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8923
 	db sprite.general_purpose_60 : dw $5050
 	db sprite.x_speed : dw $0000
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF8980:
+;$FF890F
+level_sprite_058A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8945
 	db sprite.general_purpose_60 : dw $5050
 	db sprite.x_speed : dw $0000
@@ -14831,7 +15541,8 @@ DATA_FF89B0:
 	db sprite.general_purpose_68 : dw $0001
 	db !spawn_command_success
 
-DATA_FF89B7:
+;$FF890F
+level_sprite_058C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF898D
 	db sprite.general_purpose_5C : dw $0090
 	db sprite.general_purpose_64 : dw $0380
@@ -14839,7 +15550,8 @@ DATA_FF89B7:
 	db sprite.general_purpose_6A : dw $02EC
 	db !spawn_command_success
 
-DATA_FF89C7:
+;$FF890F
+level_sprite_058E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF898D
 	db sprite.general_purpose_5C : dw $0048
 	db sprite.general_purpose_64 : dw $03C0
@@ -14847,7 +15559,8 @@ DATA_FF89C7:
 	db sprite.general_purpose_6A : dw $02C4
 	db !spawn_command_success
 
-DATA_FF89D7:
+;$FF890F
+level_sprite_0590_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF898D
 	db sprite.general_purpose_5C : dw $0048
 	db sprite.general_purpose_64 : dw $0380
@@ -14855,7 +15568,8 @@ DATA_FF89D7:
 	db sprite.general_purpose_6A : dw $02F0
 	db !spawn_command_success
 
-DATA_FF89E7:
+;$FF890F
+level_sprite_0592_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF89A6
 	db sprite.general_purpose_5C : dw $0030
 	db sprite.general_purpose_64 : dw $0380
@@ -14863,7 +15577,8 @@ DATA_FF89E7:
 	db sprite.general_purpose_6A : dw $0290
 	db !spawn_command_success
 
-DATA_FF89F7:
+;$FF890F
+level_sprite_0594_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF898D
 	db sprite.general_purpose_5C : dw $0040
 	db sprite.general_purpose_64 : dw $0380
@@ -14871,7 +15586,8 @@ DATA_FF89F7:
 	db sprite.general_purpose_6A : dw $0290
 	db !spawn_command_success
 
-DATA_FF8A07:
+;$FF890F
+level_sprite_0596_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF89A6
 	db sprite.general_purpose_5C : dw $0040
 	db sprite.general_purpose_64 : dw $0380
@@ -14879,7 +15595,8 @@ DATA_FF8A07:
 	db sprite.general_purpose_6A : dw $0260
 	db !spawn_command_success
 
-DATA_FF8A17:
+;$FF890F
+level_sprite_0598_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF898D
 	db sprite.general_purpose_5C : dw $0045
 	db sprite.general_purpose_64 : dw $0280
@@ -14887,7 +15604,8 @@ DATA_FF8A17:
 	db sprite.general_purpose_6A : dw $02A8
 	db !spawn_command_success
 
-DATA_FF8A27:
+;$FF890F
+level_sprite_059A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF898D
 	db sprite.general_purpose_5C : dw $002C
 	db sprite.general_purpose_64 : dw $0300
@@ -14895,7 +15613,8 @@ DATA_FF8A27:
 	db sprite.general_purpose_6A : dw $02D0
 	db !spawn_command_success
 
-DATA_FF8A37:
+;$FF8A37
+unplaced_level_sprite_059C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF898D
 	db sprite.general_purpose_5C : dw $0040
 	db sprite.general_purpose_64 : dw $0380
@@ -14903,7 +15622,8 @@ DATA_FF8A37:
 	db sprite.general_purpose_6A : dw $0240
 	db !spawn_command_success
 
-DATA_FF8A47:
+;$FF8A37
+level_sprite_059E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF898D
 	db sprite.general_purpose_5C : dw $0048
 	db sprite.general_purpose_64 : dw $0380
@@ -14911,7 +15631,8 @@ DATA_FF8A47:
 	db sprite.general_purpose_6A : dw $0220
 	db !spawn_command_success
 
-DATA_FF8A57:
+;$FF8A37
+level_sprite_05A0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF898D
 	db sprite.general_purpose_5C : dw $003C
 	db sprite.general_purpose_64 : dw $0280
@@ -14919,11 +15640,13 @@ DATA_FF8A57:
 	db sprite.general_purpose_6A : dw $0295
 	db !spawn_command_success
 
-DATA_FF8A67:
+;$FF8A37
+level_sprite_05A2_spawn_script:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_0180
 	db !spawn_command_success
 
-DATA_FF8A6B:
+;$FF8A37
+level_sprite_05A4_spawn_script:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_0190
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_5E : dw $0000
@@ -14952,20 +15675,23 @@ DATA_FF8A78:
 	db !spawn_command_set_animation : dw $021C
 	db !spawn_command_success
 
-DATA_FF8AB2:
+;$FF8A37
+level_sprite_05A6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8A78
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_66 : dw $0380
 	db !spawn_command_success
 
-DATA_FF8ABC:
+;$FF8A37
+level_sprite_05A8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8A78
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_5E : dw $A0A0
 	db sprite.general_purpose_66 : dw $0400
 	db !spawn_command_success
 
-DATA_FF8AC9:
+;$FF8A37
+level_sprite_05AA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8A78
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_5E : dw $C040
@@ -14973,7 +15699,8 @@ DATA_FF8AC9:
 	db sprite.general_purpose_66 : dw $0300
 	db !spawn_command_success
 
-DATA_FF8AD9:
+;$FF8A37
+level_sprite_05AC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8A78
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_5E : dw $40C0
@@ -15020,79 +15747,92 @@ DATA_FF8B27:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF8B2E:
+;$FF8A37
+level_sprite_05AE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B19
 	db sprite.general_purpose_60 : dw $2424
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF8B38:
+;$FF8A37
+level_sprite_05B0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B12
 	db sprite.general_purpose_60 : dw $2424
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF8B42:
+;$FF8A37
+level_sprite_05B2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B19
 	db sprite.general_purpose_60 : dw $2828
 	db sprite.max_x_speed : dw $01E0
 	db !spawn_command_success
 
-DATA_FF8B4C:
+;$FF8A37
+level_sprite_05B4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B12
 	db sprite.general_purpose_60 : dw $3C1C
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF8B56:
+;$FF8A37
+level_sprite_05B6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B19
 	db sprite.general_purpose_60 : dw $3C1C
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF8B60:
+;$FF8A37
+level_sprite_05B8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B19
 	db sprite.general_purpose_60 : dw $FF20
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF8B6A:
+;$FF8A37
+level_sprite_05BA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B19
 	db sprite.general_purpose_60 : dw $F870
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF8B74:
+;$FF8A37
+level_sprite_05BC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B19
 	db sprite.general_purpose_60 : dw $7030
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF8B7E:
+;$FF8A37
+level_sprite_05BE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B12
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF8B88:
+;$FF8A37
+level_sprite_05C0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B12
 	db sprite.general_purpose_60 : dw $3030
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF8B92:
+;$FF8A37
+level_sprite_05C2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B19
 	db sprite.general_purpose_60 : dw $9058
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF8B9C:
+;$FF8A37
+level_sprite_05C4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B12
 	db sprite.general_purpose_60 : dw $0048
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF8BA6:
+;$FF8A37
+level_sprite_05C6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B1D
 	db sprite.max_x_speed : dw $0240
 	db sprite.general_purpose_60 : dw $FF30
@@ -15100,32 +15840,38 @@ DATA_FF8BA6:
 	db sprite.movement_state : dw $0052
 	db !spawn_command_success
 
-DATA_FF8BB6:
+;$FF8A37
+level_sprite_05C8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B27
 	db sprite.max_x_speed : dw $0100
 	db !spawn_command_success
 
-DATA_FF8BBD:
+;$FF8BBD
+unplaced_level_sprite_05CA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B1D
 	db sprite.max_x_speed : dw $0100
 	db !spawn_command_success
 
-DATA_FF8BC4:
+;$FF8BBD
+level_sprite_05CC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B27
 	db sprite.max_x_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF8BCB:
+;$FF8BBD
+level_sprite_05CE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B1D
 	db sprite.max_x_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF8BD2:
+;$FF8BBD
+level_sprite_05D0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B27
 	db sprite.max_x_speed : dw $0220
 	db !spawn_command_success
 
-DATA_FF8BD9:
+;$FF8BBD
+level_sprite_05D2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B1D
 	db sprite.max_x_speed : dw $0220
 	db !spawn_command_success
@@ -15222,92 +15968,108 @@ DATA_FF8C75:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF8C7C:
+;$FF8BBD
+level_sprite_05D4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C10
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FF8C86:
+;$FF8BBD
+level_sprite_05D6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C10
 	db sprite.general_purpose_60 : dw $8080
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FF8C90:
+;$FF8C90
+unplaced_level_sprite_05D8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C10
 	db sprite.general_purpose_60 : dw $2828
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF8C9A:
+;$FF8C9A
+unplaced_level_sprite_05DA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C10
 	db sprite.general_purpose_60 : dw $3030
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF8CA4:
+;$FF8C9A
+level_sprite_05DC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C09
 	db sprite.general_purpose_60 : dw $7878
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF8CAE:
+;$FF8CAE
+unplaced_level_sprite_05DE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C09
 	db sprite.general_purpose_60 : dw $6868
 	db sprite.max_x_speed : dw $0140
 	db !spawn_command_success
 
-DATA_FF8CB8:
+;$FF8CAE
+level_sprite_05E0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C10
 	db sprite.general_purpose_60 : dw $8080
 	db sprite.max_x_speed : dw $FD80
 	db !spawn_command_success
 
-DATA_FF8CC2:
+;$FF8CAE
+level_sprite_05E2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C10
 	db sprite.general_purpose_60 : dw $8080
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_F0
 
-DATA_FF8CCC:
+;$FF8CAE
+level_sprite_05E4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C10
 	db sprite.general_purpose_60 : dw $C040
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_F0
 
-DATA_FF8CD6:
+;$FF8CAE
+level_sprite_05E6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C39
 	db sprite.max_x_speed : dw $0100
 	db !spawn_command_success
 
-DATA_FF8CDD:
+;$FF8CAE
+level_sprite_05E8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C2C
 	db sprite.max_x_speed : dw $0100
 	db !spawn_command_success
 
-DATA_FF8CE4:
+;$FF8CE4
+unplaced_level_sprite_05EA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C39
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF8CEB:
+;$FF8CE4
+level_sprite_05EC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C2C
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF8CF2:
+;$FF8CF2
+unplaced_level_sprite_05EE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C28
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FF8CFC:
+;$FF8CFC
+unplaced_level_sprite_05F0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C40
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FF8D03:
+;$FF8D03
+unplaced_level_sprite_05F2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C54
 	db sprite.general_purpose_5C : dw $003C
 	db sprite.general_purpose_5E : dw $003C
@@ -15315,7 +16077,8 @@ DATA_FF8D03:
 	db sprite.general_purpose_64 : dw $0100
 	db !spawn_command_success
 
-DATA_FF8D13:
+;$FF8D13
+unplaced_level_sprite_05F4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C68
 	db sprite.general_purpose_5C : dw $003C
 	db sprite.general_purpose_5E : dw $003C
@@ -15362,37 +16125,43 @@ DATA_FF8D61:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF8D68:
+;$FF8D13
+level_sprite_05F6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D53
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FF8D72:
+;$FF8D13
+level_sprite_05F8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D53
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.max_x_speed : dw $FEC0
 	db !spawn_command_success
 
-DATA_FF8D7C:
+;$FF8D13
+level_sprite_05FA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D4C
 	db sprite.general_purpose_60 : dw $8010
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FF8D86:
+;$FF8D13
+level_sprite_05FC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D53
 	db sprite.general_purpose_60 : dw $A0E0
 	db sprite.max_x_speed : dw $FE60
 	db !spawn_command_success
 
-DATA_FF8D90:
+;$FF8D13
+level_sprite_05FE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D53
 	db sprite.general_purpose_60 : dw $2020
 	db sprite.max_x_speed : dw $FED0
 	db !spawn_command_F0
 
-DATA_FF8D9A:
+;$FF8D13
+level_sprite_0600_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D4C
 	db sprite.general_purpose_60 : dw $30FF
 	db sprite.max_x_speed : dw $0100
@@ -15400,27 +16169,32 @@ DATA_FF8D9A:
 	db sprite.movement_state : dw $0052
 	db !spawn_command_success
 
-DATA_FF8DAA:
+;$FF8D13
+level_sprite_0602_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D57
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FF8DB1:
+;$FF8D13
+level_sprite_0604_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D61
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FF8DB8:
+;$FF8D13
+level_sprite_0606_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D57
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FF8DBF:
+;$FF8D13
+level_sprite_0608_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D61
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FF8DC6:
+;$FF8D13
+level_sprite_060A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D57
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_F0
@@ -15436,7 +16210,8 @@ DATA_FF8DCD:
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
-DATA_FF8DE6:
+;$FF8D13
+level_sprite_060C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $1BD4
 	db sprite.general_purpose_6A : dw $0150
@@ -15444,21 +16219,24 @@ DATA_FF8DE6:
 	db sprite.general_purpose_64 : dw $003C
 	db !spawn_command_success
 
-DATA_FF8DF6:
+;$FF8D13
+level_sprite_060E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $14D2
 	db sprite.general_purpose_6A : dw $0218
 	db sprite.x_speed : dw $FD00
 	db !spawn_command_success
 
-DATA_FF8E03:
+;$FF8D13
+level_sprite_0610_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $1392
 	db sprite.general_purpose_6A : dw $0150
 	db sprite.x_speed : dw $FD00
 	db !spawn_command_success
 
-DATA_FF8E10:
+;$FF8D13
+level_sprite_0612_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $0FB2
 	db sprite.general_purpose_6A : dw $0100
@@ -15466,7 +16244,8 @@ DATA_FF8E10:
 	db sprite.general_purpose_60 : dw $0064
 	db !spawn_command_success
 
-DATA_FF8E20:
+;$FF8D13
+level_sprite_0614_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $0E32
 	db sprite.general_purpose_6A : dw $02D0
@@ -15474,7 +16253,8 @@ DATA_FF8E20:
 	db sprite.general_purpose_60 : dw $0064
 	db !spawn_command_success
 
-DATA_FF8E30:
+;$FF8D13
+level_sprite_0616_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $0DB2
 	db sprite.general_purpose_6A : dw $02D0
@@ -15483,14 +16263,16 @@ DATA_FF8E30:
 	db sprite.general_purpose_62 : dw $001E
 	db !spawn_command_success
 
-DATA_FF8E43:
+;$FF8D13
+level_sprite_0618_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $0BF2
 	db sprite.general_purpose_6A : dw $0150
 	db sprite.x_speed : dw $FD00
 	db !spawn_command_success
 
-DATA_FF8E50:
+;$FF8D13
+level_sprite_061A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $08F2
 	db sprite.general_purpose_6A : dw $0200
@@ -15498,7 +16280,8 @@ DATA_FF8E50:
 	db sprite.general_purpose_60 : dw $0050
 	db !spawn_command_success
 
-DATA_FF8E60:
+;$FF8D13
+level_sprite_061C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $0872
 	db sprite.general_purpose_6A : dw $0240
@@ -15507,7 +16290,8 @@ DATA_FF8E60:
 	db sprite.general_purpose_62 : dw $000F
 	db !spawn_command_success
 
-DATA_FF8E73:
+;$FF8D13
+level_sprite_061E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $07F2
 	db sprite.general_purpose_6A : dw $02E0
@@ -15516,14 +16300,16 @@ DATA_FF8E73:
 	db sprite.general_purpose_62 : dw $001E
 	db !spawn_command_success
 
-DATA_FF8E86:
+;$FF8D13
+level_sprite_0620_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $06B2
 	db sprite.general_purpose_6A : dw $0208
 	db sprite.x_speed : dw $FD00
 	db !spawn_command_success
 
-DATA_FF8E93:
+;$FF8D13
+level_sprite_0622_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $0452
 	db sprite.general_purpose_6A : dw $0140
@@ -15531,7 +16317,8 @@ DATA_FF8E93:
 	db sprite.general_purpose_64 : dw $005A
 	db !spawn_command_success
 
-DATA_FF8EA3:
+;$FF8D13
+level_sprite_0624_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $0258
 	db sprite.general_purpose_6A : dw $0100
@@ -15541,28 +16328,32 @@ DATA_FF8EA3:
 	db sprite.general_purpose_66 : dw $0032
 	db !spawn_command_success
 
-DATA_FF8EB9:
+;$FF8D13
+level_sprite_0626_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $1AFA
 	db sprite.general_purpose_6A : dw $0278
 	db sprite.x_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF8EC6:
+;$FF8D13
+level_sprite_0628_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $157A
 	db sprite.general_purpose_6A : dw $0348
 	db sprite.x_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF8ED3:
+;$FF8D13
+level_sprite_062A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $143A
 	db sprite.general_purpose_6A : dw $0358
 	db sprite.x_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF8EE0:
+;$FF8D13
+level_sprite_062C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_60 : dw $0050
 	db sprite.general_purpose_68 : dw $113A
@@ -15570,7 +16361,8 @@ DATA_FF8EE0:
 	db sprite.x_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF8EF0:
+;$FF8D13
+level_sprite_062E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $0A1A
 	db sprite.general_purpose_6A : dw $0410
@@ -15579,7 +16371,8 @@ DATA_FF8EF0:
 	db sprite.general_purpose_60 : dw $0028
 	db !spawn_command_success
 
-DATA_FF8F03:
+;$FF8D13
+level_sprite_0630_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $02DA
 	db sprite.general_purpose_6A : dw $0410
@@ -15588,7 +16381,8 @@ DATA_FF8F03:
 	db sprite.general_purpose_60 : dw $005A
 	db !spawn_command_success
 
-DATA_FF8F16:
+;$FF8D13
+level_sprite_0632_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8DCD
 	db sprite.general_purpose_68 : dw $0257
 	db sprite.general_purpose_6A : dw $022F
@@ -15616,7 +16410,8 @@ DATA_FF8F4B:
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FF8F52:
+;$FF8F52
+unplaced_level_sprite_0634_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8F4B
 	db sprite.general_purpose_5C : dw $7F40
 	db sprite.general_purpose_5E : dw $307F
@@ -15625,7 +16420,8 @@ DATA_FF8F52:
 	db sprite.max_y_speed : dw $0700
 	db !spawn_command_success
 
-DATA_FF8F65:
+;$FF8F52
+level_sprite_0636_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8F29
 	db sprite.general_purpose_5C : dw $7F7F
 	db sprite.general_purpose_5E : dw $307F
@@ -15634,7 +16430,8 @@ DATA_FF8F65:
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF8F78:
+;$FF8F52
+level_sprite_0638_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8F4B
 	db sprite.general_purpose_5C : dw $F020
 	db sprite.general_purpose_5E : dw $3080
@@ -15643,7 +16440,8 @@ DATA_FF8F78:
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF8F8B:
+;$FF8F52
+level_sprite_063A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8F4B
 	db sprite.general_purpose_5C : dw $F020
 	db sprite.general_purpose_5E : dw $30C0
@@ -15652,7 +16450,8 @@ DATA_FF8F8B:
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF8F9E:
+;$FF8F52
+level_sprite_063C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8F4B
 	db sprite.general_purpose_5C : dw $F020
 	db sprite.general_purpose_5E : dw $30FF
@@ -15661,7 +16460,8 @@ DATA_FF8F9E:
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF8FB1:
+;$FF8F52
+level_sprite_063E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8F4B
 	db sprite.general_purpose_5C : dw $F020
 	db sprite.general_purpose_5E : dw $3030
@@ -15670,7 +16470,8 @@ DATA_FF8FB1:
 	db sprite.max_y_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF8FC4:
+;$FF8F52
+level_sprite_0640_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8F4B
 	db sprite.general_purpose_5C : dw $7F40
 	db sprite.general_purpose_5E : dw $307F
@@ -15679,7 +16480,8 @@ DATA_FF8FC4:
 	db sprite.max_y_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF8FD7:
+;$FF8F52
+level_sprite_0642_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8F29
 	db sprite.general_purpose_5C : dw $20F0
 	db sprite.general_purpose_5E : dw $3030
@@ -15710,7 +16512,8 @@ DATA_FF9015:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF901C:
+;$FF8F52
+level_sprite_0644_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8FEA
 	db sprite.general_purpose_66 : dw $0000
 	db sprite.general_purpose_5C : dw $0001
@@ -15723,7 +16526,8 @@ DATA_FF901C:
 	db sprite.unknown_32 : dw $1060
 	db !spawn_command_success
 
-DATA_FF903B:
+;$FF8F52
+level_sprite_0646_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9015
 	db sprite.general_purpose_66 : dw $0000
 	db sprite.general_purpose_5C : dw $0001
@@ -15736,7 +16540,8 @@ DATA_FF903B:
 	db sprite.unknown_32 : dw $1860
 	db !spawn_command_success
 
-DATA_FF905A:
+;$FF905A
+unplaced_level_sprite_0648_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8FEA
 	db sprite.general_purpose_66 : dw $0100
 	db sprite.general_purpose_5C : dw $0001
@@ -15748,7 +16553,8 @@ DATA_FF905A:
 	db sprite.general_purpose_6A : dw $0708
 	db !spawn_command_success
 
-DATA_FF9076:
+;$FF905A
+level_sprite_064A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8FEA
 	db sprite.general_purpose_66 : dw $0001
 	db sprite.general_purpose_5C : dw $0001
@@ -15761,7 +16567,8 @@ DATA_FF9076:
 	db sprite.unknown_32 : dw $482C
 	db !spawn_command_success
 
-DATA_FF9095:
+;$FF905A
+level_sprite_064C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9015
 	db sprite.general_purpose_66 : dw $0001
 	db sprite.general_purpose_5C : dw $0001
@@ -15774,7 +16581,8 @@ DATA_FF9095:
 	db sprite.unknown_32 : dw $2C30
 	db !spawn_command_success
 
-DATA_FF90B4:
+;$FF905A
+level_sprite_064E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8FEA
 	db sprite.general_purpose_66 : dw $0001
 	db sprite.general_purpose_5C : dw $0001
@@ -15787,7 +16595,8 @@ DATA_FF90B4:
 	db sprite.unknown_32 : dw $4830
 	db !spawn_command_success
 
-DATA_FF90D3:
+;$FF905A
+level_sprite_0650_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8FEA
 	db sprite.general_purpose_66 : dw $0001
 	db sprite.general_purpose_5C : dw $0001
@@ -15800,7 +16609,8 @@ DATA_FF90D3:
 	db sprite.unknown_32 : dw $5830
 	db !spawn_command_success
 
-DATA_FF90F2:
+;$FF90F2
+unplaced_level_sprite_0652_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9015
 	db sprite.general_purpose_66 : dw $0001
 	db sprite.general_purpose_5C : dw $0001
@@ -15813,7 +16623,8 @@ DATA_FF90F2:
 	db sprite.unknown_32 : dw $482C
 	db !spawn_command_success
 
-DATA_FF9111:
+;$FF9111
+unplaced_level_sprite_0654_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8FEA
 	db sprite.general_purpose_66 : dw $0101
 	db sprite.general_purpose_5C : dw $0001
@@ -15957,42 +16768,50 @@ DATA_FF9222:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF9229:
+;$FF9111
+level_sprite_0656_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF91BD
 	db !spawn_command_success
 
-DATA_FF922D:
+;$FF9111
+level_sprite_0658_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF91DC
 	db !spawn_command_success
 
-DATA_FF9231:
+;$FF9111
+level_sprite_065A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9156
 	db sprite.general_purpose_60 : dw $2020
 	db sprite.max_x_speed : dw $01C0
 	db !spawn_command_success
 
-DATA_FF923B:
+;$FF9111
+level_sprite_065C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9161
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF9242:
+;$FF9111
+level_sprite_065E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9161
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FF9249:
+;$FF9111
+level_sprite_0660_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF918F
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FF9253:
+;$FF9253
+unplaced_level_sprite_0662_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9178
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FF925A:
+;$FF925A
+unplaced_level_sprite_0664_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF91A6
 	db sprite.general_purpose_5C : dw $0032
 	db sprite.general_purpose_5E : dw $001E
@@ -16000,7 +16819,8 @@ DATA_FF925A:
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FF926A:
+;$FF925A
+level_sprite_0666_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF91FB
 	db sprite.general_purpose_5C : dw $0046
 	db sprite.general_purpose_5E : dw $002D
@@ -16008,7 +16828,8 @@ DATA_FF926A:
 	db sprite.max_x_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF927A:
+;$FF925A
+level_sprite_0668_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF91FB
 	db sprite.general_purpose_5C : dw $0050
 	db sprite.general_purpose_5E : dw $002D
@@ -16016,7 +16837,8 @@ DATA_FF927A:
 	db sprite.max_x_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF928A:
+;$FF928A
+unplaced_level_sprite_066A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF91FB
 	db sprite.general_purpose_5C : dw $0032
 	db sprite.general_purpose_5E : dw $0028
@@ -16024,7 +16846,8 @@ DATA_FF928A:
 	db sprite.max_x_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF929A:
+;$FF929A
+unplaced_level_sprite_066C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9212
 	db sprite.general_purpose_5C : dw $0032
 	db sprite.general_purpose_5E : dw $001E
@@ -16041,82 +16864,95 @@ DATA_FF92AA:
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
-DATA_FF92BD:
+;$FF929A
+level_sprite_066E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $00F0
 	db sprite.general_purpose_66 : dw $FEA0
 	db sprite.general_purpose_60 : dw $00F0
 	db !spawn_command_success
 
-DATA_FF92CA:
+;$FF929A
+level_sprite_0670_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $0260
 	db sprite.general_purpose_66 : dw $FEC0
 	db !spawn_command_success
 
-DATA_FF92D4:
+;$FF929A
+level_sprite_0672_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $0598
 	db sprite.general_purpose_66 : dw $01C0
 	db !spawn_command_success
 
-DATA_FF92DE:
+;$FF929A
+level_sprite_0674_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $06A0
 	db sprite.general_purpose_66 : dw $01C0
 	db !spawn_command_success
 
-DATA_FF92E8:
+;$FF929A
+level_sprite_0676_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $0640
 	db sprite.general_purpose_66 : dw $FD60
 	db sprite.general_purpose_60 : dw $0046
 	db !spawn_command_success
 
-DATA_FF92F5:
+;$FF929A
+level_sprite_0678_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $06F0
 	db sprite.general_purpose_66 : dw $FE40
 	db !spawn_command_success
 
-DATA_FF92FF:
+;$FF929A
+level_sprite_067A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $06F8
 	db sprite.general_purpose_66 : dw $FE40
 	db !spawn_command_success
 
-DATA_FF9309:
+;$FF929A
+level_sprite_067C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $07E6
 	db sprite.general_purpose_66 : dw $01C0
 	db !spawn_command_success
 
-DATA_FF9313:
+;$FF929A
+level_sprite_067E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $07D8
 	db sprite.general_purpose_66 : dw $01C0
 	db !spawn_command_success
 
-DATA_FF931D:
+;$FF929A
+level_sprite_0680_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $07E6
 	db sprite.general_purpose_66 : dw $01C0
 	db !spawn_command_success
 
-DATA_FF9327:
+;$FF929A
+level_sprite_0682_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $07E6
 	db sprite.general_purpose_66 : dw $01C0
 	db !spawn_command_success
 
-DATA_FF9331:
+;$FF929A
+level_sprite_0684_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $07E0
 	db sprite.general_purpose_66 : dw $01C0
 	db sprite.general_purpose_60 : dw $0078
 	db !spawn_command_success
 
-DATA_FF933E:
+;$FF929A
+level_sprite_0686_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $02E0
 	db sprite.general_purpose_66 : dw $0180
@@ -16124,7 +16960,8 @@ DATA_FF933E:
 	db sprite.general_purpose_62 : dw $0028
 	db !spawn_command_success
 
-DATA_FF934E:
+;$FF929A
+level_sprite_0688_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_5C : dw $0002
 	db sprite.general_purpose_64 : dw $0140
@@ -16132,31 +16969,36 @@ DATA_FF934E:
 	db sprite.general_purpose_60 : dw $0082
 	db !spawn_command_success
 
-DATA_FF935E:
+;$FF929A
+level_sprite_068A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $0228
 	db sprite.general_purpose_66 : dw $01C0
 	db !spawn_command_success
 
-DATA_FF9368:
+;$FF929A
+level_sprite_068C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $0220
 	db sprite.general_purpose_66 : dw $01C0
 	db !spawn_command_success
 
-DATA_FF9372:
+;$FF929A
+level_sprite_068E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $0230
 	db sprite.general_purpose_66 : dw $01C0
 	db !spawn_command_success
 
-DATA_FF937C:
+;$FF929A
+level_sprite_0690_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $0230
 	db sprite.general_purpose_66 : dw $01C0
 	db !spawn_command_success
 
-DATA_FF9386:
+;$FF929A
+level_sprite_0692_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $0320
 	db sprite.general_purpose_66 : dw $01C0
@@ -16164,81 +17006,93 @@ DATA_FF9386:
 	db sprite.general_purpose_62 : dw $0014
 	db !spawn_command_success
 
-DATA_FF9396:
+;$FF929A
+level_sprite_0694_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $0250
 	db sprite.general_purpose_66 : dw $FE40
 	db !spawn_command_success
 
-DATA_FF93A0:
+;$FF929A
+level_sprite_0696_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $0250
 	db sprite.general_purpose_66 : dw $FE40
 	db sprite.general_purpose_62 : dw $000F
 	db !spawn_command_success
 
-DATA_FF93AD:
+;$FF929A
+level_sprite_0698_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $0260
 	db sprite.general_purpose_66 : dw $FE40
 	db sprite.general_purpose_62 : dw $001E
 	db !spawn_command_success
 
-DATA_FF93BA:
+;$FF929A
+level_sprite_069A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $0258
 	db sprite.general_purpose_66 : dw $FE40
 	db sprite.general_purpose_62 : dw $002D
 	db !spawn_command_success
 
-DATA_FF93C7:
+;$FF929A
+level_sprite_069C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $05A0
 	db sprite.general_purpose_66 : dw $01C0
 	db sprite.general_purpose_60 : dw $006E
 	db !spawn_command_success
 
-DATA_FF93D4:
+;$FF929A
+level_sprite_069E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $05A8
 	db sprite.general_purpose_66 : dw $01C0
 	db !spawn_command_success
 
-DATA_FF93DE:
+;$FF929A
+level_sprite_06A0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $05A0
 	db sprite.general_purpose_66 : dw $01C0
 	db !spawn_command_success
 
-DATA_FF93E8:
+;$FF929A
+level_sprite_06A2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $0738
 	db sprite.general_purpose_66 : dw $01E0
 	db sprite.general_purpose_60 : dw $006E
 	db !spawn_command_success
 
-DATA_FF93F5:
+;$FF929A
+level_sprite_06A4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $0770
 	db sprite.general_purpose_66 : dw $01B0
 	db sprite.general_purpose_60 : dw $0096
 	db !spawn_command_success
 
-DATA_FF9402:
+;$FF929A
+level_sprite_06A6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $09D8
 	db sprite.general_purpose_66 : dw $0200
 	db sprite.general_purpose_60 : dw $008C
 	db !spawn_command_success
 
-DATA_FF940F:
+;$FF929A
+level_sprite_06A8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_60 : dw $00C8
 	db sprite.general_purpose_64 : dw $0940
 	db sprite.general_purpose_66 : dw $FE40
 	db !spawn_command_success
 
-DATA_FF941C:
+;$FF929A
+level_sprite_06AA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_60 : dw $00C8
 	db sprite.general_purpose_64 : dw $0940
@@ -16246,7 +17100,8 @@ DATA_FF941C:
 	db sprite.general_purpose_62 : dw $000F
 	db !spawn_command_success
 
-DATA_FF942C:
+;$FF929A
+level_sprite_06AC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_60 : dw $00C8
 	db sprite.general_purpose_64 : dw $0940
@@ -16254,7 +17109,8 @@ DATA_FF942C:
 	db sprite.general_purpose_62 : dw $001E
 	db !spawn_command_success
 
-DATA_FF943C:
+;$FF929A
+level_sprite_06AE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_60 : dw $00C8
 	db sprite.general_purpose_64 : dw $0940
@@ -16262,14 +17118,16 @@ DATA_FF943C:
 	db sprite.general_purpose_62 : dw $002D
 	db !spawn_command_success
 
-DATA_FF944C:
+;$FF929A
+level_sprite_06B0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_60 : dw $00C8
 	db sprite.general_purpose_64 : dw $09D8
 	db sprite.general_purpose_66 : dw $01C0
 	db !spawn_command_success
 
-DATA_FF9459:
+;$FF929A
+level_sprite_06B2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_5C : dw $0003
 	db sprite.general_purpose_60 : dw $00AA
@@ -16277,7 +17135,8 @@ DATA_FF9459:
 	db sprite.general_purpose_66 : dw $0210
 	db !spawn_command_success
 
-DATA_FF9469:
+;$FF929A
+level_sprite_06B4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_5C : dw $0003
 	db sprite.general_purpose_60 : dw $00AA
@@ -16285,7 +17144,8 @@ DATA_FF9469:
 	db sprite.general_purpose_66 : dw $FDF0
 	db !spawn_command_success
 
-DATA_FF9479:
+;$FF929A
+level_sprite_06B6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF92AA
 	db sprite.general_purpose_64 : dw $00F0
 	db sprite.general_purpose_66 : dw $FE80
@@ -16367,163 +17227,190 @@ DATA_FF950D:
 	db !spawn_command_set_palette : dw $004F
 	db !spawn_command_success
 
-DATA_FF952F:
+;$FF952F
+unplaced_level_sprite_06B8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9506
 	db sprite.general_purpose_60 : dw $3030
 	db sprite.max_x_speed : dw $0200
 	db sprite.general_purpose_6C : dw $0010
 	db !spawn_command_success
 
-DATA_FF953C:
+;$FF953C
+unplaced_level_sprite_06BA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9506
 	db sprite.general_purpose_60 : dw $2828
 	db sprite.max_x_speed : dw $01E0
 	db sprite.general_purpose_6C : dw $0012
 	db !spawn_command_success
 
-DATA_FF9549:
+;$FF953C
+level_sprite_06BC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9506
 	db sprite.general_purpose_60 : dw $3030
 	db sprite.max_x_speed : dw $0200
 	db sprite.general_purpose_6C : dw $000F
 	db !spawn_command_success
 
-DATA_FF9556:
+;$FF953C
+level_sprite_06BE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9506
 	db sprite.general_purpose_60 : dw $3030
 	db sprite.max_x_speed : dw $0200
 	db sprite.general_purpose_6C : dw $0005
 	db !spawn_command_success
 
-DATA_FF9563:
+;$FF953C
+level_sprite_06C0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9506
 	db sprite.general_purpose_60 : dw $2828
 	db sprite.max_x_speed : dw $0200
 	db sprite.general_purpose_6C : dw $0000
 	db !spawn_command_success
 
-DATA_FF9570:
+;$FF953C
+level_sprite_06C2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF94EA
 	db sprite.general_purpose_60 : dw $0050
 	db sprite.max_x_speed : dw $0200
 	db sprite.general_purpose_6C : dw $0011
 	db !spawn_command_success
 
-DATA_FF957D:
+;$FF953C
+level_sprite_06C4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9506
 	db sprite.general_purpose_60 : dw $5000
 	db sprite.max_x_speed : dw $0200
 	db sprite.general_purpose_6C : dw $0011
 	db !spawn_command_success
 
-DATA_FF958A:
+;$FF953C
+level_sprite_06C6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF950D
 	db sprite.general_purpose_6C : dw $0005
 	db !spawn_command_success
 
-DATA_FF9591:
+;$FF953C
+level_sprite_06C8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF950D
 	db sprite.general_purpose_6C : dw $0004
 	db !spawn_command_success
 
-DATA_FF9598:
+;$FF953C
+level_sprite_06CA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF950D
 	db sprite.general_purpose_6C : dw $0003
 	db !spawn_command_success
 
-DATA_FF959F:
+;$FF953C
+level_sprite_06CC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF950D
 	db sprite.general_purpose_6C : dw $0002
 	db !spawn_command_success
 
-DATA_FF95A6:
+;$FF953C
+level_sprite_06CE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF950D
 	db sprite.general_purpose_6C : dw $0005
 	db !spawn_command_success
 
-DATA_FF95AD:
+;$FF953C
+level_sprite_06D0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF950D
 	db sprite.general_purpose_6C : dw $0012
 	db !spawn_command_success
 
-DATA_FF95B4:
+;$FF953C
+level_sprite_06D2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF950D
 	db sprite.general_purpose_6C : dw $000F
 	db !spawn_command_success
 
-DATA_FF95BB:
+;$FF953C
+level_sprite_06D4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF950D
 	db sprite.general_purpose_6C : dw $0010
 	db !spawn_command_success
 
-DATA_FF95C2:
+;$FF953C
+level_sprite_06D6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF950D
 	db sprite.general_purpose_6C : dw $0000
 	db !spawn_command_success
 
-DATA_FF95C9:
+;$FF953C
+level_sprite_06D8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF950D
 	db sprite.general_purpose_6C : dw $0001
 	db !spawn_command_success
 
-DATA_FF95D0:
+;$FF953C
+level_sprite_06DA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF94C4
 	db sprite.general_purpose_60 : dw $3030
 	db sprite.max_x_speed : dw $FE00
 	db sprite.general_purpose_6C : dw $0004
 	db !spawn_command_success
 
-DATA_FF95DD:
+;$FF95DD
+unplaced_level_sprite_06DC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF94C4
 	db sprite.general_purpose_60 : dw $1818
 	db sprite.max_x_speed : dw $FF00
 	db sprite.general_purpose_6C : dw $0004
 	db !spawn_command_success
 
-DATA_FF95EA:
+;$FF95DD
+level_sprite_06DE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF94C4
 	db sprite.general_purpose_60 : dw $1818
 	db sprite.max_x_speed : dw $0200
 	db sprite.general_purpose_6C : dw $0011
 	db !spawn_command_success
 
-DATA_FF95F7:
+;$FF95DD
+level_sprite_06E0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF94C4
 	db sprite.general_purpose_60 : dw $3030
 	db sprite.max_x_speed : dw $02C0
 	db sprite.general_purpose_6C : dw $0011
 	db !spawn_command_success
 
-DATA_FF9604:
+;$FF9604
+unplaced_level_sprite_06E2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF94AB
 	db sprite.general_purpose_60 : dw $1818
 	db sprite.max_x_speed : dw $0200
 	db sprite.general_purpose_6C : dw $0011
 	db !spawn_command_success
 
-DATA_FF9611:
+;$FF9604
+level_sprite_06E4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF94C4
 	db sprite.general_purpose_60 : dw $1818
 	db sprite.max_x_speed : dw $FF00
 	db sprite.general_purpose_6C : dw $0005
 	db !spawn_command_success
 
-DATA_FF961E:
+;$FF9604
+level_sprite_06E6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF94CB
 	db sprite.general_purpose_6C : dw $0005
 	db !spawn_command_success
 
-DATA_FF9625:
+;$FF9625
+unplaced_level_sprite_06E8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF94CB
 	db sprite.general_purpose_6C : dw $0004
 	db !spawn_command_success
 
-DATA_FF962C:
+;$FF9625
+level_sprite_06EA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF94CB
 	db sprite.general_purpose_6C : dw $0000
 	db !spawn_command_success
 
-DATA_FF9633:
+;$FF9633
+unplaced_level_sprite_06EC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF94CB
 	db sprite.general_purpose_6C : dw $0011
 	db !spawn_command_success
@@ -16593,7 +17480,8 @@ DATA_FF969D:
 	db sprite.unknown_2C : dw $0032
 	db !spawn_command_success
 
-DATA_FF96C5:
+;$FF9633
+level_sprite_06EE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9688
 	db sprite.general_purpose_60 : dw $0023
 	db sprite.general_purpose_62 : dw $000F
@@ -16602,7 +17490,8 @@ DATA_FF96C5:
 	db sprite.general_purpose_6A : dw $020C
 	db !spawn_command_success
 
-DATA_FF96D8:
+;$FF9633
+level_sprite_06F0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9688
 	db sprite.general_purpose_60 : dw $0023
 	db sprite.general_purpose_64 : dw $0000
@@ -16610,21 +17499,24 @@ DATA_FF96D8:
 	db sprite.general_purpose_6A : dw $054C
 	db !spawn_command_success
 
-DATA_FF96E8:
+;$FF9633
+level_sprite_06F2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9681
 	db sprite.general_purpose_60 : dw $0016
 	db sprite.general_purpose_68 : dw $02C0
 	db sprite.general_purpose_6A : dw $0A53
 	db !spawn_command_success
 
-DATA_FF96F5:
+;$FF9633
+level_sprite_06F4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9681
 	db sprite.general_purpose_60 : dw $0018
 	db sprite.general_purpose_68 : dw $02E0
 	db sprite.general_purpose_6A : dw $06B3
 	db !spawn_command_success
 
-DATA_FF9702:
+;$FF9633
+level_sprite_06F6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9681
 	db sprite.general_purpose_60 : dw $00B4
 	db sprite.general_purpose_64 : dw $0100
@@ -16632,7 +17524,8 @@ DATA_FF9702:
 	db sprite.general_purpose_6A : dw $02B3
 	db !spawn_command_success
 
-DATA_FF9712:
+;$FF9633
+level_sprite_06F8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9688
 	db sprite.general_purpose_60 : dw $0023
 	db sprite.general_purpose_64 : dw $0002
@@ -16640,35 +17533,40 @@ DATA_FF9712:
 	db sprite.general_purpose_6A : dw $046C
 	db !spawn_command_success
 
-DATA_FF9722:
+;$FF9633
+level_sprite_06FA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9688
 	db sprite.general_purpose_60 : dw $0023
 	db sprite.general_purpose_68 : dw $02C0
 	db sprite.general_purpose_6A : dw $086C
 	db !spawn_command_success
 
-DATA_FF972F:
+;$FF9633
+level_sprite_06FC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9688
 	db sprite.general_purpose_60 : dw $0020
 	db sprite.general_purpose_68 : dw $02C0
 	db sprite.general_purpose_6A : dw $078C
 	db !spawn_command_success
 
-DATA_FF973C:
+;$FF9633
+level_sprite_06FE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9688
 	db sprite.general_purpose_60 : dw $0019
 	db sprite.general_purpose_68 : dw $02C0
 	db sprite.general_purpose_6A : dw $044C
 	db !spawn_command_success
 
-DATA_FF9749:
+;$FF9633
+level_sprite_0700_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9696
 	db sprite.general_purpose_60 : dw $000C
 	db sprite.general_purpose_68 : dw $0340
 	db sprite.general_purpose_6A : dw $018C
 	db !spawn_command_success
 
-DATA_FF9756:
+;$FF9633
+level_sprite_0702_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9696
 	db sprite.general_purpose_60 : dw $000C
 	db sprite.general_purpose_64 : dw $0000
@@ -16676,7 +17574,8 @@ DATA_FF9756:
 	db sprite.general_purpose_6A : dw $014C
 	db !spawn_command_success
 
-DATA_FF9766:
+;$FF9633
+level_sprite_0704_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9688
 	db sprite.general_purpose_60 : dw $0012
 	db sprite.general_purpose_62 : dw $0001
@@ -16685,27 +17584,31 @@ DATA_FF9766:
 	db sprite.general_purpose_6A : dw $044C
 	db !spawn_command_success
 
-DATA_FF9779:
+;$FF9633
+level_sprite_0706_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9681
 	db sprite.general_purpose_60 : dw $000F
 	db sprite.general_purpose_68 : dw $0300
 	db sprite.general_purpose_6A : dw $09D3
 	db !spawn_command_success
 
-DATA_FF9786:
+;$FF9633
+level_sprite_0708_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9688
 	db sprite.general_purpose_60 : dw $000F
 	db sprite.general_purpose_68 : dw $0300
 	db sprite.general_purpose_6A : dw $08AC
 	db !spawn_command_success
 
-DATA_FF9793:
+;$FF9633
+level_sprite_070A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9688
 	db sprite.general_purpose_60 : dw $0050
 	db sprite.general_purpose_6A : dw $066C
 	db !spawn_command_success
 
-DATA_FF979D:
+;$FF9633
+level_sprite_070C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9688
 	db sprite.general_purpose_60 : dw $000A
 	db sprite.general_purpose_64 : dw $0000
@@ -16713,7 +17616,8 @@ DATA_FF979D:
 	db sprite.general_purpose_6A : dw $0E70
 	db !spawn_command_success
 
-DATA_FF97AD:
+;$FF9633
+level_sprite_070E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9688
 	db sprite.general_purpose_60 : dw $000A
 	db sprite.general_purpose_64 : dw $0100
@@ -16721,7 +17625,8 @@ DATA_FF97AD:
 	db sprite.general_purpose_6A : dw $1F68
 	db !spawn_command_success
 
-DATA_FF97BD:
+;$FF9633
+level_sprite_0710_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9688
 	db sprite.general_purpose_60 : dw $0064
 	db sprite.general_purpose_64 : dw $8001
@@ -16729,7 +17634,8 @@ DATA_FF97BD:
 	db sprite.general_purpose_6A : dw $0E72
 	db !spawn_command_success
 
-DATA_FF97CD:
+;$FF9633
+level_sprite_0712_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9696
 	db sprite.general_purpose_60 : dw $000A
 	db sprite.general_purpose_64 : dw $0000
@@ -16737,7 +17643,8 @@ DATA_FF97CD:
 	db sprite.general_purpose_6A : dw $014C
 	db !spawn_command_success
 
-DATA_FF97DD:
+;$FF9633
+level_sprite_0714_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF969D
 	db sprite.general_purpose_60 : dw $0019
 	db sprite.unknown_2C : dw $0032
@@ -16746,7 +17653,8 @@ DATA_FF97DD:
 	db sprite.general_purpose_6A : dw $0180
 	db !spawn_command_success
 
-DATA_FF97F0:
+;$FF9633
+level_sprite_0716_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF969D
 	db sprite.general_purpose_60 : dw $0050
 	db sprite.general_purpose_64 : dw $0202
@@ -16754,7 +17662,8 @@ DATA_FF97F0:
 	db sprite.general_purpose_6A : dw $00E0
 	db !spawn_command_success
 
-DATA_FF9800:
+;$FF9633
+level_sprite_0718_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF969D
 	db sprite.general_purpose_60 : dw $001E
 	db sprite.general_purpose_64 : dw $0001
@@ -16762,7 +17671,8 @@ DATA_FF9800:
 	db sprite.general_purpose_6A : dw $0120
 	db !spawn_command_success
 
-DATA_FF9810:
+;$FF9633
+level_sprite_071A_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelSwitch
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5C : dw $0000
@@ -16772,7 +17682,8 @@ DATA_FF9810:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF9826:
+;$FF9633
+level_sprite_071C_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelSwitch
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5C : dw $0001
@@ -16782,7 +17693,8 @@ DATA_FF9826:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FF983C:
+;$FF9633
+level_sprite_071E_spawn_script:
 	db !spawn_command_set_type : dw !sprite_BarrelSwitchS
 	db sprite.render_order : dw $00D6
 	db !spawn_command_F3, $40, $18
@@ -16859,26 +17771,30 @@ DATA_FF98C6:
 	db !spawn_command_set_animation : dw $028D
 	db !spawn_command_success
 
-DATA_FF98D3:
+;$FF98D3
+unplaced_level_sprite_0720_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF987D
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.general_purpose_68 : dw $0064
 	db sprite.max_x_speed : dw $0100
 	db !spawn_command_success
 
-DATA_FF98E0:
+;$FF98E0
+unplaced_level_sprite_0722_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9891
 	db sprite.general_purpose_62 : dw $0100
 	db sprite.general_purpose_64 : dw $0200
 	db !spawn_command_success
 
-DATA_FF98EA:
+;$FF98EA
+unplaced_level_sprite_0724_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98B9
 	db sprite.x_speed : dw $0000
 	db sprite.y_speed : dw $0080
 	db !spawn_command_success
 
-DATA_FF98F4:
+;$FF98EA
+level_sprite_0726_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98B2
 	db sprite.general_purpose_60 : dw $2020
 	db sprite.general_purpose_62 : dw $0180
@@ -16887,7 +17803,8 @@ DATA_FF98F4:
 	db sprite.general_purpose_4E : dw $08A0
 	db !spawn_command_success
 
-DATA_FF9907:
+;$FF98EA
+level_sprite_0728_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98A5
 	db sprite.general_purpose_60 : dw $4848
 	db sprite.general_purpose_62 : dw $0280
@@ -16896,7 +17813,8 @@ DATA_FF9907:
 	db sprite.general_purpose_4E : dw $0AD0
 	db !spawn_command_success
 
-DATA_FF991A:
+;$FF98EA
+level_sprite_072A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98B2
 	db sprite.general_purpose_60 : dw $4848
 	db sprite.general_purpose_62 : dw $0280
@@ -16905,7 +17823,8 @@ DATA_FF991A:
 	db sprite.general_purpose_4E : dw $0AD0
 	db !spawn_command_success
 
-DATA_FF992D:
+;$FF98EA
+level_sprite_072C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98A5
 	db sprite.general_purpose_60 : dw $2E2E
 	db sprite.general_purpose_62 : dw $0240
@@ -16914,7 +17833,8 @@ DATA_FF992D:
 	db sprite.general_purpose_4E : dw $0B00
 	db !spawn_command_success
 
-DATA_FF9940:
+;$FF98EA
+level_sprite_072E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98A5
 	db sprite.general_purpose_60 : dw $2C2C
 	db sprite.general_purpose_62 : dw $0280
@@ -16923,7 +17843,8 @@ DATA_FF9940:
 	db sprite.general_purpose_4E : dw $0208
 	db !spawn_command_success
 
-DATA_FF9953:
+;$FF98EA
+level_sprite_0730_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98B2
 	db sprite.general_purpose_60 : dw $2C2C
 	db sprite.general_purpose_62 : dw $0280
@@ -16932,7 +17853,8 @@ DATA_FF9953:
 	db sprite.general_purpose_4E : dw $0208
 	db !spawn_command_success
 
-DATA_FF9966:
+;$FF98EA
+level_sprite_0732_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98A5
 	db sprite.general_purpose_60 : dw $2C2C
 	db sprite.general_purpose_62 : dw $0280
@@ -16941,7 +17863,8 @@ DATA_FF9966:
 	db sprite.general_purpose_4E : dw $0160
 	db !spawn_command_success
 
-DATA_FF9979:
+;$FF98EA
+level_sprite_0734_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98B2
 	db sprite.general_purpose_60 : dw $2C2C
 	db sprite.general_purpose_62 : dw $0280
@@ -16950,7 +17873,8 @@ DATA_FF9979:
 	db sprite.general_purpose_4E : dw $0160
 	db !spawn_command_success
 
-DATA_FF998C:
+;$FF98EA
+level_sprite_0736_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98B2
 	db sprite.general_purpose_60 : dw $1010
 	db sprite.general_purpose_62 : dw $02C0
@@ -16959,7 +17883,8 @@ DATA_FF998C:
 	db sprite.general_purpose_4E : dw $0238
 	db !spawn_command_success
 
-DATA_FF999F:
+;$FF98EA
+level_sprite_0738_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98B2
 	db sprite.general_purpose_60 : dw $0808
 	db sprite.general_purpose_62 : dw $0280
@@ -16968,7 +17893,8 @@ DATA_FF999F:
 	db sprite.general_purpose_4E : dw $01D0
 	db !spawn_command_success
 
-DATA_FF99B2:
+;$FF98EA
+level_sprite_073A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98B2
 	db sprite.general_purpose_60 : dw $1818
 	db sprite.general_purpose_62 : dw $0280
@@ -16977,168 +17903,192 @@ DATA_FF99B2:
 	db sprite.general_purpose_4E : dw $0250
 	db !spawn_command_success
 
-DATA_FF99C5:
+;$FF99C5
+unplaced_level_sprite_073C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.general_purpose_60 : dw $0080
 	db sprite.max_y_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF99D2:
+;$FF99C5
+level_sprite_073E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0110
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.max_y_speed : dw $FD00
 	db !spawn_command_success
 
-DATA_FF99DF:
+;$FF99C5
+level_sprite_0740_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0020
 	db sprite.general_purpose_60 : dw $0020
 	db sprite.max_y_speed : dw $FD80
 	db !spawn_command_success
 
-DATA_FF99EC:
+;$FF99C5
+level_sprite_0742_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0090
 	db sprite.general_purpose_60 : dw $01D0
 	db sprite.max_y_speed : dw $FD80
 	db !spawn_command_success
 
-DATA_FF99F9:
+;$FF99C5
+level_sprite_0744_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0010
 	db sprite.general_purpose_60 : dw $00A0
 	db sprite.max_y_speed : dw $FD80
 	db !spawn_command_success
 
-DATA_FF9A06:
+;$FF99C5
+level_sprite_0746_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0030
 	db sprite.general_purpose_60 : dw $0140
 	db sprite.max_y_speed : dw $FE40
 	db !spawn_command_success
 
-DATA_FF9A13:
+;$FF99C5
+level_sprite_0748_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $00A0
 	db sprite.general_purpose_60 : dw $0078
 	db sprite.max_y_speed : dw $FD80
 	db !spawn_command_success
 
-DATA_FF9A20:
+;$FF99C5
+level_sprite_074A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0064
 	db sprite.general_purpose_60 : dw $0060
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF9A2D:
+;$FF99C5
+level_sprite_074C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0020
 	db sprite.general_purpose_60 : dw $0220
 	db sprite.max_y_speed : dw $FD80
 	db !spawn_command_success
 
-DATA_FF9A3A:
+;$FF99C5
+level_sprite_074E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0078
 	db sprite.general_purpose_60 : dw $00A0
 	db sprite.max_y_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF9A47:
+;$FF99C5
+level_sprite_0750_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.general_purpose_60 : dw $0040
 	db sprite.max_y_speed : dw $02C0
 	db !spawn_command_success
 
-DATA_FF9A54:
+;$FF99C5
+level_sprite_0752_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0140
 	db sprite.general_purpose_60 : dw $00A0
 	db sprite.max_y_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF9A61:
+;$FF99C5
+level_sprite_0754_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.general_purpose_60 : dw $00A0
 	db sprite.max_y_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF9A6E:
+;$FF99C5
+level_sprite_0756_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0110
 	db sprite.general_purpose_60 : dw $0060
 	db sprite.max_y_speed : dw $0240
 	db !spawn_command_success
 
-DATA_FF9A7B:
+;$FF99C5
+level_sprite_0758_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.general_purpose_60 : dw $0060
 	db sprite.max_y_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF9A88:
+;$FF9A88
+unplaced_level_sprite_075A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0018
 	db sprite.general_purpose_60 : dw $0048
 	db sprite.max_y_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF9A95:
+;$FF9A88
+level_sprite_075C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0040
 	db sprite.general_purpose_60 : dw $0080
 	db sprite.max_y_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF9AA2:
+;$FF9AA2
+unplaced_level_sprite_075E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.general_purpose_60 : dw $00A0
 	db sprite.max_y_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FF9AAF:
+;$FF9AA2
+level_sprite_0760_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0080
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.max_y_speed : dw $FD00
 	db !spawn_command_success
 
-DATA_FF9ABC:
+;$FF9ABC
+unplaced_level_sprite_0762_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.general_purpose_60 : dw $0060
 	db sprite.max_y_speed : dw $0240
 	db !spawn_command_success
 
-DATA_FF9AC9:
+;$FF9ABC
+level_sprite_0764_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0080
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.max_y_speed : dw $FE40
 	db !spawn_command_success
 
-DATA_FF9AD6:
+;$FF9ABC
+level_sprite_0766_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0040
 	db sprite.general_purpose_60 : dw $0080
 	db sprite.max_y_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF9AE3:
+;$FF9ABC
+level_sprite_0768_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0000
 	db sprite.general_purpose_60 : dw $0080
 	db sprite.max_y_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF9AF0:
+;$FF9ABC
+level_sprite_076A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98C6
 	db sprite.general_purpose_5E : dw $0020
 	db sprite.general_purpose_60 : dw $0020
@@ -17150,7 +18100,8 @@ DATA_FF9AFD:
 	db sprite.general_purpose_5C : dw $0000
 	db !spawn_command_success
 
-DATA_FF9B04:
+;$FF9ABC
+level_sprite_076C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $0390
 	db sprite.general_purpose_60 : dw $17F0
@@ -17158,7 +18109,8 @@ DATA_FF9B04:
 	db sprite.constants_address : dw DATA_FF1FC4
 	db !spawn_command_success
 
-DATA_FF9B14:
+;$FF9ABC
+level_sprite_076E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $1980
 	db sprite.general_purpose_60 : dw $24B0
@@ -17166,7 +18118,8 @@ DATA_FF9B14:
 	db sprite.constants_address : dw DATA_FF1FC4
 	db !spawn_command_success
 
-DATA_FF9B24:
+;$FF9ABC
+level_sprite_0770_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $0360
 	db sprite.general_purpose_60 : dw $03F0
@@ -17174,7 +18127,8 @@ DATA_FF9B24:
 	db sprite.constants_address : dw DATA_FF1FEC
 	db !spawn_command_success
 
-DATA_FF9B34:
+;$FF9ABC
+level_sprite_0772_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $0680
 	db sprite.general_purpose_60 : dw $0780
@@ -17182,7 +18136,8 @@ DATA_FF9B34:
 	db sprite.constants_address : dw DATA_FF1FEC
 	db !spawn_command_success
 
-DATA_FF9B44:
+;$FF9ABC
+level_sprite_0774_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $08C0
 	db sprite.general_purpose_60 : dw $09C0
@@ -17190,7 +18145,8 @@ DATA_FF9B44:
 	db sprite.constants_address : dw DATA_FF1FEC
 	db !spawn_command_success
 
-DATA_FF9B54:
+;$FF9ABC
+level_sprite_0776_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $0A80
 	db sprite.general_purpose_60 : dw $0BC0
@@ -17198,7 +18154,8 @@ DATA_FF9B54:
 	db sprite.constants_address : dw DATA_FF1FEC
 	db !spawn_command_success
 
-DATA_FF9B64:
+;$FF9ABC
+level_sprite_0778_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $0D40
 	db sprite.general_purpose_60 : dw $0E40
@@ -17206,7 +18163,8 @@ DATA_FF9B64:
 	db sprite.constants_address : dw DATA_FF1FEC
 	db !spawn_command_success
 
-DATA_FF9B74:
+;$FF9ABC
+level_sprite_077A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $1180
 	db sprite.general_purpose_60 : dw $1240
@@ -17214,7 +18172,8 @@ DATA_FF9B74:
 	db sprite.constants_address : dw DATA_FF1FEC
 	db !spawn_command_success
 
-DATA_FF9B84:
+;$FF9ABC
+level_sprite_077C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $1A80
 	db sprite.general_purpose_60 : dw $1B80
@@ -17222,7 +18181,8 @@ DATA_FF9B84:
 	db sprite.constants_address : dw DATA_FF1FEC
 	db !spawn_command_success
 
-DATA_FF9B94:
+;$FF9ABC
+level_sprite_077E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $1D00
 	db sprite.general_purpose_60 : dw $1E00
@@ -17230,7 +18190,8 @@ DATA_FF9B94:
 	db sprite.constants_address : dw DATA_FF1FEC
 	db !spawn_command_success
 
-DATA_FF9BA4:
+;$FF9ABC
+level_sprite_0780_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $2240
 	db sprite.general_purpose_60 : dw $2340
@@ -17238,7 +18199,8 @@ DATA_FF9BA4:
 	db sprite.constants_address : dw DATA_FF1FEC
 	db !spawn_command_success
 
-DATA_FF9BB4:
+;$FF9ABC
+level_sprite_0782_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $2540
 	db sprite.general_purpose_60 : dw $26C0
@@ -17246,7 +18208,8 @@ DATA_FF9BB4:
 	db sprite.constants_address : dw DATA_FF1FEC
 	db !spawn_command_success
 
-DATA_FF9BC4:
+;$FF9ABC
+level_sprite_0784_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $2B40
 	db sprite.general_purpose_60 : dw $2C80
@@ -17254,7 +18217,8 @@ DATA_FF9BC4:
 	db sprite.constants_address : dw DATA_FF1FEC
 	db !spawn_command_success
 
-DATA_FF9BD4:
+;$FF9ABC
+level_sprite_0786_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $01A0
 	db sprite.general_purpose_60 : dw $02A0
@@ -17262,7 +18226,8 @@ DATA_FF9BD4:
 	db sprite.constants_address : dw DATA_FF1FD8
 	db !spawn_command_success
 
-DATA_FF9BE4:
+;$FF9ABC
+level_sprite_0788_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $0140
 	db sprite.general_purpose_60 : dw $0220
@@ -17270,7 +18235,8 @@ DATA_FF9BE4:
 	db sprite.constants_address : dw DATA_FF1FC4
 	db !spawn_command_success
 
-DATA_FF9BF4:
+;$FF9ABC
+level_sprite_078A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $0140
 	db sprite.general_purpose_60 : dw $0480
@@ -17278,7 +18244,8 @@ DATA_FF9BF4:
 	db sprite.constants_address : dw DATA_FF1FC4
 	db !spawn_command_success
 
-DATA_FF9C04:
+;$FF9ABC
+level_sprite_078C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9AFD
 	db sprite.general_purpose_5E : dw $01A0
 	db sprite.general_purpose_60 : dw $02A0
@@ -17321,19 +18288,22 @@ DATA_FF9C3D:
 	db !spawn_command_set_palette : dw $0039
 	db !spawn_command_success
 
-DATA_FF9C65:
+;$FF9ABC
+level_sprite_078E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9C36
 	db sprite.general_purpose_60 : dw $3030
 	db sprite.max_x_speed : dw $FF00
 	db sprite.general_purpose_6C : dw $0320
 	db !spawn_command_success
 
-DATA_FF9C72:
+;$FF9ABC
+level_sprite_0790_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9C3D
 	db sprite.general_purpose_6C : dw $0320
 	db !spawn_command_success
 
-DATA_FF9C79:
+;$FF9ABC
+level_sprite_0792_spawn_script:
 	db !spawn_command_set_type : dw !sprite_Koin
 	db sprite.render_order : dw $00D4
 	db sprite.state : dw $0005
@@ -17367,76 +18337,88 @@ DATA_FF9C9B:
 	db !spawn_command_set_animation : dw $0211
 	db !spawn_command_success
 
-DATA_FF9CCF:
+;$FF9ABC
+level_sprite_0794_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9C9B
 	db sprite.general_purpose_60 : dw $FF80
 	db sprite.max_x_speed : dw $0240
 	db !spawn_command_success
 
-DATA_FF9CD9:
+;$FF9ABC
+level_sprite_0796_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9C9B
 	db sprite.general_purpose_60 : dw $6800
 	db sprite.max_x_speed : dw $0240
 	db !spawn_command_success
 
-DATA_FF9CE3:
+;$FF9ABC
+level_sprite_0798_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9C9B
 	db sprite.general_purpose_60 : dw $00FF
 	db sprite.max_x_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF9CED:
+;$FF9ABC
+level_sprite_079A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9C9B
 	db sprite.general_purpose_60 : dw $7030
 	db sprite.max_x_speed : dw $0240
 	db !spawn_command_success
 
-DATA_FF9CF7:
+;$FF9ABC
+level_sprite_079C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9C9B
 	db sprite.general_purpose_60 : dw $7030
 	db sprite.max_x_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FF9D01:
+;$FF9ABC
+level_sprite_079E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9C9B
 	db sprite.general_purpose_60 : dw $C000
 	db sprite.max_x_speed : dw $0240
 	db !spawn_command_success
 
-DATA_FF9D0B:
+;$FF9ABC
+level_sprite_07A0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9C9B
 	db sprite.general_purpose_60 : dw $8000
 	db sprite.max_x_speed : dw $0240
 	db !spawn_command_success
 
-DATA_FF9D15:
+;$FF9D15
+unplaced_level_sprite_07A2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9C9B
 	db sprite.general_purpose_60 : dw $4068
 	db sprite.max_x_speed : dw $0240
 	db !spawn_command_success
 
-DATA_FF9D1F:
+;$FF9D15
+level_sprite_07A4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9C9B
 	db sprite.general_purpose_60 : dw $0040
 	db sprite.general_purpose_62 : dw $2030
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF9D2C:
+;$FF9D15
+level_sprite_07A6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9C9B
 	db sprite.general_purpose_60 : dw $4000
 	db sprite.general_purpose_62 : dw $2030
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF9D39:
+;$FF9D15
+level_sprite_07A8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9C9B
 	db sprite.general_purpose_60 : dw $0080
 	db sprite.general_purpose_62 : dw $2030
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FF9D46:
+;$FF9D15
+level_sprite_07AA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9C9B
 	db sprite.general_purpose_60 : dw $2088
 	db sprite.general_purpose_62 : dw $2030
@@ -17457,7 +18439,8 @@ DATA_FF9D53:
 	db sprite.general_purpose_4C : dw DATA_FF9DB9
 	db !spawn_command_success
 
-DATA_FF9D75:
+;$FF9D15
+level_sprite_07AC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9D53
 	db sprite.general_purpose_5E : dw $0170
 	db sprite.general_purpose_60 : dw $0100
@@ -17471,7 +18454,8 @@ DATA_FF9D75:
 	db sprite.general_purpose_6A : dw $067C
 	db !spawn_command_success
 
-DATA_FF9D97:
+;$FF9D15
+level_sprite_07AE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9D53
 	db sprite.general_purpose_5E : dw $0170
 	db sprite.general_purpose_60 : dw $0100
@@ -17503,7 +18487,8 @@ DATA_FF9DB9:
 	dw $0000
 
 
-DATA_FF9DD7:
+;$FF9D15
+level_sprite_07B0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9D53
 	db sprite.constants_address : dw DATA_FF2158
 	db sprite.general_purpose_5E : dw $FFFF
@@ -17584,7 +18569,8 @@ DATA_FF9E83:
 	db !spawn_command_set_animation : dw $01B9
 	db !spawn_command_success
 
-DATA_FF9EA5:
+;$FF9D15
+level_sprite_07B2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9E83
 	db sprite.general_purpose_5E : dw $01F4
 	db !spawn_command_success
@@ -17601,7 +18587,8 @@ DATA_FF9EAC:
 	db sprite.general_purpose_5E : dw $0002
 	db !spawn_command_success
 
-DATA_FF9EC8:
+;$FF9D15
+level_sprite_07B4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9EAC
 	db sprite.state : dw $0000
 	db sprite.max_y_speed : dw $0400
@@ -17609,7 +18596,8 @@ DATA_FF9EC8:
 
 	db $00
 
-DATA_FF9ED3:
+;$FF9D15
+level_sprite_07B6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9EAC
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5C : dw $0001
@@ -17618,7 +18606,8 @@ DATA_FF9ED3:
 
 	db $00
 
-DATA_FF9EE1:
+;$FF9D15
+level_sprite_07B8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9EAC
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5C : dw $0003
@@ -17627,7 +18616,8 @@ DATA_FF9EE1:
 
 	db $00
 
-DATA_FF9EEF:
+;$FF9D15
+level_sprite_07BA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9EAC
 	db sprite.state : dw $0000
 	db sprite.max_y_speed : dw $0400
@@ -17648,7 +18638,8 @@ DATA_FF9EFA:
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
-DATA_FF9F19:
+;$FF9D15
+level_sprite_07BC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9EFA
 	db sprite.general_purpose_4C : dw DATA_FF9F6D
 	db sprite.max_y_speed : dw $0400
@@ -17656,7 +18647,8 @@ DATA_FF9F19:
 
 	db $00
 
-DATA_FF9F24:
+;$FF9D15
+level_sprite_07BE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9EFA
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5C : dw $0001
@@ -17666,7 +18658,8 @@ DATA_FF9F24:
 
 	db $00
 
-DATA_FF9F35:
+;$FF9D15
+level_sprite_07C0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9EFA
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5C : dw $0002
@@ -17676,7 +18669,8 @@ DATA_FF9F35:
 
 	db $00
 
-DATA_FF9F46:
+;$FF9D15
+level_sprite_07C2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9EFA
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5C : dw $0003
@@ -17686,7 +18680,8 @@ DATA_FF9F46:
 
 	db $00
 
-DATA_FF9F57:
+;$FF9D15
+level_sprite_07C4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9EFA
 	db sprite.general_purpose_4C : dw DATA_FFA09B
 	db sprite.max_y_speed : dw $0400
@@ -17694,7 +18689,8 @@ DATA_FF9F57:
 
 	db $00
 
-DATA_FF9F62:
+;$FF9D15
+level_sprite_07C6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF9EFA
 	db sprite.general_purpose_4C : dw DATA_FFA0CD
 	db sprite.max_y_speed : dw $0400
@@ -17737,7 +18733,8 @@ DATA_FFA0CD:
 	dw $0600,$0128,$0000,$0720,$0000,$0000
 	dw $FFFF
 
-DATA_FFA10B:
+;$FF9D15
+level_sprite_07C8_spawn_script:
 	db !spawn_command_set_type : dw !sprite_LargePipe
 	db sprite.constants_address : dw DATA_FF1BCE
 	db sprite.render_order : dw $00D0
@@ -17748,19 +18745,22 @@ DATA_FFA10B:
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
-DATA_FFA124:
+;$FF9D15
+level_sprite_07CA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF918F
 	db sprite.general_purpose_60 : dw $0040
 	db sprite.max_x_speed : dw $0250
 	db !spawn_command_success
 
-DATA_FFA12E:
+;$FF9D15
+level_sprite_07CC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF918F
 	db sprite.general_purpose_60 : dw $4000
 	db sprite.max_x_speed : dw $FDB0
 	db !spawn_command_success
 
-DATA_FFA138:
+;$FFA138
+unplaced_level_sprite_07CE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79CB
 	db sprite.general_purpose_60 : dw $A000
 	db sprite.general_purpose_62 : dw $4000
@@ -17768,7 +18768,8 @@ DATA_FFA138:
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA148:
+;$FFA138
+level_sprite_07D0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79CB
 	db sprite.general_purpose_60 : dw $8000
 	db sprite.general_purpose_62 : dw $6200
@@ -17776,7 +18777,8 @@ DATA_FFA148:
 	db sprite.max_x_speed : dw $FE60
 	db !spawn_command_success
 
-DATA_FFA158:
+;$FFA158
+unplaced_level_sprite_07D2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79CB
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.general_purpose_62 : dw $3200
@@ -17784,745 +18786,860 @@ DATA_FFA158:
 	db sprite.max_x_speed : dw $0210
 	db !spawn_command_success
 
-DATA_FFA168:
+;$FFA158
+level_sprite_07D4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $6060
 	db sprite.max_y_speed : dw $0150
 	db !spawn_command_success
 
-DATA_FFA172:
+;$FFA158
+level_sprite_07D6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $7000
 	db sprite.max_y_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FFA17C:
+;$FFA158
+level_sprite_07D8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $0070
 	db sprite.max_y_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FFA186:
+;$FFA158
+level_sprite_07DA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $7070
 	db sprite.max_y_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FFA190:
+;$FFA158
+level_sprite_07DC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $3030
 	db sprite.max_y_speed : dw $02A0
 	db !spawn_command_success
 
-DATA_FFA19A:
+;$FFA158
+level_sprite_07DE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $6000
 	db sprite.max_y_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FFA1A4:
+;$FFA158
+level_sprite_07E0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $0060
 	db sprite.max_y_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FFA1AE:
+;$FFA158
+level_sprite_07E2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $3030
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA1B8:
+;$FFA158
+level_sprite_07E4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $7070
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA1C2:
+;$FFA158
+level_sprite_07E6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $0090
 	db sprite.max_y_speed : dw $0250
 	db !spawn_command_success
 
-DATA_FFA1CC:
+;$FFA158
+level_sprite_07E8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $4040
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA1D6:
+;$FFA1D6
+unplaced_level_sprite_07EA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $0050
 	db sprite.max_y_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FFA1E0:
+;$FFA1D6
+level_sprite_07EC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $5000
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA1EA:
+;$FFA1D6
+level_sprite_07EE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $0050
 	db sprite.max_y_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA1F4:
+;$FFA1F4
+unplaced_level_sprite_07F0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $5000
 	db sprite.max_y_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FFA1FE:
+;$FFA1F4
+level_sprite_07F2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $0050
 	db sprite.max_y_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FFA208:
+;$FFA1F4
+level_sprite_07F4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $5050
 	db sprite.max_y_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA212:
+;$FFA1F4
+level_sprite_07F6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $5000
 	db sprite.max_y_speed : dw $0120
 	db !spawn_command_success
 
-DATA_FFA21C:
+;$FFA1F4
+level_sprite_07F8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $0050
 	db sprite.max_y_speed : dw $FD00
 	db !spawn_command_success
 
-DATA_FFA226:
+;$FFA1F4
+level_sprite_07FA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $5000
 	db sprite.max_y_speed : dw $0300
 	db !spawn_command_success
 
-DATA_FFA230:
+;$FFA1F4
+level_sprite_07FC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $4020
 	db sprite.max_y_speed : dw $FF38
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FFA23D:
+;$FFA1F4
+level_sprite_07FE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $2040
 	db sprite.max_y_speed : dw $FF38
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FFA24A:
+;$FFA1F4
+level_sprite_0800_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $4020
 	db sprite.max_y_speed : dw $FF18
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FFA257:
+;$FFA1F4
+level_sprite_0802_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $2040
 	db sprite.max_y_speed : dw $00E8
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FFA264:
+;$FFA1F4
+level_sprite_0804_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $2040
 	db sprite.max_y_speed : dw $00E8
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FFA271:
+;$FFA1F4
+level_sprite_0806_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $4040
 	db sprite.max_y_speed : dw $FE00
 	db !spawn_command_F0
 
-DATA_FFA27B:
+;$FFA1F4
+level_sprite_0808_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79AD
 	db sprite.general_purpose_64 : dw $6000
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_F0
 
-DATA_FFA285:
+;$FFA1F4
+level_sprite_080A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $4848
 	db sprite.max_x_speed : dw $0150
 	db !spawn_command_success
 
-DATA_FFA28F:
+;$FFA1F4
+level_sprite_080C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $2020
 	db sprite.max_x_speed : dw $0150
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FFA29C:
+;$FFA1F4
+level_sprite_080E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $2020
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FFA2A6:
+;$FFA2A6
+unplaced_level_sprite_0810_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $2020
 	db sprite.max_x_speed : dw $01B0
 	db !spawn_command_success
 
-DATA_FFA2B0:
+;$FFA2A6
+level_sprite_0812_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $3030
 	db sprite.max_x_speed : dw $0150
 	db !spawn_command_success
 
-DATA_FFA2BA:
+;$FFA2BA
+unplaced_level_sprite_0814_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $3030
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA2C4:
+;$FFA2C4
+unplaced_level_sprite_0816_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $2020
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA2CE:
+;$FFA2C4
+level_sprite_0818_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $2020
 	db sprite.max_x_speed : dw $0250
 	db !spawn_command_success
 
-DATA_FFA2D8:
+;$FFA2C4
+level_sprite_081A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $0040
 	db sprite.max_x_speed : dw $0150
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FFA2E5:
+;$FFA2C4
+level_sprite_081C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $4000
 	db sprite.max_x_speed : dw $FEB0
 	db !spawn_command_success
 
-DATA_FFA2EF:
+;$FFA2C4
+level_sprite_081E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $6000
 	db sprite.max_x_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FFA2F9:
+;$FFA2F9
+unplaced_level_sprite_0820_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA303:
+;$FFA2F9
+level_sprite_0822_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $4AB0
 	db sprite.max_x_speed : dw $0210
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FFA310:
+;$FFA2F9
+level_sprite_0824_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $3AC0
 	db sprite.max_x_speed : dw $FDF0
 	db !spawn_command_success
 
-DATA_FFA31A:
+;$FFA2F9
+level_sprite_0826_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $AA50
 	db sprite.max_x_speed : dw $FDF0
 	db !spawn_command_success
 
-DATA_FFA324:
+;$FFA324
+unplaced_level_sprite_0828_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $F010
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA32E:
+;$FFA32E
+unplaced_level_sprite_082A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $D030
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA338:
+;$FFA338
+unplaced_level_sprite_082C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $A060
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA342:
+;$FFA338
+level_sprite_082E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $6060
 	db sprite.max_x_speed : dw $0280
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FFA34F:
+;$FFA338
+level_sprite_0830_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $5858
 	db sprite.max_x_speed : dw $FD00
 	db !spawn_command_success
 
-DATA_FFA359:
+;$FFA338
+level_sprite_0832_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $4848
 	db sprite.max_x_speed : dw $FEB0
 	db !spawn_command_success
 
-DATA_FFA363:
+;$FFA338
+level_sprite_0834_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $5070
 	db sprite.max_x_speed : dw $01C0
 	db !spawn_command_success
 
-DATA_FFA36D:
+;$FFA338
+level_sprite_0836_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $7A10
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA377:
+;$FFA338
+level_sprite_0838_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $107A
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA381:
+;$FFA338
+level_sprite_083A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $7010
 	db sprite.max_x_speed : dw $01A0
 	db !spawn_command_success
 
-DATA_FFA38B:
+;$FFA338
+level_sprite_083C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.max_x_speed : dw $FED0
 	db !spawn_command_success
 
-DATA_FFA395:
+;$FFA338
+level_sprite_083E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $2424
 	db sprite.max_x_speed : dw $0120
 	db !spawn_command_success
 
-DATA_FFA39F:
+;$FFA338
+level_sprite_0840_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $9000
 	db sprite.max_x_speed : dw $FEB0
 	db !spawn_command_success
 
-DATA_FFA3A9:
+;$FFA338
+level_sprite_0842_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $5050
 	db sprite.max_x_speed : dw $01C0
 	db !spawn_command_success
 
-DATA_FFA3B3:
+;$FFA338
+level_sprite_0844_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $5050
 	db sprite.max_x_speed : dw $FE40
 	db !spawn_command_success
 
-DATA_FFA3BD:
+;$FFA338
+level_sprite_0846_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $5000
 	db sprite.max_x_speed : dw $FEE0
 	db !spawn_command_success
 
-DATA_FFA3C7:
+;$FFA338
+level_sprite_0848_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $3030
 	db sprite.max_x_speed : dw $0120
 	db !spawn_command_success
 
-DATA_FFA3D1:
+;$FFA338
+level_sprite_084A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79B7
 	db sprite.general_purpose_60 : dw $2424
 	db sprite.max_x_speed : dw $FEE0
 	db !spawn_command_success
 
-DATA_FFA3DB:
+;$FFA338
+level_sprite_084C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.general_purpose_62 : dw $1800
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA3E8:
+;$FFA338
+level_sprite_084E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.general_purpose_62 : dw $1800
 	db sprite.max_x_speed : dw $0230
 	db !spawn_command_success
 
-DATA_FFA3F5:
+;$FFA338
+level_sprite_0850_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.general_purpose_62 : dw $1800
 	db sprite.max_x_speed : dw $FDA0
 	db !spawn_command_success
 
-DATA_FFA402:
+;$FFA402
+unplaced_level_sprite_0852_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $8000
 	db sprite.general_purpose_62 : dw $2000
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA40F:
+;$FFA402
+level_sprite_0854_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FFA41C:
+;$FFA402
+level_sprite_0856_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $6000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FFA429:
+;$FFA429
+unplaced_level_sprite_0858_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0240
 	db !spawn_command_success
 
-DATA_FFA436:
+;$FFA436
+unplaced_level_sprite_085A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $6000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0240
 	db !spawn_command_success
 
-DATA_FFA443:
+;$FFA443
+unplaced_level_sprite_085C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FFA450:
+;$FFA450
+unplaced_level_sprite_085E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $6000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FFA45D:
+;$FFA450
+level_sprite_0860_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $2000
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA46A:
+;$FFA450
+level_sprite_0862_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $5000
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA477:
+;$FFA477
+unplaced_level_sprite_0864_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $2000
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA484:
+;$FFA484
+unplaced_level_sprite_0866_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $5000
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA491:
+;$FFA484
+level_sprite_0868_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $6000
 	db sprite.general_purpose_62 : dw $5000
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA49E:
+;$FFA484
+level_sprite_086A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.general_purpose_62 : dw $5000
 	db sprite.max_x_speed : dw $0220
 	db !spawn_command_success
 
-DATA_FFA4AB:
+;$FFA484
+level_sprite_086C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $8000
 	db sprite.general_purpose_62 : dw $5000
 	db sprite.max_x_speed : dw $0220
 	db !spawn_command_success
 
-DATA_FFA4B8:
+;$FFA484
+level_sprite_086E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $2000
 	db sprite.general_purpose_62 : dw $5000
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA4C5:
+;$FFA4C5
+unplaced_level_sprite_0870_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $4000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $FDE0
 	db !spawn_command_success
 
-DATA_FFA4D2:
+;$FFA4C5
+level_sprite_0872_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $8000
 	db sprite.general_purpose_62 : dw $3C00
 	db sprite.max_x_speed : dw $0260
 	db !spawn_command_success
 
-DATA_FFA4DF:
+;$FFA4C5
+level_sprite_0874_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $2000
 	db sprite.general_purpose_62 : dw $7500
 	db sprite.max_x_speed : dw $018A
 	db !spawn_command_success
 
-DATA_FFA4EC:
+;$FFA4C5
+level_sprite_0876_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $2000
 	db sprite.general_purpose_62 : dw $A000
 	db sprite.max_x_speed : dw $018A
 	db !spawn_command_success
 
-DATA_FFA4F9:
+;$FFA4C5
+level_sprite_0878_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $4500
 	db sprite.max_x_speed : dw $0220
 	db !spawn_command_success
 
-DATA_FFA506:
+;$FFA4C5
+level_sprite_087A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $2000
 	db sprite.general_purpose_62 : dw $4500
 	db sprite.max_x_speed : dw $FDE0
 	db !spawn_command_success
 
-DATA_FFA513:
+;$FFA4C5
+level_sprite_087C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $4800
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA520:
+;$FFA4C5
+level_sprite_087E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $6000
 	db sprite.general_purpose_62 : dw $4800
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA52D:
+;$FFA52D
+unplaced_level_sprite_0880_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $9000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $FDE0
 	db !spawn_command_success
 
-DATA_FFA53A:
+;$FFA52D
+level_sprite_0882_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $4000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0260
 	db !spawn_command_success
 
-DATA_FFA547:
+;$FFA52D
+level_sprite_0884_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0260
 	db !spawn_command_success
 
-DATA_FFA554:
+;$FFA554
+unplaced_level_sprite_0886_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $8000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FFA561:
+;$FFA554
+level_sprite_0888_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $C000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FFA56E:
+;$FFA554
+level_sprite_088A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $4000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0280
 	db !spawn_command_success
 
-DATA_FFA57B:
+;$FFA554
+level_sprite_088C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $2000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA588:
+;$FFA554
+level_sprite_088E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $E000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $01C0
 	db !spawn_command_success
 
-DATA_FFA595:
+;$FFA554
+level_sprite_0890_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $6000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $01C0
 	db !spawn_command_success
 
-DATA_FFA5A2:
+;$FFA5A2
+unplaced_level_sprite_0892_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $A000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $01C0
 	db !spawn_command_success
 
-DATA_FFA5AF:
+;$FFA5AF
+unplaced_level_sprite_0894_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $2000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $01C0
 	db !spawn_command_success
 
-DATA_FFA5BC:
+;$FFA5AF
+level_sprite_0896_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $8000
 	db sprite.general_purpose_62 : dw $1800
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA5C9:
+;$FFA5AF
+level_sprite_0898_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $9000
 	db sprite.general_purpose_62 : dw $3C00
 	db sprite.max_x_speed : dw $FD80
 	db !spawn_command_success
 
-DATA_FFA5D6:
+;$FFA5AF
+level_sprite_089A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $8000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $FD40
 	db !spawn_command_success
 
-DATA_FFA5E3:
+;$FFA5AF
+level_sprite_089C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $A000
 	db sprite.general_purpose_62 : dw $5000
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FFA5F0:
+;$FFA5AF
+level_sprite_089E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $0000
 	db sprite.general_purpose_62 : dw $5000
 	db sprite.max_x_speed : dw $01C0
 	db !spawn_command_success
 
-DATA_FFA5FD:
+;$FFA5AF
+level_sprite_08A0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $8000
 	db sprite.general_purpose_62 : dw $5000
 	db sprite.max_x_speed : dw $01C0
 	db !spawn_command_success
 
-DATA_FFA60A:
+;$FFA5AF
+level_sprite_08A2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $4000
 	db sprite.general_purpose_62 : dw $4000
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FFA617:
+;$FFA5AF
+level_sprite_08A4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79C1
 	db sprite.general_purpose_60 : dw $5000
 	db sprite.general_purpose_62 : dw $3500
 	db sprite.max_x_speed : dw $0220
 	db !spawn_command_F0
 
-DATA_FFA624:
+;$FFA624
+unplaced_level_sprite_08A6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $1570
 	db sprite.max_y_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FFA62E:
+;$FFA62E
+unplaced_level_sprite_08A8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $500D
 	db sprite.max_y_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA638:
+;$FFA638
+unplaced_level_sprite_08AA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $500D
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA642:
+;$FFA642
+unplaced_level_sprite_08AC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $6060
 	db sprite.max_y_speed : dw $0250
 	db !spawn_command_success
 
-DATA_FFA64C:
+;$FFA642
+level_sprite_08AE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $700D
 	db sprite.max_y_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA656:
+;$FFA656
+unplaced_level_sprite_08B0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $700D
 	db sprite.max_y_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA660:
+;$FFA660
+unplaced_level_sprite_08B2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $7070
 	db sprite.max_y_speed : dw $FDE0
 	db !spawn_command_success
 
-DATA_FFA66A:
+;$FFA66A
+unplaced_level_sprite_08B4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $7070
 	db sprite.max_y_speed : dw $0220
 	db !spawn_command_success
 
-DATA_FFA674:
+;$FFA66A
+level_sprite_08B6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF79FE
 	db sprite.general_purpose_64 : dw $601D
 	db sprite.max_y_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFA67E:
+;$FFA67E
+unplaced_level_sprite_08B8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A1C
 	db sprite.general_purpose_60 : dw $4000
 	db sprite.general_purpose_62 : dw $4000
@@ -18531,13 +19648,15 @@ DATA_FFA67E:
 	db sprite.max_x_speed : dw $0200
 	db !spawn_command_success
 
-DATA_FFA691:
+;$FFA67E
+level_sprite_08BA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A08
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.max_x_speed : dw $FF20
 	db !spawn_command_success
 
-DATA_FFA69B:
+;$FFA67E
+level_sprite_08BC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF7A08
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.max_x_speed : dw $0120
@@ -18555,85 +19674,100 @@ DATA_FFA6B2:
 	db sprite.max_x_speed : dw $0001
 	db !spawn_command_success
 
-DATA_FFA6B9:
+;$FFA6B9
+unplaced_level_sprite_08BE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $FED0
 	db sprite.general_purpose_60 : dw $4040
 	db !spawn_command_success
 
-DATA_FFA6C3:
+;$FFA6B9
+level_sprite_08C0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF73B1
 	db sprite.max_x_speed : dw $FF40
 	db sprite.general_purpose_60 : dw $4000
 	db !spawn_command_success
 
-DATA_FFA6CD:
+;$FFA6B9
+level_sprite_08C2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C10
 	db sprite.general_purpose_60 : dw $1925
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FFA6D7:
+;$FFA6B9
+level_sprite_08C4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C09
 	db sprite.general_purpose_60 : dw $1925
 	db sprite.max_x_speed : dw $0100
 	db !spawn_command_success
 
-DATA_FFA6E1:
+;$FFA6E1
+unplaced_level_sprite_08C6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C10
 	db sprite.general_purpose_60 : dw $1925
 	db sprite.max_x_speed : dw $FEB0
 	db !spawn_command_success
 
-DATA_FFA6EB:
+;$FFA6E1
+level_sprite_08C8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C10
 	db sprite.general_purpose_60 : dw $B010
 	db sprite.max_x_speed : dw $FEB0
 	db !spawn_command_success
 
-DATA_FFA6F5:
+;$FFA6E1
+level_sprite_08CA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C09
 	db sprite.general_purpose_60 : dw $10A0
 	db sprite.max_x_speed : dw $0100
 	db !spawn_command_success
 
-DATA_FFA6FF:
+;$FFA6E1
+level_sprite_08CC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C2C
 	db sprite.max_x_speed : dw $FEE0
 	db !spawn_command_success
 
-DATA_FFA706:
+;$FFA706
+unplaced_level_sprite_08CE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C39
 	db sprite.max_x_speed : dw $0120
 	db !spawn_command_success
 
-DATA_FFA70D:
+;$FFA706
+level_sprite_08D0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C39
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FFA714:
+;$FFA714
+unplaced_level_sprite_08D2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C10
 	db sprite.general_purpose_60 : dw $2840
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FFA71E:
+;$FFA714
+level_sprite_08D4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C40
 	db sprite.max_x_speed : dw $FE60
 	db !spawn_command_success
 
-DATA_FFA725:
+;$FFA714
+level_sprite_08D6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C40
 	db sprite.max_x_speed : dw $FE10
 	db !spawn_command_success
 
-DATA_FFA72C:
+;$FFA714
+level_sprite_08D8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C40
 	db sprite.max_x_speed : dw $FDB0
 	db !spawn_command_success
 
-DATA_FFA733:
+;$FFA733
+unplaced_level_sprite_08DA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C54
 	db sprite.general_purpose_5C : dw $003C
 	db sprite.general_purpose_5E : dw $003C
@@ -18641,7 +19775,8 @@ DATA_FFA733:
 	db sprite.general_purpose_64 : dw $0100
 	db !spawn_command_success
 
-DATA_FFA743:
+;$FFA743
+unplaced_level_sprite_08DC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8C68
 	db sprite.general_purpose_5C : dw $003C
 	db sprite.general_purpose_5E : dw $003C
@@ -18689,70 +19824,80 @@ DATA_FFA796:
 	db !spawn_command_set_palette : dw $0073
 	db !spawn_command_success
 
-DATA_FFA7A3:
+;$FFA7A3
+unplaced_level_sprite_08DE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA775
 	db sprite.general_purpose_5E : dw $0070
 	db sprite.general_purpose_66 : dw $0046
 	db sprite.general_purpose_6C : dw $003C
 	db !spawn_command_success
 
-DATA_FFA7B0:
+;$FFA7A3
+level_sprite_08E0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA775
 	db sprite.general_purpose_5E : dw $0070
 	db sprite.general_purpose_66 : dw $003C
 	db sprite.general_purpose_6C : dw $0046
 	db !spawn_command_success
 
-DATA_FFA7BD:
+;$FFA7A3
+level_sprite_08E2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA77F
 	db sprite.state : dw $0400
 	db sprite.general_purpose_66 : dw $0028
 	db sprite.general_purpose_6C : dw $004B
 	db !spawn_command_success
 
-DATA_FFA7CA:
+;$FFA7A3
+level_sprite_08E4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA77F
 	db sprite.state : dw $0400
 	db sprite.general_purpose_66 : dw $0037
 	db sprite.general_purpose_6C : dw $0046
 	db !spawn_command_success
 
-DATA_FFA7D7:
+;$FFA7A3
+level_sprite_08E6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA77F
 	db sprite.state : dw $0400
 	db sprite.general_purpose_66 : dw $0035
 	db sprite.general_purpose_6C : dw $0050
 	db !spawn_command_success
 
-DATA_FFA7E4:
+;$FFA7A3
+level_sprite_08E8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA77F
 	db sprite.state : dw $0400
 	db sprite.general_purpose_66 : dw $0032
 	db sprite.general_purpose_6C : dw $004B
 	db !spawn_command_success
 
-DATA_FFA7F1:
+;$FFA7F1
+unplaced_level_sprite_08EA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA77F
 	db sprite.state : dw $0400
 	db sprite.general_purpose_66 : dw $0050
 	db sprite.general_purpose_6C : dw $0046
 	db !spawn_command_success
 
-DATA_FFA7FE:
+;$FFA7F1
+level_sprite_08EC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA77F
 	db sprite.state : dw $0400
 	db sprite.general_purpose_66 : dw $0024
 	db sprite.general_purpose_6C : dw $004B
 	db !spawn_command_success
 
-DATA_FFA80B:
+;$FFA80B
+unplaced_level_sprite_08EE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA77F
 	db sprite.state : dw $0400
 	db sprite.general_purpose_66 : dw $003C
 	db sprite.general_purpose_6C : dw $003C
 	db !spawn_command_success
 
-DATA_FFA818:
+;$FFA818
+unplaced_level_sprite_08F0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA78C
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5E : dw $0070
@@ -18760,7 +19905,8 @@ DATA_FFA818:
 	db sprite.general_purpose_6C : dw $003C
 	db !spawn_command_success
 
-DATA_FFA828:
+;$FFA818
+level_sprite_08F2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA78C
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5E : dw $FF90
@@ -18768,7 +19914,8 @@ DATA_FFA828:
 	db sprite.general_purpose_6C : dw $004B
 	db !spawn_command_success
 
-DATA_FFA838:
+;$FFA818
+level_sprite_08F4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA78C
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5E : dw $0060
@@ -18776,7 +19923,8 @@ DATA_FFA838:
 	db sprite.general_purpose_6C : dw $003C
 	db !spawn_command_success
 
-DATA_FFA848:
+;$FFA848
+unplaced_level_sprite_08F6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA78C
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5E : dw $0080
@@ -18784,7 +19932,8 @@ DATA_FFA848:
 	db sprite.general_purpose_6C : dw $005A
 	db !spawn_command_success
 
-DATA_FFA858:
+;$FFA848
+level_sprite_08F8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA78C
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5E : dw $FF90
@@ -18792,7 +19941,8 @@ DATA_FFA858:
 	db sprite.general_purpose_6C : dw $0050
 	db !spawn_command_success
 
-DATA_FFA868:
+;$FFA848
+level_sprite_08FA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA78C
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5E : dw $FF90
@@ -18800,7 +19950,8 @@ DATA_FFA868:
 	db sprite.general_purpose_6C : dw $003C
 	db !spawn_command_success
 
-DATA_FFA878:
+;$FFA848
+level_sprite_08FC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA78C
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5E : dw $0070
@@ -18808,7 +19959,8 @@ DATA_FFA878:
 	db sprite.general_purpose_6C : dw $005A
 	db !spawn_command_success
 
-DATA_FFA888:
+;$FFA848
+level_sprite_08FE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA78C
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5E : dw $FF90
@@ -18816,7 +19968,8 @@ DATA_FFA888:
 	db sprite.general_purpose_6C : dw $0050
 	db !spawn_command_success
 
-DATA_FFA898:
+;$FFA898
+unplaced_level_sprite_0900_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA78C
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5E : dw $0070
@@ -18824,7 +19977,8 @@ DATA_FFA898:
 	db sprite.general_purpose_6C : dw $004B
 	db !spawn_command_success
 
-DATA_FFA8A8:
+;$FFA8A8
+unplaced_level_sprite_0902_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA78C
 	db sprite.state : dw $0100
 	db sprite.general_purpose_5E : dw $FF90
@@ -18832,77 +19986,88 @@ DATA_FFA8A8:
 	db sprite.general_purpose_6C : dw $003C
 	db !spawn_command_success
 
-DATA_FFA8B8:
+;$FFA8A8
+level_sprite_0904_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA796
 	db sprite.state : dw $0100
 	db sprite.general_purpose_66 : dw $0041
 	db sprite.general_purpose_6C : dw $0046
 	db !spawn_command_success
 
-DATA_FFA8C5:
+;$FFA8A8
+level_sprite_0906_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA796
 	db sprite.state : dw $0100
 	db sprite.general_purpose_66 : dw $002D
 	db sprite.general_purpose_6C : dw $003C
 	db !spawn_command_success
 
-DATA_FFA8D2:
+;$FFA8D2
+unplaced_level_sprite_0908_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA796
 	db sprite.state : dw $0100
 	db sprite.general_purpose_66 : dw $0037
 	db sprite.general_purpose_6C : dw $003C
 	db !spawn_command_success
 
-DATA_FFA8DF:
+;$FFA8D2
+level_sprite_090A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA796
 	db sprite.state : dw $0100
 	db sprite.general_purpose_66 : dw $004B
 	db sprite.general_purpose_6C : dw $0050
 	db !spawn_command_success
 
-DATA_FFA8EC:
+;$FFA8D2
+level_sprite_090C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA796
 	db sprite.state : dw $0100
 	db sprite.general_purpose_66 : dw $0050
 	db sprite.general_purpose_6C : dw $0050
 	db !spawn_command_success
 
-DATA_FFA8F9:
+;$FFA8D2
+level_sprite_090E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA796
 	db sprite.state : dw $0100
 	db sprite.general_purpose_66 : dw $0021
 	db sprite.general_purpose_6C : dw $008C
 	db !spawn_command_success
 
-DATA_FFA906:
+;$FFA8D2
+level_sprite_0910_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA796
 	db sprite.state : dw $0100
 	db sprite.general_purpose_66 : dw $001E
 	db sprite.general_purpose_6C : dw $0050
 	db !spawn_command_success
 
-DATA_FFA913:
+;$FFA8D2
+level_sprite_0912_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA796
 	db sprite.state : dw $0100
 	db sprite.general_purpose_66 : dw $0028
 	db sprite.general_purpose_6C : dw $0078
 	db !spawn_command_success
 
-DATA_FFA920:
+;$FFA8D2
+level_sprite_0914_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA796
 	db sprite.state : dw $0100
 	db sprite.general_purpose_66 : dw $002F
 	db sprite.general_purpose_6C : dw $005F
 	db !spawn_command_success
 
-DATA_FFA92D:
+;$FFA8D2
+level_sprite_0916_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA796
 	db sprite.state : dw $0100
 	db sprite.general_purpose_66 : dw $0041
 	db sprite.general_purpose_6C : dw $0050
 	db !spawn_command_success
 
-DATA_FFA93A:
+;$FFA8D2
+level_sprite_0918_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA796
 	db sprite.state : dw $0100
 	db sprite.general_purpose_66 : dw $002D
@@ -18937,7 +20102,8 @@ DATA_FFA97C:
 	db sprite.state : dw $0002
 	db !spawn_command_success
 
-DATA_FFA983:
+;$FFA8D2
+level_sprite_091A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -18948,7 +20114,8 @@ DATA_FFA983:
 	db sprite.general_purpose_68 : dw $0B79
 	db !spawn_command_success
 
-DATA_FFA99C:
+;$FFA8D2
+level_sprite_091C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -18959,7 +20126,8 @@ DATA_FFA99C:
 	db sprite.general_purpose_68 : dw $0B79
 	db !spawn_command_success
 
-DATA_FFA9B5:
+;$FFA8D2
+level_sprite_091E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $000F
@@ -18970,7 +20138,8 @@ DATA_FFA9B5:
 	db sprite.general_purpose_68 : dw $09B9
 	db !spawn_command_success
 
-DATA_FFA9CE:
+;$FFA8D2
+level_sprite_0920_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $000F
@@ -18981,7 +20150,8 @@ DATA_FFA9CE:
 	db sprite.general_purpose_68 : dw $09B9
 	db !spawn_command_success
 
-DATA_FFA9E7:
+;$FFA8D2
+level_sprite_0922_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $000F
@@ -18992,7 +20162,8 @@ DATA_FFA9E7:
 	db sprite.general_purpose_68 : dw $09B9
 	db !spawn_command_success
 
-DATA_FFAA00:
+;$FFAA00
+unplaced_level_sprite_0924_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19003,7 +20174,8 @@ DATA_FFAA00:
 	db sprite.general_purpose_68 : dw $09B9
 	db !spawn_command_success
 
-DATA_FFAA19:
+;$FFAA00
+level_sprite_0926_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19014,7 +20186,8 @@ DATA_FFAA19:
 	db sprite.general_purpose_68 : dw $09B9
 	db !spawn_command_success
 
-DATA_FFAA32:
+;$FFAA00
+level_sprite_0928_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19025,7 +20198,8 @@ DATA_FFAA32:
 	db sprite.general_purpose_68 : dw $0A79
 	db !spawn_command_success
 
-DATA_FFAA4B:
+;$FFAA00
+level_sprite_092A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19036,7 +20210,8 @@ DATA_FFAA4B:
 	db sprite.general_purpose_68 : dw $0A79
 	db !spawn_command_success
 
-DATA_FFAA64:
+;$FFAA00
+level_sprite_092C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19047,7 +20222,8 @@ DATA_FFAA64:
 	db sprite.general_purpose_68 : dw $0799
 	db !spawn_command_success
 
-DATA_FFAA7D:
+;$FFAA00
+level_sprite_092E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19058,7 +20234,8 @@ DATA_FFAA7D:
 	db sprite.general_purpose_68 : dw $0899
 	db !spawn_command_success
 
-DATA_FFAA96:
+;$FFAA00
+level_sprite_0930_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19069,7 +20246,8 @@ DATA_FFAA96:
 	db sprite.general_purpose_68 : dw $0819
 	db !spawn_command_success
 
-DATA_FFAAAF:
+;$FFAA00
+level_sprite_0932_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19080,7 +20258,8 @@ DATA_FFAAAF:
 	db sprite.general_purpose_68 : dw $0819
 	db !spawn_command_success
 
-DATA_FFAAC8:
+;$FFAA00
+level_sprite_0934_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0003
 	db sprite.general_purpose_4E : dw $001E
@@ -19091,7 +20270,8 @@ DATA_FFAAC8:
 	db sprite.general_purpose_68 : dw $05F9
 	db !spawn_command_success
 
-DATA_FFAAE1:
+;$FFAA00
+level_sprite_0936_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19102,7 +20282,8 @@ DATA_FFAAE1:
 	db sprite.general_purpose_68 : dw $0379
 	db !spawn_command_success
 
-DATA_FFAAFA:
+;$FFAA00
+level_sprite_0938_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19113,7 +20294,8 @@ DATA_FFAAFA:
 	db sprite.general_purpose_68 : dw $01D9
 	db !spawn_command_success
 
-DATA_FFAB13:
+;$FFAA00
+level_sprite_093A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19124,7 +20306,8 @@ DATA_FFAB13:
 	db sprite.general_purpose_68 : dw $01B9
 	db !spawn_command_success
 
-DATA_FFAB2C:
+;$FFAA00
+level_sprite_093C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA975
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19135,7 +20318,8 @@ DATA_FFAB2C:
 	db sprite.general_purpose_68 : dw $01B9
 	db !spawn_command_success
 
-DATA_FFAB45:
+;$FFAB45
+unplaced_level_sprite_093E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19149,7 +20333,8 @@ DATA_FFAB45:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFAB67:
+;$FFAB45
+level_sprite_0940_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19163,7 +20348,8 @@ DATA_FFAB67:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFAB89:
+;$FFAB45
+level_sprite_0942_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19177,7 +20363,8 @@ DATA_FFAB89:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFABAB:
+;$FFAB45
+level_sprite_0944_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19191,7 +20378,8 @@ DATA_FFABAB:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFABCD:
+;$FFABCD
+unplaced_level_sprite_0946_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19205,7 +20393,8 @@ DATA_FFABCD:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFABEF:
+;$FFABCD
+level_sprite_0948_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19219,7 +20408,8 @@ DATA_FFABEF:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFAC11:
+;$FFABCD
+level_sprite_094A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19233,7 +20423,8 @@ DATA_FFAC11:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFAC33:
+;$FFABCD
+level_sprite_094C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19247,7 +20438,8 @@ DATA_FFAC33:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFAC55:
+;$FFABCD
+level_sprite_094E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0003
 	db sprite.general_purpose_4E : dw $001E
@@ -19261,7 +20453,8 @@ DATA_FFAC55:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFAC77:
+;$FFAC77
+unplaced_level_sprite_0950_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19275,7 +20468,8 @@ DATA_FFAC77:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFAC99:
+;$FFAC77
+level_sprite_0952_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19289,7 +20483,8 @@ DATA_FFAC99:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFACBB:
+;$FFAC77
+level_sprite_0954_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19303,7 +20498,8 @@ DATA_FFACBB:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFACDD:
+;$FFAC77
+level_sprite_0956_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19317,7 +20513,8 @@ DATA_FFACDD:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFACFF:
+;$FFAC77
+level_sprite_0958_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0002
 	db sprite.general_purpose_4E : dw $0014
@@ -19331,7 +20528,8 @@ DATA_FFACFF:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFAD21:
+;$FFAC77
+level_sprite_095A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0002
 	db sprite.general_purpose_4E : dw $0014
@@ -19345,7 +20543,8 @@ DATA_FFAD21:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFAD43:
+;$FFAC77
+level_sprite_095C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19359,7 +20558,8 @@ DATA_FFAD43:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFAD65:
+;$FFAC77
+level_sprite_095E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFA97C
 	db sprite.general_purpose_4C : dw $0001
 	db sprite.general_purpose_4E : dw $0014
@@ -19373,230 +20573,269 @@ DATA_FFAD65:
 	db sprite.terrain_attributes : dw $0200
 	db !spawn_command_success
 
-DATA_FFAD87:
+;$FFAC77
+level_sprite_0960_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF80FC
 	db sprite.general_purpose_64 : dw $4A4A
 	db sprite.max_x_speed : dw $FD80
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FFAD94:
+;$FFAC77
+level_sprite_0962_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8A78
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_5E : dw $90A0
 	db sprite.general_purpose_66 : dw $0500
 	db !spawn_command_success
 
-DATA_FFADA1:
+;$FFAC77
+level_sprite_0964_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8A78
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_5E : dw $A0A0
 	db sprite.general_purpose_66 : dw $0500
 	db !spawn_command_success
 
-DATA_FFADAE:
+;$FFAC77
+level_sprite_0966_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8A78
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.general_purpose_5E : dw $A0A0
 	db sprite.general_purpose_66 : dw $0550
 	db !spawn_command_success
 
-DATA_FFADBB:
+;$FFAC77
+level_sprite_0968_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98B9
 	db sprite.x_speed : dw $0000
 	db sprite.y_speed : dw $0120
 	db !spawn_command_success
 
-DATA_FFADC5:
+;$FFADC5
+unplaced_level_sprite_096A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98B9
 	db sprite.x_speed : dw $0000
 	db sprite.y_speed : dw $00C0
-DATA_FFADCE:
+;$FFADC5
+level_sprite_096C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98B9
 	db sprite.x_speed : dw $00C0
 	db sprite.y_speed : dw $0080
 	db !spawn_command_success
 
-DATA_FFADD8:
+;$FFADC5
+level_sprite_096E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98B9
 	db sprite.x_speed : dw $FEE0
 	db sprite.y_speed : dw $0040
 	db !spawn_command_success
 
-DATA_FFADE2:
+;$FFADC5
+level_sprite_0970_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98B9
 	db sprite.x_speed : dw $0000
 	db sprite.y_speed : dw $0120
 	db !spawn_command_success
 
-DATA_FFADEC:
+;$FFADC5
+level_sprite_0972_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF98B9
 	db sprite.x_speed : dw $0000
 	db sprite.y_speed : dw $0160
 	db !spawn_command_success
 
-DATA_FFADF6:
+;$FFADC5
+level_sprite_0974_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B1D
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FFADFD:
+;$FFADC5
+level_sprite_0976_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B27
 	db sprite.max_x_speed : dw $0180
 	db !spawn_command_success
 
-DATA_FFAE04:
+;$FFADC5
+level_sprite_0978_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B27
 	db sprite.max_x_speed : dw $0120
 	db !spawn_command_success
 
-DATA_FFAE0B:
+;$FFADC5
+level_sprite_097A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B27
 	db sprite.max_x_speed : dw $0160
 	db !spawn_command_success
 
-DATA_FFAE12:
+;$FFAE12
+unplaced_level_sprite_097C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B19
 	db sprite.general_purpose_60 : dw $2424
 	db sprite.max_x_speed : dw $FEC0
 	db !spawn_command_success
 
-DATA_FFAE1C:
+;$FFAE12
+level_sprite_097E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B19
 	db sprite.general_purpose_60 : dw $6060
 	db sprite.max_x_speed : dw $FEC0
 	db !spawn_command_success
 
-DATA_FFAE26:
+;$FFAE26
+unplaced_level_sprite_0980_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B19
 	db sprite.general_purpose_60 : dw $5050
 	db sprite.max_x_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FFAE30:
+;$FFAE26
+level_sprite_0982_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8B12
 	db sprite.general_purpose_60 : dw $2060
 	db sprite.max_x_speed : dw $FE80
 	db !spawn_command_success
 
-DATA_FFAE3A:
+;$FFAE3A
+unplaced_level_sprite_0984_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D53
 	db sprite.general_purpose_60 : dw $9010
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FFAE44:
+;$FFAE44
+unplaced_level_sprite_0986_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D53
 	db sprite.general_purpose_60 : dw $9898
 	db sprite.max_x_speed : dw $FE60
 	db !spawn_command_success
 
-DATA_FFAE4E:
+;$FFAE44
+level_sprite_0988_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D53
 	db sprite.general_purpose_60 : dw $4040
 	db sprite.max_x_speed : dw $FE60
 	db !spawn_command_success
 
-DATA_FFAE58:
+;$FFAE58
+unplaced_level_sprite_098A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D53
 	db sprite.general_purpose_60 : dw $7000
 	db sprite.max_x_speed : dw $FEC0
 	db !spawn_command_success
 
-DATA_FFAE62:
+;$FFAE62
+unplaced_level_sprite_098C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D53
 	db sprite.general_purpose_60 : dw $9000
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFAE6C:
+;$FFAE6C
+unplaced_level_sprite_098E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D53
 	db sprite.general_purpose_60 : dw $9090
 	db sprite.max_x_speed : dw $FE00
 	db !spawn_command_success
 
-DATA_FFAE76:
+;$FFAE6C
+level_sprite_0990_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D53
 	db sprite.general_purpose_60 : dw $9010
 	db sprite.max_x_speed : dw $FE60
 	db !spawn_command_success
 
-DATA_FFAE80:
+;$FFAE80
+unplaced_level_sprite_0992_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D53
 	db sprite.general_purpose_60 : dw $2020
 	db sprite.max_x_speed : dw $FED0
 	db !spawn_command_F0
 
-DATA_FFAE8A:
+;$FFAE8A
+unplaced_level_sprite_0994_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D57
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FFAE91:
+;$FFAE91
+unplaced_level_sprite_0996_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D61
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_success
 
-DATA_FFAE98:
+;$FFAE98
+unplaced_level_sprite_0998_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF8D57
 	db sprite.max_x_speed : dw $FF00
 	db !spawn_command_F0
 
-DATA_FFAE9F:
+;$FFAE98
+level_sprite_099A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78F8
 	db sprite.max_x_speed : dw $FF00
 	db sprite.general_purpose_60 : dw $6000
 	db !spawn_command_success
 
-DATA_FFAEA9:
+;$FFAE98
+level_sprite_099C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF78F8
 	db sprite.max_x_speed : dw $0180
 	db sprite.general_purpose_60 : dw $3030
 	db !spawn_command_success
 
-DATA_FFAEB3:
+;$FFAE98
+level_sprite_099E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85CA
 	db sprite.general_purpose_66 : dw $0030
 	db sprite.general_purpose_6A : dw $0028
 	db !spawn_command_success
 
-DATA_FFAEBD:
+;$FFAEBD
+unplaced_level_sprite_09A0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85CA
 	db sprite.general_purpose_66 : dw $0055
 	db sprite.general_purpose_6A : dw $0037
 	db !spawn_command_success
 
-DATA_FFAEC7:
+;$FFAEBD
+level_sprite_09A2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85CA
 	db sprite.general_purpose_66 : dw $0050
 	db sprite.general_purpose_6A : dw $0028
 	db !spawn_command_success
 
-DATA_FFAED1:
+;$FFAED1
+unplaced_level_sprite_09A4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85CA
 	db sprite.general_purpose_66 : dw $005A
 	db sprite.general_purpose_6A : dw $0028
 	db !spawn_command_success
 
-DATA_FFAEDB:
+;$FFAEDB
+unplaced_level_sprite_09A6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85CA
 	db sprite.general_purpose_66 : dw $0020
 	db sprite.general_purpose_6A : dw $001E
 	db !spawn_command_success
 
-DATA_FFAEE5:
+;$FFAEDB
+level_sprite_09A8_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85CA
 	db sprite.general_purpose_66 : dw $0060
 	db sprite.general_purpose_6A : dw $0032
 	db !spawn_command_success
 
-DATA_FFAEEF:
+;$FFAEDB
+level_sprite_09AA_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85CA
 	db sprite.general_purpose_66 : dw $0065
 	db sprite.general_purpose_6A : dw $003C
 	db !spawn_command_success
 
-DATA_FFAEF9:
+;$FFAEF9
+unplaced_level_sprite_09AC_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85DE
 	db sprite.general_purpose_5C : dw $0050
 	db sprite.general_purpose_5E : dw $0001
@@ -19604,7 +20843,8 @@ DATA_FFAEF9:
 	db sprite.general_purpose_6A : dw $002D
 	db !spawn_command_success
 
-DATA_FFAF09:
+;$FFAF09
+unplaced_level_sprite_09AE_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85E5
 	db sprite.general_purpose_5C : dw $0050
 	db sprite.general_purpose_5E : dw $0001
@@ -19612,7 +20852,8 @@ DATA_FFAF09:
 	db sprite.general_purpose_6A : dw $002D
 	db !spawn_command_success
 
-DATA_FFAF19:
+;$FFAF19
+unplaced_level_sprite_09B0_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85E5
 	db sprite.general_purpose_5C : dw $0050
 	db sprite.general_purpose_5E : dw $0001
@@ -19620,7 +20861,8 @@ DATA_FFAF19:
 	db sprite.general_purpose_6A : dw $0032
 	db !spawn_command_success
 
-DATA_FFAF29:
+;$FFAF29
+unplaced_level_sprite_09B2_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85E5
 	db sprite.general_purpose_5C : dw $0040
 	db sprite.general_purpose_5E : dw $0001
@@ -19628,7 +20870,8 @@ DATA_FFAF29:
 	db sprite.general_purpose_6A : dw $0032
 	db !spawn_command_success
 
-DATA_FFAF39:
+;$FFAF29
+level_sprite_09B4_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85DE
 	db sprite.general_purpose_5C : dw $0030
 	db sprite.general_purpose_5E : dw $0001
@@ -19636,7 +20879,8 @@ DATA_FFAF39:
 	db sprite.general_purpose_6A : dw $001E
 	db !spawn_command_success
 
-DATA_FFAF49:
+;$FFAF29
+level_sprite_09B6_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF85DE
 	db sprite.general_purpose_5C : dw $0045
 	db sprite.general_purpose_5E : dw $0001
@@ -19644,247 +20888,295 @@ DATA_FFAF49:
 	db sprite.general_purpose_6A : dw $002D
 	db !spawn_command_success
 
-DATA_FFAF59:
+;$FFAF59
+unplaced_level_sprite_09B8_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $E6, $40, $00, $00, $00, $75, $25, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFAF69:
+;$FFAF69
+unplaced_level_sprite_09BA_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $C0, $D0, $00, $00, $00, $75, $25, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFAF79:
+;$FFAF69
+level_sprite_09BC_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0A, $26, $C0, $00, $00, $00, $61, $0F, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_F0
 
-DATA_FFAF89:
+;$FFAF89
+unplaced_level_sprite_09BE_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0A, $EC, $60, $00, $00, $00, $75, $25, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_F0
 
-DATA_FFAF99:
+;$FFAF89
+level_sprite_09C0_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0A, $08, $30, $00, $00, $00, $50, $10, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFAFA9:
+;$FFAF89
+level_sprite_09C2_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0A, $C8, $60, $00, $00, $00, $B0, $20, $00
 	db sprite.unknown_58 : dw $DD14
 	db sprite.movement_state : dw $0001
 	db !spawn_command_F0
 
-DATA_FFAFBC:
+;$FFAFBC
+unplaced_level_sprite_09C4_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $20, $60, $00, $00, $00, $A0, $20, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFAFCC:
+;$FFAFBC
+level_sprite_09C6_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $8A, $A0, $00, $00, $00, $A0, $20, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFAFDC:
+;$FFAFBC
+level_sprite_09C8_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $E0, $A0, $00, $00, $00, $D4, $08, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFAFEC:
+;$FFAFEC
+unplaced_level_sprite_09CA_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $00, $00, $00, $00, $00, $70, $0A, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFAFFC:
+;$FFAFEC
+level_sprite_09CC_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $40, $60, $00, $00, $00, $70, $0A, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB00C:
+;$FFAFEC
+level_sprite_09CE_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $E8, $30, $00, $00, $00, $70, $0A, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB01C:
+;$FFB01C
+unplaced_level_sprite_09D0_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $20, $60, $00, $00, $00, $70, $0A, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB02C:
+;$FFB01C
+level_sprite_09D2_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $0C, $68, $00, $00, $00, $70, $20, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB03C:
+;$FFB01C
+level_sprite_09D4_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $C8, $68, $00, $00, $00, $70, $15, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB04C:
+;$FFB01C
+level_sprite_09D6_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $4C, $68, $00, $00, $00, $70, $0A, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB05C:
+;$FFB05C
+unplaced_level_sprite_09D8_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $E2, $30, $00, $00, $00, $C0, $20, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB06C:
+;$FFB05C
+level_sprite_09DA_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $C4, $A0, $00, $00, $00, $D4, $20, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB07C:
+;$FFB05C
+level_sprite_09DC_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $04, $A0, $00, $00, $00, $D4, $20, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB08C:
+;$FFB08C
+unplaced_level_sprite_09DE_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $04, $A0, $00, $00, $00, $D4, $20, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB09C:
+;$FFB08C
+level_sprite_09E0_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $C8, $A0, $00, $00, $00, $D4, $35, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB0AC:
+;$FFB08C
+level_sprite_09E2_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $2E, $60, $00, $00, $00, $A0, $20, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB0BC:
+;$FFB08C
+level_sprite_09E4_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $08, $6C, $A0, $00, $00, $00, $60, $05, $00
 	db sprite.movement_state : dw $0001
 	db sprite.constants_address : dw $0508
 	db sprite.terrain_attributes : dw $0000
 	db !spawn_command_success
 
-DATA_FFB0D2:
+;$FFB08C
+level_sprite_09E6_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0A, $08, $30, $00, $00, $00, $50, $0C, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB0E2:
+;$FFB08C
+level_sprite_09E8_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $40, $68, $00, $00, $00, $80, $10, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB0F2:
+;$FFB08C
+level_sprite_09EA_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $C0, $A0, $00, $00, $00, $40, $03, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB102:
+;$FFB08C
+level_sprite_09EC_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65D7 : db $0C, $E0, $38, $00, $00, $00, $80, $1C, $00
 	db sprite.movement_state : dw $0001
 	db !spawn_command_success
 
-DATA_FFB112:
+;$FFB08C
+level_sprite_09EE_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $0C, $CC, $00, $00, $00, $00, $A0, $20, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFB122:
+;$FFB08C
+level_sprite_09F0_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $0C, $22, $00, $00, $00, $00, $70, $0A, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFB132:
+;$FFB08C
+level_sprite_09F2_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $70, $0A, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFB142:
+;$FFB08C
+level_sprite_09F4_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $0C, $22, $00, $00, $00, $00, $80, $13, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFB152:
+;$FFB08C
+level_sprite_09F6_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $60, $0A, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFB162:
+;$FFB08C
+level_sprite_09F8_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $22, $00, $00, $00, $00, $70, $0A, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFB172:
+;$FFB172
+unplaced_level_sprite_09FA_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $0C, $88, $00, $00, $00, $00, $90, $0A, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFB182:
+;$FFB182
+unplaced_level_sprite_09FC_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $0C, $CC, $00, $00, $00, $00, $40, $03, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFB192:
+;$FFB192
+unplaced_level_sprite_09FE_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $0C, $00, $00, $00, $00, $00, $90, $10, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFB1A2:
+;$FFB192
+level_sprite_0A00_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $0C, $00, $00, $00, $00, $00, $90, $15, $15
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFB1B2:
+;$FFB192
+level_sprite_0A02_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $05, $00, $00, $00, $00, $00, $A0, $18, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFB1C2:
+;$FFB192
+level_sprite_0A04_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $04, $00, $00, $00, $00, $00, $60, $0A, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFB1D2:
+;$FFB192
+level_sprite_0A06_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $0A, $00, $00, $00, $00, $00, $70, $0A, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFB1E2:
+;$FFB192
+level_sprite_0A08_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $00, $00, $00, $00, $00, $80, $10, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_F0
 
-DATA_FFB1F2:
+;$FFB192
+level_sprite_0A0A_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65E4 : db $08, $EE, $00, $00, $00, $00, $80, $10, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_F0
 
-DATA_FFB202:
+;$FFB202
+unplaced_level_sprite_0A0C_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $00, $00, $00, $00, $00, $70, $12, $00
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFB212:
+;$FFB202
+level_sprite_0A0E_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $00, $40, $00, $00, $00, $55, $10, $00
 	db sprite.movement_state : dw $0404
 	db !spawn_command_success
 
-DATA_FFB222:
+;$FFB222
+unplaced_level_sprite_0A10_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $0C, $88, $40, $00, $00, $00, $60, $0A, $00
 	db sprite.movement_state : dw $0404
 	db !spawn_command_success
 
-DATA_FFB232:
+;$FFB232
+unplaced_level_sprite_0A12_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $0C, $40, $00, $00, $00, $60, $10, $00
 	db sprite.unknown_58 : dw $2300
 	db sprite.movement_state : dw $0404
 	db !spawn_command_success
 
-DATA_FFB245:
+;$FFB232
+level_sprite_0A14_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $08, $4E, $C0, $00, $00, $00, $90, $15, $00
 	db sprite.movement_state : dw $0203
 	db sprite.unknown_58 : dw $ECEC
 	db !spawn_command_success
 
-DATA_FFB258:
+;$FFB258
+unplaced_level_sprite_0A16_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FF65C1 : db $0C, $00, $38, $00, $00, $00, $80, $1C, $00
 	db sprite.movement_state : dw $0404
 	db !spawn_command_success
@@ -19915,107 +21207,125 @@ DATA_FFB284:
 	db sprite.general_purpose_64 : dw $E800
 	db !spawn_command_success
 
-DATA_FFB2A6:
+;$FFB258
+level_sprite_0A18_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8A, $00, $00, $3A, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db !spawn_command_success
 
-DATA_FFB2B6:
+;$FFB258
+level_sprite_0A1A_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8A, $00, $00, $15, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_F0
 
-DATA_FFB2C9:
+;$FFB258
+level_sprite_0A1C_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8A, $00, $00, $2A, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_success
 
-DATA_FFB2DC:
+;$FFB258
+level_sprite_0A1E_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8B, $00, $00, $12, $00, $98, $70, $0A, $05
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_success
 
-DATA_FFB2EF:
+;$FFB258
+level_sprite_0A20_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8A, $00, $00, $16, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_success
 
-DATA_FFB302:
+;$FFB258
+level_sprite_0A22_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8A, $00, $00, $1A, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_success
 
-DATA_FFB315:
+;$FFB315
+unplaced_level_sprite_0A24_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8A, $00, $00, $13, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_success
 
-DATA_FFB328:
+;$FFB315
+level_sprite_0A26_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8A, $00, $00, $1C, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_success
 
-DATA_FFB33B:
+;$FFB315
+level_sprite_0A28_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8A, $00, $00, $15, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_success
 
-DATA_FFB34E:
+;$FFB315
+level_sprite_0A2A_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8A, $00, $00, $2F, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_F0
 
-DATA_FFB361:
+;$FFB315
+level_sprite_0A2C_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8A, $00, $00, $18, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_F0
 
-DATA_FFB374:
+;$FFB315
+level_sprite_0A2E_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8A, $00, $00, $11, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_success
 
-DATA_FFB387:
+;$FFB315
+level_sprite_0A30_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8E, $00, $00, $15, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_F0
 
-DATA_FFB39A:
+;$FFB315
+level_sprite_0A32_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8A, $00, $00, $18, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_success
 
-DATA_FFB3AD:
+;$FFB315
+level_sprite_0A34_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8A, $00, $00, $15, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_success
 
-DATA_FFB3C0:
+;$FFB315
+level_sprite_0A36_spawn_script:
 	db !spawn_command_load_sub_and_bulk_set : dw DATA_FFB268 : db $8B, $00, $00, $1A, $00, $98, $70, $06, $00
 	db sprite.ground_distance : dw $0000
 	db sprite.unknown_58 : dw $2300
 	db !spawn_command_success
 
-DATA_FFB3D3:
+;$FFB315
+level_sprite_0A38_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF71EC
 	db sprite.general_purpose_5C : dw $02D0
 	db !spawn_command_success
 
-DATA_FFB3DA:
+;$FFB315
+level_sprite_0A3A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FF71EC
 	db sprite.general_purpose_5C : dw $0708
 	db !spawn_command_success
@@ -20076,7 +21386,8 @@ DATA_FFB47D:
 	db sprite.animation_address : dw $0000
 	db !spawn_command_success
 
-DATA_FFB49F:
+;$FFB315
+level_sprite_0A3C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB47D
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $0000
@@ -20084,14 +21395,16 @@ DATA_FFB49F:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FFB4AF:
+;$FFB315
+level_sprite_0A3E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB47D
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $0000
 	db sprite.general_purpose_64 : dw $0000
 	db !spawn_command_success
 
-DATA_FFB4BC:
+;$FFB315
+level_sprite_0A40_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB47D
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $0200
@@ -20099,7 +21412,8 @@ DATA_FFB4BC:
 	db !spawn_command_set_oam : dw $2000
 	db !spawn_command_success
 
-DATA_FFB4CC:
+;$FFB315
+level_sprite_0A42_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB47D
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $0200
@@ -20107,7 +21421,8 @@ DATA_FFB4CC:
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FFB4DC:
+;$FFB315
+level_sprite_0A44_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB47D
 	db sprite.movement_state : dw $0037
 	db sprite.max_x_speed : dw $0200
@@ -20115,35 +21430,40 @@ DATA_FFB4DC:
 	db !spawn_command_set_oam : dw $6000
 	db !spawn_command_success
 
-DATA_FFB4EC:
+;$FFB4EC
+unplaced_level_sprite_0A46_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB47D
 	db sprite.movement_state : dw $0006
 	db sprite.max_y_speed : dw $FE00
 	db sprite.general_purpose_64 : dw $0078
 	db !spawn_command_success
 
-DATA_FFB4F9:
+;$FFB4EC
+level_sprite_0A48_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB47D
 	db sprite.movement_state : dw $0038
 	db sprite.max_y_speed : dw $FBB0
 	db sprite.general_purpose_60 : dw $018B
 	db !spawn_command_success
 
-DATA_FFB506:
+;$FFB4EC
+level_sprite_0A4A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB47D
 	db sprite.movement_state : dw $0038
 	db sprite.max_y_speed : dw $FCB0
 	db sprite.general_purpose_60 : dw $0082
 	db !spawn_command_success
 
-DATA_FFB513:
+;$FFB4EC
+level_sprite_0A4C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB47D
 	db sprite.movement_state : dw $0038
 	db sprite.max_y_speed : dw $0350
 	db sprite.general_purpose_60 : dw $0082
 	db !spawn_command_success
 
-DATA_FFB520:
+;$FFB4EC
+level_sprite_0A4E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB47D
 	db sprite.movement_state : dw $0038
 	db sprite.max_y_speed : dw $FEC0
@@ -20153,7 +21473,8 @@ DATA_FFB520:
 	db sprite.animation_routine : dw $002F
 	db !spawn_command_success
 
-DATA_FFB536:
+;$FFB536
+unplaced_level_sprite_0A50_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB47D
 	db sprite.movement_state : dw $0000
 	db sprite.general_purpose_5C : dw DATA_FFB552
@@ -20178,7 +21499,8 @@ DATA_FFB552:
 	dw $0000
 
 
-DATA_FFB566:
+;$FFB566
+unplaced_level_sprite_0A52_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB47D
 	db sprite.movement_state : dw $0000
 	db sprite.general_purpose_5C : dw DATA_FFB582
@@ -20208,7 +21530,8 @@ DATA_FFB590:
 	db sprite.general_purpose_64 : dw $0080
 	db !spawn_command_success
 
-DATA_FFB5A3:
+;$FFB566
+level_sprite_0A54_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB5AD
 	db sprite.general_purpose_5E : dw $000F
@@ -20234,7 +21557,8 @@ DATA_FFB5AD:
 	dw $01BB, $01E0
 
 
-DATA_FFB5E9:
+;$FFB566
+level_sprite_0A56_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB5F3
 	db sprite.general_purpose_5E : dw $000F
@@ -20258,7 +21582,8 @@ DATA_FFB5F3:
 	dw $029A, $0150
 
 
-DATA_FFB62F:
+;$FFB566
+level_sprite_0A58_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB639
 	db sprite.general_purpose_5E : dw $000F
@@ -20281,7 +21606,8 @@ DATA_FFB639:
 	dw $0200, $0220
 	dw $0200, $0280
 
-DATA_FFB675:
+;$FFB566
+level_sprite_0A5A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB67F
 	db sprite.general_purpose_5E : dw $000F
@@ -20304,7 +21630,8 @@ DATA_FFB67F:
 	dw $01C0, $0150
 	dw $01F0, $0180
 
-DATA_FFB6BB:
+;$FFB566
+level_sprite_0A5C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB6C5
 	db sprite.general_purpose_5E : dw $000F
@@ -20327,7 +21654,8 @@ DATA_FFB6C5:
 	dw $01E0, $01D0
 	dw $01E0,$01D0
 
-DATA_FFB701:
+;$FFB566
+level_sprite_0A5E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB70B
 	db sprite.general_purpose_5E : dw $000F
@@ -20350,7 +21678,8 @@ DATA_FFB70B:
 	dw $01D0, $0230
 	dw $01F0, $0230
 
-DATA_FFB747:
+;$FFB566
+level_sprite_0A60_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB751
 	db sprite.general_purpose_5E : dw $000F
@@ -20373,7 +21702,8 @@ DATA_FFB751:
 	dw $01AA, $0145
 	dw $01CA, $0145
 
-DATA_FFB78D:
+;$FFB566
+level_sprite_0A62_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB79A
 	db sprite.general_purpose_5E : dw $000F
@@ -20397,7 +21727,8 @@ DATA_FFB79A:
 	dw $01F0, $0090
 	dw $01F0, $0070
 
-DATA_FFB7D6:
+;$FFB566
+level_sprite_0A64_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB7E0
 	db sprite.general_purpose_5E : dw $000F
@@ -20420,7 +21751,8 @@ DATA_FFB7E0:
 	dw $0208, $01B0
 	dw $0148, $0170
 
-DATA_FFB81C:
+;$FFB566
+level_sprite_0A66_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB826
 	db sprite.general_purpose_5E : dw $000F
@@ -20443,7 +21775,8 @@ DATA_FFB826:
 	dw $0190, $01E0
 	dw $01F0, $01E0
 
-DATA_FFB862:
+;$FFB862
+unplaced_level_sprite_0A68_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB86C
 	db sprite.general_purpose_5E : dw $0014
@@ -20471,7 +21804,8 @@ DATA_FFB86C:
 	dw $0160, $0190
 	dw $0180, $0190
 
-DATA_FFB8BC:
+;$FFB862
+level_sprite_0A6A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB8C6
 	db sprite.general_purpose_5E : dw $000F
@@ -20494,7 +21828,8 @@ DATA_FFB8C6:
 	dw $0190, $0250
 	dw $01C8, $0218
 
-DATA_FFB902:
+;$FFB862
+level_sprite_0A6C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB90C
 	db sprite.general_purpose_5E : dw $000F
@@ -20517,7 +21852,8 @@ DATA_FFB90C:
 	dw $0210, $0130
 	dw $01D0, $0170
 
-DATA_FFB948:
+;$FFB862
+level_sprite_0A6E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB952
 	db sprite.general_purpose_5E : dw $000F
@@ -20540,7 +21876,8 @@ DATA_FFB952:
 	dw $0148, $0210
 	dw $01B8, $0210
 
-DATA_FFB98E:
+;$FFB862
+level_sprite_0A70_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB998
 	db sprite.general_purpose_5E : dw $000F
@@ -20563,7 +21900,8 @@ DATA_FFB998:
 	dw $0180, $01E0
 	dw $01F0, $01C0
 
-DATA_FFB9D4:
+;$FFB862
+level_sprite_0A72_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFB9DE
 	db sprite.general_purpose_5E : dw $000F
@@ -20586,7 +21924,8 @@ DATA_FFB9DE:
 	dw $0270, $01C0
 	dw $0270, $01C0
 
-DATA_FFBA1A:
+;$FFB862
+level_sprite_0A74_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFBA24
 	db sprite.general_purpose_5E : dw $000F
@@ -20609,7 +21948,8 @@ DATA_FFBA24:
 	dw $01CF, $01C0
 	dw $01F4, $01C0
 
-DATA_FFBA60:
+;$FFB862
+level_sprite_0A76_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFBA6A
 	db sprite.general_purpose_5E : dw $000F
@@ -20632,7 +21972,8 @@ DATA_FFBA6A:
 	dw $01D0, $01BA
 	dw $01F5, $01BA
 
-DATA_FFBAA6:
+;$FFB862
+level_sprite_0A78_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFBAB0
 	db sprite.general_purpose_5E : dw $000F
@@ -20655,7 +21996,8 @@ DATA_FFBAB0:
 	dw $01F9, $01A0
 	dw $01F9, $0180
 
-DATA_FFBAEC:
+;$FFBAEC
+unplaced_level_sprite_0A7A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFBAF6
 	db sprite.general_purpose_5E : dw $000F
@@ -20678,7 +22020,8 @@ DATA_FFBAF6:
 	dw $01C0, $01A0
 	dw $01E0, $01A0
 
-DATA_FFBB32:
+;$FFBAEC
+level_sprite_0A7C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFBB3C
 	db sprite.general_purpose_5E : dw $000F
@@ -20701,7 +22044,8 @@ DATA_FFBB3C:
 	dw $0210, $0220
 	dw $01D0, $0220
 
-DATA_FFBB78:
+;$FFBAEC
+level_sprite_0A7E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFBB85
 	db sprite.general_purpose_5E : dw $000F
@@ -20725,7 +22069,8 @@ DATA_FFBB85:
 	dw $0248, $01E0
 	dw $0290, $01E0
 
-DATA_FFBBC1:
+;$FFBAEC
+level_sprite_0A80_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFBBCB
 	db sprite.general_purpose_5E : dw $000F
@@ -20748,7 +22093,8 @@ DATA_FFBBCB:
 	dw $01D0, $026C
 	dw $01D0, $02D4
 
-DATA_FFBC07:
+;$FFBAEC
+level_sprite_0A82_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFB590
 	db sprite.general_purpose_5C : dw DATA_FFBC11
 	db sprite.general_purpose_5E : dw $000F
@@ -20788,13 +22134,15 @@ DATA_FFBC54:
 	db sprite.general_purpose_4C : dw DATA_FF1ED2
 	db !spawn_command_success
 
-DATA_FFBC70:
+;$FFBAEC
+level_sprite_0A84_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFBC54
 	db sprite.general_purpose_5C : dw $0201
 	db sprite.general_purpose_5E : dw $0000
 	db !spawn_command_success
 
-DATA_FFBC7A:
+;$FFBAEC
+level_sprite_0A86_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFBC54
 	db sprite.general_purpose_5C : dw $0CFF
 	db sprite.general_purpose_5E : dw $8000
@@ -20812,13 +22160,15 @@ DATA_FFBC84:
 	db sprite.general_purpose_4C : dw DATA_FF1EE4
 	db !spawn_command_success
 
-DATA_FFBCA0:
+;$FFBAEC
+level_sprite_0A88_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFBC84
 	db sprite.general_purpose_5C : dw $1021
 	db sprite.general_purpose_5E : dw $0000
 	db !spawn_command_success
 
-DATA_FFBCAA:
+;$FFBAEC
+level_sprite_0A8A_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFBC84
 	db sprite.general_purpose_5C : dw $152F
 	db sprite.general_purpose_5E : dw $8000
@@ -20836,13 +22186,15 @@ DATA_FFBCB4:
 	db sprite.general_purpose_4C : dw DATA_FF1EF6
 	db !spawn_command_success
 
-DATA_FFBCD0:
+;$FFBAEC
+level_sprite_0A8C_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFBCB4
 	db sprite.general_purpose_5C : dw $1801
 	db sprite.general_purpose_5E : dw $0000
 	db !spawn_command_success
 
-DATA_FFBCDA:
+;$FFBAEC
+level_sprite_0A8E_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFBCB4
 	db sprite.general_purpose_5C : dw $1F5F
 	db sprite.general_purpose_5E : dw $8000
@@ -20860,13 +22212,15 @@ DATA_FFBCE4:
 	db sprite.general_purpose_4C : dw DATA_FF1F08
 	db !spawn_command_success
 
-DATA_FFBD00:
+;$FFBAEC
+level_sprite_0A90_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFBCE4
 	db sprite.general_purpose_5C : dw $2091
 	db sprite.general_purpose_5E : dw $0000
 	db !spawn_command_success
 
-DATA_FFBD0A:
+;$FFBAEC
+level_sprite_0A92_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFBCE4
 	db sprite.general_purpose_5C : dw $25BF
 	db sprite.general_purpose_5E : dw $8000
@@ -20884,26 +22238,30 @@ DATA_FFBD14:
 	db sprite.general_purpose_4C : dw DATA_FF1F1A
 	db !spawn_command_success
 
-DATA_FFBD30:
+;$FFBAEC
+level_sprite_0A94_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFBD14
 	db sprite.general_purpose_5C : dw $2771
 	db sprite.general_purpose_5E : dw $0000
 	db !spawn_command_success
 
-DATA_FFBD3A:
+;$FFBAEC
+level_sprite_0A96_spawn_script:
 	db !spawn_command_load_subconfig : dw DATA_FFBD14
 	db sprite.general_purpose_5C : dw $2B2F
 	db sprite.general_purpose_5E : dw $8000
 	db !spawn_command_success
 
-DATA_FFBD44:
+;$FFBAEC
+level_sprite_0A98_spawn_script:
 	db !spawn_command_setup_static : dw !sprite_Squirt, $000F : db $17
 	db sprite.state : dw $0000
 	db sprite.display_mode : dw $C000
 	db !spawn_command_set_oam : dw $3000
 	db !spawn_command_success
 
-DATA_FFBD54:
+;$FFBAEC
+level_sprite_0A9A_spawn_script:
 	db !spawn_command_set_type : dw !sprite_Sneek
 	db sprite.constants_address : dw DATA_FF1BCE
 	db sprite.render_order : dw $00D4
@@ -20920,32 +22278,37 @@ DATA_FFBD54:
 	db sprite.general_purpose_60 : dw $0808
 	db !spawn_command_success
 
-DATA_FFBD7F:
+;$FFBAEC
+level_sprite_0A9C_spawn_script:
 	db !spawn_command_set_type : dw !sprite_StampedeTrigger
 	db sprite.state : dw $0000
 	db !spawn_command_success
 
-DATA_FFBD86:
+;$FFBAEC
+level_sprite_0A9E_spawn_script:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_0140
 	db sprite.state : dw $0001
 	db sprite.general_purpose_5C : dw $0469
 	db sprite.general_purpose_5E : dw $002D
 	db !spawn_command_success
 
-DATA_FFBD93:
+;$FFBAEC
+level_sprite_0AA0_spawn_script:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_0140
 	db sprite.state : dw $0001
 	db sprite.general_purpose_5C : dw $064D
 	db sprite.general_purpose_5E : dw $001E
 	db !spawn_command_success
 
-DATA_FFBDA0:
+;$FFBDA0
+unplaced_level_sprite_0AA2_spawn_script:
 	db !spawn_command_set_type : dw !sprite_unknown_sprite_0140
 	db sprite.state : dw $0002
 	db sprite.general_purpose_5C : dw $0763
 	db !spawn_command_success
 
-DATA_FFBDAA:
+;$FFBDA0
+level_sprite_0AA4_spawn_script:
 	db !spawn_command_set_type : dw !sprite_ArichHead
 	db sprite.render_order : dw $00D4
 	db sprite.state : dw $0000
@@ -20959,7 +22322,8 @@ DATA_FFBDAA:
 	db !spawn_command_set_animation : dw $01D3
 	db !spawn_command_success
 
-DATA_FFBDCC:
+;$FFBDA0
+level_sprite_0AA6_spawn_script:
 	db !spawn_command_set_type : dw !sprite_Bleak
 	db sprite.render_order : dw $00D4
 	db sprite.state : dw $0000
@@ -20980,14 +22344,16 @@ DATA_FFBDE5:
 	db sprite.y_position : dw $0270
 	db !spawn_command_success
 
-DATA_FFBDFB:
+;$FFBDA0
+level_sprite_0AA8_spawn_script:
 	db !spawn_command_set_type : dw !sprite_Barbos
 	db sprite.state : dw $0000
 	db sprite.general_purpose_5C : dw $0000
 	db sprite.movement_state : dw $0000
 	db !spawn_command_success
 
-DATA_FFBE08:
+;$FFBDA0
+level_sprite_0AAA_spawn_script:
 	db !spawn_command_set_type : dw !sprite_KAOS
 	db sprite.y_position : dw $0168
 	db sprite.x_speed : dw $0000

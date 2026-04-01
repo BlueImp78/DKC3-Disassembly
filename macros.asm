@@ -91,15 +91,7 @@ macro get_swanky_table()
 endmacro
 
 macro sprite(param, x, y, sprite)
-	if !version == 0
-		if <sprite> >= $0DB6
-			dw <param>, <x>, <y>, <sprite>-2
-		else
-			dw <param>, <x>, <y>, <sprite>
-		endif
-	else
-		dw <param>, <x>, <y>, <sprite>
-	endif
+	dw <param>, <x>, <y>, <sprite>
 endmacro
 
 macro banana(param_a, param_b, param_c, type)
