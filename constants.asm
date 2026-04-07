@@ -537,7 +537,7 @@ includeonce
 !sprite_kong_letters			= $0294
 !sprite_bananas 			= $0298
 !sprite_extra_life_balloon		= $029C
-!sprite_level_end_flagpole		= $02A0
+!sprite_level_end_flag			= $02A0
 !sprite_unknown_02A4			= $02A4
 !sprite_bonus_timer			= $02A8
 !sprite_rope_fire			= $02AC

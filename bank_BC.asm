@@ -6066,7 +6066,7 @@ CODE_BCF888:
 	JSL.l CODE_B8806F			;$BCF88C
 	LDA.w current_kong			;$BCF890
 	JSL.l CODE_B8805A			;$BCF893
-	LDA.w $05AF				;$BCF897
+	LDA.w game_state_flags			;$BCF897
 	BIT.w #$4000				;$BCF89A
 	BNE.b CODE_BCF8A7			;$BCF89D
 	LDX.w follower_kong_sprite		;$BCF89F
@@ -6134,7 +6134,7 @@ CODE_BCF91C:
 	CMP.w #$000A				;$BCF91F
 	BNE.b CODE_BCF92A			;$BCF922
 	LDA.w #$1000				;$BCF924
-	TSB.w $0629				;$BCF927
+	TSB.w bear_dialogue.bjorn			;$BCF927
 CODE_BCF92A:
 	LDX.w active_kong_sprite		;$BCF92A
 	LDA.w #$FCC0				;$BCF92D

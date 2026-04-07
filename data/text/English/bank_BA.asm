@@ -1,4 +1,4 @@
 unknown_sprite_00F4_Main:
-	JML [$04F5]				;$BAFFFC
+	JML [sprite_return_address]		;$BAFFFC
 
 	db $FF

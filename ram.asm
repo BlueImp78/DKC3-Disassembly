@@ -83,23 +83,96 @@ invincibility_timer			= $CA
 RAM_00F4				= $F4
 RAM_00F6				= $F6
 
+;START OF RAMIFIED BLOCK
 stack_end				= $0100
 stack					= $01FF
 oam_table				= $0200
 oam_attribute_table			= $0400
-
+sound_effect_buffer			= $0420
+UNUSED_0422				= $0422
+RAM_0424				= $0424
+RAM_0426				= $0426
+RAM_0428				= $0428
+RAM_042A				= $042A
+RAM_042C				= $042C
+RAM_042E				= $042E
+RAM_0430				= $0430
 stereo_select				= $0432
-
+RAM_0434				= $0434
+RAM_0436				= $0436
+RAM_0438				= $0438
+spc_command_buffer			= $0439
+RAM_043A				= $043A
+;...
+RAM_044A				= $044A
+RAM_044C				= $044C
+RAM_044E				= $044E
+RAM_0450				= $0450
+RAM_0452				= $0452
+RAM_0453				= $0453
+RAM_0454				= $0454
+RAM_0456				= $0456
+;...
+RAM_045C				= $045C
+RAM_045E				= $045E
+RAM_0460				= $0460
+RAM_0462				= $0462
+RAM_0464				= $0464
+;...
+RAM_0470				= $0470
+RAM_0472				= $0472
+RAM_0473				= $0473
+RAM_0474				= $0474
+RAM_0476				= $0476
+RAM_0478				= $0478
+RAM_047A				= $047A
+RAM_047B				= $047B
+RAM_047C				= $047C
+RAM_047E				= $047E
+RAM_047F				= $047F
+RAM_0480				= $0480
+RAM_0482				= $0482
+RAM_0484				= $0484
+RAM_0486				= $0486
+RAM_0488				= $0488
+RAM_048A				= $048A
+RAM_048C				= $048C
+RAM_048E				= $048E
+RAM_0490				= $0490
+RAM_0492				= $0492
 camera_x_position			= $0493
-
+RAM_0494				= $0494
+RAM_0496				= $0496
 camera_y_position			= $0497
-
+RAM_0498				= $0498
+RAM_049A				= $049A
+RAM_049B				= $049B
+RAM_049C				= $049C
+RAM_049E				= $049E
+RAM_049F				= $049F
+RAM_04A0				= $04A0
+RAM_04A2				= $04A2
+RAM_04A4				= $04A4
+RAM_04A6				= $04A6
+RAM_04A8				= $04A8
+RAM_04AA				= $04AA
+RAM_04AC				= $04AC
+RAM_04AD				= $04AD
+RAM_04AE				= $04AE
+RAM_04B0				= $04B0
 camera_shake_properties			= $04B2
-
+RAM_04B4				= $04B4
+RAM_04B6				= $04B6
+RAM_04B8				= $04B8
+RAM_04BA				= $04BA
+RAM_04BC				= $04BC
+RAM_04BE				= $04BE
+RAM_04C0				= $04C0
+RAM_04C2				= $04C2
+RAM_04C3				= $04C3
 current_game_mode			= $04C4
 active_player				= $04C6
 RAM_04C8				= $04C8
-;controller logic
 player_1_held				= $04CA
 player_2_held				= $04CC
 player_1_pressed			= $04CE
@@ -114,29 +187,69 @@ player_action				= $04DE
 player_action_button_held		= $04E0
 player_action_button_pressed		= $04E2
 pending_dma_hdma_channels		= $04E4
-
+RAM_04E6				= $04E6
+RAM_04E8				= $04E8
+RAM_04EA				= $04EA
 screen_brightness			= $04EC
 screen_fade_speed			= $04ED
 screen_fade_timer			= $04EE
-
+RAM_04EF				= $04EF
+RAM_04F1				= $04F1
+RAM_04F3				= $04F3
 sprite_return_address			= $04F5
 sprite_return_bank			= $04F7
 active_kong_sprite			= $04F9
 active_kong_control_variables		= $04FB
 follower_kong_sprite			= $04FD
 follower_kong_control_variables		= $04FF
-
+RAM_0501				= $0501
+RAM_0503				= $0503
+RAM_0505				= $0505
+water_current_speed			= $0507
 water_bubbles_x_speed			= $0509
-
+RAM_050B				= $050B
+RAM_050D				= $050D
 water_y_position			= $050F
-
+UNUSED_0511				= $0511
+RAM_0513				= $0513
+RAM_0515				= $0515
+RAM_0517				= $0517
+RAM_0519				= $0519
+RAM_051B				= $051B
 RAM_051D				= $051D
-
+RAM_051F				= $051F
+RAM_0521				= $0521
+RAM_0523				= $0523
+RAM_0525				= $0525
+RAM_0527				= $0527
+UNUSED_0529				= $0529
+RAM_052B				= $052B
+RAM_052D				= $052D
+RAM_052F				= $052F
+UNUSED_0531				= $0531
+RAM_0533				= $0533
 riverside_race_timer			= $0535
-
+RAM_0536				= $0536
+RAM_0537				= $0537
+RAM_0538				= $0538
+RAM_0539				= $0539
 active_cheats				= $053B
 RAM_053D				= $053D
-
+RAM_053F				= $053F
+RAM_0541				= $0541
+RAM_0543				= $0543
+RAM_0545				= $0545
+RAM_0547				= $0547
+RAM_0549				= $0549
+RAM_054B				= $054B
+RAM_054D				= $054D
+RAM_054F				= $054F
+RAM_0551				= $0551
+;...
+RAM_059B				= $059B
+;...
+RAM_05A3				= $05A3
+;...
 game_state_flags			= $05AF
 RAM_05B1				= $05B1
 RAM_05B3				= $05B3
@@ -145,7 +258,12 @@ current_entrance			= $05B7
 parent_level_number			= $05B9
 RAM_05BB				= $05BB
 RAM_05BD				= $05BD
-
+RAM_05BF				= $05BF
+RAM_05C1				= $05C1
+RAM_05C3				= $05C3
+RAM_05C5				= $05C5
+RAM_05C6				= $05C6
+RAM_05C7				= $05C7
 bear_coin_count				= $05C9
 bonus_coin_count			= $05CB
 banana_bird_count			= $05CD
@@ -154,21 +272,61 @@ krematoa_gear_count			= $05D1
 banana_count				= $05D3
 lives_count				= $05D5
 kong_letter_flags			= $05D7
-
+RAM_05D8				= $05D8
+RAM_05D9				= $05D9
+RAM_05DA				= $05DA
+RAM_05DC				= $05DC
+RAM_05DE				= $05DE
+UNUSED_05E1				= $05E1
+RAM_05E3				= $05E3
 current_world				= $05E5
 map_node_number				= $05E7
-
+RAM_05E9				= $05E9
 current_map_vehicle			= $05EB
-
+RAM_05ED				= $05ED
+RAM_05EF				= $05EF
+RAM_05F1				= $05F1
+RAM_05F3				= $05F3
+RAM_05F5				= $05F5
+RAM_05F7				= $05F7
+RAM_05F9				= $05F9
+RAM_05FB				= $05FB
+RAM_05FD				= $05FD
 boomer_explosive_count			= $05FF
-
+RAM_0601				= $0601
+RAM_0602				= $0602
 boomer_cog_count			= $0603
-
+RAM_0604				= $0604
+RAM_0605				= $0605
+RAM_0607				= $0607
 inventory_flags				= $0609
+RAM_060B				= $060B
+RAM_0611				= $0611
+RAM_0613				= $0613
 
-brother_bear_dialogue_flags_start	= $0615
+struct bear_dialogue $0615
+	.bazaar:			skip 2	;$0615
+	.blunder:			skip 2	;$0617
+	.bramble:			skip 2	;$0619
+	.barter:			skip 2	;$061B
+	.barnacle:			skip 2	;$061D
+	.brash:				skip 2	;$061F
+	.blue:				skip 2	;$0621
+	.bazooka:			skip 2	;$0623
+	.blizzard:			skip 2	;$0625
+	.benny:				skip 2	;$0627
+	.bjorn:				skip 2	;$0629
+	.baffle:			skip 2	;$062B
+	.boomer:			skip 2	;$062D
+endstruct
 
 riverside_race_player_time		= $062F
+RAM_0631				= $0631
+RAM_0632				= $0632
+RAM_0633				= $0633
+;END OF RAMIFIED BLOCK
+
+
 
 banana_bird_cave_flags			= $0635
 
@@ -179,7 +337,6 @@ intro_cutscene_flags			= $06AB
 RAM_06CF				= $06CF
 
 language_select				= $06D6
-
 sprite_vram_allocation_table		= $06D8
 
 palette_upload_ring_buffer		= $06FC
@@ -189,35 +346,35 @@ active_sprite_palettes_table		= $073C
 sprite_palette_reference_count		= $074C
 
 struct sprite_table $080A
-	.slot_0:	skip sizeof(sprite)	;$080A (aux)
-	.slot_1:	skip sizeof(sprite)	;$0878 (dixie)
-	.slot_2:	skip sizeof(sprite)	;$08E6 (kiddy)
-	.slot_3:	skip sizeof(sprite)	;$0954
-	.slot_4:	skip sizeof(sprite)	;$09C2
-	.slot_5:	skip sizeof(sprite)	;$0A30
-	.slot_6:	skip sizeof(sprite)	;$0A9E
-	.slot_7:	skip sizeof(sprite)	;$0B0C
-	.slot_8:	skip sizeof(sprite)	;$0B7A
-	.slot_9:	skip sizeof(sprite)	;$0BE8
-	.slot_10:	skip sizeof(sprite)	;$0C56
-	.slot_11:	skip sizeof(sprite)	;$0CC4
-	.slot_12:	skip sizeof(sprite)	;$0D32
-	.slot_13:	skip sizeof(sprite)	;$0DA0
-	.slot_14:	skip sizeof(sprite)	;$0E0E
-	.slot_15:	skip sizeof(sprite)	;$0E7C
-	.slot_16:	skip sizeof(sprite)	;$0EEA
-	.slot_17:	skip sizeof(sprite)	;$0F58
-	.slot_18:	skip sizeof(sprite)	;$0FC6
-	.slot_19:	skip sizeof(sprite)	;$1034
-	.slot_20:	skip sizeof(sprite)	;$10A2
-	.slot_21:	skip sizeof(sprite)	;$1110
-	.slot_22:	skip sizeof(sprite)	;$117E
-	.slot_23:	skip sizeof(sprite)	;$11EC
-	.slot_24:	skip sizeof(sprite)	;$125A
-	.slot_25:	skip sizeof(sprite)	;$12C8
-	.slot_26:	skip sizeof(sprite)	;$1336
-	.slot_27:	skip sizeof(sprite)	;$13A4
-	.slot_28:	skip sizeof(sprite)	;$1412
+	.slot_0:			skip sizeof(sprite)	;$080A (aux)
+	.slot_1:			skip sizeof(sprite)	;$0878 (dixie)
+	.slot_2:			skip sizeof(sprite)	;$08E6 (kiddy)
+	.slot_3:			skip sizeof(sprite)	;$0954
+	.slot_4:			skip sizeof(sprite)	;$09C2
+	.slot_5:			skip sizeof(sprite)	;$0A30
+	.slot_6:			skip sizeof(sprite)	;$0A9E
+	.slot_7:			skip sizeof(sprite)	;$0B0C
+	.slot_8:			skip sizeof(sprite)	;$0B7A
+	.slot_9:			skip sizeof(sprite)	;$0BE8
+	.slot_10:			skip sizeof(sprite)	;$0C56
+	.slot_11:			skip sizeof(sprite)	;$0CC4
+	.slot_12:			skip sizeof(sprite)	;$0D32
+	.slot_13:			skip sizeof(sprite)	;$0DA0
+	.slot_14:			skip sizeof(sprite)	;$0E0E
+	.slot_15:			skip sizeof(sprite)	;$0E7C
+	.slot_16:			skip sizeof(sprite)	;$0EEA
+	.slot_17:			skip sizeof(sprite)	;$0F58
+	.slot_18:			skip sizeof(sprite)	;$0FC6
+	.slot_19:			skip sizeof(sprite)	;$1034
+	.slot_20:			skip sizeof(sprite)	;$10A2
+	.slot_21:			skip sizeof(sprite)	;$1110
+	.slot_22:			skip sizeof(sprite)	;$117E
+	.slot_23:			skip sizeof(sprite)	;$11EC
+	.slot_24:			skip sizeof(sprite)	;$125A
+	.slot_25:			skip sizeof(sprite)	;$12C8
+	.slot_26:			skip sizeof(sprite)	;$1336
+	.slot_27:			skip sizeof(sprite)	;$13A4
+	.slot_28:			skip sizeof(sprite)	;$1412
 	.end:
 endstruct
 

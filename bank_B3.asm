@@ -483,7 +483,7 @@ CODE_B383A8:
 
 CODE_B383F8:
 	JSR.w CODE_B380F4			;$B383F8
-	LDA.w $050F				;$B383FB
+	LDA.w water_y_position			;$B383FB
 	CMP.w #$8000				;$B383FE
 	BEQ.b CODE_B38475			;$B38401
 	LDA.b active_frame_counter		;$B38403
@@ -523,7 +523,7 @@ CODE_B38436:
 CODE_B38460:
 	LDA.w $1975				;$B38460
 	SEC					;$B38463
-	SBC.w $050F				;$B38464
+	SBC.w water_y_position			;$B38464
 	CLC					;$B38467
 	ADC.w #$0020				;$B38468
 	SEP.b #$20				;$B3846B
@@ -562,7 +562,7 @@ DATA_B384B1:
 
 CODE_B384B5:
 	JSR.w CODE_B380F4			;$B384B5
-	LDA.w $04C0				;$B384B8
+	LDA.w RAM_04C0				;$B384B8
 	TAX					;$B384BB
 	JSR.w CODE_B38523			;$B384BC
 	STA.b $1A				;$B384BF
@@ -1134,7 +1134,7 @@ CODE_B39637:
 	STA.w PPU.window_2			;$B39643
 	LDA.w $1973				;$B39646
 	SEC					;$B39649
-	SBC.w $050F				;$B3964A
+	SBC.w water_y_position			;$B3964A
 	CLC					;$B3964D
 	ADC.w #$00F0				;$B3964E
 	CMP.w #$0108				;$B39651
@@ -1155,7 +1155,7 @@ CODE_B39637:
 	JSR.w CODE_B39741			;$B3967D
 CODE_B39680:
 	LDX.w #$0000				;$B39680
-	LDA.w $050F				;$B39683
+	LDA.w water_y_position			;$B39683
 	SEC					;$B39686
 	SBC.w $1973				;$B39687
 	BPL.b CODE_B3968F			;$B3968A
@@ -1517,7 +1517,7 @@ CODE_B39BA5:
 	JSR.w CODE_B380F4			;$B39BA5
 	PHK					;$B39BA8
 	PLB					;$B39BA9
-	LDA.w $05AF				;$B39BAA
+	LDA.w game_state_flags			;$B39BAA
 	AND.w #$0040				;$B39BAD
 	BNE.b CODE_B39BB5			;$B39BB0
 	JSR.w CODE_B39BEA			;$B39BB2
@@ -2196,7 +2196,7 @@ CODE_B3A1A5:
 	CMP.w #$0003				;$B3A1AF
 	BNE.b CODE_B3A21E			;$B3A1B2
 	SEP.b #$20				;$B3A1B4
-	LDA.w $05AF				;$B3A1B6
+	LDA.w game_state_flags			;$B3A1B6
 	BIT.b #$40				;$B3A1B9
 	BNE.b CODE_B3A1D8			;$B3A1BB
 	LDA.b #$E0				;$B3A1BD
@@ -2520,7 +2520,7 @@ CODE_B3A4C4:
 	LDA.b #$E0				;$B3A4D0
 	STA.w PPU.fixed_color			;$B3A4D2
 	REP.b #$20				;$B3A4D5
-	LDA.w $05AF				;$B3A4D7
+	LDA.w game_state_flags			;$B3A4D7
 	BIT.w #$0040				;$B3A4DA
 	BNE.b CODE_B3A500			;$B3A4DD
 	LDA.w $15E6				;$B3A4DF
@@ -2727,7 +2727,7 @@ CODE_B3A694:
 
 CODE_B3A6AB:
 	LDA #$0040				;$B3A6AB
-	TRB $05AF				;$B3A6AE
+	TRB game_state_flags			;$B3A6AE
 	JSL CODE_BB85C7				;$B3A6B1
 	JML game_mode_return_with_oam		;$B3A6B5
 
@@ -2979,7 +2979,7 @@ CODE_B3A8FC:
 	TAY					;$B3A940
 	LDX.w #$0000				;$B3A941
 CODE_B3A944:
-	LDA.w $0507				;$B3A944
+	LDA.w water_current_speed		;$B3A944
 	BEQ.b CODE_B3A953			;$B3A947
 	LDA.b active_frame_counter		;$B3A949
 	ASL					;$B3A94B
@@ -3033,7 +3033,7 @@ CODE_B3A997:
 	DEX					;$B3A9AC
 	DEX					;$B3A9AD
 	BPL.b CODE_B3A997			;$B3A9AE
-	LDA.w $0507				;$B3A9B0
+	LDA.w water_current_speed		;$B3A9B0
 	BEQ.b CODE_B3A9BA			;$B3A9B3
 	LDA.b active_frame_counter		;$B3A9B5
 	ASL					;$B3A9B7
@@ -3108,7 +3108,7 @@ CODE_B3AA0D:
 	LSR					;$B3AA47
 	AND.w #$000E				;$B3AA48
 	TAY					;$B3AA4B
-	LDA.w $0507				;$B3AA4C
+	LDA.w water_current_speed		;$B3AA4C
 	BEQ.b CODE_B3AA5B			;$B3AA4F
 	LDA.b active_frame_counter		;$B3AA51
 	ASL					;$B3AA53
@@ -3365,7 +3365,7 @@ CODE_B3ACF5:
 	JMP.w CODE_B3A694			;$B3ACF5
 
 CODE_B3ACF8:
-	LDA.w $050F				;$B3ACF8
+	LDA.w water_y_position			;$B3ACF8
 	CMP.w #$8000				;$B3ACFB
 	BNE.b CODE_B3AD01			;$B3ACFE
 	RTS					;$B3AD00
@@ -3377,7 +3377,7 @@ CODE_B3AD01:
 	LDA.w #$0300				;$B3AD08
 CODE_B3AD0B:
 	STA.b $84				;$B3AD0B
-	LDA.w $050F				;$B3AD0D
+	LDA.w water_y_position			;$B3AD0D
 	SEC					;$B3AD10
 	SBC.w $1975				;$B3AD11
 	SEC					;$B3AD14
@@ -3447,7 +3447,7 @@ CODE_B3AD95:
 	STA.l $7EA15B,x				;$B3AD9F
 	LDA.w #$0000				;$B3ADA3
 	STA.l $7EA15D,x				;$B3ADA6
-	LDA.w $050F				;$B3ADAA
+	LDA.w water_y_position			;$B3ADAA
 	SEC					;$B3ADAD
 	SBC.w $1975				;$B3ADAE
 	SEC					;$B3ADB1
@@ -3487,7 +3487,7 @@ CODE_B3ADF0:
 	LDA.w #$0000				;$B3ADFE
 	STA.l $7EA16D,x				;$B3AE01
 	LDX.b $84				;$B3AE05
-	LDA.w $050F				;$B3AE07
+	LDA.w water_y_position			;$B3AE07
 	SEC					;$B3AE0A
 	SBC.w $1975				;$B3AE0B
 	CLC					;$B3AE0E
@@ -3538,7 +3538,7 @@ CODE_B3AE61:
 	ADC.b $84				;$B3AE82
 	TAY					;$B3AE84
 	LDX.b $84				;$B3AE85
-	LDA.w $050F				;$B3AE87
+	LDA.w water_y_position			;$B3AE87
 	SEC					;$B3AE8A
 	SBC.w $1975				;$B3AE8B
 	SEC					;$B3AE8E
@@ -3584,7 +3584,7 @@ CODE_B3AECA:
 	LDA.w #$0000				;$B3AEDF
 	STA.l $7EA18D,x				;$B3AEE2
 	LDX.b $84				;$B3AEE6
-	LDA.w $050F				;$B3AEE8
+	LDA.w water_y_position			;$B3AEE8
 	SEC					;$B3AEEB
 	SBC.w $1975				;$B3AEEC
 	CMP.w #$0080				;$B3AEEF
@@ -3649,7 +3649,7 @@ CODE_B3AF33:
 	STA.l $7EA19E,x				;$B3AF6B
 	STA.l $7EA1A1,x				;$B3AF6F
 	LDX.b $84				;$B3AF73
-	LDA.w $050F				;$B3AF75
+	LDA.w water_y_position			;$B3AF75
 	SEC					;$B3AF78
 	SBC.w $1975				;$B3AF79
 	CMP.w #$0080				;$B3AF7C
@@ -3716,7 +3716,7 @@ CODE_B3AFC0:
 	STA.l $7EA38E,x				;$B3AFFC
 	STA.l $7EA391,x				;$B3B000
 	LDX.b $84				;$B3B004
-	LDA.w $050F				;$B3B006
+	LDA.w water_y_position			;$B3B006
 	SEC					;$B3B009
 	SBC.w $1975				;$B3B00A
 	SEC					;$B3B00D
@@ -4091,7 +4091,7 @@ CODE_B3B378:
 	STA.b $1D				;$B3B3B2
 	LDA.w #$20B0				;$B3B3B4
 	JSL.l CODE_B78012			;$B3B3B7
-	LDA.w $0507				;$B3B3BB
+	LDA.w water_current_speed		;$B3B3BB
 	CMP.w #$0400				;$B3B3BE
 	BEQ.b CODE_B3B3CE			;$B3B3C1
 	LDA.b active_frame_counter		;$B3B3C3
@@ -4118,7 +4118,7 @@ CODE_B3B3D3:
 	STA.b $1D				;$B3B3E5
 	LDA.w #$2150				;$B3B3E7
 	JSL.l CODE_B78012			;$B3B3EA
-	STZ.w $0507				;$B3B3EE
+	STZ.w water_current_speed		;$B3B3EE
 	RTS					;$B3B3F1
 
 DATA_B3B3F2:
@@ -5701,15 +5701,15 @@ CODE_B3C281:
 	JSL.l CODE_B7C2A3			;$B3C293
 	JSL.l CODE_B78000			;$B3C297
 CODE_B3C29B:
-	LDA.w $050F				;$B3C29B
+	LDA.w water_y_position			;$B3C29B
 	BMI.b CODE_B3C2B5			;$B3C29E
 	JSR.w CODE_B3CADC			;$B3C2A0
 	JSL.l CODE_BB85BB			;$B3C2A3
-	LDA.w $05AF				;$B3C2A7
+	LDA.w game_state_flags			;$B3C2A7
 	BIT.w #$0010				;$B3C2AA
 	BEQ.b CODE_B3C2B5			;$B3C2AD
 	ORA.w #$0200				;$B3C2AF
-	STA.w $05AF				;$B3C2B2
+	STA.w game_state_flags			;$B3C2B2
 CODE_B3C2B5:
 	JSL.l set_unused_oam_offscreen		;$B3C2B5
 	JSL.l screen_fade_handler		;$B3C2B9
@@ -6612,15 +6612,15 @@ CODE_B3CADC:
 	LDX.w active_kong_sprite		;$B3CADC
 	LDA.b $16,x				;$B3CADF
 	BMI.b CODE_B3CB20			;$B3CAE1
-	CMP.w $050F				;$B3CAE3
+	CMP.w water_y_position			;$B3CAE3
 	BCC.b CODE_B3CB15			;$B3CAE6
-	LDA.w $0517				;$B3CAE8
+	LDA.w RAM_0517				;$B3CAE8
 	INC					;$B3CAEB
 	BEQ.b CODE_B3CAF1			;$B3CAEC
-	STA.w $0517				;$B3CAEE
+	STA.w RAM_0517				;$B3CAEE
 CODE_B3CAF1:
 	LDA.w #$0010				;$B3CAF1
-	TSB.w $05AF				;$B3CAF4
+	TSB.w game_state_flags			;$B3CAF4
 	BNE.b CODE_B3CB20			;$B3CAF7
 CODE_B3CAF9:
 	LDA.w $0777				;$B3CAF9
@@ -6636,9 +6636,9 @@ CODE_B3CB0D:
 	RTS					;$B3CB14
 
 CODE_B3CB15:
-	STZ.w $0517				;$B3CB15
+	STZ.w RAM_0517				;$B3CB15
 	LDA.w #$0010				;$B3CB18
-	TRB.w $05AF				;$B3CB1B
+	TRB.w game_state_flags			;$B3CB1B
 	BNE.b CODE_B3CAF9			;$B3CB1E
 CODE_B3CB20:
 	RTS					;$B3CB20
@@ -6736,9 +6736,9 @@ DATA_B3CBE5:
 
 CODE_B3CBF1:
 	LDA.w #$7EA25A				;$B3CBF1
-	STA.w $04F1				;$B3CBF4
+	STA.w RAM_04F1				;$B3CBF4
 	LDA.w #($7EA25A>>16)|$0100		;$B3CBF7
-	STA.w $04F3				;$B3CBFA
+	STA.w RAM_04F3				;$B3CBFA
 	JSR.w CODE_B3CF20			;$B3CBFD
 	LDA.b active_frame_counter		;$B3CC00
 	AND.w #$0007				;$B3CC02
@@ -6962,9 +6962,9 @@ CODE_B3CE29:
 	CMP.w #$0001				;$B3CE2C
 	BNE.b CODE_B3CE43			;$B3CE2F
 	LDA.w #DATA_B3CEE4			;$B3CE31
-	STA.w $04F1				;$B3CE34
+	STA.w RAM_04F1				;$B3CE34
 	LDA.w #(DATA_B3CEE4>>16)|$1100		;$B3CE37
-	STA.w $04F3				;$B3CE3A
+	STA.w RAM_04F3				;$B3CE3A
 	JSR.w CODE_B3CF20			;$B3CE3D
 	INC.w $15E4				;$B3CE40
 CODE_B3CE43:
@@ -6972,9 +6972,9 @@ CODE_B3CE43:
 	CMP.w #$0005				;$B3CE46
 	BNE.b CODE_B3CE5D			;$B3CE49
 	LDA.w #DATA_B3CF02			;$B3CE4B
-	STA.w $04F1				;$B3CE4E
+	STA.w RAM_04F1				;$B3CE4E
 	LDA.w #(DATA_B3CF02>>16)|$1100		;$B3CE51
-	STA.w $04F3				;$B3CE54
+	STA.w RAM_04F3				;$B3CE54
 	JSR.w CODE_B3CF20			;$B3CE57
 	INC.w $15E4				;$B3CE5A
 CODE_B3CE5D:
@@ -7086,9 +7086,9 @@ CODE_B3CF20:
 	ASL					;$B3CF22
 	ASL					;$B3CF23
 	TAX					;$B3CF24
-	LDA.w $04F1				;$B3CF25
+	LDA.w RAM_04F1				;$B3CF25
 	STA.w $06FC,x				;$B3CF28
-	LDA.w $04F3				;$B3CF2B
+	LDA.w RAM_04F3				;$B3CF2B
 	STA.w $06FE,x				;$B3CF2E
 	LDA.b $E8				;$B3CF31
 	INC					;$B3CF33
@@ -7824,7 +7824,7 @@ DATA_B3D502:
 	dw $0005,$0000,$0003,$0000,$0002,$0000,$0001,$0000
 
 CODE_B3D552:
-	LDA.w $05AF				;$B3D552
+	LDA.w game_state_flags			;$B3D552
 	BIT.w #$0040				;$B3D555
 	BNE.b CODE_B3D56E			;$B3D558
 	JSL.l sprite_handler			;$B3D55A
@@ -8061,7 +8061,7 @@ CODE_B3D781:
 CODE_B3D788:
 	EOR.w #$FFFF				;$B3D788
 	INC					;$B3D78B
-	STA.w $0507				;$B3D78C
+	STA.w water_current_speed		;$B3D78C
 	LDA.w $15E4				;$B3D78F
 	XBA					;$B3D792
 	AND.w #$00FF				;$B3D793
@@ -8144,7 +8144,7 @@ CODE_B3D81E:
 	RTS					;$B3D81F
 
 CODE_B3D820:
-	LDA.w $05AF				;$B3D820
+	LDA.w game_state_flags			;$B3D820
 	BIT.w #$0040				;$B3D823
 	BNE.b CODE_B3D840			;$B3D826
 	JSL.l sprite_handler			;$B3D828
@@ -8218,7 +8218,7 @@ CODE_B3D8BD:
 	TYA					;$B3D8BD
 	JSL.l vram_payload_handler_global	;$B3D8BE
 CODE_B3D8C2:
-	STZ.w $0470				;$B3D8C2
+	STZ.w RAM_0470				;$B3D8C2
 	LDA.w $0775				;$B3D8C5
 	AND.w #$0001				;$B3D8C8
 	BNE.b CODE_B3D909			;$B3D8CB
@@ -8312,7 +8312,7 @@ CODE_B3D96A:
 	RTS					;$B3D983
 
 CODE_B3D984:
-	LDA.w $0470				;$B3D984
+	LDA.w RAM_0470				;$B3D984
 	AND.w #$000F				;$B3D987
 	CMP.w #$0005				;$B3D98A
 	BEQ.b CODE_B3D994			;$B3D98D
@@ -8427,7 +8427,7 @@ CODE_B3D9F4:
 	JSR.w CODE_B3DACD			;$B3DA59
 	STA.b $38				;$B3DA5C
 	LDA.l (DATA_B7B06F&$FF0000)+$08,x	;$B3DA5E
-	STA.w $0470				;$B3DA62
+	STA.w RAM_0470				;$B3DA62
 	ASL					;$B3DA65
 	TAY					;$B3DA66
 	ASL					;$B3DA67

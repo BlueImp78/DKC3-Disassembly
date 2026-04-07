@@ -379,15 +379,24 @@ knautilus_level_config:
 
 ;$FD06AF
 lakeside_limbo_level_config:
-	dw $0001 : db $0F : dw DATA_FD19F0 : db $00,$01,$02 : dw $0004 : db $00 : dw $0000,$000A : db $00 : dw $0140,$0229
-	db $00,$00,$0D,$F8,$01
-	db $40,$70,$08,$78,$01
-	db $40,$50,$12,$88,$01
-	db $00,$80,$18,$00,$02
-	db $00,$00,$08,$09,$02
-	db $FF
-	dw $0250,$0351,$FFFF
-	dw $FFFF
+	dw $0001			;type
+	db $0F				;music
+	dw DATA_FD19F0			;tileset config
+	db $00				;layout number
+	db $01				;palette
+	db $02 : dw $0004		;camera?
+	db $00				;gimmick id?
+	dw $0000			;???
+	dw $000A			;flags?
+	db $00 : dw $0140,$0229		;entrance
+	db $00 : dw $0D00,$01F8		;entrance
+	db $40 : dw $0870,$0178		;entrance
+	db $40 : dw $1250,$0188		;entrance
+	db $00 : dw $1880,$0200		;entrance
+	db $00 : dw $0800,$0209		;entrance
+	db $FF				;entrance terminator
+	dw $0250, $0351			;destination
+	dw $FFFF, $FFFF			;destination terminator
 
 ;$FD06E5
 kreeping_klasps_level_config:
@@ -415,7 +424,10 @@ tidal_trouble_level_config:
 
 ;$FD0751
 doorstop_dash_level_config:
-	dw $0001 : db $0E : dw DATA_FD198D : db $00,$72,$00 : dw $0002 : db $00 : dw $0000,$1841 : db $00 : dw $0130,$086D
+	dw $0001
+	db $0E
+	dw DATA_FD198D
+	db $00,$72,$00 : dw $0002 : db $00 : dw $0000,$1841 : db $00 : dw $0130,$086D
 	db $00,$ED,$07,$E4,$05
 	db $40,$65,$03,$08,$07
 	db $42,$60,$03,$38,$03
@@ -428,26 +440,43 @@ doorstop_dash_level_config:
 
 ;$FD078C
 squeals_on_wheels_level_config:
-	dw $0001 : db $0E : dw DATA_FD198D : db $01,$0A,$00 : dw $0002 : db $03 : dw $0000,$0841 : db $00 : dw $0130,$0B4D
-	db $00,$30,$06,$B0,$06
-	db $40,$40,$03,$78,$08
-	db $40,$90,$08,$C0,$06
-	db $00,$00,$0A,$20,$0B
-	db $00,$70,$02,$CD,$08
+	dw $0001
+	db $0E
+	dw DATA_FD198D
+	db $01
+	db $0A
+	db $00
+	dw $0002
+	db $03 : dw $0000, $0841
+	db $00 : dw $0130, $0B4D
+	db $00 : dw $0630, $06B0
+	db $40 : dw $0340, $0878
+	db $40 : dw $0890, $06C0
+	db $00 : dw $0A00, $0B20
+	db $00 : dw $0270, $08CD
 	db $FF
-	dw $0258,$0359,$FFFF
-	dw $FFFF
+	db !level_squeals_on_wheels_bonus_1, $02
+	db !level_squeals_on_wheels_bonus_2, $03
+	dw $FFFF, $FFFF
 
 ;$FD07C2
 murky_mill_level_config:
-	dw $0001 : db $0E : dw DATA_FD1998 : db $02,$11,$00 : dw $0402 : db $08 : dw $0000,$1000 : db $00 : dw $0130,$08CD
-	db $00,$B0,$04,$A0,$04
-	db $40,$D8,$05,$60,$04
-	db $40,$30,$04,$E0,$07
-	db $00,$20,$0A,$A5,$08
-	db $00,$90,$05,$0C,$05
+	dw $0001
+	db $0E
+	dw DATA_FD1998
+	db $02
+	db $11
+	db $00 : dw $0402
+	db $08 : dw $0000, $1000
+	db $00 : dw $0130, $08CD
+	db $00 : dw $04B0, $04A0
+	db $40 : dw $05D8, $0460
+	db $40 : dw $0430, $07E0
+	db $00 : dw $0A20, $08A5
+	db $00 : dw $0590, $050C
 	db $FF
-	dw $025E,$035F,$FFFF
+	dw $025E,$035F
+	dw $FFFF
 	dw $FFFF
 
 ;$FD07F8
