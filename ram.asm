@@ -236,6 +236,13 @@ RAM_0539				= $0539
 active_cheats				= $053B
 RAM_053D				= $053D
 RAM_053F				= $053F
+
+if !j1 == 1
+RAM_J_0541				= $0541
+RAM_J_0543				= $0543
+RAM_J_0545				= $0545
+endif
+
 RAM_0541				= $0541
 RAM_0543				= $0543
 RAM_0545				= $0545
@@ -324,26 +331,96 @@ riverside_race_player_time		= $062F
 RAM_0631				= $0631
 RAM_0632				= $0632
 RAM_0633				= $0633
-;END OF RAMIFIED BLOCK
-
-
-
-banana_bird_cave_flags			= $0635
-
+RAM_0635				= $0635
+RAM_0637				= $0637
+RAM_0639				= $0639
+RAM_063B				= $063B
+RAM_0641				= $0641
+RAM_0648				= $0648
+RAM_0649				= $0649
+RAM_064A				= $064A
+RAM_064B				= $064B
+RAM_064D				= $064D
+RAM_064E				= $064E
+RAM_0655				= $0655
+RAM_0656				= $0656
+RAM_0657				= $0657
+RAM_0659				= $0659
+RAM_065A				= $065A
+RAM_0662				= $0662
+RAM_0663				= $0663
+RAM_0667				= $0667
+RAM_066D				= $066D
+RAM_0673				= $0673
+RAM_0674				= $0674
+RAM_0676				= $0676
+RAM_067A				= $067A
+RAM_067B				= $067B
+RAM_067D				= $067D
+RAM_067E				= $067E
+RAM_067F				= $067F
+RAM_0685				= $0685
+RAM_0687				= $0687
+RAM_068F				= $068F
+RAM_0692				= $0692
+RAM_0693				= $0693
+RAM_0694				= $0694
+RAM_0696				= $0696
+RAM_0697				= $0697
+RAM_06A1				= $06A1
 piracy_string_result			= $06A3
-
 intro_cutscene_flags			= $06AB
-
+RAM_06AD				= $06AD
+RAM_06AF				= $06AF
+RAM_06B1				= $06B1
 RAM_06CF				= $06CF
-
+RAM_06D1				= $06D1
+RAM_06D2				= $06D2
+RAM_06D3				= $06D3
+RAM_06D4				= $06D4
+RAM_06D5				= $06D5
 language_select				= $06D6
 sprite_vram_allocation_table		= $06D8
-
+RAM_06DA				= $06DA
+RAM_06DC				= $06DC
+RAM_06DE				= $06DE
+RAM_06E0				= $06E0
+RAM_06E2				= $06E2
+RAM_06E6				= $06E6
+RAM_06E8				= $06E8
+RAM_06F2				= $06F2
+RAM_06F4				= $06F4
+RAM_06F6				= $06F6
 palette_upload_ring_buffer		= $06FC
-
+RAM_06FE				= $06FE
 active_sprite_palettes_table		= $073C
-
+RAM_0740				= $0740
+RAM_0742				= $0742
 sprite_palette_reference_count		= $074C
+RAM_075C				= $075C
+RAM_075E				= $075E
+RAM_075F				= $075F
+RAM_0760				= $0760
+RAM_0761				= $0761
+RAM_0763				= $0763
+RAM_0765				= $0765
+RAM_0767				= $0767
+RAM_076D				= $076D
+RAM_076F				= $076F
+RAM_0771				= $0771
+RAM_0773				= $0773
+RAM_0775				= $0775
+RAM_0777				= $0777
+RAM_077B				= $077B
+RAM_077D				= $077D
+RAM_077F				= $077F
+RAM_0781				= $0781
+RAM_0785				= $0785
+RAM_0786				= $0786
+RAM_078F				= $078F
+RAM_0790				= $0790
+RAM_0792				= $0792
+RAM_0793				= $0793
 
 struct sprite_table $080A
 	.slot_0:			skip sizeof(sprite)	;$080A (aux)
@@ -379,11 +456,17 @@ struct sprite_table $080A
 endstruct
 
 dixie_control_variables			= $1480
-
+RAM_1488				= $1488
+RAM_148A				= $148A
 kiddy_control_variables			= $14D2
-
+RAM_14DA				= $14DA
+RAM_14DC				= $14DC
 sprite_render_table			= $1524
+next_sprite_dma_buffer_slot		= $155E
+RAM_1560				= $1560
 
+;16 entries in U
+;32 entries in J
 struct sprite_dma $1562
 	.size:				skip 2
 	.destination:			skip 2
@@ -392,12 +475,65 @@ struct sprite_dma $1562
 	.source_bank:			skip 2
 endstruct
 
+RAM_15E2				= $15E2
+RAM_15E4				= $15E4
+RAM_15E6				= $15E6
+RAM_15E8				= $15E8
+RAM_15EA				= $15EA
+RAM_15EC				= $15EC
+RAM_15EE				= $15EE
+RAM_15F0				= $15F0
+RAM_15F2				= $15F2
+RAM_15F4				= $15F4
+RAM_15F6				= $15F6
+RAM_15F8				= $15F8
+RAM_15FA				= $15FA
+RAM_15FC				= $15FC
+RAM_15FE				= $15FE
+RAM_1600				= $1600
+RAM_1602				= $1602
+;...
+RAM_177E				= $177E
+RAM_1780				= $1780
+RAM_1782				= $1782
+RAM_1784				= $1784
+RAM_1786				= $1786	;Probably group manager sprite table
+;...
 current_interaction			= $17C6
+RAM_17C8				= $17C8
+RAM_17CA				= $17CA
+RAM_17CC				= $17CC
+RAM_17CE				= $17CE
+RAM_17D0				= $17D0
+RAM_17D2				= $17D2
+RAM_17D4				= $17D4
+RAM_17D6				= $17D6
+RAM_17D8				= $17D8
+RAM_17DA				= $17DA
+RAM_17DB				= $17DB
 
+struct sprite_clipping $1800
+	.left:		skip 2
+	.top:		skip 2
+	.right:		skip 2
+	.bottom:	skip 2
+endstruct
+
+RAM_1852				= $1852
+RAM_1854				= $1854
+RAM_1856				= $1856
+RAM_1858				= $1858
+RAM_185A				= $185A
+RAM_185C				= $185C
+RAM_185E				= $185E
+RAM_1860				= $1860
+RAM_1862				= $1862
+sprite_collision_routine_address	= $1864
+sprite_collision_routine_addr_high	= $1865
 contact_flash_x_position		= $1867
 contact_flash_y_position		= $1869
-
 current_held_sprite			= $186B
+;END OF RAMIFIED BLOCK
 
 kong_animal_x_offset			= $1885
 

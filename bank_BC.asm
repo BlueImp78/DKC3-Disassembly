@@ -5090,34 +5090,34 @@ CODE_BCE2F2:
 	JMP CODE_BCE3B7				;$BCE2F2
 
 CODE_BCE2F5:
-	STZ.w $1804				;$BCE2F5
-	STZ.w $180C				;$BCE2F8
-	STZ.w $1814				;$BCE2FB
-	STZ.w $181C				;$BCE2FE
-	STZ.w $1824				;$BCE301
-	STZ.w $182C				;$BCE304
-	STZ.w $184C				;$BCE307
-	LDA.w #CODE_BCE59E>>8			;$BCE30A
-	STA.w $1865				;$BCE30D
-	LDA.w #CODE_BCE59E			;$BCE310
-	STA.w $1864				;$BCE313
+	STZ.w sprite_clipping[0].right		;$BCE2F5
+	STZ.w sprite_clipping[1].right		;$BCE2F8
+	STZ.w sprite_clipping[2].right		;$BCE2FB
+	STZ.w sprite_clipping[3].right		;$BCE2FE
+	STZ.w sprite_clipping[4].right		;$BCE301
+	STZ.w sprite_clipping[5].right		;$BCE304
+	STZ.w sprite_clipping[9].right		;$BCE307
+	LDA.w #check_active_kong_collision>>8	;$BCE30A
+	STA sprite_collision_routine_addr_high	;$BCE30D
+	LDA.w #check_active_kong_collision	;$BCE310
+	STA.w sprite_collision_routine_address	;$BCE313
 	LDX.w active_kong_sprite		;$BCE316
-	LDA.b $4A,x				;$BCE319
+	LDA.b sprite.animation_flags,x		;$BCE319
 	AND.w #$BFFF				;$BCE31B
-	STA.b $4A,x				;$BCE31E
+	STA.b sprite.animation_flags,x		;$BCE31E
 	RTL					;$BCE320
 
 CODE_BCE321:
 	PHD					;$BCE321
-	LDY.w #$1808				;$BCE322
+	LDY.w #sprite_clipping[1]		;$BCE322
 	LDX.b current_sprite			;$BCE325
 	CPX.w active_kong_sprite		;$BCE327
 	BEQ.b CODE_BCE33B			;$BCE32A
 	LDY.w #CODE_BCE58E>>8			;$BCE32C
-	STY.w $1865				;$BCE32F
+	STY sprite_collision_routine_addr_high	;$BCE32F
 	LDY.w #CODE_BCE58E			;$BCE332
-	STY.w $1864				;$BCE335
-	LDY.w #$1820				;$BCE338
+	STY.w sprite_collision_routine_address	;$BCE335
+	LDY.w #sprite_clipping[4]		;$BCE338
 CODE_BCE33B:
 	JSR.w CODE_BCE519			;$BCE33B
 	JSR.w CODE_BCE4B6			;$BCE33E
@@ -5126,15 +5126,15 @@ CODE_BCE33B:
 
 CODE_BCE343:
 	PHD					;$BCE343
-	LDY.w #$1800				;$BCE344
+	LDY.w #sprite_clipping[0]		;$BCE344
 	LDX.b current_sprite			;$BCE347
 	CPX.w active_kong_sprite		;$BCE349
 	BEQ.b CODE_BCE35D			;$BCE34C
 	LDY.w #CODE_BCE58E>>8			;$BCE34E
-	STY.w $1865				;$BCE351
+	STY sprite_collision_routine_addr_high	;$BCE351
 	LDY.w #CODE_BCE58E			;$BCE354
-	STY.w $1864				;$BCE357
-	LDY.w #$1818				;$BCE35A
+	STY.w sprite_collision_routine_address	;$BCE357
+	LDY.w #sprite_clipping[3]		;$BCE35A
 CODE_BCE35D:
 	JSR.w CODE_BCE519			;$BCE35D
 	JSR.w CODE_BCE4A5			;$BCE360
@@ -5143,10 +5143,10 @@ CODE_BCE35D:
 
 CODE_BCE365:
 	PHD					;$BCE365
-	LDY.w #$1808				;$BCE366
+	LDY.w #sprite_clipping[1]		;$BCE366
 	LDX.b current_sprite			;$BCE369
 	JSR.w CODE_BCE519			;$BCE36B
-	LDA.w #$1800				;$BCE36E
+	LDA.w #sprite_clipping[0]		;$BCE36E
 	JSR.w CODE_BCE4C7			;$BCE371
 	PLD					;$BCE374
 	RTL					;$BCE375
@@ -5156,14 +5156,14 @@ CODE_BCE376:
 	CPX.w active_kong_sprite		;$BCE378
 	BNE.b CODE_BCE3A7			;$BCE37B
 	PHD					;$BCE37D
-	LDY.w #$1800				;$BCE37E
-	BIT.w $1804				;$BCE381
+	LDY.w #sprite_clipping[0]		;$BCE37E
+	BIT.w sprite_clipping[0].right		;$BCE381
 	BEQ.b CODE_BCE389			;$BCE384
-	LDY.w #$1808				;$BCE386
+	LDY.w #sprite_clipping[1]		;$BCE386
 CODE_BCE389:
 	JSR.w CODE_BCE535			;$BCE389
 	JSR.w CODE_BCE3C0			;$BCE38C
-	LDA.w #$1800				;$BCE38F
+	LDA.w #sprite_clipping[0]		;$BCE38F
 	JSR.w CODE_BCE4C7			;$BCE392
 	PLD					;$BCE395
 	LDX.w $1B63				;$BCE396
@@ -5179,16 +5179,16 @@ CODE_BCE3A7:
 
 CODE_BCE3A8:
 	PHD					;$BCE3A8
-	LDY.w #$1808				;$BCE3A9
+	LDY.w #sprite_clipping[1]		;$BCE3A9
 	JSR.w CODE_BCE535			;$BCE3AC
-	LDA.w #$1800				;$BCE3AF
+	LDA.w #sprite_clipping[0]		;$BCE3AF
 	JSR.w CODE_BCE4C7			;$BCE3B2
 	PLD					;$BCE3B5
 	RTL					;$BCE3B6
 
 CODE_BCE3B7:
 	PHD					;$BCE3B7
-	LDY.w #$1848				;$BCE3B8
+	LDY.w #sprite_clipping[9]		;$BCE3B8
 	JSR.w CODE_BCE535			;$BCE3BB
 	PLD					;$BCE3BE
 	RTL					;$BCE3BF
@@ -5233,52 +5233,52 @@ CODE_BCE3FB:
 CODE_BCE3FC:
 	PHD					;$BCE3FC
 	LDX.w follower_kong_sprite		;$BCE3FD
-	LDY.w #$1818				;$BCE400
-	LDA.w $181C				;$BCE403
+	LDY.w #sprite_clipping[3]		;$BCE400
+	LDA.w sprite_clipping[3].right		;$BCE403
 	BEQ.b CODE_BCE40B			;$BCE406
-	LDY.w #$1820				;$BCE408
+	LDY.w #sprite_clipping[4]		;$BCE408
 CODE_BCE40B:
 	JSR.w CODE_BCE535			;$BCE40B
 	JSR.w CODE_BCE3C0			;$BCE40E
-	LDA.w #$1818				;$BCE411
+	LDA.w #sprite_clipping[3]		;$BCE411
 	JSR.w CODE_BCE4C7			;$BCE414
 	PLD					;$BCE417
 	LDA.w #CODE_BCE58E>>8			;$BCE418
-	STA.w $1865				;$BCE41B
+	STA sprite_collision_routine_addr_high	;$BCE41B
 	LDA.w #CODE_BCE58E			;$BCE41E
-	STA.w $1864				;$BCE421
+	STA.w sprite_collision_routine_address	;$BCE421
 	RTL					;$BCE424
 
 populate_sprite_clipping:
 	PHD					;$BCE425
 	LDX.b current_sprite			;$BCE426
-	LDY.w #$1830				;$BCE428
+	LDY.w #sprite_clipping[6]		;$BCE428
 	JSR.w CODE_BCE535			;$BCE42B
 	JSR.w CODE_BCE4A5			;$BCE42E
 	PLD					;$BCE431
-	STZ.w $183C				;$BCE432
-	STZ.w $1860				;$BCE435
-	STZ.w $1862				;$BCE438
+	STZ.w sprite_clipping[7].right		;$BCE432
+	STZ.w RAM_1860				;$BCE435
+	STZ.w RAM_1862				;$BCE438
 	RTL					;$BCE43B
 
 CODE_BCE43C:
 	PHD					;$BCE43C
 	LDX.b current_sprite			;$BCE43D
-	LDY.w #$1830				;$BCE43F
+	LDY.w #sprite_clipping[6]		;$BCE43F
 	JSR.w CODE_BCE519			;$BCE442
 	JSR.w CODE_BCE4A5			;$BCE445
 	PLD					;$BCE448
-	STZ.w $183C				;$BCE449
-	STZ.w $1860				;$BCE44C
-	STZ.w $1862				;$BCE44F
+	STZ.w sprite_clipping[7].right		;$BCE449
+	STZ.w RAM_1860				;$BCE44C
+	STZ.w RAM_1862				;$BCE44F
 	RTL					;$BCE452
 
 CODE_BCE453:
 	PHD					;$BCE453
 	LDX.b current_sprite			;$BCE454
-	LDY.w #$1838				;$BCE456
+	LDY.w #sprite_clipping[7]		;$BCE456
 	JSR.w CODE_BCE519			;$BCE459
-	LDA.w #$1830				;$BCE45C
+	LDA.w #sprite_clipping[6]		;$BCE45C
 	JSR.w CODE_BCE4C7			;$BCE45F
 	PLD					;$BCE462
 	RTL					;$BCE463
@@ -5286,9 +5286,9 @@ CODE_BCE453:
 CODE_BCE464:
 	PHD					;$BCE464
 	LDX.b current_sprite			;$BCE465
-	LDY.w #$1830				;$BCE467
+	LDY.w #sprite_clipping[6]		;$BCE467
 	JSR.w CODE_BCE519			;$BCE46A
-	LDA.w #$1830				;$BCE46D
+	LDA.w #sprite_clipping[6]		;$BCE46D
 	TCD					;$BCE470
 	LDA.b $10				;$BCE471
 	STA.b $08				;$BCE473
@@ -5297,8 +5297,8 @@ CODE_BCE464:
 	LDA.b $00				;$BCE479
 	STA.b $10				;$BCE47B
 CODE_BCE47D:
-	LDA.w $1844				;$BCE47D
-	STA.w $183C				;$BCE480
+	LDA.w sprite_clipping[8].right		;$BCE47D
+	STA.w sprite_clipping[7].right		;$BCE480
 	CMP.b $04				;$BCE483
 	BCS.b CODE_BCE48B			;$BCE485
 	LDA.b $04				;$BCE487
@@ -5484,7 +5484,7 @@ CODE_BCE58E:
 	BCC.b CODE_BCE5BC			;$BCE59B
 	RTL					;$BCE59D
 
-CODE_BCE59E:
+check_active_kong_collision:
 	STA.b $E2				;$BCE59E
 	LDX.w active_kong_sprite		;$BCE5A0
 	STX.b $78				;$BCE5A3
@@ -5523,56 +5523,56 @@ CODE_BCE5D4:
 	STA.b $78				;$BCE5D8
 	TAX					;$BCE5DA
 CODE_BCE5DB:
-	STZ.w $1852				;$BCE5DB
+	STZ.w RAM_1852				;$BCE5DB
 	LDA.b $E2				;$BCE5DE
 	AND.b $3A,x				;$BCE5E0
 	BEQ.b CODE_BCE654			;$BCE5E2
-	LDA.w $184C				;$BCE5E4
+	LDA.w sprite_clipping[9].right		;$BCE5E4
 	BEQ.b CODE_BCE654			;$BCE5E7
-	CMP.w $1840				;$BCE5E9
+	CMP.w sprite_clipping[8].left		;$BCE5E9
 	BCC.b CODE_BCE654			;$BCE5EC
-	LDA.w $1844				;$BCE5EE
-	CMP.w $1848				;$BCE5F1
+	LDA.w sprite_clipping[8].right		;$BCE5EE
+	CMP.w sprite_clipping[9].left		;$BCE5F1
 	BCC.b CODE_BCE654			;$BCE5F4
-	LDA.w $1846				;$BCE5F6
-	CMP.w $184A				;$BCE5F9
+	LDA.w sprite_clipping[8].bottom		;$BCE5F6
+	CMP.w sprite_clipping[9].top		;$BCE5F9
 	BCC.b CODE_BCE654			;$BCE5FC
-	LDA.w $184E				;$BCE5FE
-	CMP.w $1842				;$BCE601
+	LDA.w sprite_clipping[9].bottom		;$BCE5FE
+	CMP.w sprite_clipping[8].top		;$BCE601
 	BCC.b CODE_BCE654			;$BCE604
-	LDA.w $183C				;$BCE606
+	LDA.w sprite_clipping[7].right		;$BCE606
 	BEQ.b CODE_BCE64E			;$BCE609
-	CMP.w $1848				;$BCE60B
+	CMP.w sprite_clipping[9].left		;$BCE60B
 	BCC.b CODE_BCE62E			;$BCE60E
-	LDA.w $184C				;$BCE610
-	CMP.w $1838				;$BCE613
+	LDA.w sprite_clipping[9].right		;$BCE610
+	CMP.w sprite_clipping[7].left		;$BCE613
 	BCC.b CODE_BCE62E			;$BCE616
-	LDA.w $183E				;$BCE618
-	CMP.w $184A				;$BCE61B
+	LDA.w sprite_clipping[7].bottom		;$BCE618
+	CMP.w sprite_clipping[9].top		;$BCE61B
 	BCC.b CODE_BCE62E			;$BCE61E
-	LDA.w $184E				;$BCE620
-	CMP.w $183A				;$BCE623
+	LDA.w sprite_clipping[9].bottom		;$BCE620
+	CMP.w sprite_clipping[7].top		;$BCE623
 	BCC.b CODE_BCE62E			;$BCE626
 	LDA.w #$0200				;$BCE628
-	TSB.w $1852				;$BCE62B
+	TSB.w RAM_1852				;$BCE62B
 CODE_BCE62E:
-	LDA.w $184C				;$BCE62E
-	CMP.w $1830				;$BCE631
+	LDA.w sprite_clipping[9].right		;$BCE62E
+	CMP.w sprite_clipping[6].left		;$BCE631
 	BCC.b CODE_BCE654			;$BCE634
-	LDA.w $1834				;$BCE636
-	CMP.w $1848				;$BCE639
+	LDA.w sprite_clipping[6].right		;$BCE636
+	CMP.w sprite_clipping[9].left		;$BCE639
 	BCC.b CODE_BCE654			;$BCE63C
-	LDA.w $1836				;$BCE63E
-	CMP.w $1802				;$BCE641
+	LDA.w sprite_clipping[6].bottom		;$BCE63E
+	CMP.w sprite_clipping[0].top		;$BCE641
 	BCC.b CODE_BCE654			;$BCE644
-	LDA.w $1806				;$BCE646
-	CMP.w $1832				;$BCE649
+	LDA.w sprite_clipping[0].bottom		;$BCE646
+	CMP.w sprite_clipping[6].top		;$BCE649
 	BCC.b CODE_BCE654			;$BCE64C
 CODE_BCE64E:
 	LDA.w #$0400				;$BCE64E
-	TSB.w $1852				;$BCE651
+	TSB.w RAM_1852				;$BCE651
 CODE_BCE654:
-	LDA.w $0775				;$BCE654
+	LDA.w RAM_0775				;$BCE654
 	AND.w #$0200				;$BCE657
 	BEQ.b CODE_BCE677			;$BCE65A
 	LDX.b current_sprite			;$BCE65C
@@ -5585,10 +5585,10 @@ CODE_BCE654:
 	ORA.w $003A,y				;$BCE66C
 	AND.w #$2000				;$BCE66F
 	BNE.b CODE_BCE677			;$BCE672
-	STZ.w $1852				;$BCE674
+	STZ.w RAM_1852				;$BCE674
 CODE_BCE677:
 	STZ.b $E2				;$BCE677
-	LDA.w $1852				;$BCE679
+	LDA.w RAM_1852				;$BCE679
 	CMP.w #$0001				;$BCE67C
 	RTL					;$BCE67F
 
@@ -5597,70 +5597,70 @@ CODE_BCE680:
 	RTS					;$BCE681
 
 CODE_BCE682:
-	STZ.w $1852				;$BCE682
+	STZ.w RAM_1852				;$BCE682
 	LDA.b $E2				;$BCE685
 	AND.b $3A,x				;$BCE687
 	BEQ.b CODE_BCE680			;$BCE689
-	LDA.w $1814,y				;$BCE68B
-	CMP.w $1840				;$BCE68E
+	LDA.w sprite_clipping[2].right,y	;$BCE68B
+	CMP.w sprite_clipping[8].left		;$BCE68E
 	BCC.b CODE_BCE680			;$BCE691
-	LDA.w $1844				;$BCE693
-	CMP.w $1810,y				;$BCE696
+	LDA.w sprite_clipping[8].right		;$BCE693
+	CMP.w sprite_clipping[2].left,y		;$BCE696
 	BCC.b CODE_BCE680			;$BCE699
-	LDA.w $1846				;$BCE69B
-	CMP.w $1812,y				;$BCE69E
+	LDA.w sprite_clipping[8].bottom		;$BCE69B
+	CMP.w sprite_clipping[2].top,y		;$BCE69E
 	BCC.b CODE_BCE680			;$BCE6A1
-	LDA.w $1816,y				;$BCE6A3
-	CMP.w $1842				;$BCE6A6
+	LDA.w sprite_clipping[2].bottom,y	;$BCE6A3
+	CMP.w sprite_clipping[8].top		;$BCE6A6
 	BCC.b CODE_BCE680			;$BCE6A9
 	LDA.w $180C,y				;$BCE6AB
 	BEQ.b CODE_BCE6D3			;$BCE6AE
-	CMP.w $1830				;$BCE6B0
+	CMP.w sprite_clipping[6].left		;$BCE6B0
 	BCC.b CODE_BCE6D3			;$BCE6B3
-	LDA.w $1834				;$BCE6B5
+	LDA.w sprite_clipping[6].right		;$BCE6B5
 	CMP.w $1808,y				;$BCE6B8
 	BCC.b CODE_BCE6D3			;$BCE6BB
-	LDA.w $1836				;$BCE6BD
+	LDA.w sprite_clipping[6].bottom		;$BCE6BD
 	CMP.w $180A,y				;$BCE6C0
 	BCC.b CODE_BCE6D3			;$BCE6C3
 	LDA.w $180E,y				;$BCE6C5
-	CMP.w $1832				;$BCE6C8
+	CMP.w sprite_clipping[6].top		;$BCE6C8
 	BCC.b CODE_BCE6D3			;$BCE6CB
 	LDA.w #$0001				;$BCE6CD
-	TSB.w $1852				;$BCE6D0
+	TSB.w RAM_1852				;$BCE6D0
 CODE_BCE6D3:
-	LDA.w $183C				;$BCE6D3
+	LDA.w sprite_clipping[7].right		;$BCE6D3
 	BEQ.b CODE_BCE6FB			;$BCE6D6
 	CMP.w $1800,y				;$BCE6D8
 	BCC.b CODE_BCE6FB			;$BCE6DB
 	LDA.w $1804,y				;$BCE6DD
-	CMP.w $1838				;$BCE6E0
+	CMP.w sprite_clipping[7].left		;$BCE6E0
 	BCC.b CODE_BCE6FB			;$BCE6E3
 	LDA.w $1806,y				;$BCE6E5
-	CMP.w $183A				;$BCE6E8
+	CMP.w sprite_clipping[7].top		;$BCE6E8
 	BCC.b CODE_BCE6FB			;$BCE6EB
 	LDA.w $183E				;$BCE6ED
 	CMP.w $1802,y				;$BCE6F0
 	BCC.b CODE_BCE6FB			;$BCE6F3
 	LDA.w #$0002				;$BCE6F5
-	TSB.w $1852				;$BCE6F8
+	TSB.w RAM_1852				;$BCE6F8
 CODE_BCE6FB:
 	LDA.w $1804,y				;$BCE6FB
-	CMP.w $1830				;$BCE6FE
+	CMP.w sprite_clipping[6].left		;$BCE6FE
 	BCC.b CODE_BCE721			;$BCE701
-	LDA.w $1834				;$BCE703
+	LDA.w sprite_clipping[6].right		;$BCE703
 	CMP.w $1800,y				;$BCE706
 	BCC.b CODE_BCE721			;$BCE709
-	LDA.w $1836				;$BCE70B
+	LDA.w sprite_clipping[6].bottom		;$BCE70B
 	CMP.w $1802,y				;$BCE70E
 	BCC.b CODE_BCE721			;$BCE711
 	LDA.w $1806,y				;$BCE713
-	CMP.w $1832				;$BCE716
+	CMP.w sprite_clipping[6].top		;$BCE716
 	BCC.b CODE_BCE721			;$BCE719
 	LDA.w #$0004				;$BCE71B
-	TSB.w $1852				;$BCE71E
+	TSB.w RAM_1852				;$BCE71E
 CODE_BCE721:
-	LDA.w $0775				;$BCE721
+	LDA.w RAM_0775				;$BCE721
 	AND.w #$0200				;$BCE724
 	BEQ.b CODE_BCE744			;$BCE727
 	LDX.b current_sprite			;$BCE729
@@ -5673,9 +5673,9 @@ CODE_BCE721:
 	ORA.w $003A,y				;$BCE739
 	AND.w #$2000				;$BCE73C
 	BNE.b CODE_BCE744			;$BCE73F
-	STZ.w $1852				;$BCE741
+	STZ.w RAM_1852				;$BCE741
 CODE_BCE744:
-	LDA.w $1852				;$BCE744
+	LDA.w RAM_1852				;$BCE744
 	CMP.w #$0001				;$BCE747
 	RTS					;$BCE74A
 
@@ -5697,15 +5697,15 @@ CODE_BCE75C:
 
 CODE_BCE75E:
 	STA.b $E2				;$BCE75E
-	LDA.w #$1480				;$BCE760
+	LDA.w #dixie_control_variables		;$BCE760
 	STA.b $78				;$BCE763
-	LDA.w $1840				;$BCE765
+	LDA.w sprite_clipping[8].left		;$BCE765
 	STA.b $D0				;$BCE768
-	LDA.w $1844				;$BCE76A
+	LDA.w sprite_clipping[8].right		;$BCE76A
 	STA.b $D4				;$BCE76D
-	LDA.w $1846				;$BCE76F
+	LDA.w sprite_clipping[8].bottom		;$BCE76F
 	STA.b $D6				;$BCE772
-	LDA.w $1842				;$BCE774
+	LDA.w sprite_clipping[8].top		;$BCE774
 	STA.b $D2				;$BCE777
 CODE_BCE779:
 	PHB					;$BCE779
@@ -5794,7 +5794,7 @@ CODE_BCE7FB:
 CODE_BCE807:
 	STA.b $DC				;$BCE807
 CODE_BCE809:
-	LDA.w $0775				;$BCE809
+	LDA.w RAM_0775				;$BCE809
 	AND.w #$0200				;$BCE80C
 	BEQ.b CODE_BCE82C			;$BCE80F
 	LDX.b current_sprite			;$BCE811
@@ -5818,32 +5818,32 @@ CODE_BCE82C:
 
 CODE_BCE82F:
 	LDX.w #$00D8				;$BCE82F
-	LDY.w #$1808				;$BCE832
+	LDY.w #sprite_clipping[1]		;$BCE832
 	BRA.b CODE_BCE85F			;$BCE835
 
 CODE_BCE837:
 	LDX.w #$00D8				;$BCE837
-	LDY.w #$1810				;$BCE83A
+	LDY.w #sprite_clipping[2]		;$BCE83A
 	BRA.b CODE_BCE85F			;$BCE83D
 
 CODE_BCE83F:
 	LDX.w #$00D8				;$BCE83F
-	LDY.w #$1800				;$BCE842
+	LDY.w #sprite_clipping[0]		;$BCE842
 	BRA.b CODE_BCE85F			;$BCE845
 
 CODE_BCE847:
 	LDX.w #$00D0				;$BCE847
-	LDY.w #$1838				;$BCE84A
+	LDY.w #sprite_clipping[7]		;$BCE84A
 	BRA.b CODE_BCE87E			;$BCE84D
 
 CODE_BCE84F:
 	LDX.w #$00D0				;$BCE84F
-	LDY.w #$1840				;$BCE852
+	LDY.w #sprite_clipping[8]		;$BCE852
 	BRA.b CODE_BCE87E			;$BCE855
 
 CODE_BCE857:
 	LDX.w #$00D0				;$BCE857
-	LDY.w #$1830				;$BCE85A
+	LDY.w #sprite_clipping[6]		;$BCE85A
 	BRA.b CODE_BCE87E			;$BCE85D
 
 CODE_BCE85F:
@@ -5864,7 +5864,7 @@ CODE_BCE873:
 	CMP.b $7A				;$BCE877
 	BNE.b CODE_BCE894			;$BCE879
 CODE_BCE87B:
-	LDY.w #$1848				;$BCE87B
+	LDY.w #sprite_clipping[9]		;$BCE87B
 CODE_BCE87E:
 	LDA.w $0004,y				;$BCE87E
 	BEQ.b CODE_BCE896			;$BCE881
@@ -5935,15 +5935,15 @@ CODE_BCE8DA:
 
 CODE_BCE8EA:
 	STA.b $E2				;$BCE8EA
-	LDA.w #$1480				;$BCE8EC
+	LDA.w #dixie_control_variables		;$BCE8EC
 	STA.b $78				;$BCE8EF
-	LDA.w $1840				;$BCE8F1
+	LDA.w sprite_clipping[8].left		;$BCE8F1
 	STA.b $D0				;$BCE8F4
-	LDA.w $1844				;$BCE8F6
+	LDA.w sprite_clipping[8].right		;$BCE8F6
 	STA.b $D4				;$BCE8F9
-	LDA.w $1846				;$BCE8FB
+	LDA.w sprite_clipping[8].bottom		;$BCE8FB
 	STA.b $D6				;$BCE8FE
-	LDA.w $1842				;$BCE900
+	LDA.w sprite_clipping[8].top		;$BCE900
 	STA.b $D2				;$BCE903
 CODE_BCE905:
 	PHB					;$BCE905
@@ -6134,7 +6134,7 @@ CODE_BCF91C:
 	CMP.w #$000A				;$BCF91F
 	BNE.b CODE_BCF92A			;$BCF922
 	LDA.w #$1000				;$BCF924
-	TSB.w bear_dialogue.bjorn			;$BCF927
+	TSB.w bear_dialogue.bjorn		;$BCF927
 CODE_BCF92A:
 	LDX.w active_kong_sprite		;$BCF92A
 	LDA.w #$FCC0				;$BCF92D

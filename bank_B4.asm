@@ -166,8 +166,8 @@ CODE_B48164:
 	LDA.w screen_brightness			;$B4816C
 	STA.w PPU.screen			;$B4816F
 	REP.b #$20				;$B48172
-	STZ.w $1560				;$B48174
-	STZ.w $155E				;$B48177
+	STZ.w RAM_1560				;$B48174
+	STZ.w next_sprite_dma_buffer_slot	;$B48177
 	JSL.l input_and_pause_handler		;$B4817A
 	PHK					;$B4817E
 	PLB					;$B4817F
@@ -493,7 +493,7 @@ CODE_B4842E:
 	BNE.b CODE_B48456			;$B48441
 	BIT.w #$0040				;$B48443
 	BNE.b CODE_B48456			;$B48446
-	LDA.w $0693				;$B48448
+	LDA.w RAM_0693				;$B48448
 	BIT.w #$0002				;$B4844B
 	BNE.b CODE_B48456			;$B4844E
 	LDA.w #$4200				;$B48450
@@ -521,7 +521,7 @@ CODE_B48479:
 CODE_B4847E:
 	LDA.w #$0140				;$B4847E
 	STA.w $1C39				;$B48481
-	LDA.w $15E2				;$B48484
+	LDA.w RAM_15E2				;$B48484
 	CMP.w #$0002				;$B48487
 	BNE.b CODE_B48496			;$B4848A
 	LDX.w follower_kong_sprite		;$B4848C
@@ -574,7 +574,7 @@ CODE_B484D1:
 CODE_B484E1:
 	BIT.w #$0040				;$B484E1
 	BNE.b CODE_B48502			;$B484E4
-	LDA.w $0693				;$B484E6
+	LDA.w RAM_0693				;$B484E6
 	BIT.w #$0002				;$B484E9
 	BEQ.b CODE_B48502			;$B484EC
 	LDA.w #$0009				;$B484EE
@@ -861,8 +861,8 @@ CODE_B4874E:
 	LDA.w screen_brightness			;$B48769
 	STA.w PPU.screen			;$B4876C
 	REP.b #$20				;$B4876F
-	STZ.w $1560				;$B48771
-	STZ.w $155E				;$B48774
+	STZ.w RAM_1560				;$B48771
+	STZ.w next_sprite_dma_buffer_slot	;$B48774
 	JSL.l input_and_pause_handler		;$B48777
 	PHK					;$B4877B
 	PLB					;$B4877C
@@ -1595,8 +1595,8 @@ CODE_B48DA6:
 	LDA.w screen_brightness			;$B48DAB
 	STA.w PPU.screen			;$B48DAE
 	REP.b #$20				;$B48DB1
-	STZ.w $1560				;$B48DB3
-	STZ.w $155E				;$B48DB6
+	STZ.w RAM_1560				;$B48DB3
+	STZ.w next_sprite_dma_buffer_slot	;$B48DB6
 	LDA.w #$4000				;$B48DB9
 	BIT.w $1C35				;$B48DBC
 	BNE.b CODE_B48DC5			;$B48DBF
@@ -2136,7 +2136,7 @@ CODE_B49205:
 	JMP.w CODE_B490E4			;$B49208
 
 CODE_B4920B:
-	LDA.w $0696				;$B4920B
+	LDA.w RAM_0696				;$B4920B
 	BIT.w #$0001				;$B4920E
 	BEQ.b CODE_B49224			;$B49211
 	LDX.w #$001E				;$B49213
@@ -2155,7 +2155,7 @@ CODE_B49224:
 	BRL CODE_B48F7D				;$B49230
 
 CODE_B49233:
-	LDA.w $0696				;$B49233
+	LDA.w RAM_0696				;$B49233
 	BIT.w #$0001				;$B49236
 	BEQ.b CODE_B4924C			;$B49239
 	LDX.w #$0020				;$B4923B
@@ -2183,14 +2183,14 @@ CODE_B4924C:
 CODE_B4926C:
 	LDA.w #$4000				;$B4926C
 	TSB.w bear_dialogue.blunder		;$B4926F
-	STZ.w $15E2				;$B49272
+	STZ.w RAM_15E2				;$B49272
 	LDX.w #$005F				;$B49275
 CODE_B49278:
 	LDA.w RAM_0632,x			;$B49278
 	INX					;$B4927B
 	BIT.w #$0002				;$B4927C
 	BEQ.b CODE_B49284			;$B4927F
-	INC.w $15E2				;$B49281
+	INC.w RAM_15E2				;$B49281
 CODE_B49284:
 	CPX.w #$0065				;$B49284
 	BCC.b CODE_B49278			;$B49287
@@ -2207,7 +2207,7 @@ CODE_B4928A:
 
 CODE_B4929E:
 	LDA.w #$0002				;$B4929E
-	BIT.w $0692				;$B492A1
+	BIT.w RAM_0692				;$B492A1
 	BEQ.b CODE_B492B4			;$B492A4
 	LDA.w #$4000				;$B492A6
 	TSB.w bear_dialogue.bramble		;$B492A9
@@ -2415,7 +2415,7 @@ CODE_B49422:
 	STA.b $6A,x				;$B49433
 	DEC.w $1C3B				;$B49435
 	LDA.w #$0004				;$B49438
-	TRB.w $0649				;$B4943B
+	TRB.w RAM_0649				;$B4943B
 	LDA.w #$1100				;$B4943E
 	TSB.w RAM_05FB				;$B49441
 	STZ.b active_frame_counter		;$B49444
@@ -3050,8 +3050,8 @@ CODE_B49930:
 	LDA.w screen_brightness			;$B49954
 	STA.w PPU.screen			;$B49957
 	REP.b #$20				;$B4995A
-	STZ.w $1560				;$B4995C
-	STZ.w $155E				;$B4995F
+	STZ.w RAM_1560				;$B4995C
+	STZ.w next_sprite_dma_buffer_slot	;$B4995F
 	JSR.w CODE_B49F63			;$B49962
 	JSL.l input_and_pause_handler		;$B49965
 	PHK					;$B49969
@@ -3460,8 +3460,8 @@ CODE_B49CD3:
 	LDA.w screen_brightness			;$B49CE8
 	STA.w PPU.screen			;$B49CEB
 	REP.b #$20				;$B49CEE
-	STZ.w $1560				;$B49CF0
-	STZ.w $155E				;$B49CF3
+	STZ.w RAM_1560				;$B49CF0
+	STZ.w next_sprite_dma_buffer_slot	;$B49CF3
 	JSL.l input_and_pause_handler		;$B49CF6
 	PHK					;$B49CFA
 	PLB					;$B49CFB
@@ -3502,11 +3502,11 @@ CODE_B49D3C:
 	JML.l game_mode_return_with_oam		;$B49D50
 
 CODE_B49D54:
-	LDA.w $15E4				;$B49D54
+	LDA.w RAM_15E4				;$B49D54
 	LSR					;$B49D57
 	LSR					;$B49D58
 	CLC					;$B49D59
-	ADC.w $15E4				;$B49D5A
+	ADC.w RAM_15E4				;$B49D5A
 	LSR					;$B49D5D
 	LSR					;$B49D5E
 	STA.b $1A				;$B49D5F
@@ -3593,8 +3593,8 @@ CODE_B49E09:
 	LDA.w #$8000				;$B49E09
 	TSB.w $1C35				;$B49E0C
 CODE_B49E0F:
-	LDX.w $15E6				;$B49E0F
-	LDA.w $15E4				;$B49E12
+	LDX.w RAM_15E6				;$B49E0F
+	LDA.w RAM_15E4				;$B49E12
 	CPX.w #$0001				;$B49E15
 	BEQ.b CODE_B49E4B			;$B49E18
 	SEC					;$B49E1A
@@ -3642,7 +3642,7 @@ CODE_B49E71:
 	BCC.b CODE_B49E79			;$B49E74
 	LDA.w #$007F				;$B49E76
 CODE_B49E79:
-	STA.w $15E4				;$B49E79
+	STA.w RAM_15E4				;$B49E79
 	EOR.w #$007F				;$B49E7C
 	ASL					;$B49E7F
 	TAX					;$B49E80
@@ -3701,8 +3701,8 @@ CODE_B49ED0:
 	LDA.w screen_brightness			;$B49EEC
 	STA.w PPU.screen			;$B49EEF
 	REP.b #$20				;$B49EF2
-	STZ.w $1560				;$B49EF4
-	STZ.w $155E				;$B49EF7
+	STZ.w RAM_1560				;$B49EF4
+	STZ.w next_sprite_dma_buffer_slot	;$B49EF7
 	JSL.l input_and_pause_handler		;$B49EFA
 	LDA.w player_active_pressed		;$B49EFE
 	BIT.w #!input_left|!input_down		;$B49F01
@@ -4429,22 +4429,22 @@ CODE_B4A545:
 	CLC					;$B4A548
 	ADC.w $1C73				;$B4A549
 	TAY					;$B4A54C
-	LDA.w $15E2				;$B4A54D
+	LDA.w RAM_15E2				;$B4A54D
 	ASL					;$B4A550
 	CLC					;$B4A551
 	ADC.w $0001,y				;$B4A552
 	TAX					;$B4A555
-	LDA.w $15E2				;$B4A556
+	LDA.w RAM_15E2				;$B4A556
 	SEP.b #$20				;$B4A559
 	CMP.w $0000,y				;$B4A55B
 	REP.b #$20				;$B4A55E
 	BEQ.b CODE_B4A577			;$B4A560
-	INC.w $15E2				;$B4A562
+	INC.w RAM_15E2				;$B4A562
 	JSL.l CODE_80806F			;$B4A565
 	LDY.w $1C6B				;$B4A569
 	LDA.w #$2000				;$B4A56C
 	JSR.w CODE_B4A063			;$B4A56F
-	LDA.w $15E2				;$B4A572
+	LDA.w RAM_15E2				;$B4A572
 	CLC					;$B4A575
 	RTS					;$B4A576
 
@@ -4452,7 +4452,7 @@ CODE_B4A577:
 	LDA.b ($B8)				;$B4A577
 	ORA.w #$8000				;$B4A579
 	STA.b ($B8)				;$B4A57C
-	STZ.w $15E2				;$B4A57E
+	STZ.w RAM_15E2				;$B4A57E
 	SEC					;$B4A581
 	RTS					;$B4A582
 
@@ -4949,16 +4949,16 @@ CODE_B4A909:
 	LDX #DATA_B4F64F			;$B4A91E
 	JSR CODE_B4A2CF				;$B4A921
 	LDA #$FFFF				;$B4A924
-	STA $06E8				;$B4A927
-	STA $06E6				;$B4A92A
+	STA RAM_06E8				;$B4A927
+	STA RAM_06E6				;$B4A92A
 	LDY #$025C				;$B4A92D
 	JSL CODE_BB85B8				;$B4A930
 	LDX alternate_sprite			;$B4A934
 	STX $18E7				;$B4A936
 	LDA #$0D00				;$B4A939
 	STA $5E,x				;$B4A93C
-	STZ $06E8				;$B4A93E
-	STZ $06E6				;$B4A941
+	STZ RAM_06E8				;$B4A93E
+	STZ RAM_06E6				;$B4A941
 	LDX #DATA_B4F299			;$B4A944
 	JSR CODE_B4A7C9				;$B4A947
 	JSR CODE_B4A883				;$B4A94A
@@ -5045,7 +5045,7 @@ CODE_B4AA03:
 	STA $18F7				;$B4AA21
 	STA $B6					;$B4AA24
 	LDA #$FFFF				;$B4AA26
-	STA $06F2				;$B4AA29
+	STA RAM_06F2				;$B4AA29
 	LDA level_number			;$B4AA2C
 	PHA					;$B4AA2E
 	STZ level_number			;$B4AA2F
@@ -5372,7 +5372,7 @@ CODE_B4AD50:
 	LDA.w #$7EA8DE>>16			;$B4AD68
 	STA.b $48				;$B4AD6B
 	LDA.w #$0001				;$B4AD6D
-	STA.w $15E6				;$B4AD70
+	STA.w RAM_15E6				;$B4AD70
 	LDA.w #$03C0				;$B4AD73
 	STA.w $1C63				;$B4AD76
 	LDA.w #$0006				;$B4AD79
@@ -5503,7 +5503,7 @@ CODE_B4AE66:
 	STA.b $1E,x				;$B4AEAD
 	JSR.w CODE_B4810B			;$B4AEAF
 	JSR.w CODE_B4A812			;$B4AEB2
-	STZ.w $15E2				;$B4AEB5
+	STZ.w RAM_15E2				;$B4AEB5
 	JSR.w CODE_B49FFE			;$B4AEB8
 	LDA.w #$0000				;$B4AEBB
 	STA.l $7EA171				;$B4AEBE
@@ -5655,7 +5655,7 @@ CODE_B4AFD0:
 	LDA.w RAM_0632,x			;$B4AFDA
 	BIT.w #$0002				;$B4AFDD
 	BEQ.b CODE_B4AFE7			;$B4AFE0
-	DEC.w $0742				;$B4AFE2
+	DEC.w RAM_0742				;$B4AFE2
 	BRA.b CODE_B4AFEE			;$B4AFE5
 
 CODE_B4AFE7:
@@ -5770,8 +5770,8 @@ CODE_B4B0B5:
 	LDA.w current_world			;$B4B0B5
 	BNE.b CODE_B4B0C3			;$B4B0B8
 	LDY.w #$0001				;$B4B0BA
-	STY.w $06E0				;$B4B0BD
-	STY.w $06E2				;$B4B0C0
+	STY.w RAM_06E0				;$B4B0BD
+	STY.w RAM_06E2				;$B4B0C0
 CODE_B4B0C3:
 	ASL					;$B4B0C3
 	TAY					;$B4B0C4
@@ -5854,8 +5854,8 @@ CODE_B4B179:
 	LDA.w screen_brightness			;$B4B18E
 	STA.w PPU.screen			;$B4B191
 	REP.b #$20				;$B4B194
-	STZ.w $1560				;$B4B196
-	STZ.w $155E				;$B4B199
+	STZ.w RAM_1560				;$B4B196
+	STZ.w next_sprite_dma_buffer_slot	;$B4B199
 	LDA.w screen_brightness			;$B4B19C
 	BIT.w #$FF00				;$B4B19F
 	BNE.b CODE_B4B1C7			;$B4B1A2
@@ -7268,27 +7268,27 @@ DATA_B4BC19:
 CODE_B4BC2B:
 	LDA #$0001				;$B4BC2B
 	TSB RAM_0633				;$B4BC2E
-	TSB $067F				;$B4BC31
-	TSB $0635				;$B4BC34
-	TSB $0637				;$B4BC37
-	TSB $068F				;$B4BC3A
-	TSB $0657				;$B4BC3D
-	TSB $0639				;$B4BC40
-	TSB $0648				;$B4BC43
-	TSB $0662				;$B4BC46
-	TSB $0667				;$B4BC49
-	TSB $063B				;$B4BC4C
-	TSB $064A				;$B4BC4F
-	TSB $066D				;$B4BC52
-	TSB $064B				;$B4BC55
-	TSB $0673				;$B4BC58
-	TSB $0676				;$B4BC5B
-	TSB $0685				;$B4BC5E
-	TSB $064D				;$B4BC61
-	TSB $067A				;$B4BC64
-	TSB $0641				;$B4BC67
-	TSB $0687				;$B4BC6A
-	TSB $067B				;$B4BC6D
+	TSB RAM_067F				;$B4BC31
+	TSB RAM_0635				;$B4BC34
+	TSB RAM_0637				;$B4BC37
+	TSB RAM_068F				;$B4BC3A
+	TSB RAM_0657				;$B4BC3D
+	TSB RAM_0639				;$B4BC40
+	TSB RAM_0648				;$B4BC43
+	TSB RAM_0662				;$B4BC46
+	TSB RAM_0667				;$B4BC49
+	TSB RAM_063B				;$B4BC4C
+	TSB RAM_064A				;$B4BC4F
+	TSB RAM_066D				;$B4BC52
+	TSB RAM_064B				;$B4BC55
+	TSB RAM_0673				;$B4BC58
+	TSB RAM_0676				;$B4BC5B
+	TSB RAM_0685				;$B4BC5E
+	TSB RAM_064D				;$B4BC61
+	TSB RAM_067A				;$B4BC64
+	TSB RAM_0641				;$B4BC67
+	TSB RAM_0687				;$B4BC6A
+	TSB RAM_067B				;$B4BC6D
 	LDA #$0080				;$B4BC70
 	STA temp_1A				;$B4BC73
 	LDX #$000D				;$B4BC75
@@ -7309,13 +7309,13 @@ CODE_B4BC2B:
 	LDY #$0025				;$B4BCA1
 	JSR CODE_B4BCC0				;$B4BCA4
 	LDA #$001C				;$B4BCA7
-	TSB $067E				;$B4BCAA
+	TSB RAM_067E				;$B4BCAA
 	LDA #$0010				;$B4BCAD
-	TRB $0663				;$B4BCB0
-	TRB $067D				;$B4BCB3
-	TRB $067B				;$B4BCB6
+	TRB RAM_0663				;$B4BCB0
+	TRB RAM_067D				;$B4BCB3
+	TRB RAM_067B				;$B4BCB6
 	LDA #$0084				;$B4BCB9
-	TSB $0649				;$B4BCBC
+	TSB RAM_0649				;$B4BCBC
 	RTL					;$B4BCBF
 
 ;Writes completion flags for nodes/paths
@@ -7613,7 +7613,7 @@ CODE_B4BF2C:
 	LDA.w #$0649				;$B4BF6F
 	STA.b $5C,x				;$B4BF72
 	LDY.w #DATA_B4D6AE			;$B4BF74
-	LDA.w $0649				;$B4BF77
+	LDA.w RAM_0649				;$B4BF77
 	BIT.w #$0004				;$B4BF7A
 	BNE.b CODE_B4BF82			;$B4BF7D
 	LDY.w #$0000				;$B4BF7F
@@ -7881,10 +7881,10 @@ CODE_B4C1B9:
 	ORA.w #$4000				;$B4C20A
 	STA.b $1E,x				;$B4C20D
 	LDA.w #$0002				;$B4C20F
-	BIT.w $0676				;$B4C212
+	BIT.w RAM_0676				;$B4C212
 	BEQ.b CODE_B4C21D			;$B4C215
 	LDA.w #$0001				;$B4C217
-	TSB.w $0674				;$B4C21A
+	TSB.w RAM_0674				;$B4C21A
 CODE_B4C21D:
 	LDA.w #$0675				;$B4C21D
 	JSL.l queue_sound_effect		;$B4C220
@@ -7980,7 +7980,7 @@ CODE_B4C2F9:
 	LDA.w #$0201				;$B4C302
 	STA.w pending_dma_hdma_channels		;$B4C305
 	LDA.w #$FFFF				;$B4C308
-	STA.w $06E0				;$B4C30B
+	STA.w RAM_06E0				;$B4C30B
 	LDX.w #$0000				;$B4C30E
 	LDA.w #$0800				;$B4C311
 	STA.w PPU.vram_address			;$B4C314
@@ -8168,11 +8168,11 @@ CODE_B4C4C1:
 	STA.w RAM_0470				;$B4C4C6
 	SEP.b #$20				;$B4C4C9
 	LDA.b #$05				;$B4C4CB
-	STA.w $0790				;$B4C4CD
+	STA.w RAM_0790				;$B4C4CD
 	LDA.b #$02				;$B4C4D0
-	STA.w $0792				;$B4C4D2
+	STA.w RAM_0792				;$B4C4D2
 	LDA.b #$01				;$B4C4D5
-	STA.w $078F				;$B4C4D7
+	STA.w RAM_078F				;$B4C4D7
 	REP.b #$20				;$B4C4DA
 	LDX.w current_map_vehicle		;$B4C4DC
 	LDA.l DATA_B4C545,x			;$B4C4DF
@@ -8180,7 +8180,7 @@ CODE_B4C4C1:
 	STA.b $C0				;$B4C4E6
 	CPX.w #$0002				;$B4C4E8
 	BNE.b CODE_B4C4F7			;$B4C4EB
-	LDA.w $0694				;$B4C4ED
+	LDA.w RAM_0694				;$B4C4ED
 	BIT.w #$0002				;$B4C4F0
 	BEQ.b CODE_B4C4F7			;$B4C4F3
 	INC.b $C0				;$B4C4F5
@@ -8622,7 +8622,7 @@ CODE_B4C893:
 	BEQ CODE_B4C8DC				;$B4C899
 	LDA #$2200				;$B4C89B
 	STA DMA[0].settings			;$B4C89E
-	LDA $15E8				;$B4C8A1
+	LDA RAM_15E8				;$B4C8A1
 	STA DMA[0].size				;$B4C8A4
 	LDA #$7E2F80				;$B4C8A7
 	STA DMA[0].source_word			;$B4C8AA
@@ -8633,16 +8633,16 @@ CODE_B4C893:
 	STA.w PPU.cgram_address			;$B4C8B6
 	LDA #$01				;$B4C8B9
 	STA.w CPU.enable_dma			;$B4C8BB
-	LDA $15E4				;$B4C8BE
+	LDA RAM_15E4				;$B4C8BE
 	ORA #$80				;$B4C8C1
 	STA.w PPU.fixed_color			;$B4C8C3
-	LDA $15E4				;$B4C8C6
+	LDA RAM_15E4				;$B4C8C6
 	LSR					;$B4C8C9
 	ORA #$40				;$B4C8CA
 	STA.w PPU.fixed_color			;$B4C8CC
 	LDA #$0F				;$B4C8CF
 	SEC					;$B4C8D1
-	SBC $15E4				;$B4C8D2
+	SBC RAM_15E4				;$B4C8D2
 	ORA #$20				;$B4C8D5
 	STA.w PPU.fixed_color			;$B4C8D7
 	REP.b #$20				;$B4C8DA
@@ -8742,14 +8742,14 @@ CODE_B4C980:
 CODE_B4C98C:
 	DEX					;$B4C98C
 	BPL.b CODE_B4C980			;$B4C98D
-	LDA.w $0696				;$B4C98F
+	LDA.w RAM_0696				;$B4C98F
 	BIT.w #$0001				;$B4C992
 	BEQ.b CODE_B4C9A0			;$B4C995
 	LDA.w #$000C				;$B4C997
 	JSR.w CODE_B4C9DD			;$B4C99A
 	JSR.w CODE_B4CC34			;$B4C99D
 CODE_B4C9A0:
-	LDA.w $0694				;$B4C9A0
+	LDA.w RAM_0694				;$B4C9A0
 	BIT.w #$0002				;$B4C9A3
 	BEQ.b CODE_B4C9CF			;$B4C9A6
 	LDA.w #$0800				;$B4C9A8
@@ -9278,10 +9278,10 @@ CODE_B4CDDD:
 
 CODE_B4CDDE:
 	LDA.w #$0001				;$B4CDDE
-	STA.w $06D8				;$B4CDE1
-	STA.w $06DA				;$B4CDE4
-	STA.w $06DC				;$B4CDE7
-	STA.w $06DE				;$B4CDEA
+	STA.w sprite_vram_allocation_table	;$B4CDE1
+	STA.w RAM_06DA				;$B4CDE4
+	STA.w RAM_06DC				;$B4CDE7
+	STA.w RAM_06DE				;$B4CDEA
 	LDA.w #$0024				;$B4CDED
 	JSL.l vram_payload_handler_global	;$B4CDF0
 	LDA.w #$002D				;$B4CDF4

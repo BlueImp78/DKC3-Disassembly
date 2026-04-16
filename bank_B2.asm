@@ -1007,8 +1007,8 @@ CODE_B28770:
 	LDA screen_brightness			;$B2877A
 	STA PPU.screen				;$B2877D
 	REP #$20				;$B28780
-	STZ $1560				;$B28782
-	STZ $155E				;$B28785
+	STZ RAM_1560				;$B28782
+	STZ next_sprite_dma_buffer_slot	;$B28785
 	LDA intro_cutscene_flags		;$B28788
 	BEQ CODE_B287AA				;$B2878B
 	LDA screen_brightness			;$B2878D
@@ -1344,8 +1344,8 @@ CODE_B28B52:
 	LDA screen_brightness			;$B28B68
 	STA PPU.screen				;$B28B6B
 	REP #$20				;$B28B6E
-	STZ $1560				;$B28B70
-	STZ $155E				;$B28B73
+	STZ RAM_1560				;$B28B70
+	STZ next_sprite_dma_buffer_slot	;$B28B73
 	LDA intro_cutscene_flags		;$B28B76
 	BEQ CODE_B28B92				;$B28B79
 	LDA screen_brightness			;$B28B7B
@@ -1557,41 +1557,41 @@ CODE_B28CFF:
 	JML set_game_mode_wait_for_nmi		;$B28D7E
 
 CODE_B28D82:
-	LDA $06AD				;$B28D82
+	LDA RAM_06AD				;$B28D82
 	AND #$00FF				;$B28D85
 	CMP #$000F				;$B28D88
 	BNE CODE_B28DA2				;$B28D8B
 	LDA #$8080				;$B28D8D
-	TSB $06AF				;$B28D90
-	TSB $06B1				;$B28D93
-	DEC $06AD				;$B28D96
-	DEC $06AD				;$B28D99
-	DEC $06AD				;$B28D9C
-	DEC $06AD				;$B28D9F
+	TSB RAM_06AF				;$B28D90
+	TSB RAM_06B1				;$B28D93
+	DEC RAM_06AD				;$B28D96
+	DEC RAM_06AD				;$B28D99
+	DEC RAM_06AD				;$B28D9C
+	DEC RAM_06AD				;$B28D9F
 CODE_B28DA2:
 	TDC					;$B28DA2
 	SEP #$20				;$B28DA3
-	LDA $06D5				;$B28DA5
+	LDA RAM_06D5				;$B28DA5
 	AND #$03				;$B28DA8
-	STA $06D4				;$B28DAA
+	STA RAM_06D4				;$B28DAA
 	TAX					;$B28DAD
 	ORA #$80				;$B28DAE
-	STA $06AF,x				;$B28DB0
+	STA RAM_06AF,x				;$B28DB0
 	REP #$20				;$B28DB3
 	JSL CODE_808063				;$B28DB5
-	STA $06D1				;$B28DB9
+	STA RAM_06D1				;$B28DB9
 	JSL CODE_808063				;$B28DBC
-	STA $06D2				;$B28DC0
+	STA RAM_06D2				;$B28DC0
 	JSL CODE_808063				;$B28DC3
 	SEP #$20				;$B28DC7
-	STA $06D3				;$B28DC9
-	INC $06D5				;$B28DCC
+	STA RAM_06D3				;$B28DC9
+	INC RAM_06D5				;$B28DCC
 	REP #$20				;$B28DCF
 	STZ temp_22				;$B28DD1
 	LDX #$0003				;$B28DD3
 	STX temp_24				;$B28DD6
 CODE_B28DD8:
-	LDA $06D1,x				;$B28DD8
+	LDA RAM_06D1,x				;$B28DD8
 	AND #$00FF				;$B28DDB
 	ASL					;$B28DDE
 	TAX					;$B28DDF
@@ -1637,8 +1637,8 @@ CODE_B28E05:
 	LDA screen_brightness			;$B28E36
 	STA PPU.screen				;$B28E39
 	REP #$20				;$B28E3C
-	STZ $1560				;$B28E3E
-	STZ $155E				;$B28E41
+	STZ RAM_1560				;$B28E3E
+	STZ next_sprite_dma_buffer_slot	;$B28E41
 	LDA screen_brightness			;$B28E44
 	BIT #$FF00				;$B28E47
 	BNE CODE_B28E61				;$B28E4A
@@ -1711,8 +1711,8 @@ CODE_B28EE5:
 	LDA screen_brightness			;$B28EF5
 	STA PPU.screen				;$B28EF8
 	REP #$20				;$B28EFB
-	STZ $1560				;$B28EFD
-	STZ $155E				;$B28F00
+	STZ RAM_1560				;$B28EFD
+	STZ next_sprite_dma_buffer_slot	;$B28F00
 	JSL input_and_pause_handler		;$B28F03
 	LDA player_1_pressed			;$B28F07
 	BIT #$9080				;$B28F0A
@@ -1835,8 +1835,8 @@ rare_logo_main:
 	LDA #$0764				;$B28FF1   |
 	JSL play_high_priority_sound		;$B28FF4   |
 	LDA #$0001				;$B28FF8   |
-	STA $15FE				;$B28FFB   |
-	STA $1600				;$B28FFE   |
+	STA RAM_15FE				;$B28FFB   |
+	STA RAM_1600				;$B28FFE   |
 	BRA .CODE_B29020			;$B29001  /
 
 .CODE_B29003:
@@ -1853,7 +1853,7 @@ rare_logo_main:
 	INC					;$B29015   |
 	STA $7EA15A				;$B29016   |
 	LDA #$0001				;$B2901A   |
-	STA $15FE				;$B2901D  /
+	STA RAM_15FE				;$B2901D  /
 .CODE_B29020:
 	LDA #$00C0				;$B29020  \
 	STA sprite.y_position,x			;$B29023   |
@@ -1954,7 +1954,7 @@ rare_logo_kiddy_main:
 	CLC					;$B29100   |
 	ADC #$0040				;$B29101   |
 	STA sprite.y_speed,x			;$B29104   |
-	LDA $1602				;$B29106   |
+	LDA RAM_1602				;$B29106   |
 	BEQ CODE_B29129				;$B29109   |
 	CMP #$0001				;$B2910B   |
 	BNE CODE_B29120				;$B2910E   |
@@ -1963,7 +1963,7 @@ rare_logo_kiddy_main:
 	LDA #$F700				;$B29115   |
 	STA sprite.y_speed,x			;$B29118   |
 	LDA #$0002				;$B2911A   |
-	STA $1602				;$B2911D  /
+	STA RAM_1602				;$B2911D  /
 CODE_B29120:
 	JSR CODE_B2903B				;$B29120  \
 	JSR CODE_B29057				;$B29123   |
@@ -2005,7 +2005,7 @@ rare_logo_dixie_main:
 	CLC					;$B2916F   |
 	ADC #$0040				;$B29170   |
 	STA sprite.y_speed,x			;$B29173   |
-	LDA $1602				;$B29175   |
+	LDA RAM_1602				;$B29175   |
 	BEQ .CODE_B29198			;$B29178   |
 	CMP #$0002				;$B2917A   |
 	BNE .CODE_B2918F			;$B2917D   |
@@ -2014,7 +2014,7 @@ rare_logo_dixie_main:
 	LDA #$F300				;$B29184   |
 	STA sprite.y_speed,x			;$B29187   |
 	LDA #$0003				;$B29189   |
-	STA $1602				;$B2918C  /
+	STA RAM_1602				;$B2918C  /
 .CODE_B2918F:
 	JSR CODE_B2903B				;$B2918F  \
 	JSR CODE_B29057				;$B29192   |
@@ -2087,7 +2087,7 @@ CODE_B2920E:
 	ASL					;$B29219
 	TAY					;$B2921A
 	LDA #$0001				;$B2921B
-	STA $15FE,y				;$B2921E
+	STA RAM_15FE,y				;$B2921E
 CODE_B29221:
 	LDA temp_1E				;$B29221
 	AND #$00FF				;$B29223
@@ -2311,8 +2311,8 @@ CODE_B293B0:
 	LDX #$1E38				;$B293D9
 	LDA #$09AC				;$B293DC
 CODE_B293DF:
-	STA $15E4				;$B293DF
-	STX $15EC				;$B293E2
+	STA RAM_15E4				;$B293DF
+	STX RAM_15EC				;$B293E2
 	LDA #CODE_B293EF			;$B293E5
 	LDX.w #CODE_B293EF>>16			;$B293E8
 	JML set_game_mode_wait_for_nmi		;$B293EB
@@ -2334,9 +2334,9 @@ CODE_B293EF:
 	ASL					;$B2940F
 	CLC					;$B29410
 	ADC #$7406				;$B29411
-	LDX $15E4				;$B29414
+	LDX RAM_15E4				;$B29414
 	JSR CODE_B294D3				;$B29417
-	STX $15E4				;$B2941A
+	STX RAM_15E4				;$B2941A
 CODE_B2941D:
 	LDA $1975				;$B2941D
 	AND #$00F8				;$B29420
@@ -2357,8 +2357,8 @@ CODE_B29432:
 	LDA screen_brightness			;$B29442
 	STA PPU.screen				;$B29445
 	REP #$20				;$B29448
-	STZ $1560				;$B2944A
-	STZ $155E				;$B2944D
+	STZ RAM_1560				;$B2944A
+	STZ next_sprite_dma_buffer_slot	;$B2944D
 	LDA active_frame_counter		;$B29450
 	BIT #$0001				;$B29452
 	BEQ CODE_B2945A				;$B29455
@@ -2401,7 +2401,7 @@ CODE_B29496:
 	JSR CODE_B28612				;$B294A6
 	BEQ CODE_B294C3				;$B294A9
 	LDA RAM_00F4				;$B294AB
-	CMP $15EC				;$B294AD
+	CMP RAM_15EC				;$B294AD
 	BNE CODE_B294BF				;$B294B0
 	LDA #$880F				;$B294B2
 	STA screen_brightness			;$B294B5
@@ -2436,19 +2436,19 @@ CODE_B294D3:
 
 CODE_B294F2:
 	LDA #$2800				;$B294F2
-	STA $15E2				;$B294F5
+	STA RAM_15E2				;$B294F5
 	INX					;$B294F8
 	BRA CODE_B29518				;$B294F9
 
 CODE_B294FB:
 	LDA #$2400				;$B294FB
-	STA $15E2				;$B294FE
+	STA RAM_15E2				;$B294FE
 	INX					;$B29501
 	BRA CODE_B29518				;$B29502
 
 CODE_B29504:
 	LDA #$2000				;$B29504
-	STA $15E2				;$B29507
+	STA RAM_15E2				;$B29507
 	INX					;$B2950A
 	BRA CODE_B29518				;$B2950B
 
@@ -2492,7 +2492,7 @@ CODE_B29536:
 	TYX					;$B29550
 	LDY temp_1A				;$B29551
 	STY PPU.vram_address			;$B29553
-	ORA $15E2				;$B29556
+	ORA RAM_15E2				;$B29556
 	STA PPU.vram_write			;$B29559
 	INC					;$B2955C
 	STA PPU.vram_write			;$B2955D
@@ -2535,7 +2535,7 @@ CODE_B29578:
 	LDA level_number			;$B295B1
 	JSL CODE_BB85F4				;$B295B3
 	LDA #$A000				;$B295B7
-	TRB $0775				;$B295BA
+	TRB RAM_0775				;$B295BA
 	STZ RAM_00F4				;$B295BD
 	STZ $BC					;$B295BF
 	LDA #$0001				;$B295C1
@@ -2560,19 +2560,19 @@ CODE_B295E9:
 	LDX #$004E				;$B295F1
 CODE_B295F4:
 	STX temp_1A				;$B295F4
-	LDA $075E				;$B295F6
+	LDA RAM_075E				;$B295F6
 	AND #$00FF				;$B295F9
 	CMP #$0005				;$B295FC
 	BNE CODE_B29604				;$B295FF
 	LDA #$0002				;$B29601
 CODE_B29604:
-	STA $15E2				;$B29604
+	STA RAM_15E2				;$B29604
 	CLC					;$B29607
 	ADC temp_1A				;$B29608
 	LDY #$0010				;$B2960A
 	LDX #$001C				;$B2960D
 	JSL CODE_BB856D				;$B29610
-	LDA $15E2				;$B29614
+	LDA RAM_15E2				;$B29614
 	ASL					;$B29617
 	TAX					;$B29618
 	LDA DATA_B297F8-$02,x			;$B29619
@@ -2592,7 +2592,7 @@ CODE_B29604:
 	STA sprite.y_position,x			;$B29644
 	LDA #$0088				;$B29646
 	STA sprite.x_position,x			;$B29649
-	LDA $15E2				;$B2964B
+	LDA RAM_15E2				;$B2964B
 	ASL					;$B2964E
 	STA temp_1A				;$B2964F
 	LDA language_select			;$B29651
@@ -2609,15 +2609,15 @@ CODE_B29604:
 	INY					;$B29666
 	LDX #$FFE0				;$B29667
 	JSR CODE_B29800				;$B2966A
-	LDA $15E2				;$B2966D
+	LDA RAM_15E2				;$B2966D
 	CMP #$0003				;$B29670
 	BCC CODE_B2969B				;$B29673
-	LDA $075F				;$B29675
+	LDA RAM_075F				;$B29675
 	AND #$000F				;$B29678
 	CLC					;$B2967B
 	ADC #$0030				;$B2967C
 	STA temp_22				;$B2967F
-	LDA $075F				;$B29681
+	LDA RAM_075F				;$B29681
 	AND #$00FF				;$B29684
 	LSR					;$B29687
 	LSR					;$B29688
@@ -2640,16 +2640,16 @@ CODE_B2969B:
 	XBA					;$B296A9
 	STA PPU.layer_1_scroll_y		;$B296AA
 	REP #$20				;$B296AD
-	LDA $0765				;$B296AF
+	LDA RAM_0765				;$B296AF
 	AND #$003F				;$B296B2
 	JSL play_song				;$B296B5
 	LDA.l active_cheats			;$B296B9
 	AND #$0001				;$B296BD
 	BEQ CODE_B296CE				;$B296C0
-	LDA $0765				;$B296C2
+	LDA RAM_0765				;$B296C2
 	SEC					;$B296C5
 	SBC #$002A				;$B296C6
-	STA $0765				;$B296C9
+	STA RAM_0765				;$B296C9
 	STA current_song			;$B296CC
 CODE_B296CE:
 	LDA #$0200				;$B296CE
@@ -2859,8 +2859,8 @@ CODE_B298BA:
 	LDA screen_brightness			;$B298CA
 	STA PPU.screen				;$B298CD
 	REP #$20				;$B298D0
-	STZ $1560				;$B298D2
-	STZ $155E				;$B298D5
+	STZ RAM_1560				;$B298D2
+	STZ next_sprite_dma_buffer_slot	;$B298D5
 	LDA screen_brightness			;$B298D8
 	BIT #$FF00				;$B298DB
 	BNE CODE_B298F6				;$B298DE
@@ -2933,9 +2933,9 @@ CODE_B29952:
 	JSL set_ppu_registers_global		;$B29993
 	LDA #$FFFF				;$B29997
 	STA sprite_vram_allocation_table	;$B2999A
-	STA $06DA				;$B2999D
+	STA RAM_06DA				;$B2999D
 	LDA #$4000				;$B299A0
-	STA $073C				;$B299A3
+	STA active_sprite_palettes_table	;$B299A3
 	JSL lock_sprite_palette_queue		;$B299A6
 	JSR CODE_B29CED				;$B299AA
 	LDY #$0328				;$B299AD
@@ -3056,7 +3056,7 @@ CODE_B29AEF:
 	LDA #$0001				;$B29B00
 	TRB $1C35				;$B29B03
 	BEQ CODE_B29B13				;$B29B06
-	LDA $15E8				;$B29B08
+	LDA RAM_15E8				;$B29B08
 	CMP #$0002				;$B29B0B
 	BCS CODE_B29B13				;$B29B0E
 	JSR CODE_B29F14				;$B29B10
@@ -3065,8 +3065,8 @@ CODE_B29B13:
 	LDA screen_brightness			;$B29B15
 	STA PPU.screen				;$B29B18
 	REP #$20				;$B29B1B
-	STZ $1560				;$B29B1D
-	STZ $155E				;$B29B20
+	STZ RAM_1560				;$B29B1D
+	STZ next_sprite_dma_buffer_slot	;$B29B20
 	JSR CODE_B29BC1				;$B29B23
 	LDA screen_brightness			;$B29B26
 	BIT #$FF00				;$B29B29
@@ -3120,7 +3120,7 @@ CODE_B29B93:
 	JML set_and_wait_for_nmi		;$B29BA0
 
 CODE_B29BA4:
-	LDA $15E8				;$B29BA4
+	LDA RAM_15E8				;$B29BA4
 	CMP #$01A8				;$B29BA7
 	BNE CODE_B29BB4				;$B29BAA
 	LDA #$074F				;$B29BAC
@@ -3367,7 +3367,7 @@ CODE_B29D51:
 	RTS					;$B29D63
 
 CODE_B29D64:
-	LDA $15E8				;$B29D64
+	LDA RAM_15E8				;$B29D64
 	BEQ CODE_B29DB9				;$B29D67
 	CMP #$0180				;$B29D69
 	BCC CODE_B29DB9				;$B29D6C
@@ -3379,7 +3379,7 @@ CODE_B29D64:
 CODE_B29D77:
 	LDA #$0E01				;$B29D77
 	STA pending_dma_hdma_channels		;$B29D7A
-	STZ $15E8				;$B29D7D
+	STZ RAM_15E8				;$B29D7D
 	JMP CODE_B29EB8				;$B29D80
 
 CODE_B29D83:
@@ -3412,22 +3412,22 @@ CODE_B29DB8:
 	RTS					;$B29DB8
 
 CODE_B29DB9:
-	LDA $15E6				;$B29DB9
+	LDA RAM_15E6				;$B29DB9
 	BEQ CODE_B29DD8				;$B29DBC
-	LDA $15E4				;$B29DBE
+	LDA RAM_15E4				;$B29DBE
 	CMP #$0100				;$B29DC1
 	BPL CODE_B29DD8				;$B29DC4
 	JSL get_random_number			;$B29DC6
 	AND #$0003				;$B29DCA
 	DEC					;$B29DCD
 	CLC					;$B29DCE
-	ADC $15E4				;$B29DCF
+	ADC RAM_15E4				;$B29DCF
 	BPL CODE_B29DD5				;$B29DD2
 	TDC					;$B29DD4
 CODE_B29DD5:
-	STA $15E4				;$B29DD5
+	STA RAM_15E4				;$B29DD5
 CODE_B29DD8:
-	LDA $15E4				;$B29DD8
+	LDA RAM_15E4				;$B29DD8
 	CMP #$0080				;$B29DDB
 	BPL CODE_B29DE3				;$B29DDE
 	LDA #$0080				;$B29DE0
@@ -3470,7 +3470,7 @@ CODE_B29E0B:
 	INX					;$B29E24
 	CPX #$001E				;$B29E25
 	BNE CODE_B29DFF				;$B29E28
-	LDA $15E4				;$B29E2A
+	LDA RAM_15E4				;$B29E2A
 	CMP #$005A				;$B29E2D
 	BCC CODE_B29E35				;$B29E30
 	LDA #$005A				;$B29E32
@@ -3492,7 +3492,7 @@ CODE_B29E35:
 	STA PPU.layer_2_scroll_y		;$B29E56
 	STZ PPU.layer_2_scroll_y		;$B29E59
 	REP #$20				;$B29E5C
-	LDA $15E8				;$B29E5E
+	LDA RAM_15E8				;$B29E5E
 	BIT #$FF00				;$B29E61
 	BEQ CODE_B29E80				;$B29E64
 	SEP #$20				;$B29E66
@@ -3762,7 +3762,7 @@ CODE_B2A090:
 	CMP #$0002				;$B2A09E
 	BNE CODE_B2A0AF				;$B2A0A1
 	LDX #$0001				;$B2A0A3
-	STX $15E8				;$B2A0A6
+	STX RAM_15E8				;$B2A0A6
 	LDX #$0380				;$B2A0A9
 	STX $1C39				;$B2A0AC
 CODE_B2A0AF:
@@ -3817,7 +3817,7 @@ CODE_B2A0F8:
 	RTS					;$B2A109
 
 CODE_B2A10A:
-	LDA $15E8				;$B2A10A
+	LDA RAM_15E8				;$B2A10A
 	BNE CODE_B2A125				;$B2A10D
 	LDA #$0010				;$B2A10F
 	BIT RAM_05FD				;$B2A112
@@ -5253,9 +5253,9 @@ CODE_B2B74F:
 	LDA #$0018				;$B2B756
 	JSL CODE_B88069				;$B2B759
 	BCS CODE_B2B7A2				;$B2B75D
-	STX $17CA				;$B2B75F
+	STX RAM_17CA				;$B2B75F
 	LDA current_colliding_sprite		;$B2B762
-	STA $17CC				;$B2B764
+	STA RAM_17CC				;$B2B764
 	STA sprite.general_purpose_60,x		;$B2B767
 	JSR CODE_B2B7F5				;$B2B769
 	LDA #$0001				;$B2B76C
@@ -5266,9 +5266,9 @@ CODE_B2B771:
 	LDA #$0018				;$B2B771
 	JSL CODE_B88069				;$B2B774
 	BCS CODE_B2B7A2				;$B2B778
-	STX $17CA				;$B2B77A
+	STX RAM_17CA				;$B2B77A
 	LDA current_colliding_sprite		;$B2B77D
-	STA $17CC				;$B2B77F
+	STA RAM_17CC				;$B2B77F
 	STA sprite.general_purpose_5E,x		;$B2B782
 	LDY active_kong_control_variables	;$B2B784
 	LDA active_frame_counter		;$B2B787
@@ -5318,9 +5318,9 @@ CODE_B2B7D0:
 	LDA #$0018				;$B2B7D9
 	JSL CODE_B88069				;$B2B7DC
 	BCS CODE_B2B7A2				;$B2B7E0
-	STX $17CA				;$B2B7E2
+	STX RAM_17CA				;$B2B7E2
 	LDA follower_kong_sprite		;$B2B7E5
-	STA $17CC				;$B2B7E8
+	STA RAM_17CC				;$B2B7E8
 	LDA follower_kong_sprite		;$B2B7EB
 	STA sprite.general_purpose_60,x		;$B2B7EE
 	LDA #$0001				;$B2B7F0
@@ -5356,7 +5356,7 @@ CODE_B2B813:
 	JSL CODE_B8807B				;$B2B82A
 	BCS CODE_B2B842				;$B2B82E
 	LDA #$0027				;$B2B830
-	LDY $075C				;$B2B833
+	LDY RAM_075C				;$B2B833
 	CPY #$0002				;$B2B836
 	BEQ CODE_B2B83E				;$B2B839
 	LDA #$002C				;$B2B83B
@@ -5629,7 +5629,7 @@ CODE_B2BA1D:
 	LDA #$0024				;$B2BA1D
 	JSL CODE_B88069				;$B2BA20
 	BCS CODE_B2BA39				;$B2BA24
-	STZ $17CA				;$B2BA26
+	STZ RAM_17CA				;$B2BA26
 	RTS					;$B2BA29
 
 CODE_B2BA2A:
@@ -5637,7 +5637,7 @@ CODE_B2BA2A:
 	JSL CODE_B88069				;$B2BA2D
 	BCS CODE_B2BA39				;$B2BA31
 	LDA #$0001				;$B2BA33
-	STA $17CA				;$B2BA36
+	STA RAM_17CA				;$B2BA36
 CODE_B2BA39:
 	RTS					;$B2BA39
 
@@ -9218,7 +9218,7 @@ game_over_blocks_main:
 	LDA.w sprite.y_position,y		;$B2D5DF  \
 	CMP #$0200				;$B2D5E2   |
 	BCC .CODE_B2D5EA			;$B2D5E5   |
-	STZ $15E6				;$B2D5E7  /
+	STZ RAM_15E6				;$B2D5E7  /
 .CODE_B2D5EA:
 	BRA .CODE_B2D5B9			;$B2D5EA  |>
 
@@ -9427,7 +9427,7 @@ brothers_bear_main:
 	BNE ..CODE_B2D756			;$B2D748
 	JSL CODE_BB85B5				;$B2D74A
 	LDA #$FFFF				;$B2D74E
-	STA $06DA				;$B2D751
+	STA RAM_06DA				;$B2D751
 	BRA ..CODE_B2D77B			;$B2D754
 
 ..CODE_B2D756:
@@ -9798,7 +9798,7 @@ brash_cabin_digital_display_main:
 	STA.w sprite.general_purpose_5C,y	;$B2DA11
 	STZ active_frame_counter		;$B2DA14
 	JSR .CODE_B2DAF7			;$B2DA16
-	LDA $0649				;$B2DA19
+	LDA RAM_0649				;$B2DA19
 	BIT #$0004				;$B2DA1C
 	BEQ .state_1				;$B2DA1F
 	LDX #$0000				;$B2DA21
@@ -9957,8 +9957,8 @@ barnacles_bird_cage_main:
 	LDA bear_dialogue.barnacle		;$B2DB70   | Check some flag
 	BIT #$0004				;$B2DB73   |
 	BNE .idle				;$B2DB76   | If set, don't spawn Banana Bird
-	STZ $1560				;$B2DB78   | Else
-	STZ $155E				;$B2DB7B   |
+	STZ RAM_1560				;$B2DB78   | Else
+	STZ next_sprite_dma_buffer_slot	;$B2DB7B   |
 	LDY #$012E				;$B2DB7E   |
 	JSL CODE_BB85B8				;$B2DB81   | Spawn Banana Bird
 	LDX alternate_sprite			;$B2DB85   | Get Banana Bird sprite
@@ -10788,7 +10788,7 @@ CODE_B2E1E2:
 	STZ temp_26				;$B2E1EE
 	LDA.w sprite.general_purpose_6A,y	;$B2E1F0
 	STA temp_24				;$B2E1F3
-	STA $15EC				;$B2E1F5
+	STA RAM_15EC				;$B2E1F5
 	LDA #$02C8				;$B2E1F8
 	STA temp_2A				;$B2E1FB
 	LDA #$00A4				;$B2E1FD
@@ -11174,7 +11174,7 @@ CODE_B2E49A:
 	BIT bear_dialogue.bramble		;$B2E4A2
 	BNE CODE_B2E4FA				;$B2E4A5 If traded with Bramble
 	LDA #$0002				;$B2E4A7
-	BIT $0694				;$B2E4AA
+	BIT RAM_0694				;$B2E4AA
 	BEQ CODE_B2E4FA				;$B2E4AD If World 6 hasn't been beaten yet
 	LDA #$0004				;$B2E4AF
 	BIT bear_dialogue.barnacle		;$B2E4B2
@@ -11557,7 +11557,7 @@ wrinklys_save_cave_main:
 	TAX					;$B2E764   |
 	LDA #$0000				;$B2E765   |
 	STA sprite_vram_allocation_table,x	;$B2E768   |
-	STY $06F4				;$B2E76B   |
+	STY RAM_06F4				;$B2E76B   |
 	LDA sprite.oam_property,y		;$B2E76E   |
 	AND #$FE1F				;$B2E771   |
 	ORA #$01C0				;$B2E774   |
@@ -12305,12 +12305,12 @@ sewer_stockpile_grate_main:
 CODE_B2ECC1:
 	TYX					;$B2ECC1
 	INC sprite.state,x			;$B2ECC2
-	LDA $064E				;$B2ECC4
+	LDA RAM_064E				;$B2ECC4
 	BIT #$0001				;$B2ECC7
 	BEQ CODE_B2ECD0				;$B2ECCA
 	JSL delete_sprite_handle_deallocation	;$B2ECCC
 CODE_B2ECD0:
-	LDA $064E				;$B2ECD0
+	LDA RAM_064E				;$B2ECD0
 	BIT #$0001				;$B2ECD3
 	BEQ CODE_B2ECE8				;$B2ECD6
 	LDA #$031E				;$B2ECD8
@@ -12332,7 +12332,7 @@ unknown_sprite_01CC_main:
 	dw CODE_B2ED20
 
 CODE_B2ECF4:
-	LDA $0696				;$B2ECF4
+	LDA RAM_0696				;$B2ECF4
 	BIT #$0001				;$B2ECF7
 	BEQ CODE_B2ED05				;$B2ECFA
 CODE_B2ECFC:
@@ -12559,7 +12559,7 @@ krosshair_main:
 	dw CODE_B2EF7F
 
 CODE_B2EE80:
-	LDA $15EC				;$B2EE80
+	LDA RAM_15EC				;$B2EE80
 	BEQ CODE_B2EE8C				;$B2EE83
 	JSL delete_sprite_handle_deallocation	;$B2EE85
 	JML [sprite_return_address]		;$B2EE89
@@ -12567,7 +12567,7 @@ CODE_B2EE80:
 CODE_B2EE8C:
 	TYX					;$B2EE8C
 	INC sprite.state,x			;$B2EE8D
-	STX $15EC				;$B2EE8F
+	STX RAM_15EC				;$B2EE8F
 	LDA game_state_flags			;$B2EE92
 	AND #$4000				;$B2EE95
 	STA sprite.general_purpose_62,x		;$B2EE98
@@ -12693,7 +12693,7 @@ CODE_B2EF78:
 	JML [sprite_return_address]		;$B2EF7C
 
 CODE_B2EF7F:
-	LDA $15EC				;$B2EF7F
+	LDA RAM_15EC				;$B2EF7F
 	BEQ CODE_B2EF8B				;$B2EF82
 	JSL delete_sprite_handle_deallocation	;$B2EF84
 CODE_B2EF88:
@@ -12759,17 +12759,17 @@ CODE_B2EFDF:
 	RTS					;$B2EFE7
 
 CODE_B2EFE8:
-	LDA $15E8				;$B2EFE8
+	LDA RAM_15E8				;$B2EFE8
 	BNE CODE_B2EFF1				;$B2EFEB
 	LDA sprite.general_purpose_60,x		;$B2EFED
 	BNE CODE_B2F006				;$B2EFEF
 CODE_B2EFF1:
-	STZ $15E8				;$B2EFF1
+	STZ RAM_15E8				;$B2EFF1
 	LDA #$070C				;$B2EFF4
 	JSL queue_sound_effect			;$B2EFF7
 	LDA sprite.general_purpose_5E,x		;$B2EFFB
 	STA sprite.general_purpose_60,x		;$B2EFFD
-	STX $15EC				;$B2EFFF
+	STX RAM_15EC				;$B2EFFF
 	JSR CODE_B2F065				;$B2F002
 	RTS					;$B2F005
 
@@ -12919,7 +12919,7 @@ CODE_B2F120:
 	LDA sprite.general_purpose_5C,x		;$B2F125
 	BNE CODE_B2F138				;$B2F127
 CODE_B2F129:
-	LDY $15E4				;$B2F129
+	LDY RAM_15E4				;$B2F129
 	BEQ CODE_B2F131				;$B2F12C
 	JSR CODE_B2F275				;$B2F12E
 CODE_B2F131:
@@ -12935,10 +12935,10 @@ CODE_B2F138:
 	SEC					;$B2F143
 	SBC #$01A0				;$B2F144
 	STA $1C37				;$B2F147
-	STZ $15EC				;$B2F14A
+	STZ RAM_15EC				;$B2F14A
 	LDA #$0015				;$B2F14D
 CODE_B2F150:
-	STA $15E4				;$B2F150
+	STA RAM_15E4				;$B2F150
 	STZ sprite.general_purpose_66,x		;$B2F153
 	BRA CODE_B2F129				;$B2F155
 
@@ -12949,7 +12949,7 @@ CODE_B2F157:
 	STA sprite.general_purpose_4C,x		;$B2F15F
 	BEQ CODE_B2F179				;$B2F161
 	LDA #$0056				;$B2F163
-	STA $15EC				;$B2F166
+	STA RAM_15EC				;$B2F166
 	JSL CODE_BFF006				;$B2F169
 	LDA #$0057				;$B2F16D
 	JSL CODE_BFF006				;$B2F170
@@ -12958,7 +12958,7 @@ CODE_B2F157:
 
 CODE_B2F179:
 	LDA #$0055				;$B2F179
-	STA $15EC				;$B2F17C
+	STA RAM_15EC				;$B2F17C
 	JSL CODE_BFF006				;$B2F17F
 	LDA #$0057				;$B2F183
 	JSL CODE_BFF006				;$B2F186
@@ -12991,7 +12991,7 @@ CODE_B2F1A8:
 	BCS CODE_B2F1E6				;$B2F1B1
 	LDA sprite.general_purpose_5C,x		;$B2F1B3
 	BNE CODE_B2F1E6				;$B2F1B5
-	LDA $15E4				;$B2F1B7
+	LDA RAM_15E4				;$B2F1B7
 	BNE CODE_B2F1E6				;$B2F1BA
 	JSL get_random_number			;$B2F1BC
 	BIT #$0001				;$B2F1C0
@@ -13066,21 +13066,21 @@ CODE_B2F245:
 	LDA sprite.general_purpose_60,x		;$B2F245
 	SEC					;$B2F247
 	SBC #$0010				;$B2F248
-	STA $1830				;$B2F24B
-	STA $1840				;$B2F24E
+	STA sprite_clipping[6].left		;$B2F24B
+	STA sprite_clipping[8].left		;$B2F24E
 	CLC					;$B2F251
 	ADC #$0020				;$B2F252
-	STA $1834				;$B2F255
-	STA $1844				;$B2F258
+	STA sprite_clipping[6].right		;$B2F255
+	STA sprite_clipping[8].right		;$B2F258
 	LDA $1973				;$B2F25B
 	SEC					;$B2F25E
 	SBC #$0120				;$B2F25F
-	STA $1832				;$B2F262
-	STA $1842				;$B2F265
+	STA sprite_clipping[6].top		;$B2F262
+	STA sprite_clipping[8].top		;$B2F265
 	LDA $1C37				;$B2F268
-	STA $1836				;$B2F26B
-	STA $1846				;$B2F26E
-	STZ $183C				;$B2F271
+	STA sprite_clipping[6].bottom		;$B2F26B
+	STA sprite_clipping[8].bottom		;$B2F26E
+	STZ sprite_clipping[7].right		;$B2F271
 	RTS					;$B2F274
 
 CODE_B2F275:
@@ -13105,8 +13105,8 @@ CODE_B2F293:
 	BEQ CODE_B2F2A8				;$B2F298
 	LDA $1C37				;$B2F29A
 	SBC #$0060				;$B2F29D
-	STA $1836				;$B2F2A0
-	STA $1846				;$B2F2A3
+	STA sprite_clipping[6].bottom		;$B2F2A0
+	STA sprite_clipping[8].bottom		;$B2F2A3
 	BRA CODE_B2F303				;$B2F2A6
 
 CODE_B2F2A8:
@@ -13131,8 +13131,8 @@ CODE_B2F2C7:
 	ADC #$0030				;$B2F2CF
 	STA $1C37				;$B2F2D2
 	SBC #$0060				;$B2F2D5
-	STA $1836				;$B2F2D8
-	STA $1846				;$B2F2DB
+	STA sprite_clipping[6].bottom		;$B2F2D8
+	STA sprite_clipping[8].bottom		;$B2F2DB
 	LDX current_sprite			;$B2F2DE
 	INC sprite.general_purpose_66,x		;$B2F2E0
 	LDY temp_40				;$B2F2E2
@@ -13161,7 +13161,7 @@ CODE_B2F309:
 	JSL CODE_B88069				;$B2F317
 	BCS CODE_B2F322				;$B2F31B
 	LDA current_colliding_sprite		;$B2F31D
-	STA $17C8				;$B2F31F
+	STA RAM_17C8				;$B2F31F
 CODE_B2F322:
 	RTS					;$B2F322
 
@@ -13182,7 +13182,7 @@ CODE_B2F332:
 	TYX					;$B2F332
 	INC sprite.state,x			;$B2F333
 	LDA #$0001				;$B2F335
-	TSB $0656				;$B2F338
+	TSB RAM_0656				;$B2F338
 	LDY #$030C				;$B2F33B
 	JSL CODE_BB85B5				;$B2F33E
 	LDY #$02E8				;$B2F342
@@ -13381,7 +13381,7 @@ CODE_B2F4BF:
 	LDA player_active_pressed		;$B2F4BF
 	AND #!input_A|!input_B			;$B2F4C2
 	BEQ CODE_B2F4CF				;$B2F4C5
-	INC $15E8				;$B2F4C7
+	INC RAM_15E8				;$B2F4C7
 	LDA sprite.general_purpose_5E,x		;$B2F4CA
 	STA sprite.general_purpose_5C,x		;$B2F4CC
 	RTS					;$B2F4CE
@@ -13464,7 +13464,7 @@ CODE_B2F552:
 	BPL CODE_B2F55C				;$B2F559
 	TDC					;$B2F55B
 CODE_B2F55C:
-	STA $15E4				;$B2F55C
+	STA RAM_15E4				;$B2F55C
 	LDA #$00FE				;$B2F55F
 	STA temp_1E				;$B2F562
 	LDA #$001F				;$B2F564
@@ -13476,7 +13476,7 @@ CODE_B2F55C:
 	LDA #$0200				;$B2F575
 	TSB RAM_05FD				;$B2F578
 	LDA #$0100				;$B2F57B
-	STA $15E8				;$B2F57E
+	STA RAM_15E8				;$B2F57E
 	RTS					;$B2F581
 
 
@@ -13505,7 +13505,7 @@ CODE_B2F5AE:
 	JML [sprite_return_address]		;$B2F5AE
 
 CODE_B2F5B1:
-	LDA $15E8				;$B2F5B1
+	LDA RAM_15E8				;$B2F5B1
 	BEQ CODE_B2F5AE				;$B2F5B4
 	TYX					;$B2F5B6
 	INC sprite.state,x			;$B2F5B7
@@ -13535,15 +13535,15 @@ CODE_B2F5D5:
 	LDY #$032E				;$B2F5E7
 	JSL CODE_BB8585				;$B2F5EA
 	LDX alternate_sprite			;$B2F5EE
-	STX $15EC				;$B2F5F0
+	STX RAM_15EC				;$B2F5F0
 	JSR CODE_B2DF5D				;$B2F5F3
 	JSR CODE_B2DF82				;$B2F5F6
 	LDA #$0100				;$B2F5F9
-	STA $15E8				;$B2F5FC
+	STA RAM_15E8				;$B2F5FC
 	LDA #$0679				;$B2F5FF
 	JSL queue_sound_effect			;$B2F602
 CODE_B2F606:
-	INC $15E8				;$B2F606
+	INC RAM_15E8				;$B2F606
 	LDA active_frame_counter		;$B2F609
 	BIT #$0003				;$B2F60B
 	BNE CODE_B2F62B				;$B2F60E
@@ -13559,22 +13559,22 @@ CODE_B2F619:
 	LDA temp_1A				;$B2F625
 	STA $7E3180				;$B2F627
 CODE_B2F62B:
-	LDA $15E8				;$B2F62B
+	LDA RAM_15E8				;$B2F62B
 	CMP #$01C0				;$B2F62E
 	BCC CODE_B2F64B				;$B2F631
 	LDA #$0001				;$B2F633
-	STA $15E6				;$B2F636
+	STA RAM_15E6				;$B2F636
 	LDA #$0462				;$B2F639
 	JSL queue_sound_effect			;$B2F63C
 	JSL delete_sprite_handle_deallocation	;$B2F640
-	LDX $15EC				;$B2F644
+	LDX RAM_15EC				;$B2F644
 	JSL CODE_BB85E8				;$B2F647
 CODE_B2F64B:
 	JML [sprite_return_address]		;$B2F64B
 
 
 mama_bird_barrier_gem_main:
-	LDA $15E8				;$B2F64E  \
+	LDA RAM_15E8				;$B2F64E  \
 	BIT #$FF00				;$B2F651   |
 	BEQ CODE_B2F68E				;$B2F654   |
 	CMP #$0180				;$B2F656   |

@@ -617,7 +617,7 @@ CODE_808417:					;	   |
 	STZ RAM_05BD				;$808420   |
 	STZ current_entrance			;$808423   |
 	LDA active_cheats			;$808426   |
-	STA $06A1				;$808429   |
+	STA RAM_06A1				;$808429   |
 	LDA #!level_lakeside_limbo		;$80842C   |
 	STA level_number			;$80842F   |
 	STA parent_level_number			;$808431   |
@@ -667,9 +667,9 @@ CODE_808493:
 	LDA #$0200				;$8084A5
 	JSL set_screen_fade_global		;$8084A8
 	SEP #$20				;$8084AC
-	LDA $0773				;$8084AE
+	LDA RAM_0773				;$8084AE
 	STA game_sub_mode			;$8084B1
-	LDA $0771				;$8084B3
+	LDA RAM_0771				;$8084B3
 	STA nmi_sub_mode			;$8084B6
 	REP #$20				;$8084B8
 	LDA #CODE_B38076			;$8084BA
@@ -1045,7 +1045,7 @@ dma_queued_sprite_palette_global:
 	STA DMA[0].size				;$8087B8
 	LDA palette_upload_ring_buffer,x	;$8087BB
 	STA DMA[0].source_word			;$8087BE
-	LDA $06FE,x				;$8087C1
+	LDA RAM_06FE,x				;$8087C1
 	SEP #$20				;$8087C4
 	STA DMA[0].source_bank			;$8087C6
 	XBA					;$8087C9
@@ -1487,7 +1487,7 @@ CODE_808BA4:
 	LDA RAM_0632,x				;$808BA7
 	AND #$0002				;$808BAA
 	BEQ CODE_808BD3				;$808BAD
-	LDA $075C				;$808BAF
+	LDA RAM_075C				;$808BAF
 	CMP #$0001				;$808BB2
 	BEQ CODE_808BC5				;$808BB5
 	CMP #$0003				;$808BB7
@@ -1887,11 +1887,11 @@ CODE_808EA4:
 
 CODE_808EA8:
 	LDX RAM_06CF				;$808EA8
-	STX $06AD				;$808EAB
+	STX RAM_06AD				;$808EAB
 	SEP #$20				;$808EAE
 CODE_808EB0:
 	TXA					;$808EB0
-	STA $06AF,x				;$808EB1
+	STA RAM_06AF,x				;$808EB1
 	DEX					;$808EB4
 	BPL CODE_808EB0				;$808EB5
 	REP #$20				;$808EB7
@@ -1905,14 +1905,14 @@ CODE_808EBE:
 	JSL get_random_number_local		;$808EBE
 	AND RAM_06CF				;$808EC2
 	TAX					;$808EC5
-	LDA $06AF,x				;$808EC6
+	LDA RAM_06AF,x				;$808EC6
 	BIT #$0080				;$808EC9
 	BNE CODE_808EBE				;$808ECC
 	ORA #$0080				;$808ECE
-	STA $06AF,x				;$808ED1
+	STA RAM_06AF,x				;$808ED1
 	AND #$007F				;$808ED4
 	TAY					;$808ED7
-	DEC $06AD				;$808ED8
+	DEC RAM_06AD				;$808ED8
 	BPL CODE_808EE3				;$808EDB
 	JSR CODE_808EA8				;$808EDD
 	TYA					;$808EE0
@@ -1942,7 +1942,7 @@ CODE_808EF1:
 	DEC RAM_052F				;$808F08
 	BMI CODE_808F66				;$808F0B
 	LDX RAM_052F				;$808F0D
-	LDA $06D1,x				;$808F10
+	LDA RAM_06D1,x				;$808F10
 	AND #$00FF				;$808F13
 	ASL					;$808F16
 	TAX					;$808F17
@@ -2036,11 +2036,11 @@ CODE_808FE5:
 	LDA #!world_lake_orangatanga		;$808FF0
 	STA current_world			;$808FF3
 	LDA #$0001				;$808FF6
-	STA $0659				;$808FF9
-	STA $0639				;$808FFC
+	STA RAM_0659				;$808FF9
+	STA RAM_0639				;$808FFC
 	ORA #$003E				;$808FFF
-	STA $0657				;$809002
-	STA $065A				;$809005
+	STA RAM_0657				;$809002
+	STA RAM_065A				;$809005
 	LDA #$4000				;$809008
 	TSB game_state_flags			;$80900B
 	LDA #CODE_B48009			;$80900E
@@ -2105,7 +2105,7 @@ CODE_809040:
 	LDA #$023D				;$8090AE
 	STA RAM_05EF				;$8090B1
 	LDA #$0001				;$8090B4
-	TSB $0696				;$8090B7
+	TSB RAM_0696				;$8090B7
 	LDA #CODE_B48009			;$8090BA
 	LDX.w #CODE_B48009>>16			;$8090BD
 	JMP set_game_mode_wait_for_nmi_local	;$8090C0
@@ -2142,7 +2142,7 @@ CODE_809109:
 	STZ active_player			;$80910C
 	LDA #$C000				;$80910F
 	TRB active_cheats			;$809112
-	LDA $06A1				;$809115
+	LDA RAM_06A1				;$809115
 	JSR CODE_8099B3				;$809118
 	JMP CODE_8096C2				;$80911B
 
@@ -2625,7 +2625,7 @@ CODE_8094A8:
 	ADC #$01C0				;$8094BC
 	STA $B4					;$8094BF
 	LDA #$0001				;$8094C1
-	STA $06D8				;$8094C4
+	STA sprite_vram_allocation_table	;$8094C4
 	LDA #$0021				;$8094C7
 	JSL vram_payload_handler_global		;$8094CA
 	LDA #$001F				;$8094CE
@@ -2652,8 +2652,8 @@ CODE_8094A8:
 	LDY #$024E				;$809510
 	JSL CODE_BB85B5				;$809513
 	LDA #$0001				;$809517
-	STA $0740				;$80951A
-	STA $0742				;$80951D
+	STA RAM_0740				;$80951A
+	STA RAM_0742				;$80951D
 	LDA #$00C6				;$809520
 	JSL CODE_BB859A				;$809523
 	ORA #$1000				;$809527
@@ -2666,8 +2666,8 @@ CODE_8094A8:
 	PLB					;$80953B
 	JSR CODE_809F4A				;$80953C
 	JSR CODE_80A113				;$80953F
-	STZ $0740				;$809542
-	STZ $0742				;$809545
+	STZ RAM_0740				;$809542
+	STZ RAM_0742				;$809545
 	LDA RAM_04C8				;$809548
 	STA $1C37				;$80954B
 	JSR CODE_809709				;$80954E
@@ -2716,8 +2716,8 @@ CODE_809586:
 	LDA screen_brightness			;$8095C2
 	STA PPU.screen				;$8095C5
 	REP #$20				;$8095C8
-	STZ $1560				;$8095CA
-	STZ $155E				;$8095CD
+	STZ RAM_1560				;$8095CA
+	STZ next_sprite_dma_buffer_slot	;$8095CD
 	JSL get_random_number_local		;$8095D0
 	LDA $1C35				;$8095D4
 	BIT #$4000				;$8095D7
@@ -5848,7 +5848,7 @@ CODE_80AE3E:
 	JSR save_game_local				;$80AF0C
 CODE_80AF0F:
 	LDA #$0001				;$80AF0F
-	STA $06DA				;$80AF12
+	STA RAM_06DA				;$80AF12
 	JSR CODE_80AF3E				;$80AF15
 	JSL dma_queued_sprite_palette_global	;$80AF18
 	JSL dma_queued_sprite_palette_global	;$80AF1C
@@ -6083,8 +6083,8 @@ CODE_80B118:
 	ADC temp_34				;$80B128
 	STA sprite.y_position,x			;$80B12A
 	JSL DMA_sprite_graphics			;$80B12C
-	STZ $1560				;$80B130
-	STZ $155E				;$80B133
+	STZ RAM_1560				;$80B130
+	STZ next_sprite_dma_buffer_slot	;$80B133
 	PLX					;$80B136
 	DEX					;$80B137
 	BPL CODE_80B118				;$80B138
@@ -6142,7 +6142,7 @@ CODE_80B1A7:
 	CPX #$0010				;$80B1A8
 	BCS CODE_80B193				;$80B1AB
 	DEC temp_1A				;$80B1AD
-	LDA $0655				;$80B1AF
+	LDA RAM_0655				;$80B1AF
 	BIT #$0002				;$80B1B2
 	BEQ CODE_80B1B9				;$80B1B5
 	INC temp_1A				;$80B1B7
@@ -6159,12 +6159,12 @@ CODE_80B1CA:
 	LDA temp_1A				;$80B1CA
 	CMP #$0067				;$80B1CC
 	BNE CODE_80B1EA				;$80B1CF
-	LDA $06A1				;$80B1D1
+	LDA RAM_06A1				;$80B1D1
 	AND #$C000				;$80B1D4
 	BNE CODE_80B1DB				;$80B1D7
 	INC temp_1A				;$80B1D9
 CODE_80B1DB:
-	LDA $06A1				;$80B1DB
+	LDA RAM_06A1				;$80B1DB
 	AND #$8080				;$80B1DE
 	EOR #$8080				;$80B1E1
 	BNE CODE_80B1EA				;$80B1E4
@@ -6198,8 +6198,8 @@ CODE_80B1ED:
 	LDA screen_brightness			;$80B226
 	STA PPU.screen				;$80B229
 	REP #$20				;$80B22C
-	STZ $1560				;$80B22E
-	STZ $155E				;$80B231
+	STZ RAM_1560				;$80B22E
+	STZ next_sprite_dma_buffer_slot	;$80B231
 	LDA screen_brightness			;$80B234
 	BIT #$FF00				;$80B237
 	BNE CODE_80B24C				;$80B23A
@@ -6446,8 +6446,8 @@ CODE_80B45D:
 	LDA screen_brightness			;$80B46D
 	STA PPU.screen				;$80B470
 	REP #$20				;$80B473
-	STZ $1560				;$80B475
-	STZ $155E				;$80B478
+	STZ RAM_1560				;$80B475
+	STZ next_sprite_dma_buffer_slot	;$80B478
 	JSL sprite_handler			;$80B47B
 	LDA RAM_00F4				;$80B47F
 	CMP #$012C				;$80B481
@@ -6661,8 +6661,8 @@ CODE_80B648:
 	LDA screen_brightness			;$80B64A
 	STA PPU.screen				;$80B64D
 	REP #$20				;$80B650
-	STZ $1560				;$80B652
-	STZ $155E				;$80B655
+	STZ RAM_1560				;$80B652
+	STZ next_sprite_dma_buffer_slot	;$80B655
 	LDA screen_brightness			;$80B658
 	BIT #$FF00				;$80B65B
 	BNE CODE_80B682				;$80B65E
@@ -6765,8 +6765,8 @@ CODE_80B714:
 	LDA screen_brightness			;$80B74D
 	STA PPU.screen				;$80B750
 	REP #$20				;$80B753
-	STZ $1560				;$80B755
-	STZ $155E				;$80B758
+	STZ RAM_1560				;$80B755
+	STZ next_sprite_dma_buffer_slot	;$80B758
 	JSR CODE_80B96B				;$80B75B
 	JSL get_random_number_local		;$80B75E
 	AND #$01FF				;$80B762
@@ -7065,7 +7065,7 @@ CODE_80B9CD:
 	LDX #$0020				;$80B9FA
 	LDY #$FFDF				;$80B9FD
 	JSR CODE_809F29				;$80BA00
-	STX $15EC				;$80BA03
+	STX RAM_15EC				;$80BA03
 	JSR CODE_80B18E				;$80BA06
 	STA $1D35				;$80BA09
 	LDX #$FFFF				;$80BA0C
@@ -7078,13 +7078,13 @@ CODE_80BA14:
 	CMP DATA_80C37A,x			;$80BA17
 	BCC CODE_80BA14				;$80BA1A
 	REP #$20				;$80BA1C
-	LDA $06A1				;$80BA1E
+	LDA RAM_06A1				;$80BA1E
 	BIT #$001A				;$80BA21
 	BEQ CODE_80BA29				;$80BA24
 	LDY #$0038				;$80BA26
 CODE_80BA29:
 	TYX					;$80BA29
-	LDY $15EC				;$80BA2A
+	LDY RAM_15EC				;$80BA2A
 	DEY					;$80BA2D
 	JSR CODE_809F29				;$80BA2E
 	LDA current_game_mode			;$80BA31
@@ -8012,8 +8012,8 @@ CODE_80C1AA:
 	LDA screen_brightness			;$80C1BA
 	STA PPU.screen				;$80C1BD
 	REP #$20				;$80C1C0
-	STZ $1560				;$80C1C2
-	STZ $155E				;$80C1C5
+	STZ RAM_1560				;$80C1C2
+	STZ next_sprite_dma_buffer_slot	;$80C1C5
 	LDA screen_brightness			;$80C1C8
 	BIT #$FF00				;$80C1CB
 	BNE CODE_80C1E0				;$80C1CE

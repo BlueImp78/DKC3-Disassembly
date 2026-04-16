@@ -2,6 +2,7 @@ hirom
 optimize dp always
 optimize address mirrors
 
+!j1 = 0
 !version = 0
 !include_garbage_data = 1
 
