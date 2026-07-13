@@ -679,7 +679,7 @@ CODE_BEC46E:
 	JMP.w CODE_BEC4BB			;$BEC483
 
 CODE_BEC486:
-	LDX.w $1B63				;$BEC486
+	LDX.w RAM_1B63				;$BEC486
 	LDA.b $DE				;$BEC489
 	SEC					;$BEC48B
 	SBC.b $D2				;$BEC48C
@@ -1132,7 +1132,7 @@ CODE_BEC774:
 	LDY.b $78				;$BEC774
 	CPY.w follower_kong_sprite		;$BEC776
 	BEQ.b CODE_BEC7A7			;$BEC779
-	LDA.w $1B63				;$BEC77B
+	LDA.w RAM_1B63				;$BEC77B
 	BNE.b CODE_BEC7C3			;$BEC77E
 	LDY.w RAM_185E				;$BEC780
 	LDA.w #$0011				;$BEC783
@@ -1172,7 +1172,7 @@ CODE_BEC7C3:
 	BNE.b CODE_BEC7CF			;$BEC7C9
 	JSL.l CODE_BB85AC			;$BEC7CB
 CODE_BEC7CF:
-	LDX.w $1B63				;$BEC7CF
+	LDX.w RAM_1B63				;$BEC7CF
 	LDA.b $6C				;$BEC7D2
 	STA.b $44				;$BEC7D4
 	LDA.b $06,x				;$BEC7D6
@@ -1678,7 +1678,7 @@ CODE_BECB9B:
 	BPL.b CODE_BECBAC			;$BECB9E
 	LDA.b $4C,x				;$BECBA0
 	AND.w #$00FF				;$BECBA2
-	STA.w $195B				;$BECBA5
+	STA.w RAM_195B				;$BECBA5
 	JSL.l CODE_B880A8			;$BECBA8
 CODE_BECBAC:
 	JML [sprite_return_address]		;$BECBAC
@@ -2546,7 +2546,7 @@ CODE_BED189:
 	RTS					;$BED195
 
 
-barrel_pieces_main:
+barrel_piece_main:
 	JSL process_sprite_animation		;$BED196  \ Process animation
 	JSL process_current_movement		;$BED19A   | Process current movement
 	JSL CODE_BBAB46				;$BED19E   | Despawn if offscreen
@@ -2797,7 +2797,7 @@ CODE_BED36D:
 	LDY.w #$0036				;$BED382
 	LDA.b [$6A],y				;$BED385
 	TAX					;$BED387
-	LDY.w $1881				;$BED388
+	LDY.w RAM_1881				;$BED388
 	JSL.l CODE_B88096			;$BED38B
 	JSL.l set_sprite_animation		;$BED38F
 	JSL.l CODE_BEE83D			;$BED393
@@ -2901,7 +2901,7 @@ CODE_BED43D:
 	LDY.w #$0036				;$BED452
 	LDA.b [$6A],y				;$BED455
 	TAX					;$BED457
-	LDY.w $1881				;$BED458
+	LDY.w RAM_1881				;$BED458
 	JSL.l CODE_B88096			;$BED45B
 	JSL.l set_sprite_animation		;$BED45F
 	JSL.l CODE_BEE83D			;$BED463
@@ -3077,7 +3077,7 @@ CODE_BED5B9:
 	LDY.w #$0036				;$BED5CE
 	LDA.b [$6A],y				;$BED5D1
 	TAX					;$BED5D3
-	LDY.w $1881				;$BED5D4
+	LDY.w RAM_1881				;$BED5D4
 	JSL.l CODE_B88096			;$BED5D7
 	JSL.l set_sprite_animation		;$BED5DB
 	JSL.l CODE_BEE83D			;$BED5DF
@@ -3301,7 +3301,7 @@ CODE_BED79D:
 	LDA.w #$004B				;$BED7A9
 	STA.b $5A,x				;$BED7AC
 	LDX.w #$0002				;$BED7AE
-	LDY.w $1881				;$BED7B1
+	LDY.w RAM_1881				;$BED7B1
 	JSL.l CODE_B88096			;$BED7B4
 	JSL.l set_sprite_animation		;$BED7B8
 	JSL.l CODE_BEE83D			;$BED7BC
@@ -3525,10 +3525,10 @@ CODE_BED970:
 	STA.b $2A,x				;$BED970
 	STA.b $30,x				;$BED972
 	STZ.b $28,x				;$BED974
-	LDA.w $1875				;$BED976
+	LDA.w RAM_1875				;$BED976
 	AND.w #$FFFE				;$BED979
 	STA.b $3A,x				;$BED97C
-	LDA.w $1873				;$BED97E
+	LDA.w RAM_1873				;$BED97E
 	STA.b $0E,x				;$BED981
 	CPX.w current_held_sprite		;$BED983
 	BNE.b CODE_BED98B			;$BED986
@@ -3560,7 +3560,7 @@ CODE_BED99E:
 	BPL.b CODE_BED9B5			;$BED9AE
 CODE_BED9B0:
 	LDA.b $16,x				;$BED9B0
-	STA.w $1881				;$BED9B2
+	STA.w RAM_1881				;$BED9B2
 CODE_BED9B5:
 	RTS					;$BED9B5
 
@@ -3612,7 +3612,7 @@ CODE_BED9F8:
 	LDY.w #$0036				;$BEDA0D
 	LDA.b [$6A],y				;$BEDA10
 	TAX					;$BEDA12
-	LDY.w $1881				;$BEDA13
+	LDY.w RAM_1881				;$BEDA13
 	JSL.l CODE_B88096			;$BEDA16
 	JSL.l set_sprite_animation		;$BEDA1A
 	JSL.l CODE_BEE83D			;$BEDA1E
@@ -3838,22 +3838,22 @@ update_held_sprite_position_direct:
 	STA.w $0058,y				;$BEDBC8
 	LDA.b $0E,x				;$BEDBCB
 	CLC					;$BEDBCD
-	ADC.w $1871				;$BEDBCE
+	ADC.w RAM_1871				;$BEDBCE
 	STA.w $000E,y				;$BEDBD1
 	LDA.b $16,x				;$BEDBD4
 	CLC					;$BEDBD6
-	ADC.w $186F				;$BEDBD7
+	ADC.w RAM_186F				;$BEDBD7
 	STA.w $0016,y				;$BEDBDA
 	LDA.b $12,x				;$BEDBDD
 	BIT.b $1E,x				;$BEDBDF
 	BVS.b CODE_BEDBE9			;$BEDBE1
 	CLC					;$BEDBE3
-	ADC.w $186D				;$BEDBE4
+	ADC.w RAM_186D				;$BEDBE4
 	BRA.b CODE_BEDBED			;$BEDBE7
 
 CODE_BEDBE9:
 	SEC					;$BEDBE9
-	SBC.w $186D				;$BEDBEA
+	SBC.w RAM_186D				;$BEDBEA
 CODE_BEDBED:
 	STA.w $0012,y				;$BEDBED
 	LDA.w RAM_0775				;$BEDBF0
@@ -4120,14 +4120,14 @@ CODE_BEDDDF:
 	BPL.b CODE_BEDDF7			;$BEDDE8
 	AND.w #$7FFF				;$BEDDEA
 	XBA					;$BEDDED
-	STA.w $18E9				;$BEDDEE
-	STZ.w $18EB				;$BEDDF1
+	STA.w rocket_rush_fuel_amount		;$BEDDEE
+	STZ.w RAM_18EB				;$BEDDF1
 	JML [sprite_return_address]		;$BEDDF4
 
 CODE_BEDDF7:
-	STA.w $18EB				;$BEDDF7
+	STA.w RAM_18EB				;$BEDDF7
 	LDA.w #$0001				;$BEDDFA
-	STA.w $18E9				;$BEDDFD
+	STA.w rocket_rush_fuel_amount		;$BEDDFD
 CODE_BEDE00:
 	JML [sprite_return_address]		;$BEDE00
 
@@ -4213,7 +4213,7 @@ CODE_BEDE99:
 	STY.b $5C,x				;$BEDEAD
 	LDA.w #$001C				;$BEDEAF
 	JSL.l CODE_B88069			;$BEDEB2
-	STZ.w $18E9				;$BEDEB6
+	STZ.w rocket_rush_fuel_amount		;$BEDEB6
 	LDX.b current_sprite			;$BEDEB9
 	INC.b $38,x				;$BEDEBB
 CODE_BEDEBD:
@@ -4357,7 +4357,7 @@ CODE_BEDFC2:
 	BRA.b CODE_BEDFFF			;$BEDFDC
 
 CODE_BEDFDE:
-	LDA.w $18E9				;$BEDFDE
+	LDA.w rocket_rush_fuel_amount		;$BEDFDE
 	DEC					;$BEDFE1
 	BEQ.b CODE_BEDFEE			;$BEDFE2
 	LDA.w #$056B				;$BEDFE4
@@ -4573,11 +4573,11 @@ CODE_BEE15D:
 	LDX.b current_sprite			;$BEE15D
 	LDA.b $5C,x				;$BEE15F
 	CLC					;$BEE161
-	ADC.w $18EB				;$BEE162
+	ADC.w RAM_18EB				;$BEE162
 	BCC.b CODE_BEE16A			;$BEE165
 	LDA.w #$FFFF				;$BEE167
 CODE_BEE16A:
-	STA.w $18EB				;$BEE16A
+	STA.w RAM_18EB				;$BEE16A
 	LDA.w #$0767				;$BEE16D
 	JSL.l queue_sound_effect		;$BEE170
 	JSL.l delete_sprite_handle_deallocation	;$BEE174
@@ -4612,7 +4612,7 @@ CODE_BEE192:
 	STA.w $0016,y				;$BEE1A6
 	SEC					;$BEE1A9
 	SBC.w #$00C8				;$BEE1AA
-	STA.w $189F				;$BEE1AD
+	STA.w RAM_189F				;$BEE1AD
 	LDA.w $0006,y				;$BEE1B0
 	STA.b $6A				;$BEE1B3
 	TYX					;$BEE1B5
@@ -4674,21 +4674,21 @@ CODE_BEE228:
 	LDA.b $16,x				;$BEE22A
 	SEC					;$BEE22C
 	SBC.w #$00C8				;$BEE22D
-	STA.w $189F				;$BEE230
+	STA.w RAM_189F				;$BEE230
 	LDY.w active_kong_sprite		;$BEE233
 	LDA.w $0012,y				;$BEE236
 	STA.b $12,x				;$BEE239
 	STA.b $54,x				;$BEE23B
 	CLC					;$BEE23D
-	ADC.w $18A1				;$BEE23E
+	ADC.w RAM_18A1				;$BEE23E
 	SEC					;$BEE241
-	SBC.w $18A5				;$BEE242
+	SBC.w RAM_18A5				;$BEE242
 	STA.b $2C,x				;$BEE245
 	LDA.w #$C001				;$BEE247
 	STA.b $26,x				;$BEE24A
 	LDA.w #$001F				;$BEE24C
 	SEC					;$BEE24F
-	SBC.w $18A7				;$BEE250
+	SBC.w RAM_18A7				;$BEE250
 	XBA					;$BEE253
 	AND.w #$FF00				;$BEE254
 	STA.b $58,x				;$BEE257
@@ -4703,9 +4703,9 @@ CODE_BEE264:
 	RTL					;$BEE26B
 
 CODE_BEE26C:
-	LDA.w $189F				;$BEE26C
-	LDA.w $18A7				;$BEE26F
-	CMP.w $18A3				;$BEE272
+	LDA.w RAM_189F				;$BEE26C
+	LDA.w RAM_18A7				;$BEE26F
+	CMP.w RAM_18A3				;$BEE272
 	BCS.b CODE_BEE2BC			;$BEE275
 	CMP.w #$001B				;$BEE277
 	BNE.b CODE_BEE2BC			;$BEE27A
@@ -4714,7 +4714,7 @@ CODE_BEE27F:
 	LDA.w $0000,y				;$BEE27F
 	BEQ.b CODE_BEE2BC			;$BEE282
 	SEC					;$BEE284
-	SBC.w $196D				;$BEE285
+	SBC.w RAM_196D				;$BEE285
 	CLC					;$BEE288
 	ADC.w #$0018				;$BEE289
 	CMP.w #$0130				;$BEE28C
@@ -4732,11 +4732,11 @@ CODE_BEE295:
 	LDX.b alternate_sprite			;$BEE29E
 	LDA.w $0000,y				;$BEE2A0
 	STA.b $12,x				;$BEE2A3
-	LDA.w $189F				;$BEE2A5
+	LDA.w RAM_189F				;$BEE2A5
 	CLC					;$BEE2A8
 	ADC.w #$00C8				;$BEE2A9
 	STA.b $16,x				;$BEE2AC
-	LDA.w $18A1				;$BEE2AE
+	LDA.w RAM_18A1				;$BEE2AE
 	BPL.b CODE_BEE2BA			;$BEE2B1
 	LDA.b $1E,x				;$BEE2B3
 	EOR.w #$4000				;$BEE2B5
@@ -4888,14 +4888,14 @@ CODE_BEE3C0:
 	JML [sprite_return_address]		;$BEE3C6
 
 CODE_BEE3C9:
-	LDA.w $196D				;$BEE3C9
+	LDA.w RAM_196D				;$BEE3C9
 	SEC					;$BEE3CC
 	SBC.w #$0038				;$BEE3CD
 	STA.b $1A				;$BEE3D0
 	CLC					;$BEE3D2
 	ADC.w #$0170				;$BEE3D3
 	STA.b $1C				;$BEE3D6
-	LDA.w $1973				;$BEE3D8
+	LDA.w RAM_1973				;$BEE3D8
 	SEC					;$BEE3DB
 	SBC.w #$0038				;$BEE3DC
 	STA.b $1E				;$BEE3DF
@@ -5033,14 +5033,14 @@ CODE_BEE4E8:
 	RTS					;$BEE4E8
 
 CODE_BEE4E9:
-	LDA.w $196D				;$BEE4E9
+	LDA.w RAM_196D				;$BEE4E9
 	SEC					;$BEE4EC
 	SBC.w #$0030				;$BEE4ED
 	STA.b $1A				;$BEE4F0
 	CLC					;$BEE4F2
 	ADC.w #$0160				;$BEE4F3
 	STA.b $1C				;$BEE4F6
-	LDA.w $1973				;$BEE4F8
+	LDA.w RAM_1973				;$BEE4F8
 	SEC					;$BEE4FB
 	SBC.w #$0030				;$BEE4FC
 	STA.b $1E				;$BEE4FF
@@ -5077,12 +5077,12 @@ CODE_BEE512:
 	BCS.b CODE_BEE512			;$BEE53F
 	LDA.l $7E98FA,x				;$BEE541
 	SEC					;$BEE545
-	SBC.w $196D				;$BEE546
+	SBC.w RAM_196D				;$BEE546
 	CMP.w #$0128				;$BEE549
 	BCS.b CODE_BEE55B			;$BEE54C
 	LDA.l $7E98FE,x				;$BEE54E
 	SEC					;$BEE552
-	SBC.w $1973				;$BEE553
+	SBC.w RAM_1973				;$BEE553
 	CMP.w #$0108				;$BEE556
 	BCC.b CODE_BEE512			;$BEE559
 CODE_BEE55B:
@@ -5165,14 +5165,14 @@ CODE_BEE5FC:
 	JML [sprite_return_address]		;$BEE60B
 
 CODE_BEE60E:
-	LDA.w $196D				;$BEE60E
+	LDA.w RAM_196D				;$BEE60E
 	SEC					;$BEE611
 	SBC.w #$0040				;$BEE612
 	STA.b $1A				;$BEE615
 	CLC					;$BEE617
 	ADC.w #$0180				;$BEE618
 	STA.b $1C				;$BEE61B
-	LDA.w $1973				;$BEE61D
+	LDA.w RAM_1973				;$BEE61D
 	SEC					;$BEE620
 	SBC.w #$0038				;$BEE621
 	STA.b $1E				;$BEE624
@@ -5244,7 +5244,7 @@ CODE_BEE682:
 	SEC					;$BEE694   |
 	ADC sprite.x_position,x			;$BEE695   |
 	BMI CODE_BEE69E				;$BEE697   |
-	CMP $196D				;$BEE699   |
+	CMP RAM_196D				;$BEE699   |
 	BCS CODE_BEE6D6				;$BEE69C  /
 CODE_BEE69E:
 	LDA sprite.unknown_2D,x			;$BEE69E  \
@@ -5253,7 +5253,7 @@ CODE_BEE69E:
 	ASL					;$BEE6A4   |
 	ASL					;$BEE6A5   |
 	ADC sprite.x_position,x			;$BEE6A6   |
-	CMP $196D				;$BEE6A8   |
+	CMP RAM_196D				;$BEE6A8   |
 	BCC CODE_BEE6D6				;$BEE6AB   |
 	LDA sprite.unknown_32,x			;$BEE6AD   |
 	AND #$00FF				;$BEE6AF   |
@@ -5265,7 +5265,7 @@ CODE_BEE69E:
 	SEC					;$BEE6BB   |
 	ADC sprite.y_position,x			;$BEE6BC   |
 	BMI CODE_BEE6C5				;$BEE6BE   |
-	CMP $1973				;$BEE6C0   |
+	CMP RAM_1973				;$BEE6C0   |
 	BCS CODE_BEE6D6				;$BEE6C3  /
 CODE_BEE6C5:
 	LDA sprite.unknown_32+1,x		;$BEE6C5  \
@@ -5274,7 +5274,7 @@ CODE_BEE6C5:
 	ASL					;$BEE6CB   |
 	ASL					;$BEE6CC   |
 	ADC sprite.y_position,x			;$BEE6CD   |
-	CMP $1973				;$BEE6CF   |
+	CMP RAM_1973				;$BEE6CF   |
 	BCC CODE_BEE6D6				;$BEE6D2   |
 	INC sprite.offscreen_despawn_time,x	;$BEE6D4  /
 CODE_BEE6D6:

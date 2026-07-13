@@ -104,7 +104,7 @@ water_splash_main:
 smoke_puff_main:
 	JSL.l process_current_movement		;$B68061
 fireball_landing_particles_main:
-burst_effect_main:
+contact_flash_main:
 	JSL.l process_sprite_animation		;$B68065
 	JMP.w return_handle_despawn		;$B68069
 
@@ -300,7 +300,7 @@ buzz_main:
 	LDA #$0120				;$B681C8  \
 	JSL check_throwable_collision		;$B681CB   |
 	BCS .CODE_B681F3			;$B681CF   |
-	LDA $18E9				;$B681D1   |
+	LDA rocket_rush_fuel_amount		;$B681D1   |
 	DEC					;$B681D4   |
 	BEQ .CODE_B681E5			;$B681D5   |
 	JSL populate_sprite_clipping		;$B681D7   |
@@ -469,7 +469,7 @@ CODE_B68313:
 	LDA.b $46,x				;$B68314
 	BEQ.b CODE_B68323			;$B68316
 	BMI.b CODE_B68340			;$B68318
-	BIT.w $194F				;$B6831A
+	BIT.w RAM_194F				;$B6831A
 	BPL.b CODE_B68323			;$B6831D
 	STA.b $5A,x				;$B6831F
 	STZ.b $46,x				;$B68321
@@ -684,7 +684,7 @@ buzz_swarm_spawner_main:
 	SBC.w $0012,y				;$B68482
 	EOR.b $5E,x				;$B68485
 	BPL.b CODE_B684F9			;$B68487
-	LDY.w $1B6B				;$B68489
+	LDY.w RAM_1B6B				;$B68489
 	BEQ.b CODE_B684B6			;$B6848C
 	LDA.w $0038,y				;$B6848E
 	CMP.w #$0002				;$B68491
@@ -693,12 +693,12 @@ buzz_swarm_spawner_main:
 	STA.w $0038,y				;$B68499
 	LDA.w $0006,y				;$B6849C
 	STA.b $6A				;$B6849F
-	LDA.w $1973				;$B684A1
+	LDA.w RAM_1973				;$B684A1
 	CMP.w $0016,y				;$B684A4
 	BCC.b CODE_B68504			;$B684A7
 	LDY.w #$0008				;$B684A9
 	LDA.b [$6A],y				;$B684AC
-	LDY.w $1B6B				;$B684AE
+	LDY.w RAM_1B6B				;$B684AE
 	STA.w $002E,y				;$B684B1
 	BRA.b CODE_B68504			;$B684B4
 
@@ -706,11 +706,11 @@ CODE_B684B6:
 	LDY.w #$0082				;$B684B6
 	JSL.l CODE_BB8585			;$B684B9
 	LDY.b alternate_sprite			;$B684BD
-	STY.w $1B6B				;$B684BF
+	STY.w RAM_1B6B				;$B684BF
 	LDX.b current_sprite			;$B684C2
 	LDA.b $5C,x				;$B684C4
 	STA.w $0012,y				;$B684C6
-	LDA.w $1973				;$B684C9
+	LDA.w RAM_1973				;$B684C9
 	STA.w $0016,y				;$B684CC
 	LDA.b $4C,x				;$B684CF
 	STA.w $0006,y				;$B684D1
@@ -731,7 +731,7 @@ CODE_B684B6:
 	BRA.b CODE_B68504			;$B684F7
 
 CODE_B684F9:
-	LDY.w $1B6B				;$B684F9
+	LDY.w RAM_1B6B				;$B684F9
 	BEQ.b CODE_B68504			;$B684FC
 	LDA.w #$0002				;$B684FE
 	STA.w $0038,y				;$B68501
@@ -794,7 +794,7 @@ CODE_B68565:
 	JSR.w CODE_B6860E			;$B68565
 	LDA.b $5E,x				;$B68568
 	PHA					;$B6856A
-	LDA.w $1973				;$B6856B
+	LDA.w RAM_1973				;$B6856B
 	CLC					;$B6856E
 	ADC.w #$0010				;$B6856F
 	STA.b $5E,x				;$B68572
@@ -855,7 +855,7 @@ CODE_B685CD:
 	STA.b $34,x				;$B685D5
 	JSL.l CODE_BBAB46			;$B685D7
 	BCC.b CODE_B685E3			;$B685DB
-	STZ.w $1B6B				;$B685DD
+	STZ.w RAM_1B6B				;$B685DD
 	JML [sprite_return_address]		;$B685E0
 
 CODE_B685E3:
@@ -1217,7 +1217,7 @@ CODE_B68850:
 
 CODE_B68853:
 	TYX					;$B68853
-	LDA.w $196D				;$B68854
+	LDA.w RAM_196D				;$B68854
 	CLC					;$B68857
 	ADC.w #$0140				;$B68858
 	CMP.b $12,x				;$B6885B
@@ -1393,7 +1393,7 @@ DATA_B6897F:
 	dw CODE_B68A89
 
 CODE_B68987:
-	LDA.w $1B6B				;$B68987
+	LDA.w RAM_1B6B				;$B68987
 	BEQ.b CODE_B68997			;$B6898A
 	JSL.l CODE_BB85A9			;$B6898C
 	JSL.l delete_sprite_handle_deallocation	;$B68990
@@ -1403,8 +1403,8 @@ CODE_B68997:
 	TYX					;$B68997
 	INC.b $38,x				;$B68998
 	LDA.w game_state_flags			;$B6899A
-	STA.w $1B71				;$B6899D
-	STX.w $1B6B				;$B689A0
+	STA.w RAM_1B71				;$B6899D
+	STX.w RAM_1B6B				;$B689A0
 	LDY.w #$00C0				;$B689A3
 	JSL.l CODE_BB8585			;$B689A6
 	LDY.b current_sprite			;$B689AA
@@ -1424,14 +1424,14 @@ CODE_B689BC:
 	JMP.w CODE_B68A89			;$B689CA
 
 CODE_B689CD:
-	LDY.w $1B6F				;$B689CD
+	LDY.w RAM_1B6F				;$B689CD
 	BEQ.b CODE_B689F3			;$B689D0
 	JSR.w CODE_B68B8B			;$B689D2
 	BCC.b CODE_B689DA			;$B689D5
 	JMP.w CODE_B68A39			;$B689D7
 
 CODE_B689DA:
-	LDY.w $1B6F				;$B689DA
+	LDY.w RAM_1B6F				;$B689DA
 	LDA.w $0012,y				;$B689DD
 	STA.w $1C15				;$B689E0
 	LDA.w $0016,y				;$B689E3
@@ -1479,7 +1479,7 @@ CODE_B68A39:
 	JMP.w CODE_B68AE9			;$B68A3C
 
 CODE_B68A3F:
-	LDX.w $1B6F				;$B68A3F
+	LDX.w RAM_1B6F				;$B68A3F
 	LDA.b $12,x				;$B68A42
 	CMP.w $0012,y				;$B68A44
 	BCC.b CODE_B68A4D			;$B68A47
@@ -1512,7 +1512,7 @@ CODE_B68A4D:
 	JMP.w CODE_B68AE9			;$B68A86
 
 CODE_B68A89:
-	LDY.w $1B6F				;$B68A89
+	LDY.w RAM_1B6F				;$B68A89
 	BEQ.b CODE_B68A93			;$B68A8C
 	JSR.w CODE_B68B8B			;$B68A8E
 	BCS.b CODE_B68AE9			;$B68A91
@@ -1553,7 +1553,7 @@ CODE_B68AE9:
 	JSR.w CODE_B6C6EA			;$B68AE9
 	JSL.l process_sprite_animation		;$B68AEC
 	LDX.b current_sprite			;$B68AF0
-	STZ.w $1B6F				;$B68AF2
+	STZ.w RAM_1B6F				;$B68AF2
 	LDA.w #$0080				;$B68AF5
 	CMP.b $12,x				;$B68AF8
 	BCC.b CODE_B68B00			;$B68AFA
@@ -1570,7 +1570,7 @@ CODE_B68B0B:
 	BIT.w #$4000				;$B68B0E
 	BNE.b CODE_B68B34			;$B68B11
 	LDA.w #$4000				;$B68B13
-	BIT.w $1B71				;$B68B16
+	BIT.w RAM_1B71				;$B68B16
 	BEQ.b CODE_B68B34			;$B68B19
 	DEC.w RAM_0551				;$B68B1B
 	BPL.b CODE_B68B23			;$B68B1E
@@ -1585,7 +1585,7 @@ CODE_B68B23:
 	STA.b $38,x				;$B68B32
 CODE_B68B34:
 	LDA.w game_state_flags			;$B68B34
-	STA.w $1B71				;$B68B37
+	STA.w RAM_1B71				;$B68B37
 	LDA.b $40,x				;$B68B3A
 	SEC					;$B68B3C
 	SBC.w #$01B9				;$B68B3D
@@ -1858,13 +1858,13 @@ CODE_B68CF3:
 	CLC					;$B68D11   |
 	ADC.w #$006E				;$B68D12   |
 	STA.b $20				;$B68D15   |
-	LDY.w $1B6B				;$B68D17   | Get Nibbla sprite
+	LDY.w RAM_1B6B				;$B68D17   | Get Nibbla sprite
 	LDA.w #$001A				;$B68D1A   |
 	JSL.l CODE_B6F3AB			;$B68D1D   |
 	BCC.b .return				;$B68D21   |
-	LDA.w $1B6F				;$B68D23   |
+	LDA.w RAM_1B6F				;$B68D23   |
 	BNE.b .return				;$B68D26   |
-	STX.w $1B6F				;$B68D28   /
+	STX.w RAM_1B6F				;$B68D28   /
 .return:
 	RTS					;$B68D2B  |>
 
@@ -1881,13 +1881,13 @@ DATA_B68D36:
 
 CODE_B68D3A:
 	LDA.w banana_bird_count			;$B68D3A
-	STA.w $1B71				;$B68D3D
-	LDA.w $1B71				;$B68D40
+	STA.w RAM_1B71				;$B68D3D
+	LDA.w RAM_1B71				;$B68D40
 	BNE.b CODE_B68D48			;$B68D43
 	JMP.w CODE_B68DAD			;$B68D45
 
 CODE_B68D48:
-	LDA.w $1B71				;$B68D48
+	LDA.w RAM_1B71				;$B68D48
 	STA.w $1C15				;$B68D4B
 CODE_B68D4E:
 	LDY.w #$0088				;$B68D4E
@@ -1904,10 +1904,10 @@ CODE_B68D61:
 	STA.b $5E,x				;$B68D6A
 	JSR.w CODE_B6F348			;$B68D6C
 	TYX					;$B68D6F
-	BIT.w $1B6B,x				;$B68D70
+	BIT.w RAM_1B6B,x			;$B68D70
 	BNE.b CODE_B68D61			;$B68D73
-	ORA.w $1B6B,y				;$B68D75
-	STA.w $1B6B,y				;$B68D78
+	ORA.w RAM_1B6B,y			;$B68D75
+	STA.w RAM_1B6B,y			;$B68D78
 	LDX.b alternate_sprite			;$B68D7B
 	LDA.b $5E,x				;$B68D7D
 	ASL					;$B68D7F
@@ -1945,13 +1945,13 @@ CODE_B68DAD:
 	LDX.b current_sprite			;$B68DAD
 	INC.b $38,x				;$B68DAF
 	LDA.w #$0030				;$B68DB1
-	STA.w $1B73				;$B68DB4
+	STA.w RAM_1B73				;$B68DB4
 	LDA.w #$00D0				;$B68DB7
-	STA.w $1B75				;$B68DBA
+	STA.w boss_hit_points			;$B68DBA
 	LDA.w #$0038				;$B68DBD
-	STA.w $1B77				;$B68DC0
+	STA.w RAM_1B77				;$B68DC0
 	LDA.w #$0090				;$B68DC3
-	STA.w $1B79				;$B68DC6
+	STA.w RAM_1B79				;$B68DC6
 	JML [sprite_return_address]		;$B68DC9
 
 CODE_B68DCC:
@@ -1967,7 +1967,7 @@ CODE_B68DD2:
 	RTS					;$B68DDF
 
 CODE_B68DE0:
-	LDA.w $1B71				;$B68DE0
+	LDA.w RAM_1B71				;$B68DE0
 	BEQ.b CODE_B68E10			;$B68DE3
 	LDA.w #$00FF				;$B68DE5
 	JSL.l CODE_B58006			;$B68DE8
@@ -1976,7 +1976,7 @@ CODE_B68DE0:
 	LDA.w #$076B				;$B68DF1
 	JSL.l queue_sound_effect		;$B68DF4
 CODE_B68DF8:
-	LDA.w $1B6F				;$B68DF8
+	LDA.w RAM_1B6F				;$B68DF8
 	BEQ.b CODE_B68E10			;$B68DFB
 	LDA.w #$00FF				;$B68DFD
 	JSL.l CODE_B58006			;$B68E00
@@ -2019,13 +2019,13 @@ CODE_B68E35:
 	LDA.w banana_bird_count			;$B68E3E
 	LSR					;$B68E41
 	INC					;$B68E42
-	CMP.w $1B6F				;$B68E43
+	CMP.w RAM_1B6F				;$B68E43
 	BCC.b CODE_B68E63			;$B68E46
 	LDA.b $5E,x				;$B68E48
 	JSR.w CODE_B6F348			;$B68E4A
-	EOR.w $1B6B,y				;$B68E4D
-	STA.w $1B6B,y				;$B68E50
-	INC.w $1B6F				;$B68E53
+	EOR.w RAM_1B6B,y			;$B68E4D
+	STA.w RAM_1B6B,y			;$B68E50
+	INC.w RAM_1B6F				;$B68E53
 	JSR.w CODE_B690B7			;$B68E56
 CODE_B68E59:
 	JSL.l process_sprite_animation		;$B68E59
@@ -2040,7 +2040,7 @@ CODE_B68E68:
 	TYX					;$B68E68
 	DEC.b $5C,x				;$B68E69
 	BNE.b CODE_B68ED2			;$B68E6B
-	DEC.w $1B6F				;$B68E6D
+	DEC.w RAM_1B6F				;$B68E6D
 	LDA.b active_frame_counter		;$B68E70
 	STA.w CPU.dividen_low			;$B68E72
 	SEP.b #$20				;$B68E75
@@ -2053,7 +2053,7 @@ CODE_B68E68:
 	JSR.w CODE_B6F348			;$B68E88
 	TYX					;$B68E8B
 CODE_B68E8C:
-	BIT.w $1B6B,x				;$B68E8C
+	BIT.w RAM_1B6B,x			;$B68E8C
 	BEQ.b CODE_B68EAE			;$B68E8F
 	ASL					;$B68E91
 	BCC.b CODE_B68E97			;$B68E92
@@ -2075,8 +2075,8 @@ CODE_B68EAB:
 	BRA.b CODE_B68E8C			;$B68EAC
 
 CODE_B68EAE:
-	ORA.w $1B6B,x				;$B68EAE
-	STA.w $1B6B,x				;$B68EB1
+	ORA.w RAM_1B6B,x			;$B68EAE
+	STA.w RAM_1B6B,x			;$B68EB1
 	LDX.b current_sprite			;$B68EB4
 	INC.b $38,x				;$B68EB6
 	LDA.b $1A				;$B68EB8
@@ -2199,18 +2199,18 @@ CODE_B68F7C:
 	LDA.w #$FFF0				;$B68F8B
 	STA.b $68,x				;$B68F8E
 	LDA.w #$0050				;$B68F90
-	STA.w $1B73				;$B68F93
+	STA.w RAM_1B73				;$B68F93
 	LDA.w #$00A0				;$B68F96
-	STA.w $1B75				;$B68F99
+	STA.w boss_hit_points			;$B68F99
 	LDA.w #$0048				;$B68F9C
-	STA.w $1B77				;$B68F9F
+	STA.w RAM_1B77				;$B68F9F
 	LDA.w #$0060				;$B68FA2
-	STA.w $1B79				;$B68FA5
+	STA.w RAM_1B79				;$B68FA5
 	LDA.w #$00C8				;$B68FA8
 	STA.b $5C,x				;$B68FAB
 	TXY					;$B68FAD
-	INC.w $1B6F				;$B68FAE
-	INC.w $1B71				;$B68FB1
+	INC.w RAM_1B6F				;$B68FAE
+	INC.w RAM_1B71				;$B68FB1
 CODE_B68FB4:
 	TYX					;$B68FB4
 	DEC.b $5C,x				;$B68FB5
@@ -2254,17 +2254,17 @@ CODE_B68FEB:
 	LDA.w #$FFF0				;$B68FFF
 	STA.b $68,x				;$B69002
 	LDA.w #$0050				;$B69004
-	STA.w $1B73				;$B69007
+	STA.w RAM_1B73				;$B69007
 	LDA.w #$00A0				;$B6900A
-	STA.w $1B75				;$B6900D
+	STA.w boss_hit_points			;$B6900D
 	LDA.w #$0048				;$B69010
-	STA.w $1B77				;$B69013
+	STA.w RAM_1B77				;$B69013
 	LDA.w #$0060				;$B69016
-	STA.w $1B79				;$B69019
+	STA.w RAM_1B79				;$B69019
 	LDA.w #$0096				;$B6901C
 	STA.b $5C,x				;$B6901F
-	INC.w $1B6F				;$B69021
-	INC.w $1B71				;$B69024
+	INC.w RAM_1B6F				;$B69021
+	INC.w RAM_1B71				;$B69024
 	LDA.w #$0009				;$B69027
 	STA.b $38,x				;$B6902A
 	LDA.w #$01C6				;$B6902C
@@ -2286,13 +2286,13 @@ CODE_B69036:
 	LDA.w #$0020				;$B6904F
 	STA.b $6A,x				;$B69052
 	LDA.w #$0060				;$B69054
-	STA.w $1B73				;$B69057
+	STA.w RAM_1B73				;$B69057
 	LDA.w #$00A0				;$B6905A
-	STA.w $1B75				;$B6905D
+	STA.w boss_hit_points			;$B6905D
 	LDA.w #$0078				;$B69060
-	STA.w $1B77				;$B69063
+	STA.w RAM_1B77				;$B69063
 	LDA.w #$0098				;$B69066
-	STA.w $1B79				;$B69069
+	STA.w RAM_1B79				;$B69069
 	LDA.w #$0096				;$B6906C
 	STA.b $5C,x				;$B6906F
 	INC.b $38,x				;$B69071
@@ -2309,8 +2309,8 @@ CODE_B6907D:
 	STA.b $60,x				;$B69087
 	LDA.w #$0000				;$B69089
 	STA.b $62,x				;$B6908C
-	INC.w $1B6F				;$B6908E
-	INC.w $1B71				;$B69091
+	INC.w RAM_1B6F				;$B6908E
+	INC.w RAM_1B71				;$B69091
 	JMP.w CODE_B68EDA			;$B69094
 
 CODE_B69097:
@@ -2353,7 +2353,7 @@ CODE_B690C7:
 CODE_B690DD:
 	LDX.b current_sprite			;$B690DD
 	LDA.b $12,x				;$B690DF
-	CMP.w $1B73				;$B690E1
+	CMP.w RAM_1B73				;$B690E1
 	BCS.b CODE_B690F4			;$B690E4
 	LDA.b $68,x				;$B690E6
 	BPL.b CODE_B690F4			;$B690E8
@@ -2363,7 +2363,7 @@ CODE_B690DD:
 	STA.b $64,x				;$B690F2
 CODE_B690F4:
 	LDA.b $12,x				;$B690F4
-	CMP.w $1B75				;$B690F6
+	CMP.w boss_hit_points			;$B690F6
 	BCC.b CODE_B6910D			;$B690F9
 	LDA.b $68,x				;$B690FB
 	BMI.b CODE_B6910D			;$B690FD
@@ -2375,7 +2375,7 @@ CODE_B690F4:
 	STA.b $64,x				;$B6910B
 CODE_B6910D:
 	LDA.b $16,x				;$B6910D
-	CMP.w $1B77				;$B6910F
+	CMP.w RAM_1B77				;$B6910F
 	BCS.b CODE_B6911E			;$B69112
 	LDA.b $6A,x				;$B69114
 	BPL.b CODE_B6911E			;$B69116
@@ -2384,7 +2384,7 @@ CODE_B6910D:
 	STA.b $6A,x				;$B6911C
 CODE_B6911E:
 	LDA.b $16,x				;$B6911E
-	CMP.w $1B79				;$B69120
+	CMP.w RAM_1B79				;$B69120
 	BCC.b CODE_B6912F			;$B69123
 	LDA.b $6A,x				;$B69125
 	BMI.b CODE_B6912F			;$B69127
@@ -2546,7 +2546,7 @@ DATA_B69242:
 CODE_B6924A:
 	JSR.w CODE_B6F2DD			;$B6924A
 	TAX					;$B6924D
-	STZ.w $1B6F,x				;$B6924E
+	STZ.w RAM_1B6F,x			;$B6924E
 	TYX					;$B69251
 	LDA.b $12,x				;$B69252
 	STA.b $2C,x				;$B69254
@@ -2713,7 +2713,7 @@ CODE_B69374:
 	REP.b #$20				;$B69380
 	JSR.w CODE_B6F2DD			;$B69382
 	TAY					;$B69385
-	LDA.w $1B6F,y				;$B69386
+	LDA.w RAM_1B6F,y			;$B69386
 	SEP.b #$20				;$B69389
 	STA.w CPU.multiply_B			;$B6938B
 	REP.b #$20				;$B6938E
@@ -2731,15 +2731,15 @@ CODE_B69374:
 	LDA.b $60,x				;$B693A7
 	BEQ.b CODE_B693C7			;$B693A9
 	CLC					;$B693AB
-	ADC.w $1B6F,y				;$B693AC
+	ADC.w RAM_1B6F,y			;$B693AC
 	CMP.w #$00FF				;$B693AF
 	BCC.b CODE_B693BC			;$B693B2
 	LDA.w #$00FF				;$B693B4
-	STA.w $1B6F,y				;$B693B7
+	STA.w RAM_1B6F,y			;$B693B7
 	BRA.b CODE_B693F3			;$B693BA
 
 CODE_B693BC:
-	STA.w $1B6F,y				;$B693BC
+	STA.w RAM_1B6F,y			;$B693BC
 	STZ.b $60,x				;$B693BF
 	LDA.w #$0001				;$B693C1
 	PHA					;$B693C4
@@ -2753,16 +2753,16 @@ CODE_B693C7:
 	STA.b $66,x				;$B693CF
 	CMP.w #$0100				;$B693D1
 	BCC.b CODE_B693F6			;$B693D4
-	LDA.w $1B6F,y				;$B693D6
+	LDA.w RAM_1B6F,y			;$B693D6
 	SEC					;$B693D9
 	SBC.b $62,x				;$B693DA
 	BPL.b CODE_B693E6			;$B693DC
 	LDA.w #$0000				;$B693DE
-	STA.w $1B6F,y				;$B693E1
+	STA.w RAM_1B6F,y			;$B693E1
 	BRA.b CODE_B693F3			;$B693E4
 
 CODE_B693E6:
-	STA.w $1B6F,y				;$B693E6
+	STA.w RAM_1B6F,y			;$B693E6
 CODE_B693E9:
 	LDA.w #$0000				;$B693E9
 	PHA					;$B693EC
@@ -2774,7 +2774,7 @@ CODE_B693F3:
 	JMP.w return_handle_despawn		;$B693F3
 
 CODE_B693F6:
-	LDA.w $1B6F,y				;$B693F6
+	LDA.w RAM_1B6F,y			;$B693F6
 	LDX.b $1A				;$B693F9
 	INC.b $60,x				;$B693FB
 	BRA.b CODE_B693E9			;$B693FD
@@ -2797,7 +2797,7 @@ CODE_B6940D:
 	BNE.b CODE_B6943A			;$B69410
 	JSR.w CODE_B6F2DD			;$B69412
 	TAY					;$B69415
-	LDA.w $1B6F,y				;$B69416
+	LDA.w RAM_1B6F,y			;$B69416
 	BEQ.b CODE_B6943A			;$B69419
 	CMP.w #$00FF				;$B6941B
 	BEQ.b CODE_B6943A			;$B6941E
@@ -2826,7 +2826,7 @@ CODE_B69441:
 	REP.b #$20				;$B69448
 	JSR.w CODE_B6F2DD			;$B6944A
 	TAY					;$B6944D
-	LDA.w $1B6F,y				;$B6944E
+	LDA.w RAM_1B6F,y			;$B6944E
 	SEP.b #$20				;$B69451
 	STA.w CPU.multiply_B			;$B69453
 	REP.b #$20				;$B69456
@@ -2865,14 +2865,14 @@ CODE_B69488:
 	DEC					;$B6948A
 	BPL.b CODE_B69488			;$B6948B
 	LDA.b $1A				;$B6948D
-	BIT.w $1B6D				;$B6948F
+	BIT.w RAM_1B6D				;$B6948F
 	BEQ.b CODE_B6949F			;$B69492
 	JSL.l CODE_BB85A9			;$B69494
 	JSL.l delete_sprite_no_deallocation	;$B69498
 	JML [sprite_return_address]		;$B6949C
 
 CODE_B6949F:
-	TSB.w $1B6D				;$B6949F
+	TSB.w RAM_1B6D				;$B6949F
 	INC.b $38,x				;$B694A2
 	LDA.w RAM_054F				;$B694A4
 	BNE.b CODE_B694D3			;$B694A7
@@ -2904,7 +2904,7 @@ CODE_B694D3:
 	CMP.w #$0002				;$B694DC
 	BNE.b CODE_B694E7			;$B694DF
 	LDY.w #$0020				;$B694E1
-	STY.w $18F5				;$B694E4
+	STY.w RAM_18F5				;$B694E4
 CODE_B694E7:
 	ASL					;$B694E7
 	TAY					;$B694E8
@@ -3254,7 +3254,7 @@ CODE_B69763:
 	STY $1E					;$B69763
 	LDA #$0004				;$B69765
 	STA $5C,x				;$B69768
-	LDA $196D				;$B6976A
+	LDA RAM_196D				;$B6976A
 	SEC					;$B6976D
 	SBC #$0018				;$B6976E
 	STA $1A					;$B69771
@@ -3333,7 +3333,7 @@ ripsaw_rage_sawdust_main:
 	TYX					;$B697EB
 	EOR #$FFFF				;$B697EC
 	CLC					;$B697EF
-	ADC $1973				;$B697F0
+	ADC RAM_1973				;$B697F0
 	ADC #$00D2				;$B697F3
 	STA sprite.y_position,x			;$B697F6
 	JMP.w CODE_B6BF79			;$B697F8
@@ -7702,7 +7702,7 @@ CODE_B6B8AE:
 	BNE.b CODE_B6B8C3			;$B6B8B1
 	LDX.b alternate_sprite			;$B6B8B3
 	JSL.l CODE_BB85EB			;$B6B8B5
-	LDA.w $18F7				;$B6B8B9
+	LDA.w RAM_18F7				;$B6B8B9
 	AND.w #$01E0				;$B6B8BC
 	ORA.b $1E,x				;$B6B8BF
 	STA.b $1E,x				;$B6B8C1
@@ -8176,7 +8176,7 @@ CODE_B6BC44:
 	JMP.w generic_move_and_animate_state	;$B6BC44
 
 CODE_B6BC47:
-	LDA.w $1B6B				;$B6BC47
+	LDA.w RAM_1B6B				;$B6BC47
 	BEQ.b CODE_B6BC58			;$B6BC4A
 	JSL.l CODE_BB85A9			;$B6BC4C
 	JSL.l CODE_BB85AC			;$B6BC50
@@ -8186,7 +8186,7 @@ CODE_B6BC58:
 	TYX					;$B6BC58
 	JSR.w CODE_B6F371			;$B6BC59
 	INC.b $38,x				;$B6BC5C
-	STX.w $1B6B				;$B6BC5E
+	STX.w RAM_1B6B				;$B6BC5E
 	LDA level_number			;$B6BC61
 	CMP.w #!level_criss_kross_cliffs	;$B6BC63
 	BNE.b CODE_B6BC6F			;$B6BC66
@@ -8201,7 +8201,7 @@ CODE_B6BC72:
 	JSR.w CODE_B6BCFB			;$B6BC73
 	LDA.w #$0110				;$B6BC76
 	CLC					;$B6BC79
-	ADC.w $1973				;$B6BC7A
+	ADC.w RAM_1973				;$B6BC7A
 	CMP.w $0016,y				;$B6BC7D
 	BCS.b CODE_B6BC91			;$B6BC80
 	STZ.b $3A,x				;$B6BC82
@@ -8252,7 +8252,7 @@ CODE_B6BCD3:
 	SEC					;$B6BCDD
 	SBC.w #$0008				;$B6BCDE
 	STA.w $0012,y				;$B6BCE1
-	LDA.w $1973				;$B6BCE4
+	LDA.w RAM_1973				;$B6BCE4
 	CLC					;$B6BCE7
 	ADC.w #$0110				;$B6BCE8
 	STA.w $0016,y				;$B6BCEB
@@ -8425,7 +8425,7 @@ CODE_B6BE0E:
 	JSL.l populate_sprite_clipping		;$B6BE0E
 	LDA.b $5C,x				;$B6BE12
 	ASL					;$B6BE14
-	LDY.w $1B6B				;$B6BE15
+	LDY.w RAM_1B6B				;$B6BE15
 	BEQ.b CODE_B6BE1E			;$B6BE18
 	CLC					;$B6BE1A
 	ADC.w #$0006				;$B6BE1B
@@ -8579,7 +8579,7 @@ CODE_B6BF48:
 	CLC					;$B6BF4A
 	ADC.w #$001E				;$B6BF4B
 	SEC					;$B6BF4E
-	SBC.w $1973				;$B6BF4F
+	SBC.w RAM_1973				;$B6BF4F
 	BMI.b CODE_B6BF68			;$B6BF52
 	LDA.b $16,x				;$B6BF54
 	SEC					;$B6BF56
@@ -8611,7 +8611,7 @@ CODE_B6BF82:
 	JML [sprite_return_address]		;$B6BF82
 
 CODE_B6BF85:
-	LDA.w $1B6B				;$B6BF85
+	LDA.w RAM_1B6B				;$B6BF85
 	BEQ.b CODE_B6BF98			;$B6BF88
 	LDA.w #$000E				;$B6BF8A
 	JSL.l CODE_B88069			;$B6BF8D
@@ -8685,7 +8685,7 @@ CODE_B6C003:
 	BRA.b CODE_B6BFD4			;$B6C012
 
 CODE_B6C014:
-	LDY.w $1B6B				;$B6C014
+	LDY.w RAM_1B6B				;$B6C014
 	LDA.b $5C,x				;$B6C017
 	BNE.b CODE_B6C021			;$B6C019
 	LDA.w #$0448				;$B6C01B
@@ -9315,13 +9315,13 @@ CODE_B6C458:
 	RTS					;$B6C490
 
 nibbla_handler_main:
-	LDA.w $1B6B				;$B6C491
+	LDA.w RAM_1B6B				;$B6C491
 	BNE.b CODE_B6C500			;$B6C494
 	LDY.w #$0154				;$B6C496
 	JSL.l CODE_BB8585			;$B6C499
 	LDX.b current_sprite			;$B6C49D
 	LDY.b alternate_sprite			;$B6C49F
-	STY.w $1B6B				;$B6C4A1
+	STY.w RAM_1B6B				;$B6C4A1
 	LDA.b $62,x				;$B6C4A4
 	STA.w $005E,y				;$B6C4A6
 	STA.w $0016,y				;$B6C4A9
@@ -9335,13 +9335,13 @@ nibbla_handler_main:
 	BCC.b CODE_B6C4CD			;$B6C4BE
 	CMP.b $60,x				;$B6C4C0
 	BCC.b CODE_B6C4CD			;$B6C4C2
-	LDA.w $196D				;$B6C4C4
+	LDA.w RAM_196D				;$B6C4C4
 	SEC					;$B6C4C7
 	SBC.w #$0010				;$B6C4C8
 	BRA.b CODE_B6C4D4			;$B6C4CB
 
 CODE_B6C4CD:
-	LDA.w $196D				;$B6C4CD
+	LDA.w RAM_196D				;$B6C4CD
 	CLC					;$B6C4D0
 	ADC.w #$0110				;$B6C4D1
 CODE_B6C4D4:
@@ -9376,7 +9376,7 @@ CODE_B6C50F:
 	BCC.b CODE_B6C53E			;$B6C513
 	LDX.b current_sprite			;$B6C515
 	PHX					;$B6C517
-	LDA.w $1B6B				;$B6C518
+	LDA.w RAM_1B6B				;$B6C518
 	STA.b current_sprite			;$B6C51B
 	JSL.l CODE_BBAB29			;$B6C51D
 	BCC.b CODE_B6C53B			;$B6C521
@@ -9386,7 +9386,7 @@ CODE_B6C50F:
 	JSL.l delete_sprite_handle_deallocation	;$B6C52A
 	PLX					;$B6C52E
 	STX.b current_sprite			;$B6C52F
-	STZ.w $1B6B				;$B6C531
+	STZ.w RAM_1B6B				;$B6C531
 	JSL.l CODE_BBAB52			;$B6C534
 	JML [sprite_return_address]		;$B6C538
 
@@ -9482,7 +9482,7 @@ CODE_B6C5D1:
 CODE_B6C5DC:
 	JSR.w CODE_B6C6EA			;$B6C5DC
 	JSL.l process_sprite_animation		;$B6C5DF
-	STZ.w $1B6F				;$B6C5E3
+	STZ.w RAM_1B6F				;$B6C5E3
 	JML [sprite_return_address]		;$B6C5E6
 
 CODE_B6C5E9:
@@ -9806,16 +9806,16 @@ CODE_B6C827:
 	STA.b $26,x				;$B6C847
 	LDA.b $12,x				;$B6C849
 	SEC					;$B6C84B
-	SBC.w $196D				;$B6C84C
+	SBC.w RAM_196D				;$B6C84C
 	STA.b $12,x				;$B6C84F
 	LDA.b $16,x				;$B6C851
 	SEC					;$B6C853
-	SBC.w $1973				;$B6C854
+	SBC.w RAM_1973				;$B6C854
 	STA.b $16,x				;$B6C857
 	LDY.w #$025C				;$B6C859
 	JSL.l CODE_BB85B8			;$B6C85C
 	LDX.b alternate_sprite			;$B6C860
-	STX.w $18E7				;$B6C862
+	STX.w RAM_18E7				;$B6C862
 CODE_B6C865:
 	JML [sprite_return_address]		;$B6C865
 
@@ -10000,7 +10000,7 @@ CODE_B6C9BE:
 	RTS					;$B6C9D2
 
 CODE_B6C9D3:
-	LDA.w $1973 				;$B6C9D3 / Camera Y
+	LDA.w RAM_1973 				;$B6C9D3 / Camera Y
 	CLC					;$B6C9D6
 	ADC.w #$0080				;$B6C9D7
 	SEC					;$B6C9DA
@@ -10013,7 +10013,7 @@ CODE_B6C9D3:
 	RTS					;$B6C9E7
 
 CODE_B6C9E8:
-	LDA.w $196D 				;$B6C9E8 / Camera X
+	LDA.w RAM_196D 				;$B6C9E8 / Camera X
 	CLC					;$B6C9EB
 	ADC.w #$0080				;$B6C9EC
 	SEC					;$B6C9EF
@@ -10255,7 +10255,7 @@ CODE_B6CBAD:
 	RTS					;$B6CBAD
 
 CODE_B6CBAE:
-	LDA.w $1973				;$B6CBAE
+	LDA.w RAM_1973				;$B6CBAE
 	CLC					;$B6CBB1
 	ADC.w #$0080				;$B6CBB2
 	SEC					;$B6CBB5
@@ -10270,7 +10270,7 @@ CODE_B6CBAE:
 	RTS					;$B6CBC6
 
 CODE_B6CBC7:
-	LDA.w $196D				;$B6CBC7
+	LDA.w RAM_196D				;$B6CBC7
 	CLC					;$B6CBCA
 	ADC.w #$0080				;$B6CBCB
 	SEC					;$B6CBCE
@@ -10340,7 +10340,7 @@ CODE_B6CC4F:
 	LDA.w #$000F				;$B6CC4F
 	STA.b $68,x				;$B6CC52
 	LDA.b $6C,x				;$B6CC54
-	STA.w $1B6F				;$B6CC56
+	STA.w RAM_1B6F				;$B6CC56
 	LDA.w #$0001				;$B6CC59
 	STA.w RAM_15E6				;$B6CC5C
 	LDA.w #$0273				;$B6CC5F
@@ -10350,11 +10350,11 @@ CODE_B6CC66:
 	LDA.b $12,x				;$B6CC6A
 	CLC					;$B6CC6C
 	ADC.w #$FF7A				;$B6CC6D
-	STA.w $1B77				;$B6CC70
+	STA.w RAM_1B77				;$B6CC70
 	LDA.b $16,x				;$B6CC73
 	CLC					;$B6CC75
 	ADC.w #$FF98				;$B6CC76
-	STA.w $1B79				;$B6CC79
+	STA.w RAM_1B79				;$B6CC79
 	JMP.w return_handle_anim_and_despawn	;$B6CC7C
 
 CODE_B6CC7F:
@@ -10367,9 +10367,9 @@ CODE_B6CC7F:
 CODE_B6CC8B:
 	SEP.b #$20				;$B6CC8B
 	LDA.b $6A,x				;$B6CC8D
-	STA.w $1B6D				;$B6CC8F
+	STA.w RAM_1B6D				;$B6CC8F
 	LDA.b $6B,x				;$B6CC92
-	STA.w $1B6B				;$B6CC94
+	STA.w RAM_1B6B				;$B6CC94
 	REP.b #$20				;$B6CC97
 	RTS					;$B6CC99
 
@@ -10441,12 +10441,12 @@ CODE_B6CCF3:
 	LDY.w #$010C				;$B6CCF3
 	JSL.l CODE_BB8585			;$B6CCF6
 	LDX.b alternate_sprite			;$B6CCFA
-	STX.w $1B89				;$B6CCFC
+	STX.w RAM_1B89				;$B6CCFC
 	JSL.l CODE_B6840E			;$B6CCFF
 	LDA.w #$0003				;$B6CD03
-	STA.w $1B75				;$B6CD06
+	STA.w boss_hit_points			;$B6CD06
 	INC.b $38,x				;$B6CD09
-	STX.w $1B6B				;$B6CD0B
+	STX.w RAM_1B6B				;$B6CD0B
 	STZ.w $1C15				;$B6CD0E
 CODE_B6CD11:
 	LDA.w #$00E6				;$B6CD11
@@ -10471,7 +10471,7 @@ CODE_B6CD11:
 	LDY.w #$00FA				;$B6CD3B
 	JSL.l CODE_BB85B8			;$B6CD3E
 	LDX.b alternate_sprite			;$B6CD42
-	STX.w $1B6D				;$B6CD44
+	STX.w RAM_1B6D				;$B6CD44
 	LDA.b $1E,x				;$B6CD47
 	CLC					;$B6CD49
 	ADC.w #$0024				;$B6CD4A
@@ -10479,7 +10479,7 @@ CODE_B6CD11:
 	LDY.w #$00FC				;$B6CD4F
 	JSL.l CODE_BB8585			;$B6CD52
 	LDX.b alternate_sprite			;$B6CD56
-	STX.w $1B6F				;$B6CD58
+	STX.w RAM_1B6F				;$B6CD58
 	LDX.b current_sprite			;$B6CD5B
 	LDA.w #$000B				;$B6CD5D
 	STA.b $38,x				;$B6CD60
@@ -10487,19 +10487,19 @@ CODE_B6CD11:
 
 CODE_B6CD65:
 	LDX.b current_sprite			;$B6CD65
-	LDY.w $1B6F				;$B6CD67
+	LDY.w RAM_1B6F				;$B6CD67
 	LDA.w #$0002				;$B6CD6A
 	STA.w $0038,y				;$B6CD6D
 	INC.b $38,x				;$B6CD70
 CODE_B6CD72:
 	LDX.b current_sprite			;$B6CD72
-	LDY.w $1B6F				;$B6CD74
+	LDY.w RAM_1B6F				;$B6CD74
 	LDA.w $0038,y				;$B6CD77
 	BNE.b CODE_B6CD8F			;$B6CD7A
 	PHY					;$B6CD7C
 	JSR.w CODE_B6D7E9			;$B6CD7D
 	LDA.w $0008,y				;$B6CD80
-	STA.w $1B7D				;$B6CD83
+	STA.w RAM_1B7D				;$B6CD83
 	PLY					;$B6CD86
 	LDA.w #$0008				;$B6CD87
 	STA.w $0038,y				;$B6CD8A
@@ -10511,7 +10511,7 @@ CODE_B6CD93:
 	JML [sprite_return_address]		;$B6CD96
 
 CODE_B6CD99:
-	DEC.w $1B7D				;$B6CD99
+	DEC.w RAM_1B7D				;$B6CD99
 	BNE.b CODE_B6CDC7			;$B6CD9C
 	TYX					;$B6CD9E
 	JSR.w CODE_B6D7E9			;$B6CD9F
@@ -10549,12 +10549,12 @@ CODE_B6CDC9:
 	STZ $5A,x				;$B6CDE2
 	JSR CODE_B6D7E9				;$B6CDE4
 	LDA.w $0010,y				;$B6CDE7
-	STA $1B7D				;$B6CDEA
+	STA RAM_1B7D				;$B6CDEA
 CODE_B6CDED:
 	BRA.b CODE_B6CD93			;$B6CDED
 
 CODE_B6CDEF:
-	DEC.w $1B7D				;$B6CDEF
+	DEC.w RAM_1B7D				;$B6CDEF
 	BNE.b CODE_B6CDFC			;$B6CDF2
 	TYX					;$B6CDF4
 	LDA.w #$0001				;$B6CDF5
@@ -10562,10 +10562,10 @@ CODE_B6CDEF:
 	BRA.b CODE_B6CE07			;$B6CDFA
 
 CODE_B6CDFC:
-	LDA.w $1B87				;$B6CDFC
+	LDA.w RAM_1B87				;$B6CDFC
 	BNE.b CODE_B6CE07			;$B6CDFF
 	LDA.w #$0001				;$B6CE01
-	STA.w $1B7D				;$B6CE04
+	STA.w RAM_1B7D				;$B6CE04
 CODE_B6CE07:
 	BRA.b CODE_B6CD8F			;$B6CE07
 
@@ -10582,7 +10582,7 @@ CODE_B6CE09:
 	LDA.b $16,x				;$B6CE1C
 	STA.b $56,x				;$B6CE1E
 CODE_B6CE20:
-	LDY.w $1B6F				;$B6CE20
+	LDY.w RAM_1B6F				;$B6CE20
 	LDA.w $0038,y				;$B6CE23
 	BNE.b CODE_B6CE30			;$B6CE26
 	LDA.w #$0009				;$B6CE28
@@ -10593,7 +10593,7 @@ CODE_B6CE30:
 
 CODE_B6CE33:
 	TYX					;$B6CE33
-	LDY.w $1B6F				;$B6CE34
+	LDY.w RAM_1B6F				;$B6CE34
 	LDA.w $0038,y				;$B6CE37
 	BNE.b CODE_B6CE6B			;$B6CE3A
 	LDA.w #$000A				;$B6CE3C
@@ -10621,19 +10621,19 @@ CODE_B6CE6E:
 	JSL.l CODE_B58024			;$B6CE71
 	LDA.b $2A,x				;$B6CE75
 	BPL.b CODE_B6CEA0			;$B6CE77
-	DEC.w $1B75				;$B6CE79
+	DEC.w boss_hit_points			;$B6CE79
 	BNE.b CODE_B6CE81			;$B6CE7C
-	INC.w $1B75				;$B6CE7E
+	INC.w boss_hit_points			;$B6CE7E
 CODE_B6CE81:
 	STZ.b $66,x				;$B6CE81
 	STZ.b $2A,x				;$B6CE83
 	STZ.b $5A,x				;$B6CE85
 	JSR.w CODE_B6D7E9			;$B6CE87
 	LDA.w $0020,y				;$B6CE8A
-	STA.w $1B7D				;$B6CE8D
+	STA.w RAM_1B7D				;$B6CE8D
 	LDA.w #$0005				;$B6CE90
 	STA.b $38,x				;$B6CE93
-	LDY.w $1B6F				;$B6CE95
+	LDY.w RAM_1B6F				;$B6CE95
 	LDA.w #$0008				;$B6CE98
 	STA.w $0038,y				;$B6CE9B
 	BRA.b CODE_B6CEB9			;$B6CE9E
@@ -10648,16 +10648,16 @@ CODE_B6CEA0:
 	INC.b $38,x				;$B6CEAF
 	LDA.w #$0001				;$B6CEB1
 	STA.b $5A,x				;$B6CEB4
-	STZ.w $1B7D				;$B6CEB6
+	STZ.w RAM_1B7D				;$B6CEB6
 CODE_B6CEB9:
 	JMP.w CODE_B6CD93			;$B6CEB9
 
 CODE_B6CEBC:
 	LDA.b $12,x				;$B6CEBC
 	AND.w #$FFE0				;$B6CEBE
-	CMP.w $1B93				;$B6CEC1
+	CMP.w RAM_1B93				;$B6CEC1
 	BEQ.b CODE_B6CED0			;$B6CEC4
-	STA.w $1B93				;$B6CEC6
+	STA.w RAM_1B93				;$B6CEC6
 	LDY.w #$0104				;$B6CEC9
 	JSL.l CODE_BB85B8			;$B6CECC
 CODE_B6CED0:
@@ -10692,14 +10692,14 @@ CODE_B6CEF2:
 CODE_B6CEF6:
 	LDA.w #$0030				;$B6CEF6
 	JSL.l CODE_B5800F			;$B6CEF9
-	LDX.w $1B89				;$B6CEFD
+	LDX.w RAM_1B89				;$B6CEFD
 	BEQ.b CODE_B6CF18			;$B6CF00
 	LDA.w #$0060				;$B6CF02
 	JSL.l CODE_B5800F			;$B6CF05
 	LDA.b $16,x				;$B6CF09
 	CMP.w #$0308				;$B6CF0B
 	BCC.b CODE_B6CF18			;$B6CF0E
-	STZ.w $1B89				;$B6CF10
+	STZ.w RAM_1B89				;$B6CF10
 	TXY					;$B6CF13
 	JSL.l CODE_B6F3E7			;$B6CF14
 CODE_B6CF18:
@@ -10742,7 +10742,7 @@ CODE_B6CF5A:
 	EOR.w #$FFFF				;$B6CF5A
 	INC					;$B6CF5D
 	STA.b $2E,x				;$B6CF5E
-	LDA.w $1B7D				;$B6CF60
+	LDA.w RAM_1B7D				;$B6CF60
 	BNE.b CODE_B6CF81			;$B6CF63
 	LDY.w #$0106				;$B6CF65
 	JSL.l CODE_BB8585			;$B6CF68
@@ -10753,7 +10753,7 @@ CODE_B6CF5A:
 	LDY.w #$0158				;$B6CF7A
 	JSL.l CODE_B58036			;$B6CF7D
 CODE_B6CF81:
-	INC.w $1B7D				;$B6CF81
+	INC.w RAM_1B7D				;$B6CF81
 CODE_B6CF84:
 	JSL set_platform_hitbox_pos_keep_flags	;$B6CF84
 CODE_B6CF88:
@@ -10869,7 +10869,7 @@ CODE_B6D03F:
 	LDA.w #$0009				;$B6D06C
 	STA.w $0038,y				;$B6D06F
 	PHY					;$B6D072
-	LDY.w $1B6F				;$B6D073
+	LDY.w RAM_1B6F				;$B6D073
 	DEC					;$B6D076
 	DEC					;$B6D077
 	STA.w $0038,y				;$B6D078
@@ -10907,7 +10907,7 @@ CODE_B6D09A:
 belcha_mouth_side_main:
 	PHX					;$B6D0A4
 	JSR.w CODE_B6D7F4			;$B6D0A5
-	STA.w $1B7B				;$B6D0A8
+	STA.w RAM_1B7B 				;$B6D0A8
 	PLX					;$B6D0AB
 	LDY.b current_sprite			;$B6D0AC
 	JMP.w (DATA_B6D0B1,x)			;$B6D0AE
@@ -10929,7 +10929,7 @@ CODE_B6D0C7:
 	JML [sprite_return_address]		;$B6D0C7
 
 CODE_B6D0CA:
-	LDA.w $1B7B				;$B6D0CA
+	LDA.w RAM_1B7B 				;$B6D0CA
 	BNE.b CODE_B6D0D2			;$B6D0CD
 	TYX					;$B6D0CF
 	STZ.b $38,x				;$B6D0D0
@@ -10945,7 +10945,7 @@ CODE_B6D0D5:
 	JMP.w CODE_B6D14F			;$B6D0E1
 
 CODE_B6D0E4:
-	LDA.w $1B7B				;$B6D0E4
+	LDA.w RAM_1B7B 				;$B6D0E4
 	BNE.b CODE_B6D0EF			;$B6D0E7
 	TYX					;$B6D0E9
 	LDA.b $38,x				;$B6D0EA
@@ -11056,7 +11056,7 @@ CODE_B6D196:
 	LDA.b $16,x				;$B6D1A4
 	CMP.w #$0308				;$B6D1A6
 	BCC.b CODE_B6D1B1			;$B6D1A9
-	DEC.w $1B87				;$B6D1AB
+	DEC.w RAM_1B87				;$B6D1AB
 	JMP.w CODE_B6F27D			;$B6D1AE
 
 CODE_B6D1B1:
@@ -11173,7 +11173,7 @@ CODE_B6D291:
 	JSR.w CODE_B6B6B3			;$B6D291
 	BCS.b CODE_B6D2D9			;$B6D294
 	TXY					;$B6D296
-	LDX.w $1B6B				;$B6D297
+	LDX.w RAM_1B6B				;$B6D297
 	JSR.w CODE_B6D03F			;$B6D29A
 	TYX					;$B6D29D
 	BCS.b CODE_B6D2AD			;$B6D29E
@@ -11208,7 +11208,7 @@ CODE_B6D2D9:
 	BNE.b CODE_B6D2E3			;$B6D2DE
 	STZ.w current_held_sprite		;$B6D2E0
 CODE_B6D2E3:
-	DEC.w $1B87				;$B6D2E3
+	DEC.w RAM_1B87				;$B6D2E3
 	LDY.w #$0008				;$B6D2E6
 	LDA.w #$0230				;$B6D2E9
 	PHA					;$B6D2EC
@@ -11271,7 +11271,7 @@ CODE_B6D35D:
 	JSL.l process_current_movement		;$B6D35D
 	DEC.b $5C,x				;$B6D361
 	BNE.b CODE_B6D36B			;$B6D363
-	DEC.w $1B87				;$B6D365
+	DEC.w RAM_1B87				;$B6D365
 	JMP.w CODE_B6F27D			;$B6D368
 
 CODE_B6D36B:
@@ -11323,7 +11323,7 @@ CODE_B6D3CB:
 	JSL.l check_throwable_collision		;$B6D3CE
 	BCS.b CODE_B6D39D			;$B6D3D2
 	TXY					;$B6D3D4
-	LDX.w $1B6B				;$B6D3D5
+	LDX.w RAM_1B6B				;$B6D3D5
 	JSR.w CODE_B6D03F			;$B6D3D8
 	TYX					;$B6D3DB
 	BCS.b CODE_B6D3E5			;$B6D3DC
@@ -11351,7 +11351,7 @@ CODE_B6D3FC:
 	LDA.b $16,x				;$B6D3FE
 	CMP.w #$0308				;$B6D400
 	BCC.b CODE_B6D40E			;$B6D403
-	DEC.w $1B87				;$B6D405
+	DEC.w RAM_1B87				;$B6D405
 	JSL.l delete_sprite_handle_deallocation	;$B6D408
 	SEC					;$B6D40C
 	RTS					;$B6D40D
@@ -11377,14 +11377,14 @@ belcha_tooth_main:
 	CMP.w #$0001				;$B6D428
 	BEQ.b CODE_B6D458			;$B6D42B
 	PHX					;$B6D42D
-	LDX.w $1B6B				;$B6D42E
+	LDX.w RAM_1B6B				;$B6D42E
 	LDA.w $0012,y				;$B6D431
 	CLC					;$B6D434
-	ADC.w $1B83				;$B6D435
+	ADC.w RAM_1B83				;$B6D435
 	STA.w $0012,y				;$B6D438
 	LDA.w $0016,y				;$B6D43B
 	CLC					;$B6D43E
-	ADC.w $1B85				;$B6D43F
+	ADC.w RAM_1B85				;$B6D43F
 	STA.w $0016,y				;$B6D442
 	PLX					;$B6D445
 	JMP.w (DATA_B6D449,x)			;$B6D446
@@ -11401,7 +11401,7 @@ CODE_B6D455:
 	JML [sprite_return_address]		;$B6D455
 
 CODE_B6D458:
-	LDX.w $1B6B				;$B6D458
+	LDX.w RAM_1B6B				;$B6D458
 	LDA.b $16,x				;$B6D45B
 	STA.w $0016,y				;$B6D45D
 	LDA.b $12,x				;$B6D460
@@ -11466,7 +11466,7 @@ CODE_B6D4BC:
 	STA.b $2E,x				;$B6D4C8
 	INC.b $5C,x				;$B6D4CA
 	INC.b $5C,x				;$B6D4CC
-	LDY.w $1B6B				;$B6D4CE
+	LDY.w RAM_1B6B				;$B6D4CE
 	LDA.w $0016,y				;$B6D4D1
 	CLC					;$B6D4D4
 	ADC.b $5E,x				;$B6D4D5
@@ -11483,7 +11483,7 @@ CODE_B6D4E8:
 	LDX.b current_sprite			;$B6D4E8
 	LDA.w #$0003				;$B6D4EA
 	JSL.l process_alternate_movement	;$B6D4ED
-	LDY.w $1B6B				;$B6D4F1
+	LDY.w RAM_1B6B				;$B6D4F1
 	LDA.b $5E,x				;$B6D4F4
 	CLC					;$B6D4F6
 	ADC.w $0016,y				;$B6D4F7
@@ -11506,7 +11506,7 @@ CODE_B6D50C:
 	BRA.b CODE_B6D502			;$B6D512
 
 CODE_B6D514:
-	LDA.w $1B7B				;$B6D514
+	LDA.w RAM_1B7B 				;$B6D514
 	CMP.w #$0004				;$B6D517
 	BNE.b CODE_B6D524			;$B6D51A
 	TYX					;$B6D51C
@@ -11589,7 +11589,7 @@ CODE_B6D58F:
 	JSL.l CODE_BB8585			;$B6D595
 	LDX.b alternate_sprite			;$B6D599
 	JSR.w CODE_B6D7E9			;$B6D59B
-	INC.w $1B87				;$B6D59E
+	INC.w RAM_1B87				;$B6D59E
 	LDA.w $0012,y				;$B6D5A1
 	STA.b $2A,x				;$B6D5A4
 	STA.b $30,x				;$B6D5A6
@@ -11848,7 +11848,7 @@ DATA_B6D7C1:
 	dw $0032,DATA_B6D74B,DATA_B6D777,$FFF6
 
 CODE_B6D7E9:
-	LDA.w $1B75				;$B6D7E9
+	LDA.w boss_hit_points			;$B6D7E9
 	DEC					;$B6D7EC
 	ASL					;$B6D7ED
 	TAY					;$B6D7EE
@@ -11878,12 +11878,12 @@ CODE_B6D80C:
 	LDA.b $12,x				;$B6D811
 	SEC					;$B6D813
 	SBC.b $54,x				;$B6D814
-	STA.w $1B83				;$B6D816
+	STA.w RAM_1B83				;$B6D816
 	LDA.b $16,x				;$B6D819
 	SEC					;$B6D81B
 	SBC.b $56,x				;$B6D81C
-	STA.w $1B85				;$B6D81E
-	LDY.w $1B6F				;$B6D821
+	STA.w RAM_1B85				;$B6D81E
+	LDY.w RAM_1B6F				;$B6D821
 	LDA.b $12,x				;$B6D824
 	SEC					;$B6D826
 	SBC.w #$0028				;$B6D827
@@ -11897,18 +11897,18 @@ CODE_B6D836:
 	LDX.b current_sprite			;$B6D836
 	LDA.b $12,x				;$B6D838
 	SEC					;$B6D83A
-	SBC.w $196D				;$B6D83B
+	SBC.w RAM_196D				;$B6D83B
 	SBC.w #$017E				;$B6D83E
 	EOR.w #$FFFF				;$B6D841
 	INC					;$B6D844
-	STA.w $1B77				;$B6D845
+	STA.w RAM_1B77				;$B6D845
 	LDA.b $16,x				;$B6D848
 	SEC					;$B6D84A
-	SBC.w $1975				;$B6D84B
+	SBC.w RAM_1975				;$B6D84B
 	SBC.w #$0158				;$B6D84E
 	EOR.w #$FFFF				;$B6D851
 	INC					;$B6D854
-	STA.w $1B79				;$B6D855
+	STA.w RAM_1B79				;$B6D855
 	RTS					;$B6D858
 
 CODE_B6D859:
@@ -11940,9 +11940,9 @@ DATA_B6D867:
 
 CODE_B6D883:
 	TYX					;$B6D883
-	STX.w $1B6B				;$B6D884
+	STX.w RAM_1B6B				;$B6D884
 	LDA.w #$0003				;$B6D887
-	STA.w $1B75				;$B6D88A
+	STA.w boss_hit_points			;$B6D88A
 	INC.b $38,x				;$B6D88D
 	LDA.w #$0000				;$B6D88F
 	STA.b $5C,x				;$B6D892
@@ -11957,44 +11957,44 @@ CODE_B6D883:
 	LDY.w #$01D0				;$B6D8A8
 	JSL.l CODE_BB8585			;$B6D8AB
 	LDX.b alternate_sprite			;$B6D8AF
-	STX.w $1B6F				;$B6D8B1
+	STX.w RAM_1B6F				;$B6D8B1
 	LDY.w #$01D2				;$B6D8B4
 	JSL.l CODE_BB8585			;$B6D8B7
 	LDX.b alternate_sprite			;$B6D8BB
-	STX.w $1B77				;$B6D8BD
+	STX.w RAM_1B77				;$B6D8BD
 	LDY.w #$01D6				;$B6D8C0
 	JSL.l CODE_BB8585			;$B6D8C3
 	LDX.b alternate_sprite			;$B6D8C7
-	STX.w $1B79				;$B6D8C9
+	STX.w RAM_1B79				;$B6D8C9
 	LDY.w #$01D8				;$B6D8CC
 	JSL.l CODE_BB8585			;$B6D8CF
 	LDX.b alternate_sprite			;$B6D8D3
-	STX.w $1B7B				;$B6D8D5
+	STX.w RAM_1B7B 				;$B6D8D5
 	LDY.w #$01DA				;$B6D8D8
 	JSL.l CODE_BB8585			;$B6D8DB
 	LDX.b alternate_sprite			;$B6D8DF
-	STX.w $1B83				;$B6D8E1
+	STX.w RAM_1B83				;$B6D8E1
 	LDY.w #$037E				;$B6D8E4
 	JSL.l CODE_BB85B8			;$B6D8E7
 	LDY.b alternate_sprite			;$B6D8EB
-	STY.w $1B71				;$B6D8ED
+	STY.w RAM_1B71				;$B6D8ED
 	LDY.w #$0380				;$B6D8F0
 	JSL.l CODE_BB85B8			;$B6D8F3
 	LDY.b alternate_sprite			;$B6D8F7
-	STY.w $1B73				;$B6D8F9
+	STY.w RAM_1B73				;$B6D8F9
 	SEP.b #$20				;$B6D8FC
 	LDA.b #$7A				;$B6D8FE
 	STA.w PPU.layer_3_tilemap_base		;$B6D900
 	REP.b #$20				;$B6D903
 	LDA.w #$012C				;$B6D905
-	STA.w $1B7D				;$B6D908
+	STA.w RAM_1B7D				;$B6D908
 CODE_B6D90B:
-	DEC.w $1B7D				;$B6D90B
+	DEC.w RAM_1B7D				;$B6D90B
 	BPL.b CODE_B6D923			;$B6D90E
 	TYX					;$B6D910
 	LDA.w #$006C				;$B6D911
 	JSL.l CODE_BB85A0			;$B6D914
-	LDX.w $1B83				;$B6D918
+	LDX.w RAM_1B83				;$B6D918
 	LDA.w #$0007				;$B6D91B
 	STA.b $38,x				;$B6D91E
 	TYX					;$B6D920
@@ -12010,7 +12010,7 @@ CODE_B6D92F:
 	JML [sprite_return_address]		;$B6D932
 
 CODE_B6D935:
-	LDX.w $1B83				;$B6D935
+	LDX.w RAM_1B83				;$B6D935
 	LDA.b $38,x				;$B6D938
 	BNE.b CODE_B6D98C			;$B6D93A
 	TYX					;$B6D93C
@@ -12043,7 +12043,7 @@ CODE_B6D956:
 	BEQ.b CODE_B6D97D			;$B6D97A
 	LSR					;$B6D97C
 CODE_B6D97D:
-	STA.w $1B7D				;$B6D97D
+	STA.w RAM_1B7D				;$B6D97D
 	LDA.w #$0001				;$B6D980
 	STA.b $5C,x				;$B6D983
 	INC.b $38,x				;$B6D985
@@ -12053,23 +12053,23 @@ CODE_B6D98C:
 	JMP.w CODE_B6D923			;$B6D98C
 
 CODE_B6D98F:
-	DEC.w $1B7D				;$B6D98F
+	DEC.w RAM_1B7D				;$B6D98F
 	BNE.b CODE_B6D9A2			;$B6D992
 	TYX					;$B6D994
 	STZ.b $5C,x				;$B6D995
 	JSR.w CODE_B6DF97			;$B6D997
 	LDA.w $000E,y				;$B6D99A
-	STA.w $1B7D				;$B6D99D
+	STA.w RAM_1B7D				;$B6D99D
 	INC.b $38,x				;$B6D9A0
 CODE_B6D9A2:
 	JMP.w CODE_B6D923			;$B6D9A2
 
 CODE_B6D9A5:
-	DEC.w $1B7D				;$B6D9A5
+	DEC.w RAM_1B7D				;$B6D9A5
 	BNE.b CODE_B6D9BB			;$B6D9A8
 	TYX					;$B6D9AA
 	INC.b $38,x				;$B6D9AB
-	LDY.w $1B83				;$B6D9AD
+	LDY.w RAM_1B83				;$B6D9AD
 	LDA.w #$000C				;$B6D9B0
 	STA.w $0038,y				;$B6D9B3
 	LDA.w #$0000				;$B6D9B6
@@ -12078,7 +12078,7 @@ CODE_B6D9BB:
 	JMP.w CODE_B6D923			;$B6D9BB
 
 CODE_B6D9BE:
-	LDX.w $1B83				;$B6D9BE
+	LDX.w RAM_1B83				;$B6D9BE
 	LDA.b $38,x				;$B6D9C1
 	BNE.b CODE_B6D9CE			;$B6D9C3
 	TYX					;$B6D9C5
@@ -12093,7 +12093,7 @@ CODE_B6D9D1:
 	BNE.b CODE_B6D9E4			;$B6D9D4
 	LDA.w #$0002				;$B6D9D6
 	STA.b $38,x				;$B6D9D9
-	LDX.w $1B6F				;$B6D9DB
+	LDX.w RAM_1B6F				;$B6D9DB
 	STA.b $38,x				;$B6D9DE
 	LDX.b current_sprite			;$B6D9E0
 	INC.b $38,x				;$B6D9E2
@@ -12115,23 +12115,23 @@ CODE_B6D9E7:
 CODE_B6DA02:
 	LDA.w $000A,y				;$B6DA02
 CODE_B6DA05:
-	STA.w $1B7D				;$B6DA05
-	LDX.w $1B79				;$B6DA08
+	STA.w RAM_1B7D				;$B6DA05
+	LDX.w RAM_1B79				;$B6DA08
 	LDA.w #$3000				;$B6DA0B
 	JSR.w CODE_B6F23E			;$B6DA0E
-	LDX.w $1B7B				;$B6DA11
+	LDX.w RAM_1B7B 				;$B6DA11
 	LDA.w #$3000				;$B6DA14
 	JSR.w CODE_B6F23E			;$B6DA17
 	LDA.w #$0040				;$B6DA1A
-	LDX.w $1B6F				;$B6DA1D
+	LDX.w RAM_1B6F				;$B6DA1D
 	STA.b $3A,x				;$B6DA20
-	LDX.w $1B77				;$B6DA22
+	LDX.w RAM_1B77				;$B6DA22
 	STA.b $3A,x				;$B6DA25
 CODE_B6DA27:
 	JMP.w CODE_B6D923			;$B6DA27
 
 CODE_B6DA2A:
-	DEC.w $1B7D				;$B6DA2A
+	DEC.w RAM_1B7D				;$B6DA2A
 	BNE.b CODE_B6DA35			;$B6DA2D
 	TYX					;$B6DA2F
 	INC.b $38,x				;$B6DA30
@@ -12152,33 +12152,33 @@ CODE_B6DA44:
 	INC.b $38,x				;$B6DA46
 	JSR.w CODE_B6DF97			;$B6DA48
 	LDA.w $000C,y				;$B6DA4B
-	STA.w $1B7D				;$B6DA4E
+	STA.w RAM_1B7D				;$B6DA4E
 	RTS					;$B6DA51
 
 CODE_B6DA52:
 	JSR.w CODE_B6DF6F			;$B6DA52
 	BNE.b CODE_B6DABA			;$B6DA55
-	DEC.w $1B75				;$B6DA57
+	DEC.w boss_hit_points			;$B6DA57
 	BNE.b CODE_B6DA9A			;$B6DA5A
-	LDX.w $1B6F				;$B6DA5C
+	LDX.w RAM_1B6F				;$B6DA5C
 	LDA.w #$39EE				;$B6DA5F
 	STA.b $24,x				;$B6DA62
 	STA.b $60,x				;$B6DA64
 	STZ.b $38,x				;$B6DA66
 	STZ.b $5C,x				;$B6DA68
-	LDX.w $1B77				;$B6DA6A
+	LDX.w RAM_1B77				;$B6DA6A
 	LDA.w #$39EE				;$B6DA6D
 	STA.b $24,x				;$B6DA70
 	STA.b $60,x				;$B6DA72
 	STZ.b $5C,x				;$B6DA74
 	STZ.b $38,x				;$B6DA76
 	LDA.w #$00FF				;$B6DA78
-	STA.w $1B93				;$B6DA7B
+	STA.w RAM_1B93				;$B6DA7B
 	JSR.w CODE_B6DACA			;$B6DA7E
 	LDY.b current_sprite			;$B6DA81
 	LDA.w #$000C				;$B6DA83
 	STA.w $0038,y				;$B6DA86
-	LDX.w $1B83				;$B6DA89
+	LDX.w RAM_1B83				;$B6DA89
 	LDA.w #$0007				;$B6DA8C
 	STA.b $38,x				;$B6DA8F
 	LDA.w #$066F				;$B6DA91
@@ -12190,11 +12190,11 @@ CODE_B6DA9A:
 	JSL.l queue_sound_effect		;$B6DA9D
 	TYX					;$B6DAA1
 	INC.b $38,x				;$B6DAA2
-	LDX.w $1B6F				;$B6DAA4
+	LDX.w RAM_1B6F				;$B6DAA4
 	LDA.w #$000A				;$B6DAA7
 	STA.b $38,x				;$B6DAAA
 	JSR.w CODE_B6DABD			;$B6DAAC
-	LDX.w $1B77				;$B6DAAF
+	LDX.w RAM_1B77				;$B6DAAF
 	LDA.w #$000A				;$B6DAB2
 	STA.b $38,x				;$B6DAB5
 	JSR.w CODE_B6DABD			;$B6DAB7
@@ -12209,13 +12209,13 @@ CODE_B6DABD:
 	RTS					;$B6DAC9
 
 CODE_B6DACA:
-	LDX.w $1B71				;$B6DACA
+	LDX.w RAM_1B71				;$B6DACA
 	JSL.l CODE_BB85E8			;$B6DACD
-	LDX.w $1B73				;$B6DAD1
+	LDX.w RAM_1B73				;$B6DAD1
 	JSL.l CODE_BB85E8			;$B6DAD4
-	LDX.w $1B79				;$B6DAD8
+	LDX.w RAM_1B79				;$B6DAD8
 	JSL.l CODE_BB85E8			;$B6DADB
-	LDX.w $1B7B				;$B6DADF
+	LDX.w RAM_1B7B 				;$B6DADF
 	JSL.l CODE_BB85E8			;$B6DAE2
 	RTS					;$B6DAE6
 
@@ -12228,7 +12228,7 @@ CODE_B6DAF0:
 	JMP.w CODE_B6D92F			;$B6DAF0
 
 CODE_B6DAF3:
-	LDX.w $1B83				;$B6DAF3
+	LDX.w RAM_1B83				;$B6DAF3
 	LDA.b $38,x				;$B6DAF6
 	BNE.b CODE_B6DB20			;$B6DAF8
 	TYX					;$B6DAFA
@@ -12254,22 +12254,22 @@ CODE_B6DB23:
 	JMP.w CODE_B6D92F			;$B6DB23
 
 CODE_B6DB26:
-	DEC.w $1B93				;$B6DB26
+	DEC.w RAM_1B93				;$B6DB26
 	BPL.b CODE_B6DB59			;$B6DB29
 	LDA.w #$000A				;$B6DB2B
-	STA.w $1B93				;$B6DB2E
+	STA.w RAM_1B93				;$B6DB2E
 	LDA.w #$0032				;$B6DB31
 	JSL.l CODE_B58006			;$B6DB34
 	CMP.w #$0007				;$B6DB38
 	BCS.b CODE_B6DB59			;$B6DB3B
-	LDX.w $1B6F				;$B6DB3D
+	LDX.w RAM_1B6F				;$B6DB3D
 	LDA.b $5C,x				;$B6DB40
 	BNE.b CODE_B6DB4B			;$B6DB42
 	LDA.b $38,x				;$B6DB44
 	BNE.b CODE_B6DB59			;$B6DB46
 	JSR.w CODE_B6DF87			;$B6DB48
 CODE_B6DB4B:
-	LDX.w $1B77				;$B6DB4B
+	LDX.w RAM_1B77				;$B6DB4B
 	LDA.b $5C,x				;$B6DB4E
 	BNE.b CODE_B6DB59			;$B6DB50
 	LDA.b $38,x				;$B6DB52
@@ -12279,11 +12279,11 @@ CODE_B6DB59:
 	RTS					;$B6DB59
 
 CODE_B6DB5A:
-	LDX.w $1B6F				;$B6DB5A
+	LDX.w RAM_1B6F				;$B6DB5A
 	LDA.b $5C,x				;$B6DB5D
 	CMP.w #$0002				;$B6DB5F
 	BNE.b CODE_B6DB91			;$B6DB62
-	LDX.w $1B77				;$B6DB64
+	LDX.w RAM_1B77				;$B6DB64
 	LDA.b $5C,x				;$B6DB67
 	CMP.w #$0002				;$B6DB69
 	BNE.b CODE_B6DB91			;$B6DB6C
@@ -12294,7 +12294,7 @@ CODE_B6DB5A:
 	STZ.b $5C,x				;$B6DB79
 	LDA.w #$39EE				;$B6DB7B
 	STA.b $60,x				;$B6DB7E
-	LDX.w $1B77				;$B6DB80
+	LDX.w RAM_1B77				;$B6DB80
 	STZ.b $5C,x				;$B6DB83
 	LDA.w #$39EE				;$B6DB85
 	STA.b $60,x				;$B6DB88
@@ -12627,10 +12627,10 @@ CODE_B6DDD4:
 	JSR.w CODE_B6F23E			;$B6DDE1
 	JSR.w CODE_B6DDFE			;$B6DDE4
 	STZ.b $38,x				;$B6DDE7
-	LDX.w $1B71				;$B6DDE9
+	LDX.w RAM_1B71				;$B6DDE9
 	LDA.w #$3000				;$B6DDEC
 	JSR.w CODE_B6F23E			;$B6DDEF
-	LDX.w $1B73				;$B6DDF2
+	LDX.w RAM_1B73				;$B6DDF2
 	LDA.w #$3000				;$B6DDF5
 	JSR.w CODE_B6F23E			;$B6DDF8
 CODE_B6DDFB:
@@ -12760,10 +12760,10 @@ CODE_B6DED1:
 	INC.b $38,x				;$B6DEDA
 	LDA.w #$2000				;$B6DEDC
 	JSR.w CODE_B6F23E			;$B6DEDF
-	LDX.w $1B79				;$B6DEE2
+	LDX.w RAM_1B79				;$B6DEE2
 	LDA.w #$2000				;$B6DEE5
 	JSR.w CODE_B6F23E			;$B6DEE8
-	LDX.w $1B7B				;$B6DEEB
+	LDX.w RAM_1B7B 				;$B6DEEB
 	LDA.w #$2000				;$B6DEEE
 	JSR.w CODE_B6F23E			;$B6DEF1
 	JSR.w CODE_B6DF4E			;$B6DEF4
@@ -12774,10 +12774,10 @@ CODE_B6DED1:
 	JSR.w CODE_B6DF97			;$B6DF02
 	LDA.w $0004,y				;$B6DF05
 	STA.b $5E,x				;$B6DF08
-	LDX.w $1B71				;$B6DF0A
+	LDX.w RAM_1B71				;$B6DF0A
 	LDA.w #$2000				;$B6DF0D
 	JSR.w CODE_B6F23E			;$B6DF10
-	LDX.w $1B73				;$B6DF13
+	LDX.w RAM_1B73				;$B6DF13
 	LDA.w #$2000				;$B6DF16
 	JSR.w CODE_B6F23E			;$B6DF19
 CODE_B6DF1C:
@@ -12807,7 +12807,7 @@ CODE_B6DF3F:
 	JSR.w CODE_B6DF7A			;$B6DF42
 	TYX					;$B6DF45
 	STZ.b $3A,x				;$B6DF46
-	LDX.w $1B6F				;$B6DF48
+	LDX.w RAM_1B6F				;$B6DF48
 	STZ.b $3A,x				;$B6DF4B
 	RTS					;$B6DF4D
 
@@ -12826,16 +12826,16 @@ CODE_B6DF4E:
 	RTS					;$B6DF6E
 
 CODE_B6DF6F:
-	LDX.w $1B6F				;$B6DF6F
+	LDX.w RAM_1B6F				;$B6DF6F
 	LDA.b $38,x				;$B6DF72
-	LDX.w $1B77				;$B6DF74
+	LDX.w RAM_1B77				;$B6DF74
 	ORA.b $38,x				;$B6DF77
 	RTS					;$B6DF79
 
 CODE_B6DF7A:
-	LDY.w $1B6F				;$B6DF7A
+	LDY.w RAM_1B6F				;$B6DF7A
 	STA.w $0038,y				;$B6DF7D
-	LDY.w $1B77				;$B6DF80
+	LDY.w RAM_1B77				;$B6DF80
 	STA.w $0038,y				;$B6DF83
 	RTS					;$B6DF86
 
@@ -12849,7 +12849,7 @@ CODE_B6DF87:
 	RTS					;$B6DF96
 
 CODE_B6DF97:
-	LDA.w $1B75				;$B6DF97
+	LDA.w boss_hit_points			;$B6DF97
 	ASL					;$B6DF9A
 	TAY					;$B6DF9B
 	LDA.w DATA_B6DFA1,y			;$B6DF9C
@@ -12916,21 +12916,21 @@ DATA_B6DFE5:
 
 CODE_B6DFF9:
 	PHB					;$B6DFF9
-	STZ.w $1B6D				;$B6DFFA
+	STZ.w RAM_1B6D				;$B6DFFA
 	%pea_mask_dbr(wram_base)		;$B6DFFD
 	PLB					;$B6E000
 	PLB					;$B6E001
-	LDX.w $1B6B				;$B6E002
+	LDX.w RAM_1B6B				;$B6E002
 	LDA.b $1E,x				;$B6E005
 	STA.b $1A				;$B6E007
-	LDA.w $1973				;$B6E009
+	LDA.w RAM_1973				;$B6E009
 	SEC					;$B6E00C
 	SBC.w #$0010				;$B6E00D
 	STA.b $1C				;$B6E010
 	CLC					;$B6E012
 	ADC.w #$00F0				;$B6E013
 	STA.b $1E				;$B6E016
-	LDA.w $196D				;$B6E018
+	LDA.w RAM_196D				;$B6E018
 	SEC					;$B6E01B
 	SBC.w #$0010				;$B6E01C
 	STA.b $20				;$B6E01F
@@ -13048,13 +13048,13 @@ CODE_B6E0F1:
 	CLC					;$B6E0F4
 	ADC.w #$0100				;$B6E0F5
 	SEC					;$B6E0F8
-	SBC.w $196D				;$B6E0F9
+	SBC.w RAM_196D				;$B6E0F9
 	STA.b $88				;$B6E0FC
 	LDA.w $0008,y				;$B6E0FE
 	CLC					;$B6E101
 	ADC.w #$0100				;$B6E102
 	SEC					;$B6E105
-	SBC.w $1973				;$B6E106
+	SBC.w RAM_1973				;$B6E106
 	STA.b $8A				;$B6E109
 	LDX.w $0000,y				;$B6E10B
 	STX.b $3E				;$B6E10E
@@ -13158,7 +13158,7 @@ CODE_B6E1D9:
 	INX					;$B6E1DB
 	INX					;$B6E1DC
 	STX.b next_oam_slot			;$B6E1DD
-	INC.w $1B6D				;$B6E1DF
+	INC.w RAM_1B6D				;$B6E1DF
 	LDA.b $6E				;$B6E1E2
 	PLB					;$B6E1E4
 	JMP.w CODE_B6E031			;$B6E1E5
@@ -13338,10 +13338,10 @@ CODE_B6E340:
 
 kaos_boxing_glove_main:
 	PHX					;$B6E344
-	LDX.w $1B6B				;$B6E345
+	LDX.w RAM_1B6B				;$B6E345
 	LDA.w $0012,y				;$B6E348
 	CLC					;$B6E34B
-	ADC.w $1B83				;$B6E34C
+	ADC.w RAM_1B83				;$B6E34C
 	STA.w $0012,y				;$B6E34F
 	LDA.b $16,x				;$B6E352
 	STA.w $0016,y				;$B6E354
@@ -13357,7 +13357,7 @@ DATA_B6E35B:
 CODE_B6E363:
 	JSR.w CODE_B6E3AB			;$B6E363
 	JSL.l process_current_movement		;$B6E366
-	LDY.w $1B6B				;$B6E36A
+	LDY.w RAM_1B6B				;$B6E36A
 	LDA.w $0012,y				;$B6E36D
 	CLC					;$B6E370
 	ADC.b $5C,x				;$B6E371
@@ -13380,7 +13380,7 @@ CODE_B6E387:
 CODE_B6E38D:
 	JSR.w CODE_B6E3AB			;$B6E38D
 	JSL.l process_current_movement		;$B6E390
-	LDY.w $1B6B				;$B6E394
+	LDY.w RAM_1B6B				;$B6E394
 	LDA.w $0012,y				;$B6E397
 	CLC					;$B6E39A
 	ADC.b $5E,x				;$B6E39B
@@ -13848,11 +13848,11 @@ CODE_B6E6DD:
 	LDY.w #$FFD0				;$B6E6E7
 CODE_B6E6EA:
 	TYA					;$B6E6EA
-	LDY.w $1B6B				;$B6E6EB
+	LDY.w RAM_1B6B				;$B6E6EB
 	CLC					;$B6E6EE
 	ADC.w $0012,y				;$B6E6EF
 	STA.b $12,x				;$B6E6F2
-	LDA.w $1B75				;$B6E6F4
+	LDA.w boss_hit_points			;$B6E6F4
 	BEQ.b CODE_B6E6FE			;$B6E6F7
 	LDA.w #$003C				;$B6E6F9
 	BRA.b CODE_B6E701			;$B6E6FC
@@ -13985,7 +13985,7 @@ CODE_B6E7C0:
 
 CODE_B6E7DB:
 	LDA.b $5C,x				;$B6E7DB
-	LDY.w $196D				;$B6E7DD
+	LDY.w RAM_196D				;$B6E7DD
 	CPY.w #$0150				;$B6E7E0
 	BCC.b CODE_B6E7E7			;$B6E7E3
 	LDA.b $5E,x				;$B6E7E5
@@ -14036,7 +14036,7 @@ CODE_B6E81E:
 	BRA.b CODE_B6E816			;$B6E826
 
 kaos_laser_head_flame_jet_main:
-	LDX.w $1B6D				;$B6E828
+	LDX.w RAM_1B6D				;$B6E828
 	LDA.b $12,x				;$B6E82B
 	STA.w $0012,y				;$B6E82D
 	LDA.b $16,x				;$B6E830
@@ -14053,16 +14053,16 @@ DATA_B6E83B:
 	dw CODE_B6E90D
 
 CODE_B6E843:
-	LDX.w $1B6B				;$B6E843
+	LDX.w RAM_1B6B				;$B6E843
 	LDA.b $12,x				;$B6E846
 	STA.w $0012,y				;$B6E848
-	LDA.w $1B8B				;$B6E84B
+	LDA.w RAM_1B8B				;$B6E84B
 	SEC					;$B6E84E
-	SBC.w $1B89				;$B6E84F
+	SBC.w RAM_1B89				;$B6E84F
 	STA.b $1A				;$B6E852
 	LDA.b $16,x				;$B6E854
 	SEC					;$B6E856
-	SBC.w $1B89				;$B6E857
+	SBC.w RAM_1B89				;$B6E857
 	BPL.b CODE_B6E861			;$B6E85A
 	LDA.w #$0000				;$B6E85C
 	BRA.b CODE_B6E88C			;$B6E85F
@@ -14104,7 +14104,7 @@ CODE_B6E8A7:
 	PLA					;$B6E8A7
 	CMP.w #$0011				;$B6E8A8
 	BCC.b CODE_B6E8DF			;$B6E8AB
-	LDY.w $1B6B				;$B6E8AD
+	LDY.w RAM_1B6B				;$B6E8AD
 	LDA.w #$0205				;$B6E8B0
 	LDX.b level_number			;$B6E8B3
 	CPX.w #!level_kaos_karnage		;$B6E8B5
@@ -14113,21 +14113,21 @@ CODE_B6E8A7:
 CODE_B6E8BD:
 	CMP.w $0016,y				;$B6E8BD
 	BCS.b CODE_B6E8DF			;$B6E8C0
-	LDX.w $1BAB				;$B6E8C2
+	LDX.w RAM_1BAB				;$B6E8C2
 	BNE.b CODE_B6E8DF			;$B6E8C5
 	LDY.w #$0188				;$B6E8C7
 	JSL.l CODE_BB8585			;$B6E8CA
 	LDX.b alternate_sprite			;$B6E8CE
-	STX.w $1BAB				;$B6E8D0
+	STX.w RAM_1BAB				;$B6E8D0
 	LDY.w #$018A				;$B6E8D3
 	JSL.l CODE_BB8585			;$B6E8D6
 	LDX.b alternate_sprite			;$B6E8DA
-	STX.w $1BAD				;$B6E8DC
+	STX.w RAM_1BAD				;$B6E8DC
 CODE_B6E8DF:
 	JMP.w CODE_B685E6			;$B6E8DF
 
 CODE_B6E8E2:
-	LDX.w $1B6B				;$B6E8E2
+	LDX.w RAM_1B6B				;$B6E8E2
 	LDA.b $12,x				;$B6E8E5
 	STA.w $0012,y				;$B6E8E7
 	LDA.b $16,x				;$B6E8EA
@@ -14138,7 +14138,7 @@ CODE_B6E8E2:
 	JMP.w CODE_B685E6			;$B6E8F6
 
 CODE_B6E8F9:
-	LDX.w $1B6F				;$B6E8F9
+	LDX.w RAM_1B6F				;$B6E8F9
 	LDA.b $12,x				;$B6E8FC
 	STA.w $0012,y				;$B6E8FE
 	LDA.b $16,x				;$B6E901
@@ -14154,11 +14154,11 @@ CODE_B6E90D:
 	SBC.w #$002D				;$B6E915
 	STA.w $002E,y				;$B6E918
 	JSL.l process_current_movement		;$B6E91B
-	LDY.w $1B6B				;$B6E91F
+	LDY.w RAM_1B6B				;$B6E91F
 	LDA.b $16,x				;$B6E922
 	CMP.w $0016,y				;$B6E924
 	BCS.b CODE_B6E92F			;$B6E927
-	STZ.w $1B7B				;$B6E929
+	STZ.w RAM_1B7B 				;$B6E929
 	JMP.w CODE_B6F27D			;$B6E92C
 
 CODE_B6E92F:
@@ -14180,16 +14180,16 @@ CODE_B6E939:
 	LDA.w #$01D2				;$B6E944
 CODE_B6E947:
 	STA.w $0016,y				;$B6E947
-	LDX.w $1B6B				;$B6E94A
+	LDX.w RAM_1B6B				;$B6E94A
 	LDA.b $12,x				;$B6E94D
 	STA.w $0012,y				;$B6E94F
 	JSR.w CODE_B6E9A7			;$B6E952
 	STZ.b $26,x				;$B6E955
-	LDY.w $1B7B				;$B6E957
+	LDY.w RAM_1B7B 				;$B6E957
 	LDA.w $0038,y				;$B6E95A
 	CMP.w #$0003				;$B6E95D
 	BEQ.b CODE_B6E97E			;$B6E960
-	LDY.w $1B6B				;$B6E962
+	LDY.w RAM_1B6B				;$B6E962
 	LDA.w #$0205				;$B6E965
 	PLP					;$B6E968
 	BEQ.b CODE_B6E96E			;$B6E969
@@ -14205,7 +14205,7 @@ CODE_B6E96E:
 CODE_B6E97E:
 	PLP					;$B6E97E
 CODE_B6E97F:
-	LDY.w $1B6B				;$B6E97F
+	LDY.w RAM_1B6B				;$B6E97F
 	LDA.w $002A,y				;$B6E982
 	STA.b $2A,x				;$B6E985
 	INC.b $38,x				;$B6E987
@@ -14278,7 +14278,7 @@ CODE_B6EA00:
 	INC.b $38,x				;$B6EA05
 	LDA.w #$FF00				;$B6EA07
 	STA.b $2E,x				;$B6EA0A
-	LDY.w $1B6B				;$B6EA0C
+	LDY.w RAM_1B6B				;$B6EA0C
 	STA.w $002E,y				;$B6EA0F
 	LDA.w #$0003				;$B6EA12
 	STA.w $005A,y				;$B6EA15
@@ -14296,7 +14296,7 @@ CODE_B6EA2C:
 	BMI.b CODE_B6EA29			;$B6EA2F
 	DEC.b $5E,x				;$B6EA31
 	BPL.b CODE_B6EA41			;$B6EA33
-	LDY.w $1B6B				;$B6EA35
+	LDY.w RAM_1B6B				;$B6EA35
 	LDA.w #$001E				;$B6EA38
 	STA.w $0038,y				;$B6EA3B
 	JMP.w CODE_B6F27D			;$B6EA3E
@@ -14358,7 +14358,7 @@ CODE_B6EA89:
 
 CODE_B6EA8C:
 	JSR.w CODE_B6EAF1			;$B6EA8C
-	LDA.w $1B75				;$B6EA8F
+	LDA.w boss_hit_points			;$B6EA8F
 	BEQ.b CODE_B6EAC8			;$B6EA92
 	JSL.l populate_sprite_clipping		;$B6EA94
 	LDA.w #$0000				;$B6EA98
@@ -15381,14 +15381,14 @@ DATA_B6F17E:
 CODE_B6F186:
 	LDA.b $12,x				;$B6F186
 	SEC					;$B6F188
-	SBC.w $196D				;$B6F189
+	SBC.w RAM_196D				;$B6F189
 	CLC					;$B6F18C
 	ADC.w #$0010				;$B6F18D
 	CMP.w #$0110				;$B6F190
 	BCS.b CODE_B6F1A2			;$B6F193
 	LDA.b $16,x				;$B6F195
 	SEC					;$B6F197
-	SBC.w $1973				;$B6F198
+	SBC.w RAM_1973				;$B6F198
 	CLC					;$B6F19B
 	ADC.w #$0010				;$B6F19C
 	CMP.w #$0110				;$B6F19F
@@ -16144,7 +16144,7 @@ CODE_B6F656:
 
 CODE_B6F659:
 	TYX					;$B6F659
-	LDY.w $1B6F				;$B6F65A
+	LDY.w RAM_1B6F				;$B6F65A
 	BEQ.b CODE_B6F6CC			;$B6F65D
 	LDA.w $0000,y				;$B6F65F
 	BEQ.b CODE_B6F6CC			;$B6F662
@@ -17292,11 +17292,11 @@ CODE_B6FDB2:
 	RTL					;$B6FDB2
 
 CODE_B6FDB3:
-	INC.w $1B6E				;$B6FDB3
-	LDA.w $1B6D				;$B6FDB6
+	INC.w RAM_1B6E				;$B6FDB3
+	LDA.w RAM_1B6D				;$B6FDB6
 	CMP.w #$0300				;$B6FDB9
 	BNE.b CODE_B6FDC4			;$B6FDBC
-	STZ.w $1B6D				;$B6FDBE
+	STZ.w RAM_1B6D				;$B6FDBE
 	LDA.w #$0000				;$B6FDC1
 CODE_B6FDC4:
 	CLC					;$B6FDC4

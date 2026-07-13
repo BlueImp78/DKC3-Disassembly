@@ -5166,7 +5166,7 @@ CODE_BCE389:
 	LDA.w #sprite_clipping[0]		;$BCE38F
 	JSR.w CODE_BCE4C7			;$BCE392
 	PLD					;$BCE395
-	LDX.w $1B63				;$BCE396
+	LDX.w RAM_1B63				;$BCE396
 	BNE.b CODE_BCE3A8			;$BCE399
 	LDX.b $7A				;$BCE39B
 	BNE.b CODE_BCE3B7			;$BCE39D
@@ -5613,17 +5613,17 @@ CODE_BCE682:
 	LDA.w sprite_clipping[2].bottom,y	;$BCE6A3
 	CMP.w sprite_clipping[8].top		;$BCE6A6
 	BCC.b CODE_BCE680			;$BCE6A9
-	LDA.w $180C,y				;$BCE6AB
+	LDA.w sprite_clipping[1].right,y	;$BCE6AB
 	BEQ.b CODE_BCE6D3			;$BCE6AE
 	CMP.w sprite_clipping[6].left		;$BCE6B0
 	BCC.b CODE_BCE6D3			;$BCE6B3
 	LDA.w sprite_clipping[6].right		;$BCE6B5
-	CMP.w $1808,y				;$BCE6B8
+	CMP.w sprite_clipping[1].left,y		;$BCE6B8
 	BCC.b CODE_BCE6D3			;$BCE6BB
 	LDA.w sprite_clipping[6].bottom		;$BCE6BD
-	CMP.w $180A,y				;$BCE6C0
+	CMP.w sprite_clipping[1].top,y		;$BCE6C0
 	BCC.b CODE_BCE6D3			;$BCE6C3
-	LDA.w $180E,y				;$BCE6C5
+	LDA.w sprite_clipping[1].bottom,y	;$BCE6C5
 	CMP.w sprite_clipping[6].top		;$BCE6C8
 	BCC.b CODE_BCE6D3			;$BCE6CB
 	LDA.w #$0001				;$BCE6CD
@@ -5631,30 +5631,30 @@ CODE_BCE682:
 CODE_BCE6D3:
 	LDA.w sprite_clipping[7].right		;$BCE6D3
 	BEQ.b CODE_BCE6FB			;$BCE6D6
-	CMP.w $1800,y				;$BCE6D8
+	CMP.w sprite_clipping[0].left,y		;$BCE6D8
 	BCC.b CODE_BCE6FB			;$BCE6DB
-	LDA.w $1804,y				;$BCE6DD
+	LDA.w sprite_clipping[0].right,y	;$BCE6DD
 	CMP.w sprite_clipping[7].left		;$BCE6E0
 	BCC.b CODE_BCE6FB			;$BCE6E3
-	LDA.w $1806,y				;$BCE6E5
+	LDA.w sprite_clipping[0].bottom,y	;$BCE6E5
 	CMP.w sprite_clipping[7].top		;$BCE6E8
 	BCC.b CODE_BCE6FB			;$BCE6EB
-	LDA.w $183E				;$BCE6ED
-	CMP.w $1802,y				;$BCE6F0
+	LDA.w sprite_clipping[7].bottom		;$BCE6ED
+	CMP.w sprite_clipping[0].top,y		;$BCE6F0
 	BCC.b CODE_BCE6FB			;$BCE6F3
 	LDA.w #$0002				;$BCE6F5
 	TSB.w RAM_1852				;$BCE6F8
 CODE_BCE6FB:
-	LDA.w $1804,y				;$BCE6FB
+	LDA.w sprite_clipping[0].right,y	;$BCE6FB
 	CMP.w sprite_clipping[6].left		;$BCE6FE
 	BCC.b CODE_BCE721			;$BCE701
 	LDA.w sprite_clipping[6].right		;$BCE703
-	CMP.w $1800,y				;$BCE706
+	CMP.w sprite_clipping[0].left,y		;$BCE706
 	BCC.b CODE_BCE721			;$BCE709
 	LDA.w sprite_clipping[6].bottom		;$BCE70B
-	CMP.w $1802,y				;$BCE70E
+	CMP.w sprite_clipping[0].top,y		;$BCE70E
 	BCC.b CODE_BCE721			;$BCE711
-	LDA.w $1806,y				;$BCE713
+	LDA.w sprite_clipping[0].bottom,y	;$BCE713
 	CMP.w sprite_clipping[6].top		;$BCE716
 	BCC.b CODE_BCE721			;$BCE719
 	LDA.w #$0004				;$BCE71B

@@ -1,7 +1,7 @@
 BRK_emulation_start = $5000
 BRK_native_start = $5003
 
-ROM_header:
+rom_header:
 	db "01"					;$80FFB0 Maker Code
 	db "A3CE"				;$80FFB2 Game Code
 	db $00, $00, $00, $00, $00, $00, $00	;$80FFB6 Fixed Value

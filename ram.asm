@@ -533,13 +533,53 @@ sprite_collision_routine_addr_high	= $1865
 contact_flash_x_position		= $1867
 contact_flash_y_position		= $1869
 current_held_sprite			= $186B
-;END OF RAMIFIED BLOCK
-
+RAM_186D				= $186D
+RAM_186F				= $186F
+RAM_1871				= $1871
+RAM_1873				= $1873
+RAM_1875				= $1875
+RAM_1877				= $1877
+RAM_1879				= $1879
+RAM_187B				= $187B
+RAM_187D				= $187D
+RAM_187F				= $187F
+RAM_1881				= $1881
+RAM_1883				= $1883
 kong_animal_x_offset			= $1885
-
+RAM_1887				= $1887
 kong_animal_y_offset			= $1889
+RAM_188B				= $188B
+RAM_188D				= $188D
+RAM_188F				= $188F
 ellie_ammo_count			= $1891
-
+RAM_1893				= $1893
+RAM_1895				= $1895
+RAM_1897				= $1897
+RAM_1899				= $1899
+RAM_189B				= $189B
+RAM_189D				= $189D
+RAM_189F				= $189F
+RAM_18A1				= $18A1
+RAM_18A3				= $18A3
+RAM_18A5				= $18A5
+RAM_18A7				= $18A7
+RAM_18A9				= $18A9
+RAM_18AB				= $18AB
+RAM_18AD				= $18AD
+RAM_18AF				= $18AF
+RAM_18B1				= $18B1	;code pointer
+RAM_18B3				= $18B3	;code pointer bank
+RAM_18B5				= $18B5
+RAM_18B7				= $18B7
+RAM_18B9				= $18B9
+RAM_18BB				= $18BB
+RAM_18BD				= $18BD
+;...
+RAM_18C1				= $18C1
+RAM_18C3				= $18C3
+RAM_18C5				= $18C5
+RAM_18C7				= $18C7
+;...
 hud_current_banana_count		= $18CB
 hud_final_banana_count			= $18CD
 hud_banana_display_timer		= $18CF
@@ -547,17 +587,156 @@ hud_lives_count				= $18D1
 hud_lives_to_add			= $18D3
 hud_lives_display_timer			= $18D5
 hud_lives_icon_graphic_id		= $18D7
-
+RAM_18D9				= $18D9
 hud_lives_icon_y_pos			= $18DB
-
+RAM_18DD				= $18DD	;sprite pointer
+RAM_18DF				= $18DF
 bonus_timer_index			= $18E1
-
+RAM_18E3				= $18E3	;sprite pointer
+RAM_18E5				= $18E5
+RAM_18E7				= $18E7
 rocket_rush_fuel_amount			= $18E9
+RAM_18EB				= $18EB
+RAM_18ED				= $18ED
+RAM_18EF				= $18EF
+RAM_18F1				= $18F1
+RAM_18F3				= $18F3
+RAM_18F5				= $18F5
+RAM_18F7				= $18F7
+RAM_18F9				= $18F9
+RAM_18FB				= $18FB
+RAM_18FD				= $18FD
+RAM_18FF				= $18FF
 
+RAM_1905				= $1905
+
+RAM_190B				= $190B
+RAM_190D				= $190D
+RAM_190F				= $190F
+RAM_1911				= $1911
+;...
+RAM_1917				= $1917
+RAM_1919				= $1919
+RAM_191B				= $191B
+RAM_191D				= $191D
+RAM_191F				= $191F
+RAM_1921				= $1921
+RAM_1923				= $1923
+RAM_1925				= $1925
+RAM_1927				= $1927
+RAM_1929				= $1929
+RAM_192B				= $192B
+RAM_192D				= $192D
+RAM_192F				= $192F
+RAM_1931				= $1931
+RAM_1933				= $1933
+RAM_1935				= $1935
+RAM_1937				= $1937
+RAM_1939				= $1939
+RAM_193B				= $193B
+RAM_193D				= $193D
+RAM_193F				= $193F
+RAM_1941				= $1941
+RAM_1943				= $1943
+RAM_1945				= $1945
+RAM_1947				= $1947
+RAM_1949				= $1949
 timestop_flags				= $194B
 timestop_timer				= $194D
-
+RAM_194F				= $194F
+;...
+RAM_1955				= $1955
+RAM_1957				= $1957
+RAM_1958				= $1958
+RAM_1959				= $1959
+RAM_195A				= $195A
+RAM_195B				= $195B
+RAM_195D				= $195D
+RAM_195F				= $195F
+RAM_1961				= $1961
+RAM_1963				= $1963
+RAM_1965				= $1965
+RAM_1967				= $1967
+RAM_1969				= $1969
+RAM_196B				= $196B
+RAM_196C				= $196C
+RAM_196D				= $196D
+RAM_196E				= $196E
+;...
+RAM_1971				= $1971
+RAM_1973				= $1973
+RAM_1975				= $1975
+RAM_1976				= $1976
+;...
+RAM_197B				= $197B
+RAM_197D				= $197D
+;...
+RAM_1981				= $1981
+;...
+RAM_1985				= $1985
+;...
+RAM_1989				= $1989
+;...
+RAM_198D				= $198D	;0x40 bytes DMAed
+;...
+RAM_19CD				= $19CD	;0x40 bytes DMAed
+;...
+RAM_1A0D				= $1A0D
+;...
+RAM_1B0D				= $1B0D
+;...
+RAM_1B55				= $1B55
+RAM_1B57				= $1B57
+RAM_1B59				= $1B59
+RAM_1B5B				= $1B5B
+RAM_1B5C				= $1B5C
+RAM_1B5D				= $1B5D
+RAM_1B5F				= $1B5F
+RAM_1B61				= $1B61
+RAM_1B63				= $1B63
+RAM_1B65				= $1B65
+RAM_1B67				= $1B67
+RAM_1B69				= $1B69
+RAM_1B6B				= $1B6B
+RAM_1B6D				= $1B6D
+RAM_1B6E				= $1B6E
+RAM_1B6F				= $1B6F
+RAM_1B71				= $1B71
+RAM_1B73				= $1B73
 boss_hit_points				= $1B75
+RAM_1B77				= $1B77
+RAM_1B78				= $1B78
+RAM_1B79				= $1B79
+RAM_1B7A				= $1B7A
+RAM_1B7B				= $1B7B
+RAM_1B7D				= $1B7D
+RAM_1B7F				= $1B7F
+RAM_1B81				= $1B81
+RAM_1B83				= $1B83
+RAM_1B85				= $1B85
+RAM_1B87				= $1B87
+RAM_1B89				= $1B89
+RAM_1B8B				= $1B8B
+RAM_1B8D				= $1B8D
+RAM_1B8F				= $1B8F
+RAM_1B91				= $1B91
+RAM_1B93				= $1B93
+RAM_1B95				= $1B95
+RAM_1B97				= $1B97
+RAM_1B99				= $1B99
+RAM_1B9B				= $1B9B
+RAM_1B9D				= $1B9D
+RAM_1B9F				= $1B9F
+RAM_1BA0				= $1BA0
+RAM_1BA1				= $1BA1
+RAM_1BA3				= $1BA3
+RAM_1BA5				= $1BA5
+RAM_1BA7				= $1BA7
+RAM_1BA9				= $1BA9
+RAM_1BAB				= $1BAB
+RAM_1BAD				= $1BAD
+;END OF RAMIFIED BLOCK
+
 
 ;Swanky minigame RAM/$1Bxx range looks like is also used by bosses
 swanky_race_to_25_player_score		= $1BAF

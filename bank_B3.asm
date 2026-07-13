@@ -148,16 +148,16 @@ CODE_B380F4:
 
 CODE_B3810B:
 	JSR CODE_B380F4				;$B3810B
-	LDA $196D				;$B3810E
+	LDA RAM_196D				;$B3810E
 	LSR					;$B38111
 	SEP #$20				;$B38112
 	STA.w PPU.layer_3_scroll_x		;$B38114
 	STZ.w PPU.layer_3_scroll_x		;$B38117
-	LDA $196D				;$B3811A
+	LDA RAM_196D				;$B3811A
 	STA.w PPU.layer_2_scroll_x		;$B3811D
-	LDA $196E				;$B38120
+	LDA RAM_196E				;$B38120
 	STA.w PPU.layer_2_scroll_x		;$B38123
-	LDA $1975				;$B38126
+	LDA RAM_1975				;$B38126
 	STA.w PPU.layer_2_scroll_y		;$B38129
 	STZ.w PPU.layer_2_scroll_y		;$B3812C
 	STZ.w PPU.layer_3_scroll_y		;$B3812F
@@ -171,7 +171,7 @@ CODE_B3813E:
 	JSR.w CODE_B380F4			;$B3813E
 	JSR.w CODE_B38158			;$B38141
 	SEP.b #$20				;$B38144
-	LDA.w $1975				;$B38146
+	LDA.w RAM_1975				;$B38146
 	STA.w PPU.layer_2_scroll_y		;$B38149
 	STZ.w PPU.layer_2_scroll_y		;$B3814C
 	LDA.w screen_brightness			;$B3814F
@@ -180,12 +180,12 @@ CODE_B3813E:
 	RTS					;$B38157
 
 CODE_B38158:
-	LDA.w $1975				;$B38158
+	LDA.w RAM_1975				;$B38158
 	LSR					;$B3815B
 	SEC					;$B3815C
 	SBC.w #$0110				;$B3815D
-	STA.w $1B65				;$B38160
-	LDA.w $1975				;$B38163
+	STA.w RAM_1B65				;$B38160
+	LDA.w RAM_1975				;$B38163
 	LSR					;$B38166
 	LSR					;$B38167
 	LSR					;$B38168
@@ -199,7 +199,7 @@ CODE_B38158:
 	SBC.b #$03				;$B38178
 	STA.l $7EA47E				;$B3817A
 	REP.b #$20				;$B3817E
-	LDA.w $1975				;$B38180
+	LDA.w RAM_1975				;$B38180
 	LSR					;$B38183
 	LSR					;$B38184
 	LSR					;$B38185
@@ -208,7 +208,7 @@ CODE_B38158:
 	SBC.w #$0018				;$B38188
 	ADC.w #$028A				;$B3818B
 	SEC					;$B3818E
-	SBC.w $1975				;$B3818F
+	SBC.w RAM_1975				;$B3818F
 	CMP.w #$00E0				;$B38192
 	BCC.b CODE_B3819A			;$B38195
 	LDA.w #$00E0				;$B38197
@@ -221,7 +221,7 @@ CODE_B3819A:
 	STA.l $7EA47B				;$B381A7
 	STA.l $7EA48F				;$B381AB
 	REP.b #$20				;$B381AF
-	LDA.w $1975				;$B381B1
+	LDA.w RAM_1975				;$B381B1
 	EOR.w #$FFFF				;$B381B4
 	SEC					;$B381B7
 	ADC.w #$02A8				;$B381B8
@@ -234,7 +234,7 @@ CODE_B381C3:
 	STA.l $7EA15A				;$B381C6
 	ADC.b #$00				;$B381CA
 	STA.l $7EA15D				;$B381CC
-	LDA.w $1B65				;$B381D0
+	LDA.w RAM_1B65				;$B381D0
 	EOR.b #$FF				;$B381D3
 	SEC					;$B381D5
 	SBC.b #$28				;$B381D6
@@ -260,13 +260,13 @@ CODE_B38201:
 	LDA.b #game_mode_pointer_bank		;$B38201
 	STA.l $7EA210				;$B38203
 	REP.b #$20				;$B38207
-	LDA.w $196D				;$B38209
+	LDA.w RAM_196D				;$B38209
 	STA.l $7EA44A				;$B3820C
-	LDA.w $196D				;$B38210
+	LDA.w RAM_196D				;$B38210
 	LSR					;$B38213
 	LSR					;$B38214
 	STA.l $7EA52A				;$B38215
-	LDA.w $1975				;$B38219
+	LDA.w RAM_1975				;$B38219
 	LSR					;$B3821C
 	CLC					;$B3821D
 	ADC.w #$00F0				;$B3821E
@@ -275,18 +275,18 @@ CODE_B38201:
 	STA.l $7EA4C0				;$B38229
 	LDA.b active_frame_counter		;$B3822D
 	CLC					;$B3822F
-	ADC.w $196D				;$B38230
+	ADC.w RAM_196D				;$B38230
 	LSR					;$B38233
 	LSR					;$B38234
 	STA.l $7EA4BA				;$B38235
 	LDA.b active_frame_counter		;$B38239
 	LSR					;$B3823B
 	CLC					;$B3823C
-	ADC.w $196D				;$B3823D
+	ADC.w RAM_196D				;$B3823D
 	LSR					;$B38240
 	LSR					;$B38241
 	STA.l $7EA4BE				;$B38242
-	LDA.w $1B65				;$B38246
+	LDA.w RAM_1B65				;$B38246
 	SEC					;$B38249
 	SBC.w #$0121				;$B3824A
 	SEP.b #$20				;$B3824D
@@ -298,7 +298,7 @@ CODE_B38201:
 
 CODE_B38259:
 	JSR.w CODE_B380F4			;$B38259
-	LDA.w $196D				;$B3825C
+	LDA.w RAM_196D				;$B3825C
 	LSR					;$B3825F
 	CLC					;$B38260
 	ADC.w #$0040				;$B38261
@@ -312,19 +312,19 @@ CODE_B38259:
 	SEP.b #$20				;$B38277
 	STA.w PPU.layer_3_scroll_x		;$B38279
 	STZ.w PPU.layer_3_scroll_x		;$B3827C
-	LDA.w $196D				;$B3827F
+	LDA.w RAM_196D				;$B3827F
 	STA.w PPU.layer_1_scroll_x		;$B38282
-	LDA.w $196E				;$B38285
+	LDA.w RAM_196E				;$B38285
 	STA.w PPU.layer_1_scroll_x		;$B38288
-	LDA.w $1975				;$B3828B
+	LDA.w RAM_1975				;$B3828B
 	STA.w PPU.layer_1_scroll_y		;$B3828E
 	STA.w PPU.layer_1_scroll_y		;$B38291
 	REP.b #$20				;$B38294
-	LDA.w $18A1				;$B38296
+	LDA.w RAM_18A1				;$B38296
 	CLC					;$B38299
-	ADC.w $196D				;$B3829A
+	ADC.w RAM_196D				;$B3829A
 	STA.l $7EA165				;$B3829D
-	LDA.w $18A3				;$B382A1
+	LDA.w RAM_18A3				;$B382A1
 	STA.l $7EA167				;$B382A4
 	SEC					;$B382A8
 	SBC.w #$001F				;$B382A9
@@ -337,7 +337,7 @@ CODE_B38259:
 	STA.l $7EA16A				;$B382BA
 	STA.l $7EA170				;$B382BE
 	REP.b #$20				;$B382C2
-	LDA.w $1975				;$B382C4
+	LDA.w RAM_1975				;$B382C4
 	LSR					;$B382C7
 	STA.l $7EA15D				;$B382C8
 	STA.l $7EA162				;$B382CC
@@ -357,7 +357,7 @@ CODE_B38259:
 CODE_B382EC:
 	JSR.w CODE_B380F4			;$B382EC
 	REP.b #$20				;$B382EF
-	LDA.w $1973				;$B382F1
+	LDA.w RAM_1973				;$B382F1
 	SEC					;$B382F4
 	SBC.w #$0100				;$B382F5
 	LSR					;$B382F8
@@ -367,20 +367,20 @@ CODE_B382EC:
 	STA.w PPU.layer_3_scroll_y		;$B382FD
 	STZ.w PPU.layer_3_scroll_y		;$B38300
 	REP.b #$20				;$B38303
-	LDA.w $196D				;$B38305
+	LDA.w RAM_196D				;$B38305
 	LSR					;$B38308
 	LSR					;$B38309
 	SEP.b #$20				;$B3830A
 	STA.w PPU.layer_3_scroll_x		;$B3830C
 	STZ.w PPU.layer_3_scroll_x		;$B3830F
 	REP.b #$20				;$B38312
-	LDA.w $196D				;$B38314
+	LDA.w RAM_196D				;$B38314
 	LSR					;$B38317
 	SEP.b #$20				;$B38318
 	STA.w PPU.layer_2_scroll_x		;$B3831A
 	STZ.w PPU.layer_2_scroll_x		;$B3831D
 	REP.b #$20				;$B38320
-	LDA.w $1973				;$B38322
+	LDA.w RAM_1973				;$B38322
 	SEC					;$B38325
 	SBC.w #$0100				;$B38326
 	LSR					;$B38329
@@ -388,11 +388,11 @@ CODE_B382EC:
 	SEP.b #$20				;$B3832B
 	STA.w PPU.layer_2_scroll_y		;$B3832D
 	STZ.w PPU.layer_2_scroll_y		;$B38330
-	LDA.w $196D				;$B38333
+	LDA.w RAM_196D				;$B38333
 	STA.w PPU.layer_1_scroll_x		;$B38336
-	LDA.w $196E				;$B38339
+	LDA.w RAM_196E				;$B38339
 	STA.w PPU.layer_1_scroll_x		;$B3833C
-	LDA.w $1975				;$B3833F
+	LDA.w RAM_1975				;$B3833F
 	STA.w PPU.layer_1_scroll_y		;$B38342
 	STZ.w PPU.layer_1_scroll_y		;$B38345
 	LDA.w screen_brightness			;$B38348
@@ -445,18 +445,18 @@ CODE_B38397:
 	BCC.b CODE_B38397			;$B383A4
 	REP.b #$20				;$B383A6
 CODE_B383A8:
-	LDA.w $196D				;$B383A8
+	LDA.w RAM_196D				;$B383A8
 	ASL					;$B383AB
-	ADC.w $196D				;$B383AC
+	ADC.w RAM_196D				;$B383AC
 	LSR					;$B383AF
 	LSR					;$B383B0
 	SEP.b #$20				;$B383B1
 	STA.w PPU.layer_3_scroll_x		;$B383B3
 	STZ.w PPU.layer_3_scroll_x		;$B383B6
 	REP.b #$20				;$B383B9
-	LDA.w $1975				;$B383BB
+	LDA.w RAM_1975				;$B383BB
 	ASL					;$B383BE
-	ADC.w $1975				;$B383BF
+	ADC.w RAM_1975				;$B383BF
 	LSR					;$B383C2
 	LSR					;$B383C3
 	SEP.b #$20				;$B383C4
@@ -469,11 +469,11 @@ CODE_B383A8:
 	SEP.b #$20				;$B383D2
 	STA.w PPU.layer_2_scroll_x		;$B383D4
 	STA.w PPU.layer_2_scroll_x		;$B383D7
-	LDA.w $196D				;$B383DA
+	LDA.w RAM_196D				;$B383DA
 	STA.w PPU.layer_1_scroll_x		;$B383DD
-	LDA.w $196E				;$B383E0
+	LDA.w RAM_196E				;$B383E0
 	STA.w PPU.layer_1_scroll_x		;$B383E3
-	LDA.w $1975				;$B383E6
+	LDA.w RAM_1975				;$B383E6
 	STA.w PPU.layer_1_scroll_y		;$B383E9
 	STZ.w PPU.layer_1_scroll_y		;$B383EC
 	LDA.w screen_brightness			;$B383EF
@@ -521,7 +521,7 @@ CODE_B38436:
 	LDX.w #$A68A				;$B3845A
 	STX.w HDMA[$07].source_word		;$B3845D
 CODE_B38460:
-	LDA.w $1975				;$B38460
+	LDA.w RAM_1975				;$B38460
 	SEC					;$B38463
 	SBC.w water_y_position			;$B38464
 	CLC					;$B38467
@@ -531,22 +531,22 @@ CODE_B38460:
 	STZ.w PPU.layer_3_scroll_y		;$B38470
 	REP.b #$20				;$B38473
 CODE_B38475:
-	LDA.w $196D				;$B38475
+	LDA.w RAM_196D				;$B38475
 	LSR					;$B38478
 	SEP.b #$20				;$B38479
 	STA.w PPU.layer_2_scroll_x		;$B3847B
 	STZ.w PPU.layer_2_scroll_x		;$B3847E
-	LDA.w $196D				;$B38481
+	LDA.w RAM_196D				;$B38481
 	STA.w PPU.layer_1_scroll_x		;$B38484
-	LDA.w $196E				;$B38487
+	LDA.w RAM_196E				;$B38487
 	STA.w PPU.layer_1_scroll_x		;$B3848A
 	REP.b #$20				;$B3848D
-	LDA.w $1975				;$B3848F
+	LDA.w RAM_1975				;$B3848F
 	LSR					;$B38492
 	SEP.b #$20				;$B38493
 	STA.w PPU.layer_2_scroll_y		;$B38495
 	STZ.w PPU.layer_2_scroll_y		;$B38498
-	LDA.w $1975				;$B3849B
+	LDA.w RAM_1975				;$B3849B
 	STA.w PPU.layer_1_scroll_y		;$B3849E
 	STZ.w PPU.layer_1_scroll_y		;$B384A1
 	REP.b #$20				;$B384A4
@@ -566,7 +566,7 @@ CODE_B384B5:
 	TAX					;$B384BB
 	JSR.w CODE_B38523			;$B384BC
 	STA.b $1A				;$B384BF
-	LDA.w $1975				;$B384C1
+	LDA.w RAM_1975				;$B384C1
 	JSR.w CODE_B38523			;$B384C4
 	CLC					;$B384C7
 	ADC.w #$011F				;$B384C8
@@ -577,14 +577,14 @@ CODE_B384B5:
 	XBA					;$B384D3
 	STA.w PPU.layer_2_scroll_y		;$B384D4
 	REP.b #$20				;$B384D7
-	LDA.w $196D				;$B384D9
+	LDA.w RAM_196D				;$B384D9
 	LSR					;$B384DC
 	LSR					;$B384DD
 	SEP.b #$20				;$B384DE
 	STA.w PPU.layer_2_scroll_x		;$B384E0
 	STZ.w PPU.layer_2_scroll_x		;$B384E3
 	REP.b #$20				;$B384E6
-	LDA.w $196D				;$B384E8
+	LDA.w RAM_196D				;$B384E8
 	LSR					;$B384EB
 	SEP.b #$20				;$B384EC
 	CLC					;$B384EE
@@ -592,16 +592,16 @@ CODE_B384B5:
 	STA.w PPU.layer_3_scroll_x		;$B384F1
 	STZ.w PPU.layer_3_scroll_x		;$B384F4
 	REP.b #$20				;$B384F7
-	LDA.w $1975				;$B384F9
+	LDA.w RAM_1975				;$B384F9
 	LSR					;$B384FC
 	SEP.b #$20				;$B384FD
 	STA.w PPU.layer_3_scroll_y		;$B384FF
 	STZ.w PPU.layer_3_scroll_y		;$B38502
-	LDA.w $196D				;$B38505
+	LDA.w RAM_196D				;$B38505
 	STA.w PPU.layer_1_scroll_x		;$B38508
-	LDA.w $196E				;$B3850B
+	LDA.w RAM_196E				;$B3850B
 	STA.w PPU.layer_1_scroll_x		;$B3850E
-	LDA.w $1975				;$B38511
+	LDA.w RAM_1975				;$B38511
 	STA.w PPU.layer_1_scroll_y		;$B38514
 	STZ.w PPU.layer_1_scroll_y		;$B38517
 	LDA.w screen_brightness			;$B3851A
@@ -632,25 +632,25 @@ CODE_B3853C:
 	JSL.l CODE_B38609			;$B3853C
 	JSR.w CODE_B380F4			;$B38540
 	JSR.w CODE_B385EB			;$B38543
-	LDA.w $196D				;$B38546
+	LDA.w RAM_196D				;$B38546
 	SEC					;$B38549
 	SBC.w #$001C				;$B3854A
 	SEP.b #$30				;$B3854D
 	STA.w PPU.layer_3_scroll_x		;$B3854F
 	XBA					;$B38552
 	STA.w PPU.layer_3_scroll_x		;$B38553
-	LDA.w $196D				;$B38556
-	LDX.w $196E				;$B38559
+	LDA.w RAM_196D				;$B38556
+	LDX.w RAM_196E				;$B38559
 	STA.w PPU.layer_1_scroll_x		;$B3855C
 	STX.w PPU.layer_1_scroll_x		;$B3855F
 	STA.w PPU.layer_2_scroll_x		;$B38562
 	STX.w PPU.layer_2_scroll_x		;$B38565
-	LDA.w $1975				;$B38568
-	LDX.w $1976				;$B3856B
+	LDA.w RAM_1975				;$B38568
+	LDX.w RAM_1976				;$B3856B
 	STA.w PPU.layer_1_scroll_y		;$B3856E
 	STZ.w PPU.layer_1_scroll_y		;$B38571
 	REP.b #$20				;$B38574
-	LDA.w $1975				;$B38576
+	LDA.w RAM_1975				;$B38576
 	CLC					;$B38579
 	ADC.w #$0030				;$B3857A
 	SEP.b #$20				;$B3857D
@@ -666,36 +666,36 @@ CODE_B3858F:
 	JSL.l CODE_B38609			;$B3858F
 	JSR.w CODE_B380F4			;$B38593
 	JSR.w CODE_B385EB			;$B38596
-	LDA.w $196D				;$B38599
+	LDA.w RAM_196D				;$B38599
 	LSR					;$B3859C
 	LSR					;$B3859D
 	LSR					;$B3859E
 	EOR.w #$FFFF				;$B3859F
 	SEC					;$B385A2
-	ADC.w $196D				;$B385A3
+	ADC.w RAM_196D				;$B385A3
 	SEP.b #$30				;$B385A6
 	STA.w PPU.layer_3_scroll_x		;$B385A8
 	XBA					;$B385AB
 	STA.w PPU.layer_3_scroll_x		;$B385AC
-	LDA.w $196D				;$B385AF
-	LDX.w $196E				;$B385B2
+	LDA.w RAM_196D				;$B385AF
+	LDX.w RAM_196E				;$B385B2
 	STA.w PPU.layer_1_scroll_x		;$B385B5
 	STX.w PPU.layer_1_scroll_x		;$B385B8
 	STA.w PPU.layer_2_scroll_x		;$B385BB
 	STX.w PPU.layer_2_scroll_x		;$B385BE
 	REP.b #$30				;$B385C1
-	LDA.w $1975				;$B385C3
+	LDA.w RAM_1975				;$B385C3
 	LSR					;$B385C6
 	LSR					;$B385C7
 	LSR					;$B385C8
 	EOR.w #$FFFF				;$B385C9
 	SEC					;$B385CC
-	ADC.w $1975				;$B385CD
+	ADC.w RAM_1975				;$B385CD
 	SEP.b #$20				;$B385D0
 	STA.w PPU.layer_3_scroll_y		;$B385D2
 	XBA					;$B385D5
 	STA.w PPU.layer_3_scroll_y		;$B385D6
-	LDA.w $1975				;$B385D9
+	LDA.w RAM_1975				;$B385D9
 	STA.w PPU.layer_1_scroll_y		;$B385DC
 	STZ.w PPU.layer_1_scroll_y		;$B385DF
 	LDA.w screen_brightness			;$B385E2
@@ -719,9 +719,9 @@ CODE_B385FE:
 	RTS					;$B38608
 
 CODE_B38609:
-	LDA.w $196D				;$B38609
+	LDA.w RAM_196D				;$B38609
 	AND.w #$FFF8				;$B3860C
-	CMP.w $197D				;$B3860F
+	CMP.w RAM_197D				;$B3860F
 	BNE.b CODE_B38615			;$B38612
 	RTL					;$B38614
 
@@ -730,8 +730,8 @@ CODE_B38615:
 	LDA.b #$81				;$B38617
 	STA.w PPU.vram_control			;$B38619
 	REP.b #$20				;$B3861C
-	LDA.w $196D				;$B3861E
-	LDX.w $1989				;$B38621
+	LDA.w RAM_196D				;$B3861E
+	LDX.w RAM_1989				;$B38621
 	BMI.b CODE_B3862A			;$B38624
 	CLC					;$B38626
 	ADC.w #$0100				;$B38627
@@ -879,12 +879,12 @@ CODE_B38F2B:
 	BNE.b CODE_B38F2B			;$B38F34
 CODE_B38F36:
 	SEP.b #$20				;$B38F36
-	LDA.w $196D				;$B38F38
+	LDA.w RAM_196D				;$B38F38
 	SEC					;$B38F3B
 	SBC.l $001B77				;$B38F3C
 	STA.w PPU.layer_1_scroll_x		;$B38F40
 	STZ.w PPU.layer_1_scroll_x		;$B38F43
-	LDA.w $1975				;$B38F46
+	LDA.w RAM_1975				;$B38F46
 	SEC					;$B38F49
 	SBC.l $001B79				;$B38F4A
 	STA.w PPU.layer_1_scroll_y		;$B38F4E
@@ -897,28 +897,28 @@ DATA_B38F59:
 
 CODE_B39359:
 	JSR.w CODE_B380F4			;$B39359
-	LDA.w $196D				;$B3935C
+	LDA.w RAM_196D				;$B3935C
 	ASL					;$B3935F
-	ADC.w $196D				;$B39360
+	ADC.w RAM_196D				;$B39360
 	LSR					;$B39363
 	LSR					;$B39364
 	SEP.b #$20				;$B39365
 	STA.w PPU.layer_2_scroll_x		;$B39367
 	STZ.w PPU.layer_2_scroll_x		;$B3936A
 	REP.b #$20				;$B3936D
-	LDA.w $1975				;$B3936F
+	LDA.w RAM_1975				;$B3936F
 	ASL					;$B39372
-	ADC.w $1975				;$B39373
+	ADC.w RAM_1975				;$B39373
 	LSR					;$B39376
 	LSR					;$B39377
 	SEP.b #$20				;$B39378
 	STA.w PPU.layer_2_scroll_y		;$B3937A
 	STZ.w PPU.layer_2_scroll_y		;$B3937D
-	LDA.w $196D				;$B39380
+	LDA.w RAM_196D				;$B39380
 	STA.w PPU.layer_1_scroll_x		;$B39383
-	LDA.w $196E				;$B39386
+	LDA.w RAM_196E				;$B39386
 	STA.w PPU.layer_1_scroll_x		;$B39389
-	LDA.w $1975				;$B3938C
+	LDA.w RAM_1975				;$B3938C
 	STA.w PPU.layer_1_scroll_y		;$B3938F
 	STZ.w PPU.layer_1_scroll_y		;$B39392
 	LDA.w screen_brightness			;$B39395
@@ -976,7 +976,7 @@ CODE_B393FA:
 CODE_B3941D:
 	TXA					;$B3941D
 	STA.l $7EA17E				;$B3941E
-	LDA.w $196D				;$B39422
+	LDA.w RAM_196D				;$B39422
 	SEC					;$B39425
 	SBC.w $1C35				;$B39426
 	STA.b $88				;$B39429
@@ -1008,29 +1008,29 @@ CODE_B39456:
 CODE_B39459:
 	STA.l $7EA19B				;$B39459
 	STA.l $7EA19E				;$B3945D
-	LDA.w $1975				;$B39461
+	LDA.w RAM_1975				;$B39461
 	SEC					;$B39464
 	SBC.w $1C37				;$B39465
 	STA.l $7EA2D8				;$B39468
-	LDA.w $196D				;$B3946C
+	LDA.w RAM_196D				;$B3946C
 	SEC					;$B3946F
 	SBC.w $1C35				;$B39470
 	STA.l $7EA2D6				;$B39473
-	LDA.w $1973				;$B39477
+	LDA.w RAM_1973				;$B39477
 	STA.l $7EA3D8				;$B3947A
-	LDA.w $196D				;$B3947E
+	LDA.w RAM_196D				;$B3947E
 	STA.l $7EA3D6				;$B39481
-	LDA.w $196D				;$B39485
+	LDA.w RAM_196D				;$B39485
 	LSR					;$B39488
 	STA.l $7EA1D6				;$B39489
-	LDA.w $1973				;$B3948D
+	LDA.w RAM_1973				;$B3948D
 	LSR					;$B39490
 	SEC					;$B39491
 	SBC.w #$0030				;$B39492
 	STA.l $7EA1D8				;$B39495
 	LDA.w #$022F				;$B39499
 	SEC					;$B3949C
-	SBC.w $1973				;$B3949D
+	SBC.w RAM_1973				;$B3949D
 	CMP.w #$00FF				;$B394A0
 	BCC.b CODE_B394A8			;$B394A3
 	LDA.w #$00FF				;$B394A5
@@ -1132,7 +1132,7 @@ CODE_B39637:
 	LDA.w #$00FF				;$B3963D
 	STA.w PPU.window_1			;$B39640
 	STA.w PPU.window_2			;$B39643
-	LDA.w $1973				;$B39646
+	LDA.w RAM_1973				;$B39646
 	SEC					;$B39649
 	SBC.w water_y_position			;$B3964A
 	CLC					;$B3964D
@@ -1157,7 +1157,7 @@ CODE_B39680:
 	LDX.w #$0000				;$B39680
 	LDA.w water_y_position			;$B39683
 	SEC					;$B39686
-	SBC.w $1973				;$B39687
+	SBC.w RAM_1973				;$B39687
 	BPL.b CODE_B3968F			;$B3968A
 	LDA.w #$0000				;$B3968C
 CODE_B3968F:
@@ -1203,25 +1203,25 @@ CODE_B396DE:
 	STA.l $7EA15D,x				;$B396FA
 	STA.l $7EA1DD,x				;$B396FE
 CODE_B39702:
-	LDA.w $1973				;$B39702
+	LDA.w RAM_1973				;$B39702
 	EOR.w #$000F				;$B39705
 	AND.w #$000F				;$B39708
 	CLC					;$B3970B
 	ADC.w #$0081				;$B3970C
 	STA.l $7EA4EA				;$B3970F
-	LDA.w $1973				;$B39713
+	LDA.w RAM_1973				;$B39713
 	AND.w #$000F				;$B39716
 	ASL					;$B39719
 	ASL					;$B3971A
 	CLC					;$B3971B
 	ADC.w #$A51A				;$B3971C
 	STA.l $7EA4EB				;$B3971F
-	LDA.w $196D				;$B39723
+	LDA.w RAM_196D				;$B39723
 	SEP.b #$20				;$B39726
 	STA.w PPU.layer_1_scroll_x		;$B39728
 	XBA					;$B3972B
 	STA.w PPU.layer_1_scroll_x		;$B3972C
-	LDA.w $1975				;$B3972F
+	LDA.w RAM_1975				;$B3972F
 	STA.w PPU.layer_1_scroll_y		;$B39732
 	STZ.w PPU.layer_1_scroll_y		;$B39735
 	LDA.w screen_brightness			;$B39738
@@ -1233,7 +1233,7 @@ CODE_B39741:
 	STA.b $1A				;$B39741
 	LDA.b $1A				;$B39743
 	SEC					;$B39745
-	SBC.w $196D				;$B39746
+	SBC.w RAM_196D				;$B39746
 	CLC					;$B39749
 	ADC.w #$005F				;$B3974A
 	CMP.w #$015F				;$B3974D
@@ -1243,7 +1243,7 @@ CODE_B39741:
 CODE_B39753:
 	LDA.b $1A				;$B39753
 	SEC					;$B39755
-	SBC.w $196D				;$B39756
+	SBC.w RAM_196D				;$B39756
 	BPL.b CODE_B3975E			;$B39759
 	LDA.w #$0000				;$B3975B
 CODE_B3975E:
@@ -1254,7 +1254,7 @@ CODE_B3975E:
 	CLC					;$B39767
 	ADC.w #$005F				;$B39768
 	SEC					;$B3976B
-	SBC.w $196D				;$B3976C
+	SBC.w RAM_196D				;$B3976C
 	CMP.w #$00FF				;$B3976F
 	BCC.b CODE_B39777			;$B39772
 	LDA.w #$00FF				;$B39774
@@ -1268,12 +1268,12 @@ CODE_B39777:
 
 CODE_B39781:
 	JSR.w CODE_B380F4			;$B39781
-	LDA.w $196D				;$B39784
+	LDA.w RAM_196D				;$B39784
 	SEP.b #$20				;$B39787
 	STA.w PPU.layer_1_scroll_x		;$B39789
 	XBA					;$B3978C
 	STA.w PPU.layer_1_scroll_x		;$B3978D
-	LDA.w $1975				;$B39790
+	LDA.w RAM_1975				;$B39790
 	STA.w PPU.layer_1_scroll_y		;$B39793
 	STZ.w PPU.layer_1_scroll_y		;$B39796
 	LDA.w screen_brightness			;$B39799
@@ -1287,7 +1287,7 @@ CODE_B397A2:
 	JSL.l DMA_sprite_graphics_global	;$B397A8
 	JSL dma_queued_sprite_palette		;$B397AC
 	LDA.w #$0004				;$B397B0
-	TRB.w $1B7D				;$B397B3
+	TRB.w RAM_1B7D				;$B397B3
 	BEQ.b CODE_B397E9			;$B397B6
 	LDX.w #$76E0				;$B397B8
 	STX.w PPU.vram_address			;$B397BB
@@ -1322,13 +1322,13 @@ CODE_B397E9:
 	STA.w PPU.screen			;$B39807
 	REP.b #$20				;$B3980A
 	LDA.w #$0100				;$B3980C
-	STA.w $196D				;$B3980F
-	STA.w $1973				;$B39812
+	STA.w RAM_196D				;$B3980F
+	STA.w RAM_1973				;$B39812
 	RTS					;$B39815
 
 CODE_B39816:
 	JSR.w CODE_B380F4			;$B39816
-	LDA.w $196D				;$B39819
+	LDA.w RAM_196D				;$B39819
 	LSR					;$B3981C
 	CLC					;$B3981D
 	ADC.w #$0040				;$B3981E
@@ -1336,23 +1336,23 @@ CODE_B39816:
 	SEP.b #$20				;$B39822
 	STA.w PPU.layer_3_scroll_x		;$B39824
 	STZ.w PPU.layer_3_scroll_x		;$B39827
-	LDA.w $196D				;$B3982A
+	LDA.w RAM_196D				;$B3982A
 	STA.w PPU.layer_2_scroll_x		;$B3982D
-	LDA.w $196E				;$B39830
+	LDA.w RAM_196E				;$B39830
 	STA.w PPU.layer_2_scroll_x		;$B39833
-	LDA.w $1975				;$B39836
+	LDA.w RAM_1975				;$B39836
 	STA.w PPU.layer_2_scroll_y		;$B39839
 	STA.w PPU.layer_2_scroll_y		;$B3983C
 	REP.b #$20				;$B3983F
-	LDA.w $1973				;$B39841
+	LDA.w RAM_1973				;$B39841
 	LSR					;$B39844
 	LSR					;$B39845
 	SEP.b #$20				;$B39846
 	STA.w PPU.layer_3_scroll_y		;$B39848
 	STZ.w PPU.layer_3_scroll_y		;$B3984B
-	LDA.w $1B79				;$B3984E
+	LDA.w RAM_1B79				;$B3984E
 	STA.w PPU.layer_1_scroll_y		;$B39851
-	LDA.w $1B7A				;$B39854
+	LDA.w RAM_1B7A				;$B39854
 	STA.w PPU.layer_1_scroll_y		;$B39857
 	LDA.w screen_brightness			;$B3985A
 	STA.w PPU.screen			;$B3985D
@@ -1409,7 +1409,7 @@ CODE_B3989F:
 	CLC					;$B398C1
 	ADC.w #$00FF				;$B398C2
 	SEC					;$B398C5
-	SBC.w $18A1				;$B398C6
+	SBC.w RAM_18A1				;$B398C6
 	STA.l $7EA52A				;$B398C9
 	STA.l $7EA52C				;$B398CD
 	STA.l $7EA52E				;$B398D1
@@ -1432,7 +1432,7 @@ CODE_B3989F:
 	LSR					;$B3990D
 	LSR					;$B3990E
 	SEC					;$B3990F
-	SBC.w $18A1				;$B39910
+	SBC.w RAM_18A1				;$B39910
 	AND.w #$000F				;$B39913
 	STA.b $1A				;$B39916
 	EOR.w #$000F				;$B39918
@@ -1446,7 +1446,7 @@ CODE_B3989F:
 	CLC					;$B3992A
 	ADC.w #$A52A				;$B3992B
 	STA.l $7EA4CB				;$B3992E
-	LDA.w $189F				;$B39932
+	LDA.w RAM_189F				;$B39932
 	CLC					;$B39935
 	ADC.w #$0080				;$B39936
 	BPL.b CODE_B3993E			;$B39939
@@ -1459,7 +1459,7 @@ CODE_B39946:
 	SEP.b #$20				;$B39946
 	STA.l $7EA1AB				;$B39948
 	REP.b #$20				;$B3994C
-	LDA.w $189F				;$B3994E
+	LDA.w RAM_189F				;$B3994E
 	SEC					;$B39951
 	SBC.w #$0080				;$B39952
 	BPL.b CODE_B3995A			;$B39955
@@ -1481,28 +1481,28 @@ CODE_B3997A:
 	REP.b #$20				;$B3997A
 	LDA.w #$00FF				;$B3997C
 	STA.l $7EA1AC				;$B3997F
-	LDA.w $196D				;$B39983
+	LDA.w RAM_196D				;$B39983
 	ASL					;$B39986
-	ADC.w $196D				;$B39987
+	ADC.w RAM_196D				;$B39987
 	LSR					;$B3998A
 	LSR					;$B3998B
 	SEP.b #$20				;$B3998C
 	STA.w PPU.layer_2_scroll_x		;$B3998E
 	STZ.w PPU.layer_2_scroll_x		;$B39991
 	REP.b #$20				;$B39994
-	LDA.w $1973				;$B39996
+	LDA.w RAM_1973				;$B39996
 	ASL					;$B39999
-	ADC.w $1973				;$B3999A
+	ADC.w RAM_1973				;$B3999A
 	LSR					;$B3999D
 	LSR					;$B3999E
 	SEP.b #$20				;$B3999F
 	STA.w PPU.layer_2_scroll_y		;$B399A1
 	STZ.w PPU.layer_2_scroll_y		;$B399A4
-	LDA.w $196D				;$B399A7
+	LDA.w RAM_196D				;$B399A7
 	STA.w PPU.layer_1_scroll_x		;$B399AA
-	LDA.w $196E				;$B399AD
+	LDA.w RAM_196E				;$B399AD
 	STA.w PPU.layer_1_scroll_x		;$B399B0
-	LDA.w $1975				;$B399B3
+	LDA.w RAM_1975				;$B399B3
 	STA.w PPU.layer_1_scroll_y		;$B399B6
 	STZ.w PPU.layer_1_scroll_y		;$B399B9
 	LDA.w screen_brightness			;$B399BC
@@ -1522,17 +1522,17 @@ CODE_B39BA5:
 	BNE.b CODE_B39BB5			;$B39BB0
 	JSR.w CODE_B39BEA			;$B39BB2
 CODE_B39BB5:
-	LDA.w $196D				;$B39BB5
+	LDA.w RAM_196D				;$B39BB5
 	LSR					;$B39BB8
 	LSR					;$B39BB9
 	SEP.b #$20				;$B39BBA
 	STA.w PPU.layer_1_scroll_x		;$B39BBC
 	STZ.w PPU.layer_1_scroll_x		;$B39BBF
-	LDA.w $196D				;$B39BC2
+	LDA.w RAM_196D				;$B39BC2
 	STA.w PPU.layer_2_scroll_x		;$B39BC5
-	LDA.w $196E				;$B39BC8
+	LDA.w RAM_196E				;$B39BC8
 	STA.w PPU.layer_2_scroll_x		;$B39BCB
-	LDA.w $1975				;$B39BCE
+	LDA.w RAM_1975				;$B39BCE
 	STA.w PPU.layer_2_scroll_y		;$B39BD1
 	STZ.w PPU.layer_2_scroll_y		;$B39BD4
 	LDA.l $7EA358				;$B39BD7
@@ -1886,15 +1886,15 @@ CODE_B39E6A:
 	STA.w PPU.screen			;$B39EA2
 	REP.b #$20				;$B39EA5
 	LDA.w #$0100				;$B39EA7
-	STA.w $196D				;$B39EAA
-	STA.w $1973				;$B39EAD
+	STA.w RAM_196D				;$B39EAA
+	STA.w RAM_1973				;$B39EAD
 	RTS					;$B39EB0
 
 CODE_B39EB1:
 	JSR.w CODE_B380F4			;$B39EB1
-	LDA.w $196D				;$B39EB4
+	LDA.w RAM_196D				;$B39EB4
 	ASL					;$B39EB7
-	ADC.w $196D				;$B39EB8
+	ADC.w RAM_196D				;$B39EB8
 	LSR					;$B39EBB
 	LSR					;$B39EBC
 	SEP.b #$20				;$B39EBD
@@ -1909,25 +1909,25 @@ CODE_B39EB1:
 	CLC					;$B39ED1
 	ADC.w #$A17A				;$B39ED2
 	STA.w HDMA[$02].source_word		;$B39ED5
-	LDA.w $1973				;$B39ED8
+	LDA.w RAM_1973				;$B39ED8
 	ASL					;$B39EDB
-	ADC.w $1973				;$B39EDC
+	ADC.w RAM_1973				;$B39EDC
 	LSR					;$B39EDF
 	LSR					;$B39EE0
 	SEP.b #$20				;$B39EE1
 	STA.w PPU.layer_3_scroll_y		;$B39EE3
 	STZ.w PPU.layer_3_scroll_y		;$B39EE6
-	LDA.w $1B77				;$B39EE9
+	LDA.w RAM_1B77				;$B39EE9
 	STA.w PPU.layer_2_scroll_x		;$B39EEC
 	STZ.w PPU.layer_2_scroll_x		;$B39EEF
-	LDA.w $1B79				;$B39EF2
+	LDA.w RAM_1B79				;$B39EF2
 	STA.w PPU.layer_2_scroll_y		;$B39EF5
 	STZ.w PPU.layer_2_scroll_y		;$B39EF8
-	LDA.w $196D				;$B39EFB
+	LDA.w RAM_196D				;$B39EFB
 	STA.w PPU.layer_1_scroll_x		;$B39EFE
-	LDA.w $196E				;$B39F01
+	LDA.w RAM_196E				;$B39F01
 	STA.w PPU.layer_1_scroll_x		;$B39F04
-	LDA.w $1975				;$B39F07
+	LDA.w RAM_1975				;$B39F07
 	STA.w PPU.layer_1_scroll_y		;$B39F0A
 	STZ.w PPU.layer_1_scroll_y		;$B39F0D
 	LDA.w screen_brightness			;$B39F10
@@ -1964,7 +1964,7 @@ CODE_B39F34:
 	LSR					;$B39F48
 	LSR					;$B39F49
 	CLC					;$B39F4A
-	ADC.w $1975				;$B39F4B
+	ADC.w RAM_1975				;$B39F4B
 	EOR.w #$000F				;$B39F4E
 	AND.w #$000F				;$B39F51
 	CLC					;$B39F54
@@ -1974,7 +1974,7 @@ CODE_B39F34:
 	LSR					;$B39F5E
 	LSR					;$B39F5F
 	CLC					;$B39F60
-	ADC.w $1975				;$B39F61
+	ADC.w RAM_1975				;$B39F61
 	AND.w #$000F				;$B39F64
 	ASL					;$B39F67
 	CLC					;$B39F68
@@ -1986,7 +1986,7 @@ CODE_B39F34:
 	LSR					;$B39F76
 	LSR					;$B39F77
 	CLC					;$B39F78
-	ADC.w $1975				;$B39F79
+	ADC.w RAM_1975				;$B39F79
 	EOR.w #$000F				;$B39F7C
 	AND.w #$000F				;$B39F7F
 	CLC					;$B39F82
@@ -1998,7 +1998,7 @@ CODE_B39F34:
 	LSR					;$B39F90
 	LSR					;$B39F91
 	CLC					;$B39F92
-	ADC.w $1975				;$B39F93
+	ADC.w RAM_1975				;$B39F93
 	AND.w #$000F				;$B39F96
 	ASL					;$B39F99
 	CLC					;$B39F9A
@@ -2007,7 +2007,7 @@ CODE_B39F34:
 	LDA.b active_frame_counter		;$B39FA2
 	LSR					;$B39FA4
 	CLC					;$B39FA5
-	ADC.w $1975				;$B39FA6
+	ADC.w RAM_1975				;$B39FA6
 	LSR					;$B39FA9
 	STA.b $1A				;$B39FAA
 	EOR.w #$000F				;$B39FAC
@@ -2021,7 +2021,7 @@ CODE_B39F34:
 	CLC					;$B39FC0
 	ADC.w #$A58A				;$B39FC1
 	STA.l $7EA55B				;$B39FC4
-	LDA.w $1975				;$B39FC8
+	LDA.w RAM_1975				;$B39FC8
 	STA.l $7EA5EA				;$B39FCB
 	STA.l $7EA5EC				;$B39FCF
 	STA.l $7EA5EE				;$B39FD3
@@ -2039,7 +2039,7 @@ CODE_B39F34:
 	STA.l $7EA604				;$B3A000
 	STA.l $7EA606				;$B3A004
 	STA.l $7EA608				;$B3A008
-	LDA.w $196D				;$B3A00C
+	LDA.w RAM_196D				;$B3A00C
 	STA.l $7EA51A				;$B3A00F
 	STA.l $7EA51C				;$B3A013
 	STA.l $7EA51E				;$B3A017
@@ -2058,7 +2058,7 @@ CODE_B39F34:
 	STA.l $7EA52C				;$B3A045
 	STA.l $7EA52E				;$B3A049
 	STA.l $7EA530				;$B3A04D
-	LDA.w $196D				;$B3A051
+	LDA.w RAM_196D				;$B3A051
 	LSR					;$B3A054
 	STA.l $7EA58A				;$B3A055
 	STA.l $7EA58C				;$B3A059
@@ -2079,7 +2079,7 @@ CODE_B39F34:
 	STA.l $7EA59A				;$B3A08C
 	STA.l $7EA59C				;$B3A090
 	STA.l $7EA59E				;$B3A094
-	LDA.w $1975				;$B3A098
+	LDA.w RAM_1975				;$B3A098
 	LSR					;$B3A09B
 	SEP.b #$20				;$B3A09C
 	STA.w PPU.layer_3_scroll_y		;$B3A09E
@@ -2107,20 +2107,20 @@ CODE_B3A0D0:
 	STA.w HDMA[$02].source_word		;$B3A0D4
 	LDA.w RAM_15E6				;$B3A0D7
 	BNE.b CODE_B3A109			;$B3A0DA
-	LDA.w $1B77				;$B3A0DC
+	LDA.w RAM_1B77				;$B3A0DC
 	SEP.b #$20				;$B3A0DF
 	STA.w PPU.layer_1_scroll_x		;$B3A0E1
 	XBA					;$B3A0E4
 	STA.w PPU.layer_1_scroll_x		;$B3A0E5
-	LDA.w $1B79				;$B3A0E8
+	LDA.w RAM_1B79				;$B3A0E8
 	STA.w PPU.layer_1_scroll_y		;$B3A0EB
 	STZ.w PPU.layer_1_scroll_y		;$B3A0EE
-	LDA.w $196D				;$B3A0F1
+	LDA.w RAM_196D				;$B3A0F1
 	STA.w PPU.layer_2_scroll_x		;$B3A0F4
-	LDA.w $196E				;$B3A0F7
+	LDA.w RAM_196E				;$B3A0F7
 	DEC					;$B3A0FA
 	STA.w PPU.layer_2_scroll_x		;$B3A0FB
-	LDA.w $1975				;$B3A0FE
+	LDA.w RAM_1975				;$B3A0FE
 	STA.w PPU.layer_2_scroll_y		;$B3A101
 	STZ.w PPU.layer_2_scroll_y		;$B3A104
 	REP.b #$20				;$B3A107
@@ -2164,7 +2164,7 @@ CODE_B3A135:
 CODE_B3A16A:
 	LDA.w #$014B				;$B3A16A
 	SEC					;$B3A16D
-	SBC.w $196D				;$B3A16E
+	SBC.w RAM_196D				;$B3A16E
 	BPL.b CODE_B3A176			;$B3A171
 	LDA.w #$0000				;$B3A173
 CODE_B3A176:
@@ -2174,7 +2174,7 @@ CODE_B3A176:
 	REP.b #$20				;$B3A17E
 	LDA.w #$02B4				;$B3A180
 	SEC					;$B3A183
-	SBC.w $196D				;$B3A184
+	SBC.w RAM_196D				;$B3A184
 	CMP.w #$0100				;$B3A187
 	BCC.b CODE_B3A18F			;$B3A18A
 	LDA.w #$00FF				;$B3A18C
@@ -2184,7 +2184,7 @@ CODE_B3A18F:
 	REP.b #$20				;$B3A194
 	LDA.w #$025C				;$B3A196
 	SEC					;$B3A199
-	SBC.w $196D				;$B3A19A
+	SBC.w RAM_196D				;$B3A19A
 	CMP.w #$0100				;$B3A19D
 	BCC.b CODE_B3A1A5			;$B3A1A0
 	LDA.w #$00FF				;$B3A1A2
@@ -2222,29 +2222,29 @@ CODE_B3A1D8:
 	SEC					;$B3A1E4
 	SBC.b active_frame_counter		;$B3A1E5
 	CLC					;$B3A1E7
-	ADC.w $196D				;$B3A1E8
+	ADC.w RAM_196D				;$B3A1E8
 	STA.w PPU.layer_2_scroll_x		;$B3A1EB
 	STZ.w PPU.layer_2_scroll_x		;$B3A1EE
 	LDA.w RAM_15E6				;$B3A1F1
 	AND.b #$12				;$B3A1F4
 	STA.l $7EA17F				;$B3A1F6
-	LDA.w $1975				;$B3A1FA
+	LDA.w RAM_1975				;$B3A1FA
 	SEC					;$B3A1FD
 	SBC.b #$0C				;$B3A1FE
 	STA.w PPU.layer_2_scroll_y		;$B3A200
 	STZ.w PPU.layer_2_scroll_y		;$B3A203
-	LDA.w $196D				;$B3A206
+	LDA.w RAM_196D				;$B3A206
 	STA.w PPU.layer_1_scroll_x		;$B3A209
-	LDA.w $196E				;$B3A20C
+	LDA.w RAM_196E				;$B3A20C
 	DEC					;$B3A20F
 	STA.w PPU.layer_1_scroll_x		;$B3A210
-	LDA.w $1975				;$B3A213
+	LDA.w RAM_1975				;$B3A213
 	STA.w PPU.layer_1_scroll_y		;$B3A216
 	STZ.w PPU.layer_1_scroll_y		;$B3A219
 	REP.b #$20				;$B3A21C
 CODE_B3A21E:
 	SEP.b #$20				;$B3A21E
-	LDA.w $196D				;$B3A220
+	LDA.w RAM_196D				;$B3A220
 	CLC					;$B3A223
 	ADC.l $7EA35A				;$B3A224
 	STA.w PPU.layer_3_scroll_x		;$B3A228
@@ -2277,7 +2277,7 @@ CODE_B3A237:
 	REP.b #$20				;$B3A275
 CODE_B3A277:
 	LDX.w #$0060				;$B3A277
-	LDA.w $1B79				;$B3A27A
+	LDA.w RAM_1B79				;$B3A27A
 	EOR.w #$FFFF				;$B3A27D
 	CMP.w #$0001				;$B3A280
 	BMI.b CODE_B3A2B6			;$B3A283
@@ -2362,29 +2362,29 @@ CODE_B3A336:
 	ADC.w #$004E				;$B3A350
 	STA.l $7EA171				;$B3A353
 CODE_B3A357:
-	LDA.w $196D				;$B3A357
+	LDA.w RAM_196D				;$B3A357
 	LSR					;$B3A35A
 	SEP.b #$20				;$B3A35B
 	STA.w PPU.layer_3_scroll_x		;$B3A35D
 	STZ.w PPU.layer_3_scroll_x		;$B3A360
 	REP.b #$20				;$B3A363
-	LDA.w $1975				;$B3A365
+	LDA.w RAM_1975				;$B3A365
 	LSR					;$B3A368
 	SEP.b #$20				;$B3A369
 	STA.w PPU.layer_3_scroll_y		;$B3A36B
 	STZ.w PPU.layer_3_scroll_y		;$B3A36E
-	LDA.w $1B77				;$B3A371
+	LDA.w RAM_1B77				;$B3A371
 	STA.w PPU.layer_1_scroll_x		;$B3A374
-	LDA.w $1B78				;$B3A377
+	LDA.w RAM_1B78				;$B3A377
 	STA.w PPU.layer_1_scroll_x		;$B3A37A
-	LDA.w $1B79				;$B3A37D
+	LDA.w RAM_1B79				;$B3A37D
 	STA.w PPU.layer_1_scroll_y		;$B3A380
 	STZ.w PPU.layer_1_scroll_y		;$B3A383
-	LDA.w $196D				;$B3A386
+	LDA.w RAM_196D				;$B3A386
 	STA.w PPU.layer_2_scroll_x		;$B3A389
-	LDA.w $196E				;$B3A38C
+	LDA.w RAM_196E				;$B3A38C
 	STA.w PPU.layer_2_scroll_x		;$B3A38F
-	LDA.w $1975				;$B3A392
+	LDA.w RAM_1975				;$B3A392
 	STA.w PPU.layer_2_scroll_y		;$B3A395
 	STZ.w PPU.layer_2_scroll_y		;$B3A398
 	LDA.w screen_brightness			;$B3A39B
@@ -2515,7 +2515,7 @@ CODE_B3A4C4:
 	SEP.b #$20				;$B3A4C4
 	LDA.b #$30				;$B3A4C6
 	SEC					;$B3A4C8
-	SBC.w $1973				;$B3A4C9
+	SBC.w RAM_1973				;$B3A4C9
 	STA.l $7EA23A				;$B3A4CC
 	LDA.b #$E0				;$B3A4D0
 	STA.w PPU.fixed_color			;$B3A4D2
@@ -2544,7 +2544,7 @@ CODE_B3A500:
 	STA.w PPU.sub_screen			;$B3A509
 	LDA.b #$54				;$B3A50C
 	SEC					;$B3A50E
-	SBC.w $1973				;$B3A50F
+	SBC.w RAM_1973				;$B3A50F
 	STA.l $7EA15D				;$B3A512
 	STA.l $7EA25D				;$B3A516
 	STA.l $7EA1ED				;$B3A51A
@@ -2553,25 +2553,25 @@ CODE_B3A500:
 	LDA.l $7E9B5C				;$B3A524
 	AND.w #$0006				;$B3A528
 	LSR					;$B3A52B
-	ADC.w $1975				;$B3A52C
+	ADC.w RAM_1975				;$B3A52C
 	CLC					;$B3A52F
 	ADC.w #$000B				;$B3A530
 	STA.l $7EA26B				;$B3A533
 	STA.l $7EA26E				;$B3A537
-	LDA.w $1975				;$B3A53B
+	LDA.w RAM_1975				;$B3A53B
 	CLC					;$B3A53E
 	ADC.w #$0004				;$B3A53F
 	STA.l $7EA271				;$B3A542
 	LDA.w #$013B				;$B3A546
 	SEC					;$B3A549
-	SBC.w $196D				;$B3A54A
+	SBC.w RAM_196D				;$B3A54A
 	BPL.b CODE_B3A552			;$B3A54D
 	LDA.w #$0000				;$B3A54F
 CODE_B3A552:
 	STA.l $7EA1FA				;$B3A552
 	LDA.w #$02C4				;$B3A556
 	SEC					;$B3A559
-	SBC.w $196D				;$B3A55A
+	SBC.w RAM_196D				;$B3A55A
 	CMP.w #$0100				;$B3A55D
 	BCC.b CODE_B3A565			;$B3A560
 	LDA.w #$00FF				;$B3A562
@@ -2579,7 +2579,7 @@ CODE_B3A565:
 	STA.l $7EA1FB				;$B3A565
 	LDA.l $7EA21C				;$B3A569
 	SEC					;$B3A56D
-	SBC.w $196D				;$B3A56E
+	SBC.w RAM_196D				;$B3A56E
 	BPL.b CODE_B3A576			;$B3A571
 	LDA.w #$0000				;$B3A573
 CODE_B3A576:
@@ -2593,7 +2593,7 @@ CODE_B3A584:
 	STA.l $7EA1FC				;$B3A584
 	LDA.l $7EA21E				;$B3A588
 	SEC					;$B3A58C
-	SBC.w $196D				;$B3A58D
+	SBC.w RAM_196D				;$B3A58D
 	BPL.b CODE_B3A59B			;$B3A590
 	LDA.w #$00FF				;$B3A592
 	STA.l $7EA1FC				;$B3A595
@@ -2624,12 +2624,12 @@ CODE_B3A5C8:
 	LDA.l $7E995C				;$B3A5C8
 	AND.w #$000E				;$B3A5CC
 	LSR					;$B3A5CF
-	ADC.w $196D				;$B3A5D0
+	ADC.w RAM_196D				;$B3A5D0
 	STA.l $7EA16A				;$B3A5D3
 	LDA.b active_frame_counter		;$B3A5D7
 	LSR					;$B3A5D9
 	CLC					;$B3A5DA
-	ADC.w $196D				;$B3A5DB
+	ADC.w RAM_196D				;$B3A5DB
 	SEP.b #$20				;$B3A5DE
 	STA.w PPU.layer_3_scroll_x		;$B3A5E0
 	XBA					;$B3A5E3
@@ -2645,17 +2645,17 @@ CODE_B3A5C8:
 	SEC					;$B3A5F3
 	SBC.b active_frame_counter		;$B3A5F4
 	CLC					;$B3A5F6
-	ADC.w $196D				;$B3A5F7
+	ADC.w RAM_196D				;$B3A5F7
 	STA.l $7EA24E				;$B3A5FA
-	LDA.w $196D				;$B3A5FE
+	LDA.w RAM_196D				;$B3A5FE
 	CLC					;$B3A601
 	ADC.l $7EA254				;$B3A602
 	STA.l $7EA24B				;$B3A606
-	LDA.w $196D				;$B3A60A
+	LDA.w RAM_196D				;$B3A60A
 	STA.w PPU.layer_1_scroll_x		;$B3A60D
-	LDA.w $196E				;$B3A610
+	LDA.w RAM_196E				;$B3A610
 	STA.w PPU.layer_1_scroll_x		;$B3A613
-	LDA.w $1975				;$B3A616
+	LDA.w RAM_1975				;$B3A616
 	STA.w PPU.layer_2_scroll_y		;$B3A619
 	STZ.w PPU.layer_2_scroll_y		;$B3A61C
 	STA.w PPU.layer_1_scroll_y		;$B3A61F
@@ -2771,7 +2771,7 @@ CODE_B3A6F7:
 	LSR					;$B3A70F
 	LSR					;$B3A710
 	CLC					;$B3A711
-	ADC.w $1967				;$B3A712
+	ADC.w RAM_1967				;$B3A712
 	STA.b $1A				;$B3A715
 	LDA.b $8E				;$B3A717
 	STA.b $1C				;$B3A719
@@ -2944,7 +2944,7 @@ CODE_B3A8E4:
 CODE_B3A8FC:
 	LDA.w DATA_B3AC14,x			;$B3A8FC
 	CLC					;$B3A8FF
-	ADC.w $196D				;$B3A900
+	ADC.w RAM_196D				;$B3A900
 	STA.l $7EA44A,x				;$B3A903
 	DEX					;$B3A907
 	DEX					;$B3A908
@@ -2957,9 +2957,9 @@ CODE_B3A8FC:
 	CLC					;$B3A913
 	ADC.b #$81				;$B3A914
 	STA.l $7EA160				;$B3A916
-	LDA.w $1B65				;$B3A91A
+	LDA.w RAM_1B65				;$B3A91A
 	SEC					;$B3A91D
-	SBC.w $1975				;$B3A91E
+	SBC.w RAM_1975				;$B3A91E
 	SEC					;$B3A921
 	SBC.b #$3A				;$B3A922
 	STA.l $7EA213				;$B3A924
@@ -2995,7 +2995,7 @@ CODE_B3A953:
 CODE_B3A959:
 	LSR					;$B3A959
 	CLC					;$B3A95A
-	ADC.w $196D				;$B3A95B
+	ADC.w RAM_196D				;$B3A95B
 	STA.l $7EA1DA,x				;$B3A95E
 	TYA					;$B3A962
 	CLC					;$B3A963
@@ -3008,7 +3008,7 @@ CODE_B3A959:
 	INX					;$B3A96E
 	CPX.w #$0010				;$B3A96F
 	BNE.b CODE_B3A944			;$B3A972
-	LDA.w $1975				;$B3A974
+	LDA.w RAM_1975				;$B3A974
 	CLC					;$B3A977
 	ADC.w #$0038				;$B3A978
 	STA.l $7EA1DC				;$B3A97B
@@ -3022,7 +3022,7 @@ CODE_B3A959:
 CODE_B3A997:
 	LDA.w DATA_B3AC14,y			;$B3A997
 	CLC					;$B3A99A
-	ADC.w $196D				;$B3A99B
+	ADC.w RAM_196D				;$B3A99B
 	STA.l $7EA40A,x				;$B3A99E
 	LDA.b $1E				;$B3A9A2
 	STA.l $7EA40C,x				;$B3A9A4
@@ -3044,10 +3044,10 @@ CODE_B3A9BA:
 	LSR					;$B3A9BC
 CODE_B3A9BD:
 	CLC					;$B3A9BD
-	ADC.w $196D				;$B3A9BE
+	ADC.w RAM_196D				;$B3A9BE
 	STA.l $7EA402				;$B3A9C1
 	SEP.b #$20				;$B3A9C5
-	LDA.w $1B65				;$B3A9C7
+	LDA.w RAM_1B65				;$B3A9C7
 	EOR.b #$FF				;$B3A9CA
 	SEC					;$B3A9CC
 	ADC.b #$60				;$B3A9CD
@@ -3055,14 +3055,14 @@ CODE_B3A9BD:
 	STA.l $7EA49C				;$B3A9D0
 	ADC.b #$00				;$B3A9D4
 	STA.l $7EA4A1				;$B3A9D6
-	LDA.w $1B65				;$B3A9DA
+	LDA.w RAM_1B65				;$B3A9DA
 	SEC					;$B3A9DD
-	SBC.w $1975				;$B3A9DE
+	SBC.w RAM_1975				;$B3A9DE
 	SEC					;$B3A9E1
 	SBC.b #$C2				;$B3A9E2
 	STA.l $7EA4A6				;$B3A9E4
 	STA.l $7EA46E				;$B3A9E8
-	LDA.w $1B65				;$B3A9EC
+	LDA.w RAM_1B65				;$B3A9EC
 	EOR.b #$FF				;$B3A9EF
 	SEC					;$B3A9F1
 	ADC.b #$5B				;$B3A9F2
@@ -3077,7 +3077,7 @@ CODE_B3A9BD:
 	REP.b #$20				;$B3AA08
 	LDX.w #$001E				;$B3AA0A
 CODE_B3AA0D:
-	LDA.w $196D				;$B3AA0D
+	LDA.w RAM_196D				;$B3AA0D
 	LSR					;$B3AA10
 	LSR					;$B3AA11
 	CLC					;$B3AA12
@@ -3113,12 +3113,12 @@ CODE_B3AA0D:
 	LDA.b active_frame_counter		;$B3AA51
 	ASL					;$B3AA53
 	CLC					;$B3AA54
-	ADC.w $196D				;$B3AA55
+	ADC.w RAM_196D				;$B3AA55
 	ASL					;$B3AA58
 	BRA.b CODE_B3AA62			;$B3AA59
 
 CODE_B3AA5B:
-	LDA.w $196D				;$B3AA5B
+	LDA.w RAM_196D				;$B3AA5B
 	ASL					;$B3AA5E
 	CLC					;$B3AA5F
 	ADC.b active_frame_counter		;$B3AA60
@@ -3128,7 +3128,7 @@ CODE_B3AA62:
 	ASL					;$B3AA64
 	ASL					;$B3AA65
 	STA.b $1A				;$B3AA66
-	LDA.w $196D				;$B3AA68
+	LDA.w RAM_196D				;$B3AA68
 	LSR					;$B3AA6B
 	LSR					;$B3AA6C
 	XBA					;$B3AA6D
@@ -3181,34 +3181,34 @@ CODE_B3AA74:
 	BNE.b CODE_B3AA74			;$B3AAF2
 	LDA.b $22				;$B3AAF4
 	TCS					;$B3AAF6
-	LDA.w $1975				;$B3AAF7
+	LDA.w RAM_1975				;$B3AAF7
 	CLC					;$B3AAFA
 	ADC.w #$FE38				;$B3AAFB
 	SEC					;$B3AAFE
-	SBC.w $1B65				;$B3AAFF
+	SBC.w RAM_1B65				;$B3AAFF
 	XBA					;$B3AB02
 	STA.w CPU.dividen_low			;$B3AB03
-	LDA.w $1B65				;$B3AB06
+	LDA.w RAM_1B65				;$B3AB06
 	SEC					;$B3AB09
-	SBC.w $1975				;$B3AB0A
+	SBC.w RAM_1975				;$B3AB0A
 	SEC					;$B3AB0D
 	SBC.w #$003A				;$B3AB0E
 	AND.w #$007F				;$B3AB11
 	STA.w CPU.divisor			;$B3AB14
-	LDA.w $196D				;$B3AB17
+	LDA.w RAM_196D				;$B3AB17
 	LSR					;$B3AB1A
 	LSR					;$B3AB1B
 	SEP.b #$20				;$B3AB1C
 	STA.l $7EA37A				;$B3AB1E
 	REP.b #$20				;$B3AB22
-	LDA.w $1B65				;$B3AB24
+	LDA.w RAM_1B65				;$B3AB24
 	SEC					;$B3AB27
-	SBC.w $1975				;$B3AB28
+	SBC.w RAM_1975				;$B3AB28
 	SEC					;$B3AB2B
 	SBC.w #$003A				;$B3AB2C
 	AND.w #$007F				;$B3AB2F
 	STA.b $20				;$B3AB32
-	LDA.w $1B65				;$B3AB34
+	LDA.w RAM_1B65				;$B3AB34
 	EOR.w #$00FF				;$B3AB37
 	SEC					;$B3AB3A
 	ADC.w #$0060				;$B3AB3B
@@ -3234,12 +3234,12 @@ CODE_B3AB52:
 	PLB					;$B3AB63
 	TSC					;$B3AB64
 	STA.b $22				;$B3AB65
-	LDA.w $1B65				;$B3AB67
+	LDA.w RAM_1B65				;$B3AB67
 	AND.w #$01FF				;$B3AB6A
 	EOR.w #$FFFF				;$B3AB6D
 	INC					;$B3AB70
 	STA.b $1C				;$B3AB71
-	LDA.w $1B65				;$B3AB73
+	LDA.w RAM_1B65				;$B3AB73
 	XBA					;$B3AB76
 	TCS					;$B3AB77
 	XBA					;$B3AB78
@@ -3379,7 +3379,7 @@ CODE_B3AD0B:
 	STA.b $84				;$B3AD0B
 	LDA.w water_y_position			;$B3AD0D
 	SEC					;$B3AD10
-	SBC.w $1975				;$B3AD11
+	SBC.w RAM_1975				;$B3AD11
 	SEC					;$B3AD14
 	SBC.w #$0020				;$B3AD15
 	LDX.b $84				;$B3AD18
@@ -3449,7 +3449,7 @@ CODE_B3AD95:
 	STA.l $7EA15D,x				;$B3ADA6
 	LDA.w water_y_position			;$B3ADAA
 	SEC					;$B3ADAD
-	SBC.w $1975				;$B3ADAE
+	SBC.w RAM_1975				;$B3ADAE
 	SEC					;$B3ADB1
 	SBC.w #$0020				;$B3ADB2
 	LDX.b $84				;$B3ADB5
@@ -3489,7 +3489,7 @@ CODE_B3ADF0:
 	LDX.b $84				;$B3AE05
 	LDA.w water_y_position			;$B3AE07
 	SEC					;$B3AE0A
-	SBC.w $1975				;$B3AE0B
+	SBC.w RAM_1975				;$B3AE0B
 	CLC					;$B3AE0E
 	ADC.w #$0020				;$B3AE0F
 	CMP.w #$0080				;$B3AE12
@@ -3540,7 +3540,7 @@ CODE_B3AE61:
 	LDX.b $84				;$B3AE85
 	LDA.w water_y_position			;$B3AE87
 	SEC					;$B3AE8A
-	SBC.w $1975				;$B3AE8B
+	SBC.w RAM_1975				;$B3AE8B
 	SEC					;$B3AE8E
 	SBC.w #$0020				;$B3AE8F
 	CMP.w #$0080				;$B3AE92
@@ -3586,7 +3586,7 @@ CODE_B3AECA:
 	LDX.b $84				;$B3AEE6
 	LDA.w water_y_position			;$B3AEE8
 	SEC					;$B3AEEB
-	SBC.w $1975				;$B3AEEC
+	SBC.w RAM_1975				;$B3AEEC
 	CMP.w #$0080				;$B3AEEF
 	BMI.b CODE_B3AF18			;$B3AEF2
 	SEC					;$B3AEF4
@@ -3651,7 +3651,7 @@ CODE_B3AF33:
 	LDX.b $84				;$B3AF73
 	LDA.w water_y_position			;$B3AF75
 	SEC					;$B3AF78
-	SBC.w $1975				;$B3AF79
+	SBC.w RAM_1975				;$B3AF79
 	CMP.w #$0080				;$B3AF7C
 	BMI.b CODE_B3AFA5			;$B3AF7F
 	SEC					;$B3AF81
@@ -3718,7 +3718,7 @@ CODE_B3AFC0:
 	LDX.b $84				;$B3B004
 	LDA.w water_y_position			;$B3B006
 	SEC					;$B3B009
-	SBC.w $1975				;$B3B00A
+	SBC.w RAM_1975				;$B3B00A
 	SEC					;$B3B00D
 	SBC.w #$0020				;$B3B00E
 	CMP.w #$0080				;$B3B011
@@ -3752,7 +3752,7 @@ CODE_B3B03A:
 	INX					;$B3B04F
 	INX					;$B3B050
 	INX					;$B3B051
-	LDA.w $1975				;$B3B052
+	LDA.w RAM_1975				;$B3B052
 CODE_B3B055:
 	LSR					;$B3B055
 	STA.b $1A				;$B3B056
@@ -3783,7 +3783,7 @@ CODE_B3B055:
 	STA.l $7EA28E,x				;$B3B08D
 	STA.l $7EA291,x				;$B3B091
 	LDX.b $84				;$B3B095
-	LDA.w $1975				;$B3B097
+	LDA.w RAM_1975				;$B3B097
 	STA.l $7EA3FA,x				;$B3B09A
 	STA.l $7EA3FC,x				;$B3B09E
 	STA.l $7EA3FE,x				;$B3B0A2
@@ -3801,7 +3801,7 @@ CODE_B3B055:
 	STA.l $7EA414,x				;$B3B0CF
 	STA.l $7EA416,x				;$B3B0D3
 	STA.l $7EA418,x				;$B3B0D7
-	LDA.w $196D				;$B3B0DB
+	LDA.w RAM_196D				;$B3B0DB
 	STA.l $7EA3BA,x				;$B3B0DE
 	STA.l $7EA3BC,x				;$B3B0E2
 	STA.l $7EA3BE,x				;$B3B0E6
@@ -3819,7 +3819,7 @@ CODE_B3B055:
 	STA.l $7EA3D4,x				;$B3B113
 	STA.l $7EA3D6,x				;$B3B117
 	STA.l $7EA3D8,x				;$B3B11B
-	LDA.w $196D				;$B3B11F
+	LDA.w RAM_196D				;$B3B11F
 	LSR					;$B3B122
 	STA.l $7EA3DA,x				;$B3B123
 	STA.l $7EA3DC,x				;$B3B127
@@ -3841,13 +3841,13 @@ CODE_B3B055:
 	LDA level_number			;$B3B164
 	CMP.w #!level_pothole_panic		;$B3B166
 	BNE.b CODE_B3B174			;$B3B169
-	LDA.w $196D				;$B3B16B
+	LDA.w RAM_196D				;$B3B16B
 	SEC					;$B3B16E
 	SBC.w #$1600				;$B3B16F
 	BRA.b CODE_B3B17B			;$B3B172
 
 CODE_B3B174:
-	LDA.w $196D				;$B3B174
+	LDA.w RAM_196D				;$B3B174
 	SEC					;$B3B177
 	SBC.w #$0400				;$B3B178
 CODE_B3B17B:
@@ -4649,7 +4649,7 @@ CODE_B3B96B:
 CODE_B3B971:
 	LDA.w RAM_15EC				;$B3B971
 	BEQ.b CODE_B3B9AC			;$B3B974
-	LDA.w $196D				;$B3B976
+	LDA.w RAM_196D				;$B3B976
 	SEC					;$B3B979
 	SBC.w $1C35				;$B3B97A
 	STA.b $88				;$B3B97D
@@ -4703,7 +4703,7 @@ CODE_B3B9E7:
 	INX					;$B3B9EC
 	CPX.w #$0224				;$B3B9ED
 	BNE.b CODE_B3B9E7			;$B3B9F0
-	LDA.w $196D				;$B3B9F2
+	LDA.w RAM_196D				;$B3B9F2
 	STA.w $7EA1DA				;$B3B9F5
 	STA.w $7EA1DE				;$B3B9F8
 	STA.w $7EA1E2				;$B3B9FB
@@ -4774,7 +4774,7 @@ CODE_B3B9E7:
 	LSR					;$B3BAB9
 	LSR					;$B3BABA
 	CLC					;$B3BABB
-	ADC.w $196D				;$B3BABC
+	ADC.w RAM_196D				;$B3BABC
 	STA.w $7EA2DA				;$B3BABF
 	STA.w $7EA2DE				;$B3BAC2
 	STA.w $7EA2E2				;$B3BAC5
@@ -4809,7 +4809,7 @@ CODE_B3B9E7:
 	STA.w $7EA34A				;$B3BB18
 	STA.w $7EA34E				;$B3BB1B
 	STA.w $7EA352				;$B3BB1E
-	LDA.w $1973				;$B3BB21
+	LDA.w RAM_1973				;$B3BB21
 	STA.w $7EA2DC				;$B3BB24
 	STA.w $7EA2E0				;$B3BB27
 	STA.w $7EA2E4				;$B3BB2A
@@ -5005,9 +5005,9 @@ CODE_B3BD0D:
 	BEQ.b CODE_B3BD2D			;$B3BD1D
 	BCC.b CODE_B3BD4A			;$B3BD1F
 CODE_B3BD21:
-	LDA.w $1973				;$B3BD21
+	LDA.w RAM_1973				;$B3BD21
 	STA.l $7EA358				;$B3BD24
-	LDA.w $196D				;$B3BD28
+	LDA.w RAM_196D				;$B3BD28
 	BRA.b CODE_B3BD56			;$B3BD2B
 
 CODE_B3BD2D:
@@ -5026,7 +5026,7 @@ CODE_B3BD41:
 CODE_B3BD4A:
 	LDA.w #$0000				;$B3BD4A
 	STA.l $7EA358				;$B3BD4D
-	LDA.w $196D				;$B3BD51
+	LDA.w RAM_196D				;$B3BD51
 	LSR					;$B3BD54
 	LSR					;$B3BD55
 CODE_B3BD56:
@@ -5551,7 +5551,7 @@ CODE_B3C149:
 CODE_B3C15D:
 	LDA.b $1A				;$B3C15D
 	SEC					;$B3C15F
-	SBC.w $196D				;$B3C160
+	SBC.w RAM_196D				;$B3C160
 	BPL.b CODE_B3C168			;$B3C163
 	LDA.w #$0000				;$B3C165
 CODE_B3C168:
@@ -5560,7 +5560,7 @@ CODE_B3C168:
 	REP.b #$20				;$B3C16D
 	LDA.b $1C				;$B3C16F
 	SEC					;$B3C171
-	SBC.w $196D				;$B3C172
+	SBC.w RAM_196D				;$B3C172
 	BPL.b CODE_B3C17A			;$B3C175
 	LDA.w #$0000				;$B3C177
 CODE_B3C17A:
@@ -5573,7 +5573,7 @@ CODE_B3C182:
 	REP.b #$20				;$B3C187
 	LDA.b $1E				;$B3C189
 	SEC					;$B3C18B
-	SBC.w $196D				;$B3C18C
+	SBC.w RAM_196D				;$B3C18C
 	BPL.b CODE_B3C194			;$B3C18F
 	LDA.w #$0000				;$B3C191
 CODE_B3C194:
@@ -5586,7 +5586,7 @@ CODE_B3C19C:
 	REP.b #$20				;$B3C1A1
 	LDA.b $20				;$B3C1A3
 	SEC					;$B3C1A5
-	SBC.w $196D				;$B3C1A6
+	SBC.w RAM_196D				;$B3C1A6
 	CMP.w #$00FF				;$B3C1A9
 	BMI.b CODE_B3C1B1			;$B3C1AC
 	LDA.w #$00FF				;$B3C1AE
@@ -5627,10 +5627,10 @@ CODE_B3C1ED:
 	RTL					;$B3C1F3
 
 CODE_B3C1F4:
-	LDA.w $18A5				;$B3C1F4
-	STA.w $18A1				;$B3C1F7
-	LDA.w $18A7				;$B3C1FA
-	STA.w $18A3				;$B3C1FD
+	LDA.w RAM_18A5				;$B3C1F4
+	STA.w RAM_18A1				;$B3C1F7
+	LDA.w RAM_18A7				;$B3C1FA
+	STA.w RAM_18A3				;$B3C1FD
 	LDA.b active_frame_counter		;$B3C200
 	ASL					;$B3C202
 	ASL					;$B3C203
@@ -5644,7 +5644,7 @@ CODE_B3C1F4:
 	ROR					;$B3C214
 	CMP.w #$8000				;$B3C215
 	ROR					;$B3C218
-	STA.w $18A5				;$B3C219
+	STA.w RAM_18A5				;$B3C219
 	LDA.b active_frame_counter		;$B3C21C
 	ASL					;$B3C21E
 	ASL					;$B3C21F
@@ -5663,7 +5663,7 @@ CODE_B3C1F4:
 	LSR					;$B3C233
 	ADC.w #$001B				;$B3C234
 	AND.w #$00FF				;$B3C237
-	STA.w $18A7				;$B3C23A
+	STA.w RAM_18A7				;$B3C23A
 	RTS					;$B3C23D
 
 CODE_B3C23E:
@@ -5719,7 +5719,7 @@ CODE_B3C2C1:
 	JMP.w CODE_B3A694			;$B3C2C1
 
 CODE_B3C2C4:
-	LDA.w $1973				;$B3C2C4
+	LDA.w RAM_1973				;$B3C2C4
 	CLC					;$B3C2C7
 	ADC.w #$000C				;$B3C2C8
 	STA.l $7EA51C				;$B3C2CB
@@ -5756,7 +5756,7 @@ CODE_B3C2C4:
 	EOR.w #$FFFF				;$B3C32E
 	AND.w #$003C				;$B3C331
 	TAX					;$B3C334
-	LDA.w $196D				;$B3C335
+	LDA.w RAM_196D				;$B3C335
 	SBC.w #$0010				;$B3C338
 	JSR.w CODE_B3C371			;$B3C33B
 	JSR.w CODE_B3C371			;$B3C33E
@@ -5871,7 +5871,7 @@ CODE_B3C448:
 	JMP.w CODE_B3A694			;$B3C448
 
 CODE_B3C44B:
-	LDA.w $1973				;$B3C44B
+	LDA.w RAM_1973				;$B3C44B
 	LSR					;$B3C44E
 	LSR					;$B3C44F
 	SEC					;$B3C450
@@ -5941,7 +5941,7 @@ CODE_B3C4DD:
 CODE_B3C4E0:
 	LDA.w #$013F				;$B3C4E0
 	SEC					;$B3C4E3
-	SBC.w $1B79				;$B3C4E4
+	SBC.w RAM_1B79				;$B3C4E4
 	STA.b $1A				;$B3C4E7
 	CMP.w #$0002				;$B3C4E9
 	BPL.b CODE_B3C51A			;$B3C4EC
@@ -6019,7 +6019,7 @@ CODE_B3C587:
 	ADC.w #$00FC				;$B3C5A5
 	STA.l $7EA38E				;$B3C5A8
 	LDX.w #$0017				;$B3C5AC
-	LDA.w $1B79				;$B3C5AF
+	LDA.w RAM_1B79				;$B3C5AF
 	CMP.w #$0100				;$B3C5B2
 	BMI.b CODE_B3C5BA			;$B3C5B5
 	LDX.w #$0016				;$B3C5B7
@@ -6030,7 +6030,7 @@ CODE_B3C5BA:
 	BIT.w #$0001				;$B3C5C1
 	BNE.b CODE_B3C5D8			;$B3C5C4
 	LDA.l $7EA388				;$B3C5C6
-	CMP.w $1B77				;$B3C5CA
+	CMP.w RAM_1B77				;$B3C5CA
 	BEQ.b CODE_B3C5D4			;$B3C5CD
 	BPL.b CODE_B3C5D3			;$B3C5CF
 	INC					;$B3C5D1
@@ -6042,14 +6042,14 @@ CODE_B3C5D4:
 CODE_B3C5D8:
 	LDA.l $7EA388				;$B3C5D8
 	SEC					;$B3C5DC
-	SBC.w $1B77				;$B3C5DD
+	SBC.w RAM_1B77				;$B3C5DD
 	AND.w #$00FF				;$B3C5E0
 	BIT.w #$0080				;$B3C5E3
 	BEQ.b CODE_B3C5EB			;$B3C5E6
 	ORA.w #$FF00				;$B3C5E8
 CODE_B3C5EB:
 	STA.b $1A				;$B3C5EB
-	LDA.w $1B77				;$B3C5ED
+	LDA.w RAM_1B77				;$B3C5ED
 	XBA					;$B3C5F0
 	LDX.w #$01FE				;$B3C5F1
 	CLC					;$B3C5F4
@@ -6063,8 +6063,8 @@ CODE_B3C5F5:
 	DEX					;$B3C603
 	DEX					;$B3C604
 	BPL.b CODE_B3C5F5			;$B3C605
-	LDA.w $1B67				;$B3C607
-	CMP.w $1B69				;$B3C60A
+	LDA.w RAM_1B67				;$B3C607
+	CMP.w RAM_1B69				;$B3C60A
 	BEQ.b CODE_B3C630			;$B3C60D
 	ASL					;$B3C60F
 	TAX					;$B3C610
@@ -6077,8 +6077,8 @@ CODE_B3C5F5:
 	LDA.w #$656C				;$B3C621
 	JSL.l CODE_B78012			;$B3C624
 	BCS.b CODE_B3C630			;$B3C628
-	LDA.w $1B67				;$B3C62A
-	STA.w $1B69				;$B3C62D
+	LDA.w RAM_1B67				;$B3C62A
+	STA.w RAM_1B69				;$B3C62D
 CODE_B3C630:
 	RTS					;$B3C630
 
@@ -6109,21 +6109,21 @@ CODE_B3C668:
 CODE_B3C66B:
 	PHK					;$B3C66B
 	PLB					;$B3C66C
-	LDA.w $196D				;$B3C66D
+	LDA.w RAM_196D				;$B3C66D
 	SEC					;$B3C670
 	SBC.w #$0078				;$B3C671
 	STA.b $1A				;$B3C674
 	CLC					;$B3C676
 	ADC.w #$01F0				;$B3C677
 	STA.b $1C				;$B3C67A
-	LDA.w $1973				;$B3C67C
+	LDA.w RAM_1973				;$B3C67C
 	SEC					;$B3C67F
 	SBC.w #$00B4				;$B3C680
 	STA.b $1E				;$B3C683
 	CLC					;$B3C685
 	ADC.w #$0194				;$B3C686
 	STA.b $20				;$B3C689
-	LDX.w $18A5				;$B3C68B
+	LDX.w RAM_18A5				;$B3C68B
 	LDA.w DATA_B3C6EA,x			;$B3C68E
 	CMP.b $1A				;$B3C691
 	BCC.b CODE_B3C6B4			;$B3C693
@@ -6159,15 +6159,15 @@ CODE_B3C6B9:
 	CMP.b $20				;$B3C6CE
 	BCS.b CODE_B3C6B7			;$B3C6D0
 CODE_B3C6D2:
-	STX.w $18A5				;$B3C6D2
+	STX.w RAM_18A5				;$B3C6D2
 	LDA.w DATA_B3C6EA,x			;$B3C6D5
 	SEC					;$B3C6D8
-	SBC.w $196D				;$B3C6D9
-	STA.w $189F				;$B3C6DC
+	SBC.w RAM_196D				;$B3C6D9
+	STA.w RAM_189F				;$B3C6DC
 	LDA.w DATA_B3C700,x			;$B3C6DF
 	SEC					;$B3C6E2
-	SBC.w $1973				;$B3C6E3
-	STA.w $18A1				;$B3C6E6
+	SBC.w RAM_1973				;$B3C6E3
+	STA.w RAM_18A1				;$B3C6E6
 	RTS					;$B3C6E9
 
 DATA_B3C6EA:
@@ -6221,7 +6221,7 @@ CODE_B3C731:
 	LSR					;$B3C733
 CODE_B3C734:
 	STA.b $1A				;$B3C734
-	LDY.w $18A5				;$B3C736
+	LDY.w RAM_18A5				;$B3C736
 	CMP.w #$8000				;$B3C739
 	ROR					;$B3C73C
 	EOR.w #$FFFF				;$B3C73D
@@ -6229,13 +6229,13 @@ CODE_B3C734:
 	ADC.w DATA_B3C6EA,y			;$B3C741
 	SEC					;$B3C744
 	SBC.w #$0058				;$B3C745
-	STA.w $18A7				;$B3C748
+	STA.w RAM_18A7				;$B3C748
 	CLC					;$B3C74B
 	ADC.w #$00B0				;$B3C74C
-	STA.w $18A9				;$B3C74F
+	STA.w RAM_18A9				;$B3C74F
 	LDA.w #$0080				;$B3C752
 	SEC					;$B3C755
-	SBC.w $189F				;$B3C756
+	SBC.w RAM_189F				;$B3C756
 	XBA					;$B3C759
 	STA.b $1C				;$B3C75A
 	LDA.b active_frame_counter		;$B3C75C
@@ -6295,14 +6295,14 @@ CODE_B3C799:
 	STA.b $1A				;$B3C7B7
 	EOR.w #$FFFF				;$B3C7B9
 	INC					;$B3C7BC
-	STA.w $18A3				;$B3C7BD
+	STA.w RAM_18A3				;$B3C7BD
 	LDA.b active_frame_counter		;$B3C7C0
 	AND.w #$0001				;$B3C7C2
 	BEQ.b CODE_B3C7CA			;$B3C7C5
 	LDA.w #$0400				;$B3C7C7
 CODE_B3C7CA:
 	TAX					;$B3C7CA
-	LDA.w $18A1				;$B3C7CB
+	LDA.w RAM_18A1				;$B3C7CB
 	CMP.w #$00E0				;$B3C7CE
 	BMI.b CODE_B3C7D6			;$B3C7D1
 	LDA.w #$00E0				;$B3C7D3
@@ -6336,7 +6336,7 @@ CODE_B3C7EB:
 	LDA.b $1A				;$B3C810
 	CLC					;$B3C812
 	ADC.w #$00B8				;$B3C813
-	ADC.w $18A3				;$B3C816
+	ADC.w RAM_18A3				;$B3C816
 	LSR					;$B3C819
 	STA.l $7EA19A,x				;$B3C81A
 	STA.l $7EA19D,x				;$B3C81E
@@ -6358,7 +6358,7 @@ CODE_B3C845:
 	STA.l $7EA19B,x				;$B3C850
 	LDA.w #$00B6				;$B3C854
 	CLC					;$B3C857
-	ADC.w $18A3				;$B3C858
+	ADC.w RAM_18A3				;$B3C858
 	LSR					;$B3C85B
 	STA.l $7EA19D,x				;$B3C85C
 	STA.l $7EA1A0,x				;$B3C860
@@ -6392,7 +6392,7 @@ CODE_B3C89F:
 	STA.l $7EA19E,x				;$B3C8BA
 	LDA.w #$00B6				;$B3C8BE
 	CLC					;$B3C8C1
-	ADC.w $18A3				;$B3C8C2
+	ADC.w RAM_18A3				;$B3C8C2
 	LSR					;$B3C8C5
 	STA.l $7EA1A0,x				;$B3C8C6
 	STA.l $7EA1A3,x				;$B3C8CA
@@ -6444,9 +6444,9 @@ CODE_B3C941:
 	CLC					;$B3C94A
 	ADC.b $1A				;$B3C94B
 	CLC					;$B3C94D
-	ADC.w $18A1				;$B3C94E
+	ADC.w RAM_18A1				;$B3C94E
 	CLC					;$B3C951
-	ADC.w $18A3				;$B3C952
+	ADC.w RAM_18A3				;$B3C952
 	CMP.w #$00E0				;$B3C955
 	BMI.b CODE_B3C95D			;$B3C958
 	LDA.w #$00E0				;$B3C95A
@@ -6835,9 +6835,9 @@ CODE_B3CCE5:
 	CLC					;$B3CCE5
 	ADC.w #$0020				;$B3CCE6
 	STA.b $26				;$B3CCE9
-	LDA.w $1B77				;$B3CCEB
+	LDA.w RAM_1B77				;$B3CCEB
 	STA.b $88				;$B3CCEE
-	LDA.w $1B79				;$B3CCF0
+	LDA.w RAM_1B79				;$B3CCF0
 	STA.b $8A				;$B3CCF3
 	JSR.w CODE_B3D257			;$B3CCF5
 	LDA.l $7EA15A				;$B3CCF8
@@ -7164,14 +7164,14 @@ CODE_B3CFBE:
 
 CODE_B3CFC4:
 	DEC.w RAM_15E2				;$B3CFC4
-	LDA.w $1BA1				;$B3CFC7
+	LDA.w RAM_1BA1				;$B3CFC7
 	SEC					;$B3CFCA
-	SBC.w $196D				;$B3CFCB
+	SBC.w RAM_196D				;$B3CFCB
 	AND.w #$00FF				;$B3CFCE
 	STA.w RAM_15E4				;$B3CFD1
-	LDA.w $1BA3				;$B3CFD4
+	LDA.w RAM_1BA3				;$B3CFD4
 	SEC					;$B3CFD7
-	SBC.w $196D				;$B3CFD8
+	SBC.w RAM_196D				;$B3CFD8
 	AND.w #$00FF				;$B3CFDB
 	STA.w RAM_15E6				;$B3CFDE
 	LDA.w RAM_15E4				;$B3CFE1
@@ -7412,9 +7412,9 @@ CODE_B3D1D1:
 	JMP.w CODE_B3A694			;$B3D1D1
 
 CODE_B3D1D4:
-	LDA.w $1B6F				;$B3D1D4
+	LDA.w RAM_1B6F				;$B3D1D4
 	BEQ.b CODE_B3D1E1			;$B3D1D7
-	DEC.w $1B6F				;$B3D1D9
+	DEC.w RAM_1B6F				;$B3D1D9
 	BNE.b CODE_B3D1E1			;$B3D1DC
 	STZ.w RAM_15E6				;$B3D1DE
 CODE_B3D1E1:
@@ -7445,13 +7445,13 @@ CODE_B3D204:
 CODE_B3D21D:
 	INC.w RAM_15E2				;$B3D21D
 CODE_B3D220:
-	LDA.w $196D				;$B3D220
+	LDA.w RAM_196D				;$B3D220
 	SEC					;$B3D223
-	SBC.w $1B77				;$B3D224
+	SBC.w RAM_1B77				;$B3D224
 	STA.b $88				;$B3D227
-	LDA.w $1975				;$B3D229
+	LDA.w RAM_1975				;$B3D229
 	SEC					;$B3D22C
-	SBC.w $1B79				;$B3D22D
+	SBC.w RAM_1B79				;$B3D22D
 	STA.b $8A				;$B3D230
 	LDA.b active_frame_counter		;$B3D232
 	ASL					;$B3D234
@@ -7461,11 +7461,11 @@ CODE_B3D220:
 	RTS					;$B3D23B
 
 CODE_B3D23C:
-	LDA.w $1B77				;$B3D23C
+	LDA.w RAM_1B77				;$B3D23C
 	SEC					;$B3D23F
 	SBC.w #$0100				;$B3D240
 	STA.b $88				;$B3D243
-	LDA.w $1B79				;$B3D245
+	LDA.w RAM_1B79				;$B3D245
 	SEC					;$B3D248
 	SBC.w #$0100				;$B3D249
 	STA.b $8A				;$B3D24C
@@ -7559,15 +7559,15 @@ CODE_B3D304:
 	RTS					;$B3D304
 
 CODE_B3D305:
-	LDA.w $1B79				;$B3D305
+	LDA.w RAM_1B79				;$B3D305
 	STA.b $8A				;$B3D308
-	LDA.w $1B77				;$B3D30A
+	LDA.w RAM_1B77				;$B3D30A
 	STA.b $88				;$B3D30D
-	LDA.w $1B87				;$B3D30F
+	LDA.w RAM_1B87				;$B3D30F
 	STA.b $5C				;$B3D312
-	LDA.w $1BA1				;$B3D314
+	LDA.w RAM_1BA1				;$B3D314
 	STA.b $22				;$B3D317
-	LDA.w $1BA5				;$B3D319
+	LDA.w RAM_1BA5				;$B3D319
 	STA.b $24				;$B3D31C
 	LDA.w RAM_15E4				;$B3D31E
 	BEQ.b CODE_B3D331			;$B3D321
@@ -8066,7 +8066,7 @@ CODE_B3D788:
 	XBA					;$B3D792
 	AND.w #$00FF				;$B3D793
 	CLC					;$B3D796
-	ADC.w $196D				;$B3D797
+	ADC.w RAM_196D				;$B3D797
 	STA.w CPU.dividen_low			;$B3D79A
 	SEP.b #$20				;$B3D79D
 	LDA.b #$2B				;$B3D79F
@@ -8080,7 +8080,7 @@ CODE_B3D788:
 	CLC					;$B3D7B7
 	ADC.w #$0180				;$B3D7B8
 	SEC					;$B3D7BB
-	SBC.w $196D				;$B3D7BC
+	SBC.w RAM_196D				;$B3D7BC
 	STA.b $1A				;$B3D7BF
 	ASL					;$B3D7C1
 	STA.b $1C				;$B3D7C2
@@ -8222,7 +8222,7 @@ CODE_B3D8C2:
 	LDA.w RAM_0775				;$B3D8C5
 	AND.w #$0001				;$B3D8C8
 	BNE.b CODE_B3D909			;$B3D8CB
-	LDA.w $1B5B				;$B3D8CD
+	LDA.w RAM_1B5B				;$B3D8CD
 	AND.w #$0080				;$B3D8D0
 	BNE.b CODE_B3D8F2			;$B3D8D3
 	LDA.b $8C				;$B3D8D5
@@ -8281,31 +8281,31 @@ CODE_B3D934:
 	STA.b $8C				;$B3D937
 	LDA.w #$7FF800>>16			;$B3D939
 	STA.b $8E				;$B3D93C
-	STZ.w $197B				;$B3D93E
+	STZ.w RAM_197B				;$B3D93E
 	SEP.b #$20				;$B3D941
 	LDA.b #$80				;$B3D943
 	STA.b $8F				;$B3D945
 	REP.b #$20				;$B3D947
-	STZ.w $1985				;$B3D949
-	STZ.w $1989				;$B3D94C
-	STZ.w $196B				;$B3D94F
-	STZ.w $196D				;$B3D952
+	STZ.w RAM_1985				;$B3D949
+	STZ.w RAM_1989				;$B3D94C
+	STZ.w RAM_196B				;$B3D94F
+	STZ.w RAM_196D				;$B3D952
 	LDA.w #$00F8				;$B3D955
-	STA.w $197D				;$B3D958
-	STZ.w $1975				;$B3D95B
-	STZ.w $1981				;$B3D95E
+	STA.w RAM_197D				;$B3D958
+	STZ.w RAM_1975				;$B3D95B
+	STZ.w RAM_1981				;$B3D95E
 	LDA.w #$0008				;$B3D961
-	STA.w $1989				;$B3D964
+	STA.w RAM_1989				;$B3D964
 	LDA.w #$0040				;$B3D967
 CODE_B3D96A:
 	PHA					;$B3D96A
 	JSR.w CODE_B3D984			;$B3D96B
 	JSL.l CODE_B7B00F			;$B3D96E
 	LDA.w #$0008				;$B3D972
-	STA.w $1989				;$B3D975
+	STA.w RAM_1989				;$B3D975
 	CLC					;$B3D978
-	ADC.w $196D				;$B3D979
-	STA.w $196D				;$B3D97C
+	ADC.w RAM_196D				;$B3D979
+	STA.w RAM_196D				;$B3D97C
 	PLA					;$B3D97F
 	DEC					;$B3D980
 	BNE.b CODE_B3D96A			;$B3D981
@@ -8338,7 +8338,7 @@ CODE_B3D9A9:
 	LDA.b $8E				;$B3D9AD
 	AND.w #$00FF				;$B3D9AF
 	STA.b $22				;$B3D9B2
-	LDA.w $1B59				;$B3D9B4
+	LDA.w RAM_1B59				;$B3D9B4
 	TAX					;$B3D9B7
 	INX					;$B3D9B8
 	INX					;$B3D9B9
@@ -8387,7 +8387,7 @@ CODE_B3D9F4:
 	LDA.b $8E				;$B3DA00
 	AND.w #$00FF				;$B3DA02
 	STA.b $22				;$B3DA05
-	LDA.w $1B59				;$B3DA07
+	LDA.w RAM_1B59				;$B3DA07
 	TAX					;$B3DA0A
 	LDA.l DATA_B7B06F&$FF0000,x		;$B3DA0B
 	JSR.w CODE_B3DACD			;$B3DA0F
@@ -9066,8 +9066,8 @@ CODE_B3DF88:
 	RTS					;$B3DF91
 
 CODE_B3DF92:
-	STZ.w $196D				;$B3DF92
-	STZ.w $1973				;$B3DF95
+	STZ.w RAM_196D				;$B3DF92
+	STZ.w RAM_1973				;$B3DF95
 	LDA.w #$0031				;$B3DF98
 	JSL.l set_ppu_registers_global		;$B3DF9B
 	STZ.w PPU.screens			;$B3DF9F
@@ -9210,7 +9210,7 @@ CODE_B3E0C6:
 	JSL.l vram_payload_handler_global	;$B3E0D0
 	LDA.w RAM_077F				;$B3E0D4
 	JSL.l set_ppu_registers_global		;$B3E0D7
-	LDA.w $1B57				;$B3E0DB
+	LDA.w RAM_1B57				;$B3E0DB
 	LDX.w #$0020				;$B3E0DE
 	LDY.w #$0000				;$B3E0E1
 	JSL.l CODE_BB856D			;$B3E0E4
@@ -10552,7 +10552,7 @@ DATA_B3F1A4:
 
 CODE_B3F1AD:
 	JSR CODE_B3ECB9				;$B3F1AD
-	STZ $18A5				;$B3F1B0
+	STZ RAM_18A5				;$B3F1B0
 	LDX #$0000				;$B3F1B3
 CODE_B3F1B6:
 	LDA #$0090				;$B3F1B6
